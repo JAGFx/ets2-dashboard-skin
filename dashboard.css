@@ -184,6 +184,28 @@ html, body {
 	color:          #FFF;
 }
 
+._truck ._truck-speedRounded > * {
+	display: block;
+}
+
+._truck ._truck-speedRounded {
+	position:       absolute;
+	top:            32rem;
+	left:           93rem;
+	width:          24.8rem;
+	height:         20.5rem;
+	vertical-align: middle;
+	font-size:      200px;
+	/*line-height:    5.5rem;*/
+	color:          #FFF;
+	text-align:     center;
+}
+
+._truck ._truck-speedRounded small {
+	font-size:    3rem;
+	padding-left: 1rem;
+}
+
 
 ._truck ._truck-fuelAverageConsumption {
 	position:       absolute;

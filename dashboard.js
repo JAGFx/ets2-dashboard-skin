@@ -37,9 +37,9 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
 
     data.hasJob = data.trailer.attached;
     // round truck speed
-   /* data.truck.speedRounded = Math.abs(data.truck.speed > 0
+    data.truck.speedRounded = Math.abs(data.truck.speed > 0
         ? Math.floor(data.truck.speed)
-        : Math.round(data.truck.speed));*/
+        : Math.round(data.truck.speed));
     data.truck.cruiseControlSpeedRounded = data.truck.cruiseControlOn
         ? Math.floor(data.truck.cruiseControlSpeed)
         : 0;
@@ -92,7 +92,7 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
 	if ( gear < 0 )
 		strGear = 'R' + Math.abs( data.truck.gear );
 	
-	//console.log( gear, cruzeGear, maxForwardGear, realGearCount, spliter, realGear );
+	//console.log( gear, cruzeGear, realGearCount, spliter, realGear );
 	
 	data.truck.gear = strGear;
     
