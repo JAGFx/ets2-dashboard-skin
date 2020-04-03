@@ -72,6 +72,7 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
 			
 		case 'volvo':
 		case 'scania':
+		case 'kenworth':
 			cruzeGear = 2;
 			break;
 	}
