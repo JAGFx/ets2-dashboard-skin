@@ -1,5 +1,29 @@
-# ets2-dashboard-skin
+# client
 
-Use this [ETS2 Telemetry server](https://github.com/Funbit/ets2-telemetry-server)
+## Project setup
+```
+npm install
+```
 
-![Dashboard](dashboard.jpg)
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

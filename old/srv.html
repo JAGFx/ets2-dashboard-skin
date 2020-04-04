@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+	<head >
+		<meta charset="UTF-8" >
+		<title >Title</title >
+		<style >
+			body {
+				padding:      0;
+				margin:     0;
+				display:     flex;
+				align-items: stretch;
+				height:      100vh;
+			}
+			
+			
+			iframe {
+				width:   100%;
+				border:  0;
+				margin:  0;
+				padding: 0;
+			}
+			
+			#overlay{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				z-index: 2;
+			}
+		</style >
+	</head >
+	<body >
+		<div id="overlay"></div>
+		<iframe src="http://192.168.1.54:25555/dashboard-host.html?skin=customDefault&ip=192.168.1.54" frameborder="0" allowfullscreen ></iframe >
+	</body >
+	<script src="jquery-3.3.1.min.js" ></script >
+	<script src="NoSleep.min.js" ></script >
+	<script >
+		$( function () {
+			var noSleep = new NoSleep();
+			
+			$( "#overlay" ).click( function () {
+				console.log( "Plop" );
+				var elem = document.querySelector( "iframe" );
+
+				if ( !document.webkitIsFullScreen ) {
+					elem.webkitRequestFullScreen();
+					noSleep.enable();
+				} else {
+					document.webkitCancelFullScreen();
+					noSleep.disable();
+				}
+			} );
+		} );
+	</script >
+</html >

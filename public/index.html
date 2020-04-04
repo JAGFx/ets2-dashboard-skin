@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="<%= BASE_URL %>favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<title>TruckSim-Telemetry Demo</title>
+		<style>
+			#overlay {
+				position: absolute;
+				top:      0;
+				left:     0;
+				width:    100vw;
+				height:   100vh;
+				z-index:  2;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="overlay"></div>
+		<div id="app" class="container-fluid"></div>
+		<noscript>
+			<strong>We're sorry but client doesn't work properly without JavaScript enabled. Please enable it to
+				continue.</strong>
+		</noscript>
+	
+	</body>
+	<!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
+	<!--<script src="node_modules/nosleep.js/dist/NoSleep.min.js"></script>-->
+	<script>
+		$( function () {
+			var noSleep = new NoSleep();
+			
+			console.log( 'Hellow' );
+			
+			$( '#overlay' ).click( function () {
+				console.log( 'Plop' );
+				var elem = document.querySelector( 'html' );
+				
+				/* View in fullscreen */
+				function openFullscreen() {
+					if (elem.requestFullscreen) {
+						elem.requestFullscreen();
+					} else if (elem.mozRequestFullScreen) { /* Firefox */
+						elem.mozRequestFullScreen();
+					} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+						elem.webkitRequestFullscreen();
+					} else if (elem.msRequestFullscreen) { /* IE/Edge */
+						elem.msRequestFullscreen();
+					}
+					
+					noSleep.enable();
+				}
+				
+				/* Close fullscreen */
+				function closeFullscreen() {
+					if (document.exitFullscreen) {
+						document.exitFullscreen();
+					} else if (document.mozCancelFullScreen) { /* Firefox */
+						document.mozCancelFullScreen();
+					} else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+						document.webkitExitFullscreen();
+					} else if (document.msExitFullscreen) { /* IE/Edge */
+						document.msExitFullscreen();
+					}
+					
+					noSleep.disable();
+				}
+				
+				if ( !document.webkitIsFullScreen ) {
+					openFullscreen();
+				} else {
+					closeFullscreen();
+				}
+			} );
+		} );
+	</script>
+</html>
