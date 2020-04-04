@@ -7,7 +7,7 @@
 		<div class="wrapper">
 			<div class="left">
 				<Trailer id="trailers" v-bind="{...trailer, cargo: job.cargo}" />
-				<Job id="job" v-bind="{...job, game: game.game}" />
+				<Job id="job" v-bind="{...job, game: game.game, distance: navigation.distance}" />
 			</div>
 			<Navigation id="navigation" v-bind="{...navigation, ...truck, gameTime: game.time.unix}" />
 			<Truck id="truck" v-bind="{...truck}" />
@@ -92,7 +92,7 @@
 		--color-red: #E00000;
 		--color-green: #00E070;
 		--color-yellow: #E0E000;
-		--color-blue: #1167ff;
+		--color-blue: #0CB4FF;
 	}
 	
 	@font-face {
