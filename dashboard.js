@@ -4,9 +4,6 @@
     // utils - an object containing several utility functions (see skin tutorial for more information)
     //
 
-    // this function is called before everything else, 
-    // so you may perform any DOM or resource initializations / image preloading here
-
     utils.preloadImages([
         'images/bg-off.png', 'images/bg-on.png',
         'images/blinker-left-off.png', 'images/blinker-left-on.png',
@@ -17,12 +14,7 @@
         'images/parklights-off.png', 'images/parklights-on.png',
         'images/trailer-off.png', 'images/trailer-on.png'
     ]);
-
-    // return to menu by a click
-    /*$(document).add('body').on('click', function () {
-        window.history.back();
-    });*/
-}
+};
 
 Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
 	//console.log( data );
@@ -31,48 +23,35 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     // utils - an object containing several utility functions (see skin tutorial for more information)
     //
 
-    // This filter is used to change telemetry data 
-    // before it is displayed on the dashboard.
-    // You may convert km/h to mph, kilograms to tons, etc.
-
+	// --- Has job
     data.hasJob = data.trailer.attached;
-    // round truck speed
+    
+    // --- Speed
     data.truck.speedRounded = Math.abs(data.truck.speed > 0
         ? Math.floor(data.truck.speed)
         : Math.round(data.truck.speed));
+    
+    // --- Cruse control speed
     data.truck.cruiseControlSpeedRounded = data.truck.cruiseControlOn
         ? Math.floor(data.truck.cruiseControlSpeed)
         : 0;
-    // convert kg to t
+    
+    // --- Trailer mass
     data.trailer.mass = data.hasJob ? (Math.round(data.trailer.mass / 1000.0) + 't') : '';
 
-	if( data.truck.airPressure < data.truck.airPressureEmergencyValue )
-		$( '._truck-airPressure' ).addClass( 'yes' );
-	else
-		$( '._truck-airPressure' ).removeClass( 'yes' );
-    // format odometer data as: 00000.0
+    // --- Odometer
     data.truck.odometer = utils.formatFloat(data.truck.odometer, 1);
-    // convert gear to readable format
+    
+    // --- Gear position
     data.truck.gear = data.truck.displayedGear; // use displayed gear
-	
-    /*data.truck.gear = data.truck.gear > 0
-        ? data.truck.gear
-        : (data.truck.gear < 0 ? 'R' + Math.abs(data.truck.gear) : 'N');*/
 	
 	var gear            = data.truck.displayedGear;
 	var cruzeGear       = 0;
 	
-	switch ( data.truck.id ) {
-		case 'daf':
-		case 'iveco':
-		case 'man':
-		case 'mercedes':
-		case 'renault':
-			break;
-			
-		case 'volvo':
-		case 'scania':
-		case 'kenworth':
+	switch ( data.truck.make ) {
+		case 'Volvo':
+		case 'Scania':
+		case 'Kenworth':
 			cruzeGear = 2;
 			break;
 	}
@@ -93,13 +72,9 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
 	if ( gear < 0 )
 		strGear = 'R' + Math.abs( data.truck.gear );
 	
-	//console.log( gear, cruzeGear, realGearCount, spliter, realGear );
-	
 	data.truck.gear = strGear;
     
-    // convert rpm to rpm * 100
-    //data.truck.engineRpm = data.truck.engineRpm / 100;
-    // calculate wear
+    // --- Average wear truck level
     var wearSumPercent = data.truck.wearEngine * 100 +
         data.truck.wearTransmission * 100 +
         data.truck.wearCabin * 100 +
@@ -107,14 +82,19 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
         data.truck.wearWheels * 100;
     
     data.truck.wearSum = Math.round(wearSumPercent / 5) + '%';
+    
+    // --- Average wear truck trailer level
     data.trailer.wear = Math.round(data.trailer.wear * 100) + '%';
-    // return changed data to the core for rendering
 
+    // --- Remaining travel distance
 	data.navigation.estimatedDistance = ( data.navigation.estimatedDistance > 1000 )
 		? Math.round( data.navigation.estimatedDistance / 1000 ) + " km"
 		: data.navigation.estimatedDistance + " m";
 
+	// --- Fuel consumption
 	data.truck.fuelAverageConsumption *= 100;
+	
+	// --- End, return data
 	return data;
 };
 
@@ -123,7 +103,10 @@ Funbit.Ets.Telemetry.Dashboard.prototype.render = function (data, utils) {
     // data - same data object as in the filter function
     // utils - an object containing several utility functions (see skin tutorial for more information)
     //
-
-    // we don't have anything custom to render in this skin,
-    // but you may use jQuery here to update DOM or CSS
-}
+	
+	// --- Air pressure
+	if( data.truck.airPressure < data.truck.airPressureEmergencyValue )
+		$( '._truck-airPressure' ).addClass( 'yes' );
+	else
+		$( '._truck-airPressure' ).removeClass( 'yes' );
+};
