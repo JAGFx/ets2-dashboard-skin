@@ -32,19 +32,19 @@
 		</div>-->
 		
 		<ul class="info">
-			<li>
+			<li class="danger">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
 					<img src="../assets/Truck/noun_Oil_497867.svg" alt="">
 				</div>
 			</li>
-			<li>
+			<li class="danger">
 				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
 					<img src="../assets/Truck/noun_Brake_light_457498.svg" alt="">
 				</div>
 			</li>
-			<li>
+			<li class="danger">
 				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
 				<div class="round"></div>
 			</li>
@@ -54,19 +54,19 @@
 					<img src="../assets/Truck/noun_Fuel_38066.svg" alt="">
 				</div>
 			</li>
-			<li>
-				<span>{{cruiseControl.enabled ? cruiseControl.speed : 'OFF'}}</span>
+			<li v-bind:class="{ 'enabled' : cruiseControl.enabled, 'disabled' : !cruiseControl.enabled }">
+				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
 				<div class="round">
 					<img src="../assets/Truck/noun_Cruise_Control_On_457475.svg" alt="">
 				</div>
 			</li>
-			<li>
+			<li class="accent">
 				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
 				<div class="round">
 					<img src="../assets/Truck/noun_Water_Temperature_507610.svg" alt="">
 				</div>
 			</li>
-			<li>
+			<li class="accent">
 				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<img src="../assets/Truck/noun_Battery_1909381.svg" alt="">
@@ -395,9 +395,40 @@
 				align-items: center;
 				margin: .2rem 0;
 				position: relative;
-				background: linear-gradient( to left, var(--color-border), var(--color-bg) );
+				background: linear-gradient(to left, #232527, var(--color-bg));
 				
-				span { font-size: 1.2rem; text-align: right; }
+				span {
+					font-size: 1.5rem;
+					text-align: right;
+				}
+				
+				&.danger {
+					color: var(--color-red);
+				}
+				
+				&.accent {
+					color: var(--color-blue);
+					
+					&:after {
+						border-color: var(--color-blue);
+					}
+				}
+				
+				&.enabled {
+					color: var(--color-green);
+					
+					&:after {
+						border-color: var(--color-green);
+					}
+				}
+				
+				&.disabled {
+					color: #3C3F41;
+					
+					&:after {
+						border-color: #3C3F41;
+					}
+				}
 				
 				@for $i from 1 through 8 {
 					&:nth-child(#{$i}) {
@@ -405,23 +436,28 @@
 					}
 				}
 				
-				&:after  {
+				&:after {
 					content: ' ';
 					width: 1rem;
 					height: 2.5rem;
 					background: var(--color-bg);
 					border: 1px solid var(--color-red);
-					border-width: 0 0 0 1px;
+					border-width: 0 0 0 2px;
 					transform-origin: bottom left;
 					transform: skew(-20deg, 0deg);
 				}
 			}
 			
-			.round{
+			.round {
 				width: 2.5rem;
 				height: 2.5rem;
 				overflow: hidden;
 				margin-left: 1rem;
+				background: var(--color-border);
+				transform-origin: bottom left;
+				transform: skew(-20deg, 0deg);
+				padding: 0 .5rem;
+				vertical-align: center;
 			}
 		}
 		

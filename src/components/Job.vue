@@ -40,7 +40,7 @@
 				<div class="round">
 					<img src="../assets/Job/noun_measure_1625696.svg" alt="">
 				</div>
-				<span>{{plannedDistance.km}} km</span>
+				<span>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
 			</li>
 			
 			<li>
@@ -88,7 +88,8 @@
 			'source',
 			'market',
 			'income',
-			'plannedDistance'
+			'plannedDistance',
+			'distance'
 		],
 		
 		methods: {
@@ -156,14 +157,21 @@
 				margin: .2rem 0;
 				padding-left: 1.5rem;
 				position: relative;
-				background: linear-gradient( to right, var(--color-border), var(--color-bg) );
+				background: linear-gradient(to right, var(--color-border), var(--color-bg));
 				overflow: hidden;
 				
-				span { font-size: 1.2rem; }
+				span {
+					font-size: 1.5rem;
+				}
 				
 				.city {
-					span { line-height: 1.5rem; }
-					&  > * { display: block; }
+					span {
+						line-height: 1.5rem;
+					}
+					
+					& > * {
+						display: block;
+					}
 				}
 				
 				@for $i from 1 through 8 {
@@ -172,26 +180,31 @@
 					}
 				}
 				
-				&:before  {
+				&:before {
 					content: ' ';
 					position: absolute;
 					width: 2rem;
 					height: 4rem;
 					background: var(--color-bg);
 					border: 1px solid var(--color-red);
-					border-width: 0 1px 0 0;
+					border-width: 0 2px 0 0;
 					transform-origin: bottom left;
 					transform: skew(20deg, 0deg);
 					left: -10px;
 				}
 			}
 			
-			.round{
+			.round {
 				width: 2.5rem;
 				height: 2.5rem;
 				overflow: hidden;
 				margin-right: 1rem;
 				color: var(--color-text);
+				background: var(--color-border);
+				transform-origin: bottom left;
+				transform: skew(20deg, 0deg);
+				padding: 0 .5rem;
+				vertical-align: center;
 				
 				
 				&.from {
