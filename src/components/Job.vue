@@ -155,7 +155,7 @@
 				justify-content: flex-start;
 				align-items: center;
 				margin: .2rem 0;
-				padding-left: 1.5rem;
+				padding-left: 1.2rem;
 				position: relative;
 				background: linear-gradient(to right, var(--color-border), transparent);
 				overflow: hidden;
@@ -183,14 +183,14 @@
 				&:before {
 					content: ' ';
 					position: absolute;
-					width: 2rem;
-					height: 4rem;
+					width: 1.5rem;
+					height: 3.5rem;
 					background: var(--color-bg);
 					border: 1px solid var(--color-red);
 					border-width: 0 2px 0 0;
 					transform-origin: bottom left;
 					transform: skew(20deg, 0deg);
-					left: -10px;
+					left: -.1rem;
 				}
 			}
 			
