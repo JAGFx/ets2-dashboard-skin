@@ -8,6 +8,10 @@
 				<span class="value">{{speed.kph}}</span>
 				<small class="unit">km/h</small>
 			</div>
+			<div class="odometer">
+				<span class="value">{{Math.round(odometer).toLocaleString()}}</span>
+				<small class="unit">km</small>
+			</div>
 			<div class="speedLimits">
 				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
 				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
@@ -38,7 +42,8 @@
 			'gameTime',
 			'transmission',
 			'speed',
-			'brand'
+			'brand',
+			'odometer'
 		],
 		
 		data: function () {
@@ -154,6 +159,71 @@
 			}
 		}
 		
+		.odometer {
+			position: relative;
+			background: linear-gradient(to right, transparent, var(--color-border), transparent);
+			border-bottom: 2px solid;
+			/*border-top: 2px solid;*/
+			border-image: linear-gradient(to right, transparent, var(--color-red), transparent) 1;
+			margin-bottom: 1.5rem;
+			
+			.value {
+				font-family: suprrpg !important;
+				letter-spacing: 0.4rem;
+				/*font-size: 5.5rem;
+				line-height: 5rem;*/
+			}
+			
+			> .unit {
+				position: absolute;
+				letter-spacing: 0.4rem;
+				font-size: .6rem;
+				bottom: -16px;
+				left: 50%;
+				right: 50%;
+				width: 4rem;
+				-webkit-transform: translateX(-50%);
+				transform: translateX(-50%);
+				background: #252729;
+				line-height: 0.8rem;
+				height: 1rem;
+				color: #FFF;
+				text-transform: uppercase;
+				border: 2px solid red;
+				border-top: 0;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+				
+				&:before {
+					content: ' ';
+					position: absolute;
+					width: 1rem;
+					height: 1rem;
+					left: -0.1rem;
+					background: #252729;
+					border-left: 1px solid var(--color-red);
+					border-bottom: 2px solid var(--color-red);
+					-webkit-transform-origin: bottom left;
+					transform-origin: bottom left;
+					-webkit-transform: skew(30deg, 0deg);
+					transform: skew(30deg, 0deg);
+				}
+				
+				&:after {
+					content: ' ';
+					position: absolute;
+					width: 1rem;
+					height: 1rem;
+					right: -0.1rem;
+					background: #252729;
+					border-right: 1px solid var(--color-red);
+					border-bottom: 2px solid var(--color-red);
+					transform-origin: bottom left;
+					transform: skew(-30deg, 0deg);
+				}
+			}
+		}
+		
 		.speedLimits {
 			/* display: grid;
 			 grid-template-rows: auto 1fr;
@@ -172,9 +242,10 @@
 			.speedLimitMPH {
 				background-color: var(--color-white);
 				color: black;
-				width: 2.5rem;
-				height: 2.5rem;
-				font-size: 1.1rem;
+				width: 3rem;
+				height: 3rem;
+				font-size: 1.5rem;
+				line-height: 1.2rem;
 				font-weight: bold;
 				display: flex;
 				justify-content: center;

@@ -4,7 +4,7 @@
         <li><span>Game</span>{{game.name.toUpperCase()}}</li>
         <li><span>Telemetry version</span>{{telemetryVersion}}</li>
         <li><span>Game time</span>{{formatedTime()}}</li>
-        <li><span>&copy;</span>Emmanuel SMITH - v0.0.1</li>
+        <li><span>&copy;</span>JAGFx - v0.0.1</li>
         <!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
       </ul>
       
@@ -44,16 +44,16 @@
         return  num < 10 ? `0${num}` : num
       },
       formatedTimestamp: function() {
-        const hours = Math.floor(this.timestamp.value / 3600000)
-        const min   = Math.floor(this.timestamp.value % 3600000 / 60000)
-        const sec   = Math.floor(this.timestamp.value % 3600000 % 60000 / 1000)
-
-        return `${this.double(hours)}:${this.double(min)}:${this.double(sec)}`
+          const hours = Math.floor( this.timestamp.value / 3600000 );
+          const min   = Math.floor( this.timestamp.value % 3600000 / 60000 );
+          const sec   = Math.floor( this.timestamp.value % 3600000 % 60000 / 1000 );
+    
+          return `${ this.double( hours ) }:${ this.double( min ) }:${ this.double( sec ) }`;
       },
       formatedTime: function() {
-        const date = new Date(this.time.unix)
-
-        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+          const date = new Date( this.time.unix );
+    
+          const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
         
         return `${days[date.getUTCDay()]} ${this.double(date.getUTCHours())}:${this.double(date.getUTCMinutes())}`
       }

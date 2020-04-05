@@ -157,7 +157,7 @@
 				margin: .2rem 0;
 				padding-left: 1.5rem;
 				position: relative;
-				background: linear-gradient(to right, var(--color-border), var(--color-bg));
+				background: linear-gradient(to right, var(--color-border), transparent);
 				overflow: hidden;
 				
 				span {

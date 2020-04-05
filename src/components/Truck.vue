@@ -2,21 +2,24 @@
 	<div class="truck">
 		<div class="t-info">
 			<div class="theTruk">
+				<div class="truck-data">
+					<!--FIXME: Do not show the picture because the final path was wrong-->
+					<img :src="'../assets/Truck/brands/'+ brand.id+'.svg'" class="brand" alt="">
+					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
+					<small>
+						<span>{{model.name}}</span>
+					</small>
+					<span>
+						<span class="truck-plate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</span>
+					</span>
+				</div>
 				<div class="truck-stats">
 					<span>
-					  {{Math.round(odometer).toLocaleString()}} KM
-					</span>
-					<span>
-					  {{(fuel.avgConsumption * 100).toFixed(1)}} l/100km
+					  {{(fuel.avgConsumption * 100).toFixed(1)}} l/100
 					</span>
 					<div class="damage">
-						<span>{{Math.floor(100 * chassis.damage)}}%</span>
+						<span>{{Math.floor(100 * chassis.damage)}} %</span>
 					</div>
-				</div>
-				<div class="truck-data">
-					<span>{{brand.name}}</span>
-					<small>{{model.name}}</small>
-					<span class="truck-plate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</span>
 				</div>
 			</div>
 		</div>
@@ -275,11 +278,20 @@
 			return {};
 		},
 		
+		/*computed: {
+		 truckBrandLogo: function () {
+		 const url = '../assets/Truck/brands/' + this.brand.id + '.svg';
+		 console.log( this.brand, url );
+		 
+		 return url;
+		 }
+		 },*/
+		
 		methods: {
 			getFlag: function () {
 				switch ( this.licensePlate.country.id ) {
 					case 'norway':
-						return  '🇳🇴';
+						return '🇳🇴';
 						break;
 					case 'france':
 						return '🇫🇷';
@@ -304,23 +316,24 @@
 				display: flex;
 				width: 100%;
 				justify-content: space-between;
-				min-height: 5rem;
-				max-height: 6rem;
+				flex-direction: column;
+				min-height: 4.5rem;
+				padding: 0 0 0.5rem 0;
 			}
 			
 			.truck-data, .truck-stats, .truck-gear {
 				
 				/*width: 100%;*/
-				padding: 0 1rem 0.5rem;
+				padding: 0 1rem;
 				display: flex;
 				justify-content: space-between;
-				flex-direction: column;
 				
 				.truck-plate {
 					padding: 0 .2rem 0 0;
 					background: var(--color-red);
 					color: var(--color-bg);
-					font-size: .9rem;
+					font-size: 1rem;
+					font-weight: bold;
 					display: inline-flex;
 					
 					.flag {
@@ -334,27 +347,46 @@
 				
 				> * {
 					display: block;
-					
 				}
 			}
 			
 			.truck-stats {
-				width: auto;
-				> span	{ font-size: .9rem; text-align: center }
+				/*width: auto;*/
+				> span {
+					width: 100%;
+					font-size: 1rem;
+					text-align: center
+				}
 				
-				.damage{
-					background: #ff0000;
+				.damage {
+					background: var(--color-red);
+					color: var(--color-bg);
+					font-size: 1rem;
+					font-weight: bold;
 					width: 100%;
 					display: flex;
 					justify-content: center;
-					font-size: .9rem;
 					
-					> * {
+					/*> * {
 						display: block;
 						width: 100%;
-						padding: 0 .7rem;
+						!*padding: 0 .7rem;*!
 						text-align: center;
-					}
+					}*/
+				}
+			}
+			
+			.truck-data {
+				> * {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 1rem;
+				}
+				
+				.brand {
+					width: 2rem;
+					margin-right: 0.5rem;
 				}
 			}
 			
@@ -395,7 +427,7 @@
 				align-items: center;
 				margin: .2rem 0;
 				position: relative;
-				background: linear-gradient(to left, #232527, var(--color-bg));
+				background: linear-gradient(to left, var(--color-border), transparent);
 				
 				span {
 					font-size: 1.5rem;

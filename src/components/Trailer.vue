@@ -2,15 +2,15 @@
 	<div class="trailer capitalized">
 		<div class="t-info">
 			<div class="trailer-data">
-				<span>{{bodyType}}</span>
-				<small>{{chainType}}</small>
-				<span>
-					<small class="trailer-plate">{{licensePlate.value}}<span class="flag">{{getFlag()}}</span></small>
-				</span>
+				<!--<span>{{bodyType}}</span>
+				<small>{{chainType}}</small>-->
+				<div class="job">{{cargo.name}}</div>
 			</div>
 			<div class="job-data">
-				<div class="job">{{cargo.name}}</div>
-				<div class="damage">{{Math.floor(100 * cargo.damage)}}%</div>
+				<span>
+					<small class="trailer-plate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</small>
+				</span>
+				<div class="damage">{{Math.floor(100 * cargo.damage)}} %</div>
 			</div>
 			<!--<div class="trailer-wear text-center">
 				<div class="damage" v-for="key in Object.keys(damage)">
@@ -125,33 +125,21 @@
 		.t-info {
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 			width: 100%;
-			height: 100%;
-			min-height: 5rem;
-			max-height: 6rem;
-			align-items: stretch;
+			height: 4.5rem;
+			flex-direction: column;
 			
-			.trailer-data{
+			
+			.trailer-data {
 				width: 100%;
-				padding: 0 1rem 0.5rem;
+				padding: 0 1rem;
 				display: flex;
 				justify-content: space-between;
-				flex-direction: column;
 				
-				.trailer-plate {
-					padding: 0 0 0 .2rem;
-					background: var(--color-red);
-					color: var(--color-bg);
-					font-size: .9rem;
-					display: inline-flex;
-					
-					.flag {
-						padding: 0 .2rem;
-						margin-left: .2rem;
-						background: var(--color-window);
-						color: var(--color-text);
-						height: 100%;
-					}
+				.job {
+					height: 100%;
+					text-align: center;
 				}
 				
 				> * {
@@ -164,26 +152,43 @@
 				width: 100%;
 				padding: 0 1rem 0.5rem;
 				display: flex;
-				flex-direction: column;
 				
-				.job {
-					height: 100%;
-					text-align: center;
+				> * {
+					width: 100%;
 				}
 				
-				.damage{
-					background: #ff0000;
+				.trailer-plate {
+					padding: 0 .2rem 0 0;
+					background: var(--color-red);
+					color: var(--color-bg);
+					font-size: 1rem;
+					font-weight: bold;
+					display: inline-flex;
+					
+					.flag {
+						padding: 0 .2rem;
+						margin-right: .2rem;
+						background: var(--color-window);
+						color: var(--color-text);
+						height: 100%;
+					}
+				}
+				
+				.damage {
+					background: var(--color-red);
+					color: var(--color-bg);
+					font-size: 1rem;
+					font-weight: bold;
 					width: 100%;
 					display: flex;
 					justify-content: center;
-					font-size: .9rem;
 					
-					> * {
+					/*> * {
 						display: block;
 						width: 100%;
 						padding: 0 .7rem;
 						text-align: center;
-					}
+					}*/
 				}
 			}
 			

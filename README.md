@@ -1,5 +1,10 @@
 # client
 
+- Required SCS DLL plugin
+- Auto install dependencies
+
+
+
 ## Project setup
 ```
 npm install

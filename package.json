@@ -1,6 +1,6 @@
 {
-  "name" :           "trucksim-telemetry-demo-client",
-  "version" :        "0.1.0",
+  "name" :           "ets2-dashboard-skin",
+  "version" :        "0.0.1",
   "private" :        false,
   "scripts" :        {
     "start:server" :    "node node_modules/ets2-telemetry-server/dist/index.js",
