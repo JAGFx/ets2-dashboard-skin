@@ -1,26 +1,41 @@
 {
-  "name" :           "ets2-dashboard-skin",
-  "version" :        "0.0.1",
-  "private" :        false,
-  "scripts" :        {
-    "start:server" :    "node node_modules/ets2-telemetry-server/dist/index.js",
-    "dashboard:dev" :   "vue-cli-service serve",
-    "dashboard:build" : "vue-cli-service build"
-  },
-  "dependencies" :   {
-    "core-js" :               "^2.6.5",
-    "ets2-telemetry-server" : "git+https://github.com/JAGFx/ets2-telemetry-server.git#master",
-    "express" :               "^4.17.1",
-    "jquery" :                "^3.4.1",
-    "nosleep.js" :            "^0.9.0",
-    "vue" :                   "^2.6.10",
-    "vue-socket.io" :         "^3.0.7"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.10.0",
-    "@vue/cli-service": "^3.10.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10"
-  }
+	"name": "ets2-dashboard-skin",
+	"version": "0.0.1",
+	"private": false,
+	"main": "index.js",
+	"scripts": {
+		"start:server": "node node_modules/ets2-telemetry-server/dist/index.js",
+		"dashboard:dev": "vue-cli-service serve",
+		"dashboard:build": "vue-cli-service build",
+		"server:build": "npx gulp"
+	},
+	"dependencies": {
+		"core-js": "^2.6.5",
+		"express": "^4.17.1",
+		"jquery": "^3.4.1",
+		"nosleep.js": "^0.9.0",
+		"vue": "^2.6.10",
+		"vue-socket.io": "^3.0.7",
+		"socket.io": "^2.2.0",
+		"trucksim-telemetry" : "^0.6.4"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "^3.10.0",
+		"@vue/cli-service": "^3.10.0",
+		"node-sass": "^4.9.0",
+		"sass-loader": "^7.1.0",
+		"vue-template-compiler": "^2.6.10",
+		"@babel/core": "^7.5.5",
+		"@babel/polyfill": "^7.4.4",
+		"@babel/preset-env": "^7.5.5",
+		"@babel/register": "^7.5.5",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-plumber": "^1.2.1"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env"
+		]
+	}
 }
