@@ -103,6 +103,7 @@
 		
 		methods: {
 			getFlag: function () {
+				/* TODO Use emoji-flag npm @see https://github.com/matiassingers/emoji-flags */
 				switch ( this.licensePlate.country.id ) {
 					case 'norway':
 						return  '🇳🇴';
