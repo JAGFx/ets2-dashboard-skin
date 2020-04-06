@@ -1,0 +1,72 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_odometer.scss
+ * Date: 	06/04/2020
+ * Time: 	20:15
+ */
+
+.odometer {
+	position: relative;
+	background: linear-gradient(to right, transparent, var(--color-border), transparent);
+	border-bottom: 2px solid;
+	/*border-top: 2px solid;*/
+	border-image: linear-gradient(to right, transparent, var(--color-red), transparent) 1;
+	margin-bottom: 1.5rem;
+	
+	.value {
+		font-family: suprrpg !important;
+		letter-spacing: 0.4rem;
+		/*font-size: 5.5rem;
+		line-height: 5rem;*/
+	}
+	
+	> .unit {
+		position: absolute;
+		letter-spacing: 0.4rem;
+		font-size: .6rem;
+		bottom: -16px;
+		left: 50%;
+		right: 50%;
+		width: 4rem;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+		background: #252729;
+		line-height: 0.8rem;
+		height: 1rem;
+		color: #FFF;
+		text-transform: uppercase;
+		border: 2px solid red;
+		border-top: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		
+		&:before {
+			content: ' ';
+			position: absolute;
+			width: 1rem;
+			height: 1rem;
+			left: -0.1rem;
+			background: #252729;
+			border-left: 1px solid var(--color-red);
+			border-bottom: 2px solid var(--color-red);
+			-webkit-transform-origin: bottom left;
+			transform-origin: bottom left;
+			-webkit-transform: skew(30deg, 0deg);
+			transform: skew(30deg, 0deg);
+		}
+		
+		&:after {
+			content: ' ';
+			position: absolute;
+			width: 1rem;
+			height: 1rem;
+			right: -0.1rem;
+			background: #252729;
+			border-right: 1px solid var(--color-red);
+			border-bottom: 2px solid var(--color-red);
+			transform-origin: bottom left;
+			transform: skew(-30deg, 0deg);
+		}
+	}
+}

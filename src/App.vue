@@ -91,30 +91,12 @@
 </script>
 
 <style lang="scss">
-	@import "./scss/variables";
-	@import "./scss/licencePlate";
-	@import "./scss/damage";
+	@import "assets/scss/common/variables";
+	@import "assets/scss/common/font-face";
 	
-	@font-face {
-		font-family: 'roboto';
-		src: url('assets/Roboto-Regular.ttf') format('truetype');
-		font-weight: normal;
-		font-style: normal;
-	}
-	
-	@font-face {
-		font-family: 'roboto';
-		src: url('assets/Roboto-Regular.ttf') format('truetype');
-		font-weight: 100;
-		font-style: normal;
-	}
-	
-	@font-face {
-		font-family: 'suprrpg';
-		src: url('assets/SUPRRG__.TTF') format('truetype');
-		font-weight: 100;
-		font-style: normal;
-	}
+	@import "assets/scss/common/licencePlate";
+	@import "assets/scss/common/damage";
+	@import "assets/scss/common/dash-element";
 	
 	* {
 		margin: 0;

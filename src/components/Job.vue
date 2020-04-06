@@ -5,24 +5,21 @@
 		</div>-->
 		<!--<div class="wear">{{Math.floor(100 * cargo.damage)}}%</div>-->
 		
-		<ul class="info">
-			<li>
+		<ul class="dash-element left">
+			<li class="multiline">
 				<div class="round from"></div>
-				<span class="city">
+				<span>
 					<span>{{source.city.name}}</span>
 					<small class="text-muted text-italic">{{source.company.name}}</small>
 				</span>
 			</li>
-			<li>
+			<li class="multiline">
 				<div class="round to"></div>
-				<span class="city">
+				<span>
 					<span>{{destination.city.name}}</span>
 					<small class="text-muted">{{destination.company.name}}</small>
 				</span>
 			</li>
-			
-			
-			
 			<li>
 				<div class="round">
 					<img alt=""  src="../assets/img/Job/noun_stop_watch_2207126.svg">
@@ -35,14 +32,12 @@
 				</div>
 				<span>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
 			</li>
-			
 			<li>
 				<div class="round">
 					<img alt="" src="../assets/img/Job/noun_measure_1625696.svg">
 				</div>
 				<span>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
 			</li>
-			
 			<li>
 				<div class="round">
 					<img alt=""  src="../assets/img/Job/noun_Weight_1644747.svg">
@@ -105,6 +100,8 @@
 </script>
 
 <style scoped lang="scss">
+	@import "../assets/scss/job/job";
+	
 	.job {
 		height: 100%;
 		.header {
@@ -139,83 +136,6 @@
 			.name{
 				/*margin-left: 1rem;*/
 				font-size: 1.5rem;
-			}
-		}
-		
-		.info {
-			padding-left: .5rem;
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			
-			li {
-				list-style: none;
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				margin: .2rem 0;
-				padding-left: 1.2rem;
-				position: relative;
-				background: linear-gradient(to right, var(--color-border), transparent);
-				overflow: hidden;
-				
-				span {
-					font-size: 1.5rem;
-				}
-				
-				.city {
-					span {
-						line-height: 1.5rem;
-					}
-					
-					& > * {
-						display: block;
-					}
-				}
-				
-				@for $i from 1 through 8 {
-					&:nth-child(#{$i}) {
-						margin-left: ( $i - 1 ) * 1rem;
-					}
-				}
-				
-				&:before {
-					content: ' ';
-					position: absolute;
-					width: 1.5rem;
-					height: 3.5rem;
-					background: var(--color-bg);
-					border: 1px solid var(--color-red);
-					border-width: 0 2px 0 0;
-					transform-origin: bottom left;
-					transform: skew(20deg, 0deg);
-					left: -.1rem;
-				}
-			}
-			
-			.round {
-				width: 2.5rem;
-				height: 2.5rem;
-				overflow: hidden;
-				margin-right: 1rem;
-				color: var(--color-text);
-				background: var(--color-border);
-				transform-origin: bottom left;
-				transform: skew(20deg, 0deg);
-				padding: 0 .5rem;
-				vertical-align: center;
-				
-				
-				&.from {
-					border-radius: 10rem;
-					background: #54D9A8;
-				}
-				
-				&.to {
-					border-radius: 10rem;
-					background: #00FF0C;
-				}
 			}
 		}
 	}

@@ -1,0 +1,32 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_speed.scss
+ * Date: 	06/04/2020
+ * Time: 	20:16
+ */
+
+.speed {
+	margin: 1rem 0;
+	padding: 2rem 0;
+	
+	background: var(--color-border);
+	border-radius: 10rem / 16rem;
+	border: 2px solid var(--color-red);
+	border-width: 0 3px;
+	
+	> * {
+		display: block;
+	}
+	
+	.value {
+		font-family: suprrpg !important;
+		font-size: 5.5rem;
+		line-height: 5rem;
+	}
+	
+	> .unit {
+		padding-top: .5rem;
+		font-size: 1.5rem;
+	}
+}

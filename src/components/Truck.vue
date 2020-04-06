@@ -34,7 +34,7 @@
 			</div>
 		</div>-->
 		
-		<ul class="info">
+		<ul class="dash-element right">
 			<li class="danger">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
@@ -296,6 +296,8 @@
 </script>
 
 <style scoped lang="scss">
+	@import "../assets/scss/truck/truck";
+	
 	.truck {
 		.t-info {
 			display: flex;
@@ -346,86 +348,6 @@
 				}
 			}
 			
-		}
-		
-		.info {
-			padding-right: .5rem;
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			
-			li {
-				list-style: none;
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
-				margin: .2rem 0;
-				position: relative;
-				background: linear-gradient(to left, var(--color-border), transparent);
-				
-				span {
-					font-size: 1.5rem;
-					text-align: right;
-				}
-				
-				&.danger {
-					color: var(--color-red);
-				}
-				
-				&.accent {
-					color: var(--color-blue);
-					
-					&:after {
-						border-color: var(--color-blue);
-					}
-				}
-				
-				&.enabled {
-					color: var(--color-green);
-					
-					&:after {
-						border-color: var(--color-green);
-					}
-				}
-				
-				&.disabled {
-					color: #3C3F41;
-					
-					&:after {
-						border-color: #3C3F41;
-					}
-				}
-				
-				@for $i from 1 through 8 {
-					&:nth-child(#{$i}) {
-						margin-right: ( $i - 1 ) * 1rem;
-					}
-				}
-				
-				&:after {
-					content: ' ';
-					width: 1rem;
-					height: 2.5rem;
-					background: var(--color-bg);
-					border: 1px solid var(--color-red);
-					border-width: 0 0 0 2px;
-					transform-origin: bottom left;
-					transform: skew(-20deg, 0deg);
-				}
-			}
-			
-			.round {
-				width: 2.5rem;
-				height: 2.5rem;
-				overflow: hidden;
-				margin-left: 1rem;
-				background: var(--color-border);
-				transform-origin: bottom left;
-				transform: skew(-20deg, 0deg);
-				padding: 0 .5rem;
-				vertical-align: center;
-			}
 		}
 		
 	}

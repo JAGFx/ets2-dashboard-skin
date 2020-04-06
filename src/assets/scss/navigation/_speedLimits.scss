@@ -1,0 +1,46 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_speedLimits.scss
+ * Date: 	06/04/2020
+ * Time: 	20:14
+ */
+
+.speedLimits {
+	/* display: grid;
+	 grid-template-rows: auto 1fr;
+	 grid-template-columns: 120px 120px;
+	 grid-gap: var(--spacing);*/
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	> * {
+		margin: .5rem;
+	}
+	
+	.speedLimitKPH,
+	.speedLimitMPH {
+		background-color: var(--color-white);
+		color: black;
+		width: 3rem;
+		height: 3rem;
+		font-size: 1.5rem;
+		line-height: 1.2rem;
+		font-weight: bold;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.speedLimitKPH {
+		border: .3rem solid var(--color-red);
+		border-radius: 50%;
+	}
+	
+	.speedLimitMPH {
+		border: .3rem solid var(--color-black);
+		border-radius: 20px;
+	}
+}
