@@ -43,14 +43,14 @@
 		
 		data:    function () {
 			return {
-				game:       null,
-				controls:   null,
-				navigation: null,
-				job:        null,
-				truck:      null,
-				trailers:   [],
-				log:        []
-			};
+			 game:       null,
+			 controls:   null,
+			 navigation: null,
+			 job:        null,
+			 truck:      null,
+			 trailers:   [],
+			 log:        []
+			 };
 		},
 		methods: {
 			setSelected: function ( selected ) {
@@ -70,30 +70,14 @@
 				log.reverse();
 				this.log = log;
 			}
-		}/*,
-		mounted() {
-			let js = document.createElement('script');
-			js.setAttribute( 'src', 'node_modules/nosleep.js/dist/NoSleep.min.js' );
-			document.head.appendChild(js);
-		}*/
+		}
 	};
 </script>
 
 <style lang="scss">
-	:root {
-		--spacing: 1rem;
-		--color-bg: #121212;
-		--color-window: rgba(0, 0, 0, 0.5);
-		--color-border: rgba(60, 63, 65, 0.2);
-		--color-text: #FFF;
-		--color-highlight: rgba(114, 224, 209);
-		--color-white: #EAEAEA;
-		--color-black: #000;
-		--color-red: #E00000;
-		--color-green: #00E070;
-		--color-yellow: #E0E000;
-		--color-blue: #0CB4FF;
-	}
+	@import "./scss/variables";
+	@import "./scss/licencePlate";
+	@import "./scss/damage";
 	
 	@font-face {
 		font-family: 'roboto';
@@ -101,7 +85,6 @@
 		font-weight: normal;
 		font-style: normal;
 	}
-	
 	
 	@font-face {
 		font-family: 'roboto';
@@ -122,11 +105,11 @@
 		padding: 0;
 	}
 	
-	.capitalized{
+	.capitalized {
 		text-transform: capitalize;
 	}
 	
-	.text-center{
+	.text-center {
 		text-align: center;
 	}
 	
@@ -161,13 +144,10 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 	
-	/*#app.ats {
-	  background: url(assets/ats.jpg) no-repeat center center fixed;
-	}*/
-	
 	.wrapper {
 		display: flex;
 		height: 100%;
+		
 		> * {
 			width: 100%;
 		}
@@ -190,38 +170,7 @@
 		width: 100%;
 		height: 100%;
 		background: #121212;
-		/*display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		grid-template-rows: 20px repeat(3, minmax(0, 1fr));
-		margin: calc(var(--spacing) * 2);
-		grid-gap: calc(var(--spacing) * 2);*/
 	}
 	
-	main > h1 {
-		/*grid-column: 1 / 4*/
-	}
 	
-	#truck,
-	#trailers {
-		/*grid-row: span 2; */
-	}
-	
-	#wheels {
-		/*display: grid;
-		grid-template-columns: repeat(auto-fill, 50px);
-		grid-gap: 20px;*/
-	}
-	
-	.list,
-	.list > div {
-		display: grid;
-	}
-	
-	.list {
-		grid-gap: var(--spacing);
-	}
-	
-	.list > div {
-		/*grid-template-columns: repeat(2, minmax(0, 1fr));*/
-	}
 </style>

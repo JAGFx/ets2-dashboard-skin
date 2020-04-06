@@ -1,0 +1,24 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_common.scss
+ * Date: 	06/04/2020
+ * Time: 	18:26
+ */
+
+.licencePlate{
+	padding: 0 .2rem 0 0;
+	background: var(--color-red);
+	color: var(--color-bg);
+	font-size: 1rem;
+	font-weight: bold;
+	display: inline-flex;
+	
+	.flag {
+		padding: 0 .2rem;
+		//margin-right: .2rem;
+		background: var(--color-window);
+		color: var(--color-text);
+		height: 100%;
+	}
+}

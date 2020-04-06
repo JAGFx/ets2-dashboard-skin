@@ -10,16 +10,16 @@
 						<span>{{model.name}}</span>
 					</small>
 					<span>
-						<span class="truck-plate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</span>
+					  {{(fuel.avgConsumption * 100).toFixed(1)}} l/100
 					</span>
 				</div>
 				<div class="truck-stats">
-					<span>
-					  {{(fuel.avgConsumption * 100).toFixed(1)}} l/100
-					</span>
 					<div class="damage">
 						<span>{{Math.floor(100 * chassis.damage)}} %</span>
 					</div>
+					<span>
+						<span class="licencePlate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</span>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -328,23 +328,6 @@
 				display: flex;
 				justify-content: space-between;
 				
-				.truck-plate {
-					padding: 0 .2rem 0 0;
-					background: var(--color-red);
-					color: var(--color-bg);
-					font-size: 1rem;
-					font-weight: bold;
-					display: inline-flex;
-					
-					.flag {
-						padding: 0 .2rem;
-						margin-right: .2rem;
-						background: var(--color-window);
-						color: var(--color-text);
-						height: 100%;
-					}
-				}
-				
 				> * {
 					display: block;
 				}
@@ -356,23 +339,6 @@
 					width: 100%;
 					font-size: 1rem;
 					text-align: center
-				}
-				
-				.damage {
-					background: var(--color-red);
-					color: var(--color-bg);
-					font-size: 1rem;
-					font-weight: bold;
-					width: 100%;
-					display: flex;
-					justify-content: center;
-					
-					/*> * {
-						display: block;
-						width: 100%;
-						!*padding: 0 .7rem;*!
-						text-align: center;
-					}*/
 				}
 			}
 			
@@ -391,27 +357,6 @@
 			}
 			
 		}
-		
-		/*.truck-wear {
-			width: 100%;
-			background: #ff0000;
-			color: #000;
-			display: flex;
-			justify-content: center;
-			
-			align-items: center;
-			font-size: .8rem;
-			
-			
-			> .damage{
-				width: 100%;
-				display: flex;
-				!*flex-direction: column;*!
-				justify-content: space-around;
-				
-				> * { display: block; width: 100%; padding: 0 .7rem; }
-			}
-		}*/
 		
 		.info {
 			padding-right: .5rem;
@@ -493,83 +438,5 @@
 			}
 		}
 		
-	}
-	
-	
-	.fluids,
-	.fuel,
-	.tank,
-	.adBlue {
-		height: 100%;
-	}
-	
-	
-	.fluids {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: var(--spacing);
-	}
-	
-	.tank {
-		position: relative;
-		display: grid;
-		justify-items: center;
-		align-items: center;
-		border: 2px solid var(--color-white);
-		
-		> div:nth-child(1) {
-			position: absolute;
-			background-color: var(--color-red);
-			bottom: 0;
-			width: 100%;
-		}
-		
-		> div:nth-child(2) {
-			background-color: black;
-			display: grid;
-			text-align: center;
-			z-index: 10;
-			padding: 5px;
-			grid-gap: 5px;
-		}
-	}
-	
-	.fuel .tank > div:nth-child(1) {
-		background-color: var(--color-green);
-	}
-	
-	.adblue .tank > div:nth-child(1) {
-		background-color: var(--color-blue);
-	}
-	
-	.light {
-		background-color: var(--color-black);
-		border: 2px solid white;
-		width: 11px;
-		height: 11px;
-		border-radius: 50%;
-	}
-	
-	.lit-white {
-		background-color: var(--color-white);
-	}
-	
-	.lit-yellow {
-		background-color: var(--color-yellow);
-	}
-	
-	.lit-green {
-		background-color: var(--color-green);
-	}
-	
-	.lit-red {
-		background-color: var(--color-red);
-	}
-	
-	.wheels {
-		display: grid;
-		justify-items: center;
-		grid-gap: var(--spacing);
-		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 	}
 </style>

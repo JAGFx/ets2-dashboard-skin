@@ -8,7 +8,7 @@
 			</div>
 			<div class="job-data">
 				<span>
-					<small class="trailer-plate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</small>
+					<small class="licencePlate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</small>
 				</span>
 				<div class="damage">{{Math.floor(100 * cargo.damage)}} %</div>
 			</div>
@@ -158,39 +158,7 @@
 					width: 100%;
 				}
 				
-				.trailer-plate {
-					padding: 0 .2rem 0 0;
-					background: var(--color-red);
-					color: var(--color-bg);
-					font-size: 1rem;
-					font-weight: bold;
-					display: inline-flex;
-					
-					.flag {
-						padding: 0 .2rem;
-						margin-right: .2rem;
-						background: var(--color-window);
-						color: var(--color-text);
-						height: 100%;
-					}
-				}
 				
-				.damage {
-					background: var(--color-red);
-					color: var(--color-bg);
-					font-size: 1rem;
-					font-weight: bold;
-					width: 100%;
-					display: flex;
-					justify-content: center;
-					
-					/*> * {
-						display: block;
-						width: 100%;
-						padding: 0 .7rem;
-						text-align: center;
-					}*/
-				}
 			}
 			
 		}
