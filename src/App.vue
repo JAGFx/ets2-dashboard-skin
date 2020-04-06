@@ -26,6 +26,7 @@
 	import Trailer     from '@/components/Trailer.vue';
 	import Truck       from '@/components/Truck.vue';
 	import Window      from '@/components/Window.vue';
+	import testData    from './data/scs_sdk_plugin_parsed_data.json';
 	import countryList from 'country-list';
 	import emojiFlags  from 'emoji-flags';
 	
@@ -44,17 +45,18 @@
 		},
 		
 		data:    function () {
-			//return testData;
-			// TODO: Add env test to use data instead API
+			if ( process.env.VUE_APP_USE_FAKE_DATA )
+				return testData;
+			
 			return {
-			 game:       null,
-			 controls:   null,
-			 navigation: null,
-			 job:        null,
-			 truck:      null,
-			 trailers:   [],
-			 log:        []
-			 };
+				game:       null,
+				controls:   null,
+				navigation: null,
+				job:        null,
+				truck:      null,
+				trailers:   [],
+				log:        []
+			};
 		},
 		methods: {
 			setSelected: function ( selected ) {
@@ -185,6 +187,6 @@
 		height: 100%;
 		background: #121212;
 	}
-	
-	
+
+
 </style>
