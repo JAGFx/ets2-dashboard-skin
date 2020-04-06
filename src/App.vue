@@ -18,14 +18,16 @@
 </template>
 
 <script>
-	import Controls   from '@/components/Controls.vue';
-	import Events     from '@/components/Events.vue';
-	import Game       from '@/components/Game.vue';
-	import Job        from '@/components/Job.vue';
-	import Navigation from '@/components/Navigation.vue';
-	import Trailer    from '@/components/Trailer.vue';
-	import Truck      from '@/components/Truck.vue';
-	import Window     from '@/components/Window.vue';
+	import Controls    from '@/components/Controls.vue';
+	import Events      from '@/components/Events.vue';
+	import Game        from '@/components/Game.vue';
+	import Job         from '@/components/Job.vue';
+	import Navigation  from '@/components/Navigation.vue';
+	import Trailer     from '@/components/Trailer.vue';
+	import Truck       from '@/components/Truck.vue';
+	import Window      from '@/components/Window.vue';
+	import countryList from 'country-list';
+	import emojiFlags  from 'emoji-flags';
 	
 	export default {
 		name: 'app',
@@ -42,6 +44,8 @@
 		},
 		
 		data:    function () {
+			//return testData;
+			// TODO: Add env test to use data instead API
 			return {
 			 game:       null,
 			 controls:   null,
@@ -55,6 +59,16 @@
 		methods: {
 			setSelected: function ( selected ) {
 				this.selected = selected;
+			},
+			getFlag:     function ( countryName ) {
+				const countryCode = countryList.getCode( countryName );
+				const flag        = emojiFlags.countryCode( countryCode );
+				
+				//console.log( countryName, countryCode, flag, flag.emoji );
+				
+				return (flag !== undefined)
+					? flag.emoji
+					: '🏳️';
 			}
 		},
 		sockets: {

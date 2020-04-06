@@ -289,17 +289,7 @@
 		
 		methods: {
 			getFlag: function () {
-				switch ( this.licensePlate.country.id ) {
-					case 'norway':
-						return '🇳🇴';
-						break;
-					case 'france':
-						return '🇫🇷';
-						break;
-					default:
-						return '🏳️';
-						break;
-				}
+				return this.$parent.getFlag( this.licensePlate.country.id );
 			}
 		}
 	};
