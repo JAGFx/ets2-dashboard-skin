@@ -25,27 +25,27 @@
 			
 			<li>
 				<div class="round">
-					<img src="../assets/Job/noun_stop_watch_2207126.svg"  alt="">
+					<img alt=""  src="../assets/img/Job/noun_stop_watch_2207126.svg">
 				</div>
 				<span>{{formatDeliveryTime()}}</span>
 			</li>
 			<li>
 				<div class="round">
-					<img src="../assets/Job/noun_Money_285330.svg"  alt="">
+					<img alt=""  src="../assets/img/Job/noun_Money_285330.svg">
 				</div>
 				<span>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
 			</li>
 			
 			<li>
 				<div class="round">
-					<img src="../assets/Job/noun_measure_1625696.svg" alt="">
+					<img alt="" src="../assets/img/Job/noun_measure_1625696.svg">
 				</div>
 				<span>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
 			</li>
 			
 			<li>
 				<div class="round">
-					<img src="../assets/Job/noun_Weight_1644747.svg"  alt="">
+					<img alt=""  src="../assets/img/Job/noun_Weight_1644747.svg">
 				</div>
 				<span>{{(cargo.mass / 1000).toFixed()}} t</span>
 			</li>
@@ -118,7 +118,7 @@
 			}
 			
 			> .mass{
-				background: url("../assets/Job/noun_Weight_1644747.svg") center center no-repeat;
+				background: url("../assets/img/Job/noun_Weight_1644747.svg") center center no-repeat;
 				background-size: contain;
 				height: 3rem;
 				width: 6rem;

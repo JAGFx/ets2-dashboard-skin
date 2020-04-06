@@ -38,13 +38,13 @@
 			<li class="danger">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
-					<img src="../assets/Truck/noun_Oil_497867.svg" alt="">
+					<img alt="" src="../assets/img/Truck/noun_Oil_497867.svg">
 				</div>
 			</li>
 			<li class="danger">
 				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
-					<img src="../assets/Truck/noun_Brake_light_457498.svg" alt="">
+					<img alt="" src="../assets/img/Truck/noun_Brake_light_457498.svg">
 				</div>
 			</li>
 			<li class="danger">
@@ -54,25 +54,25 @@
 			<li>
 				<span>{{Math.round(fuel.value)}} L</span>
 				<div class="round">
-					<img src="../assets/Truck/noun_Fuel_38066.svg" alt="">
+					<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
 				</div>
 			</li>
 			<li v-bind:class="{ 'enabled' : cruiseControl.enabled, 'disabled' : !cruiseControl.enabled }">
 				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
 				<div class="round">
-					<img src="../assets/Truck/noun_Cruise_Control_On_457475.svg" alt="">
+					<img alt="" src="../assets/img/Truck/noun_Cruise_Control_On_457475.svg">
 				</div>
 			</li>
 			<li class="accent">
 				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
 				<div class="round">
-					<img src="../assets/Truck/noun_Water_Temperature_507610.svg" alt="">
+					<img alt="" src="../assets/img/Truck/noun_Water_Temperature_507610.svg">
 				</div>
 			</li>
 			<li class="accent">
 				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
 				<div class="round">
-					<img src="../assets/Truck/noun_Battery_1909381.svg" alt="">
+					<img alt="" src="../assets/img/Truck/noun_Battery_1909381.svg">
 				</div>
 			</li>
 		</ul>
