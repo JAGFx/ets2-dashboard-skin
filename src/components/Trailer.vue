@@ -4,13 +4,19 @@
 			<div class="trailer-data">
 				<!--<span>{{bodyType}}</span>
 				<small>{{chainType}}</small>-->
-				<div class="job">{{cargo.name}}</div>
+				<div class="job" v-if="hasTrailer()">{{cargo.name}}</div>
+				<div class="job disabled" v-else>
+					<i>-- No trailer --</i>
+				</div>
 			</div>
 			<div class="job-data">
-				<span>
-					<small class="licencePlate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</small>
-				</span>
-				<div class="damage">{{Math.floor(100 * cargo.damage)}} %</div>
+				<small class="licencePlate">
+					<span class="flag">{{getFlag()}}</span>
+					<span v-if="hasTrailer()">{{licensePlate.value}}</span>
+					<span v-else>N/A</span>
+				</small>
+				<div class="damage left" v-if="hasTrailer()">{{Math.floor(100 * cargo.damage)}} %</div>
+				<div class="damage left" v-else>N/A</div>
 			</div>
 			<!--<div class="trailer-wear text-center">
 				<div class="damage" v-for="key in Object.keys(damage)">
@@ -104,6 +110,9 @@
 		methods: {
 			getFlag: function () {
 				return this.$parent.getFlag( this.licensePlate.country.id );
+			},
+			hasTrailer: function () {
+				return this.model.id.length !== 0;
 			}
 		}
 	};
@@ -119,6 +128,7 @@
 			width: 100%;
 			height: 4.5rem;
 			flex-direction: column;
+			padding: 0 0 .5rem 0;
 			
 			
 			.trailer-data {
@@ -130,6 +140,10 @@
 				.job {
 					height: 100%;
 					text-align: center;
+					
+					&.disabled {
+						color: #3C3F41;
+					}
 				}
 				
 				> * {
@@ -140,14 +154,9 @@
 			
 			.job-data {
 				width: 100%;
-				padding: 0 1rem 0.5rem;
+				padding: 0 1rem;
 				display: flex;
-				
-				> * {
-					width: 100%;
-				}
-				
-				
+				justify-content: space-between;
 			}
 			
 		}

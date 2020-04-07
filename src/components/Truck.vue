@@ -14,7 +14,7 @@
 					</span>
 				</div>
 				<div class="truck-stats">
-					<div class="damage">
+					<div class="damage right">
 						<span>{{Math.floor(100 * chassis.damage)}} %</span>
 					</div>
 					<span>

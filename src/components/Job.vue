@@ -6,49 +6,49 @@
 		<!--<div class="wear">{{Math.floor(100 * cargo.damage)}}%</div>-->
 		
 		<ul class="dash-element left">
-			<li class="multiline">
+			<li :class="{ 'disabled': hasNoJob()  }" class="multiline">
 				<div class="round from"></div>
-				<span>
+				<span v-if="hasNoJob()">N/A</span>
+				<span v-else>
 					<span>{{source.city.name}}</span>
 					<small class="text-muted text-italic">{{source.company.name}}</small>
 				</span>
 			</li>
-			<li class="multiline">
+			<li :class="{ 'disabled': hasNoJob()  }" class="multiline">
 				<div class="round to"></div>
-				<span>
+				<span v-if="hasNoJob()">N/A</span>
+				<span v-else>
 					<span>{{destination.city.name}}</span>
 					<small class="text-muted">{{destination.company.name}}</small>
 				</span>
 			</li>
-			<li>
+			<li :class="{ 'disabled': hasNoJob()  }">
 				<div class="round">
 					<img alt=""  src="../assets/img/Job/noun_stop_watch_2207126.svg">
 				</div>
-				<span>{{formatDeliveryTime()}}</span>
+				<span v-if="hasNoJob()">N/A</span>
+				<span v-else>{{formatDeliveryTime()}}</span>
 			</li>
-			<li>
+			<li :class="{ 'disabled': hasNoJob()  }">
 				<div class="round">
 					<img alt=""  src="../assets/img/Job/noun_Money_285330.svg">
 				</div>
-				<span>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
+				<span v-if="hasNoJob()">N/A</span>
+				<span v-else>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
 			</li>
-			<li :class="{ 'disabled': ( (distance / 1000) === 0 ) }">
+			<li :class="{ 'disabled': hasNoJob()  }">
 				<div class="round">
 					<img alt="" src="../assets/img/Job/noun_measure_1625696.svg">
 				</div>
-				<span>
-					<span v-if="(distance / 1000) === 0">N/A</span>
-					<span v-else>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
-				</span>
+				<span v-if="hasNoJob()">N/A</span>
+				<span v-else>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
 			</li>
-			<li :class="{ 'disabled': ( (cargo.mass / 1000) === 0 ) }">
+			<li :class="{ 'disabled': hasNoJob()  }">
 				<div class="round">
 					<img alt=""  src="../assets/img/Job/noun_Weight_1644747.svg">
 				</div>
-				<span>
-					<span v-if="(cargo.mass / 1000) === 0">N/A</span>
-					<span v-else>{{(cargo.mass / 1000).toFixed()}} t</span>
-				</span>
+				<span v-if="hasNoJob()">N/A</span>
+				<span v-else>{{(cargo.mass / 1000).toFixed()}} t</span>
 			</li>
 		</ul>
 		
@@ -100,6 +100,9 @@
 				const days   = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ double( date.getUTCHours() ) }:${ double( date.getUTCMinutes() ) }`;
+			},
+			hasNoJob:           function () {
+				return this.plannedDistance.km <= 0;
 			}
 		}
 	};

@@ -11,8 +11,16 @@
 	color: var(--color-bg);
 	font-size: 1rem;
 	font-weight: bold;
-	width: 100%;
+	width: 6rem;
 	display: flex;
 	justify-content: center;
 	text-align: center;
+	
+	&.left{
+		margin-left: .5rem;
+	}
+	
+	&.right{
+		margin-right: .5rem;
+	}
 }
