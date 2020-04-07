@@ -35,7 +35,7 @@
 		</div>-->
 		
 		<ul class="dash-element right">
-			<li class="red">
+			<li class="orange">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Oil_497867.svg">
@@ -51,7 +51,7 @@
 				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
 				<div class="round"></div>
 			</li>
-			<li>
+			<li class="white">
 				<span>{{Math.round(fuel.value)}} L</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">

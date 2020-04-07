@@ -72,7 +72,23 @@
 			}
 		}
 		
-		&.enabled {
+		&.orange {
+			color: var(--color-orange);
+			
+			&:after, &:before {
+				border-color: var(--color-orange);
+			}
+		}
+		
+		&.white {
+			color: var(--color-white);
+			
+			&:after, &:before {
+				border-color: var(--color-white);
+			}
+		}
+		
+		&.green {
 			color: var(--color-green);
 			
 			&:after, &:before {

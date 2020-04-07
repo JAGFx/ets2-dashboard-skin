@@ -2,7 +2,7 @@
 	<div class="nav text-center">
 		<div class="nav-wrapper">
 			<div class="truck-gear">
-				<span>{{getTrueGear()}}</span>
+				<span class="value">{{getTrueGear()}}</span>
 			</div>
 			<div class="speed">
 				<span class="value">{{speed.kph}}</span>
@@ -120,20 +120,6 @@
 		
 		.nav-wrapper {
 			width: 100%;
-		}
-		
-		.truck-gear {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-weight: bold;
-			
-			> span {
-				background: #FFF;
-				color: #000;
-				font-size: 2rem;
-				padding: 0.3rem 1rem;
-			}
 		}
 	}
 

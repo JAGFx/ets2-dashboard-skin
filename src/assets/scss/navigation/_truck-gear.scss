@@ -1,0 +1,34 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_truck-gear.scss
+ * Date: 	07/04/2020
+ * Time: 	17:56
+ */
+
+.truck-gear {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	position: relative;
+	
+	> .value {
+		//background: var(--color-border);
+		//background: linear-gradient(to top, var(--color-border), transparent);
+		//border-top: 2px solid;
+		/*border-top: 2px solid;*/
+		//border-image: linear-gradient(to top, transparent, var(--color-red), transparent) 1;
+		/*background: #FFF;
+		color: #000;*/
+		font-size: 2rem;
+		padding: 0.3rem;
+		width: 3.5rem;
+		height: 3.5rem;
+		color: var(--color-red);
+		
+		&:first-letter{
+			color: var(--color-white);
+		}
+	}
+}

@@ -14,6 +14,7 @@
 	border-radius: 10rem / 16rem;
 	border: 2px solid var(--color-red);
 	border-width: 0 3px;
+	position: relative;
 	
 	> * {
 		display: block;
@@ -23,6 +24,7 @@
 		font-family: suprrpg !important;
 		font-size: 5.5rem;
 		line-height: 5rem;
+		transform: skew(19deg, 0deg);
 	}
 	
 	> .unit {
