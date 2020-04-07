@@ -25,6 +25,10 @@
 		padding: 0.3rem;
 		width: 3.5rem;
 		height: 3.5rem;
+		color: var(--color-white);
+	}
+	
+	&.hshifter > .value {
 		color: var(--color-red);
 		
 		&:first-letter{

@@ -1,7 +1,7 @@
 <template>
 	<div class="nav text-center">
 		<div class="nav-wrapper">
-			<div class="truck-gear">
+			<div :class="transmission.shifterType" class="truck-gear">
 				<span class="value">{{getTrueGear()}}</span>
 			</div>
 			<div class="speed">
@@ -58,7 +58,7 @@
 				return `${ hours }h ${ min }min`;
 				
 			},
-			formatNextRestStop: function () {
+			/*formatNextRestStop: function () {
 				return this.formatTime( this.nextRestStop );
 			},
 			formatETA:          function () {
@@ -68,34 +68,39 @@
 				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ date.getUTCHours() }:${ date.getUTCMinutes() } / ${ eta }`;
-			},
-			/*formatSpeed: function ( speed ) {
-			 Math.abs( speed > 0
-			 ? Math.floor( speed )
-			 : Math.round( speed ) );
-			 },*/
+			},*/
 			getTrueGear:        function () {
 				/*console.log( this );*/
 				let gear      = this.transmission.gear.displayed;
-				let cruzeGear = 0;
+				let strGear = gear;
 				
-				switch ( this.brand.name ) {
-					case 'Volvo':
-					case 'Scania':
-					case 'Kenworth':
-						cruzeGear = 2;
-						break;
+				if( this.transmission.shifterType === 'hshifter' ){
+					let cruzeGear = 0;
+					
+					switch ( this.brand.name ) {
+						case 'Volvo':
+						case 'Scania':
+						case 'Kenworth':
+							cruzeGear = 2;
+							break;
+					}
+					
+					let realGearCount = gear - cruzeGear;
+					let spliter       = (realGearCount % 2)
+						? 'L'
+						: 'H';
+					let realGear      = Math.ceil( realGearCount / 2 );
+					strGear       = realGear + spliter;
+					
+					if ( gear <= cruzeGear )
+						strGear = 'C' + Math.abs( this.transmission.gear.displayed );
+					
 				}
 				
-				let realGearCount = gear - cruzeGear;
-				let spliter       = (realGearCount % 2)
-					? 'L'
-					: 'H';
-				let realGear      = Math.ceil( realGearCount / 2 );
-				let strGear       = realGear + spliter;
+				if( this.transmission.shifterType === 'automatic' ){
+					strGear = 'D' + gear;
+				}
 				
-				if ( gear <= cruzeGear )
-					strGear = 'C' + Math.abs( this.transmission.gear.displayed );
 				
 				if ( gear === 0 )
 					strGear = 'N';
