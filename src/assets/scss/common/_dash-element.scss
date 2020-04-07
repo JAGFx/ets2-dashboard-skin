@@ -7,7 +7,6 @@
  */
 
 .dash-element {
-	padding-right: .5rem;
 	margin: 0;
 	display: flex;
 	flex-direction: column;
@@ -35,15 +34,15 @@
 		}
 		
 		&.multiline{
-			height: 3.5rem;
+			height: 3.9rem;
 			text-align: left;
 			
 			&:after, &:before{
-				height: 3.5rem;
+				height: 3.9rem;
 			}
 			
 			.round {
-				height: 3.5rem;
+				height: 3.9rem;
 			}
 			
 			> span {
@@ -57,7 +56,7 @@
 			}
 		}
 		
-		&.danger {
+		&.red {
 			color: var(--color-red);
 			
 			&:after, &:before {
@@ -65,7 +64,7 @@
 			}
 		}
 		
-		&.accent {
+		&.blue {
 			color: var(--color-blue);
 			
 			&:after, &:before {
@@ -92,6 +91,8 @@
 	}
 	
 	&.right {
+		padding-right: .5rem;
+		
 		li {
 			background: linear-gradient(to left, var(--color-border), transparent);
 			justify-content: flex-end;
@@ -99,7 +100,6 @@
 			
 			&:after {
 				border-width: 0 0 0 2px;
-				transform: skew(-20deg, 0deg);
 			}
 			
 			&:before {
@@ -108,22 +108,40 @@
 			
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
-					margin-right: ( $i - 1 ) * 1rem;
+					@if ( $i <= 3  ){
+						margin: 0.2rem 0 0.2rem;
+					} @else {
+						$marginElm: ( $i - 3 ) * 1rem;
+						margin: 0.2rem $marginElm 0.2rem;
+						
+						&:not(.multiline){
+							&:after {
+								transform: skew(-20deg, 0deg);
+							}
+							
+							.round{
+								transform: skew(-20deg, 0deg);
+							}
+						}
+					}
+					
 					
 					&.multiline{
-						margin-right: ( $i - 1 ) * 1.3rem !important;
+						margin-right: 1rem;
 					}
 				}
 			}
+			
+			.round {
+				margin-left: 1rem;
+			}
 		}
 		
-		.round {
-			margin-left: 1rem;
-			transform: skew(-20deg, 0deg);
-		}
 	}
 	
 	&.left {
+		padding-left: .5rem;
+		
 		li {
 			background: linear-gradient(to left, transparent, var(--color-border));
 			justify-content: flex-start;
@@ -131,7 +149,6 @@
 			
 			&:before {
 				border-width: 0 2px 0 0;
-				transform: skew(20deg, 0deg);
 			}
 			
 			&:after {
@@ -140,19 +157,30 @@
 			
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
-					margin-left: ( $i - 1 ) * 1rem;
+					$marginElm: ( $i - 2 ) * 1rem;
+					margin: 0.2rem 0 0.2rem $marginElm;
 					
 					&.multiline{
-						margin-left: ( $i - 1 ) * 1.3rem;
+						margin: 0.2rem 0;
 					}
+				}
+			}
+			
+			.round {
+				margin-right: 1rem;
+			}
+			
+			&:not(.multiline){
+				&:before{
+					transform: skew(20deg, 0deg);
+				}
+				
+				.round{
+					transform: skew(20deg, 0deg);
 				}
 			}
 		}
 		
-		.round {
-			margin-right: 1rem;
-			transform: skew(20deg, 0deg);
-		}
 	}
 	
 	.round {

@@ -12,7 +12,7 @@
 				<span class="value">{{Math.round(odometer)}}</span>
 				<small class="unit">km</small>
 			</div>
-			<div class="speedLimits">
+			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
 				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
 				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
 			</div>

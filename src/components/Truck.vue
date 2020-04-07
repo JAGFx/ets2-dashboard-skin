@@ -35,19 +35,19 @@
 		</div>-->
 		
 		<ul class="dash-element right">
-			<li class="danger">
+			<li class="red">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Oil_497867.svg">
 				</div>
 			</li>
-			<li class="danger">
+			<li class="red">
 				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Brake_light_457498.svg">
 				</div>
 			</li>
-			<li class="danger">
+			<li class="red">
 				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
 				<div class="round"></div>
 			</li>
@@ -63,13 +63,13 @@
 					<img alt="" src="../assets/img/Truck/noun_Cruise_Control_On_457475.svg">
 				</div>
 			</li>
-			<li class="accent">
+			<li class="blue">
 				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Water_Temperature_507610.svg">
 				</div>
 			</li>
-			<li class="accent">
+			<li class="blue">
 				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Battery_1909381.svg">

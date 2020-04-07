@@ -111,6 +111,10 @@
 		text-align: center;
 	}
 	
+	.hidden{
+		visibility: hidden;
+	}
+	
 	html {
 		display: flex;
 		height: 100vh;

@@ -32,17 +32,23 @@
 				</div>
 				<span>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
 			</li>
-			<li>
+			<li :class="{ 'disabled': ( (distance / 1000) === 0 ) }">
 				<div class="round">
 					<img alt="" src="../assets/img/Job/noun_measure_1625696.svg">
 				</div>
-				<span>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
+				<span>
+					<span v-if="(distance / 1000) === 0">N/A</span>
+					<span v-else>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
+				</span>
 			</li>
-			<li>
+			<li :class="{ 'disabled': ( (cargo.mass / 1000) === 0 ) }">
 				<div class="round">
 					<img alt=""  src="../assets/img/Job/noun_Weight_1644747.svg">
 				</div>
-				<span>{{(cargo.mass / 1000).toFixed()}} t</span>
+				<span>
+					<span v-if="(cargo.mass / 1000) === 0">N/A</span>
+					<span v-else>{{(cargo.mass / 1000).toFixed()}} t</span>
+				</span>
 			</li>
 		</ul>
 		
