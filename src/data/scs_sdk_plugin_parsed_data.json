@@ -232,7 +232,7 @@
             false,
             false
          ],
-         "shifterType": "arcade"
+         "shifterType": "hshifter"
       },
       "brakes": {
          "retarder": {
@@ -450,7 +450,7 @@
       },
       "speed": {
          "value": 9.394007682800293,
-         "kph": 34,
+         "kph": 110,
          "mph": 21
       },
       "cruiseControl": {

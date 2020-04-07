@@ -29,6 +29,7 @@
 	import testData    from './data/scs_sdk_plugin_parsed_data.json';
 	import countryList from 'country-list';
 	import emojiFlags  from 'emoji-flags';
+	import packageJson from '../package.json';
 	
 	export default {
 		name: 'app',
@@ -71,6 +72,9 @@
 				return (flag !== undefined)
 					? flag.emoji
 					: '🏳️';
+			},
+			getVersion: function () {
+				return packageJson.version;
 			}
 		},
 		sockets: {
