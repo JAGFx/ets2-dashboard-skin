@@ -15,9 +15,9 @@
 		list-style: none;
 		display: flex;
 		align-items: center;
-		margin: .2rem 0;
+		margin: var(--dash-element-common-margin) 0;
 		position: relative;
-		height: 2.5rem;
+		height: var(--dash-element-height);
 		
 		span {
 			font-size: 1.5rem;
@@ -26,7 +26,7 @@
 		&:after, &:before {
 			content: ' ';
 			width: 1rem;
-			height: 2.5rem;
+			height: var(--dash-element-height);
 			background: var(--color-bg);
 			border-color: var(--color-red);
 			border-style: solid;
@@ -34,15 +34,15 @@
 		}
 		
 		&.multiline{
-			height: 3.9rem;
+			height: var(--dash-element-multiline-height);
 			text-align: left;
 			
 			&:after, &:before{
-				height: 3.9rem;
+				height: var(--dash-element-multiline-height);
 			}
 			
 			.round {
-				height: 3.9rem;
+				height: var(--dash-element-multiline-height);
 			}
 			
 			> span {
@@ -97,10 +97,10 @@
 		}
 		
 		&.disabled {
-			color: #3C3F41;
+			color: var(--color-gray);
 			
 			&:after, &:before {
-				border-color: #3C3F41;
+				border-color: var(--color-gray);
 			}
 		}
 		
@@ -115,7 +115,7 @@
 			text-align: right;
 			
 			&:after {
-				border-width: 0 0 0 2px;
+				border-width: 0 0 0 var(--dash-element-border-width);
 			}
 			
 			&:before {
@@ -125,18 +125,18 @@
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
 					@if ( $i <= 3  ){
-						margin: 0.2rem 0 0.2rem;
+						margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin);
 					} @else {
 						$marginElm: ( $i - 3 ) * 1rem;
-						margin: 0.2rem $marginElm 0.2rem;
+						margin: var(--dash-element-common-margin) $marginElm var(--dash-element-common-margin);
 						
 						&:not(.multiline){
 							&:after {
-								transform: skew(-20deg, 0deg);
+								transform: skew(var(--dash-element-skew-right), 0deg);
 							}
 							
 							.round{
-								transform: skew(-20deg, 0deg);
+								transform: skew(var(--dash-element-skew-right), 0deg);
 							}
 						}
 					}
@@ -164,7 +164,7 @@
 			text-align: left;
 			
 			&:before {
-				border-width: 0 2px 0 0;
+				border-width: 0 var(--dash-element-border-width) 0 0;
 			}
 			
 			&:after {
@@ -174,10 +174,10 @@
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
 					$marginElm: ( $i - 2 ) * 1rem;
-					margin: 0.2rem 0 0.2rem $marginElm;
+					margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin) $marginElm;
 					
 					&.multiline{
-						margin: 0.2rem 0;
+						margin: var(--dash-element-common-margin) 0;
 					}
 				}
 			}
@@ -188,11 +188,11 @@
 			
 			&:not(.multiline){
 				&:before{
-					transform: skew(20deg, 0deg);
+					transform: skew(var(--dash-element-skew-left), 0deg);
 				}
 				
 				.round{
-					transform: skew(20deg, 0deg);
+					transform: skew(var(--dash-element-skew-left), 0deg);
 				}
 			}
 		}
@@ -200,8 +200,8 @@
 	}
 	
 	.round {
-		width: 2.5rem;
-		height: 2.5rem;
+		width: var(--dash-element-height);
+		height: var(--dash-element-height);
 		overflow: hidden;
 		background: var(--color-border);
 		transform-origin: bottom left;

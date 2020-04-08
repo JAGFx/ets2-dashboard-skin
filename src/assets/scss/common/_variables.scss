@@ -18,6 +18,18 @@
 	--color-red: #E00000;
 	--color-orange: #ff7300;
 	--color-green: #00E070;
+	--color-gray: #3C3F41;
 	--color-yellow: #E0E000;
 	--color-blue: #0CB4FF;
+	
+	--dash-element-skew: 20deg;
+	--dash-element-skew-left: var(--dash-element-skew);
+	--dash-element-skew-right: calc( -1 * var(--dash-element-skew) );
+	
+	--dash-element-height: 2.5rem;
+	--dash-element-multiline-height: 3.9rem;
+	--dash-element-border-width: 2px;
+	--dash-element-common-margin: .2rem;
+	
+	
 }

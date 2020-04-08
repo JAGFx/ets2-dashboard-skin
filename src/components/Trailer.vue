@@ -142,7 +142,7 @@
 					text-align: center;
 					
 					&.disabled {
-						color: #3C3F41;
+						color: var(--color-gray);
 					}
 				}
 				
