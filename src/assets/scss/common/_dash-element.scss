@@ -128,7 +128,7 @@
 						margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin);
 					} @else {
 						$marginElm: ( $i - 3 ) * 1rem;
-						margin: var(--dash-element-common-margin) $marginElm var(--dash-element-common-margin);
+						margin: var(--dash-element-common-margin) $marginElm var(--dash-element-common-margin) 0;
 						
 						&:not(.multiline){
 							&:after {
@@ -137,6 +137,9 @@
 							
 							.round{
 								transform: skew(var(--dash-element-skew-right), 0deg);
+								> * {
+									transform: skew(var(--dash-element-skew-left), 0deg);
+								}
 							}
 						}
 					}
@@ -178,6 +181,12 @@
 					
 					&.multiline{
 						margin: var(--dash-element-common-margin) 0;
+					}
+					
+					.round {
+						> * {
+							transform: skew(var(--dash-element-skew-right), 0deg);
+						}
 					}
 				}
 			}
