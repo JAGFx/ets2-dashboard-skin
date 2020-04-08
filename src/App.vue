@@ -47,10 +47,13 @@
 		mixins: [ utilsConfig ],
 		
 		data:    function () {
-			if ( process.env.VUE_APP_USE_FAKE_DATA )
-				return testData;
+			let data;
 			
-			return {
+			if ( process.env.VUE_APP_USE_FAKE_DATA )
+				data = testData;
+			
+			else
+				data =  {
 				game:       null,
 				controls:   null,
 				navigation: null,
@@ -59,18 +62,51 @@
 				trailers:   [],
 				log:        []
 			};
-		},
-		created() {
-			this.getConfigData()
-			.then( config => {
-				console.log( 'Plop', config );
-				
-				// TODO: Continue here - Add support for settings file
+		
+			return Object.assign( {}, data, {
+				configSettings: {},
+				maxSideElements: 7
 			} );
 		},
+		created() {
+			let that = this;
+			this.config_getConfigData()
+				.then( config => {
+					//console.log( 'Data', config );
+					that.configSettings = config;
+				} );
+		},
 		methods: {
-			setSelected: function ( selected ) {
-				this.selected = selected;
+			$elementIsEnabled: function( side, element ){
+				let enabledElements = [];
+				const config = JSON.parse( JSON.stringify( this.configSettings ) );
+				
+				if( side === 'right' )
+					enabledElements = config.right;
+				
+				//console.log( config, this.configSettings);
+				if( enabledElements === undefined )
+					return false;
+				
+				const indexElement = enabledElements.indexOf( element );
+				//console.log( indexElement, this.maxSideElements );
+				if( side === 'left' || side === 'right'){
+					if( indexElement > this.maxSideElements - 1 )
+						return false;
+				}
+				
+				return indexElement !== -1;
+			},
+			$elementsLength: function ( side ) {
+				let enabledElements = [];
+				const config = JSON.parse( JSON.stringify( this.configSettings ) );
+				
+				if( side === 'right' )
+					enabledElements = config.right;
+				
+				return ( enabledElements === undefined )
+				? 0
+					: enabledElements.length;
 			}
 		},
 		sockets: {

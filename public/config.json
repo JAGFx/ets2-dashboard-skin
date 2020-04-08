@@ -1,3 +1,15 @@
 {
-	"aa" : "bb"
+	"right": [
+		"oilTemperature",
+		"brakesTemperature",
+		"brakesAirPressure",
+		"fuel",
+		"fuelConsumption",
+		"cruiseControl",
+		"waterTemperature",
+		"batteryVoltage"
+	],
+	"middle": [
+	
+	]
 }

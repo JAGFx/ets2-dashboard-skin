@@ -9,9 +9,9 @@
 					<small>
 						<span>{{model.name}}</span>
 					</small>
-					<span>
+					<!--<span>
 					  {{(fuel.avgConsumption * 100).toFixed(1)}} l/100
-					</span>
+					</span>-->
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
@@ -35,44 +35,55 @@
 		</div>-->
 		
 		<ul class="dash-element right">
-			<li class="orange">
+			<li class="orange" v-if="elementIsEnabled( 'oilTemperature' )">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Oil_497867.svg">
 				</div>
 			</li>
-			<li class="red">
+			<li class="red" v-if="elementIsEnabled( 'brakesTemperature' )">
 				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Brake_light_457498.svg">
 				</div>
 			</li>
-			<li class="red">
+			<li class="red" v-if="elementIsEnabled( 'brakesAirPressure' )">
 				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
 				<div class="round"></div>
 			</li>
-			<li class="white">
+			<li class="white" v-if="elementIsEnabled( 'fuel' )">
 				<span>{{Math.round(fuel.value)}} L</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
 				</div>
 			</li>
-			<li v-bind:class="{ 'enabled' : cruiseControl.enabled, 'disabled' : !cruiseControl.enabled }">
+			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
+				<span>{{(fuel.avgConsumption * 100).toFixed(1)}}</span>
+				<div class="round">
+					<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+				</div>
+			</li>
+			<li v-bind:class="{ 'enabled' : cruiseControl.enabled, 'disabled' : !cruiseControl.enabled }" v-if="elementIsEnabled( 'cruiseControl' )">
 				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Cruise_Control_On_457475.svg">
 				</div>
 			</li>
-			<li class="blue">
+			<li class="blue" v-if="elementIsEnabled( 'waterTemperature' )">
 				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Water_Temperature_507610.svg">
 				</div>
 			</li>
-			<li class="blue">
+			<li class="blue" v-if="elementIsEnabled( 'batteryVoltage' )">
 				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Battery_1909381.svg">
+				</div>
+			</li>
+			<li class="disabled" v-for="i in indexEmptyElement()">
+				<span></span>
+				<div class="round">
 				</div>
 			</li>
 		</ul>
@@ -241,8 +252,8 @@
 </template>
 
 <script>
-	import Wheel       from '@/components/Wheel.vue';
-	import Window      from '@/components/Window.vue';
+	import Wheel    from '@/components/Wheel.vue';
+	import Window   from '@/components/Window.vue';
 	import utilsApp from '../utils/_app';
 	
 	export default {
@@ -277,11 +288,22 @@
 			'cruiseControl'
 		],
 		
-		data: function () {
-			return {};
-		},
-		
-		methods: {}
+		methods: {
+			indexEmptyElement: function () {
+				const elementLength = this.$parent.$elementsLength( 'right' );
+				const maxElement    = this.$parent.maxSideElements;
+				const diff          = maxElement - elementLength;
+				
+				//console.log( elementLength, maxElement, diff, this.currentEnabled );
+				
+				return (diff <= 0)
+					? 0
+					: diff;
+			},
+			elementIsEnabled:  function ( element ) {
+				return  this.$parent.$elementIsEnabled( 'right', element );
+			}
+		}
 	};
 </script>
 

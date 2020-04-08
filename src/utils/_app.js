@@ -12,13 +12,13 @@ import packageJson from '../../package.json';
 
 export default {
 	methods: {
-		getBasePathHost : () => {
+		app_getBasePathHost : () => {
 			return 'http://' + window.location.host + '/';
 		},
-		getVersion:      function () {
+		getVersion:           function () {
 			return packageJson.version;
 		},
-		getFlag:         function ( countryName ) {
+		getFlag:              function ( countryName ) {
 			const countryCode = countryList.getCode( countryName );
 			const flag        = emojiFlags.countryCode( countryCode );
 			

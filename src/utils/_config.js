@@ -12,11 +12,11 @@ import utilsApp from './_app';
 export default {
 	mixins: [ utilsApp ],
 	methods: {
-		getConfigData : function () {
-			const path = this.getBasePathHost() + 'config.json';
+		config_getConfigData : function () {
+			const path = this.app_getBasePathHost() + 'config.json';
 			return axios.get( path )
 				 .then( response => {
-					 console.log( 'Plop', response.data );
+					 //console.log( 'Config', response.data );
 					 return response.data;
 				 } );
 		}
