@@ -8,6 +8,10 @@ And then, use a best way to maintain the different dashboard.
 
 The first to be rework are my own dashboard. In the future, all dashboard in the *Funbit repository* will be include
 
+This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniffen/TruckSim-Telemetry-Demo)
+
+The server, was based on the [TruckSim-Telemetry](https://github.com/kniffen/TruckSim-Telemetry)
+
 ## Prerequisite
 
 ### scs-sdk-plugin
