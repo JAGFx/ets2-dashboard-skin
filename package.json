@@ -10,6 +10,7 @@
 		"server:build": "cd server && npx gulp"
 	},
 	"dependencies": {
+		"axios": "^0.19.2",
 		"core-js": "^2.6.5",
 		"country-list": "^2.2.0",
 		"emoji-flags": "^1.2.0",

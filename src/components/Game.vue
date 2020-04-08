@@ -21,7 +21,8 @@
 </template>
 
 <script>
-	import Window from '@/components/Window.vue';
+	import Window   from '@/components/Window.vue';
+	import utilsApp from '../utils/_app';
 	
 	export default {
 		name: 'Game',
@@ -29,6 +30,8 @@
 		components: {
 			Window
 		},
+		
+		mixins: [ utilsApp ],
 		
 		props: [
 			'timestamp',
@@ -60,10 +63,7 @@
 				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ this.double( date.getUTCHours() ) }:${ this.double( date.getUTCMinutes() ) }`;
-			},
-            getVersion: function () {
-                return this.$parent.getVersion();
-            }
+			}
 		}
 	};
 </script>

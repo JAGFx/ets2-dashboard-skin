@@ -11,7 +11,7 @@
 			</div>
 			<div class="job-data">
 				<small class="licencePlate">
-					<span class="flag">{{getFlag()}}</span>
+					<span class="flag">{{getFlag( licensePlate.country.id )}}</span>
 					<span v-if="hasTrailer()">{{licensePlate.value}}</span>
 					<span v-else>N/A</span>
 				</small>
@@ -80,7 +80,9 @@
 </template>
 
 <script>
-	import Window from '@/components/Window.vue';
+	import Window      from '@/components/Window.vue';
+	import utilsApp    from '../utils/_app';
+	import utilsConfig from '../utils/_config';
 	
 	export default {
 		name: 'Trailers',
@@ -88,6 +90,7 @@
 		components: {
 			Window
 		},
+		mixins: [ utilsApp, utilsConfig ],
 		/*components: { Window, Wheel },*/
 		
 		props: [
@@ -108,9 +111,6 @@
 		],
 		
 		methods: {
-			getFlag: function () {
-				return this.$parent.getFlag( this.licensePlate.country.id );
-			},
 			hasTrailer: function () {
 				return this.model.id.length !== 0;
 			}

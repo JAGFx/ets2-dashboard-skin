@@ -26,10 +26,9 @@
 	import Trailer     from '@/components/Trailer.vue';
 	import Truck       from '@/components/Truck.vue';
 	import Window      from '@/components/Window.vue';
+	
 	import testData    from './data/scs_sdk_plugin_parsed_data.json';
-	import countryList from 'country-list';
-	import emojiFlags  from 'emoji-flags';
-	import packageJson from '../package.json';
+	import utilsConfig from './utils/_config';
 	
 	export default {
 		name: 'app',
@@ -45,6 +44,8 @@
 			Events
 		},
 		
+		mixins: [ utilsConfig ],
+		
 		data:    function () {
 			if ( process.env.VUE_APP_USE_FAKE_DATA )
 				return testData;
@@ -59,22 +60,17 @@
 				log:        []
 			};
 		},
+		created() {
+			this.getConfigData()
+			.then( config => {
+				console.log( 'Plop', config );
+				
+				// TODO: Continue here - Add support for settings file
+			} );
+		},
 		methods: {
 			setSelected: function ( selected ) {
 				this.selected = selected;
-			},
-			getFlag:     function ( countryName ) {
-				const countryCode = countryList.getCode( countryName );
-				const flag        = emojiFlags.countryCode( countryCode );
-				
-				//console.log( countryName, countryCode, flag, flag.emoji );
-				
-				return (flag !== undefined)
-					? flag.emoji
-					: '🏳️';
-			},
-			getVersion: function () {
-				return packageJson.version;
 			}
 		},
 		sockets: {

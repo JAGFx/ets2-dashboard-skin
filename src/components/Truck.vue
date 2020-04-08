@@ -18,7 +18,7 @@
 						<span>{{Math.floor(100 * chassis.damage)}} %</span>
 					</div>
 					<span>
-						<span class="licencePlate"><span class="flag">{{getFlag()}}</span>{{licensePlate.value}}</span>
+						<span class="licencePlate"><span class="flag">{{getFlag( licensePlate.country.id )}}</span>{{licensePlate.value}}</span>
 					</span>
 				</div>
 			</div>
@@ -241,13 +241,16 @@
 </template>
 
 <script>
-	import Wheel  from '@/components/Wheel.vue';
-	import Window from '@/components/Window.vue';
+	import Wheel       from '@/components/Wheel.vue';
+	import Window      from '@/components/Window.vue';
+	import utilsApp from '../utils/_app';
 	
 	export default {
 		name: 'Truck',
 		
 		components: { Window, Wheel },
+		
+		mixins: [ utilsApp ],
 		
 		props: [
 			'brand',
@@ -278,20 +281,7 @@
 			return {};
 		},
 		
-		/*computed: {
-		 truckBrandLogo: function () {
-		 const url = '../assets/Truck/brands/' + this.brand.id + '.svg';
-		 console.log( this.brand, url );
-		 
-		 return url;
-		 }
-		 },*/
-		
-		methods: {
-			getFlag: function () {
-				return this.$parent.getFlag( this.licensePlate.country.id );
-			}
-		}
+		methods: {}
 	};
 </script>
 
