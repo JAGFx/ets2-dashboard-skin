@@ -12,10 +12,43 @@
 				<span class="value">{{Math.round(odometer)}}</span>
 				<small class="unit">km</small>
 			</div>
-			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
-				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
-				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
+			<div class="nav-bottom">
+				<!-- Left elements -->
+				<div class="nav-element-wrapper">
+					<div class="nav-element left">
+						<span>
+							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+						</span>
+					</div>
+					<div class="nav-element left">
+						<span>
+							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+						</span>
+					</div>
+				</div>
+				
+				<!-- Speed limit -->
+				<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
+					<div class="speedLimitKPH">{{speedLimit.kph}}</div>
+					<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
+				</div>
+				
+				<!-- Right elements -->
+				<div class="nav-element-wrapper">
+					<div class="nav-element right">
+						<span>
+							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+						</span>
+					</div>
+					<div class="nav-element right">
+						<span>
+							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+						</span>
+					</div>
+				</div>
+				
 			</div>
+			
 		</div>
 		<!--<div>
 			&lt;!&ndash;<div><b>Next rest stop:</b><div>{{formatNextRestStop()}}</div></div>

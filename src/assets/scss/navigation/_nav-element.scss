@@ -1,0 +1,89 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_nav-element.scss
+ * Date: 	09/04/2020
+ * Time: 	18:20
+ */
+
+.nav-bottom {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-top: .5rem;
+	
+	.nav-element-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		
+		.nav-element {
+			background: #00E070;
+			width: var(--nav-element-width);
+			height: var(--nav-element-width);
+			border: 2px solid;
+			background: var(--color-border);
+			border-bottom: none;
+			margin-bottom: .5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			
+			span > img {
+				width: 100%;
+				height: 100%;
+				padding: 0.3rem;
+			}
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+			
+			/* TODO Set different color */
+			
+			&.left {
+				transform: skew(var(--dash-element-skew-left));
+				border-image: linear-gradient(
+						45deg,
+						transparent,
+						var(--color-red)
+				) 1;
+				border-left: none;
+				
+				span {
+					transform: skew(var(--dash-element-skew-right));
+				}
+				
+				@for $i from 1 through 2 {
+					&:nth-child(#{$i}) {
+						$marginElm: ( $i - 1 ) * 1.8rem;
+						margin-left: $marginElm;
+					}
+				}
+			}
+			
+			&.right {
+				transform: skew(var(--dash-element-skew-right));
+				border-image: linear-gradient(
+						-45deg,
+						transparent,
+						var(--color-red)
+				) 1;
+				border-right: none;
+				
+				span {
+					transform: skew(var(--dash-element-skew-left));
+				}
+				
+				@for $i from 1 through 2 {
+					&:nth-child(#{$i}) {
+						$marginElm: ( $i - 1 ) * 1.8rem;
+						margin-right: $marginElm;
+					}
+				}
+			}
+		}
+	}
+}
