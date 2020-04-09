@@ -68,4 +68,4 @@ $ npm run dashboard:dev
 ## License
 Under the [MIT License](LICENSE)
 
-© JAGFx - het@emmanuel-smith.me
+© JAGFx - hey@emmanuel-smith.me
