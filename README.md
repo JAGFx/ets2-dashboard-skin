@@ -10,7 +10,7 @@ The first to be rework are my own dashboard. In the future, all dashboard in the
 
 This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniffen/TruckSim-Telemetry-Demo)
 
-The server, was based on the [TruckSim-Telemetry](https://github.com/kniffen/TruckSim-Telemetry)
+![Screenshot](screenshot.png)
 
 ## Prerequisite
 
@@ -57,7 +57,15 @@ $ nano .env.local
 > VUE_APP_USE_FAKE_DATA=true
 ```
 
+### Config data
+See [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md)
+
 ### Start development server
 ````bash
 $ npm run dashboard:dev
 ````
+
+## License
+Under the [MIT License](LICENSE)
+
+© JAGFx - het@emmanuel-smith.me
