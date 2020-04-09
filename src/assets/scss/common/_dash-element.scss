@@ -56,13 +56,6 @@
 			}
 		}
 		
-		&.red {
-			color: var(--color-red);
-			
-			&:after, &:before {
-				border-color: var(--color-red);
-			}
-		}
 		
 		&.blue {
 			color: var(--color-blue);
@@ -77,6 +70,14 @@
 			
 			&:after, &:before {
 				border-color: var(--color-orange);
+			}
+		}
+		
+		&.red {
+			color: var(--color-red);
+			
+			&:after, &:before {
+				border-color: var(--color-red);
 			}
 		}
 		

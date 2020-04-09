@@ -41,17 +41,24 @@
 					<img alt="" src="../assets/img/Truck/noun_Oil_497867.svg">
 				</div>
 			</li>
-			<li class="red" v-if="elementIsEnabled( 'brakesTemperature' )">
+			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
 				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Brake_light_457498.svg">
 				</div>
 			</li>
-			<li class="red" v-if="elementIsEnabled( 'brakesAirPressure' )">
+			<li class="blue" v-bind:class="{
+					'orange': brakes.airPressure.warning.enabled,
+					'red': brakes.airPressure.emergency.enabled
+				}"
+				v-if="elementIsEnabled( 'brakesAirPressure' )">
 				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
 				<div class="round"></div>
 			</li>
-			<li class="white" v-if="elementIsEnabled( 'fuel' )">
+			<li class="blue" v-bind:class="{
+					'orange': fuel.warning.enabled
+				}"
+				v-if="elementIsEnabled( 'fuel' )">
 				<span>{{Math.round(fuel.value)}} L</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
@@ -69,13 +76,19 @@
 					<img alt="" src="../assets/img/Truck/noun_Cruise_Control_On_457475.svg">
 				</div>
 			</li>
-			<li class="blue" v-if="elementIsEnabled( 'waterTemperature' )">
+			<li class="blue" v-bind:class="{
+					'orange': engine.waterTemperature.warning.enabled
+				}"
+				v-if="elementIsEnabled( 'waterTemperature' )">
 				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Water_Temperature_507610.svg">
 				</div>
 			</li>
-			<li class="blue" v-if="elementIsEnabled( 'batteryVoltage' )">
+			<li class="blue" v-bind:class="{
+					'orange': engine.batteryVoltage.warning.enabled
+				}"
+				v-if="elementIsEnabled( 'batteryVoltage' )">
 				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<img alt="" src="../assets/img/Truck/noun_Battery_1909381.svg">
