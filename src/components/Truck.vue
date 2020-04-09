@@ -4,7 +4,7 @@
 			<div class="theTruk">
 				<div class="truck-data">
 					<!--FIXME: Do not show the picture because the final path was wrong-->
-					<img :src="'../assets/Truck/brands/'+ brand.id+'.svg'" class="brand" alt="">
+					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
 						<span>{{model.name}}</span>
@@ -369,6 +369,7 @@
 				
 				.brand {
 					width: 2rem;
+					max-height: 24px;
 					margin-right: 0.5rem;
 				}
 			}
