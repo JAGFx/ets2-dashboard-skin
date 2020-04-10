@@ -12,12 +12,13 @@
 	border-bottom: 2px solid;
 	/*border-top: 2px solid;*/
 	border-image: linear-gradient(to right, transparent, var(--color-red), transparent) 1;
-	margin-bottom: 1.5rem;
+	//margin-bottom: 1.5rem;
+	margin: 0 3rem 1.5rem;
 	
 	.value {
-		font-family: suprrpg !important;
-		letter-spacing: 0.4rem;
-		transform: skew(19deg, 0deg);
+		//font-family: suprrpg !important;
+		letter-spacing: 0.2rem;
+		font-size: .9rem;
 		/*font-size: 5.5rem;
 		line-height: 5rem;*/
 	}

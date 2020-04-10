@@ -1,8 +1,10 @@
 <template>
 	<div class="nav text-center">
 		<div class="nav-wrapper">
-			<div :class="transmission.shifterType" class="truck-gear">
-				<span class="value">{{getTrueGear()}}</span>
+			<!-- Speed limit -->
+			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
+				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
+				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
 			</div>
 			<div class="speed">
 				<span class="value">{{speed.kph}}</span>
@@ -15,34 +17,32 @@
 			<div class="nav-bottom">
 				<!-- Left elements -->
 				<div class="nav-element-wrapper">
-					<div class="nav-element left">
+					<div :class="{ 'red': lights.parking.enabled }" class="nav-element left">
 						<span>
-							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+							<img alt="pk" src="">
 						</span>
 					</div>
-					<div class="nav-element left">
+					<div :class="{ 'orange': lights.beacon.enabled }" class="nav-element left">
 						<span>
-							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+							<img alt="bc" src="">
 						</span>
 					</div>
 				</div>
 				
-				<!-- Speed limit -->
-				<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
-					<div class="speedLimitKPH">{{speedLimit.kph}}</div>
-					<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
+				<div :class="transmission.shifterType" class="truck-gear">
+					<span class="value">{{getTrueGear()}}</span>
 				</div>
 				
 				<!-- Right elements -->
 				<div class="nav-element-wrapper">
-					<div class="nav-element right">
+					<div :class="{ 'green': lights.beamLow.enabled }" class="nav-element right">
 						<span>
-							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+							<img alt="bl" src="">
 						</span>
 					</div>
-					<div class="nav-element right">
+					<div :class="{ 'blue': lights.beamHigh.enabled }" class="nav-element right">
 						<span>
-							<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+							<img alt="bl" src="">
 						</span>
 					</div>
 				</div>
@@ -76,7 +76,8 @@
 			'transmission',
 			'speed',
 			'brand',
-			'odometer'
+			'odometer',
+			'lights'
 		],
 		
 		data: function () {

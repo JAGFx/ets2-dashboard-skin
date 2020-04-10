@@ -1,0 +1,33 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_mixins-nav-element.scss
+ * Date: 	10/04/2020
+ * Time: 	20:16
+ */
+
+@mixin navElm( $name, $color ){
+	&.#{$name}{
+		color: $color;
+	}
+	
+	&.left {
+		&.#{$name}{
+			border-image: linear-gradient(
+					45deg,
+					transparent,
+					$color
+			) 1;
+		}
+	}
+	
+	&.right {
+		&.#{$name}{
+			border-image: linear-gradient(
+					-45deg,
+					transparent,
+					$color
+			) 1;
+		}
+	}
+}

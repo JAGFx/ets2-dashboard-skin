@@ -6,6 +6,8 @@
  * Time: 	18:20
  */
 
+@import "mixins-nav-element";
+
 .nav-bottom {
 	display: flex;
 	justify-content: space-around;
@@ -19,7 +21,6 @@
 		align-items: center;
 		
 		.nav-element {
-			background: #00E070;
 			width: var(--nav-element-width);
 			height: var(--nav-element-width);
 			border: 2px solid;
@@ -30,6 +31,7 @@
 			justify-content: center;
 			align-items: center;
 			overflow: hidden;
+			color: var(--color-gray);
 			
 			span > img {
 				width: 100%;
@@ -41,16 +43,22 @@
 				margin-bottom: 0;
 			}
 			
+			@include navElm( 'red', var(--color-red) );
+			@include navElm( 'green', var(--color-green) );
+			@include navElm( 'orange', var(--color-orange) );
+			@include navElm( 'blue', var(--color-blue) );
+			
+			
 			/* TODO Set different color */
 			
 			&.left {
 				transform: skew(var(--dash-element-skew-left));
+				border-left: none;
 				border-image: linear-gradient(
 						45deg,
 						transparent,
-						var(--color-red)
+						var(--color-gray)
 				) 1;
-				border-left: none;
 				
 				span {
 					transform: skew(var(--dash-element-skew-right));
@@ -66,12 +74,12 @@
 			
 			&.right {
 				transform: skew(var(--dash-element-skew-right));
+				border-right: none;
 				border-image: linear-gradient(
 						-45deg,
 						transparent,
-						var(--color-red)
+						var(--color-gray)
 				) 1;
-				border-right: none;
 				
 				span {
 					transform: skew(var(--dash-element-skew-left));

@@ -18,12 +18,13 @@
 		margin: var(--dash-element-common-margin) 0;
 		position: relative;
 		height: var(--dash-element-height);
+		border: 0 solid;
 		
 		span {
 			font-size: 1.5rem;
 		}
 		
-		&:after, &:before {
+		/*&:after, &:before {
 			content: ' ';
 			width: 1rem;
 			height: var(--dash-element-height);
@@ -31,15 +32,15 @@
 			border-color: var(--color-red);
 			border-style: solid;
 			transform-origin: bottom left;
-		}
+		}*/
 		
-		&.multiline{
+		&.multiline {
 			height: var(--dash-element-multiline-height);
 			text-align: left;
 			
-			&:after, &:before{
+			/*&:after, &:before{
 				height: var(--dash-element-multiline-height);
-			}
+			}*/
 			
 			.round {
 				height: var(--dash-element-multiline-height);
@@ -57,8 +58,11 @@
 		}
 		
 		
+		--color-dash-element-border: var(--color-red);
+		
 		&.blue {
 			color: var(--color-blue);
+			--color-dash-element-border: var(--color-blue);
 			
 			&:after, &:before {
 				border-color: var(--color-blue);
@@ -67,6 +71,7 @@
 		
 		&.orange {
 			color: var(--color-orange);
+			--color-dash-element-border: var(--color-orange);
 			
 			&:after, &:before {
 				border-color: var(--color-orange);
@@ -75,6 +80,7 @@
 		
 		&.red {
 			color: var(--color-red);
+			--color-dash-element-border: var(--color-red);
 			
 			&:after, &:before {
 				border-color: var(--color-red);
@@ -83,6 +89,7 @@
 		
 		&.white {
 			color: var(--color-white);
+			--color-dash-element-border: var(--color-white);
 			
 			&:after, &:before {
 				border-color: var(--color-white);
@@ -91,6 +98,7 @@
 		
 		&.green {
 			color: var(--color-green);
+			--color-dash-element-border: var(--color-green);
 			
 			&:after, &:before {
 				border-color: var(--color-green);
@@ -99,6 +107,7 @@
 		
 		&.disabled {
 			color: var(--color-gray);
+			--color-dash-element-border: var(--color-gray);
 			
 			&:after, &:before {
 				border-color: var(--color-gray);
@@ -114,39 +123,39 @@
 			background: linear-gradient(to left, var(--color-border), transparent);
 			justify-content: flex-end;
 			text-align: right;
+			border-right-width: 2px;
 			
-			&:after {
+			/*&:after {
 				border-width: 0 0 0 var(--dash-element-border-width);
 			}
 			
 			&:before {
 				content: none;
-			}
+			}*/
 			
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
-					@if ( $i <= 3  ){
-						margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin);
+					
+					@if ($i <= 3) {
+						margin: var(--dash-element-common-margin) 0.5rem var(--dash-element-common-margin) 1.5rem;
 					} @else {
 						$marginElm: ( $i - 3 ) * 1rem;
-						margin: var(--dash-element-common-margin) $marginElm var(--dash-element-common-margin) 0;
+						margin: var(--dash-element-common-margin) $marginElm var(--dash-element-common-margin) 2rem;
+						transform: skew(var(--dash-element-skew-right), 0deg);
 						
-						&:not(.multiline){
-							&:after {
+						&:not(.multiline) {
+							/*&:after {
 								transform: skew(var(--dash-element-skew-right), 0deg);
-							}
+							}*/
 							
-							.round{
-								transform: skew(var(--dash-element-skew-right), 0deg);
-								> * {
-									transform: skew(var(--dash-element-skew-left), 0deg);
-								}
+							.round > *, span {
+								transform: skew(var(--dash-element-skew-left), 0deg);
 							}
 						}
 					}
 					
 					
-					&.multiline{
+					&.multiline {
 						margin-right: 1rem;
 					}
 				}
@@ -155,6 +164,7 @@
 			.round {
 				margin-left: 1rem;
 			}
+			
 		}
 		
 	}
@@ -166,29 +176,34 @@
 			background: linear-gradient(to left, transparent, var(--color-border));
 			justify-content: flex-start;
 			text-align: left;
+			border-left-width: 2px;
 			
-			&:before {
-				border-width: 0 var(--dash-element-border-width) 0 0;
+			
+			/*&:before {
+				content: none;
 			}
 			
 			&:after {
 				content: none;
-			}
+			}*/
 			
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
 					$marginElm: ( $i - 2 ) * 1rem;
-					margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin) $marginElm;
+					margin: var(--dash-element-common-margin) 1.5rem var(--dash-element-common-margin) $marginElm;
 					
-					&.multiline{
-						margin: var(--dash-element-common-margin) 0;
+					&:not(.multiline) {
+						transform: skew(var(--dash-element-skew-left), 0deg);
 					}
 					
-					.round {
+					&.multiline {
+						margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin) 0.5rem;
+					}
+					
+					/*.round {
 						> * {
-							transform: skew(var(--dash-element-skew-right), 0deg);
 						}
-					}
+					}*/
 				}
 			}
 			
@@ -196,13 +211,13 @@
 				margin-right: 1rem;
 			}
 			
-			&:not(.multiline){
-				&:before{
+			&:not(.multiline) {
+				/*&:before{
 					transform: skew(var(--dash-element-skew-left), 0deg);
-				}
+				}*/
 				
-				.round{
-					transform: skew(var(--dash-element-skew-left), 0deg);
+				.round > *, span {
+					transform: skew(var(--dash-element-skew-right), 0deg);
 				}
 			}
 		}
