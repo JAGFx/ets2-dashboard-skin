@@ -17,7 +17,7 @@
 			<div class="nav-bottom">
 				<!-- Left elements -->
 				<div class="nav-element-wrapper">
-					<div :class="{ 'red': lights.parking.enabled }" class="nav-element left">
+					<div :class="{ 'red': brakes.parking.enabled }" class="nav-element left">
 						<span>
 							<img alt="pk" src="">
 						</span>
@@ -35,12 +35,12 @@
 				
 				<!-- Right elements -->
 				<div class="nav-element-wrapper">
-					<div :class="{ 'green': lights.beamLow.enabled }" class="nav-element right">
+					<div :class="{ 'blue': lights.beamHigh.enabled && lights.beamLow.enabled }" class="nav-element right">
 						<span>
-							<img alt="bl" src="">
+							<img alt="bh" src="">
 						</span>
 					</div>
-					<div :class="{ 'blue': lights.beamHigh.enabled }" class="nav-element right">
+					<div :class="{ 'green': lights.beamLow.enabled }" class="nav-element right">
 						<span>
 							<img alt="bl" src="">
 						</span>
@@ -77,12 +77,9 @@
 			'speed',
 			'brand',
 			'odometer',
-			'lights'
+			'lights',
+			'brakes'
 		],
-		
-		data: function () {
-			return {};
-		},
 		
 		methods: {
 			formatTime:         function ( time ) {

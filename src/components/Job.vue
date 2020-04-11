@@ -31,21 +31,21 @@
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }">
 				<div class="round">
-					<img alt=""  src="../assets/img/Job/noun_Money_285330.svg">
+					<img alt="" src="../assets/img/Job/noun_Money_285330.svg">
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }">
+			<li :class="{ 'disabled': distance === 0  }">
 				<div class="round">
 					<img alt="" src="../assets/img/Job/noun_measure_1625696.svg">
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="distance === 0">N/A</span>
 				<span v-else>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }">
 				<div class="round">
-					<img alt=""  src="../assets/img/Job/noun_Weight_1644747.svg">
+					<img alt="" src="../assets/img/Job/noun_Weight_1644747.svg">
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>{{(cargo.mass / 1000).toFixed()}} t</span>
@@ -102,7 +102,7 @@
 				return `${ days[ date.getUTCDay() ] } ${ double( date.getUTCHours() ) }:${ double( date.getUTCMinutes() ) }`;
 			},
 			hasNoJob:           function () {
-				return this.plannedDistance.km <= 0;
+				return (this.cargo.id.length === 0);
 			}
 		}
 	};
