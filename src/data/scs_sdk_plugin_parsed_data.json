@@ -454,10 +454,10 @@
          "mph": 21
       },
       "cruiseControl": {
-         "value": 0,
-         "enabled": false,
-         "kph": 0,
-         "mph": 0
+         "value" :   0,
+         "enabled" : true,
+         "kph" :     80,
+         "mph" :     0
       },
       "cabin": {
          "damage": 0,

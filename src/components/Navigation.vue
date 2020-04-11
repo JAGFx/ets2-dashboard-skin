@@ -1,30 +1,17 @@
 <template>
 	<div class="nav text-center">
 		<div class="nav-wrapper">
-			<!-- Speed limit -->
-			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
-				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
-				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
-			</div>
-			<div class="speed">
-				<span class="value">{{speed.kph}}</span>
-				<small class="unit">km/h</small>
-			</div>
-			<div class="odometer">
-				<span class="value">{{Math.round(odometer)}}</span>
-				<small class="unit">km</small>
-			</div>
 			<div class="nav-bottom">
 				<!-- Left elements -->
 				<div class="nav-element-wrapper">
 					<div :class="{ 'red': brakes.parking.enabled }" class="nav-element left">
 						<span>
-							<img alt="pk" src="">
+							<img alt="pk" src="../assets/img/Navigation/parking_brake.png">
 						</span>
 					</div>
-					<div :class="{ 'orange': lights.beacon.enabled }" class="nav-element left">
+					<div :class="{ 'green': lights.beacon.enabled }" class="nav-element left">
 						<span>
-							<img alt="bc" src="">
+							<img alt="bc" src="../assets/img/Navigation/beacon.png">
 						</span>
 					</div>
 				</div>
@@ -37,18 +24,31 @@
 				<div class="nav-element-wrapper">
 					<div :class="{ 'blue': lights.beamHigh.enabled && lights.beamLow.enabled }" class="nav-element right">
 						<span>
-							<img alt="bh" src="">
+							<img alt="bh" src="../assets/img/Navigation/beam_high.png">
 						</span>
 					</div>
 					<div :class="{ 'green': lights.beamLow.enabled }" class="nav-element right">
 						<span>
-							<img alt="bl" src="">
+							<img alt="bl" src="../assets/img/Navigation/beam_low.png">
 						</span>
 					</div>
 				</div>
-				
-			</div>
 			
+			</div>
+			<div class="speed">
+				<span class="value">{{speed.kph}}</span>
+				<small class="unit">km/h</small>
+			</div>
+			<div class="odometer">
+				<span class="value">{{Math.round(odometer)}}</span>
+				<small class="unit">km</small>
+			</div>
+			<!-- Speed limit -->
+			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
+				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
+				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
+			</div>
+		
 		</div>
 		<!--<div>
 			&lt;!&ndash;<div><b>Next rest stop:</b><div>{{formatNextRestStop()}}</div></div>

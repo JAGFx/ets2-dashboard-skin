@@ -34,6 +34,19 @@
 			transform-origin: bottom left;
 		}*/
 		
+		.round {
+			width: var(--dash-element-height);
+			height: var(--dash-element-height);
+			overflow: hidden;
+			background: var(--color-border);
+			transform-origin: bottom left;
+			padding: 0 .5rem;
+			vertical-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
 		&.multiline {
 			height: var(--dash-element-multiline-height);
 			text-align: left;
@@ -58,60 +71,40 @@
 		}
 		
 		
-		--color-dash-element-border: var(--color-red);
-		
 		&.blue {
 			color: var(--color-blue);
-			--color-dash-element-border: var(--color-blue);
-			
-			&:after, &:before {
-				border-color: var(--color-blue);
-			}
+			border-color: var(--color-blue);
 		}
 		
 		&.orange {
 			color: var(--color-orange);
-			--color-dash-element-border: var(--color-orange);
-			
-			&:after, &:before {
-				border-color: var(--color-orange);
-			}
+			border-color: var(--color-orange);
 		}
 		
 		&.red {
 			color: var(--color-red);
-			--color-dash-element-border: var(--color-red);
-			
-			&:after, &:before {
-				border-color: var(--color-red);
-			}
+			border-color: var(--color-red);
+		}
+		
+		
+		&.green {
+			color: var(--color-green);
+			border-color: var(--color-green);
 		}
 		
 		&.white {
 			color: var(--color-white);
-			--color-dash-element-border: var(--color-white);
-			
-			&:after, &:before {
-				border-color: var(--color-white);
-			}
+			border-color: var(--color-white);
 		}
 		
-		&.green {
-			color: var(--color-green);
-			--color-dash-element-border: var(--color-green);
-			
-			&:after, &:before {
-				border-color: var(--color-green);
-			}
+		&.default {
+			color: var(--color-white);
+			border-color: var(--color-red);
 		}
 		
 		&.disabled {
 			color: var(--color-gray);
-			--color-dash-element-border: var(--color-gray);
-			
-			&:after, &:before {
-				border-color: var(--color-gray);
-			}
+			border-color: var(--color-gray);
 		}
 		
 	}
@@ -124,14 +117,6 @@
 			justify-content: flex-end;
 			text-align: right;
 			border-right-width: 2px;
-			
-			/*&:after {
-				border-width: 0 0 0 var(--dash-element-border-width);
-			}
-			
-			&:before {
-				content: none;
-			}*/
 			
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
@@ -222,15 +207,5 @@
 			}
 		}
 		
-	}
-	
-	.round {
-		width: var(--dash-element-height);
-		height: var(--dash-element-height);
-		overflow: hidden;
-		background: var(--color-border);
-		transform-origin: bottom left;
-		padding: 0 .5rem;
-		vertical-align: center;
 	}
 }

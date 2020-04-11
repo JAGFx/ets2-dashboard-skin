@@ -1,0 +1,9 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127 112.41">
+	<defs>
+		<style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:8px;}</style>
+	</defs>
+	<title>air-pressure</title>
+	<circle class="cls-1" cx="63.5" cy="56.21" r="47.5" />
+	<path d="M31,107.79a55.42,55.42,0,0,1,0-89.9V8.32a63.45,63.45,0,0,0,0,109.05Z" transform="translate(0 -6.63)" />
+	<path d="M93,6.63v9.23a55.44,55.44,0,0,1,0,94v9.23A63.46,63.46,0,0,0,93,6.63Z" transform="translate(0 -6.63)" />
+</svg>
