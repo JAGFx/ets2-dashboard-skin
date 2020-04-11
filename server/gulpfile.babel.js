@@ -16,4 +16,4 @@ function build() {
 exports.build = build;
 exports.watch = watch;
 
-exports.default = gulp.series( build, watch );
+exports.default = gulp.series( build );
