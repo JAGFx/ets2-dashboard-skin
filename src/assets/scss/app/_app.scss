@@ -1,0 +1,27 @@
+/**
+ * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
+ * project:	customDefault
+ * file: 	_app.scss
+ * Date: 	11-Apr-20
+ * Time: 	14:01
+ */
+
+body, #app {
+	background: var(--color-bg) !important;
+}
+
+main.waiting {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	h1 {
+		width: 100%;
+		background: var(--color-gray);
+		border: 2px solid var(--color-red);
+		border-width: 2px 0;
+		text-align: center;
+		margin: 0;
+		padding: 1rem 0 1.5rem;
+	}
+}

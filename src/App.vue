@@ -1,7 +1,9 @@
 <template>
-	<div id="waiting" v-if="!game || !game.sdkActive">
-		<h1>Waiting on connection...</h1>
-	</div>
+	<main class="waiting" v-if="!game || !game.sdkActive">
+		<h1>
+			<span class="animated flipInX infinite">Waiting on connection...</span>
+		</h1>
+	</main>
 	<main :class="`${game && game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
 		<Game id="game" v-bind="{...game}" />
 		<div class="wrapper">
@@ -18,14 +20,14 @@
 </template>
 
 <script>
-	import Controls    from '@/components/Controls.vue';
-	import Events      from '@/components/Events.vue';
-	import Game        from '@/components/Game.vue';
-	import Job         from '@/components/Job.vue';
-	import Navigation  from '@/components/Navigation.vue';
-	import Trailer     from '@/components/Trailer.vue';
-	import Truck       from '@/components/Truck.vue';
-	import Window      from '@/components/Window.vue';
+	import Controls   from '@/components/Controls.vue';
+	import Events     from '@/components/Events.vue';
+	import Game       from '@/components/Game.vue';
+	import Job        from '@/components/Job.vue';
+	import Navigation from '@/components/Navigation.vue';
+	import Trailer    from '@/components/Trailer.vue';
+	import Truck      from '@/components/Truck.vue';
+	import Window     from '@/components/Window.vue';
 	
 	import testData    from './data/scs_sdk_plugin_parsed_data.json';
 	import utilsConfig from './utils/_config';
@@ -49,22 +51,22 @@
 		data:    function () {
 			let data;
 			
-			if ( process.env.VUE_APP_USE_FAKE_DATA )
+			if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 				data = testData;
 			
 			else
-				data =  {
-				game:       null,
-				controls:   null,
-				navigation: null,
-				job:        null,
-				truck:      null,
-				trailers:   [],
-				log:        []
-			};
-		
+				data = {
+					game:       null,
+					controls:   null,
+					navigation: null,
+					job:        null,
+					truck:      null,
+					trailers:   [],
+					log:        []
+				};
+			
 			return Object.assign( {}, data, {
-				configSettings: {},
+				configSettings:  {},
 				maxSideElements: 7
 			} );
 		},
@@ -77,35 +79,35 @@
 				} );
 		},
 		methods: {
-			$elementIsEnabled: function( side, element ){
+			$elementIsEnabled: function ( side, element ) {
 				let enabledElements = [];
-				const config = JSON.parse( JSON.stringify( this.configSettings ) );
+				const config        = JSON.parse( JSON.stringify( this.configSettings ) );
 				
-				if( side === 'right' )
+				if ( side === 'right' )
 					enabledElements = config.right;
 				
 				//console.log( config, this.configSettings);
-				if( enabledElements === undefined )
+				if ( enabledElements === undefined )
 					return false;
 				
 				const indexElement = enabledElements.indexOf( element );
 				//console.log( indexElement, this.maxSideElements );
-				if( side === 'left' || side === 'right'){
-					if( indexElement > this.maxSideElements - 1 )
+				if ( side === 'left' || side === 'right' ) {
+					if ( indexElement > this.maxSideElements - 1 )
 						return false;
 				}
 				
 				return indexElement !== -1;
 			},
-			$elementsLength: function ( side ) {
+			$elementsLength:   function ( side ) {
 				let enabledElements = [];
-				const config = JSON.parse( JSON.stringify( this.configSettings ) );
+				const config        = JSON.parse( JSON.stringify( this.configSettings ) );
 				
-				if( side === 'right' )
+				if ( side === 'right' )
 					enabledElements = config.right;
 				
-				return ( enabledElements === undefined )
-				? 0
+				return (enabledElements === undefined)
+					? 0
 					: enabledElements.length;
 			}
 		},
@@ -134,6 +136,8 @@
 	@import "assets/scss/common/damage";
 	@import "assets/scss/common/dash-element";
 	
+	@import "assets/scss/app/app";
+	
 	* {
 		margin: 0;
 		padding: 0;
@@ -147,7 +151,7 @@
 		text-align: center;
 	}
 	
-	.hidden{
+	.hidden {
 		visibility: hidden;
 	}
 	
@@ -195,13 +199,6 @@
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-	}
-	
-	#waiting {
-		background-color: var(--color-red);
-		display: grid;
-		justify-items: center;
-		align-items: center;
 	}
 	
 	main {
