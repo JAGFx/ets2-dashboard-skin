@@ -19,8 +19,12 @@ export default {
 			return packageJson.version;
 		},
 		getFlag:              function ( countryName ) {
-			const countryCode = countryList.getCode( countryName );
-			const flag        = emojiFlags.countryCode( countryCode );
+			let flag = undefined;
+			
+			if ( countryName.length !== 0 ) {
+				const countryCode = countryList.getCode( countryName );
+				flag              = emojiFlags.countryCode( countryCode );
+			}
 			
 			//console.log( countryName, countryCode, flag, flag.emoji );
 			
