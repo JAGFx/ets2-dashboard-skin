@@ -4,16 +4,26 @@
 			<div class="nav-bottom">
 				<!-- Left elements -->
 				<div class="nav-element-wrapper">
+					<!-- Brake parking -->
 					<div :class="{ 'red': brakes.parking.enabled }" class="nav-element left">
 						<span>
 							<i class="icon-parking_brakes"></i>
 						</span>
 					</div>
-					<div :class="{ 'green': lights.beacon.enabled }" class="nav-element left">
+					
+					<!-- Retarder -->
+					<div :class="{ 'green': brakes.retarder.level > 0 }" class="nav-element left">
+						<span>
+							<i class="icon-retarder"></i>
+						</span>
+					</div>
+					
+					<!-- Beacon -->
+					<!--<div :class="{ 'green': lights.beacon.enabled }" class="nav-element left">
 						<span>
 							<i class="icon-beacons"></i>
 						</span>
-					</div>
+					</div>-->
 				</div>
 				
 				<div :class="transmission.shifterType" class="truck-gear">
@@ -22,12 +32,17 @@
 				
 				<!-- Right elements -->
 				<div class="nav-element-wrapper">
-					<div :class="{ 'blue': lights.beamHigh.enabled && lights.beamLow.enabled }" class="nav-element right">
+					<!-- Beam high -->
+					<div :class="{ 'blue': lights.beamHigh.enabled
+							&& lights.beamLow.enabled
+							&& brakes.motor.enabled }" class="nav-element right">
 						<span>
 							<i class="icon-beam_high"></i>
 						</span>
 					</div>
-					<div :class="{ 'green': lights.beamLow.enabled }" class="nav-element right">
+					
+					<!-- Beam low -->
+					<div :class="{ 'green': lights.beamLow.enabled && brakes.motor.enabled }" class="nav-element right">
 						<span>
 							<i class="icon-beam_low"></i>
 						</span>

@@ -237,7 +237,7 @@
       "brakes": {
          "retarder": {
             "steps": 4,
-            "level": 0
+            "level" : 2
          },
          "airPressure": {
             "warning": {
@@ -254,10 +254,10 @@
             "value": 31.632246017456055
          },
          "parking": {
-            "enabled": false
+            "enabled" : true
          },
          "motor": {
-            "enabled": false
+            "enabled" : true
          }
       },
       "wheels": [
@@ -380,13 +380,13 @@
             "enabled": false
          },
          "beamLow": {
-            "enabled": false
+            "enabled" : true
          },
          "beamHigh": {
-            "enabled": false
+            "enabled" : true
          },
          "beacon": {
-            "enabled": false
+            "enabled" : true
          },
          "brake": {
             "enabled": false

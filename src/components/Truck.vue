@@ -35,18 +35,38 @@
 		</div>-->
 		
 		<ul class="dash-element right">
-			<li class="orange" v-if="elementIsEnabled( 'oilTemperature' )">
-				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
+			<!-- Cruise control -->
+			<li v-bind:class="{
+					'green' : cruiseControl.enabled,
+					'disabled' : !cruiseControl.enabled
+				}"
+				v-if="elementIsEnabled( 'cruiseControl' )">
+				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
 				<div class="round">
-					<i class="icon-oil"></i>
+					<i class="icon-cruise_control"></i>
 				</div>
 			</li>
-			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
-				<span>{{Math.round(brakes.temperature.value)}} °C</span>
+			
+			<!-- Fuel -->
+			<li class="blue" v-bind:class="{
+					'orange': fuel.warning.enabled
+				}"
+				v-if="elementIsEnabled( 'fuel' )">
+				<span>{{Math.round(fuel.value)}} L</span>
 				<div class="round">
-					<i class="icon-startpoint"></i>
+					<i class="icon-fuel"></i>
 				</div>
 			</li>
+			
+			<!-- Fuel consumption -->
+			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
+				<span>{{(fuel.avgConsumption * 100).toFixed(1)}}</span>
+				<div class="round">
+					<i class="icon-fuel_consumption"></i>
+				</div>
+			</li>
+			
+			<!-- Air pressure -->
 			<li class="blue" v-bind:class="{
 					'orange': brakes.airPressure.warning.enabled,
 					'red': brakes.airPressure.emergency.enabled
@@ -57,31 +77,24 @@
 					<i class="icon-air_pressure"></i>
 				</div>
 			</li>
-			<li class="blue" v-bind:class="{
-					'orange': fuel.warning.enabled
-				}"
-				v-if="elementIsEnabled( 'fuel' )">
-				<span>{{Math.round(fuel.value)}} L</span>
+			
+			<!-- Oil temperature -->
+			<li class="orange" v-if="elementIsEnabled( 'oilTemperature' )">
+				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
-					<i class="icon-fuel"></i>
+					<i class="icon-oil"></i>
 				</div>
 			</li>
-			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
-				<span>{{(fuel.avgConsumption * 100).toFixed(1)}}</span>
+			
+			<!-- Brakes temparature -->
+			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
+				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
-					<i class="icon-fuel_consumption"></i>
+					<i class="icon-startpoint"></i>
 				</div>
 			</li>
-			<li v-bind:class="{
-					'green' : cruiseControl.enabled,
-					'disabled' : !cruiseControl.enabled
-				}"
-				v-if="elementIsEnabled( 'cruiseControl' )">
-				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
-				<div class="round">
-					<i class="icon-currency"></i>
-				</div>
-			</li>
+			
+			<!-- Water temperature -->
 			<li class="blue" v-bind:class="{
 					'orange': engine.waterTemperature.warning.enabled
 				}"
@@ -91,6 +104,8 @@
 					<i class="icon-water_temperature"></i>
 				</div>
 			</li>
+			
+			<!-- Battery -->
 			<li class="blue" v-bind:class="{
 					'orange': engine.batteryVoltage.warning.enabled
 				}"
@@ -100,6 +115,8 @@
 					<i class="icon-battery"></i>
 				</div>
 			</li>
+			
+			<!-- Empty -->
 			<li class="disabled" v-for="i in indexEmptyElement()">
 				<span></span>
 				<div class="round">

@@ -33,20 +33,21 @@
 			overflow: hidden;
 			color: var(--color-gray);
 			
-			span > img {
+			span > * {
 				width: 100%;
 				height: 100%;
 				padding: 0.3rem;
+				font-size: 1.3rem;
 			}
 			
 			&:last-child {
 				margin-bottom: 0;
 			}
 			
-			@include navElm( 'red', var(--color-red) );
-			@include navElm( 'green', var(--color-green) );
-			@include navElm( 'orange', var(--color-orange) );
-			@include navElm( 'blue', var(--color-blue) );
+			@include navElm('red', var(--color-red));
+			@include navElm('green', var(--color-green));
+			@include navElm('orange', var(--color-orange));
+			@include navElm('blue', var(--color-blue));
 			
 			
 			/* TODO Set different color */

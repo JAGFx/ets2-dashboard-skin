@@ -45,6 +45,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			font-size: 1.5rem;
 		}
 		
 		&.multiline {
@@ -92,12 +93,7 @@
 			border-color: var(--color-green);
 		}
 		
-		&.white {
-			color: var(--color-white);
-			border-color: var(--color-white);
-		}
-		
-		&.default {
+		&.default, &.white {
 			color: var(--color-white);
 			border-color: var(--color-red);
 		}
