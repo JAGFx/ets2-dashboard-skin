@@ -2,7 +2,7 @@ const gulp = require( 'gulp' );
 const run  = require( 'gulp-run-command' ).default;
 const fs   = require( 'fs' );
 
-const iconDist          = 'resources/dist/';
+const iconDist          = 'resources/dist';
 const iconSvgs          = 'resources/icons/svgs/*.svg';
 const iconDistFontFiles = [
 	iconDist + '*.svg',
@@ -20,10 +20,9 @@ gulp.task( 'build:font:init-folder', ( cb ) => {
 		fs.mkdirSync( iconDist );
 		console.log( '📁  folder created:', iconDist );
 	}
-	
 	cb();
 } );
-gulp.task( 'build:font:make', run( 'icon-font-generator resources/icons/svgs/*.svg -o resources/dist' ) );
+gulp.task( 'build:font:make', run( `icon-font-generator ${ iconSvgs } -o ${ iconDist }` ) );
 gulp.task( 'build:font:place', () => {
 	return gulp.src( iconDistFontFiles )
 			   .pipe( gulp.dest( iconDestFiles ) );
