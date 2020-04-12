@@ -1,39 +1,39 @@
 {
-	"name" :           "ets2-dashboard-skin",
-	"version" :        "0.0.1",
-	"private" :        false,
-	"main" :           "index.js",
-	"scripts" :        {
-		"server:build" :    "cd server && npx gulp",
-		"server:start" :    "cd server && node ./dist/index.js",
-		"dashboard:dev" :   "vue-cli-service serve",
-		"dashboard:build" : "vue-cli-service build",
-		"dashboard:start" : "http-server dist/",
-		"font:build" :      "npx gulp build:font",
-		"build" :           "npx gulp build"
+	"name": "ets2-dashboard-skin",
+	"version": "0.0.1",
+	"private": false,
+	"main": "index.js",
+	"scripts": {
+		"server:build": "cd server && npx gulp",
+		"server:start": "cd server && node ./dist/index.js",
+		"dashboard:dev": "vue-cli-service serve",
+		"dashboard:build": "vue-cli-service build",
+		"dashboard:start": "http-server dist/",
+		"font:build": "npx gulp build:font",
+		"build": "npx gulp build"
 	},
-	"dependencies" :   {
-		"animate.css" :   "^3.7.2",
-		"axios" :         "^0.19.2",
-		"core-js" :       "^2.6.5",
-		"country-list" :  "^2.2.0",
-		"emoji-flags" :   "^1.2.0",
-		"http-server" :   "^0.12.1",
-		"jquery" :        "^3.4.1",
-		"nosleep.js" :    "^0.9.0",
-		"vue" :           "^2.6.10",
-		"vue-socket.io" : "^3.0.7"
+	"dependencies": {
+		"animate.css": "^3.7.2",
+		"axios": "^0.19.2",
+		"core-js": "^2.6.5",
+		"country-list": "^2.2.0",
+		"emoji-flags": "^1.2.0",
+		"http-server": "^0.12.1",
+		"jquery": "^3.4.1",
+		"nosleep.js": "^0.9.0",
+		"vue": "^2.6.10",
+		"vue-socket.io": "^3.0.7"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel" : "^3.10.0",
-		"@vue/cli-service" :      "^3.10.0",
-		"gulp" :                  "^4.0.2",
-		"gulp-copy" :             "^4.0.1",
-		"gulp-load-plugins" :     "^2.0.3",
-		"gulp-run-command" :      "0.0.10",
-		"icon-font-generator" :   "^2.1.10",
-		"node-sass" :             "^4.9.0",
-		"sass-loader" :           "^7.1.0",
-		"vue-template-compiler" : "^2.6.10"
+		"@vue/cli-plugin-babel": "^3.10.0",
+		"@vue/cli-service": "^3.10.0",
+		"gulp": "^4.0.2",
+		"gulp-copy": "^4.0.1",
+		"gulp-load-plugins": "^2.0.3",
+		"gulp-run-command": "0.0.10",
+		"icon-font-generator": "^2.1.10",
+		"node-sass": "^4.9.0",
+		"sass-loader": "^7.1.0",
+		"vue-template-compiler": "^2.6.10"
 	}
 }
