@@ -7,7 +7,9 @@
 		
 		<ul class="dash-element left ">
 			<li :class="{ 'disabled': hasNoJob()  }" class="multiline default">
-				<div class="round from"></div>
+				<div class="round from">
+					<i class="icon-startpoint"></i>
+				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>
 					<span>{{source.city.name}}</span>
@@ -15,7 +17,9 @@
 				</span>
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }" class="multiline default">
-				<div class="round to"></div>
+				<div class="round to">
+					<i class="icon-endpoint"></i>
+				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>
 					<span>{{destination.city.name}}</span>
@@ -24,21 +28,21 @@
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }" class="default">
 				<div class="round">
-					<i class="icon-noun_Stopwatch_372238"></i>
+					<i class="icon-time"></i>
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>{{formatDeliveryTime()}}</span>
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }" class="default">
 				<div class="round">
-					<img alt="" src="../assets/img/Job/noun_Money_285330.svg">
+					<i class="icon-currency"></i>
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
 			</li>
 			<li :class="{ 'disabled': distance === 0  }" class="default">
 				<div class="round">
-					<img alt="" src="../assets/img/Job/noun_measure_1625696.svg">
+					<i class="icon-ruler"></i>
 				</div>
 				<span v-if="distance === 0">N/A</span>
 				<span v-else-if="distance < 1000">{{distance.toFixed().toLocaleString()}} m</span>
@@ -46,7 +50,7 @@
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }" class="default">
 				<div class="round">
-					<img alt="" src="../assets/img/Job/noun_Weight_1644747.svg">
+					<i class="icon-weight"></i>
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
 				<span v-else>{{(cargo.mass / 1000).toFixed()}} t</span>

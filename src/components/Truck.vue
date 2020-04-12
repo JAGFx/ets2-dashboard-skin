@@ -38,13 +38,13 @@
 			<li class="orange" v-if="elementIsEnabled( 'oilTemperature' )">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/air-pressure.svg">
+					<i class="icon-oil"></i>
 				</div>
 			</li>
 			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
 				<span>{{Math.round(brakes.temperature.value)}} °C</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/oil_temperature.png">
+					<i class="icon-startpoint"></i>
 				</div>
 			</li>
 			<li class="blue" v-bind:class="{
@@ -54,7 +54,7 @@
 				v-if="elementIsEnabled( 'brakesAirPressure' )">
 				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/air_pressure.png">
+					<i class="icon-air_pressure"></i>
 				</div>
 			</li>
 			<li class="blue" v-bind:class="{
@@ -63,13 +63,13 @@
 				v-if="elementIsEnabled( 'fuel' )">
 				<span>{{Math.round(fuel.value)}} L</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/fuel.png">
+					<i class="icon-fuel"></i>
 				</div>
 			</li>
 			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
 				<span>{{(fuel.avgConsumption * 100).toFixed(1)}}</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/noun_Fuel_38066.svg">
+					<i class="icon-fuel_consumption"></i>
 				</div>
 			</li>
 			<li v-bind:class="{
@@ -79,7 +79,7 @@
 				v-if="elementIsEnabled( 'cruiseControl' )">
 				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/cruise_control.png">
+					<i class="icon-currency"></i>
 				</div>
 			</li>
 			<li class="blue" v-bind:class="{
@@ -88,7 +88,7 @@
 				v-if="elementIsEnabled( 'waterTemperature' )">
 				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/water_temperature.png">
+					<i class="icon-water_temperature"></i>
 				</div>
 			</li>
 			<li class="blue" v-bind:class="{
@@ -97,7 +97,7 @@
 				v-if="elementIsEnabled( 'batteryVoltage' )">
 				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
 				<div class="round">
-					<img alt="" src="../assets/img/Truck/battery_low.png">
+					<i class="icon-battery"></i>
 				</div>
 			</li>
 			<li class="disabled" v-for="i in indexEmptyElement()">

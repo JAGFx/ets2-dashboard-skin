@@ -6,12 +6,12 @@
 				<div class="nav-element-wrapper">
 					<div :class="{ 'red': brakes.parking.enabled }" class="nav-element left">
 						<span>
-							<img alt="pk" src="../assets/img/Navigation/parking_brake.png">
+							<i class="icon-parking_brakes"></i>
 						</span>
 					</div>
 					<div :class="{ 'green': lights.beacon.enabled }" class="nav-element left">
 						<span>
-							<img alt="bc" src="../assets/img/Navigation/beacon.png">
+							<i class="icon-beacons"></i>
 						</span>
 					</div>
 				</div>
@@ -24,12 +24,12 @@
 				<div class="nav-element-wrapper">
 					<div :class="{ 'blue': lights.beamHigh.enabled && lights.beamLow.enabled }" class="nav-element right">
 						<span>
-							<img alt="bh" src="../assets/img/Navigation/beam_high.png">
+							<i class="icon-beam_high"></i>
 						</span>
 					</div>
 					<div :class="{ 'green': lights.beamLow.enabled }" class="nav-element right">
 						<span>
-							<img alt="bl" src="../assets/img/Navigation/beam_low.png">
+							<i class="icon-beam_low"></i>
 						</span>
 					</div>
 				</div>
