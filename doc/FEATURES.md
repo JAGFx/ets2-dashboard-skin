@@ -64,3 +64,6 @@ All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) 
 - Oil temperature
 - Water temperature
 - Wear level
+
+---
+↩️ [Home](../README.md)

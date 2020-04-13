@@ -61,7 +61,7 @@ To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.
 
 ### Environment file
 
-This project use a `.env` file. If you wan to override one or more variable in the development, create a `.env.local` at the same place of the `.env` directory
+This project use a `.env` file. If you wan to override one or more variable in the development, create a `.env.local` at the same place of the `.env` file
 
 #### Telemetry data
 If you want to use a fake file data instead of the data from the SCS API, set the `VUE_APP_USE_FAKE_DATA` to `true`

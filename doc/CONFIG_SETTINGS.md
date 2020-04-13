@@ -25,3 +25,6 @@ Below, the default configuration
 ````
 
 > Note: We can displayed 7 element max in the right side and 4 in the middle side. Place your element on the top. 
+
+---
+↩️ [Home](../README.md)

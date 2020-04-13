@@ -23,3 +23,6 @@ To get the total liberty and facilitate the integration on the dashboard, i deci
 I'm use the Adobe Illustrator to do that. You can find the original file on the `resource` folder.
 
 And all icons exported form Adobe Illustrator too.
+
+---
+↩️ [Home](../README.md)
