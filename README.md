@@ -12,6 +12,13 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](screenshot.png)
 
+## Envarionement
+
+All development are made under **Windows**. It's not operable under all Linux OS.
+
+The view is optimized for a `5.5"` screen. To develop on you web browser, you can set phone view to `800px * 455px`  
+
+
 ## Prerequisite
 
 ### scs-sdk-plugin
@@ -41,28 +48,100 @@ $ cd ets2-dashboard-skin
 ### Build resources
 
 ````bash
-$ npm run dashboard:build
-$ npm run server:build
+$ npm i
+$ cd server && npm i
+$ cd ../ && npm run build
 ````
+
+## Features
+
+To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md).
 
 ## Development
 
-### Telemetry data
-If you want to not use the ETS2 telemetry data, you can set it `.env.local` file.
+### Environment file
 
-Set the `VUE_APP_USE_FAKE_DATA` to `true`
+This project use a `.env` file. If you wan to override one or more variable in the development, create a `.env.local` at the same place of the `.env` directory
 
-```bash
-$ nano .env.local
-> VUE_APP_USE_FAKE_DATA=true
+#### Telemetry data
+If you want to use a fake file data instead of the data from the SCS API, set the `VUE_APP_USE_FAKE_DATA` to `true`
+
+```dotenv
+VUE_APP_USE_FAKE_DATA=true
 ```
 
-### Config data
-See [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md)
+### Config settings
+You can choose to display element than you want. To setting up, see [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
 
-### Start development server
+### Resources
+I provide all resources what i'm use to develop this dashboard. Such as svg, AI file for svg or others element who can be need to contribute too.
+
+See the [RESOURCES.md](doc/RESOURCES.md) section to get more details
+
+## Commands
+
+### Dashboard
+
+#### Dev
+
+Launch the dashboard development server
+
 ````bash
 $ npm run dashboard:dev
+````
+
+#### Build
+
+Build the dashboard dist files for the production 
+
+````bash
+$ npm run dashboard:build
+````
+
+#### Start
+
+Start the production version of dashboard
+
+````bash
+$ npm run dashboard:start
+````
+
+### Production
+
+#### Build
+
+Start the production version of server
+
+````bash
+$ npm run server:build
+````
+
+#### Start
+
+Start the production version of the server
+
+````bash
+$ npm run server:start
+````
+
+### Other
+
+#### Font build
+
+Create a font with all svg files from the resources directory
+
+To get more details, see [RESOURCES.md](doc/RESOURCES.md)
+
+````bash
+$ npm run font:build
+````
+
+#### Build
+
+Build the dist files for the dashboard, the server and font
+
+````bash
+$ npm run build
 ````
 
 ## License
