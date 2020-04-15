@@ -35,14 +35,14 @@
 					<!-- Beam high -->
 					<div :class="{ 'blue': lights.beamHigh.enabled
 							&& lights.beamLow.enabled
-							&& brakes.motor.enabled }" class="nav-element right">
+							&& engine.enabled }" class="nav-element right">
 						<span>
 							<i class="icon-beam_high"></i>
 						</span>
 					</div>
 					
 					<!-- Beam low -->
-					<div :class="{ 'green': lights.beamLow.enabled && brakes.motor.enabled }" class="nav-element right">
+					<div :class="{ 'green': lights.beamLow.enabled && engine.enabled }" class="nav-element right">
 						<span>
 							<i class="icon-beam_low"></i>
 						</span>

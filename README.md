@@ -12,7 +12,7 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](screenshot.png)
 
-## Envarionement
+## Environement
 
 All development are made under **Windows**. It's not operable under all Linux OS.
 
