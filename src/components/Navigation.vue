@@ -48,16 +48,57 @@
 						</span>
 					</div>
 				</div>
-			
 			</div>
-			<div class="speed">
+			
+			<!-- Speed -->
+			
+			<div class="speed-area">
+				<div class="speed-wrapper">
+					<div class="left">
+						<!--<span>
+							<span>RPM</span>
+						</span>-->
+						<div class="bars">
+							<div :class="{ 'active' : getRPMBarActive( i ) }" class="bar" v-for="i in 7"></div>
+						</div>
+					</div>
+					<div class="middle">
+						<div class="speed">
+							<span class="value">{{speed.kph}}</span>
+<!--							<small class="unit">km/h</small>-->
+						</div>
+						
+						<div class="fuel-level">
+							<span class="fuel-icon-wrapper">
+								<i :class="{'warning': onWarningLevel() }" class="icon-fuel"></i>
+							</span>
+							
+							<div class="bars">
+								<div :class="{ 'active' : getFuelBarActive( i ) }" class="bar" v-for="i in getFuelBarCount()"></div>
+							</div>
+						</div>
+					</div>
+					<div class="right">
+						<!--<span>
+							<span>RPM</span>
+						</span>-->
+						<div class="bars">
+							<div :class="{ 'active' : getRPMBarActive( i ) }" class="bar" v-for="i in 7"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--<div class="speed">
 				<span class="value">{{speed.kph}}</span>
 				<small class="unit">km/h</small>
-			</div>
+			</div>-->
+			
 			<div class="odometer">
 				<span class="value">{{Math.round(odometer)}}</span>
 				<small class="unit">km</small>
 			</div>
+			
 			<!-- Speed limit -->
 			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
 				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
@@ -93,11 +134,13 @@
 			'brand',
 			'odometer',
 			'lights',
-			'brakes'
+			'brakes',
+			'fuel',
+			'engine'
 		],
 		
 		methods: {
-			formatTime:         function ( time ) {
+			formatTime:       function ( time ) {
 				const hours = Math.floor( time / 3600000 );
 				const min   = Math.floor( time % 3600000 / 60000 );
 				
@@ -105,22 +148,22 @@
 				
 			},
 			/*formatNextRestStop: function () {
-				return this.formatTime( this.nextRestStop );
-			},
-			formatETA:          function () {
-				const eta  = this.formatTime( this.time );
-				const date = new Date( this.gameTime + this.time );
-				
-				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-				
-				return `${ days[ date.getUTCDay() ] } ${ date.getUTCHours() }:${ date.getUTCMinutes() } / ${ eta }`;
-			},*/
-			getTrueGear:        function () {
+			 return this.formatTime( this.nextRestStop );
+			 },
+			 formatETA:          function () {
+			 const eta  = this.formatTime( this.time );
+			 const date = new Date( this.gameTime + this.time );
+			 
+			 const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
+			 
+			 return `${ days[ date.getUTCDay() ] } ${ date.getUTCHours() }:${ date.getUTCMinutes() } / ${ eta }`;
+			 },*/
+			getTrueGear:      function () {
 				/*console.log( this );*/
-				let gear      = this.transmission.gear.displayed;
+				let gear    = this.transmission.gear.displayed;
 				let strGear = gear;
 				
-				if( this.transmission.shifterType === 'hshifter' ){
+				if ( this.transmission.shifterType === 'hshifter' ) {
 					let cruzeGear = 0;
 					
 					switch ( this.brand.name ) {
@@ -136,14 +179,14 @@
 						? 'L'
 						: 'H';
 					let realGear      = Math.ceil( realGearCount / 2 );
-					strGear       = realGear + spliter;
+					strGear           = realGear + spliter;
 					
 					if ( gear <= cruzeGear )
 						strGear = 'C' + Math.abs( this.transmission.gear.displayed );
 					
 				}
 				
-				if( this.transmission.shifterType === 'automatic' ){
+				if ( this.transmission.shifterType === 'automatic' ) {
 					strGear = 'D' + gear;
 				}
 				
@@ -155,6 +198,32 @@
 					strGear = 'R' + Math.abs( this.transmission.gear.displayed );
 				
 				return strGear;
+			},
+			getFuelByBar:     function () {
+				return (this.fuel.capacity * this.fuel.warning.factor).toFixed( 0 );
+			},
+			getFuelBarCount:  function () {
+				return Math.ceil( this.fuel.capacity / this.getFuelByBar() );
+			},
+			getFuelBarActive: function ( i ) {
+				const fuelByBar = this.getFuelByBar();
+				const iLow      = i - 1;
+				const fuelBarFrom = (iLow * fuelByBar);
+				
+				//console.log( i, this.fuel.value, fuelBarFrom );
+				return (this.fuel.value >= fuelBarFrom);
+			},
+			onWarningLevel: function () {
+				return this.fuel.value < this.getFuelByBar();
+			},
+			getRPMBarActive: function (i) {
+				const maxBar = 7;
+				const rpmByBar = ( this.engine.rpm.max / maxBar );
+				const iLow      = ( maxBar - i )  ;
+				const rpmBarFrom = (iLow * rpmByBar);
+				
+				//console.log( iLow,this.engine.rpm.value, rpmBarFrom );
+				return (this.engine.rpm.value >= rpmBarFrom && this.engine.rpm.value !== 0);
 			}
 		}
 	};

@@ -2,7 +2,7 @@ const gulp = require( 'gulp' );
 const run  = require( 'gulp-run-command' ).default;
 const fs   = require( 'fs' );
 
-const iconDist          = 'resources/dist';
+const iconDist          = 'resources/dist/';
 const iconSvgs          = 'resources/icons/svgs/*.svg';
 const iconDistFontFiles = [
 	iconDist + '*.svg',

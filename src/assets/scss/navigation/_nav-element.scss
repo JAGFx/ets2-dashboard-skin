@@ -33,11 +33,15 @@
 			overflow: hidden;
 			color: var(--color-gray);
 			
-			span > * {
-				width: 100%;
-				height: 100%;
-				padding: 0.3rem;
-				font-size: 1.3rem;
+			span {
+				padding-top: .3rem;
+				
+				& > * {
+					width: 100%;
+					height: 100%;
+					padding: 0.3rem;
+					font-size: 1.3rem;
+				}
 			}
 			
 			&:last-child {

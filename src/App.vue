@@ -195,12 +195,6 @@
 		}
 	}
 	
-	.left {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-	}
-	
 	main {
 		width: 100%;
 		height: 100%;
