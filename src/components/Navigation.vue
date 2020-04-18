@@ -3,61 +3,21 @@
 		<div class="nav-wrapper">
 			<div class="nav-bottom">
 				<!-- Left elements -->
-				<div class="nav-element-wrapper">
-					<!-- Brake parking -->
-					<div :class="{ 'red': brakes.parking.enabled }" class="nav-element left">
-						<span>
-							<i class="icon-parking_brakes"></i>
-						</span>
-					</div>
-					
-					<!-- Retarder -->
-					<div :class="{ 'green': brakes.retarder.level > 0 }" class="nav-element left">
-						<span>
-							<i class="icon-retarder"></i>
-						</span>
-					</div>
-					
-					<!-- Beacon -->
-					<!--<div :class="{ 'green': lights.beacon.enabled }" class="nav-element left">
-						<span>
-							<i class="icon-beacons"></i>
-						</span>
-					</div>-->
-				</div>
+				<_NavElement side="left"></_NavElement>
 				
 				<div :class="transmission.shifterType" class="truck-gear">
 					<span class="value">{{getTrueGear()}}</span>
 				</div>
 				
 				<!-- Right elements -->
-				<div class="nav-element-wrapper">
-					<!-- Beam high -->
-					<div :class="{ 'blue': lights.beamHigh.enabled
-							&& lights.beamLow.enabled
-							&& engine.enabled }" class="nav-element right">
-						<span>
-							<i class="icon-beam_high"></i>
-						</span>
-					</div>
-					
-					<!-- Beam low -->
-					<div :class="{ 'green': lights.beamLow.enabled && engine.enabled }" class="nav-element right">
-						<span>
-							<i class="icon-beam_low"></i>
-						</span>
-					</div>
-				</div>
+				<_NavElement side="right"></_NavElement>
 			</div>
 			
 			<!-- Speed -->
 			
 			<div class="speed-area">
 				<div class="speed-wrapper">
-					<div class="left">
-						<!--<span>
-							<span>RPM</span>
-						</span>-->
+					<div class="left" v-if="elementIsEnabled( 'rpm' )">
 						<div class="bars">
 							<div :class="{ 'active' : getRPMBarActive( i ) }" class="bar" v-for="i in 7"></div>
 						</div>
@@ -65,10 +25,10 @@
 					<div class="middle">
 						<div class="speed">
 							<span class="value">{{speed.kph}}</span>
-<!--							<small class="unit">km/h</small>-->
+							<!--							<small class="unit">km/h</small>-->
 						</div>
 						
-						<div class="fuel-level">
+						<div class="fuel-level" v-if="elementIsEnabled( 'fuel' )">
 							<span class="fuel-icon-wrapper">
 								<i :class="{'warning': onWarningLevel() }" class="icon-fuel"></i>
 							</span>
@@ -78,10 +38,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="right">
-						<!--<span>
-							<span>RPM</span>
-						</span>-->
+					<div class="right" v-if="elementIsEnabled( 'rpm' )">
 						<div class="bars">
 							<div :class="{ 'active' : getRPMBarActive( i ) }" class="bar" v-for="i in 7"></div>
 						</div>
@@ -100,7 +57,7 @@
 			</div>
 			
 			<!-- Speed limit -->
-			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits">
+			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits" v-if="elementIsEnabled( 'speedLimit' )">
 				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
 				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
 			</div>
@@ -116,12 +73,12 @@
 </template>
 
 <script>
-	import Window from '@/components/Window.vue';
+	import _NavElement from '@/components/_NavElement.vue';
 	
 	export default {
 		name: 'Navigation',
 		
-		components: { Window },
+		components: { _NavElement },
 		
 		props: [
 			'nextRestStop',
@@ -206,24 +163,32 @@
 				return Math.ceil( this.fuel.capacity / this.getFuelByBar() );
 			},
 			getFuelBarActive: function ( i ) {
-				const fuelByBar = this.getFuelByBar();
-				const iLow      = i - 1;
+				const fuelByBar   = this.getFuelByBar();
+				const iLow        = i - 1;
 				const fuelBarFrom = (iLow * fuelByBar);
 				
 				//console.log( i, this.fuel.value, fuelBarFrom );
 				return (this.fuel.value >= fuelBarFrom);
 			},
-			onWarningLevel: function () {
+			onWarningLevel:   function () {
 				return this.fuel.value < this.getFuelByBar();
 			},
-			getRPMBarActive: function (i) {
-				const maxBar = 7;
-				const rpmByBar = ( this.engine.rpm.max / maxBar );
-				const iLow      = ( maxBar - i )  ;
+			getRPMBarActive:  function ( i ) {
+				const maxBar     = 7;
+				const rpmByBar   = (this.engine.rpm.max / maxBar);
+				const iLow       = (maxBar - i);
 				const rpmBarFrom = (iLow * rpmByBar);
 				
 				//console.log( iLow,this.engine.rpm.value, rpmBarFrom );
 				return (this.engine.rpm.value >= rpmBarFrom && this.engine.rpm.value !== 0);
+			},
+			elementIsEnabled: function ( element ) {
+				const onBottom = [ 'rpm', 'fuel', 'speedLimit' ];
+				const side     = (onBottom.indexOf( element ) !== -1)
+					? 'middle-b'
+					: 'middle-t';
+				
+				return this.$parent.$elementIsEnabled( side, element );
 			}
 		}
 	};

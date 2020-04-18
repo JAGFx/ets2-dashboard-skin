@@ -20,14 +20,15 @@
 </template>
 
 <script>
-	import Controls   from '@/components/Controls.vue';
-	import Events     from '@/components/Events.vue';
-	import Game       from '@/components/Game.vue';
-	import Job        from '@/components/Job.vue';
-	import Navigation from '@/components/Navigation.vue';
-	import Trailer    from '@/components/Trailer.vue';
-	import Truck      from '@/components/Truck.vue';
-	import Window     from '@/components/Window.vue';
+	import Controls    from '@/components/Controls.vue';
+	import Events      from '@/components/Events.vue';
+	import Game        from '@/components/Game.vue';
+	import Job         from '@/components/Job.vue';
+	import Navigation  from '@/components/Navigation.vue';
+	import Trailer     from '@/components/Trailer.vue';
+	import Truck       from '@/components/Truck.vue';
+	import Window      from '@/components/Window.vue';
+	import _NavElement from '@/components/_NavElement.vue';
 	
 	import testData    from './data/scs_sdk_plugin_parsed_data.json';
 	import utilsConfig from './utils/_config';
@@ -43,7 +44,8 @@
 			Job,
 			Truck,
 			Trailer,
-			Events
+			Events,
+			_NavElement
 		},
 		
 		mixins: [ utilsConfig ],
@@ -66,8 +68,9 @@
 				};
 			
 			return Object.assign( {}, data, {
-				configSettings:  {},
-				maxSideElements: 7
+				configSettings:    {},
+				maxSideElements:   7,
+				maxMiddleElements: 4
 			} );
 		},
 		created() {
@@ -79,20 +82,50 @@
 				} );
 		},
 		methods: {
-			$elementIsEnabled: function ( side, element ) {
+			$elementIsEnabled: function ( side, element, options ) {
 				let enabledElements = [];
 				const config        = JSON.parse( JSON.stringify( this.configSettings ) );
 				
+				//console.log( config );
+				
 				if ( side === 'right' )
 					enabledElements = config.right;
+				
+				if ( side === 'middle-t' || side === 'middle-b' )
+					enabledElements = config.middle;
 				
 				//console.log( config, this.configSettings);
 				if ( enabledElements === undefined )
 					return false;
 				
+				if ( side === 'middle-t' )
+					enabledElements = enabledElements.top;
+				
+				if ( side === 'middle-b' )
+					enabledElements = enabledElements.bottom;
+				
 				const indexElement = enabledElements.indexOf( element );
 				//console.log( indexElement, this.maxSideElements );
-				if ( side === 'left' || side === 'right' ) {
+				
+				if ( side === 'middle-t' ) {
+					if ( options === undefined )
+						return false;
+					
+					const navElmSide = options.side;
+					//console.log( side, navElmSide, indexElement, (this.maxMiddleElements / 2) );
+					
+					if ( indexElement + 1 > ((this.maxMiddleElements / 2)) && navElmSide === 'left' )
+						return false;
+					
+					if ( navElmSide === 'right' ) {
+						if ( indexElement + 1 <= ((this.maxMiddleElements / 2))
+							 || indexElement + 1 > this.maxMiddleElements )
+							return false;
+						
+					}
+				}
+				
+				if ( side === 'right' ) {
 					if ( indexElement > this.maxSideElements - 1 )
 						return false;
 				}
@@ -105,6 +138,12 @@
 				
 				if ( side === 'right' )
 					enabledElements = config.right;
+				
+				if ( side === 'middle' )
+					enabledElements = config.middle;
+				
+				if ( side === 'middle' && enabledElements !== undefined )
+					enabledElements = enabledElements.top;
 				
 				return (enabledElements === undefined)
 					? 0

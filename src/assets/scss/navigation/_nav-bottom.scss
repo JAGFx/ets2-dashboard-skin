@@ -52,6 +52,7 @@
 			@include navElm('green', var(--color-green));
 			@include navElm('orange', var(--color-orange));
 			@include navElm('blue', var(--color-blue));
+			@include navElm('disabled', var(--color-gray));
 			
 			
 			/* TODO Set different color */

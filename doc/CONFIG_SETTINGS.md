@@ -18,9 +18,20 @@ Below, the default configuration
 		"waterTemperature",
 		"batteryVoltage"
 	],
-	"middle": [
-	
-	]
+	"middle": {
+		"top": [
+			"retarder",
+			"parkingBrake",
+			"beamHigh",
+			"beamLow",
+			"beacon"
+		],
+		"bottom": [
+			"rpm",
+			"fuel",
+			"speedLimit"
+		]
+	}
 }
 ````
 
