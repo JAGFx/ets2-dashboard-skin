@@ -1,18 +1,36 @@
 {
-	"name": "ets2-dashboard-skin",
-	"version": "0.0.1",
-	"private": false,
-	"main": "index.js",
-	"scripts": {
-		"server:build": "cd server && npx gulp",
-		"server:start": "cd server && node ./dist/index.js",
-		"dashboard:dev": "vue-cli-service serve",
-		"dashboard:build": "vue-cli-service build",
-		"dashboard:start": "http-server dist/",
-		"font:build": "npx gulp build:font",
-		"build": "npx gulp build"
+	"name" :           "ets2-dashboard-skin",
+	"description" :    "Euro Truck Simulator 2 dashboard",
+	"version" :        "0.0.1",
+	"repository" :     {
+		"type" : "git",
+		"url" :  "https://github.com/JAGFx/ets2-dashboard-skin.git"
 	},
-	"dependencies": {
+	"keywords" :       [
+		"ets2",
+		"eurotrucksimulator2",
+		"dashboard",
+		"telemetry"
+	],
+	"author" :         "Emmanuel SMITH <hey@emmanuel-smith.me> (https://emmanuel-smith.me)",
+	"license" :        "MIT",
+	"bugs" :           {
+		"url" : "https://github.com/JAGFx/ets2-dashboard-skin/issues"
+	},
+	"homepage" :       "https://jagfx.github.io/ets2-dashboard-skin/",
+	"private" :        false,
+	"main" :           "index.js",
+	"scripts" :        {
+		"server:build" :    "cd server && npx gulp",
+		"server:start" :    "cd server && node ./dist/index.js",
+		"dashboard:dev" :   "vue-cli-service serve",
+		"dashboard:build" : "vue-cli-service build",
+		"dashboard:start" : "http-server dist/",
+		"font:build" :      "npx gulp build:font",
+		"build" :           "npx gulp build",
+		"bundle" :          "npx gulp bundle"
+	},
+	"dependencies":    {
 		"animate.css": "^3.7.2",
 		"axios": "^0.19.2",
 		"core-js": "^2.6.5",
@@ -25,15 +43,17 @@
 		"vue-socket.io": "^3.0.7"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.10.0",
-		"@vue/cli-service": "^3.10.0",
-		"gulp": "^4.0.2",
-		"gulp-copy": "^4.0.1",
-		"gulp-load-plugins": "^2.0.3",
-		"gulp-run-command": "0.0.10",
-		"icon-font-generator": "^2.1.10",
-		"node-sass": "^4.9.0",
-		"sass-loader": "^7.1.0",
-		"vue-template-compiler": "^2.6.10"
+		"@vue/cli-plugin-babel" : "^3.10.0",
+		"@vue/cli-service" :      "^3.10.0",
+		"fs-extra" :              "^9.0.0",
+		"gulp" :                  "^4.0.2",
+		"gulp-gzip" :             "^1.4.2",
+		"gulp-load-plugins" :     "^2.0.3",
+		"gulp-run-command" :      "0.0.10",
+		"gulp-tar" :              "^3.1.0",
+		"icon-font-generator" :   "^2.1.10",
+		"node-sass" :             "^4.9.0",
+		"sass-loader" :           "^7.1.0",
+		"vue-template-compiler" : "^2.6.10"
 	}
 }
