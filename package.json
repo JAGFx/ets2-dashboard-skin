@@ -1,8 +1,8 @@
 {
-	"name" :           "ets2-dashboard-skin",
-	"description" :    "Euro Truck Simulator 2 dashboard",
-	"version" :        "0.0.1",
-	"repository" :     {
+	"name" :            "ets2-dashboard-skin",
+	"description" :     "Euro Truck Simulator 2 dashboard",
+	"version" :         "1.0.0",
+	"repository" :      {
 		"type" : "git",
 		"url" :  "https://github.com/JAGFx/ets2-dashboard-skin.git"
 	},
