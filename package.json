@@ -20,7 +20,7 @@
 	"homepage" :        "https://jagfx.github.io/ets2-dashboard-skin/",
 	"private" :         false,
 	"main" :            "index.js",
-	"scripts" :         {
+	"scripts" : {
 		"server:build" :    "cd server && npx gulp",
 		"server:start" :    "cd server && node ./dist/index.js",
 		"dashboard:dev" :   "vue-cli-service serve",
@@ -28,7 +28,8 @@
 		"dashboard:start" : "http-server dist/",
 		"font:build" :      "npx gulp build:font",
 		"build" :           "npx gulp build",
-		"bundle" :          "npx gulp bundle"
+		"bundle" :          "npx gulp bundle",
+		"bAndB" :           "npx gulp bAndB"
 	},
 	"dependencies" :    {
 		"animate.css" :   "^3.7.2",

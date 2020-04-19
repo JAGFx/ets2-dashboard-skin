@@ -4,12 +4,16 @@ const fs   = require( 'fs-extra' );
 const tar  = require( 'gulp-tar' );
 const gzip = require( 'gulp-gzip' );
 const path = require( 'path' );
+const exec = require( 'child_process' ).execSync;
 
-const pkg = require( './package.json' );
+const pkg       = require( './package.json' );
+const pkgServer = require( './server/package.json' );
+
 
 // ---------------------------------------------
 // --- Variables
 // ---------------------------------------------
+
 
 // --- Font icons
 const iconDist          = 'resources/dist/';
@@ -25,27 +29,50 @@ const iconDistFontFiles = [
 const iconDestFiles     = 'public/icons/';
 
 // --- Bundle
-const filesToZip        = [
+const filesToZip         = [
 	'./doc',
 	'./LICENSE',
 	'./package.json',
 	'./README.md',
 	'./screenshot.png'
 ];
-const bundleFileName    = `${ pkg.name }_v${ pkg.version }`;
-const archiveName       = `${ bundleFileName }.tar`;
-const archiveTemp       = './build';
-const exeServerPathDest = `${ archiveTemp }/${ bundleFileName }`;
-const destZip           = './';
+const sdkTelemetryName   = 'scsSDKTelemetry';
+const binPath            = './bin/';
+const bundleFileName     = `${ pkg.name }_v${ pkg.version }`;
+const archiveTemp        = './build';
+const destZip            = './bundle';
+const nodeVersionTargets = pkgServer.pkg.targets;
+
+
+// ---------------------------------------------
+// --- Methods
+// ---------------------------------------------
+
+
+const getExeServerTargetNode = ( nodeTarget ) => {
+	return `${ nodeTarget }-win`;
+};
+
+const getExeServerPathDest = ( nodeTarget ) => {
+	return `${ archiveTemp }/${ nodeTarget }/${ bundleFileName }`;
+};
+
+const getTargetBuildPath = ( nodeTarget, filename ) => {
+	return path.resolve( archiveTemp, nodeTarget, filename );
+};
+
+const getTargetBinPath = ( filename ) => {
+	return path.resolve( binPath, filename );
+};
+
+const getArchiveName = ( nodeTarget ) => {
+	return `${ bundleFileName }_${ nodeTarget }.tar`;
+};
+
 
 // ---------------------------------------------
 // --- Tasks
 // ---------------------------------------------
-const getExeServerTargetNode = () => {
-	const nodeVersion = process.version.match( /^v(\d{2})/ )[ 1 ];
-	
-	return `node${ nodeVersion }-win`;
-};
 
 
 // --- Font icons
@@ -72,30 +99,62 @@ gulp.task( 'bundle:clean', ( cb ) => {
 	if ( fs.existsSync( archiveTemp ) ) {
 		fs.removeSync( archiveTemp );
 		fs.mkdirSync( archiveTemp );
+		
+		nodeVersionTargets.forEach( function ( currentTarget ) {
+			const nvtPath = path.resolve( archiveTemp, currentTarget );
+			
+			fs.mkdirSync( nvtPath );
+		} );
+		
 		console.log( `\t> Clean and empty created ${ archiveTemp }` );
 	}
 	cb();
 } );
 gulp.task( 'bundle:copy', ( cb ) => {
-	filesToZip.forEach( function ( value ) {
-		const destPath = path.resolve( archiveTemp, value.replace( '*', '' ) );
-		console.log( `\t> Coping ${ value } to ${ destPath }` );
+	nodeVersionTargets.forEach( function ( currentTarget ) {
+		const scsTelemetryBinFileName   = `${ sdkTelemetryName }.${ currentTarget }`;
+		const scsTelemetryBuildFileName = `${ sdkTelemetryName }.node`;
 		
-		fs.copySync( value, destPath );
+		filesToZip.forEach( function ( value ) {
+			const destPath = getTargetBuildPath( currentTarget, value );
+			console.log( `\t> Coping ${ value } to ${ destPath }` );
+			
+			fs.copySync( value, destPath );
+		} );
+		
+		fs.copySync( getTargetBinPath( scsTelemetryBinFileName ),
+			getTargetBuildPath( currentTarget, scsTelemetryBuildFileName ) );
 	} );
+	
 	
 	cb();
 } );
 
-gulp.task( 'bundle:server', run( `npx pkg ./server -t ${ getExeServerTargetNode() } -o ${ exeServerPathDest }` ) );
+gulp.task( 'bundle:server', ( cb ) => {
+	nodeVersionTargets.forEach( function ( currentTarget ) {
+		console.log( `\t> Generate *.exe file for ${ currentTarget }` );
+		exec( `npx pkg ./server -t ${ getExeServerTargetNode( currentTarget ) } -o ${ getExeServerPathDest(
+			currentTarget ) }` );
+	} );
+	
+	console.log( `\t> All *.exe was generated` );
+	cb();
+} );
 
 gulp.task( 'bundle:gzip', () => {
-	return gulp.src( archiveTemp + '/**' )
-			   .pipe( tar( archiveName ) )
-			   .pipe( gzip() )
-			   .pipe( gulp.dest( destZip ) );
+	let g = null;
+	
+	nodeVersionTargets.forEach( function ( currentTarget ) {
+		g = gulp.src( getTargetBuildPath( currentTarget, './**' ) )
+				.pipe( tar( getArchiveName( currentTarget ) ) )
+				.pipe( gzip() )
+				.pipe( gulp.dest( destZip ) );
+	} );
+	
+	return g;
 } );
 
 // --- Build full package
 gulp.task( 'build', gulp.series( 'build:font', 'build:dashboard', 'build:server' ) );
 gulp.task( 'bundle', gulp.series( 'bundle:clean', 'bundle:copy', 'bundle:server', 'bundle:gzip' ) );
+gulp.task( 'bAndB', gulp.series( 'build', 'bundle' ) );

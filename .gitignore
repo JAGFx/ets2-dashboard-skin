@@ -4,6 +4,7 @@ dist
 build
 !.gitkeep
 *.tar.gz
+bundle
 
 public/icons/*
 

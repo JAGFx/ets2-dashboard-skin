@@ -16,7 +16,14 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 All development are made under **Windows**. It's not operable under all Linux OS.
 
-The view is optimized for a `5.5"` screen. To develop on you web browser, you can set phone view to `800px * 455px`  
+The view is optimized for a `5.5"` screen. To develop on you web browser, you can set phone view to `800px * 455px`
+
+## Requirements
+
+- OS: Windows 64Bits
+- NodeJS: v10, v12 or v13  
+
+All current NodeJS version and LTS are supported. See the [NodeJS Release](https://nodejs.org/en/about/releases/) page to get more informations
 
 ## Quick use
 
