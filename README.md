@@ -110,7 +110,7 @@ $ npm run dashboard:start
 
 #### Build
 
-Start the production version of server
+Build the server dist files for the production 
 
 ````bash
 $ npm run server:build
@@ -142,6 +142,14 @@ Build the dist files for the dashboard, the server and font
 
 ````bash
 $ npm run build
+````
+
+#### Bundle
+
+Generate a `*.tar.gz` archive with all production files of **Dashboard** and **Server**
+
+````bash
+$ npm run bundle
 ````
 
 ## License
