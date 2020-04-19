@@ -25,26 +25,28 @@ const iconDistFontFiles = [
 const iconDestFiles     = 'public/icons/';
 
 // --- Bundle
-const filesToZip  = [
-	'./dist',
+const filesToZip        = [
 	'./doc',
-	'./server/dist',
-	'./server/node_modules',
-	'./server/package.json',
-	'./server/package-lock.json',
 	'./LICENSE',
 	'./package.json',
-	'./package-lock.json',
 	'./README.md',
 	'./screenshot.png'
 ];
-const archiveName = `${ pkg.name }_v${ pkg.version }.tar`;
-const archiveTemp = './build';
-const destZip     = './';
+const bundleFileName    = `${ pkg.name }_v${ pkg.version }`;
+const archiveName       = `${ bundleFileName }.tar`;
+const archiveTemp       = './build';
+const exeServerPathDest = `${ archiveTemp }/${ bundleFileName }`;
+const destZip           = './';
 
 // ---------------------------------------------
 // --- Tasks
 // ---------------------------------------------
+const getExeServerTargetNode = () => {
+	const nodeVersion = process.version.match( /^v(\d{2})/ )[ 1 ];
+	
+	return `node${ nodeVersion }-win`;
+};
+
 
 // --- Font icons
 gulp.task( 'build:font:init-folder', ( cb ) => {
@@ -84,6 +86,9 @@ gulp.task( 'bundle:copy', ( cb ) => {
 	
 	cb();
 } );
+
+gulp.task( 'bundle:server', run( `npx pkg ./server -t ${ getExeServerTargetNode() } -o ${ exeServerPathDest }` ) );
+
 gulp.task( 'bundle:gzip', () => {
 	return gulp.src( archiveTemp + '/**' )
 			   .pipe( tar( archiveName ) )
@@ -93,4 +98,4 @@ gulp.task( 'bundle:gzip', () => {
 
 // --- Build full package
 gulp.task( 'build', gulp.series( 'build:font', 'build:dashboard', 'build:server' ) );
-gulp.task( 'bundle', gulp.series( 'bundle:clean', 'bundle:copy', 'bundle:gzip' ) );
+gulp.task( 'bundle', gulp.series( 'bundle:clean', 'bundle:copy', 'bundle:server', 'bundle:gzip' ) );

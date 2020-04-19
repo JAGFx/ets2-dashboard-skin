@@ -18,6 +18,23 @@ All development are made under **Windows**. It's not operable under all Linux OS
 
 The view is optimized for a `5.5"` screen. To develop on you web browser, you can set phone view to `800px * 455px`  
 
+## Quick use
+
+
+### Without install
+
+You can use this dashboard without build anything. Just to get the `scs-sdk-plugin` (See below).
+
+You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases) page.
+
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
+
+### From sources files 
+
+1. Install the prerequisite things
+2. Follow the [installation](#installation) instructions
+3. Launch the [bundle](#bundle) command
+4. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
 
 ## Prerequisite
 
@@ -25,7 +42,7 @@ The view is optimized for a `5.5"` screen. To develop on you web browser, you ca
 
 Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
 
-- Download the latest release zip name like `release_v_1_10_5.zip` at the [release page](https://github.com/RenCloud/scs-sdk-plugin/releases/latest)
+- Download the latest release zip name like `release_v_X_X_X.zip` at the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/latest) page
 - Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
 
 ### Windows-Build-Tools
@@ -50,6 +67,7 @@ $ cd ets2-dashboard-skin
 ````bash
 $ npm i
 $ cd server && npm i
+$ npm rb
 $ cd ../ && npm run build
 ````
 
@@ -108,7 +126,7 @@ $ npm run dashboard:start
 
 ### Production
 
-#### Build
+#### Server build
 
 Build the server dist files for the production 
 
@@ -116,24 +134,12 @@ Build the server dist files for the production
 $ npm run server:build
 ````
 
-#### Start
+#### Server start
 
 Start the production version of the server
 
 ````bash
 $ npm run server:start
-````
-
-### Other
-
-#### Font build
-
-Create a font with all svg files from the resources directory
-
-To get more details, see [RESOURCES.md](doc/RESOURCES.md)
-
-````bash
-$ npm run font:build
 ````
 
 #### Build
@@ -150,6 +156,18 @@ Generate a `*.tar.gz` archive with all production files of **Dashboard** and **S
 
 ````bash
 $ npm run bundle
+````
+
+### Other
+
+#### Font build
+
+Create a font with all svg files from the resources directory
+
+To get more details, see [RESOURCES.md](doc/RESOURCES.md)
+
+````bash
+$ npm run font:build
 ````
 
 ## License
