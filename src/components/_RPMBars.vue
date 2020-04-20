@@ -1,0 +1,97 @@
+<template>
+	<div class="bars">
+		<div :class="{
+			'active' : getRPMBarActive( i ),
+			'green': isAGreenBar( i ),
+			'blue': isABlueBar( i ),
+			'red': isARedBar( i )
+		}" class="bar" v-for="i in maxBarRpm"></div>
+	</div>
+</template>
+
+<script>
+	import jq               from 'json-query';
+	import truck_engine_rpm from '../data/truck-engine-rpm.json';
+	
+	export default {
+		name:    '_RPMBars',
+		props:   [
+			'brand',
+			'engine',
+			'model'
+		],
+		data:    function () {
+			return {
+				ter:       null,
+				maxBarRpm: 15
+			};
+		},
+		mounted() {
+			//console.log( 'Polp', this );
+			if ( this.brand !== undefined || this.model !== undefined ) {
+				const ter = JSON.parse( JSON.stringify( truck_engine_rpm ) );
+				this.ter  = jq( `trucks[brandId=${ this.brand.id }].models[modelId=${ this.model.id }]`,
+					{ data: ter } ).value;
+				
+				//console.log( this.ter );
+			}
+			
+			// TODO: Map all trucks
+		},
+		methods: {
+			getRPMBarActive:  function ( i ) {
+				if ( this.ter === undefined || this.ter === null )
+					return false;
+				
+				const rpmBarFrom = this.getCurrentRpmBar( i );
+				
+				//console.log( iLow,this.engine.rpm.value, rpmBarFrom, this.ter );
+				return (this.engine.rpm.value >= rpmBarFrom && this.engine.rpm.value !== 0);
+			},
+			getCurrentRpmBar: function ( i ) {
+				if ( this.ter === null )
+					return 0;
+				
+				const maxBar   = this.maxBarRpm;
+				const rpmByBar = (this.ter.max / maxBar);
+				const iLow     = (maxBar - i);
+				
+				return (iLow * rpmByBar);
+			},
+			isAGreenBar:      function ( i ) {
+				if ( this.ter === null )
+					return false;
+				
+				const rpmBarFrom = this.getCurrentRpmBar( i );
+				
+				return this.ter.low !== null
+					   && (rpmBarFrom >= this.ter.low.from && rpmBarFrom <= this.ter.low.to);
+			},
+			isABlueBar:       function ( i ) {
+				if ( this.ter === null )
+					return false;
+				
+				const rpmBarFrom = this.getCurrentRpmBar( i );
+				
+				return this.ter.mid !== null
+					   && (rpmBarFrom >= this.ter.mid.from && rpmBarFrom <= this.ter.mid.to);
+			},
+			isARedBar:        function ( i ) {
+				if ( this.ter === null )
+					return false;
+				
+				const rpmBarFrom = this.getCurrentRpmBar( i );
+				//console.log( rpmBarFrom );
+				
+				return this.ter.ter !== null
+					   && (rpmBarFrom >= this.ter.high.from);
+			}
+		}
+	};
+
+</script>
+
+<style lang="scss" scoped>
+	@import "../assets/scss/navigation/rpm_bars";
+
+</style>

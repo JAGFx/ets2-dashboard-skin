@@ -1,0 +1,87 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_rpm_bars.scss
+ * Date: 	20/04/2020
+ * Time: 	17:49
+ */
+
+@import "mixins-rpm";
+@import "bars";
+@import "../common/variables";
+
+$sizeSide: 3rem;
+$heightSide: 5rem;
+
+.speed-wrapper {
+	.left, .right {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		
+		& > span {
+			font-size: 1rem;
+		}
+		
+		.bars {
+			flex-direction: column;
+			width: 100%;
+			
+			.bar {
+				height: .4rem;
+				width: 1rem;
+				
+				@include rpmBar('red', $cRed);
+				@include rpmBar('blue', $cBlue);
+				@include rpmBar('green', $cGreen);
+			}
+		}
+	}
+	
+	.left {
+		width: 100%;
+		max-width: $sizeSide;
+		min-width: $sizeSide;
+		flex-direction: row-reverse;
+		
+		& > span {
+			writing-mode: vertical-rl;
+			text-orientation: upright;
+			transform: translateX(-.3rem);
+		}
+		
+		.bars {
+			align-items: flex-start;
+			
+			.bar {
+				&:last-child {
+					transform: skew(20deg);
+					margin-left: 0.3rem;
+				}
+			}
+		}
+	}
+	
+	.right {
+		width: 100%;
+		max-width: $sizeSide;
+		min-width: $sizeSide;
+		
+		& > span {
+			writing-mode: vertical-rl;
+			text-orientation: upright;
+			transform: translateX(.3rem);
+		}
+		
+		.bars {
+			align-items: flex-end;
+			
+			.bar {
+				&:last-child {
+					transform: skew(-20deg);
+					margin-right: 0.3rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"trucks" : [
+		{
+			"brandId" : "volvo",
+			"models" :  [
+				{
+					"modelId" : "vehicle.volvo.fh16",
+					"max" :     2500,
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2000
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "scania",
+			"models" :  [
+				{
+					"modelId" : "vehicle.scania.s",
+					"max" :     2500,
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     {
+						"from" : 2000,
+						"to" :   2200
+					},
+					"high" :    {
+						"from" : 2400
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "daf",
+			"models" :  [ ]
+		},
+		{
+			"brandId" : "iveco",
+			"models" :  [ ]
+		},
+		{
+			"brandId" : "man",
+			"models" :  [ ]
+		},
+		{
+			"brandId" : "mercedes",
+			"models" :  [ ]
+		},
+		{
+			"brandId" : "renault",
+			"models" :  [ ]
+		}
+	]
+}

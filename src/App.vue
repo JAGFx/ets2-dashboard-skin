@@ -29,6 +29,7 @@
 	import Truck       from '@/components/Truck.vue';
 	import Window      from '@/components/Window.vue';
 	import _NavElement from '@/components/_NavElement.vue';
+	import _RPMBars    from '@/components/_RPMBars';
 	
 	import testData    from './data/scs_sdk_plugin_parsed_data.json';
 	import utilsConfig from './utils/_config';
@@ -45,7 +46,8 @@
 			Truck,
 			Trailer,
 			Events,
-			_NavElement
+			_NavElement,
+			_RPMBars
 		},
 		
 		mixins: [ utilsConfig ],

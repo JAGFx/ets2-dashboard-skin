@@ -1,0 +1,17 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_mixins-rpm.scss
+ * Date: 	20/04/2020
+ * Time: 	08:48
+ */
+
+@mixin rpmBar( $name, $color ) {
+	&.#{$name} {
+		background-color: transparentize($color, 0.8);
+		
+		&.active {
+			background: $color;
+		}
+	}
+}

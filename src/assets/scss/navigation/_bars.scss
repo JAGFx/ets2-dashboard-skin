@@ -1,0 +1,27 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_bars.scss
+ * Date: 	20/04/2020
+ * Time: 	17:54
+ */
+
+.speed-area {
+	.bars {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		width: 100%;
+		
+		.bar {
+			margin: .1rem;
+			height: 4px;
+			width: 1rem;
+			background: var(--color-border);
+			
+			&.active {
+				background: var(--color-white);
+			}
+		}
+	}
+}

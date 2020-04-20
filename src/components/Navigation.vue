@@ -18,9 +18,11 @@
 			<div class="speed-area">
 				<div class="speed-wrapper">
 					<div class="left" v-if="elementIsEnabled( 'rpm' )">
-						<div class="bars">
-							<div :class="{ 'active' : getRPMBarActive( i ) }" class="bar" v-for="i in 7"></div>
-						</div>
+						<_RPMBars v-bind="{
+							engine: engine,
+							brand: brand,
+							model: model
+						}"></_RPMBars>
 					</div>
 					<div class="middle">
 						<div class="speed">
@@ -39,9 +41,11 @@
 						</div>
 					</div>
 					<div class="right" v-if="elementIsEnabled( 'rpm' )">
-						<div class="bars">
-							<div :class="{ 'active' : getRPMBarActive( i ) }" class="bar" v-for="i in 7"></div>
-						</div>
+						<_RPMBars v-bind="{
+							engine: engine,
+							brand: brand,
+							model: model
+						}"></_RPMBars>
 					</div>
 				</div>
 			</div>
@@ -74,11 +78,12 @@
 
 <script>
 	import _NavElement from '@/components/_NavElement.vue';
+	import _RPMBars    from '@/components/_RPMBars.vue';
 	
 	export default {
 		name: 'Navigation',
 		
-		components: { _NavElement },
+		components: { _NavElement, _RPMBars },
 		
 		props: [
 			'nextRestStop',
@@ -89,6 +94,7 @@
 			'transmission',
 			'speed',
 			'brand',
+			'model',
 			'odometer',
 			'lights',
 			'brakes',
@@ -172,15 +178,6 @@
 			},
 			onWarningLevel:   function () {
 				return this.fuel.value < this.getFuelByBar();
-			},
-			getRPMBarActive:  function ( i ) {
-				const maxBar     = 7;
-				const rpmByBar   = (this.engine.rpm.max / maxBar);
-				const iLow       = (maxBar - i);
-				const rpmBarFrom = (iLow * rpmByBar);
-				
-				//console.log( iLow,this.engine.rpm.value, rpmBarFrom );
-				return (this.engine.rpm.value >= rpmBarFrom && this.engine.rpm.value !== 0);
 			},
 			elementIsEnabled: function ( element ) {
 				const onBottom = [ 'rpm', 'fuel', 'speedLimit' ];
