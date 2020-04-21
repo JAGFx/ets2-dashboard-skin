@@ -1,61 +1,62 @@
 {
-	"name" :            "ets2-dashboard-skin",
-	"description" :     "Euro Truck Simulator 2 dashboard",
-	"version" :         "1.0.0",
-	"repository" :      {
-		"type" : "git",
-		"url" :  "https://github.com/JAGFx/ets2-dashboard-skin.git"
+	"name": "ets2-dashboard-skin",
+	"description": "Euro Truck Simulator 2 dashboard",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JAGFx/ets2-dashboard-skin.git"
 	},
-	"keywords" :        [
+	"keywords": [
 		"ets2",
 		"eurotrucksimulator2",
 		"dashboard",
 		"telemetry"
 	],
-	"author" :          "Emmanuel SMITH <hey@emmanuel-smith.me> (https://emmanuel-smith.me)",
-	"license" :         "MIT",
-	"bugs" :            {
-		"url" : "https://github.com/JAGFx/ets2-dashboard-skin/issues"
+	"author": "Emmanuel SMITH <hey@emmanuel-smith.me> (https://emmanuel-smith.me)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/JAGFx/ets2-dashboard-skin/issues"
 	},
-	"homepage" :        "https://jagfx.github.io/ets2-dashboard-skin/",
-	"private" :         false,
-	"main" :            "index.js",
-	"scripts" : {
-		"server:build" :    "cd server && npx gulp",
-		"server:start" :    "cd server && node ./dist/index.js",
-		"dashboard:dev" :   "vue-cli-service serve",
-		"dashboard:build" : "vue-cli-service build",
-		"dashboard:start" : "http-server dist/",
-		"font:build" :      "npx gulp build:font",
-		"build" :           "npx gulp build",
-		"bundle" :          "npx gulp bundle",
-		"bAndB" :           "npx gulp bAndB"
+	"homepage": "https://jagfx.github.io/ets2-dashboard-skin/",
+	"private": false,
+	"main": "index.js",
+	"scripts": {
+		"server:build": "cd server && npx gulp",
+		"server:start": "cd server && node ./dist/index.js",
+		"dashboard:dev": "vue-cli-service serve",
+		"dashboard:build": "vue-cli-service build",
+		"dashboard:start": "http-server dist/",
+		"font:build": "npx gulp build:font",
+		"build": "npx gulp build",
+		"bundle": "npx gulp bundle",
+		"bAndB": "npx gulp bAndB"
 	},
-	"dependencies" :    {
-		"animate.css" :   "^3.7.2",
-		"axios" :         "^0.19.2",
-		"core-js" :       "^2.6.5",
-		"country-list" :  "^2.2.0",
-		"emoji-flags" :   "^1.2.0",
-		"http-server" :   "^0.12.1",
-		"jquery" :        "^3.5.0",
-		"nosleep.js" :    "^0.9.0",
-		"vue" :           "^2.6.10",
-		"vue-socket.io" : "^3.0.7"
+	"dependencies": {
+		"animate.css": "^3.7.2",
+		"axios": "^0.19.2",
+		"core-js": "^3.6.5",
+		"country-list": "^2.2.0",
+		"emoji-flags": "^1.2.0",
+		"http-server": "^0.12.1",
+		"jquery": "^3.5.0",
+		"nosleep.js": "^0.9.0",
+		"vue": "^2.6.10",
+		"vue-socket.io": "^3.0.7"
 	},
-	"devDependencies" : {
-		"@vue/cli-plugin-babel" : "^3.10.0",
-		"@vue/cli-service" :      "^3.10.0",
-		"fs-extra" :              "^9.0.0",
-		"gulp" :                  "^4.0.2",
-		"gulp-gzip" :             "^1.4.2",
-		"gulp-load-plugins" :     "^2.0.3",
-		"gulp-run-command" :      "0.0.10",
-		"gulp-tar" :              "^3.1.0",
-		"icon-font-generator" :   "^2.1.10",
-		"node-sass" :             "^4.9.0",
-		"pkg" :                   "^4.4.7",
-		"sass-loader" :           "^7.1.0",
-		"vue-template-compiler" : "^2.6.10"
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "^4.3.1",
+		"@vue/cli-service": "^4.3.1",
+		"fs-extra": "^9.0.0",
+		"gulp": "^4.0.2",
+		"gulp-gzip": "^1.4.2",
+		"gulp-load-plugins": "^2.0.3",
+		"gulp-run-command": "0.0.10",
+		"gulp-tar": "^3.1.0",
+		"icon-font-generator": "^2.1.10",
+		"json-query": "^2.2.2",
+		"node-sass": "^4.9.0",
+		"pkg": "^4.4.7",
+		"sass-loader": "^8.0.0",
+		"vue-template-compiler": "^2.6.10"
 	}
 }
