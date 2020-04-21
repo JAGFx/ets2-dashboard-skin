@@ -23,7 +23,7 @@
 		data:    function () {
 			return {
 				ter:       null,
-				maxBarRpm: 15
+				maxBarRpm: 25
 			};
 		},
 		mounted() {
@@ -32,6 +32,15 @@
 				const ter = JSON.parse( JSON.stringify( truck_engine_rpm ) );
 				this.ter  = jq( `trucks[brandId=${ this.brand.id }].models[modelId=${ this.model.id }]`,
 					{ data: ter } ).value;
+			
+				if ( this.ter === null ){
+					this.ter = {
+						max :     2500,
+						low :     null,
+						mid :     null,
+						high :    null
+					};
+				}
 				
 				//console.log( this.ter );
 			}
@@ -83,7 +92,7 @@
 				const rpmBarFrom = this.getCurrentRpmBar( i );
 				//console.log( rpmBarFrom );
 				
-				return this.ter.ter !== null
+				return this.ter.high !== null
 					   && (rpmBarFrom >= this.ter.high.from);
 			}
 		}

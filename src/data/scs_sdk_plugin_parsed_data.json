@@ -437,7 +437,7 @@
          },
          "rpm": {
             "max": 2300,
-            "value": 1500
+            "value": 500
          },
          "oilTemperature": {
             "value": 37.30851364135742

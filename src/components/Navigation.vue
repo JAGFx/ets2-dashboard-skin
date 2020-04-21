@@ -27,7 +27,7 @@
 					<div class="middle">
 						<div class="speed">
 							<span class="value">{{speed.kph}}</span>
-							<!--							<small class="unit">km/h</small>-->
+							<small class="unit">km/h</small>
 						</div>
 						
 						<div class="fuel-level" v-if="elementIsEnabled( 'fuel' )">

@@ -24,12 +24,16 @@ $heightSide: 5rem;
 		}
 		
 		.bars {
-			flex-direction: column;
+			//flex-direction: column;
+			display: block;
 			width: 100%;
+			perspective: 100px;
 			
 			.bar {
-				height: .4rem;
+				height: .2rem;
 				width: 1rem;
+				margin: 2px 0 0;
+				transform-style: preserve-3d;
 				
 				@include rpmBar('red', $cRed);
 				@include rpmBar('blue', $cBlue);
@@ -51,12 +55,30 @@ $heightSide: 5rem;
 		}
 		
 		.bars {
-			align-items: flex-start;
+			//align-items: flex-start;
 			
 			.bar {
-				&:last-child {
-					transform: skew(20deg);
-					margin-left: 0.3rem;
+				transform: rotateY(45deg);
+				
+				@for $i from 1 through $nbBarSkew {
+					&:nth-child(0n+#{$i}) {
+						$j: ( $nbBarSkew + 1 ) - $i;
+						
+						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
+						$spaceY:  -( 0.15rem * ( $j - 1 ) );
+						transform: rotateY(45deg) rotateX(-60deg) translateZ($spaceZ) translateY($spaceY) translateX( .1rem );
+					}
+				}
+				
+				// .3 .2
+				@for $i from 1 through $nbBarSkew {
+					$k: ( $nbBarSkew - $i ) + 1;
+					&:nth-last-child(-n+#{$k}) {
+						$j: ( $nbBarSkew + 1 ) - $k;
+						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
+						$spaceY:  ( 0.2rem * ( $j - 1 ) );
+						transform: rotateY(45deg) rotateX(60deg) translateZ($spaceZ) translateY($spaceY) translateX( .1rem );
+					}
 				}
 			}
 		}
@@ -74,12 +96,32 @@ $heightSide: 5rem;
 		}
 		
 		.bars {
-			align-items: flex-end;
+			//align-items: flex-end;
 			
 			.bar {
-				&:last-child {
-					transform: skew(-20deg);
-					margin-right: 0.3rem;
+				transform: rotateY(-45deg);
+				
+				//margin-left: 0.3rem;
+				
+				@for $i from 1 through $nbBarSkew {
+					&:nth-child(0n+#{$i}) {
+						$j: ( $nbBarSkew + 1 ) - $i;
+						
+						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
+						$spaceY:  -( 0.15rem * ( $j - 1 ) );
+						transform: rotateY(-45deg) rotateX(-60deg) translateZ($spaceZ) translateY($spaceY) translateX( -.1rem );
+					}
+				}
+				
+				// .3 .2
+				@for $i from 1 through $nbBarSkew {
+					$k: ( $nbBarSkew - $i ) + 1;
+					&:nth-last-child(-n+#{$k}) {
+						$j: ( $nbBarSkew + 1 ) - $k;
+						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
+						$spaceY:  ( 0.2rem * ( $j - 1 ) );
+						transform: rotateY(-45deg) rotateX(60deg) translateZ($spaceZ) translateY($spaceY) translateX( -.1rem );
+					}
 				}
 			}
 		}
