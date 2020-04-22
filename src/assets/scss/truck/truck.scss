@@ -10,15 +10,15 @@
 
 .truck {
 	.t-info {
-		display: flex;
-		justify-content: space-between;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
 		text-align: right;
 		
 		.theTruk {
-			display: flex;
+			@include prefixer( display, flex, ("webkit", "moz", "o") );
 			width: 100%;
-			justify-content: space-between;
-			flex-direction: column;
+			@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
+			@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
 			min-height: 4.5rem;
 			padding: 0 0 0.5rem 0;
 		}
@@ -27,8 +27,8 @@
 			
 			/*width: 100%;*/
 			padding: 0 1rem;
-			display: flex;
-			justify-content: space-between;
+			@include prefixer( display, flex, ("webkit", "moz", "o") );
+			@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
 			
 			> * {
 				display: block;
@@ -46,9 +46,9 @@
 		
 		.truck-data {
 			> * {
-				display: flex;
-				justify-content: center;
-				align-items: center;
+				@include prefixer( display, flex, ("webkit", "moz", "o") );
+				@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+				@include prefixer( align-items, center, ("webkit", "moz", "o") );
 				font-size: 1rem;
 			}
 			

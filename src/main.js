@@ -1,6 +1,6 @@
 import Vue         from 'vue';
 import VueSocketIO from 'vue-socket.io';
-import App         from './App.vue';
+import App       from './App.vue';
 
 window.$          = require( 'jquery' );
 window.JQuery     = require( 'jquery' );

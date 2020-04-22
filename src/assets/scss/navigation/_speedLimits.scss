@@ -14,9 +14,9 @@
 	 grid-template-columns: 120px 120px;
 	 grid-gap: var(--spacing);*/
 	
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include prefixer( display, flex, ("webkit", "moz", "o") );
+	@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+	@include prefixer( align-items, center, ("webkit", "moz", "o") );
 	padding-top: .5rem;
 	
 	> * {
@@ -32,9 +32,9 @@
 		font-size: 1.5rem;
 		line-height: 1.2rem;
 		font-weight: bold;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+		@include prefixer( align-items, center, ("webkit", "moz", "o") );
 	}
 	
 	.speedLimitKPH {

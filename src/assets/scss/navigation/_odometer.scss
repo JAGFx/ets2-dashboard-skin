@@ -33,8 +33,7 @@
 		left: 50%;
 		right: 50%;
 		width: 4rem;
-		-webkit-transform: translateX(-50%);
-		transform: translateX(-50%);
+		@include prefixer( transform, translateX(-50%), ("webkit", "moz", "o") );
 		background: #252729;
 		line-height: 0.8rem;
 		height: 1rem;
@@ -54,10 +53,8 @@
 			background: #252729;
 			border-left: 1px solid $cRed;
 			border-bottom: 2px solid $cRed;
-			-webkit-transform-origin: bottom left;
-			transform-origin: bottom left;
-			-webkit-transform: skew(30deg, 0deg);
-			transform: skew(30deg, 0deg);
+			@include prefixer( transform-origin, bottom left, ("webkit", "moz", "o") );
+			@include prefixer( transform, skew(30deg, 0deg), ("webkit", "moz", "o") );
 		}
 		
 		&:after {
@@ -69,8 +66,8 @@
 			background: #252729;
 			border-right: 1px solid $cRed;
 			border-bottom: 2px solid $cRed;
-			transform-origin: bottom left;
-			transform: skew(-30deg, 0deg);
+			@include prefixer( transform-origin, bottom left, ("webkit", "moz", "o") );
+			@include prefixer( transform, skew(-30deg, 0deg), ("webkit", "moz", "o") );
 		}
 	}
 }

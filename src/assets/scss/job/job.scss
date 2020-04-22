@@ -12,9 +12,9 @@
 	height: 100%;
 	
 	.header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
+		@include prefixer( align-items, center, ("webkit", "moz", "o") );
 		padding: 0.5rem 1rem;
 		
 		> * {
@@ -23,7 +23,7 @@
 		
 		> .mass {
 			background: url("../../../assets/img/Job/noun_Weight_1644747.svg") center center no-repeat;
-			background-size: contain;
+			@include prefixer( background-size, contain, ("webkit", "moz", "o") );
 			height: 3rem;
 			width: 6rem;
 			position: relative;

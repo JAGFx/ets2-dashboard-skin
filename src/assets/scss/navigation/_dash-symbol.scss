@@ -10,16 +10,16 @@
 @import "../common/variables";
 
 .dash-symbol-area {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	@include prefixer( display, flex, ("webkit", "moz", "o") );
+	@include prefixer( justify-content, space-around, ("webkit", "moz", "o") );
+	@include prefixer( align-items, center, ("webkit", "moz", "o") );
 	padding-bottom: .5rem;
 	
 	.dash-symbol-wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
+		@include prefixer( display, flex, ("webkit", "moz") );
+		@include prefixer( flex-direction, column, ("webkit", "moz") );
+		@include prefixer( justify-content, space-between, ("webkit", "moz") );
+		@include prefixer( align-items, center, ("webkit", "moz") );
 		
 		.dash-symbol {
 			width: $iiWidth;
@@ -28,9 +28,9 @@
 			background: $cBlackTransparentHigh;
 			border-bottom: none;
 			margin-bottom: .5rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include prefixer( display, flex, ("webkit", "moz") );
+			@include prefixer( justify-content, center, ("webkit", "moz") );
+			@include prefixer( align-items, center, ("webkit", "moz") );
 			overflow: hidden;
 			color: $cGray;
 			
@@ -56,7 +56,7 @@
 			@include dashSymbol('disabled', $cGray);
 			
 			&.left {
-				transform: skew($deSkewLeft);
+				@include prefixer( transform, skew($deSkewLeft), ("webkit", "moz") );
 				border-left: none;
 				border-image: linear-gradient(
 						45deg,
@@ -65,7 +65,7 @@
 				) 1;
 				
 				span {
-					transform: skew($deSkewRight);
+					@include prefixer( transform, skew($deSkewRight), ("webkit", "moz") );
 				}
 				
 				@for $i from 1 through 2 {
@@ -77,7 +77,7 @@
 			}
 			
 			&.right {
-				transform: skew($deSkewRight);
+				@include prefixer( transform, skew($deSkewRight), ("webkit", "moz") );
 				border-right: none;
 				border-image: linear-gradient(
 						-45deg,
@@ -86,7 +86,7 @@
 				) 1;
 				
 				span {
-					transform: skew($deSkewLeft);
+					@include prefixer( transform, skew($deSkewLeft), ("webkit", "moz") );
 				}
 				
 				@for $i from 1 through 2 {

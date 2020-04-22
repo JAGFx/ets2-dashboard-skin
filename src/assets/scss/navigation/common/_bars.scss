@@ -8,9 +8,9 @@
 
 .speed-area, .fuel-level {
 	.bars {
-		display: flex;
-		justify-content: center;
-		align-content: center;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+		@include prefixer( align-items, center, ("webkit", "moz", "o") );
 		width: 100%;
 		
 		.bar {

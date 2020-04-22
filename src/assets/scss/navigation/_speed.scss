@@ -16,20 +16,20 @@
 	@import "common/bars";
 	
 	.speed-wrapper .left, .speed-wrapper .right, .bottom {
-		display: flex;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
 		padding: .15rem;
 	}
 	
 	.speed-wrapper {
-		display: flex;
-		justify-content: center;
-		align-items: stretch;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+		@include prefixer( align-items, stretch, ("webkit", "moz", "o") );
 		//transform: translateZ(-100px);
 		
 		.middle{
 			width: 100%;
 			margin: 0.5rem 0;
-			perspective: 100px;
+			@include prefixer( perspective, 100px, ("webkit", "moz", "o") );
 			
 			.speed{
 				> * {
@@ -40,7 +40,7 @@
 					font-family: suprrpg !important;
 					font-size: 4.8rem;
 					line-height: 5rem;
-					transform: skew(19deg, 0deg);
+					@include prefixer( transform, skew(19deg, 0deg), ("webkit", "moz", "o") );
 					margin: 0.7rem 0 0;
 				}
 				
@@ -52,16 +52,16 @@
 	}
 	
 	.fuel-level{
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-		transform: rotateX(65deg);
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+		@include prefixer( align-items, center, ("webkit", "moz", "o") );
+		@include prefixer( transform, rotateX(65deg), ("webkit", "moz", "o") );
 		
 		.fuel-icon-wrapper{
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include prefixer( display, flex, ("webkit", "moz") );
+			@include prefixer( justify-content, center, ("webkit", "moz") );
+			@include prefixer( align-items, center, ("webkit", "moz") );
 			
 			> i {
 				color: $cWhiteGray;

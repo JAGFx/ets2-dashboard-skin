@@ -8,13 +8,13 @@
 
 .dash-element {
 	margin: 0;
-	display: flex;
-	flex-direction: column;
+	@include prefixer( display, flex, ("webkit", "moz", "o") );
+	@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
 	
 	li {
 		list-style: none;
-		display: flex;
-		align-items: center;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( align-items, center, ("webkit", "moz", "o") );
 		margin: $deMargin 0;
 		position: relative;
 		height: $deHeight;
@@ -24,27 +24,18 @@
 			font-size: 1.5rem;
 		}
 		
-		/*&:after, &:before {
-			content: ' ';
-			width: 1rem;
-			height: $deHeight;
-			background: var(--color-bg);
-			border-color: $cRed;
-			border-style: solid;
-			transform-origin: bottom left;
-		}*/
-		
 		.round {
 			width: $deHeight;
 			height: $deHeight;
 			overflow: hidden;
 			background: $cBlackTransparentHigh;
-			transform-origin: bottom left;
+			@include prefixer( transform-origin, bottom left, ("webkit", "moz", "o") );
+			@include prefixer( transform-origin, bottom left, ("webkit", "moz", "o") );
 			padding: 0 .5rem;
 			vertical-align: center;
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include prefixer( display, flex, ("webkit", "moz", "o") );
+			@include prefixer( justify-content, center, ("webkit", "moz", "o") );
+			@include prefixer( align-items, center, ("webkit", "moz", "o") );
 			font-size: 1.5rem;
 		}
 		
@@ -110,7 +101,7 @@
 		
 		li {
 			background: linear-gradient(to left, $cBlackTransparentHigh, transparent);
-			justify-content: flex-end;
+			@include prefixer( justify-content, flex-end, ("webkit", "moz", "o") );
 			text-align: right;
 			border-right-width: 2px;
 			
@@ -122,7 +113,7 @@
 					} @else {
 						$marginElm: ( $i - 3 ) * 1rem;
 						margin: $deMargin $marginElm $deMargin 2rem;
-						transform: skew($deSkewRight, 0deg);
+						@include prefixer( transform, skew($deSkewRight, 0deg), ("webkit", "moz", "o") );
 						
 						&:not(.multiline) {
 							/*&:after {
@@ -130,7 +121,7 @@
 							}*/
 							
 							.round > *, span {
-								transform: skew($deSkewLeft, 0deg);
+								@include prefixer( transform, skew($deSkewLeft, 0deg), ("webkit", "moz", "o") );
 							}
 						}
 					}
@@ -155,7 +146,7 @@
 		
 		li {
 			background: linear-gradient(to left, transparent, $cBlackTransparentHigh);
-			justify-content: flex-start;
+			@include prefixer( justify-content, flex-start, ("webkit", "moz", "o") );
 			text-align: left;
 			border-left-width: 2px;
 			
@@ -174,7 +165,7 @@
 					margin: $deMargin 1.5rem $deMargin $marginElm;
 					
 					&:not(.multiline) {
-						transform: skew($deSkewLeft, 0deg);
+						@include prefixer( transform, skew($deSkewLeft, 0deg), ("webkit", "moz", "o") );
 					}
 					
 					&.multiline {
@@ -198,7 +189,7 @@
 				}*/
 				
 				.round > *, span {
-					transform: skew($deSkewRight, 0deg);
+					@include prefixer( transform, skew($deSkewRight, 0deg), ("webkit", "moz") );
 				}
 			}
 		}

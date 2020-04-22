@@ -10,20 +10,20 @@
 .trailer {
 	
 	.t-info {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		@include prefixer( display, flex, ("webkit", "moz", "o") );
+		@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
+		@include prefixer( align-items, center, ("webkit", "moz", "o") );
 		width: 100%;
 		height: 4.5rem;
-		flex-direction: column;
+		@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
 		padding: 0 0 .5rem 0;
 		
 		
 		.trailer-data {
 			width: 100%;
 			padding: 0 1rem;
-			display: flex;
-			justify-content: space-between;
+			@include prefixer( display, flex, ("webkit", "moz", "o") );
+			@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
 			
 			.job {
 				height: 100%;
@@ -43,8 +43,8 @@
 		.job-data {
 			width: 100%;
 			padding: 0 1rem;
-			display: flex;
-			justify-content: space-between;
+			@include prefixer( display, flex, ("webkit", "moz", "o") );
+			@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
 		}
 		
 	}

@@ -12,8 +12,8 @@
 	font-size: 1rem;
 	font-weight: bold;
 	width: 6rem;
-	display: flex;
-	justify-content: center;
+	@include prefixer( display, flex, ("webkit", "moz") );
+	@include prefixer( justify-content, center, ("webkit", "moz") );
 	text-align: center;
 	
 	&.left{

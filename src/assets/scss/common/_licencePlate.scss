@@ -12,14 +12,14 @@
 	color: $cBlack;
 	font-size: 1rem;
 	font-weight: bold;
-	display: inline-flex;
+	@include prefixer( display, inline-flex, ("webkit", "moz") );
 	width: 100%;
-	justify-content: space-between;
+	@include prefixer( justify-content, space-between, ("webkit", "moz") );
 	
 	.flag {
 		padding: 0 .2rem;
 		margin-right: .5rem;
-		background: $cBlackTransparentMid;
+		background: darken( $cRed, 15% );
 		color: $cWhite;
 		height: 100%;
 	}
