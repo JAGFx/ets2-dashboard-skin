@@ -1,5 +1,13 @@
 # Eurotruck Simulator 2 Dashboard skin
 
+![npm](https://img.shields.io/npm/v/ets2-dashboard-skin?style=flat-square)
+![npm](https://img.shields.io/npm/dt/ets2-dashboard-skin?style=flat-square)
+![NPM](https://img.shields.io/npm/l/ets2-dashboard-skin?style=flat-square)
+![GitHub Release Date](https://img.shields.io/github/release-date/JAGFx/ets2-dashboard-skin?style=flat-square)
+[![Dependecy Status](https://david-dm.org/JAGFx/ets2-dashboard-skin.svg)](https://david-dm.org/JAGFx/ets2-dashboard-skin)  
+[![devDependencies Status](https://david-dm.org/JAGFx/ets2-dashboard-skin/dev-status.svg)](https://david-dm.org/JAGFx/ets2-dashboard-skin?type=dev) 
+
+
 ## About
 
 The idea with this repository is to update a collection of dashboard from the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK.
