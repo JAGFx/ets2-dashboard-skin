@@ -1,0 +1,24 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_mixins-truck-brand.scss
+ * Date: 	22/04/2020
+ * Time: 	18:46
+ */
+
+@mixin brandTruckBackground( $brandName ) {
+	&.#{$brandName}:before {
+		background: url('/img/Truck/brands/#{$brandName}.svg') no-repeat center center;
+		content: ' ';
+		position: absolute;
+		opacity: 0.03;
+		width: 100vw;
+		height: calc( 100vh - 49px);
+		/* height: 0; */
+		left: 0;
+		top: 0;
+		z-index: 0;
+		/* backdrop-filter: none; */
+		background-size: contain;
+	}
+}

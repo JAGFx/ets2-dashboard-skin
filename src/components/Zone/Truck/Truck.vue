@@ -71,14 +71,14 @@
 					'red': brakes.airPressure.emergency.enabled
 				}"
 				v-if="elementIsEnabled( 'brakesAirPressure' )">
-				<span>{{Math.round(brakes.airPressure.value)}} psi</span>
+				<span>{{Math.round(brakes.airPressure.value)}} PSI</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
 			</li>
 			
 			<!-- Oil temperature -->
-			<li class="orange" v-if="elementIsEnabled( 'oilTemperature' )">
+			<li class="default" v-if="elementIsEnabled( 'oilTemperature' )">
 				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
 				<div class="round">
 					<i class="icon-oil"></i>

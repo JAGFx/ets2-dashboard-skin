@@ -9,6 +9,7 @@
 @import "../common/variables";
 @import "../common/font-face";
 
+@import "../app/mixins-truck-brand";
 @import "../common/licencePlate";
 @import "../common/damage";
 @import "../common/dash-element";
@@ -83,6 +84,16 @@ main {
 .wrapper {
 	@include prefixer( display, flex, ("webkit", "moz", "o") );
 	height: 100%;
+	
+	position: relative;
+
+	/*@include brandTruckBackground( 'volvo' );
+	@include brandTruckBackground( 'scania' );
+	@include brandTruckBackground( 'daf' );
+	@include brandTruckBackground( 'iveco' );
+	@include brandTruckBackground( 'man' );
+	@include brandTruckBackground( 'mercedes' );
+	@include brandTruckBackground( 'renault' );*/
 	
 	> * {
 		width: 100%;

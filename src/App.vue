@@ -6,7 +6,7 @@
 	</main>
 	<main :class="`${game && game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
 		<Game id="game" v-bind="{...game}" />
-		<div class="wrapper">
+		<div :class="truck.brand.id" class="wrapper">
 			<div class="left">
 				<Trailer id="trailers" v-bind="{...trailer, cargo: job.cargo}" />
 				<Job id="job" v-bind="{...job, game: game.game, distance: navigation.distance}" />
