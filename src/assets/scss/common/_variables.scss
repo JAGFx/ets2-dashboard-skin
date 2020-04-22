@@ -6,38 +6,38 @@
  * Time: 	18:42
  */
 
-:root {
-	--spacing: 1rem;
-	--color-bg: #121212;
-	--color-window: rgba(0, 0, 0, 0.5);
-	--color-border: rgba(60, 63, 65, 0.2);
-	--color-text: #FFF;
-	--color-highlight: rgba(114, 224, 209);
-	--color-white: #EAEAEA;
-	--color-black: #000;
-	--color-red: #E00000;
-	--color-red-transluicide: rgba(224, 0, 0, 0.2);
-	--color-orange: #ff7300;
-	--color-green: #00E070;
-	--color-gray: #3C3F41;
-	--color-yellow: #E0E000;
-	--color-blue: #0CB4FF;
-	
-	--dash-element-skew: 20deg;
-	--dash-element-skew-left: var(--dash-element-skew);
-	--dash-element-skew-right: calc( -1 * var(--dash-element-skew) );
-	
-	--dash-element-height: 2.5rem;
-	--dash-element-multiline-height: 3.9rem;
-	--dash-element-border-width: 2px;
-	--dash-element-common-margin: .2rem;
-	
-	--nav-element-width: 2.2rem;
-	--nav-element-color: #212223;
-}
+// -----------------------------------------
+// --- Common
 
+// --- Color
+
+$cBlack: #121212;
+$cBlackTransparentMid: lighten( $cBlack, 0.5 );
+$cBlackTransparentHigh: lighten( $cBlack, 3% );
+$cWhite: #FFF;
+$cWhiteGray: #eaeaea;
 $cRed: #E00000;
-$cBlue: #0CB4FF;
+$cOrange: #ff7300;
 $cGreen: #00E070;
+$cGray: #3C3F41;
+$cYellow: #E0E000;
+$cBlue: #0CB4FF;
 
-$nbBarSkew: 4;
+
+// -----------------------------------------
+// --- Elements
+
+// --- Dash element
+
+$deSkew: 20deg;
+$deSkewLeft: $deSkew;
+$deSkewRight: - $deSkew;
+$deHeight: 2.5rem;
+$deMultilineHeight: 3.9rem;
+$deMargin: .2rem;
+
+// --- Icons items
+
+$iiWidth: 2.2rem;
+$iiColor: #212223;
+$iiNbBarSkew: 4;

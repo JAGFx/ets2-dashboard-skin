@@ -3,7 +3,6 @@
 		<div class="t-info">
 			<div class="theTruk">
 				<div class="truck-data">
-					<!--FIXME: Do not show the picture because the final path was wrong-->
 					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
@@ -288,17 +287,11 @@
 </template>
 
 <script>
-	import Wheel    from '@/components/Wheel.vue';
-	import Window   from '@/components/Window.vue';
-	import utilsApp from '../utils/_app';
+	import utilsApp from '../../../utils/_app';
 	
 	export default {
 		name: 'Truck',
-		
-		components: { Window, Wheel },
-		
 		mixins: [ utilsApp ],
-		
 		props: [
 			'brand',
 			'model',
@@ -344,60 +337,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "../assets/scss/truck/truck";
-	
-	.truck {
-		.t-info {
-			display: flex;
-			justify-content: space-between;
-			text-align: right;
-			
-			.theTruk {
-				display: flex;
-				width: 100%;
-				justify-content: space-between;
-				flex-direction: column;
-				min-height: 4.5rem;
-				padding: 0 0 0.5rem 0;
-			}
-			
-			.truck-data, .truck-stats, .truck-gear {
-				
-				/*width: 100%;*/
-				padding: 0 1rem;
-				display: flex;
-				justify-content: space-between;
-				
-				> * {
-					display: block;
-				}
-			}
-			
-			.truck-stats {
-				/*width: auto;*/
-				> span {
-					width: 100%;
-					font-size: 1rem;
-					text-align: center
-				}
-			}
-			
-			.truck-data {
-				> * {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					font-size: 1rem;
-				}
-				
-				.brand {
-					width: 2rem;
-					max-height: 24px;
-					margin-right: 0.5rem;
-				}
-			}
-			
-		}
-		
-	}
+	@import "../../../assets/scss/truck/truck";
 </style>

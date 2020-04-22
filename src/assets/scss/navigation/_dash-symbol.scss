@@ -6,32 +6,33 @@
  * Time: 	18:20
  */
 
-@import "mixins-nav-element";
+@import "mixins/mixins-dash-symbol";
+@import "../common/variables";
 
-.nav-bottom {
+.dash-symbol-area {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	padding-bottom: .5rem;
 	
-	.nav-element-wrapper {
+	.dash-symbol-wrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
 		
-		.nav-element {
-			width: var(--nav-element-width);
-			height: var(--nav-element-width);
+		.dash-symbol {
+			width: $iiWidth;
+			height: $iiWidth;
 			border: 2px solid;
-			background: var(--color-border);
+			background: $cBlackTransparentHigh;
 			border-bottom: none;
 			margin-bottom: .5rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			overflow: hidden;
-			color: var(--color-gray);
+			color: $cGray;
 			
 			span {
 				padding-top: .3rem;
@@ -48,26 +49,23 @@
 				margin-bottom: 0;
 			}
 			
-			@include navElm('red', var(--color-red));
-			@include navElm('green', var(--color-green));
-			@include navElm('orange', var(--color-orange));
-			@include navElm('blue', var(--color-blue));
-			@include navElm('disabled', var(--color-gray));
-			
-			
-			/* TODO Set different color */
+			@include dashSymbol('red', $cRed);
+			@include dashSymbol('green', $cGreen);
+			@include dashSymbol('orange', $cOrange);
+			@include dashSymbol('blue', $cBlue);
+			@include dashSymbol('disabled', $cGray);
 			
 			&.left {
-				transform: skew(var(--dash-element-skew-left));
+				transform: skew($deSkewLeft);
 				border-left: none;
 				border-image: linear-gradient(
 						45deg,
 						transparent,
-						var(--color-gray)
+						$cGray
 				) 1;
 				
 				span {
-					transform: skew(var(--dash-element-skew-right));
+					transform: skew($deSkewRight);
 				}
 				
 				@for $i from 1 through 2 {
@@ -79,16 +77,16 @@
 			}
 			
 			&.right {
-				transform: skew(var(--dash-element-skew-right));
+				transform: skew($deSkewRight);
 				border-right: none;
 				border-image: linear-gradient(
 						-45deg,
 						transparent,
-						var(--color-gray)
+						$cGray
 				) 1;
 				
 				span {
-					transform: skew(var(--dash-element-skew-left));
+					transform: skew($deSkewLeft);
 				}
 				
 				@for $i from 1 through 2 {

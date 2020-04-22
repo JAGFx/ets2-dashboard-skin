@@ -6,10 +6,19 @@
  * Time: 	20:14
  */
 
+@import "../common/variables";
+@import "truck-gear";
+@import "speed";
+@import "odometer";
+@import "speedLimits";
+@import "dash-symbol";
+
 .nav {
-	@import "truck-gear";
-	@import "speed";
-	@import "odometer";
-	@import "speedLimits";
-	@import "nav-bottom";
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	.icons-item-wrappers {
+		width: 100%;
+	}
 }

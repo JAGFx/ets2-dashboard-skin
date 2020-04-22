@@ -6,12 +6,14 @@
  * Time: 	20:15
  */
 
+@import "../common/variables";
+
 .odometer {
 	position: relative;
-	background: linear-gradient(to right, transparent, var(--color-border), transparent);
+	background: linear-gradient(to right, transparent, $cBlackTransparentHigh, transparent);
 	border-bottom: 2px solid;
 	/*border-top: 2px solid;*/
-	border-image: linear-gradient(to right, transparent, var(--color-red), transparent) 1;
+	border-image: linear-gradient(to right, transparent, $cRed, transparent) 1;
 	//margin-bottom: 1.5rem;
 	margin: 0 3rem 1.5rem;
 	
@@ -36,7 +38,7 @@
 		background: #252729;
 		line-height: 0.8rem;
 		height: 1rem;
-		color: #FFF;
+		color: $cWhite;
 		text-transform: uppercase;
 		border: 2px solid red;
 		border-top: 0;
@@ -50,8 +52,8 @@
 			height: 1rem;
 			left: -0.1rem;
 			background: #252729;
-			border-left: 1px solid var(--color-red);
-			border-bottom: 2px solid var(--color-red);
+			border-left: 1px solid $cRed;
+			border-bottom: 2px solid $cRed;
 			-webkit-transform-origin: bottom left;
 			transform-origin: bottom left;
 			-webkit-transform: skew(30deg, 0deg);
@@ -65,8 +67,8 @@
 			height: 1rem;
 			right: -0.1rem;
 			background: #252729;
-			border-right: 1px solid var(--color-red);
-			border-bottom: 2px solid var(--color-red);
+			border-right: 1px solid $cRed;
+			border-bottom: 2px solid $cRed;
 			transform-origin: bottom left;
 			transform: skew(-30deg, 0deg);
 		}

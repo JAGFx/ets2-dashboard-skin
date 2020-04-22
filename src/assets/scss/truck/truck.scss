@@ -6,6 +6,58 @@
  * Time: 	20:18
  */
 
-.truck {
+@import "../common/variables";
 
+.truck {
+	.t-info {
+		display: flex;
+		justify-content: space-between;
+		text-align: right;
+		
+		.theTruk {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			flex-direction: column;
+			min-height: 4.5rem;
+			padding: 0 0 0.5rem 0;
+		}
+		
+		.truck-data, .truck-stats, .truck-gear {
+			
+			/*width: 100%;*/
+			padding: 0 1rem;
+			display: flex;
+			justify-content: space-between;
+			
+			> * {
+				display: block;
+			}
+		}
+		
+		.truck-stats {
+			/*width: auto;*/
+			> span {
+				width: 100%;
+				font-size: 1rem;
+				text-align: center
+			}
+		}
+		
+		.truck-data {
+			> * {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 1rem;
+			}
+			
+			.brand {
+				width: 2rem;
+				max-height: 24px;
+				margin-right: 0.5rem;
+			}
+		}
+		
+	}
 }

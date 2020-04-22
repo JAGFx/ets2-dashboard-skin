@@ -6,6 +6,8 @@
  * Time: 	20:14
  */
 
+@import "../common/variables";
+
 .speedLimits {
 	/* display: grid;
 	 grid-template-rows: auto 1fr;
@@ -23,7 +25,7 @@
 	
 	.speedLimitKPH,
 	.speedLimitMPH {
-		background-color: var(--color-white);
+		background-color: $cWhiteGray;
 		color: black;
 		width: 3rem;
 		height: 3rem;
@@ -36,12 +38,12 @@
 	}
 	
 	.speedLimitKPH {
-		border: .3rem solid var(--color-red);
+		border: .3rem solid $cRed;
 		border-radius: 50%;
 	}
 	
 	.speedLimitMPH {
-		border: .3rem solid var(--color-black);
+		border: .3rem solid $cBlack;
 		border-radius: 20px;
 	}
 }

@@ -1,16 +1,16 @@
 <template>
 	<div class="nav text-center">
-		<div class="nav-wrapper">
-			<div class="nav-bottom">
+		<div class="icons-item-wrappers">
+			<div class="dash-symbol-area">
 				<!-- Left elements -->
-				<_NavElement side="left"></_NavElement>
+				<DashSymbolArea side="left"></DashSymbolArea>
 				
 				<div :class="transmission.shifterType" class="truck-gear">
 					<span class="value">{{getTrueGear()}}</span>
 				</div>
 				
 				<!-- Right elements -->
-				<_NavElement side="right"></_NavElement>
+				<DashSymbolArea side="right"></DashSymbolArea>
 			</div>
 			
 			<!-- Speed -->
@@ -18,11 +18,11 @@
 			<div class="speed-area">
 				<div class="speed-wrapper">
 					<div class="left" v-if="elementIsEnabled( 'rpm' )">
-						<_RPMBars v-bind="{
+						<RPMBars v-bind="{
 							engine: engine,
 							brand: brand,
 							model: model
-						}"></_RPMBars>
+						}"></RPMBars>
 					</div>
 					<div class="middle">
 						<div class="speed">
@@ -41,11 +41,11 @@
 						</div>
 					</div>
 					<div class="right" v-if="elementIsEnabled( 'rpm' )">
-						<_RPMBars v-bind="{
+						<RPMBars v-bind="{
 							engine: engine,
 							brand: brand,
 							model: model
-						}"></_RPMBars>
+						}"></RPMBars>
 					</div>
 				</div>
 			</div>
@@ -77,14 +77,12 @@
 </template>
 
 <script>
-	import _NavElement from '@/components/_NavElement.vue';
-	import _RPMBars    from '@/components/_RPMBars.vue';
+	import DashSymbolArea from '../../Elements/DashSymbolArea';
+	import RPMBars        from './Elements/RPMBars';
 	
 	export default {
 		name: 'Navigation',
-		
-		components: { _NavElement, _RPMBars },
-		
+		components: { DashSymbolArea, RPMBars },
 		props: [
 			'nextRestStop',
 			'distance',
@@ -192,17 +190,5 @@
 </script>
 
 <style scoped lang="scss">
-	
-	@import "../assets/scss/navigation/navigation";
-	
-	.nav {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		
-		.nav-wrapper {
-			width: 100%;
-		}
-	}
-
+	@import "../../../assets/scss/navigation/navigation";
 </style>

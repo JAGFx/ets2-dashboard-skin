@@ -21,18 +21,11 @@
 </template>
 
 <script>
-	import Window   from '@/components/Window.vue';
-	import utilsApp from '../utils/_app';
+	import utilsApp from '../../../utils/_app';
 	
 	export default {
 		name: 'Game',
-		
-		components: {
-			Window
-		},
-		
 		mixins: [ utilsApp ],
-		
 		props: [
 			'timestamp',
 			'time',
@@ -69,63 +62,5 @@
 </script>
 
 <style scoped lang="scss">
-	.game {
-		background: #272727;
-		font-size: .7rem;
-		border-bottom: 1px solid var(--color-red);
-		margin-bottom: .5rem;
-        display: flex;
-        justify-content: space-between;
-		
-		ul {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin: 0;
-            width: 100%;
-			
-			li {
-				list-style: none;
-				padding: 0.5rem 1rem;
-				
-				span {
-					padding: .2rem .5rem;
-					background: var(--color-red);
-					color: var(--color-text);
-					border-radius: 1rem;
-					margin-right: .5rem;
-				}
-			}
-            
-            &:last-child{
-                flex-direction: row-reverse;
-            }
-		}
-        
-        .game-time{
-            width: 100%;
-            min-width: 17rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.3rem;
-        }
-	}
-	
-	.info,
-	.info div {
-		display: grid;
-	}
-	
-	.info {
-		grid-gap: var(--spacing);
-	}
-	
-	.info div {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-	
-	.info div span:nth-child(1) {
-		font-weight: bold;
-	}
+	@import "../../../assets/scss/game/game";
 </style>

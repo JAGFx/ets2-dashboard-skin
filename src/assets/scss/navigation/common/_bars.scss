@@ -17,10 +17,10 @@
 			margin: .1rem;
 			height: 4px;
 			width: 1rem;
-			background: var(--color-border);
+			background: $cBlackTransparentHigh;
 			
 			&.active {
-				background: var(--color-white);
+				background: $cWhiteGray;
 			}
 		}
 	}

@@ -8,8 +8,8 @@
 
 .licencePlate{
 	padding: 0 .5rem 0 0;
-	background: var(--color-red);
-	color: var(--color-bg);
+	background: $cRed;
+	color: $cBlack;
 	font-size: 1rem;
 	font-weight: bold;
 	display: inline-flex;
@@ -19,8 +19,8 @@
 	.flag {
 		padding: 0 .2rem;
 		margin-right: .5rem;
-		background: var(--color-window);
-		color: var(--color-text);
+		background: $cBlackTransparentMid;
+		color: $cWhite;
 		height: 100%;
 	}
 }

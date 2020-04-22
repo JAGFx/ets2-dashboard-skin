@@ -15,9 +15,9 @@
 		list-style: none;
 		display: flex;
 		align-items: center;
-		margin: var(--dash-element-common-margin) 0;
+		margin: $deMargin 0;
 		position: relative;
-		height: var(--dash-element-height);
+		height: $deHeight;
 		border: 0 solid;
 		
 		span {
@@ -27,18 +27,18 @@
 		/*&:after, &:before {
 			content: ' ';
 			width: 1rem;
-			height: var(--dash-element-height);
+			height: $deHeight;
 			background: var(--color-bg);
-			border-color: var(--color-red);
+			border-color: $cRed;
 			border-style: solid;
 			transform-origin: bottom left;
 		}*/
 		
 		.round {
-			width: var(--dash-element-height);
-			height: var(--dash-element-height);
+			width: $deHeight;
+			height: $deHeight;
 			overflow: hidden;
-			background: var(--color-border);
+			background: $cBlackTransparentHigh;
 			transform-origin: bottom left;
 			padding: 0 .5rem;
 			vertical-align: center;
@@ -49,15 +49,15 @@
 		}
 		
 		&.multiline {
-			height: var(--dash-element-multiline-height);
+			height: $deMultilineHeight;
 			text-align: left;
 			
 			/*&:after, &:before{
-				height: var(--dash-element-multiline-height);
+				height: $deMultilineHeight;
 			}*/
 			
 			.round {
-				height: var(--dash-element-multiline-height);
+				height: $deMultilineHeight;
 			}
 			
 			> span {
@@ -73,34 +73,34 @@
 		
 		
 		&.blue {
-			color: var(--color-blue);
-			border-color: var(--color-blue);
+			color: $cBlue;
+			border-color: $cBlue;
 		}
 		
 		&.orange {
-			color: var(--color-orange);
-			border-color: var(--color-orange);
+			color: $cOrange;
+			border-color: $cOrange;
 		}
 		
 		&.red {
-			color: var(--color-red);
-			border-color: var(--color-red);
+			color: $cRed;
+			border-color: $cRed;
 		}
 		
 		
 		&.green {
-			color: var(--color-green);
-			border-color: var(--color-green);
+			color: $cGreen;
+			border-color: $cGreen;
 		}
 		
 		&.default, &.white {
-			color: var(--color-white);
-			border-color: var(--color-red);
+			color: $cWhiteGray;
+			border-color: $cRed;
 		}
 		
 		&.disabled {
-			color: var(--color-gray);
-			border-color: var(--color-gray);
+			color: $cGray;
+			border-color: $cGray;
 		}
 		
 	}
@@ -109,7 +109,7 @@
 		padding-right: .5rem;
 		
 		li {
-			background: linear-gradient(to left, var(--color-border), transparent);
+			background: linear-gradient(to left, $cBlackTransparentHigh, transparent);
 			justify-content: flex-end;
 			text-align: right;
 			border-right-width: 2px;
@@ -118,19 +118,19 @@
 				&:nth-child(#{$i}) {
 					
 					@if ($i <= 3) {
-						margin: var(--dash-element-common-margin) 0.5rem var(--dash-element-common-margin) 1.5rem;
+						margin: $deMargin 0.5rem $deMargin 1.5rem;
 					} @else {
 						$marginElm: ( $i - 3 ) * 1rem;
-						margin: var(--dash-element-common-margin) $marginElm var(--dash-element-common-margin) 2rem;
-						transform: skew(var(--dash-element-skew-right), 0deg);
+						margin: $deMargin $marginElm $deMargin 2rem;
+						transform: skew($deSkewRight, 0deg);
 						
 						&:not(.multiline) {
 							/*&:after {
-								transform: skew(var(--dash-element-skew-right), 0deg);
+								transform: skew($deSkewRight, 0deg);
 							}*/
 							
 							.round > *, span {
-								transform: skew(var(--dash-element-skew-left), 0deg);
+								transform: skew($deSkewLeft, 0deg);
 							}
 						}
 					}
@@ -154,7 +154,7 @@
 		padding-left: .5rem;
 		
 		li {
-			background: linear-gradient(to left, transparent, var(--color-border));
+			background: linear-gradient(to left, transparent, $cBlackTransparentHigh);
 			justify-content: flex-start;
 			text-align: left;
 			border-left-width: 2px;
@@ -171,14 +171,14 @@
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
 					$marginElm: ( $i - 2 ) * 1rem;
-					margin: var(--dash-element-common-margin) 1.5rem var(--dash-element-common-margin) $marginElm;
+					margin: $deMargin 1.5rem $deMargin $marginElm;
 					
 					&:not(.multiline) {
-						transform: skew(var(--dash-element-skew-left), 0deg);
+						transform: skew($deSkewLeft, 0deg);
 					}
 					
 					&.multiline {
-						margin: var(--dash-element-common-margin) 0 var(--dash-element-common-margin) 0.5rem;
+						margin: $deMargin 0 $deMargin 0.5rem;
 					}
 					
 					/*.round {
@@ -194,11 +194,11 @@
 			
 			&:not(.multiline) {
 				/*&:before{
-					transform: skew(var(--dash-element-skew-left), 0deg);
+					transform: skew($deSkewLeft, 0deg);
 				}*/
 				
 				.round > *, span {
-					transform: skew(var(--dash-element-skew-right), 0deg);
+					transform: skew($deSkewRight, 0deg);
 				}
 			}
 		}

@@ -80,19 +80,12 @@
 </template>
 
 <script>
-	import Window      from '@/components/Window.vue';
-	import utilsApp    from '../utils/_app';
-	import utilsConfig from '../utils/_config';
+	import utilsApp    from '../../../utils/_app';
+	import utilsConfig from '../../../utils/_config';
 	
 	export default {
 		name: 'Trailers',
-		
-		components: {
-			Window
-		},
 		mixins: [ utilsApp, utilsConfig ],
-		/*components: { Window, Wheel },*/
-		
 		props: [
 			'brand',
 			'model',
@@ -119,46 +112,5 @@
 </script>
 
 <style scoped lang="scss">
-	.trailer {
-		
-		.t-info {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			width: 100%;
-			height: 4.5rem;
-			flex-direction: column;
-			padding: 0 0 .5rem 0;
-			
-			
-			.trailer-data {
-				width: 100%;
-				padding: 0 1rem;
-				display: flex;
-				justify-content: space-between;
-				
-				.job {
-					height: 100%;
-					text-align: center;
-					
-					&.disabled {
-						color: var(--color-gray);
-					}
-				}
-				
-				> * {
-					display: block;
-					
-				}
-			}
-			
-			.job-data {
-				width: 100%;
-				padding: 0 1rem;
-				display: flex;
-				justify-content: space-between;
-			}
-			
-		}
-	}
+	@import "../../../assets/scss/job/trailer";
 </style>

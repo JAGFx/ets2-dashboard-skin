@@ -78,13 +78,8 @@
 </template>
 
 <script>
-	import Window from '@/components/Window.vue';
-	
 	export default {
 		name: 'Job',
-		
-		components: { Window },
-		
 		props: [
 			'game',
 			'deliveryTime',
@@ -114,43 +109,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "../assets/scss/job/job";
-	
-	.job {
-		height: 100%;
-		.header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 0.5rem 1rem;
-			
-			> * {
-				width: 100%;
-			}
-			
-			> .mass{
-				background: url("../assets/img/Job/noun_Weight_1644747.svg") center center no-repeat;
-				background-size: contain;
-				height: 3rem;
-				width: 6rem;
-				position: relative;
-				
-				> span {
-					width: 100%;
-					display: block;
-					position: relative;
-					top: 0.2rem;
-					font-size: 1.6rem;
-					text-align: center;
-					padding-bottom: 1rem;
-					vertical-align: middle;
-				}
-			}
-			
-			.name{
-				/*margin-left: 1rem;*/
-				font-size: 1.5rem;
-			}
-		}
-	}
+	@import "../../../assets/scss/job/job";
 </style>

@@ -6,9 +6,9 @@
  * Time: 	17:49
  */
 
-@import "mixins-rpm";
-@import "bars";
+@import "mixins/mixins-rpm";
 @import "../common/variables";
+@import "common/bars";
 
 $sizeSide: 3rem;
 $heightSide: 5rem;
@@ -60,9 +60,9 @@ $heightSide: 5rem;
 			.bar {
 				transform: rotateY(45deg);
 				
-				@for $i from 1 through $nbBarSkew {
+				@for $i from 1 through $iiNbBarSkew {
 					&:nth-child(0n+#{$i}) {
-						$j: ( $nbBarSkew + 1 ) - $i;
+						$j: ( $iiNbBarSkew + 1 ) - $i;
 						
 						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
 						$spaceY:  -( 0.15rem * ( $j - 1 ) );
@@ -71,10 +71,10 @@ $heightSide: 5rem;
 				}
 				
 				// .3 .2
-				@for $i from 1 through $nbBarSkew {
-					$k: ( $nbBarSkew - $i ) + 1;
+				@for $i from 1 through $iiNbBarSkew {
+					$k: ( $iiNbBarSkew - $i ) + 1;
 					&:nth-last-child(-n+#{$k}) {
-						$j: ( $nbBarSkew + 1 ) - $k;
+						$j: ( $iiNbBarSkew + 1 ) - $k;
 						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
 						$spaceY:  ( 0.2rem * ( $j - 1 ) );
 						transform: rotateY(45deg) rotateX(60deg) translateZ($spaceZ) translateY($spaceY) translateX( .1rem );
@@ -103,9 +103,9 @@ $heightSide: 5rem;
 				
 				//margin-left: 0.3rem;
 				
-				@for $i from 1 through $nbBarSkew {
+				@for $i from 1 through $iiNbBarSkew {
 					&:nth-child(0n+#{$i}) {
-						$j: ( $nbBarSkew + 1 ) - $i;
+						$j: ( $iiNbBarSkew + 1 ) - $i;
 						
 						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
 						$spaceY:  -( 0.15rem * ( $j - 1 ) );
@@ -114,10 +114,10 @@ $heightSide: 5rem;
 				}
 				
 				// .3 .2
-				@for $i from 1 through $nbBarSkew {
-					$k: ( $nbBarSkew - $i ) + 1;
+				@for $i from 1 through $iiNbBarSkew {
+					$k: ( $iiNbBarSkew - $i ) + 1;
 					&:nth-last-child(-n+#{$k}) {
-						$j: ( $nbBarSkew + 1 ) - $k;
+						$j: ( $iiNbBarSkew + 1 ) - $k;
 						$spaceZ:  ( 0.3rem * ( $j - 1 ) );
 						$spaceY:  ( 0.2rem * ( $j - 1 ) );
 						transform: rotateY(-45deg) rotateX(60deg) translateZ($spaceZ) translateY($spaceY) translateX( -.1rem );

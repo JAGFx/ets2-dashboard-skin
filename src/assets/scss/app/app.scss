@@ -1,0 +1,97 @@
+/**
+ * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
+ * project:	customDefault
+ * file: 	app.scss
+ * Date: 	11-Apr-20
+ * Time: 	14:01
+ */
+
+@import "../common/variables";
+@import "../common/font-face";
+
+@import "../common/licencePlate";
+@import "../common/damage";
+@import "../common/dash-element";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.capitalized {
+	text-transform: capitalize;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+html {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	font-family: roboto;
+}
+
+body,
+#app,
+main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	overflow: hidden;
+	/*height: calc(100% - var(--spacing) * 2);*/
+}
+
+body {
+	background-color: $cBlack;
+	color: $cWhite;
+	word-wrap: break-word;
+}
+
+#app {
+	background: $cBlack;
+	background-size: cover;
+	font-family: 'Inconsolata', monospace;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+	display: flex;
+	height: 100%;
+	
+	> * {
+		width: 100%;
+	}
+}
+
+main {
+	width: 100%;
+	height: 100%;
+	background: $cBlack;
+}
+
+body, #app {
+	background: $cBlack !important;
+}
+
+main.waiting {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	h1 {
+		width: 100%;
+		background: $cGray;
+		border: 2px solid $cRed;
+		border-width: 2px 0;
+		text-align: center;
+		margin: 0;
+		padding: 1rem 0 1.5rem;
+	}
+}

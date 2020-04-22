@@ -6,14 +6,14 @@
  * Time: 	20:16
  */
 
-
+@import "../common/variables";
 
 .speed-area {
 	$sizeSide: 3rem;
 	$heightSide: 5rem;
 	margin-top: .5rem;
 	
-	@import "bars";
+	@import "common/bars";
 	
 	.speed-wrapper .left, .speed-wrapper .right, .bottom {
 		display: flex;
@@ -64,21 +64,21 @@
 			align-items: center;
 			
 			> i {
-				color: var(--color-white);
+				color: $cWhiteGray;
 				line-height: 0;
 				padding: .5rem;
 				
 				&.warning {
-					background: var(--color-red);
+					background: $cRed;
 				}
 			}
 		}
 		
 		.bars .bar:first-child{
-			background: var(--color-red-transluicide);
+			background: transparentize( $cRed, .8 );
 			
 			&.active {
-				background: var(--color-red);
+				background: $cRed;
 			}
 		}
 	}

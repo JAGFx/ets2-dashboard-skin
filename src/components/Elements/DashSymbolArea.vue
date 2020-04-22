@@ -1,21 +1,21 @@
 <template>
-	<div class="nav-element-wrapper">
+	<div class="dash-symbol-wrapper">
 		<!-- Brake parking | parkingBrake -->
-		<div :class="{ 'red': $parent.brakes.parking.enabled, 'left': sideLeft(), 'right': sideRight() }" class="nav-element" v-if="elementIsEnabled('parkingBrake')">
+		<div :class="{ 'red': $parent.brakes.parking.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('parkingBrake')">
 			<span>
 				<i class="icon-parking_brakes"></i>
 			</span>
 		</div>
 		
 		<!-- Retarder | retarder -->
-		<div :class="{ 'green': $parent.brakes.retarder.level > 0, 'left': sideLeft(), 'right': sideRight() }" class="nav-element" v-if="elementIsEnabled('retarder')">
+		<div :class="{ 'green': $parent.brakes.retarder.level > 0, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('retarder')">
 			<span>
 				<i class="icon-retarder"></i>
 			</span>
 		</div>
 		
 		<!-- Beacon | beacon -->
-		<div :class="{ 'green': $parent.lights.beacon.enabled, 'left': sideLeft(), 'right': sideRight() }" class="nav-element" v-if="elementIsEnabled('beacon')">
+		<div :class="{ 'green': $parent.lights.beacon.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('beacon')">
 			<span>
 				<i class="icon-beacons"></i>
 			</span>
@@ -24,14 +24,14 @@
 		<!-- Beam high | beamHigh -->
 		<div :class="{ 'blue': $parent.lights.beamHigh.enabled
 							&& $parent.lights.beamLow.enabled
-							&& $parent.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="nav-element" v-if="elementIsEnabled('beamHigh')">
+							&& $parent.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('beamHigh')">
 			<span>
 				<i class="icon-beam_high"></i>
 			</span>
 		</div>
 		
 		<!-- Beam low | beamLow -->
-		<div :class="{ 'green': $parent.lights.beamLow.enabled && $parent.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="nav-element" v-if="elementIsEnabled('beamLow')">
+		<div :class="{ 'green': $parent.lights.beamLow.enabled && $parent.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('beamLow')">
 			<span>
 				<i class="icon-beam_low"></i>
 			</span>
@@ -45,14 +45,14 @@
 			"beamLow",
 			"beacon"
 		 -->
-		<div :class="{ 'left': sideLeft(), 'right': sideRight() }" class="nav-element disabled" v-for="i in indexEmptyElement()">
+		<div :class="{ 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol disabled" v-for="i in indexEmptyElement()">
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name:    '_NavElement',
+		name:    'DashSymbolArea',
 		props:   [ 'side' ],
 		methods: {
 			elementIsEnabled:  function ( elm ) {
@@ -92,6 +92,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "../assets/scss/navigation/navigation";
-
+	@import "../../assets/scss/navigation/navigation";
 </style>

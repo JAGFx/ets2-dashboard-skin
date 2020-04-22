@@ -1,0 +1,56 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	game.scss
+ * Date: 	21/04/2020
+ * Time: 	22:27
+ */
+
+@import "../common/variables";
+
+.game {
+	background: #272727;
+	font-size: .7rem;
+	border-bottom: 1px solid $cRed;
+	margin-bottom: .5rem;
+	display: flex;
+	justify-content: space-between;
+	
+	ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0;
+		width: 100%;
+		
+		li {
+			list-style: none;
+			padding: 0.5rem 1rem;
+			
+			span {
+				padding: .2rem .5rem;
+				background: $cRed;
+				color: $cWhite;
+				border-radius: 1rem;
+				margin-right: .5rem;
+			}
+		}
+		
+		&:last-child {
+			flex-direction: row-reverse;
+		}
+	}
+	
+	.game-time {
+		width: 100%;
+		min-width: 17rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.3rem;
+	}
+}
+
+.info div span:nth-child(1) {
+	font-weight: bold;
+}

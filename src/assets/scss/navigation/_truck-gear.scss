@@ -6,6 +6,8 @@
  * Time: 	17:56
  */
 
+@import "../common/variables";
+
 .truck-gear {
 	display: flex;
 	justify-content: center;
@@ -19,7 +21,7 @@
 		//background: linear-gradient(to top, var(--color-border), transparent);
 		//border-top: 2px solid;
 		/*border-top: 2px solid;*/
-		//border-image: linear-gradient(to top, transparent, var(--color-red), transparent) 1;
+		//border-image: linear-gradient(to top, transparent, $cRed, transparent) 1;
 		/*background: #FFF;
 		color: #000;*/
 		font-size: 2rem;
@@ -27,14 +29,14 @@
 		width: 3.5rem;
 		line-height: 1rem;
 		//height: 3.5rem;
-		color: var(--color-white);
+		color: $cWhiteGray;
 	}
 	
 	&.hshifter > .value {
-		color: var(--color-red);
+		color: $cRed;
 		
 		&:first-letter{
-			color: var(--color-white);
+			color: $cWhiteGray;
 		}
 	}
 }

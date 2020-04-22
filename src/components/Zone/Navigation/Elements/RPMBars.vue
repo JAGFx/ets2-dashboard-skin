@@ -11,16 +11,16 @@
 
 <script>
 	import jq               from 'json-query';
-	import truck_engine_rpm from '../data/truck-engine-rpm.json';
+	import truck_engine_rpm from '../../../../data/truck-engine-rpm.json';
 	
 	export default {
-		name:    '_RPMBars',
-		props:   [
+		name:  'RPMBars',
+		props: [
 			'brand',
 			'engine',
 			'model'
 		],
-		data:    function () {
+		data:  function () {
 			return {
 				ter:       null,
 				maxBarRpm: 25
@@ -101,6 +101,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "../assets/scss/navigation/rpm_bars";
-
+	@import "../../../../assets/scss/navigation/rpm_bars";
 </style>
