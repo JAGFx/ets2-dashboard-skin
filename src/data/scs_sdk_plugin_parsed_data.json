@@ -575,11 +575,11 @@
          }
       },
       "damage": {
-         "cabin": 0,
-         "chassis": 0,
-         "engine": 0,
-         "transmission": 0,
-         "wheels": 0
+         "cabin": 0.5,
+         "chassis": 0.5,
+         "engine": 1,
+         "transmission": 1,
+         "wheels": 0.25
       }
    },
    "job": {
@@ -820,7 +820,7 @@
          }
       },
       "damage": {
-         "cargo": 0,
+         "cargo": 0.5,
          "chassis": 0
       }
    },

@@ -7,8 +7,8 @@
  */
 
 .damage {
-	background: $cRed;
-	color: $cBlack;
+	background: $cBlackTransparentHigh;
+	color: $cWhite;
 	font-size: 1rem;
 	font-weight: bold;
 	width: 6rem;
@@ -18,9 +18,11 @@
 	
 	&.left{
 		margin-left: .5rem;
+		border-left: solid 2px $cRed;
 	}
 	
 	&.right{
 		margin-right: .5rem;
+		border-right: solid 2px $cRed;
 	}
 }

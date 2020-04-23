@@ -15,7 +15,7 @@
 					<span v-if="hasTrailer()">{{licensePlate.value}}</span>
 					<span v-else>N/A</span>
 				</small>
-				<div class="damage left" v-if="hasTrailer()">{{Math.floor(100 * cargo.damage)}} %</div>
+				<div class="damage left" v-if="hasTrailer()">{{Math.floor(100 * getAverageDamage())}} %</div>
 				<div class="damage left" v-else>N/A</div>
 			</div>
 			<!--<div class="trailer-wear text-center">
@@ -33,50 +33,7 @@
 		<div><b>Attached:</b><span>{{attached ? 'YES' : 'NO'}}</span></div>-->
 	</div>
 	
-	<!--<template v-slot:chassis>
-	  <div class="chassis list">
-		<div><b>Position X:</b><span>{{position.X}}</span></div>
-		<div><b>Position Y:</b><span>{{position.Y}}</span></div>
-		<div><b>Position Z:</b><span>{{position.Z}}</span></div>
-		<div><b>Orientation heading:</b><span>{{orientation.heading}}</span></div>
-		<div><b>Orientation pitch:</b><span>{{orientation.pitch}}</span></div>
-		<div><b>Orientation roll:</b><span>{{orientation.roll}}</span></div>
-		<div><b>Linear velocity X:</b><span>{{acceleration.linearVelocity.X}}</span></div>
-		<div><b>Linear velocity Y:</b><span>{{acceleration.linearVelocity.Y}}</span></div>
-		<div><b>Linear velocity Z:</b><span>{{acceleration.linearVelocity.Z}}</span></div>
-		<div><b>Angular velocity X:</b><span>{{acceleration.angularVelocity.X}}</span></div>
-		<div><b>Angular velocity Y:</b><span>{{acceleration.angularVelocity.Y}}</span></div>
-		<div><b>Angular velocity Z:</b><span>{{acceleration.angularVelocity.Z}}</span></div>
-		<div><b>Linear acceleration X:</b><span>{{acceleration.linearAcceleration.X}}</span></div>
-		<div><b>Linear acceleration Y:</b><span>{{acceleration.linearAcceleration.Y}}</span></div>
-		<div><b>Linear acceleration Z:</b><span>{{acceleration.linearAcceleration.Z}}</span></div>
-		<div><b>Angular acceleration X:</b><span>{{acceleration.angularAcceleration.X}}</span></div>
-		<div><b>Angular acceleration Y:</b><span>{{acceleration.angularAcceleration.Y}}</span></div>
-		<div><b>Angular acceleration Z:</b><span>{{acceleration.angularAcceleration.Z}}</span></div>
-	  </div>
-	</template>
-
-	<template v-slot:hook>
-	  <div class="hook list">
-		<div><b>Position X:</b><span>{{hook.position.X}}</span></div>
-		<div><b>Position Y:</b><span>{{hook.position.Y}}</span></div>
-		<div><b>Position Z:</b><span>{{hook.position.Z}}</span></div>
-	  </div>
-	</template>
-
-	<template v-slot:wheels>
-	  <div class="wheels">
-		<Wheel v-for="wheel, i in wheels" v-bind="{...wheel, id: i+1}"/>
-	  </div>
-	</template>
-
-	<template v-slot:damage>
-	  <div class="damages list">
-		<div class="damage" v-for="key in Object.keys(damage)">
-		  <b>{{key}}</b><div>{{(100 * damage[key]).toFixed()}}%</div>
-		</div>
-	  </div>
-	</template>-->
+	
 </template>
 
 <script>
@@ -106,6 +63,16 @@
 		methods: {
 			hasTrailer: function () {
 				return this.model.id.length !== 0;
+			},
+			getAverageDamage(){
+				const keyLength = Object.keys( this.damage ).length;
+				let sum = 0;
+				
+				for( const key in this.damage ){
+					sum += this.damage[key];
+				}
+				
+				return sum / keyLength;
 			}
 		}
 	};

@@ -3,6 +3,7 @@
 		<div class="t-info">
 			<div class="theTruk">
 				<div class="truck-data">
+					<span></span>
 <!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
@@ -14,7 +15,7 @@
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{Math.floor(100 * chassis.damage)}} %</span>
+						<span>{{Math.floor(100 * getAverageDamage())}} %</span>
 					</div>
 					<span>
 						<span class="licencePlate"><span class="flag">{{getFlag( licensePlate.country.id )}}</span>{{licensePlate.value}}</span>
@@ -116,7 +117,7 @@
 			</li>
 			
 			<!-- Empty -->
-			<li class="disabled" v-for="i in indexEmptyElement()">
+			<li :key="i" class="disabled" v-for="i in indexEmptyElement()">
 				<span></span>
 				<div class="round">
 				</div>
@@ -170,6 +171,16 @@
 			},
 			elementIsEnabled:  function ( element ) {
 				return  this.$parent.$elementIsEnabled( 'right', element );
+			},
+			getAverageDamage:  function () {
+				const keyLength = Object.keys( this.damage ).length;
+				let sum = 0;
+				
+				for( const key in this.damage ){
+					sum += this.damage[key];
+				}
+				
+				return sum / keyLength;
 			}
 		}
 	};
