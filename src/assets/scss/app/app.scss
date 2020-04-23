@@ -87,13 +87,13 @@ main {
 	
 	position: relative;
 
-	/*@include brandTruckBackground( 'volvo' );
+	@include brandTruckBackground( 'volvo' );
 	@include brandTruckBackground( 'scania' );
 	@include brandTruckBackground( 'daf' );
 	@include brandTruckBackground( 'iveco' );
 	@include brandTruckBackground( 'man' );
 	@include brandTruckBackground( 'mercedes' );
-	@include brandTruckBackground( 'renault' );*/
+	@include brandTruckBackground( 'renault' );
 	
 	> * {
 		width: 100%;

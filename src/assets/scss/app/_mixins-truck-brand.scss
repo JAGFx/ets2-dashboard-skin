@@ -11,14 +11,11 @@
 		background: url('/img/Truck/brands/#{$brandName}.svg') no-repeat center center;
 		content: ' ';
 		position: absolute;
-		opacity: 0.03;
-		width: 100vw;
-		height: calc( 100vh - 49px);
-		/* height: 0; */
-		left: 0;
-		top: 0;
+		opacity: 0.1;
+		width: 25vw;
+		height: 27vh;
+		left: 37.5vw;
 		z-index: 0;
-		/* backdrop-filter: none; */
 		background-size: contain;
 	}
 }

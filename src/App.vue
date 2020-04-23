@@ -20,13 +20,11 @@
 </template>
 
 <script>
-	import DashSymbolArea from './components/Elements/DashSymbolArea';
-	import RPMBars        from './components/Zone/Navigation/Elements/RPMBars';
-	import Navigation     from './components/Zone/Navigation/Navigation';
-	import Game           from './components/Zone/Game/Game';
-	import Job            from './components/Zone/Job/Job';
-	import Trailer        from './components/Zone/Job/Trailer';
-	import Truck          from './components/Zone/Truck/Truck';
+	import Game       from './components/Zone/Game/Game';
+	import Job        from './components/Zone/Job/Job';
+	import Trailer    from './components/Zone/Job/Trailer';
+	import Navigation from './components/Zone/Navigation/Navigation';
+	import Truck      from './components/Zone/Truck/Truck';
 	
 	import testData    from './data/scs_sdk_plugin_parsed_data.json';
 	import utilsConfig from './utils/_config';
@@ -38,9 +36,7 @@
 			Navigation,
 			Job,
 			Truck,
-			Trailer,
-			DashSymbolArea,
-			RPMBars
+			Trailer
 		},
 		
 		mixins: [ utilsConfig ],
@@ -113,8 +109,7 @@
 						return false;
 					
 					if ( navElmSide === 'right' ) {
-						if ( indexElement + 1 <= ((this.maxMiddleElements / 2))
-							 || indexElement + 1 > this.maxMiddleElements )
+						if ( ((indexElement + 1) <= ((this.maxMiddleElements / 2))) || ((indexElement + 1) > this.maxMiddleElements) )
 							return false;
 						
 					}
