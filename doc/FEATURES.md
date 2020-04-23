@@ -18,7 +18,7 @@ All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) 
 
 - Licence plate flag of country
 - Licence plate number
-- Wear level
+- Wear level (Average Cargo + Chassis)
 
 #### Job
 
@@ -36,7 +36,7 @@ All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) 
 
 #### State icons
 
-- ~~Beacon ON~~ *Disabled currently*
+- Beacon ON
 - Current speed limit
 - High beam ON
 - Low beam ON
@@ -47,6 +47,8 @@ All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) 
 
 - Current gear selected
 - Current speed
+- Engine RPM level
+- Fuel level
 - Odometer
 
 ### Right - Truck

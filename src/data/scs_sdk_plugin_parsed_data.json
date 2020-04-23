@@ -560,12 +560,12 @@
          "roll": -0.0012825197773054242
       },
       "brand": {
-		  "id" :   "scania",
+		  "id" :   "volvo",
 		  "name" : "Scania"
 	  },
       "model": {
-		  "id" :   "vehicle.scania.s",
-		  "name" : "S"
+		  "id" :   "vehicle.volvo.fh16",
+		  "name" : "FH16"
 	  },
       "licensePlate": {
          "value": "BP 26 985",
