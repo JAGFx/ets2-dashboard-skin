@@ -28,6 +28,10 @@ const iconDistFontFiles = [
 ];
 const iconDestFiles     = 'public/icons/';
 
+// --- Resources copy
+const srcTruckBrandSvgs  = 'resources/truck-brand/svgs/*.svg';
+const destTruckBrandSvgs = 'public/img/Truck/brands/';
+
 // --- Bundle
 const filesToZip         = [
 	'./doc',
@@ -90,9 +94,17 @@ gulp.task( 'build:font:place', () => {
 } );
 gulp.task( 'build:font', gulp.series( 'build:font:init-folder', 'build:font:make', 'build:font:place' ) );
 
+// --- Resources copy
+gulp.task( 'build:resources:truck-brand', () => {
+	return gulp.src( srcTruckBrandSvgs )
+			   .pipe( gulp.dest( destTruckBrandSvgs ) );
+} );
+
+gulp.task( 'build:resources', gulp.series( 'build:resources:truck-brand' ) );
+
 // --- Build app
-gulp.task( 'build:dashboard', run( 'npm run dashboard:build' ) );
-gulp.task( 'build:server', run( 'npm run server:build' ) );
+gulp.task( 'build:dashboard', run( 'npx run dashboard:build' ) );
+gulp.task( 'build:server', run( 'npx run server:build' ) );
 
 // --- Bundle
 gulp.task( 'bundle:clean', ( cb ) => {
@@ -155,6 +167,6 @@ gulp.task( 'bundle:gzip', () => {
 } );
 
 // --- Build full package
-gulp.task( 'build', gulp.series( 'build:font', 'build:dashboard', 'build:server' ) );
+gulp.task( 'build', gulp.series( 'build:font', 'build:resources', 'build:dashboard', 'build:server' ) );
 gulp.task( 'bundle', gulp.series( 'bundle:clean', 'bundle:copy', 'bundle:server', 'bundle:gzip' ) );
 gulp.task( 'bAndB', gulp.series( 'build', 'bundle' ) );

@@ -82,18 +82,18 @@ main {
 
 
 .wrapper {
-	@include prefixer( display, flex, ("webkit", "moz", "o") );
+	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	height: 100%;
 	
 	position: relative;
-
-	@include brandTruckBackground( 'volvo' );
-	@include brandTruckBackground( 'scania' );
-	@include brandTruckBackground( 'daf' );
-	@include brandTruckBackground( 'iveco' );
-	@include brandTruckBackground( 'man' );
-	@include brandTruckBackground( 'mercedes' );
-	@include brandTruckBackground( 'renault' );
+	
+	@include brandTruckBackground('volvo');
+	@include brandTruckBackground('scania');
+	@include brandTruckBackground('daf');
+	@include brandTruckBackground('iveco');
+	@include brandTruckBackground('man');
+	@include brandTruckBackground('mercedes-benz');
+	@include brandTruckBackground('renault');
 	
 	> * {
 		width: 100%;
