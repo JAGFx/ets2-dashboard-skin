@@ -22,7 +22,7 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ## Environement
 
-All development are made under **Windows**. It's not operable under all Linux OS.
+All development are made under **Windows**. It's not operable under all other OS.
 
 The view is optimized for a `5.5"` screen. To develop on you web browser, you can set phone view to `800px * 455px`
 
@@ -31,6 +31,9 @@ The view is optimized for a `5.5"` screen. To develop on you web browser, you ca
 - OS: Windows 64Bits
 - NodeJS: v10, v12 or v13  
 - Game: Euro Truck Simulator 2
+- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop dans Mobile), Edge ( Desktop and mobile )
+
+**Important: It dosen't work with all Internet Explorer browsers**
 
 All current NodeJS version and LTS are supported. See the [NodeJS Release](https://nodejs.org/en/about/releases/) page to get more informations
 
