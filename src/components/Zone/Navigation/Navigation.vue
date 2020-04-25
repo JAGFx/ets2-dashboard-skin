@@ -36,7 +36,7 @@
 							</span>
 							
 							<div class="bars">
-								<div :class="{ 'active' : getFuelBarActive( i ) }" class="bar" v-for="i in getFuelBarCount()"></div>
+								<div :class="{ 'active' : getFuelBarActive( i ) }" class="bar" :key="i" v-for="i in getFuelBarCount()"></div>
 							</div>
 						</div>
 					</div>

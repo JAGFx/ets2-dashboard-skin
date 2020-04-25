@@ -5,7 +5,7 @@
 			'green': isAGreenBar( i ),
 			'blue': isABlueBar( i ),
 			'red': isARedBar( i )
-		}" class="bar" v-for="i in maxBarRpm"></div>
+		}" class="bar" :key="i" v-for="i in maxBarRpm"></div>
 	</div>
 </template>
 
@@ -44,8 +44,6 @@
 				
 				//console.log( this.ter );
 			}
-			
-			// TODO: Map all trucks
 		},
 		methods: {
 			getRPMBarActive:  function ( i ) {
@@ -62,7 +60,7 @@
 					return 0;
 				
 				const maxBar   = this.maxBarRpm;
-				const rpmByBar = (this.ter.max / maxBar);
+				const rpmByBar = (this.engine.rpm.max / maxBar);
 				const iLow     = (maxBar - i);
 				
 				return (iLow * rpmByBar);
@@ -73,8 +71,7 @@
 				
 				const rpmBarFrom = this.getCurrentRpmBar( i );
 				
-				return this.ter.low !== null
-					   && (rpmBarFrom >= this.ter.low.from && rpmBarFrom <= this.ter.low.to);
+				return this.ter.low !== null && (rpmBarFrom >= this.ter.low.from && rpmBarFrom <= this.ter.low.to);
 			},
 			isABlueBar:       function ( i ) {
 				if ( this.ter === null )
@@ -82,8 +79,7 @@
 				
 				const rpmBarFrom = this.getCurrentRpmBar( i );
 				
-				return this.ter.mid !== null
-					   && (rpmBarFrom >= this.ter.mid.from && rpmBarFrom <= this.ter.mid.to);
+				return this.ter.mid !== null && (rpmBarFrom >= this.ter.mid.from && rpmBarFrom <= this.ter.mid.to);
 			},
 			isARedBar:        function ( i ) {
 				if ( this.ter === null )
@@ -92,8 +88,7 @@
 				const rpmBarFrom = this.getCurrentRpmBar( i );
 				//console.log( rpmBarFrom );
 				
-				return this.ter.high !== null
-					   && (rpmBarFrom >= this.ter.high.from);
+				return this.ter.high !== null && (rpmBarFrom >= this.ter.high.from);
 			}
 		}
 	};

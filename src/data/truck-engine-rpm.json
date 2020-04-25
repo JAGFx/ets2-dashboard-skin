@@ -1,19 +1,154 @@
 {
 	"trucks" : [
 		{
-			"brandId" : "volvo",
+			"brandId" : "daf",
 			"models" :  [
 				{
-					"modelId" : "vehicle.volvo.fh16",
-					"max" :     2500,
+					"modelId" : "vehicle.daf.xf",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     {
+						"from" : 1800,
+						"to" :   2150
+					},
+					"high" :    {
+						"from" : 2150
+					}
+				},
+				{
+					"modelId" : "vehicle.daf.xf_euro6",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     {
+						"from" : 1700,
+						"to" :   2100
+					},
+					"high" :    {
+						"from" : 2100
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "iveco",
+			"models" :  [
+				{
+					"modelId" : "vehicle.iveco.hiway",
 					"low" :     {
 						"from" : 1000,
 						"to" :   1500
 					},
 					"mid" :     null,
 					"high" :    {
-						"from" : 2000
+						"from" : 2600
 					}
+				},
+				{
+					"modelId" : "vehicle.iveco.stralis",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2200
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "man",
+			"models" :  [
+				{
+					"modelId" : "vehicle.man.tgx",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1900
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2400
+					}
+				},
+				{
+					"modelId" : "vehicle.man.tgx_euro6",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1800
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2400
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "mercedes",
+			"models" :  [
+				{
+					"modelId" : "vehicle.mercedes.actros2014",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1400
+					},
+					"mid" :     {
+						"from" : 1800,
+						"to" :   2200
+					},
+					"high" :    {
+						"from" : 2200
+					}
+				},
+				{
+					"modelId" : "vehicle.mercedes.actros",
+					"low" :     {
+						"from" : 600,
+						"to" :   1500
+					},
+					"mid" :     {
+						"from" : 1500,
+						"to" :   2400
+					},
+					"high" :    {
+						"from" : 2400
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "renault",
+			"models" :  [
+				{
+					"modelId" : "vehicle.renault.magnum",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1600
+					},
+					"mid" :     null,
+					"high" :    null
+				},
+				{
+					"modelId" : "vehicle.renault.premium",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1600
+					},
+					"mid" :     null,
+					"high" :    null
+				},
+				{
+					"modelId" : "vehicle.renault.t",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    null
 				}
 			]
 		},
@@ -21,11 +156,46 @@
 			"brandId" : "scania",
 			"models" :  [
 				{
-					"modelId" : "vehicle.scania.s",
-					"max" :     2500,
+					"modelId" : "vehicle.scania.s_2016",
+					"low" :     null,
+					"mid" :     {
+						"from" : 2000,
+						"to" :   2200
+					},
+					"high" :    {
+						"from" : 2400
+					}
+				},
+				{
+					"modelId" : "vehicle.scania.streamline",
 					"low" :     {
 						"from" : 1000,
-						"to" :   1500
+						"to" :   1600
+					},
+					"mid" :     {
+						"from" : 2000,
+						"to" :   2200
+					},
+					"high" :    {
+						"from" : 2400
+					}
+				},
+				{
+					"modelId" : "vehicle.scania.r_2016",
+					"low" :     null,
+					"mid" :     {
+						"from" : 2000,
+						"to" :   2200
+					},
+					"high" :    {
+						"from" : 2400
+					}
+				},
+				{
+					"modelId" : "vehicle.scania.r",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1600
 					},
 					"mid" :     {
 						"from" : 2000,
@@ -38,24 +208,31 @@
 			]
 		},
 		{
-			"brandId" : "daf",
-			"models" :  [ ]
-		},
-		{
-			"brandId" : "iveco",
-			"models" :  [ ]
-		},
-		{
-			"brandId" : "man",
-			"models" :  [ ]
-		},
-		{
-			"brandId" : "mercedes",
-			"models" :  [ ]
-		},
-		{
-			"brandId" : "renault",
-			"models" :  [ ]
+			"brandId" : "volvo",
+			"models" :  [
+				{
+					"modelId" : "vehicle.volvo.fh16_2012",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2000
+					}
+				},
+				{
+					"modelId" : "vehicle.volvo.fh16",
+					"low" :     {
+						"from" : 950,
+						"to" :   1600
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2300
+					}
+				}
+			]
 		}
 	]
 }
