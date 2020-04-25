@@ -103,8 +103,8 @@ gulp.task( 'build:resources:truck-brand', () => {
 gulp.task( 'build:resources', gulp.series( 'build:resources:truck-brand' ) );
 
 // --- Build app
-gulp.task( 'build:dashboard', run( 'npx run dashboard:build' ) );
-gulp.task( 'build:server', run( 'npx run server:build' ) );
+gulp.task( 'build:dashboard', run( 'npm run dashboard:build' ) );
+gulp.task( 'build:server', run( 'npm run server:build' ) );
 
 // --- Bundle
 gulp.task( 'bundle:clean', ( cb ) => {
