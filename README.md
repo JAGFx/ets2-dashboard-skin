@@ -1,9 +1,9 @@
 # Eurotruck Simulator 2 Dashboard skin
 
-![npm](https://img.shields.io/npm/v/ets2-dashboard-skin?style=flat-square)
-![npm](https://img.shields.io/npm/dt/ets2-dashboard-skin?style=flat-square)
-![NPM](https://img.shields.io/npm/l/ets2-dashboard-skin?style=flat-square)
-![GitHub Release Date](https://img.shields.io/github/release-date/JAGFx/ets2-dashboard-skin?style=flat-square)
+[![npm](https://img.shields.io/npm/v/ets2-dashboard-skin?style=flat-square)](https://www.npmjs.com/package/ets2-dashboard-skin)
+[![npm](https://img.shields.io/npm/dt/ets2-dashboard-skin?style=flat-square)](https://www.npmjs.com/package/ets2-dashboard-skin)
+[![NPM](https://img.shields.io/npm/l/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/README.md)
+[![GitHub Release Date](https://img.shields.io/github/release-date/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![Dependecy Status](https://david-dm.org/JAGFx/ets2-dashboard-skin.svg)](https://david-dm.org/JAGFx/ets2-dashboard-skin)  
 [![devDependencies Status](https://david-dm.org/JAGFx/ets2-dashboard-skin/dev-status.svg)](https://david-dm.org/JAGFx/ets2-dashboard-skin?type=dev) 
 
@@ -30,6 +30,7 @@ The view is optimized for a `5.5"` screen. To develop on you web browser, you ca
 
 - OS: Windows 64Bits
 - NodeJS: v10, v12 or v13  
+- Game: Euro Truck Simulator 2
 
 All current NodeJS version and LTS are supported. See the [NodeJS Release](https://nodejs.org/en/about/releases/) page to get more informations
 
@@ -40,7 +41,7 @@ All current NodeJS version and LTS are supported. See the [NodeJS Release](https
 
 You can use this dashboard without build anything. Just to get the `scs-sdk-plugin` (See below).
 
-You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases) page.
+You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest) page.
 
 Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
 
