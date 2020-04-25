@@ -44,8 +44,8 @@
 			"beamHigh",
 			"beamLow",
 			"beacon"
-		 -->
-		<div :class="{ 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol disabled" v-for="i in indexEmptyElement()">
+		-->
+		<div :class="{ 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol disabled" :key="i" v-for="i in indexEmptyElement()">
 		</div>
 	</div>
 </template>
