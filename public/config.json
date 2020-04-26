@@ -10,6 +10,10 @@
 		"batteryVoltage"
 	],
 	"middle": {
+		"hShiftLayout": {
+			"range": true,
+			"splitter": true
+		},
 		"top": [
 			"retarder",
 			"parkingBrake",

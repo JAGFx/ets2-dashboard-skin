@@ -81,9 +81,9 @@
 	import RPMBars        from './Elements/RPMBars';
 	
 	export default {
-		name: 'Navigation',
+		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
-		props: [
+		props:      [
 			'nextRestStop',
 			'distance',
 			'time',
@@ -121,28 +121,35 @@
 			 },*/
 			getTrueGear:      function () {
 				/*console.log( this );*/
+				const configSettings          = JSON.parse( JSON.stringify( this.$parent.configSettings ) );
+				const hShiftLayout            = (configSettings.middle !== undefined)
+					? configSettings.middle.hShiftLayout
+					: { range: false, splitter: false };
+				const rangeAndSplitterEnabled = hShiftLayout.range && hShiftLayout.splitter;
+				
 				let gear    = this.transmission.gear.displayed;
 				let strGear = gear;
 				
-				if ( this.transmission.shifterType === 'hshifter' ) {
-					let cruzeGear = 0;
+				//console.log( rangeAndSplitterEnabled );
+				if ( this.transmission.shifterType === 'hshifter' && rangeAndSplitterEnabled ) {
+					let crawlingGear = 0;
 					
 					switch ( this.brand.name ) {
 						case 'Volvo':
 						case 'Scania':
 						case 'Kenworth':
-							cruzeGear = 2;
+							crawlingGear = 2;
 							break;
 					}
 					
-					let realGearCount = gear - cruzeGear;
+					let realGearCount = gear - crawlingGear;
 					let spliter       = (realGearCount % 2)
 						? 'L'
 						: 'H';
 					let realGear      = Math.ceil( realGearCount / 2 );
 					strGear           = realGear + spliter;
 					
-					if ( gear <= cruzeGear )
+					if ( gear <= crawlingGear )
 						strGear = 'C' + Math.abs( this.transmission.gear.displayed );
 					
 				}

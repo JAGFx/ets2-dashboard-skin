@@ -19,6 +19,10 @@ Below, the default configuration
 		"batteryVoltage"
 	],
 	"middle": {
+		"hShiftLayout": {
+			"range": true,
+			"splitter": true
+		},
 		"top": [
 			"retarder",
 			"parkingBrake",
@@ -36,6 +40,12 @@ Below, the default configuration
 ````
 
 > Note: We can displayed 7 element max in the right side and 4 in the middle side. Place your element on the top. 
+
+## HShifter layout
+You can configure your ETS2 layout in this config file.
+If you set a range ON, or splitter ON or both, set the TRUE value.
+
+See more informations at [ETS2 Input config](https://eurotrucksimulator2.com/input_config.php)
 
 ---
 ↩️ [Home](../README.md)
