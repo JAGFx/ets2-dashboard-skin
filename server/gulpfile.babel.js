@@ -7,7 +7,7 @@ function watch() {
 }
 
 function build() {
-	return gulp.src( 'index.js' )
+	return gulp.src( [ 'src/**/*.js', 'src/**/*.mjs' ] )
 			   .pipe( plumber() )
 			   .pipe( babel( { presets: [ '@babel/env' ] } ) )
 			   .pipe( gulp.dest( 'dist' ) );
