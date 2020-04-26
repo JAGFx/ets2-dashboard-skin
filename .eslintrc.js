@@ -11,7 +11,8 @@ module.exports = {
     parser: 'babel-eslint'
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    'no-console':               process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger':              process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-mixed-spaces-and-tabs': [ 2, 'smart-tabs' ]
   }
 }
