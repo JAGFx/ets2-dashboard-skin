@@ -5,6 +5,7 @@
   "description": "Euro Truck Simulator 2 dashboard",
   "author": "Emmanuel SMITH <hey@emmanuel-smith.me> (https://emmanuel-smith.me)",
   "scripts": {
+    "start" : "npm run server:start",
     "build": "npx gulp build",
     "lint": "vue-cli-service lint",
     "bAndB": "npx gulp bAndB",
@@ -13,6 +14,7 @@
     "dashboard:dev": "vue-cli-service serve",
     "dashboard:start": "http-server dist/",
     "font:build": "npx gulp build:font",
+    "server:install": "cd server && npm i && npm rb",
     "server:build": "cd server && npx gulp",
     "server:start": "cd server && node ./dist/index.js"
   },
