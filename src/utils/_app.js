@@ -12,16 +12,19 @@ import packageJson from '../../package.json';
 
 export default {
 	methods: {
-		app_getBasePathHost : () => {
+		app_getBasePathHost: () => {
 			return 'http://' + window.location.host + '/';
 		},
-		getVersion:           function () {
+		getVersion:          function () {
 			return packageJson.version;
 		},
-		getFlag:              function ( countryName ) {
+		getFlag:             function ( countryName ) {
 			let flag = undefined;
 			
 			if ( countryName.length !== 0 ) {
+				countryName       = (countryName === 'uk')
+					? 'United Kingdom of Great Britain and Northern Ireland'
+					: countryName;
 				const countryCode = countryList.getCode( countryName );
 				flag              = emojiFlags.countryCode( countryCode );
 			}
@@ -33,4 +36,4 @@ export default {
 				: '🏳️';
 		}
 	}
-}
+};
