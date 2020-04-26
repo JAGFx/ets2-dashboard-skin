@@ -4,19 +4,19 @@
   "private": false,
   "description": "Euro Truck Simulator 2 dashboard",
   "author": "Emmanuel SMITH <hey@emmanuel-smith.me> (https://emmanuel-smith.me)",
-  "scripts":         {
-    "start" :           "npm run server:start",
-    "build" :           "npx gulp build",
+  "scripts": {
     "lint" :            "vue-cli-service lint",
-    "bAndB" :           "npx gulp bAndB",
+    "build" :           "npx gulp build",
     "bundle" :          "npx gulp bundle",
-    "dashboard:build" : "vue-cli-service build",
+    "bAndB" :           "npx gulp bAndB",
+    "start" :           "npm run server:start",
     "dashboard:dev" :   "vue-cli-service serve",
+    "dashboard:build" : "vue-cli-service build",
     "dashboard:start" : "http-server dist/",
-    "font:build" :      "npx gulp build:font",
     "server:install" :  "cd server && npm i && npm rb",
     "server:build" :    "cd server && npx gulp",
-    "server:start": "cd server && node ./dist/index.js"
+    "server:start" :    "cd server && node ./dist/index.js",
+    "font:build" :      "npx gulp build:font"
   },
   "main": "index.js",
   "dependencies": {

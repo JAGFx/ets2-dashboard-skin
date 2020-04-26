@@ -84,10 +84,9 @@ $ cd ets2-dashboard-skin
 ### Build resources
 
 ````bash
-$ npm i
-$ cd server && npm i
-$ npm rb
-$ cd ../ && npm run build
+$ npm i && npm rb
+$ npm run server:install
+$ npm run build
 ````
 
 ## Features
@@ -145,6 +144,14 @@ $ npm run dashboard:start
 
 ### Production
 
+#### Server install
+
+Install all necessary dependencies for the server
+
+````bash
+$ npm run server:install
+````
+
 #### Server build
 
 Build the server dist files for the production 
@@ -159,6 +166,10 @@ Start the production version of the server
 
 ````bash
 $ npm run server:start
+````
+OR
+````bash
+$ npm start
 ````
 
 #### Build
@@ -177,6 +188,14 @@ Generate a `*.tar.gz` archive with all production files of **Dashboard** and **S
 $ npm run bundle
 ````
 
+#### Build and Bundle
+
+Combine `Build` task and `Bundle` task
+
+````bash
+$ npm run bAndB
+````
+
 ### Other
 
 #### Font build
@@ -187,6 +206,14 @@ To get more details, see [RESOURCES.md](doc/RESOURCES.md)
 
 ````bash
 $ npm run font:build
+````
+
+#### ESLint
+
+Launch the lint inspector
+
+````bash
+$ npm run lint
 ````
 
 ## License

@@ -45,7 +45,7 @@ All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) 
 
 #### Others data
 
-- Current gear selected
+- Current gear selected (_With or not splitter indicator_)
 - Current speed
 - Engine RPM level
 - Fuel level
