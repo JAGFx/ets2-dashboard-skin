@@ -3,12 +3,12 @@ import http              from 'http';
 import path              from 'path';
 import socketio          from 'socket.io';
 import truckSimTelemetry from 'trucksim-telemetry';
-import pkgDash           from '../package.json';
 
 const app       = express();
 const server    = http.createServer( app );
 const io        = socketio( server );
 const telemetry = truckSimTelemetry();
+const port      = 3000;
 
 app.use( express.static( path.resolve( __dirname, '../../dist' ) ) );
 
@@ -74,6 +74,6 @@ io.on( 'connection', function ( socket ) {
 	io.emit( 'log', log );
 } );
 
-server.listen( 3000, function () {
-	console.log( `${ pkgDash.description } is running at http://localhost:3000/` );
+server.listen( port, function () {
+	console.log( `Euro Truck Simulator 2 dashboard is running at http://localhost:${ port }/` );
 } );
