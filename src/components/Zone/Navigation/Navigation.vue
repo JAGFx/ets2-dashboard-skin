@@ -127,37 +127,35 @@
 					: { range: false, splitter: false };
 				const rangeAndSplitterEnabled = hShiftLayout.range && hShiftLayout.splitter;
 				
-				let gear    = this.transmission.gear.displayed;
-				let strGear = gear;
+				let gear         = this.transmission.gear.displayed;
+				let strGear      = gear;
+				let crawlingGear = 0;
+				
+				switch ( this.brand.name ) {
+					case 'Volvo':
+					case 'Scania':
+					case 'Kenworth':
+						crawlingGear = 2;
+						break;
+				}
 				
 				//console.log( rangeAndSplitterEnabled );
 				if ( this.transmission.shifterType === 'hshifter' && rangeAndSplitterEnabled ) {
-					let crawlingGear = 0;
-					
-					switch ( this.brand.name ) {
-						case 'Volvo':
-						case 'Scania':
-						case 'Kenworth':
-							crawlingGear = 2;
-							break;
-					}
-					
 					let realGearCount = gear - crawlingGear;
 					let spliter       = (realGearCount % 2)
 						? 'L'
 						: 'H';
 					let realGear      = Math.ceil( realGearCount / 2 );
 					strGear           = realGear + spliter;
-					
-					if ( gear <= crawlingGear )
-						strGear = 'C' + Math.abs( this.transmission.gear.displayed );
-					
+				} else {
+					strGear = gear - crawlingGear;
 				}
 				
-				if ( this.transmission.shifterType === 'automatic' ) {
+				if ( gear <= crawlingGear )
+					strGear = 'C' + Math.abs( gear );
+				
+				if ( this.transmission.shifterType === 'automatic' )
 					strGear = 'D' + gear;
-				}
-				
 				
 				if ( gear === 0 )
 					strGear = 'N';
