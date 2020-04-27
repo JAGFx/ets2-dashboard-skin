@@ -13,13 +13,13 @@
 	font-size: .7rem;
 	border-bottom: 1px solid $cRed;
 	margin-bottom: .5rem;
-	@include prefixer( display, flex, ("webkit", "moz", "o") );
-	@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
+	@include prefixer(display, flex, ("webkit", "moz", "o"));
+	@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
 	
 	ul {
-		@include prefixer( display, flex, ("webkit", "moz", "o") );
-		@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
-		@include prefixer( align-items, center, ("webkit", "moz", "o") );
+		@include prefixer(display, flex, ("webkit", "moz", "o"));
+		@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
+		@include prefixer(align-items, center, ("webkit", "moz", "o"));
 		margin: 0;
 		width: 100%;
 		
@@ -37,16 +37,21 @@
 		}
 		
 		&:last-child {
-			@include prefixer( flex-direction, row-reverse, ("webkit", "moz", "o") );
+			@include prefixer(flex-direction, row-reverse, ("webkit", "moz", "o"));
+			
+			& > li > span {
+				margin-right: 0;
+				margin-left: .5rem;
+			}
 		}
 	}
 	
 	.game-time {
 		width: 100%;
 		min-width: 17rem;
-		@include prefixer( display, flex, ("webkit", "moz", "o") );
-		@include prefixer( justify-content, center, ("webkit", "moz", "o") );
-		@include prefixer( align-items, center, ("webkit", "moz", "o") );
+		@include prefixer(display, flex, ("webkit", "moz", "o"));
+		@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+		@include prefixer(align-items, center, ("webkit", "moz", "o"));
 		font-size: 1.3rem;
 	}
 }

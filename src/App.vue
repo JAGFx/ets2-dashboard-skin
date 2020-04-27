@@ -5,8 +5,11 @@
 		</h1>
 	</main>
 	<main :class="`${game && game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
-		<Game id="game" v-bind="{...game}" />
-		<div :class="truck.brand.id" class="wrapper">
+		<Game @onOpenSettingView="onOpenSettingView()" id="game" v-bind="{...game}" />
+		<div class="wrapper" v-if="menuDisplayed">
+			<Menu></Menu>
+		</div>
+		<div :class="truck.brand.id" class="wrapper" v-else>
 			<div class="zone-wrapper">
 				<div class="left">
 					<Trailer id="trailers" v-bind="{...trailer, cargo: job.cargo}" />
@@ -24,6 +27,7 @@
 </template>
 
 <script>
+	import Menu       from './components/Menu/Menu';
 	import Game       from './components/Zone/Game/Game';
 	import Job        from './components/Zone/Job/Job';
 	import Trailer    from './components/Zone/Job/Trailer';
@@ -40,7 +44,8 @@
 			Navigation,
 			Job,
 			Truck,
-			Trailer
+			Trailer,
+			Menu
 		},
 		
 		mixins: [ utilsConfig ],
@@ -65,7 +70,8 @@
 			return Object.assign( {}, data, {
 				configSettings:    {},
 				maxSideElements:   7,
-				maxMiddleElements: 4
+				maxMiddleElements: 4,
+				menuDisplayed:     true
 			} );
 		},
 		created() {
@@ -113,7 +119,8 @@
 						return false;
 					
 					if ( navElmSide === 'right' ) {
-						if ( ((indexElement + 1) <= ((this.maxMiddleElements / 2))) || ((indexElement + 1) > this.maxMiddleElements) )
+						if ( ((indexElement + 1) <= ((this.maxMiddleElements / 2))) || ((indexElement + 1)
+																						> this.maxMiddleElements) )
 							return false;
 						
 					}
@@ -142,6 +149,10 @@
 				return (enabledElements === undefined)
 					? 0
 					: enabledElements.length;
+			},
+			onOpenSettingView() {
+				console.log( 'Received' );
+				this.menuDisplayed = true;
 			}
 		},
 		sockets: {

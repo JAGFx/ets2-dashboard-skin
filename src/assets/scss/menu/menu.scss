@@ -1,0 +1,45 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	menu.scss
+ * Date: 	27/04/2020
+ * Time: 	13:02
+ */
+
+@import "../common/variables";
+
+@import "tab-about";
+
+.menu {
+	@include prefixer(display, flex, ("webkit", "moz", "o"));
+	@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
+	
+	nav > ul {
+		margin: 0;
+		@include prefixer(display, flex, ("webkit", "moz", "o"));
+		@include prefixer(justify-content, space-around, ("webkit", "moz", "o"));
+		@include prefixer(align-items, center, ("webkit", "moz", "o"));
+		list-style: none;
+		
+		li {
+			padding: .5rem;
+			width: 100%;
+			text-align: center;
+			
+			background: $cBlackTransparentHigh;
+			border-bottom: 2px solid $cGray;
+			color: $cGray;
+			
+			&.active, &:hover {
+				color: $cWhite;
+				border-color: $cRed;
+				background: $cBlackTransparentMid;
+			}
+		}
+	}
+	
+	.tab-content {
+		height: 100%;
+		padding: 1rem;
+	}
+}

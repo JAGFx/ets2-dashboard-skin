@@ -5,11 +5,12 @@
 			<li><span>API</span>v{{telemetryVersion}}</li>
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
-		<div  class="game-time">
-            <span>{{formatedTime()}}</span>
-        </div>
+		<div class="game-time">
+			<span>{{formatedTime()}}</span>
+		</div>
 		<ul>
-			<li><span>&copy;</span>JAGFx - {{ getVersion() }}</li>
+			<li @click="onClickGear()">Menu ⚙️</li>
+			<li>JAGFx - {{ getVersion() }}<span>&copy;</span></li>
 		</ul>
 		
 		<!--<div><span>Game:</span><span>{{game.name.toUpperCase()}}</span></div>
@@ -24,9 +25,9 @@
 	import utilsApp from '../../../utils/_app';
 	
 	export default {
-		name: 'Game',
+		name:   'Game',
 		mixins: [ utilsApp ],
-		props: [
+		props:  [
 			'timestamp',
 			'time',
 			'game',
@@ -56,6 +57,9 @@
 				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ this.double( date.getUTCHours() ) }:${ this.double( date.getUTCMinutes() ) }`;
+			},
+			onClickGear() {
+				this.$emit( 'onOpenSettingView' );
 			}
 		}
 	};
