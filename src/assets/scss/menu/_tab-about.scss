@@ -14,7 +14,6 @@
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 	@include prefixer(align-items, center, ("webkit", "moz", "o"));
-	//@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
 	
 	> aside {
 		@include prefixer(display, flex, ("webkit", "moz", "o"));
@@ -40,7 +39,6 @@
 				small{
 					display: inline-block;
 					font-size: 1rem;
-					margin-top:1rem;
 					
 					&.badge-author{
 						font-size: .8rem;
@@ -51,9 +49,9 @@
 		}
 		
 		.icons {
-			margin-top: 1rem;
-			display: flex;
-			justify-content: center;
+			margin-top: 1.5rem;
+			@include prefixer(display, flex, ("webkit", "moz", "o"));
+			@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 			
 			a {
 				color: #ffffff;
@@ -65,9 +63,9 @@
 				border-radius: 50%;
 				margin:0 .5rem;
 				
-				display: flex;
-				justify-content: center;
-				align-items: center;
+				@include prefixer(display, flex, ("webkit", "moz", "o"));
+				@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+				@include prefixer(align-items, center, ("webkit", "moz", "o"));
 			}
 		}
 		
@@ -78,8 +76,9 @@
 			position: relative;
 			overflow: hidden;
 			padding: 1rem;
-			display: flex;
-			justify-content: center;
+			
+			@include prefixer(display, flex, ("webkit", "moz", "o"));
+			@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 			
 			img.background{
 				position: absolute;
@@ -91,7 +90,8 @@
 				z-index: 0;
 				width: 100vw;
 				height: 100vh;
-				object-fit: cover;
+				
+				@include prefixer(object-fit, cover, ("webkit", "moz", "o"));
 			}
 			
 			img.profile{
@@ -115,14 +115,15 @@
 			height: auto;
 			padding: 1rem;
 			background: $cBlackTransparentHigh;
-			display: flex;
-			justify-content: center;
+			
+			@include prefixer(display, flex, ("webkit", "moz", "o"));
+			@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 			
 			.card-content{
 				height: 100%;
-				display: flex;
-				justify-content: center;
-				align-items: center;
+				@include prefixer(display, flex, ("webkit", "moz", "o"));
+				@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+				@include prefixer(align-items, center, ("webkit", "moz", "o"));
 			}
 			
 			.icons a{

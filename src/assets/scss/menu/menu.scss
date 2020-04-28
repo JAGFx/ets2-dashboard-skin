@@ -9,6 +9,7 @@
 @import "../common/variables";
 
 @import "tab-about";
+@import "tab-skins";
 
 .menu {
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
@@ -41,5 +42,6 @@
 	.tab-content {
 		height: 100%;
 		padding: 1rem;
+		overflow-y: auto;
 	}
 }
