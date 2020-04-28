@@ -4,9 +4,9 @@
   "private": false,
   "description": "Euro Truck Simulator 2 dashboard",
   "author": {
-    "name" : "Emmanuel SMITH",
-    "email" : "hey@emmanuel-smith.me",
-    "url" : "https://emmanuel-smith.me"
+    "name": "Emmanuel SMITH",
+    "email": "hey@emmanuel-smith.me",
+    "url": "https://emmanuel-smith.me"
   },
   "scripts": {
     "lint": "vue-cli-service lint",
@@ -24,6 +24,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "animate.css": "^3.7.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",

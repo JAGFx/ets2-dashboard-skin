@@ -1,49 +1,49 @@
 <template>
 	<div class="tab-about">
-		<aside class="author">
-			<img alt="" src="https://avatars3.githubusercontent.com/u/12508080?s=460&u=f59ce1bde619fa0e6c226e92ab97945c4561eea5&v=4">
-			<div class="aside-wrapper">
-				<span><span class="badge badge-danger mr-2">Author</span>{{ author.name }}</span>
-				<small class="text-muted">
-					<a :href="`mailto:${author.email}`" target="_blank">{{ author.email }}</a>
-				</small>
-				<span class="d-flex urls justify-content-between w-100">
-					<a :href="author.url" class="btn btn-sm btn-outline-secondary mx-1" target="_blank">
-						Site
+		<aside class="author card">
+			<img alt="" class="background" src="https://www.emmanuel-smith.me/build/images/bg.home4.7af46a47.jpg">
+			<img class="profile img-fluid" src="https://avatars3.githubusercontent.com/u/12508080?s=460&u=f59ce1bde619fa0e6c226e92ab97945c4561eea5&v=4">
+			<div class="card-content">
+				<h2>
+					<small class="m-0 mb-2 badge badge-success badge-author">Author</small>
+					<span class="d-block">{{ author.name }}</span>
+					<small class="font-italic">{{ author.email }}</small>
+				</h2>
+				<div class="icons">
+					<a :href="author.url" target="_blank">
+						<i class="fas fa-globe-europe"></i>
 					</a>
-					<a class="btn btn-sm btn-outline-secondary mx-1" href="https://twitter.com/d_jagfx" target="_blank">
-						Twitter
+					<a href="https://twitter.com/d_jagfx" target="_blank">
+						<i class="fab fa-twitter"></i>
 					</a>
-					<a class="btn btn-sm btn-outline-secondary mx-1" href="https://github.com/JAGFx" target="_blank">
-						Github
+					<a href="https://github.com/JAGFx" target="_blank">
+						<i class="fab fa-github"></i>
 					</a>
-				</span>
+				</div>
 			</div>
 		</aside>
-		<div class="project mt-4">
-			<div class="aside-wrapper">
-				<div class="mb-3">
-					<h2>{{ description }}</h2>
-					<h3>
-						<span class="badge badge-danger mr-2">v{{ version }}</span>
-					</h3>
-				</div>
-				<span class="d-flex urls justify-content-between w-100">
-					<a :href="bugs.url" class="mx-1" target="_blank">
-						Find a bug ?
-					</a>
-					<a :href="repository.url" class="mx-1" target="_blank">
-						Repository
-					</a>
-					<a :href="homepage" class="mx-1" target="_blank">
-						Doc
-					</a>
-					<a class="mx-1" href="https://github.com/JAGFx/ets2-dashboard-skin/blob/master/LICENSE" target="_blank">
-						Licence {{ license }}
-					</a>
-				</span>
+		<aside class="project p-0 h-100 card">
+			<div class="card-content p-3">
+				<h2>
+					<small class="m-0 mb-2 badge badge-danger badge-author">v{{ version }}</small>
+					<span class="d-block">{{ description }}</span>
+				</h2>
 			</div>
-		</div>
+			<div class="card-footer w-100 icons m-0">
+				<a :href="bugs.url" class="mx-1 text-danger" target="_blank">
+					<i class="fas fa-bug"></i>
+				</a>
+				<a :href="repository.url" class="mx-1" target="_blank">
+					<i class="fas fa-code-branch"></i>
+				</a>
+				<a :href="homepage" class="mx-1" target="_blank">
+					<i class="fas fa-book"></i>
+				</a>
+				<a class="mx-1" href="https://github.com/JAGFx/ets2-dashboard-skin/blob/master/LICENSE" target="_blank">
+					<i class="fab fa-creative-commons"></i>
+				</a>
+			</div>
+		</aside>
 	</div>
 </template>
 

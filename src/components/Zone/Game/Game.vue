@@ -9,7 +9,10 @@
 			<span>{{formatedTime()}}</span>
 		</div>
 		<ul>
-			<li @click="onClickGear()">Menu ⚙️</li>
+			<li @click="onClickGear()">
+				<span v-show="!$parent.menuDisplayed">Menu <i class="fas fa-bars"></i>️</span>
+				<span v-show="$parent.menuDisplayed">Close <i class="fas fa-times"></i>️</span>
+			</li>
 			<li>JAGFx - {{ getVersion() }}<span>&copy;</span></li>
 		</ul>
 		

@@ -14,7 +14,7 @@
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 	@include prefixer(align-items, center, ("webkit", "moz", "o"));
-	@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
+	//@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
 	
 	> aside {
 		@include prefixer(display, flex, ("webkit", "moz", "o"));
@@ -24,8 +24,112 @@
 		background: transparentize($cRed, 0.8);
 		border: 1px solid $cRed;
 		border-radius: .5rem;
-		height: 6.5rem;
+		margin: 0 .5rem;
+		height: 100%;
+		width: 100%;
 		
+		.card-content{
+			z-index: 1;
+			padding: 1rem 0;
+			
+			h2{
+				margin: 0 0 .5rem;
+				font-weight: 600;
+				font-size:1.5rem;
+				
+				small{
+					display: inline-block;
+					font-size: 1rem;
+					margin-top:1rem;
+					
+					&.badge-author{
+						font-size: .8rem;
+						font-weight: normal;
+					}
+				}
+			}
+		}
+		
+		.icons {
+			margin-top: 1rem;
+			display: flex;
+			justify-content: center;
+			
+			a {
+				color: #ffffff;
+				text-align: center;
+				border: 1px solid #fff;
+				width: 1.8rem;
+				height: 1.8rem;
+				font-size: 1rem;
+				border-radius: 50%;
+				margin:0 .5rem;
+				
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		
+		&.author{
+			font-family: 'Open Sans', Arial, sans-serif;
+			color: $cWhite;
+			border: none;
+			position: relative;
+			overflow: hidden;
+			padding: 1rem;
+			display: flex;
+			justify-content: center;
+			
+			img.background{
+				position: absolute;
+				opacity: 0.9;
+				filter: blur(5px);
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%) scale(2.5);
+				z-index: 0;
+				width: 100vw;
+				height: 100vh;
+				object-fit: cover;
+			}
+			
+			img.profile{
+				border-radius: 50%;
+				width: 75px;
+				min-height: 75px;
+				height: auto;
+				opacity: 1;
+				box-shadow: 3px 3px 20px $cBlackTransparentHigh;
+				border: 2px solid $cWhiteGray;
+				z-index: 1;
+			}
+		}
+		
+		&.project{
+			font-family: 'Open Sans', Arial, sans-serif;
+			color: $cWhite;
+			border: none;
+			position: relative;
+			overflow: hidden;
+			height: auto;
+			padding: 1rem;
+			background: $cBlackTransparentHigh;
+			display: flex;
+			justify-content: center;
+			
+			.card-content{
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.icons a{
+				color: $cRed;
+				border-color: $cRed;
+			}
+		}
 		
 		.aside-wrapper {
 			@include prefixer(display, flex, ("webkit", "moz", "o"));

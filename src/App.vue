@@ -71,7 +71,7 @@
 				configSettings:    {},
 				maxSideElements:   7,
 				maxMiddleElements: 4,
-				menuDisplayed:     true
+				menuDisplayed:     false
 			} );
 		},
 		created() {
@@ -152,7 +152,7 @@
 			},
 			onOpenSettingView() {
 				console.log( 'Received' );
-				this.menuDisplayed = true;
+				this.menuDisplayed = !this.menuDisplayed;
 			}
 		},
 		sockets: {
