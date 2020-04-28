@@ -34,12 +34,12 @@
 		right: 50%;
 		width: 4rem;
 		@include prefixer( transform, translateX(-50%), ("webkit", "moz", "o") );
-		background: #252729;
+		background: $cBlack;
 		line-height: 0.8rem;
 		height: 1rem;
 		color: $cWhite;
 		text-transform: uppercase;
-		border: 2px solid red;
+		border: 2px solid $cRed;
 		border-top: 0;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
