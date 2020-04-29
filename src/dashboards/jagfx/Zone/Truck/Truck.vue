@@ -4,7 +4,7 @@
 			<div class="theTruk">
 				<div class="truck-data">
 					<span></span>
-<!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
+					<!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
 						<span>{{model.name}}</span>
@@ -127,12 +127,13 @@
 </template>
 
 <script>
-	import utilsApp from '../../../utils/_app';
+	import utilsApp   from '../../../../utils/_app';
+	import * as utils from '../../../../utils/utils';
 	
 	export default {
-		name: 'Truck',
+		name:   'Truck',
 		mixins: [ utilsApp ],
-		props: [
+		props:  [
 			'brand',
 			'model',
 			'licensePlate',
@@ -159,8 +160,8 @@
 		
 		methods: {
 			indexEmptyElement: function () {
-				const elementLength = this.$parent.$elementsLength( 'right' );
-				const maxElement    = this.$parent.maxSideElements;
+				const elementLength = this.$parent.$parent.$elementsLength( 'right' );
+				const maxElement    = this.$parent.$parent.maxSideElements;
 				const diff          = maxElement - elementLength;
 				
 				//console.log( elementLength, maxElement, diff, this.currentEnabled );
@@ -170,22 +171,25 @@
 					: diff;
 			},
 			elementIsEnabled:  function ( element ) {
-				return  this.$parent.$elementIsEnabled( 'right', element );
+				return this.$parent.$parent.$elementIsEnabled( 'right', element );
 			},
 			getAverageDamage:  function () {
 				const keyLength = Object.keys( this.damage ).length;
-				let sum = 0;
+				let sum         = 0;
 				
-				for( const key in this.damage ){
-					sum += this.damage[key];
+				for ( const key in this.damage ) {
+					sum += this.damage[ key ];
 				}
 				
 				return sum / keyLength;
+			},
+			getFlag( countryName ) {
+				return utils.app.flag( countryName );
 			}
 		}
 	};
 </script>
 
 <style scoped lang="scss">
-	@import "../../../assets/scss/truck/truck";
+	@import "../../../../assets/scss/truck/truck";
 </style>

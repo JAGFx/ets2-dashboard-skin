@@ -7,18 +7,23 @@
  */
 
 import axios    from 'axios';
-import utilsApp from './_app';
+import utilsApp  from './_app';
+
+const configPath = () => {
+	const path = utilsApp.basePathHost + 'config.json';
+	//console.log( path );
+	return axios.get( path )
+				.then( response => {
+					//console.log( 'Config', response.data );
+					return response.data;
+				} );
+}
+
+const configSettings = ( dataIn ) => {
+	return  JSON.parse( JSON.stringify( dataIn ) );
+}
 
 export default {
-	mixins: [ utilsApp ],
-	methods: {
-		config_getConfigData : function () {
-			const path = this.app_getBasePathHost() + 'config.json';
-			return axios.get( path )
-				 .then( response => {
-					 //console.log( 'Config', response.data );
-					 return response.data;
-				 } );
-		}
-	}
-}
+	configPath,
+	configSettings
+};

@@ -121,7 +121,8 @@
 			 },*/
 			getTrueGear:      function () {
 				/*console.log( this );*/
-				const configSettings          = JSON.parse( JSON.stringify( this.$parent.configSettings ) );
+				//console.log( this.$parent.configSettings );
+				const configSettings          = this.$parent.configSettings;
 				const hShiftLayout            = (configSettings.middle !== undefined)
 					? configSettings.middle.hShiftLayout
 					: { range: false, splitter: false };
@@ -188,12 +189,12 @@
 					? 'middle-b'
 					: 'middle-t';
 				
-				return this.$parent.$elementIsEnabled( side, element );
+				return this.$parent.$parent.$elementIsEnabled( side, element );
 			}
 		}
 	};
 </script>
 
 <style scoped lang="scss">
-	@import "../../../assets/scss/navigation/navigation";
+	@import "../../../../assets/scss/navigation/navigation";
 </style>

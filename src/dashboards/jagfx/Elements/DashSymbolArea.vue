@@ -56,7 +56,7 @@
 		props:   [ 'side' ],
 		methods: {
 			elementIsEnabled:  function ( elm ) {
-				return this.$parent.$parent.$elementIsEnabled( 'middle-t', elm, { side: this.side } );
+				return this.$parent.$parent.$parent.$elementIsEnabled( 'middle-t', elm, { side: this.side } );
 			},
 			sideLeft:          function () {
 				return this.side === 'left';
@@ -65,8 +65,8 @@
 				return this.side === 'right';
 			},
 			indexEmptyElement: function () {
-				const elementLength    = this.$parent.$parent.$elementsLength( 'middle' );
-				const maxElement       = this.$parent.$parent.maxMiddleElements;
+				const elementLength    = this.$parent.$parent.$parent.$elementsLength( 'middle' );
+				const maxElement       = this.$parent.$parent.$parent.maxMiddleElements;
 				const maxElementBySide = maxElement / 2;
 				
 				let diff = 0;
@@ -92,5 +92,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "../../assets/scss/navigation/navigation";
+	@import "../../../assets/scss/navigation/navigation";
 </style>

@@ -11,16 +11,16 @@
 
 <script>
 	import jq               from 'json-query';
-	import truck_engine_rpm from '../../../../data/truck-engine-rpm.json';
+	import truck_engine_rpm from '../../../../../data/truck-engine-rpm.json';
 	
 	export default {
-		name:  'RPMBars',
-		props: [
+		name:    'RPMBars',
+		props:   [
 			'brand',
 			'engine',
 			'model'
 		],
-		data:  function () {
+		data:    function () {
 			return {
 				ter:       null,
 				maxBarRpm: 25
@@ -32,13 +32,13 @@
 				const ter = JSON.parse( JSON.stringify( truck_engine_rpm ) );
 				this.ter  = jq( `trucks[brandId=${ this.brand.id }].models[modelId=${ this.model.id }]`,
 					{ data: ter } ).value;
-			
-				if ( this.ter === null ){
+				
+				if ( this.ter === null ) {
 					this.ter = {
-						max :     2500,
-						low :     null,
-						mid :     null,
-						high :    null
+						max:  2500,
+						low:  null,
+						mid:  null,
+						high: null
 					};
 				}
 				
@@ -96,5 +96,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "../../../../assets/scss/navigation/rpm_bars";
+	@import "../../../../../assets/scss/navigation/rpm_bars";
 </style>

@@ -25,11 +25,10 @@
 </template>
 
 <script>
-	import utilsApp from '../../../utils/_app';
+	import * as utils from '../../../utils/utils';
 	
 	export default {
 		name:   'Game',
-		mixins: [ utilsApp ],
 		props:  [
 			'timestamp',
 			'time',
@@ -60,6 +59,9 @@
 				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ this.double( date.getUTCHours() ) }:${ this.double( date.getUTCMinutes() ) }`;
+			},
+			getVersion(){
+				return utils.app.version;
 			},
 			onClickGear() {
 				this.$emit( 'onOpenSettingView' );

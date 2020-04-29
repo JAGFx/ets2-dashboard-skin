@@ -109,5 +109,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "../../../assets/scss/job/job";
+	@import "../../../../assets/scss/job/job";
 </style>

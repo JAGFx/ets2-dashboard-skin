@@ -32,17 +32,15 @@
 		<div><b>License plate:</b><span>{{licensePlate.value}} ({{licensePlate.country.name}})</span></div>
 		<div><b>Attached:</b><span>{{attached ? 'YES' : 'NO'}}</span></div>-->
 	</div>
-	
-	
+
+
 </template>
 
 <script>
-	import utilsApp    from '../../../utils/_app';
-	import utilsConfig from '../../../utils/_config';
+	import * as utils from '../../../../utils/utils';
 	
 	export default {
-		name: 'Trailers',
-		mixins: [ utilsApp, utilsConfig ],
+		name:  'Trailers',
 		props: [
 			'brand',
 			'model',
@@ -64,20 +62,23 @@
 			hasTrailer: function () {
 				return this.model.id.length !== 0;
 			},
-			getAverageDamage(){
+			getAverageDamage() {
 				const keyLength = Object.keys( this.damage ).length;
-				let sum = 0;
+				let sum         = 0;
 				
-				for( const key in this.damage ){
-					sum += this.damage[key];
+				for ( const key in this.damage ) {
+					sum += this.damage[ key ];
 				}
 				
 				return sum / keyLength;
+			},
+			getFlag( countryName ) {
+				return utils.app.flag( countryName );
 			}
 		}
 	};
 </script>
 
 <style scoped lang="scss">
-	@import "../../../assets/scss/job/trailer";
+	@import "../../../../assets/scss/job/trailer";
 </style>
