@@ -18,7 +18,7 @@
 <script>
 	import Menu      from './components/Menu/Menu';
 	import Game      from './components/Zone/Game/Game';
-	import DashJAGFx from './dashboards/jagfx/DashJAGFx';
+	import DashJAGFx from './dashboards/jagfx/components/DashJAGFx';
 	
 	import * as utils from './utils/utils';
 	

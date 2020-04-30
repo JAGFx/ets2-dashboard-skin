@@ -10,24 +10,9 @@
 	export default {
 		name:    'Dashboard',
 		data() {
-			const tData = utils.app.initTelemetryData();
-			
-			//console.log( tData );
-			
 			return {
-				telemetryData:  tData,
-				configSettings: {}
+				telemetryData: utils.app.initTelemetryData()
 			};
-		},
-		created() {
-			let that = this;
-			//console.log( 'plop' );
-			utils.config.configPath()
-				 .then( config => {
-					 //console.log( 'Data', config );
-					 that.configSettings = utils.config.configSettings( config );
-				 } );
-			
 		},
 		methods: {
 			update( data ) {

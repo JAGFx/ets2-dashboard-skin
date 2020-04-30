@@ -11,7 +11,7 @@
 
 <script>
 	import jq               from 'json-query';
-	import truck_engine_rpm from '../../../../../data/truck-engine-rpm.json';
+	import truck_engine_rpm from '../../../../../../data/truck-engine-rpm.json';
 	
 	export default {
 		name:    'RPMBars',

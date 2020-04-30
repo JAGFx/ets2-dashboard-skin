@@ -78,11 +78,13 @@
 
 <script>
 	import DashSymbolArea from '../../Elements/DashSymbolArea';
+	import configMixins   from '../../Mixins/configMixins';
 	import RPMBars        from './Elements/RPMBars';
 	
 	export default {
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
+		mixins:     [ configMixins ],
 		props:      [
 			'nextRestStop',
 			'distance',
@@ -121,8 +123,7 @@
 			 },*/
 			getTrueGear:      function () {
 				/*console.log( this );*/
-				//console.log( this.$parent.configSettings );
-				const configSettings          = this.$parent.configSettings;
+				const configSettings          = this.$configSettings();
 				const hShiftLayout            = (configSettings.middle !== undefined)
 					? configSettings.middle.hShiftLayout
 					: { range: false, splitter: false };
@@ -189,7 +190,7 @@
 					? 'middle-b'
 					: 'middle-t';
 				
-				return this.$parent.$parent.$elementIsEnabled( side, element );
+				return this.$elementIsEnabled( side, element );
 			}
 		}
 	};

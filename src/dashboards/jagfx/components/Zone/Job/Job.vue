@@ -62,7 +62,7 @@
 			<div><b>Destination:</b><span>{{destination.city.name}} - {{destination.company.name}}</span></div>
 			<div><b>Source:</b><span>{{source.city.name}} - {{source.company.name}}</span></div>
 			<div><b>Market:</b><span>{{market.name}}</span></div>
-			<div><b>Income:</b><span>{{['?', '€', '$'][game.id]}}{{income.toLocaleString()}}</span></div>
+			<div><b>Income:</b><span>{{[ '?', '€', '$' ][ game.id ]}}{{income.toLocaleString()}}</span></div>
 			<div><b>Special transport:</b><span>{{isSpecial ? 'YES' : 'NO'}}</span></div>
 			<div><b>Planned distance:</b><span>{{plannedDistance.km}}km / {{plannedDistance.miles}}Miles</span></div>
 		</div>
@@ -79,7 +79,7 @@
 
 <script>
 	export default {
-		name: 'Job',
+		name:  'Job',
 		props: [
 			'game',
 			'deliveryTime',

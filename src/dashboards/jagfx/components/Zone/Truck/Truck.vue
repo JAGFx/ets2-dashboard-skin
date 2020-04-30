@@ -127,12 +127,12 @@
 </template>
 
 <script>
-	import utilsApp   from '../../../../utils/_app';
-	import * as utils from '../../../../utils/utils';
+	import * as utils   from '../../../../../utils/utils';
+	import configMixins from '../../Mixins/configMixins';
 	
 	export default {
 		name:   'Truck',
-		mixins: [ utilsApp ],
+		mixins: [ configMixins ],
 		props:  [
 			'brand',
 			'model',
@@ -160,8 +160,8 @@
 		
 		methods: {
 			indexEmptyElement: function () {
-				const elementLength = this.$parent.$parent.$elementsLength( 'right' );
-				const maxElement    = this.$parent.$parent.maxSideElements;
+				const elementLength = this.$elementsLength( 'right' );
+				const maxElement    = this.$maxSideElements();
 				const diff          = maxElement - elementLength;
 				
 				//console.log( elementLength, maxElement, diff, this.currentEnabled );
@@ -171,7 +171,7 @@
 					: diff;
 			},
 			elementIsEnabled:  function ( element ) {
-				return this.$parent.$parent.$elementIsEnabled( 'right', element );
+				return this.$elementIsEnabled( 'right', element );
 			},
 			getAverageDamage:  function () {
 				const keyLength = Object.keys( this.damage ).length;

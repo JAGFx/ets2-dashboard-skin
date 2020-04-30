@@ -51,12 +51,15 @@
 </template>
 
 <script>
+	import configMixins from '../Mixins/configMixins';
+	
 	export default {
 		name:    'DashSymbolArea',
+		mixins:  [ configMixins ],
 		props:   [ 'side' ],
 		methods: {
 			elementIsEnabled:  function ( elm ) {
-				return this.$parent.$parent.$parent.$elementIsEnabled( 'middle-t', elm, { side: this.side } );
+				return this.$elementIsEnabled( 'middle-t', elm, { side: this.side } );
 			},
 			sideLeft:          function () {
 				return this.side === 'left';
@@ -65,8 +68,8 @@
 				return this.side === 'right';
 			},
 			indexEmptyElement: function () {
-				const elementLength    = this.$parent.$parent.$parent.$elementsLength( 'middle' );
-				const maxElement       = this.$parent.$parent.$parent.maxMiddleElements;
+				const elementLength    = this.$elementsLength( 'middle' );
+				const maxElement       = this.$maxMiddleElements();
 				const maxElementBySide = maxElement / 2;
 				
 				let diff = 0;
