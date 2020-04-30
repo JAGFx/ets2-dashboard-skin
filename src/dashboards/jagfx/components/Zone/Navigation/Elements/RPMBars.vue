@@ -96,5 +96,5 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "../../../../../assets/scss/navigation/rpm_bars";
+	@import "../../../../assets/scss/navigation/rpm_bars";
 </style>

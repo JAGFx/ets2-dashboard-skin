@@ -80,5 +80,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "../../../../assets/scss/job/trailer";
+	@import "../../../assets/scss/job/trailer";
 </style>

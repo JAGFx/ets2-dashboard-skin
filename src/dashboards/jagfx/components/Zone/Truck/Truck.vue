@@ -191,5 +191,5 @@
 </script>
 
 <style scoped lang="scss">
-	@import "../../../../assets/scss/truck/truck";
+	@import "../../../assets/scss/truck/truck";
 </style>

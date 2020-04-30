@@ -7,7 +7,7 @@
  */
 
 @import "mixins/mixins-dash-symbol";
-@import "../common/variables";
+@import "../../../../../assets/scss/common/variables";
 
 .dash-symbol-area {
 	@include prefixer( display, flex, ("webkit", "moz", "o") );
