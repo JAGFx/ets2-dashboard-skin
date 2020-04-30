@@ -6,12 +6,14 @@
  * Time: 	08:34
  */
 
-import utilsApp from './_app'
-import utilsConfig from './_config'
+import utilsApp    from './_app';
+import utilsConfig from './_config';
+import utilsSkins  from './_skins';
 
 export {
 	utilsApp as app,
-	utilsConfig as config
-}
+	utilsConfig as config,
+	utilsSkins as skins
+};
 
 export default {};

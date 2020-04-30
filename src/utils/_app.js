@@ -73,10 +73,15 @@ const updateTelemetryData = ( inputData, elms ) => {
 	return dataFiltered;
 };
 
+const jsonReadable = ( dataIn ) => {
+	return JSON.parse( JSON.stringify( dataIn ) );
+};
+
 export default {
 	basePathHost,
 	version,
 	flag,
 	initTelemetryData,
-	updateTelemetryData
+	updateTelemetryData,
+	jsonReadable
 };

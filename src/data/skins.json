@@ -1,0 +1,19 @@
+{
+	"skins" : [
+		{
+			"id" :          "JAGFx",
+			"title" :       "JAGFx dashboard",
+			"description" : "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
+			"author" :      {
+				"name" :  "SMITH Emmanuel",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
+			},
+			"repository" :  {
+				"name" : "ets2-dashboard-skin",
+				"url" :  "https://github.com/JAGFx/ets2-dashboard-skin"
+			},
+			"screenshot" :  ""
+		}
+	]
+}

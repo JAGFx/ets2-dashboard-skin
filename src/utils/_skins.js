@@ -7,18 +7,18 @@
  */
 
 import axios    from 'axios';
-import utilsApp  from './_app';
+import utilsApp from './_app';
 
-const configData = () => {
-	const path = utilsApp.basePathHost + 'config.json';
+const skinsData = () => {
+	const path = utilsApp.basePathHost + 'skins.json';
 	//console.log( path );
 	return axios.get( path )
 				.then( response => {
 					//console.log( 'Config', response.data );
 					return response.data;
 				} );
-}
+};
 
 export default {
-	configData
+	skinsData
 };

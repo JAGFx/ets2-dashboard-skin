@@ -2,7 +2,7 @@
 	/**
 	 * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
 	 * project:	ets2-dashboard-skin
-	 * file: 	configMixins.js
+	 * file: 	configMixins.vue
 	 * Date: 	30/04/2020
 	 * Time: 	13:12
 	 */
@@ -20,7 +20,7 @@
 		created() {
 			let that = this;
 			//console.log( 'plop' );
-			utils.config.configPath()
+			utils.config.configData()
 				 .then( config => {
 					 //console.log( 'Data', config );
 					 that.configSettings = config;
@@ -29,7 +29,7 @@
 		},
 		methods: {
 			$configSettings() {
-				return utils.config.configSettings( this.configSettings );
+				return utils.app.jsonReadable( this.configSettings );
 			},
 			$maxSideElements() {
 				return this.maxSideElements;
