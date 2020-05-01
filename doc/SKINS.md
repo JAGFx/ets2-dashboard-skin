@@ -17,6 +17,12 @@ You can find the list of all skins integrated.
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
         <td>2020-05-01 18:16</td>
     </tr>
+    <tr>
+        <td><img src="screenshots/test.png" alt="JAGFX"></td>
+        <td>test</td>
+        <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
+        <td>2020-05-01 18:16</td>
+    </tr>
 </table>
 
 ## Create your own
