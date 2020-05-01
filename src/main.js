@@ -1,5 +1,6 @@
 import Vue         from 'vue';
 import VueSocketIO from 'vue-socket.io';
+import Vuex        from 'vuex';
 import App         from './App.vue';
 
 window.$           = require( 'jquery' );
@@ -12,9 +13,22 @@ Vue.use( new VueSocketIO( {
 	debug:      false,
 	connection: 'http://' + window.location.hostname + ':3000'
 } ) );
+Vue.use( Vuex );
 
 Vue.config.productionTip = false;
 
+const store = new Vuex.Store( {
+	state:     {
+		currentSkin: null
+	},
+	mutations: {
+		updateSkin( state, skin ) {
+			state.currentSkin = skin;
+		}
+	}
+} );
+
 new Vue( {
-	render: h => h( App )
+	render: h => h( App ),
+	store
 } ).$mount( '#app' );

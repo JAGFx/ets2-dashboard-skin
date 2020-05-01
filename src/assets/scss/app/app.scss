@@ -7,12 +7,6 @@
  */
 
 @import "../common/variables";
-@import "../../../dashboards/jagfx/assets/scss/common/font-face";
-
-@import "../../../dashboards/jagfx/assets/scss/common/mixins/mixins-truck-brand";
-@import "../../../dashboards/jagfx/assets/scss/common/licencePlate";
-@import "../../../dashboards/jagfx/assets/scss/common/damage";
-@import "../../../dashboards/jagfx/assets/scss/common/dash-element";
 
 * {
 	margin: 0;
@@ -86,14 +80,6 @@ main {
 	height: 100%;
 	
 	position: relative;
-	
-	@include brandTruckBackground('volvo');
-	@include brandTruckBackground('scania');
-	@include brandTruckBackground('daf');
-	@include brandTruckBackground('iveco');
-	@include brandTruckBackground('man');
-	@include brandTruckBackground('mercedes');
-	@include brandTruckBackground('renault');
 	
 	> * {
 		width: 100%;

@@ -1,0 +1,24 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	jagfx.scss
+ * Date: 	01/05/2020
+ * Time: 	16:51
+ */
+
+@import "../../../../assets/scss/common/variables";
+
+@import "common/font-face";
+@import "common/common";
+
+.jagfx {
+	&.wrapper {
+		@include brandTruckBackground('volvo');
+		@include brandTruckBackground('scania');
+		@include brandTruckBackground('daf');
+		@include brandTruckBackground('iveco');
+		@include brandTruckBackground('man');
+		@include brandTruckBackground('mercedes');
+		@include brandTruckBackground('renault');
+	}
+}

@@ -1,0 +1,16 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	dashboard.scss
+ * Date: 	01/05/2020
+ * Time: 	17:53
+ */
+
+#overlay {
+	position: absolute;
+	top:      0;
+	left:     0;
+	width:    100vw;
+	height:   100vh;
+	z-index:  2;
+}

@@ -7,18 +7,19 @@
  */
 
 @import "../../../../../assets/scss/common/variables";
+@import "../common/common";
 
 .truck {
 	.t-info {
-		@include prefixer( display, flex, ("webkit", "moz", "o") );
-		@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
+		@include prefixer(display, flex, ("webkit", "moz", "o"));
+		@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
 		text-align: right;
 		
 		.theTruk {
-			@include prefixer( display, flex, ("webkit", "moz", "o") );
+			@include prefixer(display, flex, ("webkit", "moz", "o"));
 			width: 100%;
-			@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
-			@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
+			@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
+			@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
 			min-height: 4.5rem;
 			padding: 0 0 0.5rem 0;
 		}
@@ -27,8 +28,8 @@
 			
 			/*width: 100%;*/
 			padding: 0 1rem;
-			@include prefixer( display, flex, ("webkit", "moz", "o") );
-			@include prefixer( justify-content, space-between, ("webkit", "moz", "o") );
+			@include prefixer(display, flex, ("webkit", "moz", "o"));
+			@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
 			
 			> * {
 				display: block;
@@ -46,9 +47,9 @@
 		
 		.truck-data {
 			> * {
-				@include prefixer( display, flex, ("webkit", "moz", "o") );
-				@include prefixer( justify-content, center, ("webkit", "moz", "o") );
-				@include prefixer( align-items, center, ("webkit", "moz", "o") );
+				@include prefixer(display, flex, ("webkit", "moz", "o"));
+				@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+				@include prefixer(align-items, center, ("webkit", "moz", "o"));
 				font-size: 1rem;
 			}
 			

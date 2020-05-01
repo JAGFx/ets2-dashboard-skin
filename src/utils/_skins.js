@@ -6,19 +6,13 @@
  * Time: 	17:50
  */
 
-import axios    from 'axios';
-import utilsApp from './_app';
+import skins from '../data/skins.json';
 
-const skinsData = () => {
-	const path = utilsApp.basePathHost + 'skins.json';
-	//console.log( path );
-	return axios.get( path )
-				.then( response => {
-					//console.log( 'Config', response.data );
-					return response.data;
-				} );
-};
+const all = skins.skins;
+
+const actives = all.filter( skin => !skin.disabled );
 
 export default {
-	skinsData
+	actives,
+	all
 };

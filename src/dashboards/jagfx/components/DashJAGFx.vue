@@ -1,5 +1,5 @@
 <template>
-	<Dashboard v-slot:default="dashProps">
+	<Dashboard class="jagfx wrapper" v-slot:default="dashProps">
 		<div class="zone-wrapper">
 			<div class="left">
 				<Trailer id="trailers" v-bind="{...dashProps.trailer, cargo: dashProps.job.cargo}" />
@@ -33,5 +33,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+	@import "../assets/scss/jagfx";
 </style>
