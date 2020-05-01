@@ -45,7 +45,7 @@ Below, the default configuration
 You can configure your ETS2 layout in this config file.
 If you set a range ON, or splitter ON or both, set the TRUE value.
 
-See more informations at [ETS2 Input config](https://eurotrucksimulator2.com/input_config.php)
+See more information at [ETS2 Input config](https://eurotrucksimulator2.com/input_config.php)
 
 ---
 ↩️ [Home](../README.md)

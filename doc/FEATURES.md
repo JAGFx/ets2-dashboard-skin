@@ -67,5 +67,14 @@ All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) 
 - Water temperature
 - Wear level
 
+## Skins
+
+We can change the skin of dashboard. Open the menu, clic on Skins tab, and choose you skins.
+
+Available skins:
+
+- JAGFx
+- Test
+
 ---
 ↩️ [Home](../README.md)

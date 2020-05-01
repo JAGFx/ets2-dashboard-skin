@@ -29,8 +29,8 @@ The view is optimized for a `5.5"` screen. To develop on you web browser, you ca
 ## Requirements
 
 - OS: Windows 64Bits
-- NodeJS: v10, v12 or v13  
 - Game: Euro Truck Simulator 2
+- SCS SDK: v1.15
 - Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop dans Mobile), Edge ( Desktop and mobile )
 
 **Important: It dosen't work with all Internet Explorer browsers**
@@ -93,6 +93,10 @@ $ npm run build
 
 To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md).
 
+## Skins
+
+To know more about the skin integrated or how to add a new skin, see the [SKINS.md](doc/SKINS.md)
+
 ## Development
 
 ### Environment file
@@ -104,6 +108,11 @@ If you want to use a fake file data instead of the data from the SCS API, set th
 
 ```dotenv
 VUE_APP_USE_FAKE_DATA=true
+```
+
+If you wan to disable the fullscreen for development, set to `false`:
+```dotenv
+VUE_APP_ENABLE_FULLSCREEN=false
 ```
 
 ### Config settings
