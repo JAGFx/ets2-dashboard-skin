@@ -13,9 +13,9 @@
     "trucksim-telemetry" : "^0.6.4"
   },
   "devDependencies" : {
-    "@babel/core" :       "^7.5.5",
+    "@babel/core" :       "^7.9.6",
     "@babel/polyfill" :   "^7.4.4",
-    "@babel/preset-env" : "^7.5.5",
+    "@babel/preset-env" : "^7.9.6",
     "@babel/register" :   "^7.5.5",
     "gulp" :              "^4.0.2",
     "gulp-babel" :        "^8.0.0",
