@@ -25,8 +25,11 @@
 			},
 			$setActive( skin ) {
 				//console.log( 'Update', skin );
-				this.$store.commit( 'skins/update', skin );
+				this.$store.commit( 'skins/setCurrent', skin );
 				//this.$root.$emit( 'skin-update-active', skin );
+			},
+			$skins() {
+				return this.$store.getters[ 'skins/all' ];
 			}
 		}
 	};

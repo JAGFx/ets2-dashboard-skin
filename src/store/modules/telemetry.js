@@ -63,8 +63,8 @@ const actions = {};
 
 // mutations
 const mutations = {
-	update( state, skin ) {
-		state.data = skin;
+	update( state, data ) {
+		state.data = data;
 	}
 };
 

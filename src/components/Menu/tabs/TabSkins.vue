@@ -5,7 +5,7 @@
 				'disabled': $isDisabled(skin),
 			 }" :key="skin.id"
 			class="card text-white mb-3"
-			v-for="skin in skins"
+			v-for="skin in $skins()"
 		>
 			<div>
 				<img alt="..." class="img-fluid" src="https://dummyimage.com/850x455/000455/fff.pngs">

@@ -9,10 +9,8 @@ window.NoSleep     = require( 'nosleep.js' );
 window.animateCss  = require( 'animate.css' );
 window.fontawesome = require( '@fortawesome/fontawesome-free/css/all.min.css' );
 
-const debug = process.env.NODE_ENV !== 'production';
-
 Vue.use( new VueSocketIO( {
-	debug:      debug,
+	debug:      false,
 	connection: 'http://' + window.location.hostname + ':3000'
 } ) );
 

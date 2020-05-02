@@ -26,6 +26,9 @@ const getters = {
 	firstActive: ( state, getters ) => {
 		//console.log( 'plop', getters.active );
 		return _.first( getters.active );
+	},
+	all:         ( state ) => {
+		return state.all;
 	}
 };
 
@@ -33,7 +36,6 @@ const getters = {
 const actions = {
 	setFirstActive( { commit, getters } ) {
 		const active = getters.firstActive;
-		console.log( active );
 		commit( 'setCurrent', active );
 	}
 };

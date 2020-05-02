@@ -44,7 +44,6 @@
 		
 		methods: {
 			onOpenSettingView() {
-				console.log( 'Received' );
 				this.menuDisplayed = !this.menuDisplayed;
 			},
 			currentSkinComponent() {
@@ -74,7 +73,7 @@
 					srvData[ key ] = data[ key ];
 				}
 				
-				this.store.commit( 'telemetry/update', srvData );
+				this.$store.commit( 'telemetry/update', srvData );
 			},
 			log:     function ( log ) {
 				log.reverse();
