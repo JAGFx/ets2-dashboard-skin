@@ -8,12 +8,10 @@
 
 import utilsApp    from './_app';
 import utilsConfig from './_config';
-import utilsSkins  from './_skins';
 
 export {
 	utilsApp as app,
-	utilsConfig as config,
-	utilsSkins as skins
+	utilsConfig as config
 };
 
 export default {};

@@ -1,11 +1,11 @@
 <template>
-	<main class="waiting" v-if="!game || !game.sdkActive">
+	<main class="waiting" v-if="!telemetryData().game || !telemetryData().game.sdkActive">
 		<h1>
 			<span class="animated flipInX infinite">Waiting on connection...</span>
 		</h1>
 	</main>
-	<main :class="`${game && game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
-		<Game @onOpenSettingView="onOpenSettingView()" id="game" v-bind="{...game}" />
+	<main :class="`${telemetryData().game && telemetryData().game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
+		<Game @onOpenSettingView="onOpenSettingView()" id="game" v-bind="{...telemetryData().game}" />
 		<div class="wrapper" v-show="menuDisplayed">
 			<Menu></Menu>
 		</div>
@@ -16,13 +16,12 @@
 </template>
 
 <script>
-	import Menu      from './components/Menu/Menu';
-	import Game      from './components/Zone/Game/Game';
-	import DashTest  from './dashboards/test/components/DashTest';
-	import DashJAGFx from './dashboards/jagfx/components/DashJAGFx';
-	
-	import _          from 'lodash';
-	import * as utils from './utils/utils';
+	import { mapGetters }    from 'vuex';
+	import Menu              from './components/Menu/Menu';
+	import Game              from './components/Zone/Game/Game';
+	import DashJAGFx         from './dashboards/jagfx/components/DashJAGFx';
+	import DashTest          from './dashboards/test/components/DashTest';
+	import { DATA_ELEMENTS } from './store/modules/telemetry';
 	
 	export default {
 		name:       'app',
@@ -34,18 +33,13 @@
 		},
 		
 		data: function () {
-			//console.log( utils.app );
-			
-			const tData = utils.app.initTelemetryData( [ 'game' ] );
-			return Object.assign( {}, tData, {
-				menuDisplayed: false,
-				currentSkin:   null
-			} );
+			return {
+				menuDisplayed: false
+			};
 		},
 		
 		created() {
-			const firstSkin = _.head( utils.skins.actives );
-			this.$store.commit( 'updateSkin', firstSkin );
+			this.$store.dispatch( 'skins/setFirstActive' );
 		},
 		
 		methods: {
@@ -55,13 +49,19 @@
 			},
 			currentSkinComponent() {
 				//console.log( this.currentSkin );
-				const currentSkin = this.$store.state.currentSkin;
+				const currentSkin = this.$store.getters[ 'skins/current' ];
 				
 				if ( currentSkin === undefined || currentSkin === null )
 					return null;
 				
 				return 'Dash' + currentSkin.id;
-			}
+			},
+			telemetryData() {
+				return this.pickData()( DATA_ELEMENTS.game );
+			},
+			...mapGetters( {
+				pickData: 'telemetry/pick'
+			} )
 		},
 		sockets: {
 			connect: function () {
@@ -74,13 +74,7 @@
 					srvData[ key ] = data[ key ];
 				}
 				
-				const filteredData = utils.app.updateTelemetryData( data, [ 'game' ] );
-				filteredData.map( elm => this[ elm ] );
-				
-				//console.log( this );
-				
-				// TODO Continue here: Send updated data to child component
-				this.$emit( 'update-data', srvData );
+				this.store.commit( 'telemetry/update', srvData );
 			},
 			log:     function ( log ) {
 				log.reverse();
