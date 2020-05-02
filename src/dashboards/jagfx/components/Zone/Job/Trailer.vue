@@ -4,7 +4,10 @@
 			<div class="trailer-data">
 				<!--<span>{{bodyType}}</span>
 				<small>{{chainType}}</small>-->
-				<div class="job" v-if="hasTrailer()">{{cargo.name}}</div>
+				<div class="job" v-if="hasTrailerAndJob()">{{cargo.name}}</div>
+				<div class="job disabled" v-else-if="hasTrailer()">
+					<i>-- No Job --</i>
+				</div>
 				<div class="job disabled" v-else>
 					<i>-- No trailer --</i>
 				</div>
@@ -59,8 +62,11 @@
 		],
 		
 		methods: {
-			hasTrailer: function () {
+			hasTrailer:       function () {
 				return this.model.id.length !== 0;
+			},
+			hasTrailerAndJob: function () {
+				return this.model.id.length !== 0 && this.cargo.name.length !== 0;
 			},
 			getAverageDamage() {
 				const keyLength = Object.keys( this.damage ).length;

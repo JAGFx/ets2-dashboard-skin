@@ -18,15 +18,11 @@
 		</noscript>
 	
 	</body>
-	<!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
-	<!--<script src="node_modules/nosleep.js/dist/NoSleep.min.js"></script>-->
 	<script>
 		$( function () {
 			var noSleep = new NoSleep();
 			
-			console.log( 'Hellow' );
-			
-			$( '#overlay' ).click( function () {
+			$( 'html' ).on( 'click', '#overlay', function () {
 				console.log( 'Plop' );
 				var elem = document.querySelector( 'html' );
 				

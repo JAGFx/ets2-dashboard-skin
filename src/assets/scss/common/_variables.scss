@@ -14,14 +14,14 @@
 // --- Color
 
 $cBlack: #002b36;
-$cBlackTransparentMid: lighten( $cBlack, 0.5 );
-$cBlackTransparentHigh: lighten( $cBlack, 3% );
+$cBlackTransparentMid: lighten($cBlack, 0.5);
+$cBlackTransparentHigh: lighten($cBlack, 3%);
 $cWhite: #eee8d5;
 $cWhiteGray: #eaeaea;
 $cRed: #dc322f;
 $cOrange: #cb4b16;
 $cGreen: #00E070;
-$cGray: #4c4d50;
+$cGray: lighten($cBlack, 15%);
 $cYellow: #f5bb00;
 $cBlue: #26d2e2;
 

@@ -8,7 +8,8 @@
 			v-for="skin in $skins()"
 		>
 			<div>
-				<img alt="..." class="img-fluid" src="https://dummyimage.com/850x455/000455/fff.pngs">
+				<img class="img-fluid" v-show="skin.screenshot" :src="skin.screenshot">
+				<img class="img-fluid" v-show="!skin.screenshot" src="https://dummyimage.com/800x455/002b36/ffffff.png&text=No+screenshot">
 			</div>
 			<div class="card-body">
 				<h5 class="card-title mb-0 d-flex justify-content-sm-start align-items-center">
