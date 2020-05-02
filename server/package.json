@@ -31,8 +31,8 @@
       "../dist/"
     ],
     "targets" : [
-      "node12",
-      "node13"
+      "node13",
+      "node14"
     ]
   }
 }
