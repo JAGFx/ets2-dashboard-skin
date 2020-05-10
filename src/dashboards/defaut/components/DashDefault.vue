@@ -62,7 +62,7 @@
 				<div :class="{'yes': dashProps.trailer.attached}" class="trailer-attached"></div>
 				<div class="trailer-mass">{{ (dashProps.job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span>
 				</div>
-				<div class="trailer-name"></div>
+				<div class="trailer-name">{{ dashProps.job.cargo.name }}</div>
 				<!-- job information -->
 				<table class="_job">
 					<tr>
@@ -89,8 +89,8 @@
 					</tr>
 					<tr>
 						<th>Deadline in:</th>
-						<td><span class="job-remainingTime"></span>
-							<span class="_jobIncome">(€ <span class="job-income">{{ dashProps.job.income }}</span>)</span>
+						<td><span class="job-remainingTime">{{ formatedTimestamp() }}</span>
+							<span class="_jobIncome"> (€ <span class="job-income">{{ dashProps.job.income }}</span>)</span>
 						</td>
 					</tr>
 				</table>
@@ -114,16 +114,31 @@
 			CadranElement
 		},
 		methods:    {
-			double:       function ( num ) {
+			double:            function ( num ) {
 				return num < 10 ? `0${ num }` : num;
 			},
-			formatedTime: function () {
+			formatedTime:      function () {
 				const telemetryData = this.telemetryData();
 				const date          = new Date( telemetryData.game.time.unix );
 				
 				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ this.double( date.getUTCHours() ) }:${ this.double( date.getUTCMinutes() ) }`;
+			},
+			formatedTimestamp: function () {
+				const telemetryData = this.telemetryData();
+				const d             = new Date( telemetryData.job.deliveryTime.unix );
+				const dys           = d.getUTCDate() - 1;
+				const hrs           = d.getUTCHours();
+				const mnt           = d.getUTCMinutes();
+				let o               = dys > 1 ? dys + ' days ' : (dys != 0 ? dys + ' day ' : '');
+				if ( hrs > 0 )
+					o += hrs > 1 ? hrs + ' hours ' : hrs + ' hour ';
+				if ( mnt > 0 )
+					o += mnt > 1 ? mnt + ' minutes' : mnt + ' minute';
+				if ( !o )
+					o = '';
+				return o;
 			},
 			truckWear() {
 				const telemetryData  = this.telemetryData();
