@@ -1,7 +1,7 @@
 <template>
 	<div :class="telemetryData().truck.brand.id">
 		<div id="overlay" v-show="enabledFullScreen()"></div>
-		<slot v-bind="{ ...telemetryData() }"></slot>
+		<slot v-bind="{ ...telemetryData(), skinData: skinData() }"></slot>
 	</div>
 </template>
 
@@ -17,8 +17,12 @@
 			telemetryData() {
 				return this.pickData()();
 			},
+			skinData() {
+				return this.currentSkin();
+			},
 			...mapGetters( {
-				pickData: 'telemetry/pick'
+				pickData:    'telemetry/pick',
+				currentSkin: 'skins/current'
 			} )
 		}
 	};

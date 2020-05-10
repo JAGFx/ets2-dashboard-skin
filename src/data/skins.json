@@ -14,7 +14,11 @@
 				"name" : "ets2-dashboard-skin",
 				"url" :  "https://github.com/JAGFx/ets2-dashboard-skin"
 			},
-			"screenshot" :  "https://github.com/JAGFx/ets2-dashboard-skin/raw/master/screenshot.png"
+			"screenshot" :  "https://github.com/JAGFx/ets2-dashboard-skin/raw/master/screenshot.png",
+			"size" :        {
+				"width" :  0,
+				"height" : 0
+			}
 		},
 		{
 			"id" :          "Test",
@@ -27,7 +31,28 @@
 				"url" :   null
 			},
 			"repository" :  null,
-			"screenshot" :  "img/screenshots/test.png"
+			"screenshot" :  "img/screenshots/test.png",
+			"size" :        {
+				"width" :  0,
+				"height" : 0
+			}
+		},
+		{
+			"id" :          "Default",
+			"disabled" :    false,
+			"title" :       "Default",
+			"description" : "Generic Dashboard / KMH",
+			"author" :      {
+				"name" :  "Funbit",
+				"email" : null,
+				"url" :   null
+			},
+			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/default",
+			"screenshot" :  "img/screenshots/default.png",
+			"size" :        {
+				"width" :  2048,
+				"height" : 1152
+			}
 		}
 	]
 }

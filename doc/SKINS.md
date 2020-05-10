@@ -20,6 +20,11 @@ You can find the list of all skins integrated.
         <td>Base</td>
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/default.png" alt="JAGFX"></td>
+        <td>Default</td>
+        <td>Funbit</td>
+    </tr>
 </table>
 
 ## Create your own

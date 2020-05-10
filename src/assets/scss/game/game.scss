@@ -15,6 +15,7 @@
 	margin-bottom: .5rem;
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
+	z-index: 1;
 	
 	ul {
 		@include prefixer(display, flex, ("webkit", "moz", "o"));

@@ -19,6 +19,7 @@
 	import { mapGetters }    from 'vuex';
 	import Menu              from './components/Menu/Menu';
 	import Game              from './components/Zone/Game/Game';
+	import DashDefault       from './dashboards/defaut/components/DashDefault';
 	import DashJAGFx         from './dashboards/jagfx/components/DashJAGFx';
 	import DashTest          from './dashboards/test/components/DashTest';
 	import { DATA_ELEMENTS } from './store/modules/telemetry';
@@ -28,6 +29,7 @@
 		components: {
 			DashJAGFx,
 			DashTest,
+			DashDefault,
 			Game,
 			Menu
 		},
