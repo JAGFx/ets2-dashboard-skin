@@ -37,6 +37,15 @@ The view is optimized for a `5.5"` screen. To develop on you web browser, you ca
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
+## Features
+
+To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md).
+
+## Skins
+
+To know more about the skin integrated or how to add a new skin, see the [SKINS.md](doc/SKINS.md)
+
+
 ## Quick use
 
 
@@ -95,14 +104,6 @@ $ npm i && npm rb
 $ npm run server:install
 $ npm run build
 ````
-
-## Features
-
-To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md).
-
-## Skins
-
-To know more about the skin integrated or how to add a new skin, see the [SKINS.md](doc/SKINS.md)
 
 ## Development
 
