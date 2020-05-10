@@ -1,7 +1,5 @@
 # Skins
 
-## Embedded
-
 You can find the list of all skins integrated.
 
 <table>
