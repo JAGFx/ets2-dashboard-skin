@@ -1,6 +1,9 @@
 <template>
 	<Dashboard class="test wrapper" v-slot:default="dashProps">
-		<h2>{{ dashProps.truck.speed.kph }}</h2>
+		<div class="speed">
+			<span class="value">{{dashProps.truck.speed.kph}}</span>
+			<small class="unit">km/h</small>
+		</div>
 	</Dashboard>
 </template>
 

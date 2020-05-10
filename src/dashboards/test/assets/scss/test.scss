@@ -6,15 +6,31 @@
  * Time: 	17:40
  */
 
+@import "~bourbon/core/bourbon";
+
 .test {
 	&.wrapper {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		text-align: center;
 		
-		h2 {
-			font-size: 10rem;
-			text-align: center;
+		.speed{
+			> * {
+				display: block;
+			}
+			
+			.value {
+				font-family: suprrpg !important;
+				font-size: 12rem;
+				line-height: 10rem;
+				@include prefixer( transform, skew(19deg, 0deg), ("webkit", "moz", "o") );
+				margin: 0.7rem 0 0;
+			}
+			
+			> .unit {
+				font-size: 3rem;
+			}
 		}
 	}
 }

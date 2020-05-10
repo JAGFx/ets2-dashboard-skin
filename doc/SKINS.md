@@ -16,8 +16,8 @@ You can find the list of all skins integrated.
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
-        <td><img src="screenshots/test.png" alt="JAGFX"></td>
-        <td>test</td>
+        <td><img src="../public/img/screenshots/test.png" alt="JAGFX"></td>
+        <td>Base</td>
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
 </table>

@@ -19,15 +19,15 @@
 		{
 			"id" :          "Test",
 			"disabled" :    false,
-			"title" :       "Test",
-			"description" : "Test",
+			"title" :       "Base",
+			"description" : "Simple dashbord with speed",
 			"author" :      {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",
 				"url" :   null
 			},
 			"repository" :  null,
-			"screenshot" :  ""
+			"screenshot" :  "img/screenshots/test.png"
 		}
 	]
 }
