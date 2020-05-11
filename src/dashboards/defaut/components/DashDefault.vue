@@ -90,13 +90,13 @@
 					<tr>
 						<th>Deadline in:</th>
 						<td><span class="job-remainingTime">{{ formatedTimestamp() }}</span>
-							<span class="_jobIncome"> (€ <span class="job-income">{{ dashProps.job.income }}</span>)</span>
+							<span class="_jobIncome"> (€ <span class="job-income">{{ dashProps.job.income.toLocaleString() }}</span>)</span>
 						</td>
 					</tr>
 				</table>
 				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ truckWear() }}%</span>
 				</div>
-				<div class="_trailerWearInfo">Trailer <br />damage: <span class="trailer-wear">{{ dashProps.trailer.chassis.damage }}%</span>
+				<div class="_trailerWearInfo">Trailer <br />damage: <span class="trailer-wear">{{ dashProps.trailer.chassis.damage.toFixed(0) }}%</span>
 				</div>
 			</div>
 		</div>
@@ -147,7 +147,7 @@
 									   telemetryData.truck.damage.engine * 100 +
 									   telemetryData.truck.damage.transmission * 100 +
 									   telemetryData.truck.damage.wheels * 100;
-				return Math.min( wearSumPercent, 100 );
+				return Math.min( wearSumPercent, 100 ).toFixed( 0 );
 			},
 			truckGear() {
 				const telemetryData = this.telemetryData();
