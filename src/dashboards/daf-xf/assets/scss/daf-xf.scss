@@ -1,0 +1,232 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	test.scss
+ * Date: 	01/05/2020
+ * Time: 	17:40
+ */
+
+@import "~bourbon/core/bourbon";
+
+.daf-xf {
+	background: #1d1d1d;
+	
+	.dashboard {
+		position: absolute;
+		background: url("../assets/img/bg-on.jpg") top left no-repeat;
+		transform-origin: top left;
+		width: 2048px;
+		height: 1152px;
+		left: 50%;
+		top: 50%;
+	}
+	
+	.truck-speed[data-type="meter"] {
+		visibility: visible;
+		position: absolute;
+		left: 498px;
+		top: 470px;
+		width: 26px;
+		height: 265px;
+		background-image: url("../assets/img/arrow.png");
+		transform: rotate(-114deg);
+		transform-origin: 50% 220px;
+	}
+	
+	.truck-engineRpm {
+		position: absolute;
+		left: 1510px;
+		top: 470px;
+		width: 26px;
+		height: 265px;
+		background-image: url("../assets/img/arrow.png");
+		transform: rotate(-97deg);
+		transform-origin: 50% 220px;
+	}
+	
+	.truck-fuel {
+		position: absolute;
+		left: 595px;
+		top: 340px;
+		width: 13px;
+		height: 145px;
+		background-image: url("../assets/img/arrow-s.png");
+		transform: rotate(-96deg);
+		transform-origin: 50% 21px;
+	}
+	
+	.truck-waterTemperature {
+		position: absolute;
+		left: 1430px;
+		top: 245px;
+		width: 13px;
+		height: 145px;
+		background-image: url("../assets/img/arrow-s2.png");
+		transform: rotate(-0deg);
+		transform-origin: 50% 124px;
+	}
+	
+	.truck-speedRounded {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 410px;
+		top: 770px;
+		width: 190px;
+		height: 66px;
+		text-align: center;
+	}
+	
+	.truck-gear {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 1455px;
+		top: 770px;
+		width: 134px;
+		height: 100px;
+		text-align: center;
+	}
+	
+	.truck-gear[data-value="N"] {
+		color: #D8DFE5;
+	}
+	
+	.truck-gear[data-value="R"] {
+		color: #D8DFE5;
+	}
+	
+	.truck-odometer {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 1080px;
+		top: 805px;
+		width: 368px;
+		height: 70px;
+		text-align: left;
+	}
+	
+	.truck-blinkerLeftOn {
+		background-image: url("../assets/img/blinker-left-off.png");
+		position: absolute;
+		left: 400px;
+		top: 345px;
+		width: 131px;
+		height: 59px;
+	}
+	
+	.truck-blinkerLeftOn.yes {
+		background-image: url("../assets/img/blinker-left-on.png");
+	}
+	
+	.truck-blinkerRightOn {
+		background-image: url("../assets/img/blinker-right-off.png");
+		position: absolute;
+		left: 1528px;
+		top: 350px;
+		width: 131px;
+		height: 59px;
+	}
+	
+	.truck-blinkerRightOn.yes {
+		background-image: url("../assets/img/blinker-right-on.png");
+	}
+	
+	.truck-lightsBeamHighOn {
+		background-image: url("../assets/img/highbeam-off.png");
+		position: absolute;
+		left: 845px;
+		top: 720px;
+		width: 45px;
+		height: 35px;
+	}
+	
+	.truck-lightsBeamHighOn.yes {
+		background-image: url("../assets/img/highbeam-on.png");
+	}
+	
+	.truck-lightsBeamLowOn {
+		background-image: url("../assets/img/lowbeam-off.png");
+		position: absolute;
+		left: 845px;
+		top: 680px;
+		width: 45px;
+		height: 35px;
+	}
+	
+	.truck-lightsBeamLowOn.yes {
+		background-image: url("../assets/img/lowbeam-on.png");
+	}
+	
+	.truck-lightsParkingOn {
+		background-image: url("../assets/img/parklights-off.png");
+		position: absolute;
+		left: 845px;
+		top: 640px;
+		width: 45px;
+		height: 35px;
+	}
+	
+	.truck-lightsParkingOn.yes {
+		background-image: url("../assets/img/parklights-on.png");
+	}
+	
+	.game-time {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 830px;
+		top: 770px;
+		width: 134px;
+		height: 100px;
+		text-align: center;
+	}
+	
+	.truck-parkBrakeOn {
+		background-image: url("../assets/img/parkingbrake-off.png");
+		position: absolute;
+		left: 1040px;
+		top: 645px;
+		width: 45px;
+		height: 35px;
+	}
+	
+	.truck-parkBrakeOn.yes {
+		background-image: url("../assets/img/parkingbrake.png");
+	}
+	
+	.truck-airPressureWarningOn {
+		background-image: url("../assets/img/warning-off.png");
+		position: absolute;
+		left: 1080px;
+		top: 645px;
+		width: 45px;
+		height: 35px;
+	}
+	
+	.truck-airPressureWarningOn.yes {
+		background-image: url("../assets/img/warning.png");
+	}
+	
+	.trailer-mass {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 965px;
+		top: 600px;
+		width: 134px;
+		height: 100px;
+		text-align: right;
+	}
+}
