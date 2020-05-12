@@ -31,7 +31,7 @@
 					<i class="icon-time"></i>
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
-				<span v-else>{{formatDeliveryTime()}}</span>
+				<span v-else>{{$formatTime( deliveryTime.unix )}}</span>
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }" class="default">
 				<div class="round">
@@ -78,6 +78,8 @@
 </template>
 
 <script>
+	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	
 	export default {
 		name:  'Job',
 		props: [
@@ -92,15 +94,9 @@
 			'plannedDistance',
 			'distance'
 		],
+		mixins: [ dashMixins ],
 		
 		methods: {
-			formatDeliveryTime: function () {
-				const date   = new Date( this.deliveryTime.unix );
-				const double = num => num < 10 ? `0${ num }` : num;
-				const days   = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-				
-				return `${ days[ date.getUTCDay() ] } ${ double( date.getUTCHours() ) }:${ double( date.getUTCMinutes() ) }`;
-			},
 			hasNoJob:           function () {
 				return (this.cargo.id.length === 0);
 			}

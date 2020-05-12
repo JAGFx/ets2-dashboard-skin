@@ -15,7 +15,7 @@
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{Math.floor(100 * getAverageDamage())}} %</span>
+						<span>{{Math.floor(100 * $averageDamage( damage ))}} %</span>
 					</div>
 					<span>
 						<span class="licencePlate"><span class="flag">{{getFlag( licensePlate.country.id )}}</span>{{licensePlate.value}}</span>
@@ -127,12 +127,12 @@
 </template>
 
 <script>
-	import * as utils   from '../../../../../utils/utils';
-	import configMixins from '../../Mixins/configMixins';
+	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	import * as utils from '../../../../../utils/utils';
 	
 	export default {
 		name:   'Truck',
-		mixins: [ configMixins ],
+		mixins: [ dashMixins ],
 		props:  [
 			'brand',
 			'model',
@@ -172,16 +172,6 @@
 			},
 			elementIsEnabled:  function ( element ) {
 				return this.$elementIsEnabled( 'right', element );
-			},
-			getAverageDamage:  function () {
-				const keyLength = Object.keys( this.damage ).length;
-				let sum         = 0;
-				
-				for ( const key in this.damage ) {
-					sum += this.damage[ key ];
-				}
-				
-				return sum / keyLength;
 			},
 			getFlag( countryName ) {
 				return utils.app.flag( countryName );

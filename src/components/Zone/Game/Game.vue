@@ -6,7 +6,7 @@
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
 		<div class="game-time">
-			<span>{{formatedTime()}}</span>
+			<span>{{$formatDate(time.unix)}}</span>
 		</div>
 		<ul>
 			<li @click="onClickGear()">
@@ -26,6 +26,7 @@
 
 <script>
 	import * as utils from '../../../utils/utils';
+	import dashMixins from '../../Mixins/dashMixins';
 	
 	export default {
 		name:   'Game',
@@ -41,24 +42,11 @@
 			'maxTrailerCount',
 			'scale'
 		],
+		mixins: [ dashMixins ],
 		
 		methods: {
 			double:            function ( num ) {
 				return num < 10 ? `0${ num }` : num;
-			},
-			formatedTimestamp: function () {
-				const hours = Math.floor( this.timestamp.value / 3600000 );
-				const min   = Math.floor( this.timestamp.value % 3600000 / 60000 );
-				const sec   = Math.floor( this.timestamp.value % 3600000 % 60000 / 1000 );
-				
-				return `${ this.double( hours ) }:${ this.double( min ) }:${ this.double( sec ) }`;
-			},
-			formatedTime:      function () {
-				const date = new Date( this.time.unix );
-				
-				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-				
-				return `${ days[ date.getUTCDay() ] } ${ this.double( date.getUTCHours() ) }:${ this.double( date.getUTCMinutes() ) }`;
 			},
 			getVersion(){
 				return utils.app.version;

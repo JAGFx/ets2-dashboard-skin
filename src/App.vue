@@ -19,6 +19,7 @@
 	import { mapGetters }    from 'vuex';
 	import Menu              from './components/Menu/Menu';
 	import Game              from './components/Zone/Game/Game';
+	import DashDafXF         from './dashboards/daf-xf/components/DashDafXF';
 	import DashDefault       from './dashboards/defaut/components/DashDefault';
 	import DashJAGFx         from './dashboards/jagfx/components/DashJAGFx';
 	import DashTest          from './dashboards/test/components/DashTest';
@@ -30,6 +31,7 @@
 			DashJAGFx,
 			DashTest,
 			DashDefault,
+			DashDafXF,
 			Game,
 			Menu
 		},

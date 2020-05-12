@@ -6,7 +6,7 @@
 				<DashSymbolArea side="left"></DashSymbolArea>
 				
 				<div :class="transmission.shifterType" class="truck-gear">
-					<span class="value">{{getTrueGear()}}</span>
+					<span class="value">{{ $trukGear(transmission, brand) }}</span>
 				</div>
 				
 				<!-- Right elements -->
@@ -77,14 +77,14 @@
 </template>
 
 <script>
+	import dashMixins     from '../../../../../components/Mixins/dashMixins';
 	import DashSymbolArea from '../../Elements/DashSymbolArea';
-	import configMixins   from '../../Mixins/configMixins';
 	import RPMBars        from './Elements/RPMBars';
 	
 	export default {
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
-		mixins:     [ configMixins ],
+		mixins:     [ dashMixins ],
 		props:      [
 			'nextRestStop',
 			'distance',
@@ -108,64 +108,6 @@
 				const min   = Math.floor( time % 3600000 / 60000 );
 				
 				return `${ hours }h ${ min }min`;
-				
-			},
-			/*formatNextRestStop: function () {
-			 return this.formatTime( this.nextRestStop );
-			 },
-			 formatETA:          function () {
-			 const eta  = this.formatTime( this.time );
-			 const date = new Date( this.gameTime + this.time );
-			 
-			 const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-			 
-			 return `${ days[ date.getUTCDay() ] } ${ date.getUTCHours() }:${ date.getUTCMinutes() } / ${ eta }`;
-			 },*/
-			getTrueGear:      function () {
-				/*console.log( this );*/
-				const configSettings          = this.$configSettings();
-				const hShiftLayout            = (configSettings.middle !== undefined)
-					? configSettings.middle.hShiftLayout
-					: { range: false, splitter: false };
-				const rangeAndSplitterEnabled = hShiftLayout.range && hShiftLayout.splitter;
-				
-				let gear         = this.transmission.gear.displayed;
-				let strGear      = gear;
-				let crawlingGear = 0;
-				
-				switch ( this.brand.name ) {
-					case 'Volvo':
-					case 'Scania':
-					case 'Kenworth':
-						crawlingGear = 2;
-						break;
-				}
-				
-				//console.log( rangeAndSplitterEnabled );
-				if ( this.transmission.shifterType === 'hshifter' && rangeAndSplitterEnabled ) {
-					let realGearCount = gear - crawlingGear;
-					let spliter       = (realGearCount % 2)
-						? 'L'
-						: 'H';
-					let realGear      = Math.ceil( realGearCount / 2 );
-					strGear           = realGear + spliter;
-				} else {
-					strGear = gear - crawlingGear;
-				}
-				
-				if ( gear <= crawlingGear )
-					strGear = 'C' + Math.abs( gear );
-				
-				if ( this.transmission.shifterType === 'automatic' )
-					strGear = 'D' + gear;
-				
-				if ( gear === 0 )
-					strGear = 'N';
-				
-				if ( gear < 0 )
-					strGear = 'R' + Math.abs( this.transmission.gear.displayed );
-				
-				return strGear;
 			},
 			getFuelByBar:     function () {
 				return (this.fuel.capacity * this.fuel.warning.factor).toFixed( 0 );

@@ -53,6 +53,23 @@
 				"width" :  2048,
 				"height" : 1152
 			}
+		},
+		{
+			"id" :          "DafXF",
+			"disabled" :    false,
+			"title" :       "DAF XF",
+			"description" : "DAF XF Dashboard",
+			"author" :      {
+				"name" :  "Klauzzy",
+				"email" : null,
+				"url" :   null
+			},
+			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/daf-xf",
+			"screenshot" :  "img/screenshots/default.png",
+			"size" :        {
+				"width" :  2000,
+				"height" : 1056
+			}
 		}
 	]
 }

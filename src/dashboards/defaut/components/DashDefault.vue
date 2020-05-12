@@ -1,7 +1,7 @@
 <template>
 	<Dashboard class="default wrapper" v-slot:default="dashProps">
 		<div class="dashboard game-connected yes" v-bind:style="{
-			transform: 'scale(' + scale( dashProps.skinData ) + ') translate(-50%, -50%)'
+			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)'
 		}">
 			<div :class="{'yes': dashProps.job.cargo.id}" class="hasJob">
 				<!-- meters -->
@@ -50,8 +50,10 @@
 					'maxAngle': 0,
 				}"></CadranElement>
 				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>
-				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ dashProps.truck.cruiseControl.kph }}</span></div>
-				<div class="truck-gear wrapper-area"><span>{{ truckGear() }}</span></div>
+				<div class="truck-cruiseControlSpeedRounded wrapper-area">
+					<span>{{ dashProps.truck.cruiseControl.kph }}</span></div>
+				<div class="truck-gear wrapper-area"><span>{{ $trukGear( dashProps.truck.transmission, dashProps.truck.brand ) }}</span>
+				</div>
 				<!-- indicators -->
 				<div :class="{ 'yes': dashProps.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
 				<div :class="{ 'yes': dashProps.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
@@ -67,7 +69,7 @@
 				<table class="_job">
 					<tr>
 						<th>Time:</th>
-						<td><span class="game-time">{{ formatedTime() }}</span></td>
+						<td><span class="game-time">{{ $formatTime( $telemetryData().game.time.unix ) }}</span></td>
 					</tr>
 					<tr>
 						<th>Source:</th>
@@ -89,12 +91,13 @@
 					</tr>
 					<tr>
 						<th>Deadline in:</th>
-						<td><span class="job-remainingTime">{{ formatedTimestamp() }}</span>
+						<td>
+							<span class="job-remainingTime">{{ $formatDate( $telemetryData().job.deliveryTime.unix ) }}</span>
 							<span class="_jobIncome"> (€ <span class="job-income">{{ dashProps.job.income.toLocaleString() }}</span>)</span>
 						</td>
 					</tr>
 				</table>
-				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ truckWear() }}%</span>
+				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ $averageDamage( dashProps.truck.damage ) * 100 }}%</span>
 				</div>
 				<div class="_trailerWearInfo">Trailer <br />damage: <span class="trailer-wear">{{ dashProps.trailer.chassis.damage.toFixed(0) }}%</span>
 				</div>
@@ -104,8 +107,9 @@
 </template>
 
 <script>
+	import CadranElement from '../../../components/Elements/CadranElement';
 	import Dashboard     from '../../../components/Elements/Dashboard';
-	import CadranElement from './Elements/CadranElement';
+	import dashMixins    from '../../../components/Mixins/dashMixins';
 	
 	export default {
 		name:       'DashDefault',
@@ -113,66 +117,7 @@
 			Dashboard,
 			CadranElement
 		},
-		methods:    {
-			double:            function ( num ) {
-				return num < 10 ? `0${ num }` : num;
-			},
-			formatedTime:      function () {
-				const telemetryData = this.telemetryData();
-				const date          = new Date( telemetryData.game.time.unix );
-				
-				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-				
-				return `${ days[ date.getUTCDay() ] } ${ this.double( date.getUTCHours() ) }:${ this.double( date.getUTCMinutes() ) }`;
-			},
-			formatedTimestamp: function () {
-				const telemetryData = this.telemetryData();
-				const d             = new Date( telemetryData.job.deliveryTime.unix );
-				const dys           = d.getUTCDate() - 1;
-				const hrs           = d.getUTCHours();
-				const mnt           = d.getUTCMinutes();
-				let o               = dys > 1 ? dys + ' days ' : (dys != 0 ? dys + ' day ' : '');
-				if ( hrs > 0 )
-					o += hrs > 1 ? hrs + ' hours ' : hrs + ' hour ';
-				if ( mnt > 0 )
-					o += mnt > 1 ? mnt + ' minutes' : mnt + ' minute';
-				if ( !o )
-					o = '';
-				return o;
-			},
-			truckWear() {
-				const telemetryData  = this.telemetryData();
-				const wearSumPercent = telemetryData.truck.damage.cabin * 100 +
-									   telemetryData.truck.damage.chassis * 100 +
-									   telemetryData.truck.damage.engine * 100 +
-									   telemetryData.truck.damage.transmission * 100 +
-									   telemetryData.truck.damage.wheels * 100;
-				return Math.min( wearSumPercent, 100 ).toFixed( 0 );
-			},
-			truckGear() {
-				const telemetryData = this.telemetryData();
-				let gear            = telemetryData.truck.transmission.gear.displayed;
-				gear                = gear > 0
-					? 'D' + gear
-					: (gear < 0 ? 'R' + Math.abs( gear ) : 'N');
-				
-				return gear;
-			},
-			telemetryData() {
-				return this.$children[ 0 ].telemetryData();
-			},
-			scale( currentSkin ) {
-				const scaleX = (currentSkin.size.width === 0)
-					? 1
-					: window.innerWidth / currentSkin.size.width;
-				
-				const scaleY = (currentSkin.size.height === 0)
-					? 1
-					: (window.innerHeight - 41) / currentSkin.size.height;
-				
-				return Math.min( scaleX, scaleY );
-			}
-		}
+		mixins:     [ dashMixins ]
 	};
 </script>
 

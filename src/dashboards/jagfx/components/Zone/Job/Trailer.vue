@@ -18,7 +18,7 @@
 					<span v-if="hasTrailer()">{{licensePlate.value}}</span>
 					<span v-else>N/A</span>
 				</small>
-				<div class="damage left" v-if="hasTrailer()">{{Math.floor(100 * getAverageDamage())}} %</div>
+				<div class="damage left" v-if="hasTrailer()">{{Math.floor(100 * $averageDamage( damage ))}} %</div>
 				<div class="damage left" v-else>N/A</div>
 			</div>
 			<!--<div class="trailer-wear text-center">
@@ -40,11 +40,12 @@
 </template>
 
 <script>
+	import dashMixins from '../../../../../components/Mixins/dashMixins';
 	import * as utils from '../../../../../utils/utils';
 	
 	export default {
-		name:  'Trailers',
-		props: [
+		name:   'Trailers',
+		props:  [
 			'brand',
 			'model',
 			'accessoryId',
@@ -60,6 +61,7 @@
 			'damage',
 			'cargo'
 		],
+		mixins: [ dashMixins ],
 		
 		methods: {
 			hasTrailer:       function () {
@@ -67,16 +69,6 @@
 			},
 			hasTrailerAndJob: function () {
 				return this.model.id.length !== 0 && this.cargo.name.length !== 0;
-			},
-			getAverageDamage() {
-				const keyLength = Object.keys( this.damage ).length;
-				let sum         = 0;
-				
-				for ( const key in this.damage ) {
-					sum += this.damage[ key ];
-				}
-				
-				return sum / keyLength;
 			},
 			getFlag( countryName ) {
 				return utils.app.flag( countryName );
