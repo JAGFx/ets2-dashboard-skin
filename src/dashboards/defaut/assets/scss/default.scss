@@ -25,6 +25,17 @@
 		}
 	}
 	
+	.wrapper-area{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		span{
+			line-height: inherit;
+			margin-top: .5rem;
+		}
+	}
+	
 	.truck-speed[data-type="meter"] {
 		visibility: visible;
 		position: absolute;
@@ -76,10 +87,10 @@
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
-		left: 460px;
-		top: 263px;
-		width: 213px;
-		height: 92px;
+		left: 478px;
+		top: 264px;
+		width: 200px;
+		height: 87px;
 		text-align: center;
 	}
 	
@@ -89,10 +100,10 @@
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
-		left: 516px;
-		top: 692px;
-		width: 134px;
-		height: 100px;
+		left: 501px;
+		top: 673px;
+		width: 151px;
+		height: 119px;
 		text-align: center;
 		
 		&[data-value="N"] {
@@ -110,10 +121,10 @@
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
-		left: 396px;
-		top: 559px;
-		width: 368px;
-		height: 78px;
+		left: 387px;
+		top: 555px;
+		width: 389px;
+		height: 90px;
 		text-align: center;
 	}
 	
@@ -158,7 +169,7 @@
 	
 	.truck-cruiseControlSpeedRounded {
 		color: #24b999;
-		top: 413px;
+		top: 423px;
 	}
 	
 	.truck-lightsBeamHighOn {

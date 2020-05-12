@@ -21,7 +21,7 @@
 					'minAngle' : -114,
 					'maxAngle': 114,
 				}"></CadranElement>
-				<div class="truck-speedRounded">{{ dashProps.truck.speed.kph }}</div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ dashProps.truck.speed.kph }}</span></div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
@@ -49,9 +49,9 @@
 					'minAngle' : -96,
 					'maxAngle': 0,
 				}"></CadranElement>
-				<div class="truck-odometer">{{ dashProps.truck.odometer.toFixed(0) }}</div>
-				<div class="truck-cruiseControlSpeedRounded">{{ dashProps.truck.cruiseControl.kph }}</div>
-				<div class="truck-gear">{{ truckGear() }}</div>
+				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>
+				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ dashProps.truck.cruiseControl.kph }}</span></div>
+				<div class="truck-gear wrapper-area"><span>{{ truckGear() }}</span></div>
 				<!-- indicators -->
 				<div :class="{ 'yes': dashProps.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
 				<div :class="{ 'yes': dashProps.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
