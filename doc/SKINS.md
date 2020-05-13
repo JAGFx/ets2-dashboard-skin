@@ -19,9 +19,9 @@ You can find the list of all skins integrated.
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/default.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/daf-xf.png" alt="JAGFX"></td>
         <td>Default</td>
-        <td>Funbit</td>
+        <td>Klauzzy</td>
     </tr>
 </table>
 

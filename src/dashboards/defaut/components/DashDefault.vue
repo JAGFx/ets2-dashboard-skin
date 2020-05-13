@@ -15,7 +15,7 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-speed',
 					'type': 'meter',
-					'value': dashProps.truck.speed.kph,
+					'value': $truckSpeed(),
 					'min': 0,
 					'max': 140,
 					'minAngle' : -114,

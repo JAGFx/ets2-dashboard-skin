@@ -92,6 +92,9 @@
 					strGear = 'R' + Math.abs( transmission.gear.displayed );
 				
 				return strGear;
+			},
+			$truckSpeed: function () {
+				return Math.abs( this.$telemetryData().truck.speed.value * 3.6 );
 			}
 		}
 	};

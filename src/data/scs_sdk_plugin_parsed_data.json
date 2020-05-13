@@ -242,7 +242,7 @@
          "airPressure": {
             "warning": {
                "factor": 69.5999984741211,
-               "enabled": false
+               "enabled": true
             },
             "emergency": {
                "factor": 34.79999923706055,
@@ -449,7 +449,7 @@
          "ratio": 2.640000104904175
       },
       "speed": {
-         "value": 9.394007682800293,
+         "value": 34.7222222222222222,
          "kph": 125,
          "mph": 21
       },

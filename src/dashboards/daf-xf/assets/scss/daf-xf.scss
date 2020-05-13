@@ -9,14 +9,24 @@
 @import "~bourbon/core/bourbon";
 
 .daf-xf {
-	background: #1d1d1d;
+	
+	.wrapper-area {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		> span {
+			line-height: inherit;
+			//margin-top: .5rem;
+		}
+	}
 	
 	.dashboard {
 		position: absolute;
 		background: url("../assets/img/bg-on.jpg") top left no-repeat;
 		transform-origin: top left;
-		width: 2048px;
-		height: 1152px;
+		width: 2000px;
+		height: 1056px;
 		left: 50%;
 		top: 50%;
 	}
@@ -72,8 +82,8 @@
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
-		left: 410px;
-		top: 770px;
+		left: 412px;
+		top: 783px;
 		width: 190px;
 		height: 66px;
 		text-align: center;
@@ -85,10 +95,10 @@
 		font-weight: bold;
 		font-size: 30px;
 		position: absolute;
-		left: 1455px;
-		top: 770px;
-		width: 134px;
-		height: 100px;
+		left: 1481px;
+		top: 744px;
+		width: 84px;
+		height: 82px;
 		text-align: center;
 	}
 	
@@ -106,11 +116,16 @@
 		font-weight: bold;
 		font-size: 30px;
 		position: absolute;
-		left: 1080px;
-		top: 805px;
-		width: 368px;
+		left: 1041px;
+		top: 765px;
+		width: 176px;
 		height: 70px;
 		text-align: left;
+		justify-content: flex-end;
+		
+		> span {
+			margin: 0;
+		}
 	}
 	
 	.truck-blinkerLeftOn {
@@ -140,7 +155,7 @@
 	}
 	
 	.truck-lightsBeamHighOn {
-		background-image: url("../assets/img/highbeam-off.png");
+		background: url("../assets/img/highbeam-off.png") no-repeat;
 		position: absolute;
 		left: 845px;
 		top: 720px;
@@ -184,11 +199,17 @@
 		font-weight: bold;
 		font-size: 30px;
 		position: absolute;
-		left: 830px;
-		top: 770px;
-		width: 134px;
-		height: 100px;
+		left: 815px;
+		top: 765px;
+		width: 220px;
+		height: 70px;
 		text-align: center;
+		
+		justify-content: flex-start;
+		
+		> span {
+			margin: 0;
+		}
 	}
 	
 	.truck-parkBrakeOn {
@@ -223,10 +244,10 @@
 		font-weight: bold;
 		font-size: 30px;
 		position: absolute;
-		left: 965px;
-		top: 600px;
-		width: 134px;
-		height: 100px;
+		left: 1031px;
+		top: 599px;
+		width: 163px;
+		height: 47px;
 		text-align: right;
 	}
 }

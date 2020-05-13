@@ -15,7 +15,7 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-speed',
 					'type': 'meter',
-					'value': dashProps.truck.speed.kph,
+					'value': $truckSpeed(),
 					'min': 0,
 					'max': 140,
 					'minAngle' : -122,
@@ -61,13 +61,14 @@
 				<div :class="{ 'yes': dashProps.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
 				<div :class="{ 'yes': dashProps.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
 				<div :class="{'yes': dashProps.trailer.attached}" class="trailer-attached"></div>
-				<div class="trailer-mass">{{ (dashProps.job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span>
-				</div>
+				<div class="trailer-mass wrapper-area">
+					<span>{{ (dashProps.job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span></span></div>
 				<div class="trailer-name">{{ dashProps.job.cargo.name }}</div>
 				<!-- job information -->
-				<div class="truck-parkBrakeOn"></div>
-				<div class="truck-airPressureWarningOn"></div>
-				<div class="game-time"></div>
+				<div :class="{ 'yes': dashProps.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
+				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
+				<div class="game-time wrapper-area"><span>{{ $formatDate( $telemetryData().game.time.unix ) }}</span>
+				</div>
 			</div>
 		</div>
 	</Dashboard>

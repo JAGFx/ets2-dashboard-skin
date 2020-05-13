@@ -65,7 +65,7 @@
 				"url" :   null
 			},
 			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/daf-xf",
-			"screenshot" :  "img/screenshots/default.png",
+			"screenshot" :  "img/screenshots/daf-xf.png",
 			"size" :        {
 				"width" :  2000,
 				"height" : 1056
