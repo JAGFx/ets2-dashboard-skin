@@ -70,6 +70,23 @@
 				"width" :  2000,
 				"height" : 1056
 			}
+		},
+		{
+			"id" :          "ManTGX",
+			"disabled" :    false,
+			"title" :       "Man TGX",
+			"description" : "MAN TGX Dashboard",
+			"author" :      {
+				"name" :  "Klauzzy",
+				"email" : null,
+				"url" :   null
+			},
+			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/man-tgx",
+			"screenshot" :  "img/screenshots/man-tgx.png",
+			"size" :        {
+				"width" :  2048,
+				"height" : 1152
+			}
 		}
 	]
 }

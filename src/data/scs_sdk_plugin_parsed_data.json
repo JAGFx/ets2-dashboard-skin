@@ -246,7 +246,7 @@
             },
             "emergency": {
                "factor": 34.79999923706055,
-               "enabled": false
+               "enabled": true
             },
             "value": 123.2735366821289
          },
@@ -369,11 +369,11 @@
          "blinker": {
             "left": {
                "enabled": false,
-               "active": false
+               "active": true
             },
             "right": {
                "enabled": false,
-               "active": false
+               "active": true
             }
          },
          "parking": {
