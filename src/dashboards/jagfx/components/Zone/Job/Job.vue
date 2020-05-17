@@ -31,7 +31,7 @@
 					<i class="icon-time"></i>
 				</div>
 				<span v-if="hasNoJob()">N/A</span>
-				<span v-else>{{$formatTime( deliveryTime.unix )}}</span>
+				<span v-else>{{$formatDate( deliveryTime.unix )}}</span>
 			</li>
 			<li :class="{ 'disabled': hasNoJob()  }" class="default">
 				<div class="round">
