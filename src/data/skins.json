@@ -1,6 +1,23 @@
 {
 	"skins" : [
 		{
+			"id" :          "MercedesAtego",
+			"disabled" :    false,
+			"title" :       "Mercedes Benz Atego",
+			"description" : "Mercedes Benz Atego MP4 Dashboard",
+			"author" :      {
+				"name" :  "Klauzzy",
+				"email" : null,
+				"url" :   null
+			},
+			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/mercedes-atego",
+			"screenshot" :  "img/screenshots/mercedes-atego.png",
+			"size" :        {
+				"width": 1501,
+				"height": 779
+			}
+		},
+		{
 			"id" :          "JAGFx",
 			"title" :       "JAGFx dashboard",
 			"disabled" :    false,

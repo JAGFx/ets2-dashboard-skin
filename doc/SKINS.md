@@ -33,6 +33,11 @@ You can find the list of all skins integrated.
         <td>Man-TGX</td>
         <td>Klauzzy</td>
     </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/mercedes-atego.png" alt="JAGFX"></td>
+        <td>Mercedes Benz Atego</td>
+        <td>Klauzzy</td>
+    </tr>
 </table>
 
 ## Create your own
