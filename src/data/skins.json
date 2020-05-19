@@ -28,7 +28,7 @@
 			"author" :      {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",
-				"url" :   null
+				"url" :   "https://emmanuel-smith.me"
 			},
 			"repository" :  null,
 			"screenshot" :  "img/screenshots/test.png",

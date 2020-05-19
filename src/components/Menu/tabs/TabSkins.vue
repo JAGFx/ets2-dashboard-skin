@@ -1,5 +1,5 @@
 <template>
-	<div class="tab-skins">
+	<div class="tab-skins mb-4">
 		<div :class="{
 				'active': $isActive(skin),
 				'disabled': $isDisabled(skin),
@@ -20,6 +20,7 @@
 				<small class="text-muted font-italic mb-2 d-inline-block">
 					{{ skin.author.name }}
 					<a :href="skin.author.url" class="ml-1" target="_blank" v-show="skin.author.url !== undefined && skin.author.url"><i class="fas fa-globe-europe"></i></a>
+					<a :href="'mailto:' + skin.author.email" class="ml-1" target="_blank" v-show="skin.author.email !== undefined && skin.author.email"><i class="fas fa-paper-plane"></i></a>
 				</small>
 				<p class="card-text mb-0">{{ skin.description }}</p>
 			</div>
