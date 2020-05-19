@@ -24,6 +24,7 @@
 	import DashJAGFx         from './dashboards/jagfx/components/DashJAGFx';
 	import DashManTGX        from './dashboards/man-tgx/components/DashManTGX';
 	import DashMercedesAtego from './dashboards/mercedes-atego/components/DashMercedesAtego';
+	import DashRdInfo        from './dashboards/rd-info/components/DashRdInfo';
 	import DashTest          from './dashboards/test/components/DashTest';
 	import { DATA_ELEMENTS } from './store/modules/telemetry';
 	
@@ -36,6 +37,7 @@
 			DashDafXF,
 			DashManTGX,
 			DashMercedesAtego,
+			DashRdInfo,
 			Game,
 			Menu
 		},

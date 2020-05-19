@@ -38,6 +38,11 @@ You can find the list of all skins integrated.
         <td>Mercedes Benz Atego</td>
         <td>Klauzzy</td>
     </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/rd-info.png" alt="JAGFX"></td>
+        <td>RenaultDash-Info</td>
+        <td>Argiano - van_argiano@outlook.com</td>
+    </tr>
 </table>
 
 ## Create your own

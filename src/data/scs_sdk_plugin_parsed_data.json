@@ -803,7 +803,7 @@
       },
       "model": {
          "id": "krone.boxliner.chassis_20x2esii",
-         "name": ""
+         "name": "Krone"
       },
       "accessoryId": "scs_container.container_20_green",
       "bodyType": "container",
@@ -912,13 +912,13 @@
       "input": {
          "steering": 1,
          "throttle": 0.33334749937057495,
-         "brake": 0,
+         "brake": 0.5,
          "clutch": 0
       },
       "game": {
          "steering": 0.2610137164592743,
          "throttle": 0.2918427884578705,
-         "brake": 0,
+         "brake": 0.3,
          "clutch": 0
       }
    },
