@@ -27,6 +27,7 @@
 	import DashRdInfo        from './dashboards/rd-info/components/DashRdInfo';
 	import DashScania        from './dashboards/scania/components/DashScania';
 	import DashTest          from './dashboards/test/components/DashTest';
+	import DashVolvoFH       from './dashboards/volvo-fh/components/DashVolvoFH';
 	import { DATA_ELEMENTS } from './store/modules/telemetry';
 	
 	export default {
@@ -40,6 +41,7 @@
 			DashMercedesAtego,
 			DashRdInfo,
 			DashScania,
+			DashVolvoFH,
 			Game,
 			Menu
 		},

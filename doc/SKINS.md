@@ -48,6 +48,11 @@ You can find the list of all skins integrated.
         <td>Scania Dashboard</td>
         <td>Klauzzy</td>
     </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/volvo-fh.png" alt="JAGFX"></td>
+        <td>Volvo FH 2012 Dashboard</td>
+        <td>Klauzzy</td>
+    </tr>
 </table>
 
 ## Create your own

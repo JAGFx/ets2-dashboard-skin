@@ -138,6 +138,23 @@
 				"width": 2030,
 				"height": 1035
 			}
+		},
+		{
+			"id" :          "VolvoFH",
+			"disabled" :    false,
+			"title" :       "Volvo FH",
+			"description" : "Volvo FH 2012 Dashboard",
+			"author" :      {
+				"name" :  "Klauzzy",
+				"email" : null,
+				"url" :   null
+			},
+			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/volvo-fh",
+			"screenshot" :  "img/screenshots/volvo-fh.png",
+			"size" :        {
+				"width": 2000,
+				"height": 664
+			}
 		}
 	]
 }
