@@ -43,6 +43,11 @@ You can find the list of all skins integrated.
         <td>RenaultDash-Info</td>
         <td>Argiano - van_argiano@outlook.com</td>
     </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/scania.png" alt="JAGFX"></td>
+        <td>Scania Dashboard</td>
+        <td>Klauzzy</td>
+    </tr>
 </table>
 
 ## Create your own

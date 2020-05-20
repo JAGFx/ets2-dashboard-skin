@@ -121,6 +121,23 @@
 				"width": 1920,
 				"height": 1440
 			}
+		},
+		{
+			"id" :          "Scania",
+			"disabled" :    false,
+			"title" :       "Scania",
+			"description" : "Scania Dashboard",
+			"author" :      {
+				"name" :  "Klauzzy",
+				"email" : null,
+				"url" :   null
+			},
+			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/scania",
+			"screenshot" :  "img/screenshots/scania.png",
+			"size" :        {
+				"width": 2030,
+				"height": 1035
+			}
 		}
 	]
 }

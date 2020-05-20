@@ -25,6 +25,7 @@
 	import DashManTGX        from './dashboards/man-tgx/components/DashManTGX';
 	import DashMercedesAtego from './dashboards/mercedes-atego/components/DashMercedesAtego';
 	import DashRdInfo        from './dashboards/rd-info/components/DashRdInfo';
+	import DashScania        from './dashboards/scania/components/DashScania';
 	import DashTest          from './dashboards/test/components/DashTest';
 	import { DATA_ELEMENTS } from './store/modules/telemetry';
 	
@@ -38,6 +39,7 @@
 			DashManTGX,
 			DashMercedesAtego,
 			DashRdInfo,
+			DashScania,
 			Game,
 			Menu
 		},
