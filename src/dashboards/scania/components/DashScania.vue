@@ -34,7 +34,7 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-fuel',
 					'type': 'meter',
-					'value': 700,//dashProps.truck.fuel.value,
+					'value': dashProps.truck.fuel.value,
 					'min': 0,
 					'max': dashProps.truck.fuel.capacity,
 					'minAngle' : -53,
