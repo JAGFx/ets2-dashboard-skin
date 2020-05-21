@@ -8,7 +8,7 @@
 	
 	// initial state
 const state = () => ({
-		displayed: false
+		displayed: true
 	});
 
 // getters

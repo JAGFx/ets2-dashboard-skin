@@ -16,19 +16,21 @@
 </template>
 
 <script>
-	import TabAbout from './tabs/TabAbout';
-	import TabSkins from './tabs/TabSkins';
+	import TabAbout  from './tabs/TabAbout';
+	import TabConfig from './tabs/TabConfig';
+	import TabSkins  from './tabs/TabSkins';
 	
 	export default {
 		name:       'Menu',
 		components: {
 			TabSkins,
+			TabConfig,
 			TabAbout
 		},
 		data() {
 			return {
-				currentTab: 'About',
-				tabs:       [ 'Skins', 'About' ]
+				currentTab: 'Config',
+				tabs:       [ 'Skins', 'Config', 'About' ]
 			};
 		},
 		computed:   {
