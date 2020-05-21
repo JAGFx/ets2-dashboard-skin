@@ -18,8 +18,8 @@
 					'value': $truckSpeed(),
 					'min': 0,
 					'max': 125,
-					'minAngle' : -123,
-					'maxAngle': 105,
+					'minAngle' : -120,
+					'maxAngle': 103,
 				}"></CadranElement>
 				<div class="truck-speedRounded wrapper-area"><span>{{ dashProps.truck.speed.kph }}</span></div>
 				<CadranElement v-bind="{
@@ -27,9 +27,9 @@
 					'type': 'meter',
 					'value': dashProps.truck.engine.rpm.value / 100,
 					'min': 2,
-					'max': 30,
-					'minAngle' : -127,
-					'maxAngle': 97,
+					'max': 32,
+					'minAngle' : -119,
+					'maxAngle': 122,
 				}"></CadranElement>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-fuel',
@@ -43,20 +43,29 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-waterTemperature',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
-					'min': -48,
+					'value': 50, //dashProps.truck.engine.waterTemperature.value,
+					'min': 0,
 					'max': 100,
 					'minAngle' : -48,
-					'maxAngle': 13,
+					'maxAngle': 27,
 				}"></CadranElement>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-airPressure',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
-					'min': -48,
-					'max': 100,
-					'minAngle' : -56,
-					'maxAngle': 10,
+					'value': dashProps.truck.brakes.airPressure.value * 0.0689476,
+					'min': 0,
+					'max': 12,
+					'minAngle' : -30,
+					'maxAngle': 25,
+				}"></CadranElement>
+				<CadranElement v-bind="{
+					'classCSS': 'truck-oilPressure',
+					'type': 'meter',
+					'value': dashProps.truck.engine.oilPressure.value * 0.0689476,
+					'min': 0,
+					'max': 12,
+					'minAngle' : -34,
+					'maxAngle': 25,
 				}"></CadranElement>
 				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>
 				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ dashProps.truck.cruiseControl.kph }}</span></div>-->

@@ -292,6 +292,17 @@
 		transform: rotate(-0deg);
 		transform-origin: 50% 112px;
 	}
+	
+	.truck-oilPressure {
+		position: absolute;
+		left: 1763px;
+		top: 914px;
+		width: 13px;
+		height: 77px;
+		background-image: url("../assets/img/arrow-s.png");
+		transform: rotate(-0deg);
+		transform-origin: 50% 112px;
+	}
 	.truck-airPressureEmergencyOn {
 		background: url("../assets/img/warning-off.png") no-repeat;
 		background-size: contain;
