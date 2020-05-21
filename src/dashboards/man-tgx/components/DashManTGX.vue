@@ -1,7 +1,9 @@
 <template>
 	<Dashboard class="man-tgx wrapper" v-slot:default="dashProps">
 		<div class="dashboard game-connected yes" v-bind:style="{
-			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)'
+			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)',
+			width: dashProps.skinData.size.width + 'px',
+			height: dashProps.skinData.size.height + 'px',
 		}">
 			<div :class="{'yes': dashProps.job.cargo.id}" class="hasJob">
 				<!-- meters -->
@@ -52,7 +54,7 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-airPressure',
 					'type': 'meter',
-					'value': dashProps.truck.brakes.airPressure.value * 0.0689476,
+					'value': $pressureToBar(dashProps.truck.brakes.airPressure.value),
 					'min': 0,
 					'max': 12,
 					'minAngle' : -30,
@@ -61,7 +63,7 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-oilPressure',
 					'type': 'meter',
-					'value': dashProps.truck.engine.oilPressure.value * 0.0689476,
+					'value': $pressureToBar(dashProps.truck.engine.oilPressure.value),
 					'min': 0,
 					'max': 12,
 					'minAngle' : -34,

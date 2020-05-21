@@ -30,11 +30,11 @@
 				const keyLength = Object.keys( arrayDamage ).length;
 				let sum         = 0;
 				
-				for ( const key in this.damage ) {
-					sum += this.damage[ key ];
+				for ( const key in arrayDamage ) {
+					sum += arrayDamage[ key ];
 				}
 				
-				return sum / keyLength;
+				return Math.floor(100 * (sum / keyLength));
 			},
 			$scale( currentSkin ) {
 				const scaleX = (currentSkin.size.width === 0)
@@ -95,6 +95,21 @@
 			},
 			$truckSpeed: function () {
 				return Math.abs( this.$telemetryData().truck.speed.value * 3.6 );
+			},
+			$pressureToBar: function( inPressure, unit = 'bar' ){
+				let pressure;
+				
+				switch ( unit ) {
+					case 'bar':
+						pressure = inPressure * 0.0689476;
+						break;
+						
+					default:
+						pressure = inPressure;
+						break
+				}
+				
+				return pressure;
 			}
 		}
 	};

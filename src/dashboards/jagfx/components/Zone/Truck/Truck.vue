@@ -15,7 +15,7 @@
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{Math.floor(100 * $averageDamage( damage ))}} %</span>
+						<span>{{ $averageDamage( damage ) }} %</span>
 					</div>
 					<span>
 						<span class="licencePlate"><span class="flag">{{getFlag( licensePlate.country.id )}}</span>{{licensePlate.value}}</span>

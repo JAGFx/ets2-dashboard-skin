@@ -1,7 +1,9 @@
 <template>
 	<Dashboard class="default wrapper" v-slot:default="dashProps">
 		<div class="dashboard game-connected yes" v-bind:style="{
-			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)'
+			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)',
+			width: dashProps.skinData.size.width + 'px',
+			height: dashProps.skinData.size.height + 'px',
 		}">
 			<div :class="{'yes': dashProps.job.cargo.id}" class="hasJob">
 				<!-- meters -->
@@ -97,7 +99,7 @@
 						</td>
 					</tr>
 				</table>
-				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ $averageDamage( dashProps.truck.damage ) * 100 }}%</span>
+				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ $averageDamage( dashProps.truck.damage ) }}%</span>
 				</div>
 				<div class="_trailerWearInfo">Trailer <br />damage: <span class="trailer-wear">{{ dashProps.trailer.chassis.damage.toFixed(0) }}%</span>
 				</div>

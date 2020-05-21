@@ -18,7 +18,7 @@
 					<span v-if="hasTrailer()">{{licensePlate.value}}</span>
 					<span v-else>N/A</span>
 				</small>
-				<div class="damage left" v-if="hasTrailer()">{{Math.floor(100 * $averageDamage( damage ))}} %</div>
+				<div class="damage left" v-if="hasTrailer()">{{ $averageDamage( damage ) }} %</div>
 				<div class="damage left" v-else>N/A</div>
 			</div>
 			<!--<div class="trailer-wear text-center">
