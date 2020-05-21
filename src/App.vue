@@ -5,11 +5,11 @@
 		</h1>
 	</main>
 	<main :class="`${telemetryData().game && telemetryData().game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
-		<Game @onOpenSettingView="onOpenSettingView()" id="game" v-bind="{...telemetryData().game}" />
-		<div class="wrapper" v-show="menuDisplayed">
+		<Game id="game" v-bind="{...telemetryData().game}" />
+		<div class="wrapper" v-show="menuIsDisplayed()">
 			<Menu></Menu>
 		</div>
-		<component v-bind:is="currentSkinComponent()" v-show="!menuDisplayed"></component>
+		<component v-bind:is="currentSkinComponent()" v-show="!menuIsDisplayed()"></component>
 		<!--<Events id="events" v-bind="{log}" />-->
 		<!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
 	</main>
@@ -28,7 +28,7 @@
 	import DashScania        from './dashboards/scania/components/DashScania';
 	import DashTest          from './dashboards/test/components/DashTest';
 	import DashVolvoFH       from './dashboards/volvo-fh/components/DashVolvoFH';
-	import { DATA_ELEMENTS } from './store/modules/telemetry';
+	import { DATA_ELEMENTS } from './store/modules/_telemetry';
 	
 	export default {
 		name:       'app',
@@ -46,20 +46,11 @@
 			Menu
 		},
 		
-		data: function () {
-			return {
-				menuDisplayed: false
-			};
-		},
-		
 		created() {
 			this.$store.dispatch( 'skins/setFirstActive' );
 		},
 		
 		methods: {
-			onOpenSettingView() {
-				this.menuDisplayed = !this.menuDisplayed;
-			},
 			currentSkinComponent() {
 				//console.log( this.currentSkin );
 				const currentSkin = this.$store.getters[ 'skins/current' ];
@@ -73,7 +64,8 @@
 				return this.pickData()( DATA_ELEMENTS.game );
 			},
 			...mapGetters( {
-				pickData: 'telemetry/pick'
+				pickData:        'telemetry/pick',
+				menuIsDisplayed: 'menu/isDisplayed'
 			} )
 		},
 		sockets: {

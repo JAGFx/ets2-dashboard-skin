@@ -26,7 +26,7 @@
 			$setActive( skin ) {
 				//console.log( 'Update', skin );
 				this.$store.commit( 'skins/setCurrent', skin );
-				//this.$root.$emit( 'skin-update-active', skin );
+				this.$store.dispatch( 'menu/toggle' );
 			},
 			$skins() {
 				return this.$store.getters[ 'skins/all' ];

@@ -10,8 +10,8 @@
 		</div>
 		<ul>
 			<li @click="onClickGear()">
-				<span v-show="!$parent.menuDisplayed">Menu <i class="fas fa-bars"></i>️</span>
-				<span v-show="$parent.menuDisplayed">Close <i class="fas fa-times"></i>️</span>
+				<span v-show="!menuIsDisplayed()">Menu <i class="fas fa-bars"></i>️</span>
+				<span v-show="menuIsDisplayed()">Close <i class="fas fa-times"></i>️</span>
 			</li>
 			<li>JAGFx - {{ getVersion() }}<span>&copy;</span></li>
 		</ul>
@@ -25,8 +25,9 @@
 </template>
 
 <script>
-	import * as utils from '../../../utils/utils';
-	import dashMixins from '../../Mixins/dashMixins';
+	import { mapGetters } from 'vuex';
+	import * as utils     from '../../../utils/utils';
+	import dashMixins     from '../../Mixins/dashMixins';
 	
 	export default {
 		name:   'Game',
@@ -45,15 +46,18 @@
 		mixins: [ dashMixins ],
 		
 		methods: {
-			double:            function ( num ) {
+			double: function ( num ) {
 				return num < 10 ? `0${ num }` : num;
 			},
-			getVersion(){
+			getVersion() {
 				return utils.app.version;
 			},
 			onClickGear() {
-				this.$emit( 'onOpenSettingView' );
-			}
+				this.$store.dispatch( 'menu/toggle' );
+			},
+			...mapGetters( {
+				menuIsDisplayed: 'menu/isDisplayed'
+			} )
 		}
 	};
 </script>
