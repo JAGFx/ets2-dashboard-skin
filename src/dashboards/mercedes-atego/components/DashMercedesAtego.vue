@@ -52,11 +52,11 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-airPressure',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
+					'value': dashProps.truck.brakes.airPressure.value * 0.0689476,
 					'min': 0,
-					'max': 200,
+					'max': 12,
 					'minAngle' : -103,
-					'maxAngle': 111,
+					'maxAngle': 105,
 				}"></CadranElement>
 				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>
 				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ dashProps.truck.cruiseControl.kph }}</span></div>-->
