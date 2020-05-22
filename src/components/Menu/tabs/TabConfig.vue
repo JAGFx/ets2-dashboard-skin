@@ -6,35 +6,30 @@
 				magnam molestiae natus provident quia ut?
 			</p>
 			
-			<div class="fields">
-				<h3>Units</h3>
+			<div :key="category.name" class="fields" v-for="category in config.categories">
+				<h3>{{ category.name }}</h3>
 				
-				<TabConfigSwitchMixin @newValue="update" v-bind="{
-					'value': true
-				}" />
-				<TabConfigSelectMixin @newValue="update" v-bind="{
-					'value': 'pa'
-				}" />
+				<TabConfigElement :inputData.sync="data" :key="element.id" v-bind="{
+					'elm': element,
+					data: data
+				}" v-for="element in category.elements" />
 			</div>
 		</section>
 	</div>
 </template>
 
 <script>
-	import pkg                  from '../../../../package.json';
-	import TabConfigSelectMixin from './mixins/TabConfigSelectMixin';
-	import TabConfigSwitchMixin from './mixins/TabConfigSwitchMixin';
+	import config           from '../../../assets/config_template.json';
+	import TabConfigElement from './Elements/TabConfigElement';
 	
 	export default {
 		name:       'TabConfig',
-		components: { TabConfigSwitchMixin, TabConfigSelectMixin },
+		components: { TabConfigElement },
 		data() {
-			return pkg;
-		},
-		methods:    {
-			update( value ) {
-				console.log( 'New value: ', value );
-			}
+			return {
+				config: config,
+				data:   'kg'
+			};
 		}
 	};
 </script>
