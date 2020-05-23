@@ -9,8 +9,28 @@
 @import "../../common/variables";
 
 .tab-config {
+	h3 {
+		color: $cWhite;
+		border-bottom: 2px solid $cRed;
+		background: $cBlackTransparentMid;
+		margin-bottom: 1rem;
+		
+		.more {
+			font-size: .8rem;
+			cursor: pointer;
+			
+			&:hover {
+				color: $cWhite;
+			}
+		}
+	}
+	
 	.field {
 		border-bottom: 1px solid transparentize($cGray, 0.5);
+		
+		&:last-child {
+			border-bottom: none;
+		}
 		
 		&:hover {
 			background: transparentize($cGray, 0.5);

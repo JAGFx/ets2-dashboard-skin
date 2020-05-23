@@ -5,7 +5,7 @@
 			"title" :           "JAGFx dashboard",
 			"disabled" :        false,
 			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
-			"config_template" : "../../../dashboards/jagfx/data/config_template.json",
+			"config_template" : "true",
 			"author" :          {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",

@@ -1,7 +1,7 @@
 <template>
 	<div class="field d-flex justify-content-between align-items-center">
 		<div>
-			<h4 class="m-0">{{ elm.label }}</h4>
+			<h5 class="m-0">{{ elm.label }}</h5>
 			<small class="font-italic text-muted">{{ elm.description }}</small>
 		</div>
 		<div class="switch d-flex justify-content-between align-items-stretch" v-if="elm.values.length <= 2">
@@ -11,7 +11,7 @@
 		
 		</div>
 		<div class="select d-flex justify-content-between align-items-stretch" v-else-if="elm.values.length > 2">
-			<select @change="set( current )" class="custom-select value w-100 m-0 py-1 px-2" v-model="current">
+			<select :multiple="elm.multiple !== undefined && elm.multiple" @change="set( current )" class="custom-select value w-100 m-0 py-1 px-2" v-model="current">
 				<option :key="value.value" :value="value.value" v-for="value in elm.values">{{ value.label }}</option>
 			</select>
 		</div>

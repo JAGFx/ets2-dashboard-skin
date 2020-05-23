@@ -38,8 +38,8 @@
 					]
 				},
 				{
-					"id" :          "general_gear",
-					"label" :       "Gear",
+					"id" :          "general_h-shift-layout",
+					"label" :       "H-Shift layout",
 					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
 					"values" :      [
 						{

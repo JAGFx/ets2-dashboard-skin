@@ -6,7 +6,7 @@
 	</main>
 	<main :class="`${telemetryData().game && telemetryData().game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
 		<Game id="game" v-bind="{...telemetryData().game}" />
-		<div class="wrapper" v-show="menuIsDisplayed()">
+		<div class="wrapper menu" v-show="menuIsDisplayed()">
 			<Menu></Menu>
 		</div>
 		<component v-bind:is="currentSkinComponent()" v-show="!menuIsDisplayed()"></component>
