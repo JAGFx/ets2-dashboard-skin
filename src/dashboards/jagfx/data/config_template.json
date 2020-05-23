@@ -1,0 +1,29 @@
+{
+	"categories" : [
+		{
+			"name" :     "Right",
+			"elements" : [
+				{
+					"id" :          "jagfx_elements",
+					"label" :       "Elements",
+					"multiple" :    "true",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Oil temperature",
+							"value" : "oilTemperature"
+						},
+						{
+							"label" : "Brakes temperature",
+							"value" : "brakesTemperature"
+						},
+						{
+							"label" : "Brakes air pressur",
+							"value" : "brakesAirPressure"
+						}
+					]
+				}
+			]
+		}
+	]
+}

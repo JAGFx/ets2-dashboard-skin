@@ -1,0 +1,187 @@
+{
+	"categories" : [
+		{
+			"name" :     "General",
+			"elements" : [
+				{
+					"id" :          "general_region",
+					"label" :       "Region",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Europe",
+							"value" : "eu"
+						},
+						{
+							"label" : "United Kingdom",
+							"value" : "uk"
+						},
+						{
+							"label" : "USA",
+							"value" : "usa"
+						}
+					]
+				},
+				{
+					"id" :          "general_unit_auto",
+					"label" :       "Unit auto",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : "true"
+						},
+						{
+							"label" : "No",
+							"value" : "false"
+						}
+					]
+				},
+				{
+					"id" :          "general_gear",
+					"label" :       "Gear",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "H-Shifter",
+							"value" : "h-shifter"
+						},
+						{
+							"label" : "Automatic",
+							"value" : "automatic"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" :     "Unit",
+			"elements" : [
+				{
+					"id" :          "unit_weight",
+					"label" :       "Weight",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Kg",
+							"value" : "kg"
+						},
+						{
+							"label" : "Lb & Long ton",
+							"value" : "lb"
+						}
+					]
+				},
+				{
+					"id" :          "unit_length",
+					"label" :       "Length",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Kilometers",
+							"value" : "km"
+						},
+						{
+							"label" : "Miles",
+							"value" : "miles"
+						}
+					]
+				},
+				{
+					"id" :          "unit_degrees",
+					"label" :       "Degrees",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Celsius",
+							"value" : "c"
+						},
+						{
+							"label" : "Fahrenheit",
+							"value" : "f"
+						}
+					]
+				},
+				{
+					"id" :          "unit_consumption",
+					"label" :       "Consumption",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "L/100 km",
+							"value" : "lpkm"
+						},
+						{
+							"label" : "Mpg",
+							"value" : "mpg"
+						}
+					]
+				},
+				{
+					"id" :          "unit_volume",
+					"label" :       "Volume",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Liters",
+							"value" : "l"
+						},
+						{
+							"label" : "Gallons",
+							"value" : "gal"
+						}
+					]
+				},
+				{
+					"id" :          "unit_pressure",
+					"label" :       "Pressure",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "PSI",
+							"value" : "pis"
+						},
+						{
+							"label" : "Bar",
+							"value" : "bar"
+						}
+					]
+				},
+				{
+					"id" :          "unit_speed",
+					"label" :       "Speed",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "Km/h",
+							"value" : "kph"
+						},
+						{
+							"label" : "Mph",
+							"value" : "mph"
+						}
+					]
+				},
+				{
+					"id" :          "unit_currency",
+					"label" :       "Currency",
+					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"values" :      [
+						{
+							"label" : "€ EUR",
+							"value" : "eur"
+						},
+						{
+							"label" : "£ GBP",
+							"value" : "gbp"
+						},
+						{
+							"label" : "$ US",
+							"value" : "us_dollar"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,21 +1,22 @@
 {
 	"skins" : [
 		{
-			"id" :          "JAGFx",
-			"title" :       "JAGFx dashboard",
-			"disabled" :    false,
-			"description" : "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
-			"author" :      {
+			"id" :              "JAGFx",
+			"title" :           "JAGFx dashboard",
+			"disabled" :        false,
+			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
+			"config_template" : "../../../dashboards/jagfx/data/config_template.json",
+			"author" :          {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",
 				"url" :   "https://emmanuel-smith.me"
 			},
-			"repository" :  {
+			"repository" :      {
 				"name" : "ets2-dashboard-skin",
 				"url" :  "https://github.com/JAGFx/ets2-dashboard-skin"
 			},
-			"screenshot" :  "https://github.com/JAGFx/ets2-dashboard-skin/raw/master/screenshot.png",
-			"size" :        {
+			"screenshot" :      "https://github.com/JAGFx/ets2-dashboard-skin/raw/master/screenshot.png",
+			"size" :            {
 				"width" :  0,
 				"height" : 0
 			}
@@ -101,8 +102,8 @@
 			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/mercedes-atego",
 			"screenshot" :  "img/screenshots/mercedes-atego.png",
 			"size" :        {
-				"width": 1501,
-				"height": 779
+				"width" :  1501,
+				"height" : 779
 			}
 		},
 		{
@@ -118,8 +119,8 @@
 			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/rd-info",
 			"screenshot" :  "img/screenshots/rd-info.png",
 			"size" :        {
-				"width": 1920,
-				"height": 1440
+				"width" :  1920,
+				"height" : 1440
 			}
 		},
 		{
@@ -135,8 +136,8 @@
 			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/scania",
 			"screenshot" :  "img/screenshots/scania.png",
 			"size" :        {
-				"width": 2030,
-				"height": 1035
+				"width" :  2030,
+				"height" : 1035
 			}
 		},
 		{
@@ -152,8 +153,8 @@
 			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/volvo-fh",
 			"screenshot" :  "img/screenshots/volvo-fh.png",
 			"size" :        {
-				"width": 2000,
-				"height": 664
+				"width" :  2000,
+				"height" : 664
 			}
 		}
 	]

@@ -7,3 +7,14 @@
  */
 
 @import "../../common/variables";
+
+.tab-config {
+	.field {
+		border-bottom: 1px solid transparentize($cGray, 0.5);
+		
+		&:hover {
+			background: transparentize($cGray, 0.5);
+			cursor: pointer;
+		}
+	}
+}
