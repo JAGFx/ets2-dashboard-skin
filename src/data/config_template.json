@@ -6,7 +6,7 @@
 				{
 					"id" :          "general_region",
 					"label" :       "Region",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set your region display. If the 'Unit auto' is set to 'Yes', all unit was set with this regions",
 					"values" :      [
 						{
 							"label" : "Europe",
@@ -25,7 +25,7 @@
 				{
 					"id" :          "general_unit_auto",
 					"label" :       "Unit auto",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Auto adapt the unit from the game (Euro Truck Simulator 2 and American Truck Simulator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -40,7 +40,7 @@
 				{
 					"id" :          "general_h-shift-layout",
 					"label" :       "H-Shift layout",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Show the current range of H-Shifter OR the automatic number",
 					"values" :      [
 						{
 							"label" : "H-Shifter",
@@ -60,14 +60,14 @@
 				{
 					"id" :          "unit_weight",
 					"label" :       "Weight",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the weight unit. Used for the weight of the cargo",
 					"values" :      [
 						{
-							"label" : "Kg",
+							"label" : "Kilogram",
 							"value" : "kg"
 						},
 						{
-							"label" : "Lb & Long ton",
+							"label" : "Pound & Long ton",
 							"value" : "lb"
 						}
 					]
@@ -75,7 +75,7 @@
 				{
 					"id" :          "unit_length",
 					"label" :       "Length",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the length unit. Used for the distance of travel (job or point on the map)",
 					"values" :      [
 						{
 							"label" : "Kilometers",
@@ -90,7 +90,7 @@
 				{
 					"id" :          "unit_degrees",
 					"label" :       "Degrees",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set degrees unit. Used for the temperature of water, oil and engine",
 					"values" :      [
 						{
 							"label" : "Celsius",
@@ -105,7 +105,7 @@
 				{
 					"id" :          "unit_consumption",
 					"label" :       "Consumption",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the consumption unit",
 					"values" :      [
 						{
 							"label" : "L/100 km",
@@ -120,7 +120,7 @@
 				{
 					"id" :          "unit_volume",
 					"label" :       "Volume",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the volume unit. Used for the fuel capacity",
 					"values" :      [
 						{
 							"label" : "Liters",
@@ -135,7 +135,7 @@
 				{
 					"id" :          "unit_pressure",
 					"label" :       "Pressure",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the pressure unit. Used for the Air pressure or oil pressure",
 					"values" :      [
 						{
 							"label" : "PSI",
@@ -150,7 +150,7 @@
 				{
 					"id" :          "unit_speed",
 					"label" :       "Speed",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the speed unit",
 					"values" :      [
 						{
 							"label" : "Km/h",
@@ -165,7 +165,7 @@
 				{
 					"id" :          "unit_currency",
 					"label" :       "Currency",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Set the currency unit",
 					"values" :      [
 						{
 							"label" : "€ EUR",

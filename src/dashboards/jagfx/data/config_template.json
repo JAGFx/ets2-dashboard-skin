@@ -6,7 +6,7 @@
 				{
 					"id" :          "jagfx_elements_general_job_remaining",
 					"label" :       "Job delivery time",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the due date or the remaining time for a job",
 					"values" :      [
 						{
 							"label" : "Due date",
@@ -26,7 +26,7 @@
 				{
 					"id" :          "jagfx_elements_right_oilTemperature",
 					"label" :       "Oil temperature",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display oil temperature value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -41,7 +41,7 @@
 				{
 					"id" :          "jagfx_elements_right_brakesTemperature",
 					"label" :       "Brakes temperature",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display brakes temperature value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -56,7 +56,7 @@
 				{
 					"id" :          "jagfx_elements_right_brakesAirPressure",
 					"label" :       "Brakes air pressure",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display brakes air pressure value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -71,7 +71,7 @@
 				{
 					"id" :          "jagfx_elements_right_fuel",
 					"label" :       "Fuel",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the fuel level value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -86,7 +86,7 @@
 				{
 					"id" :          "jagfx_elements_right_fuelConsumption",
 					"label" :       "Fuel consumption",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the fuel average consumption value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -101,7 +101,7 @@
 				{
 					"id" :          "jagfx_elements_right_cruiseControl",
 					"label" :       "Cruise control",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the current speed set with the cruise control ON",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -116,7 +116,7 @@
 				{
 					"id" :          "jagfx_elements_right_waterTemperature",
 					"label" :       "Water temperature",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the water temperature value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -131,7 +131,7 @@
 				{
 					"id" :          "jagfx_elements_right_batteryVoltage",
 					"label" :       "Battery voltage",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the battery voltage value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -151,7 +151,7 @@
 				{
 					"id" :          "jagfx_elements_mid_top_retarder",
 					"label" :       "Retarder",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the retarder indicator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -166,7 +166,7 @@
 				{
 					"id" :          "jagfx_elements_mid_top_parkingBrake",
 					"label" :       "Parking brake",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the parking brake indicator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -181,7 +181,7 @@
 				{
 					"id" :          "jagfx_elements_mid_top_beamHigh",
 					"label" :       "Beam high",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the high beam indicator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -196,7 +196,7 @@
 				{
 					"id" :          "jagfx_elements_mid_top_beamLow",
 					"label" :       "Beam low",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the low beam indicator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -211,7 +211,7 @@
 				{
 					"id" :          "jagfx_elements_mid_top_beacon",
 					"label" :       "Beacon",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the beacon indicator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -231,7 +231,7 @@
 				{
 					"id" :          "jagfx_elements_mid_bottom_rpm",
 					"label" :       "RPM",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the RPM value",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -246,7 +246,7 @@
 				{
 					"id" :          "jagfx_elements_mid_bottom_fuel",
 					"label" :       "Fuel",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the fuel level indicator",
 					"values" :      [
 						{
 							"label" : "Yes",
@@ -261,7 +261,7 @@
 				{
 					"id" :          "jagfx_elements_mid_bottom_speedLimit",
 					"label" :       "Speed limit",
-					"description" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,inventore.",
+					"description" : "Display the speed limit value",
 					"values" :      [
 						{
 							"label" : "Yes",
