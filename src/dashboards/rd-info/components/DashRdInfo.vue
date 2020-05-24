@@ -64,9 +64,12 @@
 				<div class="truck-wearEngine wrapper-area"><span>{{ ( dashProps.truck.damage.engine * 100).toFixed(0) }}%</span></div>
 				<div class="truck-wearTransmission wrapper-area"><span>{{ ( dashProps.truck.damage.transmission * 100).toFixed(0) }}%</span></div>
 				<div class="truck-wearCabin wrapper-area"><span>{{ ( dashProps.truck.damage.cabin * 100).toFixed(0) }}%</span></div>
-				<div class="truck-wearWheels wrapper-area"><span>{{ ( dashProps.truck.damage.wheels * 100).toFixed(0) }}%</span></div>
-				<div class="truck-wearChassis wrapper-area"><span>{{ ( dashProps.truck.damage.chassis * 100).toFixed(0) }}%</span></div>
-				<div class="trailer-wear wrapper-area"><span>{{ (dashProps.trailer.cargo.damage * 100).toFixed(0) }} %</span></div>
+				<div class="truck-wearWheels wrapper-area"><span>{{ ( dashProps.truck.damage.wheels * 100).toFixed(0) }}%</span>
+				</div>
+				<div class="truck-wearChassis wrapper-area"><span>{{ ( dashProps.truck.damage.chassis * 100).toFixed(0) }}%</span>
+				</div>
+				<div class="trailer-wear wrapper-area">
+					<span>{{ (dashProps.trailer.cargo.damage * 100).toFixed(0) }} %</span></div>
 				<div class="truck-make wrapper-area"><span>{{ dashProps.truck.brand.name }}</span></div>
 				<div :class="{ 'yes': dashProps.truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
 				<div :class="{ 'yes': dashProps.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
@@ -74,14 +77,15 @@
 				<div :class="{ 'yes': dashProps.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
 				<div :class="{ 'yes': dashProps.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
 				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.warning.enabled }" class="_airPressureOn"></div>
-				<div class="truck-fuel">{{ dashProps.truck.fuel.value }}</div>
-				<div class="truck-fuelAverageConsumption">{{ (dashProps.truck.fuel.avgConsumption * 100).toFixed(1) }}</div>
+				<div class="truck-fuel">{{ dashProps.truck.fuel.value.toFixed(0) }}</div>
+				<div class="truck-fuelAverageConsumption">{{ (dashProps.truck.fuel.avgConsumption * 100).toFixed(1) }}
+				</div>
 				<div class="_fuelAvg">L/100</div>
 				<div :style="{ width: ( dashProps.controls.game.brake * 606) + 'px' }" class="_gameBrakeBar"></div>
 				<div :style="{ width: ( dashProps.controls.input.brake * 606)  + 'px'}" class="_userBrakeBar"></div>
 				<div :style="{ width: ( dashProps.controls.game.throttle * 606) + 'px' }" class="_gameThrottleBar"></div>
 				<div :style="{ width: ( dashProps.controls.input.throttle * 606) + 'px' }" class="_userThrottleBar"></div>
-<!--				<div :class="{ 'yes': dashProps.truck.lights.beacon.enabled }" class="truck-lightsBeaconOn"></div>-->
+				<!--				<div :class="{ 'yes': dashProps.truck.lights.beacon.enabled }" class="truck-lightsBeaconOn"></div>-->
 				<div :class="{ 'yes': ( dashProps.truck.lights.blinker.left.active || dashProps.truck.lights.blinker.right.active ) }" class="_dangerWarning"></div>
 				<div :class="{ 'yes': dashProps.truck.lights.parking.enabled }" class="_auxLights"></div>
 				<div :class="{ 'yes': ( dashProps.truck.lights.auxFront.value !== 0 || dashProps.truck.lights.auxRoof.value !== 0 ) }" class="truck-lightsParkingOn"></div>
