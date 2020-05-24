@@ -2,13 +2,16 @@
 	<div class="tab-config">
 		<section id="general">
 			<h3 class="p-2">General</h3>
+			<button @click="save">Save</button>
+			<button @click="exporting">Export</button>
+			<button @click="reset">Reset</button>
 			
 			<div :key="category.name" class="fields mb-4" v-for="category in config.categories">
 				<h4>{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data" :key="element.id" class="pl-3 p-2" v-bind="{
+				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
 					'elm': element,
-					data: data
+					data: data[ element.id ]
 				}" v-for="element in category.elements" />
 			</div>
 		</section>
@@ -25,9 +28,9 @@
 			<div :class="'config-skin-' + skin.id" :key="category.name" class="collapse fields mb-4" v-for="category in skinsConfigTemplate( skin )">
 				<h4 class="d-flex justify-content-between align-items-center">{{ category.name }}</h4>
 				
-				<TabConfigElement class="pl-3 p-2" :inputData.sync="data" :key="element.id" v-bind="{
+				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
 					'elm': element,
-					data: data
+					data: data[ element.id ]
 				}" v-for="element in category.elements" />
 			</div>
 		</section>
@@ -36,6 +39,8 @@
 
 <script>
 	import _           from 'lodash';
+	import utilsConfig from '../../../utils/_config';
+	
 	import config      from '../../../data/config_template.json';
 	import skins       from '../../../data/skins.json';
 	import configJAGFx from '../../../dashboards/jagfx/data/config_template.json';
@@ -46,23 +51,35 @@
 		name:       'TabConfig',
 		components: { TabConfigElement },
 		data() {
-			const skinsOk = _.pickBy( skins.skins, skin => {
+			const skinsOk     = _.pickBy( skins.skins, skin => {
 				return skin.config_template !== undefined && skin.config_template;
 			} );
+			const configSkins = {
+				JAGFx: configJAGFx
+			};
+			const data        = utilsConfig.load();
 			
 			return {
 				config:      config,
 				skins:       skinsOk,
-				configSkins: {
-					JAGFx: configJAGFx
-				},
-				data:        'kg'
+				configSkins: configSkins,
+				data:        data
 			};
 		},
 		methods:    {
 			skinsConfigTemplate( skinTarget ) {
 				return this.configSkins[ skinTarget.id ].categories;
+			},
+			reset() {
+				this.data = utilsConfig.generateEmptyData( config, this.configSkins );
+			},
+			save() {
+				utilsConfig.save( this.data );
+			},
+			exporting() {
+				utilsConfig.exporting( this.data );
 			}
+			// TODO: Add import file
 		}
 	};
 </script>

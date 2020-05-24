@@ -31,6 +31,7 @@
     "core-js": "^3.6.5",
     "country-list": "^2.2.0",
     "emoji-flags": "^1.2.0",
+    "file-saver": "^2.0.2",
     "http-server": "^0.12.1",
     "jquery": "^3.5.0",
     "json-query": "^2.2.2",
