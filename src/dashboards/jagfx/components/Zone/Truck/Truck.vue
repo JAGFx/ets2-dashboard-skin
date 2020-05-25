@@ -7,41 +7,41 @@
 					<!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
-						<span>{{model.name}}</span>
+						<span>{{truck.model.name}}</span>
 					</small>
 					<!--<span>
-						{{(fuel.avgConsumption * 100).toFixed(1)}} l/100
+						{{(truck.fuel.avgConsumption * 100).toFixed(1)}} l/100
 					</span>-->
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{ $averageDamage( damage ) }} %</span>
+						<span>{{ $averageDamage( truck.damage ) }} %</span>
 					</div>
 					<span>
-						<span class="licencePlate"><span class="flag">{{getFlag( licensePlate.country.id )}}</span>{{licensePlate.value}}</span>
+						<span class="licencePlate"><span class="flag">{{getFlag( truck.licensePlate.country.id )}}</span>{{truck.licensePlate.value}}</span>
 					</span>
 				</div>
 			</div>
 		</div>
 		
 		<!--<div class="truck-wear text-center capitalized">
-			&lt;!&ndash;<div class="damage" v-for="key in Object.keys(damage)">
+			&lt;!&ndash;<div class="truck.damage" v-for="key in Object.keys(truck.damage)">
 				<b>{{key}}</b>
-				<span>{{Math.round(100 * damage[key])}}%</span>
+				<span>{{Math.round(100 * truck.damage[key])}}%</span>
 			</div>&ndash;&gt;
-			<div class="damage">
-				<span>{{Math.floor(100 * chassis.damage)}}%</span>
+			<div class="truck.damage">
+				<span>{{Math.floor(100 * chassis.truck.damage)}}%</span>
 			</div>
 		</div>-->
 		
 		<ul class="dash-element right">
 			<!-- Cruise control -->
 			<li v-bind:class="{
-					'green' : cruiseControl.enabled,
-					'disabled' : !cruiseControl.enabled
+					'green' : truck.cruiseControl.enabled,
+					'disabled' : !truck.cruiseControl.enabled
 				}"
-				v-if="elementIsEnabled( 'cruiseControl' )">
-				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
+				v-if="elementIsEnabled( 'truck.cruiseControl' )">
+				<span>{{truck.cruiseControl.enabled ? truck.cruiseControl.kph + ' km/h' : 'OFF'}}</span>
 				<div class="round">
 					<i class="icon-cruise_control"></i>
 				</div>
@@ -49,10 +49,10 @@
 			
 			<!-- Fuel -->
 			<li class="blue" v-bind:class="{
-					'orange': fuel.warning.enabled
+					'orange': truck.fuel.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'fuel' )">
-				<span>{{Math.round(fuel.value)}} L</span>
+				<span>{{Math.round(truck.fuel.value)}} L</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
 				</div>
@@ -60,7 +60,7 @@
 			
 			<!-- Fuel consumption -->
 			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
-				<span>{{(fuel.avgConsumption * 100).toFixed(1)}}</span>
+				<span>{{(truck.fuel.avgConsumption * 100).toFixed(1)}}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
 				</div>
@@ -68,11 +68,11 @@
 			
 			<!-- Air pressure -->
 			<li class="blue" v-bind:class="{
-					'orange': brakes.airPressure.warning.enabled,
-					'red': brakes.airPressure.emergency.enabled
+					'orange': truck.brakes.airPressure.warning.enabled,
+					'red': truck.brakes.airPressure.emergency.enabled
 				}"
 				v-if="elementIsEnabled( 'brakesAirPressure' )">
-				<span>{{Math.round(brakes.airPressure.value)}} PSI</span>
+				<span>{{Math.round(truck.brakes.airPressure.value)}} PSI</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
@@ -80,7 +80,7 @@
 			
 			<!-- Oil temperature -->
 			<li class="default" v-if="elementIsEnabled( 'oilTemperature' )">
-				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
+				<span>{{Math.round(truck.engine.oilTemperature.value)}} °C</span>
 				<div class="round">
 					<i class="icon-oil"></i>
 				</div>
@@ -88,7 +88,7 @@
 			
 			<!-- Brakes temparature -->
 			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
-				<span>{{Math.round(brakes.temperature.value)}} °C</span>
+				<span>{{Math.round(truck.brakes.temperature.value)}} °C</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
 				</div>
@@ -96,10 +96,10 @@
 			
 			<!-- Water temperature -->
 			<li class="blue" v-bind:class="{
-					'orange': engine.waterTemperature.warning.enabled
+					'orange': truck.engine.waterTemperature.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'waterTemperature' )">
-				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
+				<span>{{Math.round(truck.engine.waterTemperature.value)}} °C</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
 				</div>
@@ -107,10 +107,10 @@
 			
 			<!-- Battery -->
 			<li class="blue" v-bind:class="{
-					'orange': engine.batteryVoltage.warning.enabled
+					'orange': truck.engine.batteryVoltage.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'batteryVoltage' )">
-				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
+				<span>{{Math.round(truck.engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<i class="icon-battery"></i>
 				</div>
@@ -133,30 +133,30 @@
 	export default {
 		name:   'Truck',
 		mixins: [ dashMixins ],
-		props:  [
-			'brand',
-			'model',
-			'licensePlate',
-			'transmission',
-			'fuel',
-			'adBlue',
-			'cabin',
-			'lights',
-			'position',
-			'acceleration',
-			'orientation',
-			'brakes',
-			'wheels',
-			'engine',
-			'damage',
-			'odometer',
-			'wipers',
-			'head',
-			'hook',
-			'chassis',
-			'differential',
-			'cruiseControl'
-		],
+		/*props:  [
+		 'brand',
+		 'truck.model',
+		 'truck.licensePlate',
+		 'transmission',
+		 'fuel',
+		 'adBlue',
+		 'cabin',
+		 'lights',
+		 'position',
+		 'acceleration',
+		 'orientation',
+		 'brakes',
+		 'wheels',
+		 'truck.engine',
+		 'truck.damage',
+		 'odometer',
+		 'wipers',
+		 'head',
+		 'hook',
+		 'chassis',
+		 'differential',
+		 'truck.cruiseControl'
+		 ],*/
 		
 		methods: {
 			indexEmptyElement: function () {

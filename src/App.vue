@@ -1,11 +1,11 @@
 <template>
-	<main class="waiting" v-if="!telemetryData().game || !telemetryData().game.sdkActive">
+	<main class="waiting" v-if="!game || !game.sdkActive">
 		<h1>
 			<span class="animated flipInX infinite">Waiting on connection...</span>
 		</h1>
 	</main>
-	<main :class="`${telemetryData().game && telemetryData().game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
-		<Game id="game" v-bind="{...telemetryData().game}" />
+	<main :class="`${game && game.game.id === 2 ? 'ats' : 'ets2'}`" v-else>
+		<Game id="game" />
 		<div class="wrapper menu" v-show="menuIsDisplayed()">
 			<Menu></Menu>
 		</div>
@@ -18,6 +18,7 @@
 <script>
 	import { mapGetters }    from 'vuex';
 	import Menu              from './components/Menu/Menu';
+	import dashMixins        from './components/Mixins/dashMixins';
 	import Game              from './components/Zone/Game/Game';
 	import DashDafXF         from './dashboards/daf-xf/components/DashDafXF';
 	import DashDefault       from './dashboards/defaut/components/DashDefault';
@@ -28,7 +29,7 @@
 	import DashScania        from './dashboards/scania/components/DashScania';
 	import DashTest          from './dashboards/test/components/DashTest';
 	import DashVolvoFH       from './dashboards/volvo-fh/components/DashVolvoFH';
-	import { DATA_ELEMENTS } from './store/modules/_telemetry';
+	
 	
 	export default {
 		name:       'app',
@@ -46,7 +47,10 @@
 			Menu
 		},
 		
+		mixins: [ dashMixins ],
+		
 		created() {
+			//console.log( this );
 			this.$store.dispatch( 'skins/setFirstActive' );
 		},
 		
@@ -60,11 +64,11 @@
 				
 				return 'Dash' + currentSkin.id;
 			},
-			telemetryData() {
-				return this.pickData()( DATA_ELEMENTS.game );
-			},
+			/*telemetryData() {
+			 return this.pickData()( DATA_ELEMENTS.game );
+			 },*/
 			...mapGetters( {
-				pickData:        'telemetry/pick',
+				//pickData:        'telemetry/pick',
 				menuIsDisplayed: 'menu/isDisplayed'
 			} )
 		},

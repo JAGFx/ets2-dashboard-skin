@@ -5,8 +5,8 @@
 				<!-- Left elements -->
 				<DashSymbolArea side="left"></DashSymbolArea>
 				
-				<div :class="transmission.shifterType" class="truck-gear">
-					<span class="value">{{ $trukGear(transmission, brand) }}</span>
+				<div :class="truck.transmission.shifterType" class="truck-gear">
+					<span class="value">{{ $trukGear(truck.transmission, truck.brand) }}</span>
 				</div>
 				
 				<!-- Right elements -->
@@ -19,14 +19,14 @@
 				<div class="speed-wrapper">
 					<div class="left" v-if="elementIsEnabled( 'rpm' )">
 						<RPMBars v-bind="{
-							engine: engine,
-							brand: brand,
-							model: model
+							engine: truck.engine,
+							brand: truck.brand,
+							model: truck.model
 						}"></RPMBars>
 					</div>
 					<div class="middle">
 						<div class="speed">
-							<span class="value">{{speed.kph}}</span>
+							<span class="value">{{truck.speed.kph}}</span>
 							<small class="unit">km/h</small>
 						</div>
 						
@@ -42,28 +42,28 @@
 					</div>
 					<div class="right" v-if="elementIsEnabled( 'rpm' )">
 						<RPMBars v-bind="{
-							engine: engine,
-							brand: brand,
-							model: model
+							engine: truck.engine,
+							brand: truck.brand,
+							model: truck.model
 						}"></RPMBars>
 					</div>
 				</div>
 			</div>
 			
 			<!--<div class="speed">
-				<span class="value">{{speed.kph}}</span>
+				<span class="value">{{truck.speed.kph}}</span>
 				<small class="unit">km/h</small>
 			</div>-->
 			
 			<div class="odometer">
-				<span class="value">{{Math.round(odometer)}}</span>
+				<span class="value">{{Math.round(truck.odometer)}}</span>
 				<small class="unit">km</small>
 			</div>
 			
 			<!-- Speed limit -->
-			<div :class="{ 'hidden': speedLimit.kph === 0 }" class="speedLimits" v-if="elementIsEnabled( 'speedLimit' )">
-				<div class="speedLimitKPH">{{speedLimit.kph}}</div>
-				<!--<div class="speedLimitMPH">{{speedLimit.mph}}</div>-->
+			<div :class="{ 'hidden': navigation.speedLimit.kph === 0 }" class="speedLimits" v-if="elementIsEnabled( 'speedLimit' )">
+				<div class="speedLimitKPH">{{navigation.speedLimit.kph}}</div>
+				<!--<div class="speedLimitMPH">{{navigation.speedLimit.mph}}</div>-->
 			</div>
 		
 		</div>
@@ -71,7 +71,7 @@
 			&lt;!&ndash;<div><b>Next rest stop:</b><div>{{formatNextRestStop()}}</div></div>
 			<div><b>Distance:</b><div>{{(distance / 1000).toFixed().toLocaleString()}}km / {{(distance * 0.0006213712).toFixed()}}Miles</div></div>
 			<div><b>ETA</b><div>{{formatETA()}}</div></div>&ndash;&gt;
-			&lt;!&ndash;<div><b>Speed</b><div>{{speed.kph}}kph / {{speed.mph}}mph</div></div>&ndash;&gt;
+			&lt;!&ndash;<div><b>Speed</b><div>{{truck.speed.kph}}kph / {{truck.speed.mph}}mph</div></div>&ndash;&gt;
 		</div>-->
 	</div>
 </template>
@@ -85,22 +85,22 @@
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
 		mixins:     [ dashMixins ],
-		props:      [
-			'nextRestStop',
-			'distance',
-			'time',
-			'speedLimit',
-			'gameTime',
-			'transmission',
-			'speed',
-			'brand',
-			'model',
-			'odometer',
-			'lights',
-			'brakes',
-			'fuel',
-			'engine'
-		],
+		/*props:      [
+		 'nextRestStop',
+		 'distance',
+		 'time',
+		 'speedLimit',
+		 'gameTime',
+		 'truck.transmission',
+		 'speed',
+		 'brand',
+		 'model',
+		 'truck.odometer',
+		 'lights',
+		 'brakes',
+		 'fuel',
+		 'engine'
+		 ],*/
 		
 		methods: {
 			formatTime:       function ( time ) {
@@ -110,21 +110,21 @@
 				return `${ hours }h ${ min }min`;
 			},
 			getFuelByBar:     function () {
-				return (this.fuel.capacity * this.fuel.warning.factor).toFixed( 0 );
+				return (this.truck.fuel.capacity * this.truck.fuel.warning.factor).toFixed( 0 );
 			},
 			getFuelBarCount:  function () {
-				return Math.ceil( this.fuel.capacity / this.getFuelByBar() );
+				return Math.ceil( this.truck.fuel.capacity / this.getFuelByBar() );
 			},
 			getFuelBarActive: function ( i ) {
 				const fuelByBar   = this.getFuelByBar();
 				const iLow        = i - 1;
 				const fuelBarFrom = (iLow * fuelByBar);
 				
-				//console.log( i, this.fuel.value, fuelBarFrom );
-				return (this.fuel.value >= fuelBarFrom);
+				//console.log( i, this.truck.fuel.value, fuelBarFrom );
+				return (this.truck.fuel.value >= fuelBarFrom);
 			},
 			onWarningLevel:   function () {
-				return this.fuel.value < this.getFuelByBar();
+				return this.truck.fuel.value < this.getFuelByBar();
 			},
 			elementIsEnabled: function ( element ) {
 				const onBottom = [ 'rpm', 'fuel', 'speedLimit' ];

@@ -1,12 +1,12 @@
 <template>
 	<nav class="game">
 		<ul>
-			<li><span>Game</span>{{game.name.toUpperCase()}}</li>
-			<li><span>API</span>v{{telemetryVersion}}</li>
+			<li><span>Game</span>{{game.game.name.toUpperCase()}}</li>
+			<li><span>API</span>v{{game.telemetryVersion}}</li>
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
 		<div class="game-time">
-			<span>{{$formatDate(time.unix)}}</span>
+			<span>{{$formatDate(game.time.unix)}}</span>
 		</div>
 		<ul>
 			<li @click="onClickGear()">
@@ -31,18 +31,18 @@
 	
 	export default {
 		name:   'Game',
-		props:  [
-			'timestamp',
-			'time',
-			'game',
-			'paused',
-			'sdkActive',
-			'pluginVersion',
-			'version',
-			'telemetryVersion',
-			'maxTrailerCount',
-			'scale'
-		],
+		/*props:  [
+		 'timestamp',
+		 'time',
+		 'game',
+		 'paused',
+		 'sdkActive',
+		 'pluginVersion',
+		 'version',
+		 'telemetryVersion',
+		 'maxTrailerCount',
+		 'scale'
+		 ],*/
 		mixins: [ dashMixins ],
 		
 		methods: {

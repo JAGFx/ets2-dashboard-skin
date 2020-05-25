@@ -1,21 +1,25 @@
 <script>
-	import configMixins from '../../dashboards/jagfx/components/Mixins/configMixins';
+	import { mapGetters } from 'vuex';
+	import configMixins   from '../../dashboards/jagfx/components/Mixins/configMixins';
 	
 	export default {
 		name:    'dashMixins',
 		mixins:  [ configMixins ],
+		data() {
+			return this.pickData()();
+		},
 		methods: {
-			$double:     function ( num ) {
+			$double:        function ( num ) {
 				return num < 10 ? `0${ num }` : num;
 			},
-			$formatDate: function ( unix ) {
+			$formatDate:    function ( unix ) {
 				const date = new Date( unix );
 				
 				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
 				
 				return `${ days[ date.getUTCDay() ] } ${ this.$double( date.getUTCHours() ) }:${ this.$double( date.getUTCMinutes() ) }`;
 			},
-			$formatTime: function ( unix ) {
+			$formatTime:    function ( unix ) {
 				const d   = new Date( unix );
 				const dys = d.getUTCDate() - 1;
 				const hrs = d.getUTCHours();
@@ -23,9 +27,9 @@
 				
 				return `${ this.$double( dys ) }:${ this.$double( hrs ) }:${ this.$double( mnt ) }:00`;
 			},
-			$telemetryData() {
-				return this.$children[ 0 ].telemetryData();
-			},
+			/*$telemetryData() {
+			 return this.$children[ 0 ].telemetryData();
+			 },*/
 			$averageDamage( arrayDamage ) {
 				const keyLength = Object.keys( arrayDamage ).length;
 				let sum         = 0;
@@ -34,7 +38,7 @@
 					sum += arrayDamage[ key ];
 				}
 				
-				return Math.floor(100 * (sum / keyLength));
+				return Math.floor( 100 * (sum / keyLength) );
 			},
 			$scale( currentSkin ) {
 				const scaleX = (currentSkin.size.width === 0)
@@ -47,7 +51,7 @@
 				
 				return Math.min( scaleX, scaleY );
 			},
-			$trukGear:   function ( transmission, brand ) {
+			$trukGear:      function ( transmission, brand ) {
 				/*console.log( this );*/
 				const configSettings          = this.$configSettings();
 				const hShiftLayout            = (configSettings.middle !== undefined)
@@ -93,24 +97,32 @@
 				
 				return strGear;
 			},
-			$truckSpeed: function () {
+			$truckSpeed:    function () {
 				return Math.abs( this.$telemetryData().truck.speed.value * 3.6 );
 			},
-			$pressureToBar: function( inPressure, unit = 'bar' ){
+			$pressureToBar: function ( inPressure, unit = 'bar' ) {
 				let pressure;
 				
 				switch ( unit ) {
 					case 'bar':
 						pressure = inPressure * 0.0689476;
 						break;
-						
+					
 					default:
 						pressure = inPressure;
-						break
+						break;
 				}
 				
 				return pressure;
-			}
+			},
+			
+			// ----------------
+			...mapGetters( {
+				pickData:    'telemetry/pick'
+				//currentSkin: 'skins/current'
+			} )
+			
 		}
+		
 	};
 </script>
