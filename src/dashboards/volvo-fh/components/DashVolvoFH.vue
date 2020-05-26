@@ -5,7 +5,7 @@
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">
-			<div :class="{'yes': dashProps.job.cargo.id}" class="hasJob">
+			<div :class="{'yes': job.cargo.id}" class="hasJob">
 				<!-- meters -->
 				<!--
 					Attributes:
@@ -23,11 +23,11 @@
 					'minAngle' : -97,
 					'maxAngle': 97,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ dashProps.truck.speed.kph }}</span></div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed.kph }}</span></div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
-					'value': dashProps.truck.engine.rpm.value / 100,
+					'value': truck.engine.rpm.value / 100,
 					'min': 4,
 					'max': 25,
 					'minAngle' : -65,
@@ -36,16 +36,16 @@
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-fuel',
 					'type': 'meter',
-					'value': 700,//dashProps.truck.fuel.value,
+					'value': 700,//truck.fuel.value,
 					'min': 0,
-					'max': dashProps.truck.fuel.capacity,
+					'max': truck.fuel.capacity,
 					'minAngle' : -53,
 					'maxAngle': 53,
 				}"></CadranElement>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-waterTemperature',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
+					'value': truck.engine.waterTemperature.value,
 					'min': 40,
 					'max': 100,
 					'minAngle' : -55,
@@ -54,37 +54,37 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-oilPressure',
 					'type': 'meter',
-					'value': $pressureToBar(dashProps.truck.engine.oilPressure.value),
+					'value': $pressureToBar(truck.engine.oilPressure.value),
 					'min': 0,
 					'max': 8,
 					'minAngle' : -53,
 					'maxAngle': 53,
 				}"></CadranElement>-->
-				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>
-				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ dashProps.truck.cruiseControl.kph }}</span></div>-->
-				<div class="truck-gear wrapper-area"><span>{{ $trukGear( dashProps.truck.transmission, dashProps.truck.brand ) }}</span>
+				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer.toFixed(0) }}</span></div>
+				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ truck.cruiseControl.kph }}</span></div>-->
+				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
 				</div>
 				<!-- indicators -->
-				<div :class="{ 'yes': dashProps.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
-				<div :class="{ 'yes': dashProps.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
-				<div :class="{'yes': dashProps.trailer.attached}" class="trailer-attached"></div>
+				<div :class="{ 'yes': truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
+				<div :class="{ 'yes': truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
+				<div :class="{ 'yes': truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
+				<div :class="{ 'yes': truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
+				<div :class="{ 'yes': truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
+				<div :class="{ 'yes': truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
+				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>
 				<div class="trailer-mass wrapper-area">
-					<span>{{ (dashProps.job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span></span></div>
-								<div class="trailer-name">{{ dashProps.job.cargo.name }}</div>
-				<div class="game-time wrapper-area"><span>{{ $formatDate( $telemetryData().game.time.unix ) }}</span>
+					<span>{{ (job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span></span></div>
+								<div class="trailer-name">{{ job.cargo.name }}</div>
+				<div class="game-time wrapper-area"><span>{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>
 				</div>
-				<div :class="{ 'yes': dashProps.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
-				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
-				<div class="truck-retarderBrake wrapper-area"><span>{{ dashProps.truck.brakes.retarder.level }}</span></div>
-				<div class="truck-waterTemperature">{{ dashProps.truck.engine.waterTemperature.value.toFixed(0) }}</div>
-				<div class="truck-oilTemperature">{{ dashProps.truck.engine.oilTemperature.value.toFixed(0) }}</div>
-				<div class="truck-batteryVoltage">{{ dashProps.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>
-<!--				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
-				<div :class="{ 'yes': dashProps.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>
+				<div :class="{ 'yes': truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
+				<div :class="{ 'yes': truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
+				<div class="truck-retarderBrake wrapper-area"><span>{{ truck.brakes.retarder.level }}</span></div>
+				<div class="truck-waterTemperature">{{ truck.engine.waterTemperature.value.toFixed(0) }}</div>
+				<div class="truck-oilTemperature">{{ truck.engine.oilTemperature.value.toFixed(0) }}</div>
+				<div class="truck-batteryVoltage">{{ truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>
+<!--				<div :class="{ 'yes': truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
+				<div :class="{ 'yes': truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>
 				
 				
 			</div>
@@ -103,8 +103,7 @@
 			Dashboard,
 			CadranElement
 		},
-		mixins:     [ dashMixins ],
-		methods:    {}
+		mixins:     [ dashMixins ]
 	};
 </script>
 

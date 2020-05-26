@@ -85,30 +85,7 @@
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
 		mixins:     [ dashMixins ],
-		/*props:      [
-		 'nextRestStop',
-		 'distance',
-		 'time',
-		 'speedLimit',
-		 'gameTime',
-		 'truck.transmission',
-		 'speed',
-		 'brand',
-		 'model',
-		 'truck.odometer',
-		 'lights',
-		 'brakes',
-		 'fuel',
-		 'engine'
-		 ],*/
-		
 		methods: {
-			formatTime:       function ( time ) {
-				const hours = Math.floor( time / 3600000 );
-				const min   = Math.floor( time % 3600000 / 60000 );
-				
-				return `${ hours }h ${ min }min`;
-			},
 			getFuelByBar:     function () {
 				return (this.truck.fuel.capacity * this.truck.fuel.warning.factor).toFixed( 0 );
 			},

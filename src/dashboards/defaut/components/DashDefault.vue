@@ -5,7 +5,7 @@
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">
-			<div :class="{'yes': dashProps.job.cargo.id}" class="hasJob">
+			<div :class="{'yes': job.cargo.id}" class="hasJob">
 				<!-- meters -->
 				<!--
 					Attributes:
@@ -23,11 +23,11 @@
 					'minAngle' : -114,
 					'maxAngle': 114,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ dashProps.truck.speed.kph }}</span></div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed.kph }}</span></div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
-					'value': dashProps.truck.engine.rpm.value / 100,
+					'value': truck.engine.rpm.value / 100,
 					'min': 0,
 					'max': 24,
 					'minAngle' : -97,
@@ -36,49 +36,50 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-fuel',
 					'type': 'meter',
-					'value': dashProps.truck.fuel.value,
+					'value': truck.fuel.value,
 					'min': 0,
-					'max': dashProps.truck.fuel.capacity,
+					'max': truck.fuel.capacity,
 					'minAngle' : -96,
 					'maxAngle': 0,
 				}"></CadranElement>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-waterTemperature',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
+					'value': truck.engine.waterTemperature.value,
 					'min': 0,
 					'max': 100,
 					'minAngle' : -96,
 					'maxAngle': 0,
 				}"></CadranElement>
-				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>
+				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer.toFixed(0) }}</span></div>
 				<div class="truck-cruiseControlSpeedRounded wrapper-area">
-					<span>{{ dashProps.truck.cruiseControl.kph }}</span></div>
-				<div class="truck-gear wrapper-area"><span>{{ $trukGear( dashProps.truck.transmission, dashProps.truck.brand ) }}</span>
+					<span>{{ truck.cruiseControl.kph }}</span></div>
+				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
 				</div>
 				<!-- indicators -->
-				<div :class="{ 'yes': dashProps.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
-				<div :class="{ 'yes': dashProps.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
-				<div :class="{'yes': dashProps.trailer.attached}" class="trailer-attached"></div>
-				<div class="trailer-mass">{{ (dashProps.job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span>
+				<div :class="{ 'yes': truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
+				<div :class="{ 'yes': truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
+				<div :class="{ 'yes': truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
+				<div :class="{ 'yes': truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
+				<div :class="{ 'yes': truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
+				<div :class="{ 'yes': truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
+				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>
+				<div class="trailer-mass">{{ (job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span>
 				</div>
-				<div class="trailer-name">{{ dashProps.job.cargo.name }}</div>
+				<div class="trailer-name">{{ job.cargo.name }}</div>
 				<!-- job information -->
 				<table class="_job">
 					<tr>
 						<th>Time:</th>
-						<td><span class="game-time">{{ $formatTime( $telemetryData().game.time.unix ) }}</span></td>
+						<td><span class="game-time">{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+						</td>
 					</tr>
 					<tr>
 						<th>Source:</th>
 						<td>
 							<span class="hasJob _jobSource">
-								<span class="job-sourceCity">{{ dashProps.job.source.city.name }}</span>
-								(<span class="job-sourceCompany">{{ dashProps.job.source.company.name }}</span>)
+								<span class="job-sourceCity">{{ job.source.city.name }}</span>
+								(<span class="job-sourceCompany">{{ job.source.company.name }}</span>)
 							</span>
 						</td>
 					</tr>
@@ -86,22 +87,22 @@
 						<th>Destination:</th>
 						<td>
 							<span class="hasJob _jobDestionation">
-								<span class="job-destinationCity">{{ dashProps.job.destination.city.name }}</span>
-								(<span class="job-destinationCompany">{{ dashProps.job.destination.company.name }}</span>)
+								<span class="job-destinationCity">{{ job.destination.city.name }}</span>
+								(<span class="job-destinationCompany">{{ job.destination.company.name }}</span>)
 							</span>
 						</td>
 					</tr>
 					<tr>
 						<th>Deadline in:</th>
 						<td>
-							<span class="job-remainingTime">{{ $formatDate( $telemetryData().job.deliveryTime.unix ) }}</span>
-							<span class="_jobIncome"> (€ <span class="job-income">{{ dashProps.job.income.toLocaleString() }}</span>)</span>
+							<span class="job-remainingTime">{{ job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+							<span class="_jobIncome"> (€ <span class="job-income">{{ job.income.toLocaleString() }}</span>)</span>
 						</td>
 					</tr>
 				</table>
-				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ $averageDamage( dashProps.truck.damage ) }}%</span>
+				<div class="_truckWearInfo">Truck <br />wear: <span class="truck-wearSum">{{ $averageDamage( truck.damage ) }}%</span>
 				</div>
-				<div class="_trailerWearInfo">Trailer <br />damage: <span class="trailer-wear">{{ dashProps.trailer.chassis.damage.toFixed(0) }}%</span>
+				<div class="_trailerWearInfo">Trailer <br />damage: <span class="trailer-wear">{{ trailer.chassis.damage.toFixed(0) }}%</span>
 				</div>
 			</div>
 		</div>

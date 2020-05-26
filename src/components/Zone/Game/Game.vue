@@ -6,7 +6,7 @@
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
 		<div class="game-time">
-			<span>{{$formatDate(game.time.unix)}}</span>
+			<span>{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
 		</div>
 		<ul>
 			<li @click="onClickGear()">
@@ -31,24 +31,9 @@
 	
 	export default {
 		name:   'Game',
-		/*props:  [
-		 'timestamp',
-		 'time',
-		 'game',
-		 'paused',
-		 'sdkActive',
-		 'pluginVersion',
-		 'version',
-		 'telemetryVersion',
-		 'maxTrailerCount',
-		 'scale'
-		 ],*/
 		mixins: [ dashMixins ],
 		
 		methods: {
-			double: function ( num ) {
-				return num < 10 ? `0${ num }` : num;
-			},
 			getVersion() {
 				return utils.app.version;
 			},

@@ -36,6 +36,8 @@
     "jquery": "^3.5.0",
     "json-query": "^2.2.2",
     "lodash": "^4.17.15",
+    "moment": "^2.26.0",
+    "moment-timezone": "^0.5.31",
     "nosleep.js": "^0.9.0",
     "vue": "^2.6.10",
     "vue-socket.io": "^3.0.7",

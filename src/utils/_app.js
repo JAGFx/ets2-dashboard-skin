@@ -8,9 +8,23 @@
 
 import countryList from 'country-list';
 import emojiFlags  from 'emoji-flags';
+import moment      from 'moment/src/moment';
+
 
 import packageJson from '../../package.json';
 
+
+// --- Variables
+const DATE_FORMAT_NONE  = null;
+const DATE_FORMAT_SHORT = 'MM/DD';
+const DATE_FORMAT_LONG  = 'ddd, Do';
+const DATE_FORMAT_FULL  = 'dddd, Do';
+const TIME_FORMAT_NONE  = null;
+const TIME_FORMAT_SHORT = 'LT';
+const TIME_FORMAT_FULL  = 'LTS';
+
+
+// --- Methods
 
 const basePathHost = 'http://' + window.location.host + '/';
 
@@ -34,13 +48,37 @@ const flag = ( countryName ) => {
 		: '🏳️';
 };
 
+const numberDigit = input => {
+	return input < 10 ? `0${ input }` : input;
+};
+
 const jsonReadable = ( dataIn ) => {
 	return JSON.parse( JSON.stringify( dataIn ) );
+};
+
+const dateTimeLocalized = ( input, formatDate, formatTime ) => {
+	const format     = formatDate + ' ' + formatTime;
+	const momentData = moment( input, 'X' );
+	
+	//console.log( input, format, momentData, new Date( input ) );
+	
+	return momentData.format( format );
 };
 
 export default {
 	basePathHost,
 	version,
 	flag,
-	jsonReadable
+	numberDigit,
+	jsonReadable,
+	dateTimeLocalized,
+	formatConstants: {
+		DATE_FORMAT_NONE,
+		DATE_FORMAT_SHORT,
+		DATE_FORMAT_LONG,
+		DATE_FORMAT_FULL,
+		TIME_FORMAT_NONE,
+		TIME_FORMAT_SHORT,
+		TIME_FORMAT_FULL
+	}
 };

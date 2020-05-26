@@ -6,38 +6,38 @@
 		<!--<div class="wear">{{Math.floor(100 * job.cargo.damage)}}%</div>-->
 		
 		<ul class="dash-element left ">
-			<li :class="{ 'disabled': hasNoJob()  }" class="multiline default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="multiline default">
 				<div class="round from">
 					<i class="icon-startpoint"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="!$hasJob()">N/A</span>
 				<span v-else>
 					<span>{{job.source.city.name}}</span>
 					<small class="text-muted text-italic">{{job.source.company.name}}</small>
 				</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="multiline default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="multiline default">
 				<div class="round to">
 					<i class="icon-endpoint"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="!$hasJob()">N/A</span>
 				<span v-else>
 					<span>{{job.destination.city.name}}</span>
 					<small class="text-muted">{{job.destination.company.name}}</small>
 				</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-time"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
-				<span v-else>{{$formatDate( job.deliveryTime.unix )}}</span>
+				<span v-if="!$hasJob()">N/A</span>
+				<span v-else>{{ job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-currency"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="!$hasJob()">N/A</span>
 				<span v-else>{{['?', '€', '$'][game.game.id]}} {{job.income.toLocaleString()}}</span>
 			</li>
 			<li :class="{ 'disabled': navigation.distance === 0  }" class="default">
@@ -48,11 +48,11 @@
 				<span v-else-if="navigation.distance < 1000">{{navigation.distance.toFixed().toLocaleString()}} m</span>
 				<span v-else>{{(navigation.distance / 1000).toFixed().toLocaleString()}} km</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-weight"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="!$hasJob()">N/A</span>
 				<span v-else>{{(job.cargo.mass / 1000).toFixed()}} t</span>
 			</li>
 		</ul>
@@ -82,24 +82,7 @@
 	
 	export default {
 		name:    'Job',
-		/*props: [
-		 'game.game',
-		 'job.deliveryTime',
-		 'job.cargo',
-		 'isSpecial',
-		 'job.destination',
-		 'job.source',
-		 'market',
-		 'job.income',
-		 'plannedDistance',
-		 'navigation.distance'
-		 ],*/
-		mixins:  [ dashMixins ],
-		methods: {
-			hasNoJob: function () {
-				return (this.job.cargo.id.length === 0);
-			}
-		}
+		mixins:  [ dashMixins ]
 	};
 </script>
 

@@ -18,7 +18,7 @@
 						<span>{{ $averageDamage( truck.damage ) }} %</span>
 					</div>
 					<span>
-						<span class="licencePlate"><span class="flag">{{getFlag( truck.licensePlate.country.id )}}</span>{{truck.licensePlate.value}}</span>
+						<span class="licencePlate"><span class="flag">{{ $flag( truck.licensePlate.country.id )}}</span>{{truck.licensePlate.value}}</span>
 					</span>
 				</div>
 			</div>
@@ -128,36 +128,10 @@
 
 <script>
 	import dashMixins from '../../../../../components/Mixins/dashMixins';
-	import * as utils from '../../../../../utils/utils';
 	
 	export default {
-		name:   'Truck',
-		mixins: [ dashMixins ],
-		/*props:  [
-		 'brand',
-		 'truck.model',
-		 'truck.licensePlate',
-		 'transmission',
-		 'fuel',
-		 'adBlue',
-		 'cabin',
-		 'lights',
-		 'position',
-		 'acceleration',
-		 'orientation',
-		 'brakes',
-		 'wheels',
-		 'truck.engine',
-		 'truck.damage',
-		 'odometer',
-		 'wipers',
-		 'head',
-		 'hook',
-		 'chassis',
-		 'differential',
-		 'truck.cruiseControl'
-		 ],*/
-		
+		name:    'Truck',
+		mixins:  [ dashMixins ],
 		methods: {
 			indexEmptyElement: function () {
 				const elementLength = this.$elementsLength( 'right' );
@@ -172,9 +146,6 @@
 			},
 			elementIsEnabled:  function ( element ) {
 				return this.$elementIsEnabled( 'right', element );
-			},
-			getFlag( countryName ) {
-				return utils.app.flag( countryName );
 			}
 		}
 	};

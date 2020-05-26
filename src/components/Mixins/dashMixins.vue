@@ -1,6 +1,9 @@
 <script>
 	import { mapGetters } from 'vuex';
-	import configMixins   from '../../dashboards/jagfx/components/Mixins/configMixins';
+	
+	import * as utils from '../../utils/utils';
+	
+	import configMixins from '../../dashboards/jagfx/components/Mixins/configMixins';
 	
 	export default {
 		name:    'dashMixins',
@@ -8,28 +11,27 @@
 		data() {
 			return this.pickData()();
 		},
+		created() {
+			//console.log( utils.app.formatConstants );
+			Object.keys( utils.app.formatConstants ).forEach( ( key ) => {
+				const value = utils.app.formatConstants[ key ];
+				this[ key ] = value;
+			} );
+		},
+		filters: {
+			$dateTimeLocalized( time, dFormat, tFormat ) {
+				return utils.app.dateTimeLocalized( time, dFormat, tFormat );
+			}
+		},
 		methods: {
-			$double:        function ( num ) {
-				return num < 10 ? `0${ num }` : num;
+			// ---------------------------------------
+			// --- Commons methods
+			
+			// --- Commons
+			
+			$flag( countryName ) {
+				return utils.app.flag( countryName );
 			},
-			$formatDate:    function ( unix ) {
-				const date = new Date( unix );
-				
-				const days = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-				
-				return `${ days[ date.getUTCDay() ] } ${ this.$double( date.getUTCHours() ) }:${ this.$double( date.getUTCMinutes() ) }`;
-			},
-			$formatTime:    function ( unix ) {
-				const d   = new Date( unix );
-				const dys = d.getUTCDate() - 1;
-				const hrs = d.getUTCHours();
-				const mnt = d.getUTCMinutes();
-				
-				return `${ this.$double( dys ) }:${ this.$double( hrs ) }:${ this.$double( mnt ) }:00`;
-			},
-			/*$telemetryData() {
-			 return this.$children[ 0 ].telemetryData();
-			 },*/
 			$averageDamage( arrayDamage ) {
 				const keyLength = Object.keys( arrayDamage ).length;
 				let sum         = 0;
@@ -51,6 +53,40 @@
 				
 				return Math.min( scaleX, scaleY );
 			},
+			$pressureToBar: function ( inPressure, unit = 'bar' ) {
+				let pressure;
+				
+				switch ( unit ) {
+					case 'bar':
+						pressure = inPressure * 0.0689476;
+						break;
+					
+					default:
+						pressure = inPressure;
+						break;
+				}
+				
+				return pressure;
+			},
+			
+			// --- Job
+			
+			$hasJob: function () {
+				return (this.job.cargo.id.length !== 0);
+			},
+			
+			// --- Trailer
+			
+			$hasTrailer:       function () {
+				return this.trailer.model.id.length !== 0;
+			},
+			$hasTrailerAndJob: function () {
+				return this.trailer.model.id.length !== 0 && this.job.cargo.name.length !== 0;
+			},
+			
+			
+			// --- Navigation
+			
 			$trukGear:      function ( transmission, brand ) {
 				/*console.log( this );*/
 				const configSettings          = this.$configSettings();
@@ -98,27 +134,12 @@
 				return strGear;
 			},
 			$truckSpeed:    function () {
-				return Math.abs( this.$telemetryData().truck.speed.value * 3.6 );
-			},
-			$pressureToBar: function ( inPressure, unit = 'bar' ) {
-				let pressure;
-				
-				switch ( unit ) {
-					case 'bar':
-						pressure = inPressure * 0.0689476;
-						break;
-					
-					default:
-						pressure = inPressure;
-						break;
-				}
-				
-				return pressure;
+				return Math.abs( this.truck.speed.value * 3.6 );
 			},
 			
 			// ----------------
 			...mapGetters( {
-				pickData:    'telemetry/pick'
+				pickData: 'telemetry/pick'
 				//currentSkin: 'skins/current'
 			} )
 			

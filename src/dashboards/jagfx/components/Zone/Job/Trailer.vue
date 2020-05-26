@@ -4,8 +4,8 @@
 			<div class="trailer-data">
 				<!--<span>{{bodyType}}</span>
 				<small>{{chainType}}</small>-->
-				<div class="job" v-if="hasTrailerAndJob()">{{job.cargo.name}}</div>
-				<div class="job disabled" v-else-if="hasTrailer()">
+				<div class="job" v-if="$hasTrailerAndJob()">{{job.cargo.name}}</div>
+				<div class="job disabled" v-else-if="$hasTrailer()">
 					<i>-- No Job --</i>
 				</div>
 				<div class="job disabled" v-else>
@@ -14,11 +14,11 @@
 			</div>
 			<div class="job-data">
 				<small class="licencePlate">
-					<span class="flag">{{getFlag( trailer.licensePlate.country.id )}}</span>
-					<span v-if="hasTrailer()">{{trailer.licensePlate.value}}</span>
+					<span class="flag">{{ $flag( trailer.licensePlate.country.id )}}</span>
+					<span v-if="$hasTrailer()">{{trailer.licensePlate.value}}</span>
 					<span v-else>N/A</span>
 				</small>
-				<div class="damage left" v-if="hasTrailer()">{{ $averageDamage( trailer.damage ) }} %</div>
+				<div class="damage left" v-if="$hasTrailer()">{{ $averageDamage( trailer.damage ) }} %</div>
 				<div class="damage left" v-else>N/A</div>
 			</div>
 			<!--<div class="trailer-wear text-center">
@@ -41,39 +41,10 @@
 
 <script>
 	import dashMixins from '../../../../../components/Mixins/dashMixins';
-	import * as utils from '../../../../../utils/utils';
 	
 	export default {
 		name:   'Trailers',
-		/*props:  [
-		 'brand',
-		 'trailer.model',
-		 'accessoryId',
-		 'bodyType',
-		 'chainType',
-		 'trailer.licensePlate',
-		 'attached',
-		 'wheels',
-		 'position',
-		 'orientation',
-		 'acceleration',
-		 'hook',
-		 'damage',
-		 'job.cargo'
-		 ],*/
-		mixins: [ dashMixins ],
-		
-		methods: {
-			hasTrailer:       function () {
-				return this.trailer.model.id.length !== 0;
-			},
-			hasTrailerAndJob: function () {
-				return this.trailer.model.id.length !== 0 && this.job.cargo.name.length !== 0;
-			},
-			getFlag( countryName ) {
-				return utils.app.flag( countryName );
-			}
-		}
+		mixins: [ dashMixins ]
 	};
 </script>
 
