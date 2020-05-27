@@ -457,7 +457,7 @@
          "value" :   0,
          "enabled" : true,
          "kph" :     80,
-         "mph" :     0
+         "mph" :     15
       },
       "cabin": {
          "damage": 0,
@@ -624,7 +624,7 @@
          "id": "quick_job",
          "name": "Quick Job"
       },
-      "income": 354
+      "income": 12532
    },
    "trailer": {
       "wheels": [
@@ -903,9 +903,9 @@
       "distance": 754.2119140625,
       "time": 117480.46112060547,
       "speedLimit": {
-         "value": 0,
+         "value": 15,
          "kph": 30,
-         "mph": 0
+         "mph": 15
       }
    },
    "controls": {

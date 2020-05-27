@@ -78,12 +78,12 @@
 					"description" : "Set the length unit. Used for the distance of travel (job or point on the map)",
 					"values" :      [
 						{
-							"label" : "Kilometers",
-							"value" : "km"
+							"label" : "Meters & Kilometers",
+							"value" : "m"
 						},
 						{
-							"label" : "Miles",
-							"value" : "miles"
+							"label" : "Foot & Miles",
+							"value" : "ft"
 						}
 					]
 				},
@@ -94,11 +94,11 @@
 					"values" :      [
 						{
 							"label" : "Celsius",
-							"value" : "c"
+							"value" : "C"
 						},
 						{
 							"label" : "Fahrenheit",
-							"value" : "f"
+							"value" : "F"
 						}
 					]
 				},

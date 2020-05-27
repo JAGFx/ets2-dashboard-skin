@@ -40,8 +40,9 @@
 					'green' : truck.cruiseControl.enabled,
 					'disabled' : !truck.cruiseControl.enabled
 				}"
-				v-if="elementIsEnabled( 'truck.cruiseControl' )">
-				<span>{{truck.cruiseControl.enabled ? truck.cruiseControl.kph + ' km/h' : 'OFF'}}</span>
+				v-if="elementIsEnabled( 'cruiseControl' )">
+				<span v-show="!truck.cruiseControl.enabled">OFF</span>
+				<span v-show="truck.cruiseControl.enabled">{{ truck.cruiseControl | unit_speed() }}</span>
 				<div class="round">
 					<i class="icon-cruise_control"></i>
 				</div>
@@ -52,7 +53,7 @@
 					'orange': truck.fuel.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'fuel' )">
-				<span>{{Math.round(truck.fuel.value)}} L</span>
+				<span>{{ truck.fuel.value | unit_volume() }}</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
 				</div>
@@ -60,7 +61,7 @@
 			
 			<!-- Fuel consumption -->
 			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
-				<span>{{(truck.fuel.avgConsumption * 100).toFixed(1)}}</span>
+				<span>{{ truck.fuel.avgConsumption | unit_consumption() }}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
 				</div>
@@ -72,7 +73,7 @@
 					'red': truck.brakes.airPressure.emergency.enabled
 				}"
 				v-if="elementIsEnabled( 'brakesAirPressure' )">
-				<span>{{Math.round(truck.brakes.airPressure.value)}} PSI</span>
+				<span>{{ truck.brakes.airPressure.value | unit_pressure() }}</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
@@ -80,7 +81,7 @@
 			
 			<!-- Oil temperature -->
 			<li class="default" v-if="elementIsEnabled( 'oilTemperature' )">
-				<span>{{Math.round(truck.engine.oilTemperature.value)}} °C</span>
+				<span>{{ truck.engine.oilTemperature.value | unit_degrees() }}</span>
 				<div class="round">
 					<i class="icon-oil"></i>
 				</div>
@@ -88,7 +89,7 @@
 			
 			<!-- Brakes temparature -->
 			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
-				<span>{{Math.round(truck.brakes.temperature.value)}} °C</span>
+				<span>{{ truck.brakes.temperature.value | unit_degrees() }}</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
 				</div>
@@ -99,7 +100,7 @@
 					'orange': truck.engine.waterTemperature.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'waterTemperature' )">
-				<span>{{Math.round(truck.engine.waterTemperature.value)}} °C</span>
+				<span>{{ truck.engine.waterTemperature.value | unit_degrees() }}</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
 				</div>
@@ -127,11 +128,12 @@
 </template>
 
 <script>
-	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	import dashMixins   from '../../../../../components/Mixins/dashMixins';
+	import configMixins from '../../Mixins/configMixins';
 	
 	export default {
 		name:    'Truck',
-		mixins:  [ dashMixins ],
+		mixins:  [ dashMixins, configMixins ],
 		methods: {
 			indexEmptyElement: function () {
 				const elementLength = this.$elementsLength( 'right' );

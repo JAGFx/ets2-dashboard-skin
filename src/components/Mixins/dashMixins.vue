@@ -1,13 +1,19 @@
 <script>
+	import {
+		length as uc_length,
+		mass as uc_mass,
+		pressure as uc_pressure,
+		temperature as uc_temperature,
+		volume as uc_volume
+	}                     from 'units-converter';
 	import { mapGetters } from 'vuex';
+	
+	import utilsConfig from '../../utils/_config';
 	
 	import * as utils from '../../utils/utils';
 	
-	import configMixins from '../../dashboards/jagfx/components/Mixins/configMixins';
-	
 	export default {
 		name:    'dashMixins',
-		mixins:  [ configMixins ],
 		data() {
 			return this.pickData()();
 		},
@@ -21,6 +27,229 @@
 		filters: {
 			$dateTimeLocalized( time, dFormat, tFormat ) {
 				return utils.app.dateTimeLocalized( time, dFormat, tFormat );
+			},
+			unit_currency( value, showValue = true, showSymbol = true ) {
+				const configValue         = utilsConfig.load();
+				const currencySymbolValue = configValue.unit_currency;
+				let unit                  = '';
+				
+				switch ( currencySymbolValue ) {
+					case 'eur':
+						unit = '€';
+						break;
+					case 'gbp':
+						unit = '£';
+						break;
+					case 'us_dollar':
+						unit = '$';
+						break;
+				}
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return unit + ' ' + value.toLocaleString();
+			},
+			unit_length( value, unitFrom = 'm', showValue = true, showSymbol = true ) {
+				const configValue  = utilsConfig.load();
+				const length       = configValue.unit_length;
+				const unitExcluded = [ 'in', 'yd', 'ft-us', 'fathom', 'nMi' ];
+				let unit           = '';
+				
+				let conversion = uc_length( value )
+					.from( unitFrom )
+					.to( length );
+				
+				switch ( length ) {
+					case 'm':
+						conversion = uc_length( conversion.value )
+							.from( length )
+							.toBest( { exclude: unitExcluded } );
+						
+						break;
+					case 'ft':
+						conversion = uc_length( conversion.value )
+							.from( length )
+							.toBest( { exclude: unitExcluded } );
+						
+						break;
+				}
+				
+				value = conversion.value.toFixed( 1 );
+				unit  = conversion.unit;
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toLocaleString() + ' ' + unit;
+			},
+			unit_weight( value, showValue = true, showSymbol = true ) {
+				const configValue  = utilsConfig.load();
+				const weight       = configValue.unit_weight;
+				const unitExcluded = [ 'mcg', 'mg', 'mt', 'oz' ];
+				let unit           = '';
+				
+				let conversion = uc_mass( value )
+					.from( 'kg' )
+					.to( weight );
+				
+				switch ( weight ) {
+					case 'kg':
+						conversion = uc_mass( conversion.value )
+							.from( weight )
+							.toBest( { exclude: unitExcluded } );
+						
+						break;
+					case 'lb':
+						conversion = uc_mass( conversion.value )
+							.from( weight )
+							.toBest( { exclude: unitExcluded } );
+						
+						break;
+				}
+				
+				value = conversion.value;
+				unit  = conversion.unit;
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 1 ) + ' ' + unit;
+			},
+			unit_speed( value, showValue = true, showSymbol = true ) {
+				const configValue = utilsConfig.load();
+				const speed       = configValue.unit_speed;
+				let unit          = '';
+				
+				value = value[ speed ];
+				
+				switch ( speed ) {
+					case 'kph':
+						unit = 'km/h';
+						break;
+					case 'mph':
+						unit = 'm/h';
+						break;
+				}
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 0 ) + ' ' + unit;
+			},
+			unit_volume( value, showValue = true, showSymbol = true ) {
+				const configValue = utilsConfig.load();
+				const unitDefined = configValue.unit_volume;
+				
+				let unit = '';
+				
+				let conversion = uc_volume( value )
+					.from( 'l' )
+					.to( unitDefined );
+				
+				value = conversion.value;
+				unit  = conversion.unit;
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 0 ) + ' ' + unit;
+			},
+			unit_consumption( value, showValue = true, showSymbol = true ) {
+				const configValue = utilsConfig.load();
+				const unitDefined = configValue.unit_consumption;
+				let conversion    = null;
+				
+				let unit = '';
+				
+				value *= 100;
+				
+				switch ( unitDefined ) {
+					case 'lpkm':
+						conversion = {
+							unit:  'L/100',
+							value: value
+						};
+						
+						break;
+					case 'mpg':
+						conversion = {
+							unit:  'MPG',
+							value: (value === 0)
+									   ? 0
+									   : 282.4809363 / value
+						};
+						
+						break;
+				}
+				
+				value = conversion.value;
+				unit  = conversion.unit;
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 1 ) + ' ' + unit;
+			},
+			unit_pressure( value, showValue = true, showSymbol = true ) {
+				const configValue = utilsConfig.load();
+				const unitDefined = configValue.unit_pressure;
+				
+				let unit = '';
+				
+				let conversion = uc_pressure( value )
+					.from( 'psi' )
+					.to( unitDefined );
+				
+				value = conversion.value;
+				unit  = conversion.unit;
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 0 ) + ' ' + unit;
+			},
+			unit_degrees( value, showValue = true, showSymbol = true ) {
+				const configValue = utilsConfig.load();
+				const unitDefined = configValue.unit_degrees;
+				
+				let unit = '';
+				
+				let conversion = uc_temperature( value )
+					.from( 'C' )
+					.to( unitDefined );
+				
+				value = conversion.value;
+				unit  = '°' + conversion.unit;
+				
+				if ( showValue && !showSymbol )
+					return value;
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 0 ) + ' ' + unit;
 			}
 		},
 		methods: {
@@ -87,13 +316,11 @@
 			
 			// --- Navigation
 			
-			$trukGear:      function ( transmission, brand ) {
+			$trukGear:   function ( transmission, brand ) {
 				/*console.log( this );*/
-				const configSettings          = this.$configSettings();
-				const hShiftLayout            = (configSettings.middle !== undefined)
-					? configSettings.middle.hShiftLayout
-					: { range: false, splitter: false };
-				const rangeAndSplitterEnabled = hShiftLayout.range && hShiftLayout.splitter;
+				const configSettings          = utilsConfig.load();
+				const hShiftLayout            = configSettings[ 'general_h-shift-layout' ];
+				const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
 				
 				let gear         = transmission.gear.displayed;
 				let strGear      = gear;
@@ -133,7 +360,7 @@
 				
 				return strGear;
 			},
-			$truckSpeed:    function () {
+			$truckSpeed: function () {
 				return Math.abs( this.truck.speed.value * 3.6 );
 			},
 			

@@ -8,7 +8,7 @@
 
 import countryList from 'country-list';
 import emojiFlags  from 'emoji-flags';
-import moment      from 'moment/src/moment';
+import moment      from 'moment';
 
 
 import packageJson from '../../package.json';

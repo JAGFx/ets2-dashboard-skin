@@ -26,8 +26,8 @@
 					</div>
 					<div class="middle">
 						<div class="speed">
-							<span class="value">{{truck.speed.kph}}</span>
-							<small class="unit">km/h</small>
+							<span class="value">{{truck.speed | unit_speed( true, false ) }}</span>
+							<small class="unit">{{ truck.speed | unit_speed( false ) }}</small>
 						</div>
 						
 						<div class="fuel-level" v-if="elementIsEnabled( 'fuel' )">
@@ -56,20 +56,20 @@
 			</div>-->
 			
 			<div class="odometer">
-				<span class="value">{{Math.round(truck.odometer)}}</span>
-				<small class="unit">km</small>
+				<span class="value">{{ truck.odometer | unit_length( 'km', true, false ) }}</span>
+				<small class="unit">{{ truck.odometer | unit_length( 'km', false ) }}</small>
 			</div>
 			
 			<!-- Speed limit -->
-			<div :class="{ 'hidden': navigation.speedLimit.kph === 0 }" class="speedLimits" v-if="elementIsEnabled( 'speedLimit' )">
-				<div class="speedLimitKPH">{{navigation.speedLimit.kph}}</div>
+			<div :class="{ 'hidden': navigation.speedLimit.value === 0 }" class="speedLimits" v-if="elementIsEnabled( 'speedLimit' )">
+				<div class="speedLimitKPH">{{ navigation.speedLimit | unit_speed( true, false ) }}</div>
 				<!--<div class="speedLimitMPH">{{navigation.speedLimit.mph}}</div>-->
 			</div>
 		
 		</div>
 		<!--<div>
 			&lt;!&ndash;<div><b>Next rest stop:</b><div>{{formatNextRestStop()}}</div></div>
-			<div><b>Distance:</b><div>{{(distance / 1000).toFixed().toLocaleString()}}km / {{(distance * 0.0006213712).toFixed()}}Miles</div></div>
+			<div><b>DistancIe:</b><div>{{(distance / 1000).toFixed().toLocaleString()}}km / {{(distance * 0.0006213712).toFixed()}}Miles</div></div>
 			<div><b>ETA</b><div>{{formatETA()}}</div></div>&ndash;&gt;
 			&lt;!&ndash;<div><b>Speed</b><div>{{truck.speed.kph}}kph / {{truck.speed.mph}}mph</div></div>&ndash;&gt;
 		</div>-->
@@ -79,13 +79,14 @@
 <script>
 	import dashMixins     from '../../../../../components/Mixins/dashMixins';
 	import DashSymbolArea from '../../Elements/DashSymbolArea';
+	import configMixins   from '../../Mixins/configMixins';
 	import RPMBars        from './Elements/RPMBars';
 	
 	export default {
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
-		mixins:     [ dashMixins ],
-		methods: {
+		mixins:     [ dashMixins, configMixins ],
+		methods:    {
 			getFuelByBar:     function () {
 				return (this.truck.fuel.capacity * this.truck.fuel.warning.factor).toFixed( 0 );
 			},

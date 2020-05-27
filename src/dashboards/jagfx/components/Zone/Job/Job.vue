@@ -38,22 +38,22 @@
 					<i class="icon-currency"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else>{{['?', '€', '$'][game.game.id]}} {{job.income.toLocaleString()}}</span>
+				<span v-else>{{ job.income.toLocaleString() | unit_currency }}</span>
 			</li>
 			<li :class="{ 'disabled': navigation.distance === 0  }" class="default">
 				<div class="round">
 					<i class="icon-ruler"></i>
 				</div>
 				<span v-if="navigation.distance === 0">N/A</span>
-				<span v-else-if="navigation.distance < 1000">{{navigation.distance.toFixed().toLocaleString()}} m</span>
-				<span v-else>{{(navigation.distance / 1000).toFixed().toLocaleString()}} km</span>
+				<span v-else-if="navigation.distance < 1000"> {{ navigation.distance | unit_length }}</span>
+				<span v-else>{{navigation.distance | unit_length }}</span>
 			</li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-weight"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else>{{(job.cargo.mass / 1000).toFixed()}} t</span>
+				<span v-else>{{ job.cargo.mass | unit_weight }}</span>
 			</li>
 		</ul>
 		
