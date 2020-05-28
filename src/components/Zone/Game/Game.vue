@@ -27,11 +27,11 @@
 <script>
 	import { mapGetters } from 'vuex';
 	import * as utils     from '../../../utils/utils';
-	import dashMixins     from '../../Mixins/dashMixins';
+	import AppDashMixins     from '../../Mixins/AppDashMixins';
 	
 	export default {
 		name:   'Game',
-		mixins: [ dashMixins ],
+		mixins: [ AppDashMixins ],
 		
 		methods: {
 			getVersion() {

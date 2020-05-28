@@ -77,15 +77,15 @@
 </template>
 
 <script>
-	import dashMixins     from '../../../../../components/Mixins/dashMixins';
+	import AppDashMixins     from '../../../../../components/Mixins/AppDashMixins';
 	import DashSymbolArea from '../../Elements/DashSymbolArea';
-	import configMixins   from '../../Mixins/configMixins';
+	import JagfxConfigMixins   from '../../Mixins/JagfxConfigMixins';
 	import RPMBars        from './Elements/RPMBars';
 	
 	export default {
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
-		mixins:     [ dashMixins, configMixins ],
+		mixins:     [ AppDashMixins, JagfxConfigMixins ],
 		methods:    {
 			getFuelByBar:     function () {
 				return (this.truck.fuel.capacity * this.truck.fuel.warning.factor).toFixed( 0 );

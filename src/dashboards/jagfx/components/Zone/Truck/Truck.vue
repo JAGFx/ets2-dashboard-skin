@@ -128,12 +128,12 @@
 </template>
 
 <script>
-	import dashMixins   from '../../../../../components/Mixins/dashMixins';
-	import configMixins from '../../Mixins/configMixins';
+	import AppDashMixins   from '../../../../../components/Mixins/AppDashMixins';
+	import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
 	
 	export default {
 		name:    'Truck',
-		mixins:  [ dashMixins, configMixins ],
+		mixins:  [ AppDashMixins, JagfxConfigMixins ],
 		methods: {
 			indexEmptyElement: function () {
 				const elementLength = this.$elementsLength( 'right' );

@@ -2,7 +2,7 @@
 	/**
 	 * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
 	 * project:	ets2-dashboard-skin
-	 * file: 	configMixins.vue
+	 * file: 	JagfxConfigMixins.vue
 	 * Date: 	30/04/2020
 	 * Time: 	13:12
 	 */

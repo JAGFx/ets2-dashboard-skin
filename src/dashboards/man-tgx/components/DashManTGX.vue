@@ -99,7 +99,7 @@
 <script>
 	import CadranElement from '../../../components/Elements/CadranElement';
 	import Dashboard     from '../../../components/Elements/Dashboard';
-	import dashMixins    from '../../../components/Mixins/dashMixins';
+	import AppDashMixins    from '../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:       'DashManTGX',
@@ -107,7 +107,7 @@
 			Dashboard,
 			CadranElement
 		},
-		mixins:     [ dashMixins ],
+		mixins:     [ AppDashMixins ],
 		methods:    {}
 	};
 </script>

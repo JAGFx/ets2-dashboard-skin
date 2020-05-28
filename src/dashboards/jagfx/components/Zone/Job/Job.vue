@@ -79,12 +79,12 @@
 </template>
 
 <script>
-	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
 	import config     from '../../../../../utils/_config';
 	
 	export default {
 		name:    'Job',
-		mixins:  [ dashMixins ],
+		mixins:  [ AppDashMixins ],
 		methods: {
 			jobRemainingTimeToDueDate() {
 				const configData = config.load();

@@ -18,7 +18,7 @@
 <script>
 	import { mapGetters }    from 'vuex';
 	import Menu              from './components/Menu/Menu';
-	import dashMixins        from './components/Mixins/dashMixins';
+	import AppDashMixins     from './components/Mixins/AppDashMixins';
 	import Game              from './components/Zone/Game/Game';
 	import DashDafXF         from './dashboards/daf-xf/components/DashDafXF';
 	import DashDefault       from './dashboards/defaut/components/DashDefault';
@@ -47,7 +47,7 @@
 			Menu
 		},
 		
-		mixins: [ dashMixins ],
+		mixins: [ AppDashMixins ],
 		
 		created() {
 			//console.log( this );

@@ -129,14 +129,14 @@
 
 <script>
 	import Dashboard  from '../../../components/Elements/Dashboard';
-	import dashMixins from '../../../components/Mixins/dashMixins';
+	import AppDashMixins from '../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:       'DashRdInfo',
 		components: {
 			Dashboard
 		},
-		mixins:     [ dashMixins ],
+		mixins:     [ AppDashMixins ],
 		methods:    {}
 	};
 </script>

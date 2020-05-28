@@ -13,7 +13,7 @@
 	import * as utils from '../../utils/utils';
 	
 	export default {
-		name:    'dashMixins',
+		name: 'AppDashMixins',
 		data() {
 			return this.pickData()();
 		},

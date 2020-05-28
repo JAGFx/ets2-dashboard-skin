@@ -51,11 +51,11 @@
 </template>
 
 <script>
-	import configMixins from '../Mixins/configMixins';
+	import JagfxConfigMixins from '../Mixins/JagfxConfigMixins';
 	
 	export default {
 		name:    'DashSymbolArea',
-		mixins:  [ configMixins ],
+		mixins:  [ JagfxConfigMixins ],
 		props:   [ 'side' ],
 		methods: {
 			elementIsEnabled:  function ( elm ) {

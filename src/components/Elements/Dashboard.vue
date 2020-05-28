@@ -7,11 +7,11 @@
 
 <script>
 	import { mapGetters } from 'vuex';
-	import dashMixins     from '../Mixins/dashMixins';
+	import AppDashMixins     from '../Mixins/AppDashMixins';
 	
 	export default {
 		name:    'Dashboard',
-		mixins:  [ dashMixins ],
+		mixins:  [ AppDashMixins ],
 		methods: {
 			enabledFullScreen() {
 				return process.env.VUE_APP_ENABLE_FULLSCREEN === 'true';

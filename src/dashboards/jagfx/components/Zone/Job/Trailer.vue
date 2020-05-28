@@ -40,11 +40,11 @@
 </template>
 
 <script>
-	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:   'Trailers',
-		mixins: [ dashMixins ]
+		mixins: [ AppDashMixins ]
 	};
 </script>
 
