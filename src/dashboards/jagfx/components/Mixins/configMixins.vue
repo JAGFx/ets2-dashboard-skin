@@ -7,101 +7,81 @@
 	 * Time: 	13:12
 	 */
 	
-	import * as utils from '../../../../utils/utils';
+	import utilsConfig from '../../../../utils/_config';
 	
 	export default {
 		data() {
 			return {
-				configSettings:    {},
-				maxSideElements:   7,
-				maxMiddleElements: 4
+				elements:    {
+					right:      [],
+					'middle-t': [],
+					'middle-b': []
+				},
+				maxElements: {
+					right:      7,
+					'middle-t': 4,
+					'middle-b': -1
+				}
 			};
 		},
 		created() {
-			let that = this;
-			//console.log( 'plop' );
-			utils.config.configData()
-				 .then( config => {
-					 //console.log( 'Data', config );
-					 that.configSettings = config;
-				 } );
+			const config = utilsConfig.load();
+			const keys   = Object.keys( config );
 			
+			const configRight        = keys.filter( elm => {
+				const isOnSide  = /^jagfx_elements_right/.test( elm );
+				const isEnabled = config[ elm ] === 'true';
+				
+				//console.log( elm, typeof isEnabled );
+				
+				return isOnSide && isEnabled;
+			} );
+			const configMiddleTop    = keys.filter( elm => {
+				const isOnSide  = /^jagfx_elements_mid_top/.test( elm );
+				const isEnabled = config[ elm ] === 'true';
+				
+				return isOnSide && isEnabled;
+			} );
+			const configMiddleBottom = keys.filter( elm => {
+				const isOnSide  = /^jagfx_elements_mid_bottom/.test( elm );
+				const isEnabled = config[ elm ] === 'true';
+				
+				return isOnSide && isEnabled;
+			} );
+			
+			this.elements.right         = configRight.slice( 0, this.maxElements.right );
+			this.elements[ 'middle-t' ] = configMiddleTop.slice( 0, this.maxElements[ 'middle-t' ] );
+			this.elements[ 'middle-b' ] = configMiddleBottom;
 		},
 		methods: {
-			$configSettings() {
-				return utils.app.jsonReadable( this.configSettings );
-			},
-			$maxSideElements() {
-				return this.maxSideElements;
-			},
-			$maxMiddleElements() {
-				return this.maxMiddleElements;
-			},
 			$elementIsEnabled: function ( side, element, options ) {
-				let enabledElements = [];
-				const config        = this.$configSettings();
-				//console.log( config );
+				const config       = utilsConfig.load();
+				const sideElements = this.elements[ side ];
+				const indexElement = sideElements.indexOf( element );
+				const isOnSide     = indexElement !== -1;
 				
-				if ( side === 'right' )
-					enabledElements = config.right;
-				
-				if ( side === 'middle-t' || side === 'middle-b' )
-					enabledElements = config.middle;
-				
-				//console.log( config, this.configSettings);
-				if ( enabledElements === undefined )
-					return false;
-				
-				if ( side === 'middle-t' )
-					enabledElements = enabledElements.top;
-				
-				if ( side === 'middle-b' )
-					enabledElements = enabledElements.bottom;
-				
-				const indexElement = enabledElements.indexOf( element );
-				//console.log( indexElement, this.maxSideElements );
-				
-				if ( side === 'middle-t' ) {
-					if ( options === undefined )
-						return false;
+				if ( options !== undefined ) {
+					const navElmSide       = options.side;
+					const maxMiddleElement = this.maxElements[ 'middle-t' ];
 					
-					const navElmSide = options.side;
-					//console.log( side, navElmSide, indexElement, (this.maxMiddleElements / 2) );
-					
-					if ( indexElement + 1 > ((this.maxMiddleElements / 2)) && navElmSide === 'left' )
+					if ( indexElement + 1 > ((maxMiddleElement / 2)) && navElmSide === 'left' )
 						return false;
 					
 					if ( navElmSide === 'right' ) {
-						if ( ((indexElement + 1) <= ((this.maxMiddleElements / 2))) || ((indexElement + 1)
-																						> this.maxMiddleElements) )
+						if ( ((indexElement + 1) <= ((maxMiddleElement / 2))) || ((indexElement + 1)
+																				  > maxMiddleElement) )
 							return false;
 						
 					}
 				}
 				
-				if ( side === 'right' ) {
-					if ( indexElement > this.maxSideElements - 1 )
-						return false;
-				}
+				if ( !config[ element ] )
+					return false;
 				
-				return indexElement !== -1;
+				return isOnSide;
 			},
 			$elementsLength:   function ( side ) {
-				let enabledElements = [];
-				const config        = this.$configSettings();
-				
-				if ( side === 'right' )
-					enabledElements = config.right;
-				
-				if ( side === 'middle' )
-					enabledElements = config.middle;
-				
-				if ( side === 'middle' && enabledElements !== undefined )
-					enabledElements = enabledElements.top;
-				
-				return (enabledElements === undefined)
-					? 0
-					: enabledElements.length;
+				return this.elements[ side ].length;
 			}
 		}
 	};

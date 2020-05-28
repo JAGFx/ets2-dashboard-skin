@@ -65,6 +65,14 @@ const dateTimeLocalized = ( input, formatDate, formatTime ) => {
 	return momentData.format( format );
 };
 
+const diffDateTimeLocalized = ( dFrom, dTo, withPrefix = true ) => {
+	const momentFrom = moment( dFrom, 'X' );
+	const momentTo   = moment( dTo, 'X' );
+	const diff       = momentTo.diff( momentFrom );
+	
+	return 'in ' + moment.utc( diff ).format( 'HH[h] mm[m] ss[s]' );
+};
+
 export default {
 	basePathHost,
 	version,
@@ -72,6 +80,7 @@ export default {
 	numberDigit,
 	jsonReadable,
 	dateTimeLocalized,
+	diffDateTimeLocalized,
 	formatConstants: {
 		DATE_FORMAT_NONE,
 		DATE_FORMAT_SHORT,

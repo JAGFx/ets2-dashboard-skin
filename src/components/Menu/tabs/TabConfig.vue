@@ -3,7 +3,7 @@
 		<section id="general">
 			<h3 class="p-2">General</h3>
 			<button @click="save">Save</button>
-			<button @click="exporting">Export</button>
+			<button @click="download">Export</button>
 			<button @click="reset">Reset</button>
 			
 			<div :key="category.name" class="fields mb-4" v-for="category in config.categories">
@@ -39,11 +39,11 @@
 
 <script>
 	import _           from 'lodash';
-	import utilsConfig from '../../../utils/_config';
+	import configJAGFx from '../../../dashboards/jagfx/data/config_template.json';
 	
 	import config      from '../../../data/config_template.json';
 	import skins       from '../../../data/skins.json';
-	import configJAGFx from '../../../dashboards/jagfx/data/config_template.json';
+	import utilsConfig from '../../../utils/_config';
 	
 	import TabConfigElement from './Elements/TabConfigElement';
 	
@@ -76,8 +76,8 @@
 			save() {
 				utilsConfig.save( this.data );
 			},
-			exporting() {
-				utilsConfig.exporting( this.data );
+			download() {
+				utilsConfig.download( this.data );
 			}
 			// TODO: Add import file
 		}

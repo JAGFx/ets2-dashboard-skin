@@ -17,7 +17,7 @@
 			
 			<div class="speed-area">
 				<div class="speed-wrapper">
-					<div class="left" v-if="elementIsEnabled( 'rpm' )">
+					<div class="left" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )">
 						<RPMBars v-bind="{
 							engine: truck.engine,
 							brand: truck.brand,
@@ -30,7 +30,7 @@
 							<small class="unit">{{ truck.speed | unit_speed( false ) }}</small>
 						</div>
 						
-						<div class="fuel-level" v-if="elementIsEnabled( 'fuel' )">
+						<div class="fuel-level" v-if="$elementIsEnabled( 'middle-b','jagfx_elements_mid_bottom_fuel' )">
 							<span class="fuel-icon-wrapper">
 								<i :class="{'warning': onWarningLevel() }" class="icon-fuel"></i>
 							</span>
@@ -40,7 +40,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="right" v-if="elementIsEnabled( 'rpm' )">
+					<div class="right" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )">
 						<RPMBars v-bind="{
 							engine: truck.engine,
 							brand: truck.brand,
@@ -61,7 +61,7 @@
 			</div>
 			
 			<!-- Speed limit -->
-			<div :class="{ 'hidden': navigation.speedLimit.value === 0 }" class="speedLimits" v-if="elementIsEnabled( 'speedLimit' )">
+			<div :class="{ 'hidden': navigation.speedLimit.value === 0 }" class="speedLimits" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )">
 				<div class="speedLimitKPH">{{ navigation.speedLimit | unit_speed( true, false ) }}</div>
 				<!--<div class="speedLimitMPH">{{navigation.speedLimit.mph}}</div>-->
 			</div>
@@ -103,14 +103,6 @@
 			},
 			onWarningLevel:   function () {
 				return this.truck.fuel.value < this.getFuelByBar();
-			},
-			elementIsEnabled: function ( element ) {
-				const onBottom = [ 'rpm', 'fuel', 'speedLimit' ];
-				const side     = (onBottom.indexOf( element ) !== -1)
-					? 'middle-b'
-					: 'middle-t';
-				
-				return this.$elementIsEnabled( side, element );
 			}
 		}
 	};

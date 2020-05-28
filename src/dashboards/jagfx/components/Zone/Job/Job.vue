@@ -31,7 +31,8 @@
 					<i class="icon-time"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else>{{ job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+				<span v-else-if="jobRemainingTimeToDueDate()">{{ job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+				<span v-else>{{ $jobRemainingTimeDelivery( job.deliveryTime.unix ) }}</span>
 			</li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
@@ -79,10 +80,18 @@
 
 <script>
 	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	import config     from '../../../../../utils/_config';
 	
 	export default {
 		name:    'Job',
-		mixins:  [ dashMixins ]
+		mixins:  [ dashMixins ],
+		methods: {
+			jobRemainingTimeToDueDate() {
+				const configData = config.load();
+				
+				return configData.jagfx_elements_general_job_remaining === 'due_date';
+			}
+		}
 	};
 </script>
 

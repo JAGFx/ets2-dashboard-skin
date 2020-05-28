@@ -50,7 +50,7 @@ const save = data => {
 	console.log( data );
 };
 
-const exporting = ( data ) => {
+const download = ( data ) => {
 	const file = new File( [ JSON.stringify( data, null, 2 ) ],
 		'ets2-dashboard-skin.config.json',
 		{ type: 'application/json;charset=utf-8' } );
@@ -70,6 +70,6 @@ export default {
 	configData,
 	generateEmptyData,
 	save,
-	exporting,
+	download,
 	load
 };

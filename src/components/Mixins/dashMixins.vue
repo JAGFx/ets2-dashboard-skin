@@ -305,6 +305,11 @@
 			$hasJob: function () {
 				return (this.job.cargo.id.length !== 0);
 			},
+			$jobRemainingTimeDelivery( time ) {
+				const currentGameTime = this.game.time.unix;
+				
+				return utils.app.diffDateTimeLocalized( currentGameTime, time );
+			},
 			
 			// --- Trailer
 			

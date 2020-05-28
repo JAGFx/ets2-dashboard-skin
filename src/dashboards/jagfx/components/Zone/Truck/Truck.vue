@@ -40,7 +40,7 @@
 					'green' : truck.cruiseControl.enabled,
 					'disabled' : !truck.cruiseControl.enabled
 				}"
-				v-if="elementIsEnabled( 'cruiseControl' )">
+				v-if="elementIsEnabled( 'jagfx_elements_right_cruiseControl' )">
 				<span v-show="!truck.cruiseControl.enabled">OFF</span>
 				<span v-show="truck.cruiseControl.enabled">{{ truck.cruiseControl | unit_speed }}</span>
 				<div class="round">
@@ -52,7 +52,7 @@
 			<li class="blue" v-bind:class="{
 					'orange': truck.fuel.warning.enabled
 				}"
-				v-if="elementIsEnabled( 'fuel' )">
+				v-if="elementIsEnabled( 'jagfx_elements_right_fuel' )">
 				<span>{{ truck.fuel.value | unit_volume }}</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
@@ -60,7 +60,7 @@
 			</li>
 			
 			<!-- Fuel consumption -->
-			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
+			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_fuelConsumption' )">
 				<span>{{ truck.fuel.avgConsumption | unit_consumption }}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
@@ -72,7 +72,7 @@
 					'orange': truck.brakes.airPressure.warning.enabled,
 					'red': truck.brakes.airPressure.emergency.enabled
 				}"
-				v-if="elementIsEnabled( 'brakesAirPressure' )">
+				v-if="elementIsEnabled( 'jagfx_elements_right_brakesAirPressure' )">
 				<span>{{ truck.brakes.airPressure.value | unit_pressure }}</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
@@ -80,7 +80,7 @@
 			</li>
 			
 			<!-- Oil temperature -->
-			<li class="default" v-if="elementIsEnabled( 'oilTemperature' )">
+			<li class="default" v-if="elementIsEnabled( 'jagfx_elements_right_oilTemperature' )">
 				<span>{{ truck.engine.oilTemperature.value | unit_degrees }}</span>
 				<div class="round">
 					<i class="icon-oil"></i>
@@ -88,7 +88,7 @@
 			</li>
 			
 			<!-- Brakes temparature -->
-			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
+			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_brakesTemperature' )">
 				<span>{{ truck.brakes.temperature.value | unit_degrees }}</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
@@ -99,7 +99,7 @@
 			<li class="blue" v-bind:class="{
 					'orange': truck.engine.waterTemperature.warning.enabled
 				}"
-				v-if="elementIsEnabled( 'waterTemperature' )">
+				v-if="elementIsEnabled( 'jagfx_elements_right_waterTemperature' )">
 				<span>{{ truck.engine.waterTemperature.value | unit_degrees }}</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
@@ -110,7 +110,7 @@
 			<li class="blue" v-bind:class="{
 					'orange': truck.engine.batteryVoltage.warning.enabled
 				}"
-				v-if="elementIsEnabled( 'batteryVoltage' )">
+				v-if="elementIsEnabled( 'jagfx_elements_right_batteryVoltage' )">
 				<span>{{Math.round(truck.engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<i class="icon-battery"></i>
@@ -137,10 +137,8 @@
 		methods: {
 			indexEmptyElement: function () {
 				const elementLength = this.$elementsLength( 'right' );
-				const maxElement    = this.$maxSideElements();
+				const maxElement    = this.maxElements[ 'right' ];
 				const diff          = maxElement - elementLength;
-				
-				//console.log( elementLength, maxElement, diff, this.currentEnabled );
 				
 				return (diff <= 0)
 					? 0
