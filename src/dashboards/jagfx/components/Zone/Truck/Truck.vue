@@ -42,7 +42,7 @@
 				}"
 				v-if="elementIsEnabled( 'cruiseControl' )">
 				<span v-show="!truck.cruiseControl.enabled">OFF</span>
-				<span v-show="truck.cruiseControl.enabled">{{ truck.cruiseControl | unit_speed() }}</span>
+				<span v-show="truck.cruiseControl.enabled">{{ truck.cruiseControl | unit_speed }}</span>
 				<div class="round">
 					<i class="icon-cruise_control"></i>
 				</div>
@@ -53,7 +53,7 @@
 					'orange': truck.fuel.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'fuel' )">
-				<span>{{ truck.fuel.value | unit_volume() }}</span>
+				<span>{{ truck.fuel.value | unit_volume }}</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
 				</div>
@@ -61,7 +61,7 @@
 			
 			<!-- Fuel consumption -->
 			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
-				<span>{{ truck.fuel.avgConsumption | unit_consumption() }}</span>
+				<span>{{ truck.fuel.avgConsumption | unit_consumption }}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
 				</div>
@@ -73,7 +73,7 @@
 					'red': truck.brakes.airPressure.emergency.enabled
 				}"
 				v-if="elementIsEnabled( 'brakesAirPressure' )">
-				<span>{{ truck.brakes.airPressure.value | unit_pressure() }}</span>
+				<span>{{ truck.brakes.airPressure.value | unit_pressure }}</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
@@ -81,7 +81,7 @@
 			
 			<!-- Oil temperature -->
 			<li class="default" v-if="elementIsEnabled( 'oilTemperature' )">
-				<span>{{ truck.engine.oilTemperature.value | unit_degrees() }}</span>
+				<span>{{ truck.engine.oilTemperature.value | unit_degrees }}</span>
 				<div class="round">
 					<i class="icon-oil"></i>
 				</div>
@@ -89,7 +89,7 @@
 			
 			<!-- Brakes temparature -->
 			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
-				<span>{{ truck.brakes.temperature.value | unit_degrees() }}</span>
+				<span>{{ truck.brakes.temperature.value | unit_degrees }}</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
 				</div>
@@ -100,7 +100,7 @@
 					'orange': truck.engine.waterTemperature.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'waterTemperature' )">
-				<span>{{ truck.engine.waterTemperature.value | unit_degrees() }}</span>
+				<span>{{ truck.engine.waterTemperature.value | unit_degrees }}</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
 				</div>

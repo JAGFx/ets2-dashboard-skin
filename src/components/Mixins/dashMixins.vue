@@ -34,14 +34,16 @@
 				let unit                  = '';
 				
 				switch ( currencySymbolValue ) {
-					case 'eur':
+					case 'EUR':
 						unit = '€';
 						break;
-					case 'gbp':
+					case 'GBP':
 						unit = '£';
+						value *= 0.9;
 						break;
-					case 'us_dollar':
+					case 'USD':
 						unit = '$';
+						value *= 1.1;
 						break;
 				}
 				

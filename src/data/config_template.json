@@ -139,7 +139,7 @@
 					"values" :      [
 						{
 							"label" : "PSI",
-							"value" : "pis"
+							"value" : "psi"
 						},
 						{
 							"label" : "Bar",
@@ -169,15 +169,15 @@
 					"values" :      [
 						{
 							"label" : "€ EUR",
-							"value" : "eur"
+							"value" : "EUR"
 						},
 						{
 							"label" : "£ GBP",
-							"value" : "gbp"
+							"value" : "GBP"
 						},
 						{
 							"label" : "$ US",
-							"value" : "us_dollar"
+							"value" : "USD"
 						}
 					]
 				}

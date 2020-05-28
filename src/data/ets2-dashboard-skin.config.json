@@ -9,7 +9,7 @@
 	"unit_volume" :                            "gal",
 	"unit_pressure" :                          "bar",
 	"unit_speed" :                             "mph",
-	"unit_currency" :                          "eur",
+	"unit_currency" :                          "EUR",
 	"jagfx_elements_general_job_remaining" :   "due_date",
 	"jagfx_elements_right_oilTemperature" :    "true",
 	"jagfx_elements_right_brakesTemperature" : "true",

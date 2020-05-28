@@ -38,7 +38,7 @@
 					<i class="icon-currency"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else>{{ job.income.toLocaleString() | unit_currency }}</span>
+				<span v-else>{{ job.income | unit_currency }}</span>
 			</li>
 			<li :class="{ 'disabled': navigation.distance === 0  }" class="default">
 				<div class="round">
