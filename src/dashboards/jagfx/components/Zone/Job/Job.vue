@@ -80,7 +80,6 @@
 
 <script>
 	import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
-	import config     from '../../../../../utils/_config';
 	
 	export default {
 		name:    'Job',

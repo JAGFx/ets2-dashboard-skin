@@ -1,15 +1,24 @@
 <template>
 	<div class="tab-config">
+		<div class="d-flex justify-content-center align-items-center pb-3">
+			<button @click="save" class="btn btn-sm btn-outline-ets mx-1"><i class="far fa-save"></i> Save</button>
+			<button @click="download" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-download"></i> Export
+			</button>
+			<button @click="reset" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-trash-restore-alt"></i>
+				Reset
+			</button>
+			<span>
+				<button @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-upload"></i> Upload</button>
+				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" />
+			</span>
+		</div>
 		<section id="general">
 			<h3 class="p-2">General</h3>
-			<button @click="save">Save</button>
-			<button @click="download">Export</button>
-			<button @click="reset">Reset</button>
 			
 			<div :key="category.name" class="fields mb-4" v-for="category in config.categories">
 				<h4>{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
+				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" @change="save" v-bind="{
 					'elm': element,
 					data: data[ element.id ]
 				}" v-for="element in category.elements" />
@@ -28,7 +37,7 @@
 			<div :class="'config-skin-' + skin.id" :key="category.name" class="collapse fields mb-4" v-for="category in skinsConfigTemplate( skin )">
 				<h4 class="d-flex justify-content-between align-items-center">{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
+				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" @change="save" v-bind="{
 					'elm': element,
 					data: data[ element.id ]
 				}" v-for="element in category.elements" />
@@ -63,6 +72,7 @@
 				config:      config,
 				skins:       skinsOk,
 				configSkins: configSkins,
+				showUpload:  false,
 				data:        data
 			};
 		},
@@ -77,9 +87,15 @@
 				utilsConfig.save( this.data );
 			},
 			download() {
-				utilsConfig.download( this.data );
+				utilsConfig.download();
+			},
+			upload( input ) {
+				try {
+					utilsConfig.upload( input.target.files[ 0 ] );
+				} catch ( e ) {
+					alert( e );
+				}
 			}
-			// TODO: Add import file
 		}
 	};
 </script>

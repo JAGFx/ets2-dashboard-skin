@@ -7,9 +7,9 @@
  */
 
 import axios      from 'axios';
+import FileSaver  from 'file-saver';
 import testConfig from '../data/ets2-dashboard-skin.config.json';
 import utilsApp   from './_app';
-import FileSaver  from 'file-saver';
 
 const configData = () => {
 	const path = utilsApp.basePathHost + 'config.json';
@@ -48,9 +48,12 @@ const generateEmptyData = ( config, configSkins ) => {
 
 const save = data => {
 	console.log( data );
+	// TODO: Push on server
 };
 
-const download = ( data ) => {
+const download = () => {
+	// TODO: Get from server
+	const data = load();
 	const file = new File( [ JSON.stringify( data, null, 2 ) ],
 		'ets2-dashboard-skin.config.json',
 		{ type: 'application/json;charset=utf-8' } );
@@ -58,6 +61,8 @@ const download = ( data ) => {
 };
 
 const load = () => {
+	// TODO: Get from server
+	
 	let data = {};
 	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
@@ -66,10 +71,29 @@ const load = () => {
 	return data;
 };
 
+const upload = file => {
+	if ( file.type !== 'application/json' )
+		throw 'Invalid file type';
+	
+	let reader = new FileReader();
+	reader.readAsText( file, 'UTF-8' );
+	
+	reader.onload  = evt => {
+		const data = JSON.parse( evt.target.result );
+		console.log( data );
+		
+		save( data );
+	};
+	reader.onerror = () => {
+		throw 'Error reading file';
+	};
+};
+
 export default {
 	configData,
 	generateEmptyData,
 	save,
 	download,
-	load
+	load,
+	upload
 };
