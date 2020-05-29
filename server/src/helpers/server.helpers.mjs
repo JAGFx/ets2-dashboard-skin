@@ -13,7 +13,8 @@ import socketio          from 'socket.io';
 import truckSimTelemetry from 'trucksim-telemetry';
 import { logIt }         from './utils.helpers';
 
-let app, server, io, telemetry, port, interval;
+let app, server, io, telemetry, port, interval, pathDist;
+
 
 const init = () => {
 	app       = express();
@@ -22,10 +23,9 @@ const init = () => {
 	telemetry = truckSimTelemetry();
 	port      = 3000;
 	interval  = 15;
+	pathDist  = path.resolve( __dirname, '../../../dist' );
 	
-	console.log( path.resolve( '../dist' ) );
-	
-	app.use( express.static( path.resolve( '../dist' ) ) );
+	app.use( express.static( pathDist ) );
 	
 	telemetry.watch( { interval: interval }, function ( data ) {
 		io.emit( 'update', data );

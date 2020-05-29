@@ -1,12 +1,12 @@
 {
   "name" :            "ets2-dashboard-skin-server",
-  "version" :         "1.0.0",
-  "bin" :             "./dist/index.js",
-  "main" :            "./src/index.js",
+  "version" :         "2.0.0",
+  "bin" :             "./dist/main.js",
+  "main" :            "./src/main.js",
   "module" :          "./src/main.js",
   "scripts" :         {
     "test" :  "echo \"Error: no test specified\" && exit 1",
-    "start" : "node ./dist/index.js",
+    "start" : "node ./dist/main.js",
     "dev" :   "nodemon -r esm ./src/main.js",
     "build" : "npx gulp"
   },
