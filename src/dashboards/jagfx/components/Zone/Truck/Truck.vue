@@ -10,7 +10,7 @@
 						<span>{{truck.model.name}}</span>
 					</small>
 					<!--<span>
-						{{(truck.fuel.avgConsumption * 100).toFixed(1)}} l/100
+						{{truck.fuel.avgConsumption | unit_consumption}} l/100
 					</span>-->
 				</div>
 				<div class="truck-stats">

@@ -31,7 +31,7 @@
 					<i class="icon-time"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else-if="jobRemainingTimeToDueDate()">{{ job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+				<span v-else-if="$jobRemainingTimeToDueDate()">{{ job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
 				<span v-else>{{ $jobRemainingTimeDelivery( job.deliveryTime.unix ) }}</span>
 			</li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
@@ -46,7 +46,7 @@
 					<i class="icon-ruler"></i>
 				</div>
 				<span v-if="navigation.distance === 0">N/A</span>
-				<span v-else-if="navigation.distance < 1000"> {{ navigation.distance | unit_length }}</span>
+				<span v-else-if="navigation.distance < 1000"> {{ navigation.distance | unit_length( 'm' ) }}</span>
 				<span v-else>{{navigation.distance | unit_length }}</span>
 			</li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
@@ -63,7 +63,7 @@
 			<div><b>Destination:</b><span>{{job.destination.city.name}} - {{job.destination.company.name}}</span></div>
 			<div><b>Source:</b><span>{{job.source.city.name}} - {{job.source.company.name}}</span></div>
 			<div><b>Market:</b><span>{{market.name}}</span></div>
-			<div><b>Income:</b><span>{{[ '?', '€', '$' ][ game.game.id ]}}{{job.income.toLocaleString()}}</span></div>
+			<div><b>Income:</b><span>{{job.income | unit_currency}}</span></div>
 			<div><b>Special transport:</b><span>{{isSpecial ? 'YES' : 'NO'}}</span></div>
 			<div><b>Planned navigation.distance:</b><span>{{plannedDistance.km}}km / {{plannedDistance.miles}}Miles</span></div>
 		</div>
@@ -84,14 +84,7 @@
 	
 	export default {
 		name:    'Job',
-		mixins:  [ AppDashMixins ],
-		methods: {
-			jobRemainingTimeToDueDate() {
-				const configData = config.load();
-				
-				return configData.jagfx_elements_general_job_remaining === 'due_date';
-			}
-		}
+		mixins:  [ AppDashMixins ]
 	};
 </script>
 

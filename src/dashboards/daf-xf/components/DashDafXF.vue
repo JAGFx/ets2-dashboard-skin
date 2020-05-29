@@ -17,13 +17,13 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-speed',
 					'type': 'meter',
-					'value': $truckSpeed(),
+					'value': truck.speed.kph,
 					'min': 0,
 					'max': 140,
 					'minAngle' : -121,
 					'maxAngle': 92,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed.kph }}</span></div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed | unit_speed( true, false ) }}</span></div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
@@ -51,7 +51,7 @@
 					'minAngle' : -120,
 					'maxAngle': -57,
 				}"></CadranElement>
-				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer.toFixed(0) }}</span></div>
+				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer | unit_length( 'km', true, false ) | $toFixed( 0 ) }}</span></div>
 				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ truck.cruiseControl.kph }}</span></div>-->
 				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
 				</div>
@@ -64,7 +64,10 @@
 				<div :class="{ 'yes': truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
 				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>
 				<div class="trailer-mass wrapper-area">
-					<span>{{ (job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span></span></div>
+					<span>
+						{{ job.cargo.mass | unit_weight( true, false ) | $toFixed( 1 ) }}
+						<span class="ton">{{ job.cargo.mass | unit_weight(  false ) }}</span>
+					</span></div>
 				<div class="trailer-name">{{ job.cargo.name }}</div>
 				<!-- job information -->
 				<div :class="{ 'yes': truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
@@ -87,7 +90,12 @@
 			Dashboard,
 			CadranElement
 		},
-		mixins:     [ AppDashMixins ]
+		mixins:     [ AppDashMixins ],
+		methods: {
+			speed( truckSpeed, showValue = true, showSymbol = true ){
+				return this.$options.filters.unit_speed( truckSpeed, showValue, showSymbol );
+			}
+		}
 	};
 </script>
 

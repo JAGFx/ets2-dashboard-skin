@@ -188,8 +188,8 @@
             }
          ],
          "gear": {
-            "selected": 10,
-            "displayed": 10
+            "selected": 14,
+            "displayed": 14
          },
          "gearRatiosForward": [
             14.9399995803833,
@@ -451,7 +451,7 @@
       "speed": {
          "value": 34.7222222222222222,
          "kph": 125,
-         "mph": 21
+         "mph": 77.6714
       },
       "cruiseControl": {
          "value" :   0,
@@ -900,7 +900,7 @@
    },
    "navigation": {
       "nextRestStop": 37740000,
-      "distance": 754.2119140625,
+      "distance": 1754.2119140625,
       "time": 117480.46112060547,
       "speedLimit": {
          "value": 15,

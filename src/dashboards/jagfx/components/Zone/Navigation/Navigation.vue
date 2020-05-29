@@ -26,7 +26,7 @@
 					</div>
 					<div class="middle">
 						<div class="speed">
-							<span class="value">{{truck.speed | unit_speed( true, false ) }}</span>
+							<span class="value">{{ truck.speed | unit_speed( true, false ) }}</span>
 							<small class="unit">{{ truck.speed | unit_speed( false ) }}</small>
 						</div>
 						
@@ -51,12 +51,12 @@
 			</div>
 			
 			<!--<div class="speed">
-				<span class="value">{{truck.speed.kph}}</span>
+				<span class="value">{{truck.speed | unit_speed( true, false )}}</span>
 				<small class="unit">km/h</small>
 			</div>-->
 			
 			<div class="odometer">
-				<span class="value">{{ truck.odometer | unit_length( 'km', true, false ) }}</span>
+				<span class="value">{{ truck.odometer | unit_length( 'km', true, false ) | $toFixed( 0 ) }}</span>
 				<small class="unit">{{ truck.odometer | unit_length( 'km', false ) }}</small>
 			</div>
 			
@@ -71,7 +71,7 @@
 			&lt;!&ndash;<div><b>Next rest stop:</b><div>{{formatNextRestStop()}}</div></div>
 			<div><b>DistancIe:</b><div>{{(distance / 1000).toFixed().toLocaleString()}}km / {{(distance * 0.0006213712).toFixed()}}Miles</div></div>
 			<div><b>ETA</b><div>{{formatETA()}}</div></div>&ndash;&gt;
-			&lt;!&ndash;<div><b>Speed</b><div>{{truck.speed.kph}}kph / {{truck.speed.mph}}mph</div></div>&ndash;&gt;
+			&lt;!&ndash;<div><b>Speed</b><div>{{truck.speed | unit_speed( true, false )}}kph / {{truck.speed.mph}}mph</div></div>&ndash;&gt;
 		</div>-->
 	</div>
 </template>

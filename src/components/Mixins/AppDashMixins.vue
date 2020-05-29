@@ -7,6 +7,7 @@
 		volume as uc_volume
 	}                     from 'units-converter';
 	import { mapGetters } from 'vuex';
+	import config         from '../../utils/_config';
 	
 	import utilsConfig from '../../utils/_config';
 	
@@ -27,6 +28,9 @@
 		filters: {
 			$dateTimeLocalized( time, dFormat, tFormat ) {
 				return utils.app.dateTimeLocalized( time, dFormat, tFormat );
+			},
+			$toFixed( value, decimal ){
+				return value.toFixed( decimal );
 			},
 			unit_currency( value, showValue = true, showSymbol = true ) {
 				const configValue         = utilsConfig.load();
@@ -80,7 +84,7 @@
 						break;
 				}
 				
-				value = conversion.value.toFixed( 1 );
+				value = conversion.value;
 				unit  = conversion.unit;
 				
 				if ( showValue && !showSymbol )
@@ -88,6 +92,8 @@
 				
 				if ( !showValue && showSymbol )
 					return unit;
+				
+				value = value.toFixed( 1 );
 				
 				return value.toLocaleString() + ' ' + unit;
 			},
@@ -144,7 +150,7 @@
 				}
 				
 				if ( showValue && !showSymbol )
-					return value;
+					return value.toFixed( 0 );
 				
 				if ( !showValue && showSymbol )
 					return unit;
@@ -209,7 +215,9 @@
 				if ( !showValue && showSymbol )
 					return unit;
 				
-				return value.toFixed( 1 ) + ' ' + unit;
+				value = value.toFixed( 1 );
+				
+				return value + ' ' + unit;
 			},
 			unit_pressure( value, showValue = true, showSymbol = true ) {
 				const configValue = utilsConfig.load();
@@ -309,6 +317,11 @@
 				const currentGameTime = this.game.time.unix;
 				
 				return utils.app.diffDateTimeLocalized( currentGameTime, time );
+			},
+			$jobRemainingTimeToDueDate() {
+				const configData = config.load();
+				
+				return configData.jagfx_elements_general_job_remaining === 'due_date';
 			},
 			
 			// --- Trailer
