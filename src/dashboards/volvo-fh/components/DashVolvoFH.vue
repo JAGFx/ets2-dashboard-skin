@@ -23,7 +23,8 @@
 					'minAngle' : -97,
 					'maxAngle': 97,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed | unit_speed( true, false ) }}</span></div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( truck.speed, true, false ) }}</span>
+				</div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
@@ -60,7 +61,8 @@
 					'minAngle' : -53,
 					'maxAngle': 53,
 				}"></CadranElement>-->
-				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer | unit_length( 'km', true, false ) | $toFixed( 0 ) }}</span></div>
+				<div class="truck-odometer wrapper-area"><span>{{ unit_length( truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
+				</div>
 				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ truck.cruiseControl.kph }}</span></div>-->
 				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
 				</div>
@@ -73,20 +75,21 @@
 				<div :class="{ 'yes': truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
 				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>
 				<div class="trailer-mass wrapper-area">
-					<span>{{ job.cargo.mass | unit_weight( true, false ) | $toFixed( 1 ) }}<span class="ton">{{ job.cargo.mass | unit_weight(  false ) }}</span></span></div>
-								<div class="trailer-name">{{ job.cargo.name }}</div>
+					<span>{{ unit_weight( job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( job.cargo.mass, false ) }}</span></span>
+				</div>
+				<div class="trailer-name">{{ job.cargo.name }}</div>
 				<div class="game-time wrapper-area"><span>{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>
 				</div>
 				<div :class="{ 'yes': truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
 				<div :class="{ 'yes': truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
 				<div class="truck-retarderBrake wrapper-area"><span>{{ truck.brakes.retarder.level }}</span></div>
-				<div class="truck-waterTemperature">{{ truck.engine.waterTemperature.value | unit_degrees }}</div>
-				<div class="truck-oilTemperature">{{ truck.engine.oilTemperature.value | unit_degrees }}</div>
+				<div class="truck-waterTemperature">{{ unit_degrees( truck.engine.waterTemperature.value ) }}</div>
+				<div class="truck-oilTemperature">{{ unit_degrees( truck.engine.oilTemperature.value ) }}</div>
 				<div class="truck-batteryVoltage">{{ truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>
-<!--				<div :class="{ 'yes': truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
+				<!--				<div :class="{ 'yes': truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
 				<div :class="{ 'yes': truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>
-				
-				
+			
+			
 			</div>
 		</div>
 	</Dashboard>

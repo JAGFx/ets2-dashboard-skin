@@ -3,7 +3,7 @@ import babel   from 'gulp-babel';
 import plumber from 'gulp-plumber';
 
 function watch() {
-	gulp.watch( 'index.js', { cwd: './' }, gulp.series( build ) );
+	gulp.watch( [ 'src/**/*.js', 'src/**/*.mjs' ], { cwd: './' }, gulp.series( build ) );
 }
 
 function build() {

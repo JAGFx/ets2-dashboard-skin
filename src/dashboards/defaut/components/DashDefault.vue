@@ -23,8 +23,10 @@
 					'minAngle' : -114,
 					'maxAngle': 114,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed | unit_speed( true, false ) }}</span></div>
-				<div class="truck-speedRounded-unit wrapper-area"><span>{{ truck.speed | unit_speed( false ) }}</span></div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( truck.speed, true, false ) }}</span>
+				</div>
+				<div class="truck-speedRounded-unit wrapper-area"><span>{{ unit_speed( truck.speed, false ) }}</span>
+				</div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
@@ -52,7 +54,8 @@
 					'minAngle' : -96,
 					'maxAngle': 0,
 				}"></CadranElement>
-				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer | unit_length( 'km', true, false ) | $toFixed( 0 ) }}</span></div>
+				<div class="truck-odometer wrapper-area"><span>{{ unit_length( truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
+				</div>
 				<div class="truck-cruiseControlSpeedRounded wrapper-area">
 					<span>{{ truck.cruiseControl.kph }}</span></div>
 				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
@@ -65,7 +68,8 @@
 				<div :class="{ 'yes': truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
 				<div :class="{ 'yes': truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
 				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>
-				<div class="trailer-mass">{{ job.cargo.mass | unit_weight( true, false ) | $toFixed( 1 ) }}<span class="ton">{{ job.cargo.mass | unit_weight(  false ) }}</span>
+				<div class="trailer-mass">{{ unit_weight( job.cargo.mass, true, false ) | $toFixed( 1 )
+					}}<span class="ton">{{ unit_weight( job.cargo.mass, false ) }}</span>
 				</div>
 				<div class="trailer-name">{{ job.cargo.name }}</div>
 				<!-- job information -->
@@ -97,7 +101,7 @@
 						<th>Deadline in:</th>
 						<td>
 							<span class="job-remainingTime">{{ $jobRemainingTimeDelivery( job.deliveryTime.unix ) }}</span>
-							<span class="_jobIncome"> (<span class="job-income">{{ job.income | unit_currency }}</span>)</span>
+							<span class="_jobIncome"> (<span class="job-income">{{ unit_currency( job.income ) }}</span>)</span>
 						</td>
 					</tr>
 				</table>

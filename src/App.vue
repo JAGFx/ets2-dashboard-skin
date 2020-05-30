@@ -52,6 +52,7 @@
 		created() {
 			//console.log( this );
 			this.$store.dispatch( 'skins/setFirstActive' );
+			this.$store.dispatch( 'config/load' );
 		},
 		
 		methods: {

@@ -7,11 +7,12 @@
   "scripts" :         {
     "test" :  "echo \"Error: no test specified\" && exit 1",
     "start" : "node ./dist/main.js",
-    "dev" :   "nodemon -r esm ./src/main.js",
+    "dev" :   "npx gulp watch",
     "build" : "npx gulp"
   },
   "dependencies" :    {
     "@std/esm" :           "^0.26.0",
+    "body-parser" :        "^1.19.0",
     "esm" :                "^3.2.25",
     "express" :            "^4.17.1",
     "socket.io" :          "^2.2.0",

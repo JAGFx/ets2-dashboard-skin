@@ -7,10 +7,11 @@
  */
 
 
-import Vue  from 'vue';
-import Vuex from 'vuex';
+import Vue    from 'vue';
+import Vuex   from 'vuex';
+import config from './modules/_config';
 
-import menu from './modules/_menu';
+import menu      from './modules/_menu';
 import skins     from './modules/_skins';
 import telemetry from './modules/_telemetry';
 
@@ -22,6 +23,7 @@ export default new Vuex.Store( {
 	modules: {
 		skins,
 		telemetry,
+		config,
 		menu
 	},
 	strict:  debug

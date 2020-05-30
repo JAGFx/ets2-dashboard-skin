@@ -10,7 +10,7 @@
 						<span>{{truck.model.name}}</span>
 					</small>
 					<!--<span>
-						{{truck.fuel.avgConsumption | unit_consumption}} l/100
+						{{unit_consumption( truck.fuel.avgConsumption )}} l/100
 					</span>-->
 				</div>
 				<div class="truck-stats">
@@ -42,7 +42,7 @@
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_cruiseControl' )">
 				<span v-show="!truck.cruiseControl.enabled">OFF</span>
-				<span v-show="truck.cruiseControl.enabled">{{ truck.cruiseControl | unit_speed }}</span>
+				<span v-show="truck.cruiseControl.enabled">{{ unit_speed( truck.cruiseControl ) }}</span>
 				<div class="round">
 					<i class="icon-cruise_control"></i>
 				</div>
@@ -53,7 +53,7 @@
 					'orange': truck.fuel.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_fuel' )">
-				<span>{{ truck.fuel.value | unit_volume }}</span>
+				<span>{{  unit_volume( truck.fuel.value ) }}</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
 				</div>
@@ -61,7 +61,7 @@
 			
 			<!-- Fuel consumption -->
 			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_fuelConsumption' )">
-				<span>{{ truck.fuel.avgConsumption | unit_consumption }}</span>
+				<span>{{ unit_consumption( truck.fuel.avgConsumption ) }}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
 				</div>
@@ -73,7 +73,7 @@
 					'red': truck.brakes.airPressure.emergency.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_brakesAirPressure' )">
-				<span>{{ truck.brakes.airPressure.value | unit_pressure }}</span>
+				<span>{{ unit_pressure( truck.brakes.airPressure.value ) }}</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
@@ -81,7 +81,7 @@
 			
 			<!-- Oil temperature -->
 			<li class="default" v-if="elementIsEnabled( 'jagfx_elements_right_oilTemperature' )">
-				<span>{{ truck.engine.oilTemperature.value | unit_degrees }}</span>
+				<span>{{ unit_degrees( truck.engine.oilTemperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-oil"></i>
 				</div>
@@ -89,7 +89,7 @@
 			
 			<!-- Brakes temparature -->
 			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_brakesTemperature' )">
-				<span>{{ truck.brakes.temperature.value | unit_degrees }}</span>
+				<span>{{ unit_degrees( truck.brakes.temperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
 				</div>
@@ -100,7 +100,7 @@
 					'orange': truck.engine.waterTemperature.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_waterTemperature' )">
-				<span>{{ truck.engine.waterTemperature.value | unit_degrees }}</span>
+				<span>{{ unit_degrees( truck.engine.waterTemperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
 				</div>

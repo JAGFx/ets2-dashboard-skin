@@ -7,8 +7,6 @@
 	 * Time: 	13:12
 	 */
 	
-	import utilsConfig from '../../../../utils/_config';
-	
 	export default {
 		data() {
 			return {
@@ -25,7 +23,7 @@
 			};
 		},
 		created() {
-			const config = utilsConfig.load();
+			const config = this.$store.getters[ 'config/all' ];
 			const keys   = Object.keys( config );
 			
 			const configRight        = keys.filter( elm => {
@@ -55,7 +53,7 @@
 		},
 		methods: {
 			$elementIsEnabled: function ( side, element, options ) {
-				const config       = utilsConfig.load();
+				const config       = this.$store.getters[ 'config/all' ];
 				const sideElements = this.elements[ side ];
 				const indexElement = sideElements.indexOf( element );
 				const isOnSide     = indexElement !== -1;

@@ -7,14 +7,11 @@
 		volume as uc_volume
 	}                     from 'units-converter';
 	import { mapGetters } from 'vuex';
-	import config         from '../../utils/_config';
-	
-	import utilsConfig from '../../utils/_config';
 	
 	import * as utils from '../../utils/utils';
 	
 	export default {
-		name: 'AppDashMixins',
+		name:    'AppDashMixins',
 		data() {
 			return this.pickData()();
 		},
@@ -29,12 +26,41 @@
 			$dateTimeLocalized( time, dFormat, tFormat ) {
 				return utils.app.dateTimeLocalized( time, dFormat, tFormat );
 			},
-			$toFixed( value, decimal ){
+			$toFixed( value, decimal ) {
 				return value.toFixed( decimal );
+			}
+		},
+		methods: {
+			// ---------------------------------------
+			// --- Commons methods
+			
+			// --- Filters
+			
+			unit_speed( value, showValue = true, showSymbol = true ) {
+				const speed = this.$store.getters[ 'config/get' ]( 'unit_speed' );
+				let unit    = '';
+				
+				value = value[ speed ];
+				
+				switch ( speed ) {
+					case 'kph':
+						unit = 'km/h';
+						break;
+					case 'mph':
+						unit = 'm/h';
+						break;
+				}
+				
+				if ( showValue && !showSymbol )
+					return value.toFixed( 0 );
+				
+				if ( !showValue && showSymbol )
+					return unit;
+				
+				return value.toFixed( 0 ) + ' ' + unit;
 			},
 			unit_currency( value, showValue = true, showSymbol = true ) {
-				const configValue         = utilsConfig.load();
-				const currencySymbolValue = configValue.unit_currency;
+				const currencySymbolValue = this.$store.getters[ 'config/get' ]( 'unit_currency' );
 				let unit                  = '';
 				
 				switch ( currencySymbolValue ) {
@@ -60,8 +86,7 @@
 				return unit + ' ' + value.toLocaleString();
 			},
 			unit_length( value, unitFrom = 'm', showValue = true, showSymbol = true ) {
-				const configValue  = utilsConfig.load();
-				const length       = configValue.unit_length;
+				const length       = this.$store.getters[ 'config/get' ]( 'unit_length' );
 				const unitExcluded = [ 'in', 'yd', 'ft-us', 'fathom', 'nMi' ];
 				let unit           = '';
 				
@@ -98,8 +123,7 @@
 				return value.toLocaleString() + ' ' + unit;
 			},
 			unit_weight( value, showValue = true, showSymbol = true ) {
-				const configValue  = utilsConfig.load();
-				const weight       = configValue.unit_weight;
+				const weight       = this.$store.getters[ 'config/get' ]( 'unit_weight' );
 				const unitExcluded = [ 'mcg', 'mg', 'mt', 'oz' ];
 				let unit           = '';
 				
@@ -133,33 +157,8 @@
 				
 				return value.toFixed( 1 ) + ' ' + unit;
 			},
-			unit_speed( value, showValue = true, showSymbol = true ) {
-				const configValue = utilsConfig.load();
-				const speed       = configValue.unit_speed;
-				let unit          = '';
-				
-				value = value[ speed ];
-				
-				switch ( speed ) {
-					case 'kph':
-						unit = 'km/h';
-						break;
-					case 'mph':
-						unit = 'm/h';
-						break;
-				}
-				
-				if ( showValue && !showSymbol )
-					return value.toFixed( 0 );
-				
-				if ( !showValue && showSymbol )
-					return unit;
-				
-				return value.toFixed( 0 ) + ' ' + unit;
-			},
 			unit_volume( value, showValue = true, showSymbol = true ) {
-				const configValue = utilsConfig.load();
-				const unitDefined = configValue.unit_volume;
+				const unitDefined = this.$store.getters[ 'config/get' ]( 'unit_volume' );
 				
 				let unit = '';
 				
@@ -179,8 +178,7 @@
 				return value.toFixed( 0 ) + ' ' + unit;
 			},
 			unit_consumption( value, showValue = true, showSymbol = true ) {
-				const configValue = utilsConfig.load();
-				const unitDefined = configValue.unit_consumption;
+				const unitDefined = this.$store.getters[ 'config/get' ]( 'unit_consumption' );
 				let conversion    = null;
 				
 				let unit = '';
@@ -220,8 +218,7 @@
 				return value + ' ' + unit;
 			},
 			unit_pressure( value, showValue = true, showSymbol = true ) {
-				const configValue = utilsConfig.load();
-				const unitDefined = configValue.unit_pressure;
+				const unitDefined = this.$store.getters[ 'config/get' ]( 'unit_pressure' );
 				
 				let unit = '';
 				
@@ -241,8 +238,7 @@
 				return value.toFixed( 0 ) + ' ' + unit;
 			},
 			unit_degrees( value, showValue = true, showSymbol = true ) {
-				const configValue = utilsConfig.load();
-				const unitDefined = configValue.unit_degrees;
+				const unitDefined = this.$store.getters[ 'config/get' ]( 'unit_degrees' );
 				
 				let unit = '';
 				
@@ -260,11 +256,10 @@
 					return unit;
 				
 				return value.toFixed( 0 ) + ' ' + unit;
-			}
-		},
-		methods: {
-			// ---------------------------------------
-			// --- Commons methods
+			},
+			
+			// --- ./Filters
+			
 			
 			// --- Commons
 			
@@ -308,6 +303,9 @@
 				return pressure;
 			},
 			
+			// --- ./Commons
+			
+			
 			// --- Job
 			
 			$hasJob: function () {
@@ -319,10 +317,13 @@
 				return utils.app.diffDateTimeLocalized( currentGameTime, time );
 			},
 			$jobRemainingTimeToDueDate() {
-				const configData = config.load();
+				const configData = this.$store.getters[ 'config/all' ];
 				
 				return configData.jagfx_elements_general_job_remaining === 'due_date';
 			},
+			
+			// --- ./Job
+			
 			
 			// --- Trailer
 			
@@ -333,12 +334,14 @@
 				return this.trailer.model.id.length !== 0 && this.job.cargo.name.length !== 0;
 			},
 			
+			// --- ./Trailer
+			
 			
 			// --- Navigation
 			
-			$trukGear:   function ( transmission, brand ) {
+			$trukGear: function ( transmission, brand ) {
 				/*console.log( this );*/
-				const configSettings          = utilsConfig.load();
+				const configSettings          = this.$store.getters[ 'config/all' ];
 				const hShiftLayout            = configSettings[ 'general_h-shift-layout' ];
 				const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
 				
@@ -380,9 +383,9 @@
 				
 				return strGear;
 			},
-			$truckSpeed: function () {
-				return Math.abs( this.truck.speed.value * 3.6 );
-			},
+			
+			// --- ./Navigation
+			
 			
 			// ----------------
 			...mapGetters( {

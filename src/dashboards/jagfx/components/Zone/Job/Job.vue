@@ -39,22 +39,22 @@
 					<i class="icon-currency"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else>{{ job.income | unit_currency }}</span>
+				<span v-else>{{ unit_currency( job.income ) }}</span>
 			</li>
 			<li :class="{ 'disabled': navigation.distance === 0  }" class="default">
 				<div class="round">
 					<i class="icon-ruler"></i>
 				</div>
 				<span v-if="navigation.distance === 0">N/A</span>
-				<span v-else-if="navigation.distance < 1000"> {{ navigation.distance | unit_length( 'm' ) }}</span>
-				<span v-else>{{navigation.distance | unit_length }}</span>
+				<span v-else-if="navigation.distance < 1000"> {{ unit_length( navigation.distance, 'm' ) }}</span>
+				<span v-else>{{unit_length( navigation.distance ) }}</span>
 			</li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-weight"></i>
 				</div>
 				<span v-if="!$hasJob()">N/A</span>
-				<span v-else>{{ job.cargo.mass | unit_weight }}</span>
+				<span v-else>{{ unit_weight( job.cargo.mass ) }}</span>
 			</li>
 		</ul>
 		
@@ -63,7 +63,7 @@
 			<div><b>Destination:</b><span>{{job.destination.city.name}} - {{job.destination.company.name}}</span></div>
 			<div><b>Source:</b><span>{{job.source.city.name}} - {{job.source.company.name}}</span></div>
 			<div><b>Market:</b><span>{{market.name}}</span></div>
-			<div><b>Income:</b><span>{{job.income | unit_currency}}</span></div>
+			<div><b>Income:</b><span>{{unit_currency( job.income )}}</span></div>
 			<div><b>Special transport:</b><span>{{isSpecial ? 'YES' : 'NO'}}</span></div>
 			<div><b>Planned navigation.distance:</b><span>{{plannedDistance.km}}km / {{plannedDistance.miles}}Miles</span></div>
 		</div>

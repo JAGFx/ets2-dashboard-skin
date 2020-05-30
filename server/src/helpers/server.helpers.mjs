@@ -6,7 +6,9 @@
  * Time: 	15:56
  */
 
+import bodyParser        from 'body-parser';
 import express           from 'express';
+import fs                from 'fs';
 import http              from 'http';
 import path              from 'path';
 import socketio          from 'socket.io';
@@ -14,7 +16,7 @@ import truckSimTelemetry from 'trucksim-telemetry';
 import { logIt }         from './utils.helpers';
 
 let app, server, io, telemetry, port, interval, pathDist;
-
+const configFilePath = path.resolve( __dirname, '../config.ets2-dashboard-skin.json' );
 
 const init = () => {
 	app       = express();
@@ -25,17 +27,30 @@ const init = () => {
 	interval  = 15;
 	pathDist  = path.resolve( __dirname, '../../../dist' );
 	
+	app.use( bodyParser.json() );
 	app.use( express.static( pathDist ) );
 	
-	telemetry.watch( { interval: interval }, function ( data ) {
+	app.post( '/config', ( req, res ) => {
+		fs.writeFileSync( configFilePath, JSON.stringify( req.body, null, 2 ) );
+		
+		res.send( req.body );
+	} );
+	
+	app.get( '/config', ( req, res ) => {
+		const file = fs.readFileSync( configFilePath, 'UTF-8' );
+		
+		res.send( file );
+	} );
+	
+	telemetry.watch( { interval: interval }, data => {
 		io.emit( 'update', data );
 	} );
 	
-	io.on( 'connection', function ( socket ) {
+	io.on( 'connection', socket => {
 		io.emit( 'update', telemetry.data );
 	} );
 	
-	server.listen( port, function () {
+	server.listen( port, () => {
 		const url  = `localhost:${ port }`;
 		const data = {
 			url:  url,

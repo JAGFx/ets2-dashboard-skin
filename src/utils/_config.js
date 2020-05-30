@@ -6,20 +6,9 @@
  * Time: 	17:50
  */
 
-import axios      from 'axios';
-import FileSaver  from 'file-saver';
-import testConfig from '../data/ets2-dashboard-skin.config.json';
-import utilsApp   from './_app';
-
-const configData = () => {
-	const path = utilsApp.basePathHost + 'config.json';
-	//console.log( path );
-	return axios.get( path )
-				.then( response => {
-					//console.log( 'Config', response.data );
-					return response.data;
-				} );
-};
+import axios       from 'axios';
+import FileSaver   from 'file-saver';
+import defaultData from '../data/ets2-dashboard-skin.config.json';
 
 const generateEmptyData = ( config, configSkins ) => {
 	let emptyData = {};
@@ -46,29 +35,37 @@ const generateEmptyData = ( config, configSkins ) => {
 	return emptyData;
 };
 
+const emptyData = () => {
+	return defaultData;
+};
+
 const save = data => {
-	console.log( data );
-	// TODO: Push on server
+	axios.post( '/config', data )
+		 .then( response => {
+			 //console.log( 'Save', response.data );
+		 }, error => {
+			 console.log( error );
+		 } );
 };
 
 const download = () => {
 	// TODO: Get from server
-	const data = load();
-	const file = new File( [ JSON.stringify( data, null, 2 ) ],
+	load();
+	const file = new File( [ JSON.stringify( currentData, null, 2 ) ],
 		'ets2-dashboard-skin.config.json',
 		{ type: 'application/json;charset=utf-8' } );
 	FileSaver.saveAs( file );
 };
 
 const load = () => {
-	// TODO: Get from server
-	
-	let data = {};
-	
-	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
-		data = testConfig;
-	
-	return data;
+	return axios.get( '/config' )
+				.then( response => {
+					//console.log(  'Load', response.data );
+					return response.data;
+				}, error => {
+					console.warn( error );
+					return emptyData();
+				} );
 };
 
 const upload = file => {
@@ -89,11 +86,12 @@ const upload = file => {
 	};
 };
 
+
 export default {
-	configData,
+	load,
 	generateEmptyData,
+	emptyData,
 	save,
 	download,
-	load,
 	upload
 };

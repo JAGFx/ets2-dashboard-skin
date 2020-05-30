@@ -2,7 +2,7 @@
 	<div class="tab-config">
 		<div class="d-flex justify-content-center align-items-center pb-3">
 			<button @click="save" class="btn btn-sm btn-outline-ets mx-1"><i class="far fa-save"></i> Save</button>
-			<button @click="download" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-download"></i> Export
+			<button @click="download" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-download"></i> Download
 			</button>
 			<button @click="reset" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-trash-restore-alt"></i>
 				Reset
@@ -18,7 +18,7 @@
 			<div :key="category.name" class="fields mb-4" v-for="category in config.categories">
 				<h4>{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" @change="save" v-bind="{
+				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
 					'elm': element,
 					data: data[ element.id ]
 				}" v-for="element in category.elements" />
@@ -37,7 +37,7 @@
 			<div :class="'config-skin-' + skin.id" :key="category.name" class="collapse fields mb-4" v-for="category in skinsConfigTemplate( skin )">
 				<h4 class="d-flex justify-content-between align-items-center">{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" @change="save" v-bind="{
+				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
 					'elm': element,
 					data: data[ element.id ]
 				}" v-for="element in category.elements" />
@@ -66,7 +66,7 @@
 			const configSkins = {
 				JAGFx: configJAGFx
 			};
-			const data        = utilsConfig.load();
+			const data        = this.$store.getters[ 'config/all' ];
 			
 			return {
 				config:      config,

@@ -23,7 +23,8 @@
 					'minAngle' : -122,
 					'maxAngle': 123,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ truck.speed | unit_speed( true, false ) }}</span></div>
+				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( truck.speed, true, false ) }}</span>
+				</div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
@@ -60,7 +61,8 @@
 					'minAngle' : -53,
 					'maxAngle': 53,
 				}"></CadranElement>
-				<div class="truck-odometer wrapper-area"><span>{{ truck.odometer | unit_length( 'km', true, false ) | $toFixed( 0 ) }}</span></div>
+				<div class="truck-odometer wrapper-area"><span>{{ unit_length( truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
+				</div>
 				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ truck.cruiseControl.kph }}</span></div>-->
 				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
 				</div>
@@ -74,7 +76,8 @@
 				<!--				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>-->
 				<div :class="{ 'yes': truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
 				<div class="trailer-mass wrapper-area">
-					<span>{{ job.cargo.mass | unit_weight( true, false ) | $toFixed( 1 ) }}<span class="ton">{{ job.cargo.mass | unit_weight(  false ) }}</span></span></div>
+					<span>{{ unit_weight( job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( job.cargo.mass, false ) }}</span></span>
+				</div>
 				<!--				<div class="trailer-name">{{ job.cargo.name }}</div>-->
 				<div class="game-time wrapper-area"><span>{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>
 				</div>
