@@ -73,6 +73,14 @@ const diffDateTimeLocalized = ( dFrom, dTo, withPrefix = true ) => {
 	return 'in ' + moment.utc( diff ).format( 'HH[h] mm[m] ss[s]' );
 };
 
+const sleep = milliseconds => {
+	const date      = Date.now();
+	let currentDate = null;
+	do {
+		currentDate = Date.now();
+	} while ( currentDate - date < milliseconds );
+};
+
 export default {
 	basePathHost,
 	version,
@@ -81,6 +89,7 @@ export default {
 	jsonReadable,
 	dateTimeLocalized,
 	diffDateTimeLocalized,
+	sleep,
 	formatConstants: {
 		DATE_FORMAT_NONE,
 		DATE_FORMAT_SHORT,

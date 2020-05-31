@@ -1,14 +1,30 @@
 <template>
 	<div class="tab-config">
+		<b-overlay :variant="'transparent'" no-wrap :show="appGetProcessing()"><!---->
+			<template v-slot:overlay>
+				<div class="d-flex justify-content-center flex-column align-items-center">
+					<h1>Processing</h1>
+					<b-spinner type="grow" label="Loading..."></b-spinner>
+				</div>
+			</template>
+		</b-overlay>
 		<div class="d-flex justify-content-center align-items-center pb-3">
-			<button @click="save" class="btn btn-sm btn-outline-ets mx-1"><i class="far fa-save"></i> Save</button>
-			<button @click="download" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-download"></i> Download
+			<button @click="save" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+				<b-icon-file-earmark-check></b-icon-file-earmark-check>
+				Save
 			</button>
-			<button @click="reset" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-trash-restore-alt"></i>
+			<button @click="download" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+				<b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
+				Download
+			</button>
+			<button @click="reset" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+				<b-icon-file-earmark-break></b-icon-file-earmark-break>
 				Reset
 			</button>
 			<span>
-				<button @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-upload"></i> Upload</button>
+				<button @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+					<b-icon-file-earmark-arrow-up></b-icon-file-earmark-arrow-up> Upload
+				</button>
 				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" ref="uploadFile" />
 			</span>
 		</div>
@@ -47,8 +63,9 @@
 </template>
 
 <script>
-	import _           from 'lodash';
-	import configJAGFx from '../../../dashboards/jagfx/data/config_template.json';
+	import _              from 'lodash';
+	import { mapGetters } from 'vuex';
+	import configJAGFx    from '../../../dashboards/jagfx/data/config_template.json';
 	
 	import config      from '../../../data/config_template.json';
 	import skins       from '../../../data/skins.json';
@@ -73,6 +90,7 @@
 				skins:       skinsOk,
 				configSkins: configSkins,
 				showUpload:  false,
+				processing:  false,
 				data:        data
 			};
 		},
@@ -84,12 +102,28 @@
 				this.data = utilsConfig.generateEmptyData( config, this.configSkins );
 			},
 			save() {
-				utilsConfig.save( this.data );
+				this.$store.commit( 'app/setProcessing', true );
+				utilsConfig
+					.save( this.data )
+					.then( data => {
+						//utils.app.sleep( 1000 );
+						console.log( 'Its OK' );
+					} )
+					.finally( () => {
+						this.$store.commit( 'app/setProcessing', false );
+					} );
 			},
 			download() {
-				utilsConfig.download();
+				this.$store.commit( 'app/setProcessing', true );
+				utilsConfig
+					.download()
+					.finally( () => {
+						this.$store.commit( 'app/setProcessing', false );
+					} );
 			},
 			upload( input ) {
+				this.$store.commit( 'app/setProcessing', true );
+				
 				utilsConfig
 					.upload( input.target.files[ 0 ] )
 					.then( data => {
@@ -99,8 +133,13 @@
 					.finally( () => {
 						this.$refs.uploadFile.value = null;
 						this.showUpload             = false;
+						
+						this.$store.commit( 'app/setProcessing', false );
 					} );
-			}
+			},
+			...mapGetters( {
+				appGetProcessing: 'app/getProcessing'
+			} )
 		}
 	};
 </script>

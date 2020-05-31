@@ -9,6 +9,7 @@
 
 import Vue    from 'vue';
 import Vuex   from 'vuex';
+import app    from './modules/_app';
 import config from './modules/_config';
 
 import menu      from './modules/_menu';
@@ -24,7 +25,8 @@ export default new Vuex.Store( {
 		skins,
 		telemetry,
 		config,
-		menu
+		menu,
+		app
 	},
 	strict:  debug
 } );

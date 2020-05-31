@@ -104,7 +104,7 @@ main {
 }
 
 .btn-outline-ets{
-	@include button-outline-variant( $cWhite, $cWhite, transparentize($cRed, .5), $cRed );
+	@include button-outline-variant($cWhite, $cWhite, transparentize($cRed, .5), $cRed);
 	background: $cBlackTransparentHigh;
 	color: $cWhite;
 	border-radius: 0;
@@ -113,10 +113,12 @@ main {
 	min-width: 5rem;
 	transition: all .3s ease-in-out;
 	
-	&:hover, &:focus {
-		border-color: $cRed;
-		background: transparentize($cRed, .5);
-		transition: all .1s ease-in-out;
+	:not([disabled]) {
+		&:hover, &:focus, &.active {
+			border-color: $cRed;
+			background: transparentize($cRed, .5);
+			transition: all .1s ease-in-out;
+		}
 	}
 }
 

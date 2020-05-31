@@ -39,8 +39,13 @@ const emptyData = () => {
 	return defaultData;
 };
 
-const save = data => {
-	return axios
+const save = async data => {
+	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
+		return new Promise( resolve => {
+			setTimeout( () => resolve( data ), 1000 );
+		} );
+	
+	return await axios
 		.post( '/config', data )
 		.then( response => {
 			return response.data;
@@ -52,7 +57,7 @@ const save = data => {
 };
 
 const download = () => {
-	load()
+	return load()
 		.then( data => {
 			const file = new File(
 				[ JSON.stringify( data, null, 2 ) ],
@@ -65,6 +70,11 @@ const download = () => {
 };
 
 const load = () => {
+	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
+		return new Promise( resolve => {
+			setTimeout( () => resolve( emptyData() ), 1000 );
+		} );
+	
 	return axios.get( '/config' )
 				.then( response => {
 					//console.log(  'Load', response.data );

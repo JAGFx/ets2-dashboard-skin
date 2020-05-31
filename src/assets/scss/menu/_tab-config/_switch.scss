@@ -38,6 +38,11 @@
 				}
 			}
 			
+			&.processing, &.processing > .value {
+				border-color: lighten(#000, 40%);
+				background: transparentize(lighten(#000, 75%), .95);
+				transition: all .1s ease-in-out;
+			}
 		}
 	}
 }
