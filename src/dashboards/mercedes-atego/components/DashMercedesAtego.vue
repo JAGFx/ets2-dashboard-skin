@@ -5,7 +5,7 @@
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">
-			<div :class="{'yes': job.cargo.id}" class="hasJob">
+			<div :class="{'yes': telemetry.job.cargo.id}" class="hasJob">
 				<!-- meters -->
 				<!--
 					Attributes:
@@ -17,18 +17,18 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-speed',
 					'type': 'meter',
-					'value': truck.speed.kph,
+					'value': telemetry.truck.speed.kph,
 					'min': 0,
 					'max': 120,
 					'minAngle' : -111,
 					'maxAngle': 110,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( truck.speed, true, false ) }}</span>
+				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( telemetry.truck.speed, true, false ) }}</span>
 				</div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
-					'value': truck.engine.rpm.value / 100,
+					'value': telemetry.truck.engine.rpm.value / 100,
 					'min': 0,
 					'max': 30,
 					'minAngle' : -111,
@@ -37,16 +37,16 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-fuel',
 					'type': 'meter',
-					'value': truck.fuel.value,
+					'value': telemetry.truck.fuel.value,
 					'min': 0,
-					'max': truck.fuel.capacity,
+					'max': telemetry.truck.fuel.capacity,
 					'minAngle' : -103,
 					'maxAngle': 103,
 				}"></CadranElement>
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-waterTemperature',
 					'type': 'meter',
-					'value': truck.engine.waterTemperature.value,
+					'value': telemetry.truck.engine.waterTemperature.value,
 					'min': -48,
 					'max': 100,
 					'minAngle' : -48,
@@ -55,37 +55,37 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-airPressure',
 					'type': 'meter',
-					'value': $pressureToBar(truck.brakes.airPressure.value),
+					'value': $pressureToBar(telemetry.truck.brakes.airPressure.value),
 					'min': 0,
 					'max': 12,
 					'minAngle' : -103,
 					'maxAngle': 105,
 				}"></CadranElement>
-				<div class="truck-odometer wrapper-area"><span>{{ unit_length( truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
+				<div class="truck-odometer wrapper-area"><span>{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
 				</div>
-				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ truck.cruiseControl.kph }}</span></div>-->
-				<div class="truck-gear wrapper-area"><span>{{ $trukGear( truck.transmission, truck.brand ) }}</span>
+				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
+				<div class="truck-gear wrapper-area"><span>{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
 				</div>
 				<!-- indicators -->
-				<div :class="{ 'yes': truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
-				<div :class="{ 'yes': truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
-				<!--				<div :class="{ 'yes': truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>-->
-				<div :class="{ 'yes': truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
-				<div :class="{ 'yes': truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
-				<div :class="{ 'yes': truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
-				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>
+				<!--				<div :class="{ 'yes': telemetry.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>-->
+				<div :class="{ 'yes': telemetry.truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
+				<div :class="{'yes': telemetry.trailer.attached}" class="trailer-attached"></div>
 				<!--				<div class="trailer-mass wrapper-area">-->
-				<!--					<span>{{ unit_weight( job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( job.cargo.mass, false ) }}</span></span></div>-->
-				<!--				<div class="trailer-name">{{ job.cargo.name }}</div>-->
-				<div :class="{ 'yes': truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>
-				<div :class="{ 'yes': truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
-				<div :class="{ 'yes': truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
-				<div class="truck-retarderBrake">{{ truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>
-				<!--				<div class="truck-oilTemperature">{{ truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
-				<!--				<div class="truck-batteryVoltage">{{ truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
-				<div class="game-time wrapper-area"><span>{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>
+				<!--					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
+				<!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
+				<div :class="{ 'yes': telemetry.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>
+				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
+				<div :class="{ 'yes': telemetry.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
+				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>
+				<!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
+				<!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
+				<div class="game-time wrapper-area"><span>{{ telemetry.game.time.unix | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>
 				</div>
-				<!--				<div :class="{ 'yes': truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
+				<!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
 			</div>
 		</div>
 	</Dashboard>

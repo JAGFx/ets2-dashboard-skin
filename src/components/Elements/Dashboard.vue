@@ -1,5 +1,5 @@
 <template>
-	<div :class="truck.brand.id">
+	<div :class="telemetry.truck.brand.id">
 		<div id="overlay" v-show="enabledFullScreen()"></div>
 		<slot v-bind="{ skinData: skinData() }"></slot>
 	</div>

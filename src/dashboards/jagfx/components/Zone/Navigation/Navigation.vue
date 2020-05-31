@@ -5,8 +5,8 @@
 				<!-- Left elements -->
 				<DashSymbolArea side="left"></DashSymbolArea>
 				
-				<div :class="truck.transmission.shifterType" class="truck-gear">
-					<span class="value">{{ $trukGear(truck.transmission, truck.brand) }}</span>
+				<div :class="telemetry.truck.transmission.shifterType" class="truck-gear">
+					<span class="value">{{ $trukGear(telemetry.truck.transmission, telemetry.truck.brand) }}</span>
 				</div>
 				
 				<!-- Right elements -->
@@ -19,15 +19,15 @@
 				<div class="speed-wrapper">
 					<div class="left" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )">
 						<RPMBars v-bind="{
-							engine: truck.engine,
-							brand: truck.brand,
-							model: truck.model
+							engine: telemetry.truck.engine,
+							brand: telemetry.truck.brand,
+							model: telemetry.truck.model
 						}"></RPMBars>
 					</div>
 					<div class="middle">
 						<div class="speed">
-							<span class="value">{{ unit_speed( truck.speed, true, false ) }}</span>
-							<small class="unit">{{ unit_speed( truck.speed, false ) }}</small>
+							<span class="value">{{ unit_speed( telemetry.truck.speed, true, false ) }}</span>
+							<small class="unit">{{ unit_speed( telemetry.truck.speed, false ) }}</small>
 						</div>
 						
 						<div class="fuel-level" v-if="$elementIsEnabled( 'middle-b','jagfx_elements_mid_bottom_fuel' )">
@@ -42,28 +42,28 @@
 					</div>
 					<div class="right" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )">
 						<RPMBars v-bind="{
-							engine: truck.engine,
-							brand: truck.brand,
-							model: truck.model
+							engine: telemetry.truck.engine,
+							brand: telemetry.truck.brand,
+							model: telemetry.truck.model
 						}"></RPMBars>
 					</div>
 				</div>
 			</div>
 			
 			<!--<div class="speed">
-				<span class="value">{{unit_speed(truck.speed true, false )}}</span>
+				<span class="value">{{unit_speed(telemetry.truck.speed true, false )}}</span>
 				<small class="unit">km/h</small>
 			</div>-->
 			
 			<div class="odometer">
-				<span class="value">{{ unit_length( truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
-				<small class="unit">{{ unit_length( truck.odometer, 'km', false ) }}</small>
+				<span class="value">{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
+				<small class="unit">{{ unit_length( telemetry.truck.odometer, 'km', false ) }}</small>
 			</div>
 			
 			<!-- Speed limit -->
-			<div :class="{ 'hidden': navigation.speedLimit.value === 0 }" class="speedLimits" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )">
-				<div class="speedLimitKPH">{{ unit_speed( navigation.speedLimit, true, false ) }}</div>
-				<!--<div class="speedLimitMPH">{{navigation.speedLimit.mph}}</div>-->
+			<div :class="{ 'hidden': telemetry.navigation.speedLimit.value === 0 }" class="speedLimits" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )">
+				<div class="speedLimitKPH">{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</div>
+				<!--<div class="speedLimitMPH">{{telemetry.navigation.speedLimit.mph}}</div>-->
 			</div>
 		
 		</div>
@@ -71,7 +71,7 @@
 			&lt;!&ndash;<div><b>Next rest stop:</b><div>{{formatNextRestStop()}}</div></div>
 			<div><b>DistancIe:</b><div>{{(distance / 1000).toFixed().toLocaleString()}}km / {{(distance * 0.0006213712).toFixed()}}Miles</div></div>
 			<div><b>ETA</b><div>{{formatETA()}}</div></div>&ndash;&gt;
-			&lt;!&ndash;<div><b>Speed</b><div>{{truck.speed unit_speed( truck.speed, true, false )}}kph / {{truck.speed.mph}}mph</div></div>&ndash;&gt;
+			&lt;!&ndash;<div><b>Speed</b><div>{{telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false )}}kph / {{telemetry.truck.speed.mph}}mph</div></div>&ndash;&gt;
 		</div>-->
 	</div>
 </template>
@@ -88,21 +88,21 @@
 		mixins:     [ AppDashMixins, JagfxConfigMixins ],
 		methods:    {
 			getFuelByBar:     function () {
-				return (this.truck.fuel.capacity * this.truck.fuel.warning.factor).toFixed( 0 );
+				return (this.telemetry.truck.fuel.capacity * this.telemetry.truck.fuel.warning.factor).toFixed( 0 );
 			},
 			getFuelBarCount:  function () {
-				return Math.ceil( this.truck.fuel.capacity / this.getFuelByBar() );
+				return Math.ceil( this.telemetry.truck.fuel.capacity / this.getFuelByBar() );
 			},
 			getFuelBarActive: function ( i ) {
 				const fuelByBar   = this.getFuelByBar();
 				const iLow        = i - 1;
 				const fuelBarFrom = (iLow * fuelByBar);
 				
-				//console.log( i, this.truck.fuel.value, fuelBarFrom );
-				return (this.truck.fuel.value >= fuelBarFrom);
+				//console.log( i, this.telemetry.truck.fuel.value, fuelBarFrom );
+				return (this.telemetry.truck.fuel.value >= fuelBarFrom);
 			},
 			onWarningLevel:   function () {
-				return this.truck.fuel.value < this.getFuelByBar();
+				return this.telemetry.truck.fuel.value < this.getFuelByBar();
 			}
 		}
 	};

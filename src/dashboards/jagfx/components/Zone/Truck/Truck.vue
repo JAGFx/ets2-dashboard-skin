@@ -7,42 +7,42 @@
 					<!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
-						<span>{{truck.model.name}}</span>
+						<span>{{telemetry.truck.model.name}}</span>
 					</small>
 					<!--<span>
-						{{unit_consumption( truck.fuel.avgConsumption )}} l/100
+						{{unit_consumption( telemetry.truck.fuel.avgConsumption )}} l/100
 					</span>-->
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{ $averageDamage( truck.damage ) }} %</span>
+						<span>{{ $averageDamage( telemetry.truck.damage ) }} %</span>
 					</div>
 					<span>
-						<span class="licencePlate"><span class="flag">{{ $flag( truck.licensePlate.country.id )}}</span>{{truck.licensePlate.value}}</span>
+						<span class="licencePlate"><span class="flag">{{ $flag( telemetry.truck.licensePlate.country.id )}}</span>{{telemetry.truck.licensePlate.value}}</span>
 					</span>
 				</div>
 			</div>
 		</div>
 		
 		<!--<div class="truck-wear text-center capitalized">
-			&lt;!&ndash;<div class="truck.damage" v-for="key in Object.keys(truck.damage)">
+			&lt;!&ndash;<div class="telemetry.truck.damage" v-for="key in Object.keys(telemetry.truck.damage)">
 				<b>{{key}}</b>
-				<span>{{Math.round(100 * truck.damage[key])}}%</span>
+				<span>{{Math.round(100 * telemetry.truck.damage[key])}}%</span>
 			</div>&ndash;&gt;
-			<div class="truck.damage">
-				<span>{{Math.floor(100 * chassis.truck.damage)}}%</span>
+			<div class="telemetry.truck.damage">
+				<span>{{Math.floor(100 * chassis.telemetry.truck.damage)}}%</span>
 			</div>
 		</div>-->
 		
 		<ul class="dash-element right">
 			<!-- Cruise control -->
 			<li v-bind:class="{
-					'green' : truck.cruiseControl.enabled,
-					'disabled' : !truck.cruiseControl.enabled
+					'green' : telemetry.truck.cruiseControl.enabled,
+					'disabled' : !telemetry.truck.cruiseControl.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_cruiseControl' )">
-				<span v-show="!truck.cruiseControl.enabled">OFF</span>
-				<span v-show="truck.cruiseControl.enabled">{{ unit_speed( truck.cruiseControl ) }}</span>
+				<span v-show="!telemetry.truck.cruiseControl.enabled">OFF</span>
+				<span v-show="telemetry.truck.cruiseControl.enabled">{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
 				<div class="round">
 					<i class="icon-cruise_control"></i>
 				</div>
@@ -50,10 +50,10 @@
 			
 			<!-- Fuel -->
 			<li class="blue" v-bind:class="{
-					'orange': truck.fuel.warning.enabled
+					'orange': telemetry.truck.fuel.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_fuel' )">
-				<span>{{  unit_volume( truck.fuel.value ) }}</span>
+				<span>{{  unit_volume( telemetry.truck.fuel.value ) }}</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
 				</div>
@@ -61,7 +61,7 @@
 			
 			<!-- Fuel consumption -->
 			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_fuelConsumption' )">
-				<span>{{ unit_consumption( truck.fuel.avgConsumption ) }}</span>
+				<span>{{ unit_consumption( telemetry.truck.fuel.avgConsumption ) }}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
 				</div>
@@ -69,11 +69,11 @@
 			
 			<!-- Air pressure -->
 			<li class="blue" v-bind:class="{
-					'orange': truck.brakes.airPressure.warning.enabled,
-					'red': truck.brakes.airPressure.emergency.enabled
+					'orange': telemetry.truck.brakes.airPressure.warning.enabled,
+					'red': telemetry.truck.brakes.airPressure.emergency.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_brakesAirPressure' )">
-				<span>{{ unit_pressure( truck.brakes.airPressure.value ) }}</span>
+				<span>{{ unit_pressure( telemetry.truck.brakes.airPressure.value ) }}</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
@@ -81,7 +81,7 @@
 			
 			<!-- Oil temperature -->
 			<li class="default" v-if="elementIsEnabled( 'jagfx_elements_right_oilTemperature' )">
-				<span>{{ unit_degrees( truck.engine.oilTemperature.value ) }}</span>
+				<span>{{ unit_degrees( telemetry.truck.engine.oilTemperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-oil"></i>
 				</div>
@@ -89,7 +89,7 @@
 			
 			<!-- Brakes temparature -->
 			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_brakesTemperature' )">
-				<span>{{ unit_degrees( truck.brakes.temperature.value ) }}</span>
+				<span>{{ unit_degrees( telemetry.truck.brakes.temperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
 				</div>
@@ -97,10 +97,10 @@
 			
 			<!-- Water temperature -->
 			<li class="blue" v-bind:class="{
-					'orange': truck.engine.waterTemperature.warning.enabled
+					'orange': telemetry.truck.engine.waterTemperature.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_waterTemperature' )">
-				<span>{{ unit_degrees( truck.engine.waterTemperature.value ) }}</span>
+				<span>{{ unit_degrees( telemetry.truck.engine.waterTemperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
 				</div>
@@ -108,10 +108,10 @@
 			
 			<!-- Battery -->
 			<li class="blue" v-bind:class="{
-					'orange': truck.engine.batteryVoltage.warning.enabled
+					'orange': telemetry.truck.engine.batteryVoltage.warning.enabled
 				}"
 				v-if="elementIsEnabled( 'jagfx_elements_right_batteryVoltage' )">
-				<span>{{Math.round(truck.engine.batteryVoltage.value)}} V</span>
+				<span>{{Math.round(telemetry.truck.engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<i class="icon-battery"></i>
 				</div>

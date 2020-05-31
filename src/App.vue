@@ -1,10 +1,10 @@
 <template>
-	<main class="waiting" v-if="!game || !game.sdkActive">
+	<main class="waiting" v-if="!telemetry.game || !telemetry.game.sdkActive">
 		<h1>
 			<span class="animated flipInX infinite">Waiting on connection...</span>
 		</h1>
 	</main>
-	<main :class="`${game && game.game.id === 2 ? 'ats' : 'ets2'}`" v-else>
+	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`" v-else>
 		<Game id="game" />
 		<div class="wrapper menu" v-show="menuIsDisplayed()">
 			<Menu></Menu>
@@ -75,7 +75,7 @@
 		},
 		sockets: {
 			connect: function () {
-				//console.log("connected")
+				console.log( 'connected' );
 			},
 			update:  function ( data ) {
 				let srvData = {};
@@ -87,8 +87,8 @@
 				this.$store.commit( 'telemetry/update', srvData );
 			},
 			log:     function ( log ) {
-				log.reverse();
-				this.log = log;
+				/*log.reverse();
+				 this.log = log;*/
 			}
 		}
 	};

@@ -1,6 +1,6 @@
 <template>
 	<div class="tab-config">
-		<b-overlay :variant="'transparent'" no-wrap :show="appGetProcessing()"><!---->
+		<b-overlay :variant="'transparent'" no-wrap :show="appGetProcessing()">
 			<template v-slot:overlay>
 				<div class="d-flex justify-content-center flex-column align-items-center">
 					<h1>Processing</h1>

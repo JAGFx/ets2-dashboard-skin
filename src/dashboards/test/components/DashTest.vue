@@ -1,8 +1,8 @@
 <template>
 	<Dashboard class="test wrapper">
 		<div class="speed">
-			<span class="value">{{ unit_speed( truck.speed, true, false )}}</span>
-			<small class="unit">km/h</small>
+			<span class="value">{{ unit_speed( telemetry.truck.speed, true, false )}}</span>
+			<small class="unit">{{ unit_speed( telemetry.truck.speed, false )}}</small>
 		</div>
 	</Dashboard>
 </template>

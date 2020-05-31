@@ -7,6 +7,7 @@
  */
 
 import _        from 'lodash';
+import Vue      from 'vue';
 import testData from '../../data/scs_sdk_plugin_parsed_data.json';
 
 const DATA_ELEMENTS = {
@@ -64,7 +65,7 @@ const actions = {};
 // mutations
 const mutations = {
 	update( state, data ) {
-		state.data = data;
+		Vue.set( state, 'data', data );
 	}
 };
 

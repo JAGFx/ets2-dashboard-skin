@@ -1,12 +1,12 @@
 <template>
 	<nav class="game">
 		<ul>
-			<li><span>Game</span>{{game.game.name.toUpperCase()}}</li>
-			<li><span>API</span>v{{game.telemetryVersion}}</li>
+			<li><span>Game</span>{{telemetry.game.game.name.toUpperCase()}}</li>
+			<li><span>API</span>v{{telemetry.game.telemetryVersion}}</li>
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
 		<div class="game-time">
-			<span>{{ game.time.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
+			<span>{{ telemetry.game.time.value | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
 		</div>
 		<ul>
 			<li @click="onClickGear()">
@@ -16,7 +16,7 @@
 			<li>JAGFx - {{ getVersion() }}<span>&copy;</span></li>
 		</ul>
 		
-		<!--<div><span>Game:</span><span>{{game.name.toUpperCase()}}</span></div>
+		<!--<div><span>Game:</span><span>{{telemetry.game.name.toUpperCase()}}</span></div>
 		<div><span>Telemetry version:</span><span>{{telemetryVersion}}</span></div>
 		&lt;!&ndash;<div><span>Paused:</span><span>{{paused ? "YES" : "NO"}}</span></div>&ndash;&gt;
 		<div><span>Uptime:</span><span>{{formatedTimestamp()}}</span></div>

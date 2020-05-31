@@ -11,9 +11,9 @@
 	import * as utils from '../../utils/utils';
 	
 	export default {
-		name:    'AppDashMixins',
+		name:     'AppDashMixins',
 		data() {
-			return this.pickData()();
+			return {};
 		},
 		created() {
 			//console.log( utils.app.formatConstants );
@@ -22,7 +22,7 @@
 				this[ key ] = value;
 			} );
 		},
-		filters: {
+		filters:  {
 			$dateTimeLocalized( time, dFormat, tFormat ) {
 				return utils.app.dateTimeLocalized( time, dFormat, tFormat );
 			},
@@ -30,7 +30,7 @@
 				return value.toFixed( decimal );
 			}
 		},
-		methods: {
+		methods:  {
 			// ---------------------------------------
 			// --- Commons methods
 			
@@ -309,10 +309,10 @@
 			// --- Job
 			
 			$hasJob: function () {
-				return (this.job.cargo.id.length !== 0);
+				return (this.telemetry.job.cargo.id.length !== 0);
 			},
 			$jobRemainingTimeDelivery( time ) {
-				const currentGameTime = this.game.time.unix;
+				const currentGameTime = this.telemetry.game.time;
 				
 				return utils.app.diffDateTimeLocalized( currentGameTime, time );
 			},
@@ -328,10 +328,10 @@
 			// --- Trailer
 			
 			$hasTrailer:       function () {
-				return this.trailer.model.id.length !== 0;
+				return this.telemetry.trailer.model.id.length !== 0;
 			},
 			$hasTrailerAndJob: function () {
-				return this.trailer.model.id.length !== 0 && this.job.cargo.name.length !== 0;
+				return this.telemetry.trailer.model.id.length !== 0 && this.telemetry.job.cargo.name.length !== 0;
 			},
 			
 			// --- ./Trailer
@@ -382,17 +382,16 @@
 					strGear = 'R' + Math.abs( transmission.gear.displayed );
 				
 				return strGear;
-			},
+			}
 			
 			// --- ./Navigation
-			
-			
+		},
+		computed: {
 			// ----------------
 			...mapGetters( {
-				pickData: 'telemetry/pick'
+				telemetry: 'telemetry/current'
 				//currentSkin: 'skins/current'
 			} )
-			
 		}
 		
 	};
