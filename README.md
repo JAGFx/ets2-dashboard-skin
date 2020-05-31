@@ -1,5 +1,6 @@
 # Eurotruck Simulator 2 Dashboard skin
 
+[![CodeFactor](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/badge/feat/config-pan)](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/overview/feat/config-pan)
 [![GitHub Version](https://img.shields.io/github/v/release/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![GitHub Milestone](https://img.shields.io/github/milestones/progress/JAGFx/ets2-dashboard-skin/4?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/issues?q=is%3Aopen+is%3Aissue+milestone%3Av1.3)
 [![GitHub Commit since](https://img.shields.io/github/commits-since/JAGFx/ets2-dashboard-skin/v1.2.4?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
