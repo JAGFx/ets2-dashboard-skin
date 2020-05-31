@@ -10,15 +10,15 @@
   },
   "scripts": {
     "lint" :            "vue-cli-service lint",
-    "build" :           "npx gulp build",
-    "bundle" :          "npx gulp bundle",
+    "build" :           "set NODE_ENV=production && npx gulp build",
+    "bundle" :          "set NODE_ENV=production && npx gulp bundle",
     "bAndB" :           "npx gulp bAndB",
     "start" :           "npm run server:start",
     "dashboard:dev" :   "vue-cli-service serve",
     "dashboard:build" : "vue-cli-service build",
     "dashboard:start" : "http-server dist/",
     "server:install" :  "cd server && npm i && npm rb",
-    "server:build" :    "cd server && npx gulp",
+    "server:build" :    "cd server && set NODE_ENV=production && npx gulp",
     "server:start" :    "cd server && node ./dist/main.js",
     "font:build" :      "npx gulp build:font"
   },
