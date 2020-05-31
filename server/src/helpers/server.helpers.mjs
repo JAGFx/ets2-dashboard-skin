@@ -16,7 +16,7 @@ import truckSimTelemetry from 'trucksim-telemetry';
 import { logIt }         from './utils.helpers';
 
 let app, server, io, telemetry, port, interval, pathDist;
-const configFilePath = path.resolve( __dirname, '../config.ets2-dashboard-skin.json' );
+const configFilePath = path.resolve( process.cwd(), './config.ets2-dashboard-skin.json' );
 
 const init = () => {
 	app       = express();

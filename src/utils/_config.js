@@ -40,21 +40,28 @@ const emptyData = () => {
 };
 
 const save = data => {
-	axios.post( '/config', data )
-		 .then( response => {
-			 //console.log( 'Save', response.data );
-		 }, error => {
-			 console.log( error );
-		 } );
+	return axios
+		.post( '/config', data )
+		.then( response => {
+			return response.data;
+			//console.log( 'Save', response.data );
+		}, error => {
+			console.log( error );
+			return error;
+		} );
 };
 
 const download = () => {
-	// TODO: Get from server
-	load();
-	const file = new File( [ JSON.stringify( currentData, null, 2 ) ],
-		'ets2-dashboard-skin.config.json',
-		{ type: 'application/json;charset=utf-8' } );
-	FileSaver.saveAs( file );
+	load()
+		.then( data => {
+			const file = new File(
+				[ JSON.stringify( data, null, 2 ) ],
+				'ets2-dashboard-skin.config.json',
+				{ type: 'application/json;charset=utf-8' }
+			);
+			
+			FileSaver.saveAs( file );
+		} );
 };
 
 const load = () => {
@@ -72,18 +79,25 @@ const upload = file => {
 	if ( file.type !== 'application/json' )
 		throw 'Invalid file type';
 	
-	let reader = new FileReader();
-	reader.readAsText( file, 'UTF-8' );
-	
-	reader.onload  = evt => {
-		const data = JSON.parse( evt.target.result );
-		console.log( data );
+	return new Promise( ( resolve, reject ) => {
+		let reader = new FileReader();
+		reader.readAsText( file, 'UTF-8' );
 		
-		save( data );
-	};
-	reader.onerror = () => {
-		throw 'Error reading file';
-	};
+		reader.onload  = evt => {
+			const data = JSON.parse( evt.target.result );
+			console.log( data );
+			
+			save( data )
+				.then( data => {
+					console.log( 'Data' );
+					
+					resolve( data );
+				}, error => error );
+		};
+		reader.onerror = () => {
+			reject( 'Error reading file' );
+		};
+	} );
 };
 
 

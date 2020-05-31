@@ -9,7 +9,7 @@
 			</button>
 			<span>
 				<button @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1"><i class="fas fa-upload"></i> Upload</button>
-				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" />
+				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" ref="uploadFile" />
 			</span>
 		</div>
 		<section id="general">
@@ -90,11 +90,16 @@
 				utilsConfig.download();
 			},
 			upload( input ) {
-				try {
-					utilsConfig.upload( input.target.files[ 0 ] );
-				} catch ( e ) {
-					alert( e );
-				}
+				utilsConfig
+					.upload( input.target.files[ 0 ] )
+					.then( data => {
+						console.log( data );
+						this.$store.commit( 'config/setElm', data );
+					}, e => alert( e ) )
+					.finally( () => {
+						this.$refs.uploadFile.value = null;
+						this.showUpload             = false;
+					} );
 			}
 		}
 	};
