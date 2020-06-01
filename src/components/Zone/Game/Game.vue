@@ -6,7 +6,7 @@
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
 		<div class="game-time">
-			<span>{{ telemetry.game.time.value | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
+			<span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
 		</div>
 		<ul>
 			<li @click="onClickGear()">

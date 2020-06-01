@@ -77,7 +77,7 @@
 				<table class="_job">
 					<tr>
 						<th>Time:</th>
-						<td><span class="game-time">{{ telemetry.game.time.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+						<td><span class="game-time">{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
 						</td>
 					</tr>
 					<tr>

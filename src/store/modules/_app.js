@@ -13,7 +13,6 @@ const state = () => ({
 // getters
 const getters = {
 	getProcessing: ( state ) => {
-		console.log( 'g', state.processing );
 		return state.processing;
 	}
 };
@@ -24,7 +23,6 @@ const actions = {};
 // mutations
 const mutations = {
 	setProcessing( state, value ) {
-		console.log( 's', value );
 		state.processing = value;
 	}
 };

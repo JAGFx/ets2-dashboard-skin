@@ -9,6 +9,7 @@
 import axios       from 'axios';
 import FileSaver   from 'file-saver';
 import defaultData from '../data/ets2-dashboard-skin.config.json';
+import store       from '../store';
 
 const generateEmptyData = ( config, configSkins ) => {
 	let emptyData = {};
@@ -40,9 +41,14 @@ const emptyData = () => {
 };
 
 const save = async data => {
+	store.commit( 'app/setProcessing', true );
+	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
-			setTimeout( () => resolve( data ), 1000 );
+			setTimeout( () => {
+				store.commit( 'app/setProcessing', false );
+				resolve( data );
+			}, 1000 );
 		} );
 	
 	return await axios
@@ -53,7 +59,8 @@ const save = async data => {
 		}, error => {
 			console.log( error );
 			return error;
-		} );
+		} )
+		.finally( () => store.commit( 'app/setProcessing', false ) );
 };
 
 const download = () => {
@@ -70,9 +77,14 @@ const download = () => {
 };
 
 const load = () => {
+	store.commit( 'app/setProcessing', true );
+	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
-			setTimeout( () => resolve( emptyData() ), 1000 );
+			setTimeout( () => {
+				store.commit( 'app/setProcessing', false );
+				resolve( emptyData() );
+			}, 1000 );
 		} );
 	
 	return axios.get( '/config' )
@@ -82,7 +94,8 @@ const load = () => {
 				}, error => {
 					console.warn( error );
 					return emptyData();
-				} );
+				} )
+				.finally( () => store.commit( 'app/setProcessing', false ) );
 };
 
 const upload = file => {

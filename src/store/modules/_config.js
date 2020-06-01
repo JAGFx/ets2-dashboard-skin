@@ -1,5 +1,3 @@
-import * as utils from '../../utils/utils';
-
 /**
  * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
  * project:	customDefault
@@ -7,9 +5,13 @@ import * as utils from '../../utils/utils';
  * Date: 	30-May-20
  * Time: 	17:14
  */
+
+import Vue         from 'vue';
+import defaultData from '../../data/ets2-dashboard-skin.config.json';
+import config      from '../../utils/_config';
 	
 	// initial state
-const state = () => (utils.config.emptyData());
+const state = () => (defaultData);
 
 // getters
 const getters = {
@@ -24,21 +26,23 @@ const getters = {
 // actions
 const actions = {
 	load( { commit } ) {
-		utils.config
-			 .load()
-			 .then( data => commit( 'setElm', data ) );
+		config
+			.load()
+			.then( data => commit( 'setElms', data ) );
 	}
 };
 
 // mutations
 const mutations = {
-	setElm( state, configs ) {
-		//console.log( state, configs );
-		
+	setElms( state, configs ) {
 		Object.keys( configs ).forEach( ( key ) => {
-			const value  = configs[ key ];
-			state[ key ] = value;
+			const value = configs[ key ];
+			Vue.set( state, key, value );
 		} );
+	},
+	setElm( state, elm ) {
+		Vue.set( state, elm.id, elm.value );
+		config.save( state );
 	}
 };
 

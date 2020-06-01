@@ -302,6 +302,12 @@
 				
 				return pressure;
 			},
+			$gameTime() {
+				// TODO Get the correct time
+				const currentGameTime = this.telemetry.game.time.unix;
+				
+				return currentGameTime;
+			},
 			
 			// --- ./Commons
 			
@@ -312,7 +318,7 @@
 				return (this.telemetry.job.cargo.id.length !== 0);
 			},
 			$jobRemainingTimeDelivery( time ) {
-				const currentGameTime = this.telemetry.game.time;
+				const currentGameTime = this.$gameTime();
 				
 				return utils.app.diffDateTimeLocalized( currentGameTime, time );
 			},

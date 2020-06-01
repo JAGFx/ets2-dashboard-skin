@@ -34,9 +34,8 @@
 			<div :key="category.name" class="fields mb-4" v-for="category in config.categories">
 				<h4>{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
+				<TabConfigElement :key="element.id" class="pl-3 p-2" v-bind="{
 					'elm': element,
-					data: data[ element.id ]
 				}" v-for="element in category.elements" />
 			</div>
 		</section>
@@ -53,9 +52,8 @@
 			<div :class="'config-skin-' + skin.id" :key="category.name" class="collapse fields mb-4" v-for="category in skinsConfigTemplate( skin )">
 				<h4 class="d-flex justify-content-between align-items-center">{{ category.name }}</h4>
 				
-				<TabConfigElement :inputData.sync="data[ element.id ]" :key="element.id" class="pl-3 p-2" v-bind="{
+				<TabConfigElement :key="element.id" class="pl-3 p-2" v-bind="{
 					'elm': element,
-					data: data[ element.id ]
 				}" v-for="element in category.elements" />
 			</div>
 		</section>
@@ -83,16 +81,20 @@
 			const configSkins = {
 				JAGFx: configJAGFx
 			};
-			const data        = this.$store.getters[ 'config/all' ];
 			
 			return {
 				config:      config,
 				skins:       skinsOk,
 				configSkins: configSkins,
 				showUpload:  false,
-				processing:  false,
-				data:        data
+				processing:  false
+				//data:        data
 			};
+		},
+		computed:   {
+			...mapGetters( {
+				configAll: 'config/all'
+			} )
 		},
 		methods:    {
 			skinsConfigTemplate( skinTarget ) {
@@ -102,39 +104,23 @@
 				this.data = utilsConfig.generateEmptyData( config, this.configSkins );
 			},
 			save() {
-				this.$store.commit( 'app/setProcessing', true );
 				utilsConfig
-					.save( this.data )
-					.then( data => {
-						//utils.app.sleep( 1000 );
-						console.log( 'Its OK' );
-					} )
-					.finally( () => {
-						this.$store.commit( 'app/setProcessing', false );
-					} );
+					.save( this.data );
 			},
 			download() {
-				this.$store.commit( 'app/setProcessing', true );
-				utilsConfig
-					.download()
-					.finally( () => {
-						this.$store.commit( 'app/setProcessing', false );
-					} );
+				utilsConfig.download();
 			},
 			upload( input ) {
-				this.$store.commit( 'app/setProcessing', true );
-				
 				utilsConfig
 					.upload( input.target.files[ 0 ] )
 					.then( data => {
 						console.log( data );
-						this.$store.commit( 'config/setElm', data );
+						this.$store.commit( 'config/setElms', data );
+						
 					}, e => alert( e ) )
 					.finally( () => {
 						this.$refs.uploadFile.value = null;
 						this.showUpload             = false;
-						
-						this.$store.commit( 'app/setProcessing', false );
 					} );
 			},
 			...mapGetters( {

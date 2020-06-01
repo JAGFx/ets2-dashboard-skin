@@ -5,13 +5,12 @@
 			<small class="font-italic text-muted">{{ elm.description }}</small>
 		</div>
 		<div class="switch d-flex justify-content-between align-items-stretch" v-if="elm.values.length <= 2" :class="{ 'processing': appGetProcessing() }">
-			<div :class="{ 'active': data === value.value }" :key="value.value" @click="set( value.value )" class="value w-100 m-0 text-center d-flex justify-content-center align-items-center" v-for="value in elm.values">
+			<div :class="{ 'active': current( elm.id ) === value.value }" :key="value.value" @click="set( value.value )" class="value w-100 m-0 text-center d-flex justify-content-center align-items-center" v-for="value in elm.values">
 				<span class="py-1 px-2">{{ value.label }}</span>
 			</div>
-		
 		</div>
 		<div class="select d-flex justify-content-between align-items-stretch" v-else-if="elm.values.length > 2" :class="{ 'processing': appGetProcessing() }">
-			<select :multiple="elm.multiple !== undefined && elm.multiple" @change="set( current )" class="custom-select value w-100 m-0 py-1 px-2" v-model="current" :disabled="appGetProcessing()">
+			<select :disabled="appGetProcessing()" :multiple="elm.multiple !== undefined && elm.multiple" @change="set( current( elm.id ) )" class="custom-select value w-100 m-0 py-1 px-2">
 				<option :key="value.value" :value="value.value" v-for="value in elm.values">{{ value.label }}</option>
 			</select>
 		</div>
@@ -22,19 +21,22 @@
 	import { mapGetters } from 'vuex';
 	
 	export default {
-		name:    'TabConfigElement',
-		props:   [ 'elm', 'data' ],
+		name:     'TabConfigElement',
+		props:    [ 'elm' ],
 		data() {
-			return {
-				current: this.data
-			};
+			return {};
 		},
-		methods: {
+		computed: {
+			...mapGetters( {
+				current: 'config/get'
+			} )
+		},
+		methods:  {
 			set( value ) {
-				//console.log( value );
-				//this.data = value;
-				if ( !this.appGetProcessing() )
-					this.$emit( 'update:inputData', value );
+				this.$store.commit( 'config/setElm', {
+					id:    this.elm.id,
+					value: value
+				} );
 			},
 			...mapGetters( {
 				appGetProcessing: 'app/getProcessing'
