@@ -1,18 +1,18 @@
 <template>
 	<div class="tab-config">
 		<div class="d-flex justify-content-center align-items-center pb-3">
-			<button :disabled="isOnProcessing()" @click="save" class="btn btn-sm btn-outline-ets mx-1">
+			<!--<button :disabled="isOnProcessing()" @click="save" class="btn btn-sm btn-outline-ets mx-1">
 				<b-icon-file-earmark-check></b-icon-file-earmark-check>
 				Save
-			</button>
+			</button>-->
 			<button :disabled="isOnProcessing()" @click="download" class="btn btn-sm btn-outline-ets mx-1">
 				<b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
 				Download
 			</button>
-			<button :disabled="isOnProcessing()" @click="reset" class="btn btn-sm btn-outline-ets mx-1">
+			<!--<button :disabled="isOnProcessing()" @click="reset" class="btn btn-sm btn-outline-ets mx-1">
 				<b-icon-file-earmark-break></b-icon-file-earmark-break>
 				Reset
-			</button>
+			</button>-->
 			<span>
 				<button :disabled="isOnProcessing()" @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1">
 					<b-icon-file-earmark-arrow-up></b-icon-file-earmark-arrow-up> Upload
@@ -79,7 +79,7 @@
 				skins:       skinsOk,
 				configSkins: configSkins,
 				showUpload:  false,
-				processing:  false
+				//processing:  false
 				//data:        data
 			};
 		},
@@ -92,13 +92,14 @@
 			skinsConfigTemplate( skinTarget ) {
 				return this.configSkins[ skinTarget.id ].categories;
 			},
-			reset() {
-				this.data = utilsConfig.generateEmptyData( config, this.configSkins );
-			},
-			save() {
-				utilsConfig
-					.save( this.data );
-			},
+			//reset() {
+			//	const emptyData = utilsConfig.generateEmptyData( config, this.configSkins );
+			//	this.$store.commit('config/setElms', emptyData );
+			//},
+			//save() {
+			//	utilsConfig
+			//		.save( this.data );
+			//},
 			download() {
 				utilsConfig.download();
 			},

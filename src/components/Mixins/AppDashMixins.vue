@@ -325,7 +325,7 @@
 			$jobRemainingTimeToDueDate() {
 				const configData = this.$store.getters[ 'config/all' ];
 				
-				return configData.jagfx_elements_general_job_remaining === 'due_date';
+				return configData.general_job_remaining === 'due_date';
 			},
 			
 			// --- ./Job

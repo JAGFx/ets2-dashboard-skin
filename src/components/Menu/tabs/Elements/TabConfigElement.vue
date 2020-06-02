@@ -1,5 +1,5 @@
 <template>
-	<div class="field d-flex justify-content-between align-items-center">
+	<div class="field d-flex justify-content-between align-items-center" v-if="elm.disabled === undefined || ( elm.disabled !== undefined && !elm.disabled )">
 		<div>
 			<h5 class="m-0">{{ elm.label }}</h5>
 			<small class="font-italic text-muted">{{ elm.description }}</small>

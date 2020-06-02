@@ -31,7 +31,7 @@ const generateEmptyData = ( config, configSkins ) => {
 		} );
 	} );
 	
-	//console.log( emptyData );
+	console.log( emptyData );
 	
 	return emptyData;
 };

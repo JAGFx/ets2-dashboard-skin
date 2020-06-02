@@ -6,6 +6,7 @@
 				{
 					"id" :          "general_region",
 					"label" :       "Region",
+					"disabled" :    true,
 					"description" : "Set your region display. If the 'Unit auto' is set to 'Yes', all unit was set with this regions",
 					"values" :      [
 						{
@@ -23,8 +24,24 @@
 					]
 				},
 				{
+					"id" :          "general_job_remaining",
+					"label" :       "Job delivery time",
+					"description" : "Display the due date or the remaining time for a job",
+					"values" :      [
+						{
+							"label" : "Due date",
+							"value" : "due_date"
+						},
+						{
+							"label" : "Remaining date",
+							"value" : "remaining_date"
+						}
+					]
+				},
+				{
 					"id" :          "general_unit_auto",
 					"label" :       "Unit auto",
+					"disabled" :    true,
 					"description" : "Auto adapt the unit from the game (Euro Truck Simulator 2 and American Truck Simulator",
 					"values" :      [
 						{

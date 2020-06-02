@@ -29,7 +29,7 @@
 		},
 		data() {
 			return {
-				currentTab: 'Config',
+				currentTab: 'About',
 				tabs:       [ 'Skins', 'Config', 'About' ]
 			};
 		},
