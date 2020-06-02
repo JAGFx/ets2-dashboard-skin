@@ -1,28 +1,20 @@
 <template>
 	<div class="tab-config">
-		<b-overlay :variant="'transparent'" no-wrap :show="appGetProcessing()">
-			<template v-slot:overlay>
-				<div class="d-flex justify-content-center flex-column align-items-center">
-					<h1>Processing</h1>
-					<b-spinner type="grow" label="Loading..."></b-spinner>
-				</div>
-			</template>
-		</b-overlay>
 		<div class="d-flex justify-content-center align-items-center pb-3">
-			<button @click="save" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+			<button :disabled="isOnProcessing()" @click="save" class="btn btn-sm btn-outline-ets mx-1">
 				<b-icon-file-earmark-check></b-icon-file-earmark-check>
 				Save
 			</button>
-			<button @click="download" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+			<button :disabled="isOnProcessing()" @click="download" class="btn btn-sm btn-outline-ets mx-1">
 				<b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
 				Download
 			</button>
-			<button @click="reset" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+			<button :disabled="isOnProcessing()" @click="reset" class="btn btn-sm btn-outline-ets mx-1">
 				<b-icon-file-earmark-break></b-icon-file-earmark-break>
 				Reset
 			</button>
 			<span>
-				<button @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1" :disabled="appGetProcessing()">
+				<button :disabled="isOnProcessing()" @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1">
 					<b-icon-file-earmark-arrow-up></b-icon-file-earmark-arrow-up> Upload
 				</button>
 				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" ref="uploadFile" />
@@ -124,7 +116,7 @@
 					} );
 			},
 			...mapGetters( {
-				appGetProcessing: 'app/getProcessing'
+				isOnProcessing: 'app/isOnProcessing'
 			} )
 		}
 	};

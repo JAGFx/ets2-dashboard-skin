@@ -1,12 +1,14 @@
 <template>
+	
 	<main class="waiting" v-if="!telemetry.game || !telemetry.game.sdkActive">
 		<h1>
 			<span class="animated flipInX infinite">Waiting on connection...</span>
 		</h1>
 	</main>
 	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`" v-else>
+		<OverlayElement></OverlayElement>
 		<Game id="game" />
-		<div class="wrapper menu" v-show="menuIsDisplayed()">
+		<div class="wrapper menu h-100" v-show="menuIsDisplayed()">
 			<Menu></Menu>
 		</div>
 		<component v-bind:is="currentSkinComponent()" v-show="!menuIsDisplayed()"></component>
@@ -17,6 +19,7 @@
 
 <script>
 	import { mapGetters }    from 'vuex';
+	import OverlayElement    from './components/Elements/OverlayElement';
 	import Menu              from './components/Menu/Menu';
 	import AppDashMixins     from './components/Mixins/AppDashMixins';
 	import Game              from './components/Zone/Game/Game';
@@ -44,7 +47,8 @@
 			DashScania,
 			DashVolvoFH,
 			Game,
-			Menu
+			Menu,
+			OverlayElement
 		},
 		
 		mixins: [ AppDashMixins ],
@@ -57,6 +61,7 @@
 		
 		methods: {
 			currentSkinComponent() {
+				
 				//console.log( this.currentSkin );
 				const currentSkin = this.$store.getters[ 'skins/current' ];
 				

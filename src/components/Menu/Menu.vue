@@ -1,5 +1,5 @@
 <template>
-	<div class="menu">
+	<div class="menu h-100">
 		<nav>
 			<ul>
 				<li
@@ -11,7 +11,7 @@
 				</li>
 			</ul>
 		</nav>
-		<component class="tab-content" v-bind:is="currentTabComponent"></component>
+		<component class="tab-content h-100" v-bind:is="currentTabComponent"></component>
 	</div>
 </template>
 

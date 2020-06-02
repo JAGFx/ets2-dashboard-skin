@@ -41,12 +41,12 @@ const emptyData = () => {
 };
 
 const save = async data => {
-	store.commit( 'app/setProcessing', true );
+	store.dispatch( 'app/startProcessing' );
 	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
 			setTimeout( () => {
-				store.commit( 'app/setProcessing', false );
+				store.dispatch( 'app/endProcessing' );
 				resolve( data );
 			}, 1000 );
 		} );
@@ -54,13 +54,23 @@ const save = async data => {
 	return await axios
 		.post( '/config', data )
 		.then( response => {
+			store.dispatch( 'app/endProcessing' );
 			return response.data;
 			//console.log( 'Save', response.data );
 		}, error => {
-			console.log( error );
+			store.dispatch( 'app/setError', {
+				message: {
+					type:    'dark',
+					title:   error.name,
+					message: error.message
+				},
+				details: {
+					error: error,
+					code:  'CONFIG_SAVE_FAILED'
+				}
+			} );
 			return error;
-		} )
-		.finally( () => store.commit( 'app/setProcessing', false ) );
+		} );
 };
 
 const download = () => {
@@ -77,12 +87,12 @@ const download = () => {
 };
 
 const load = () => {
-	store.commit( 'app/setProcessing', true );
+	store.dispatch( 'app/startProcessing' );
 	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
 			setTimeout( () => {
-				store.commit( 'app/setProcessing', false );
+				store.dispatch( 'app/endProcessing' );
 				resolve( emptyData() );
 			}, 1000 );
 		} );
@@ -90,12 +100,24 @@ const load = () => {
 	return axios.get( '/config' )
 				.then( response => {
 					//console.log(  'Load', response.data );
+					store.dispatch( 'app/endProcessing' );
 					return response.data;
 				}, error => {
-					console.warn( error );
+					//console.log( error );
+					store.dispatch( 'app/setError', {
+						message: {
+							type:    'dark',
+							title:   error.name,
+							message: error.message
+						},
+						details: {
+							error: error,
+							code:  'CONFIG_LOAD_FAILED'
+						}
+					} );
 					return emptyData();
-				} )
-				.finally( () => store.commit( 'app/setProcessing', false ) );
+				} );
+	//.finally( () => store.dispatch( 'app/endProcessing' ) );
 };
 
 const upload = file => {
@@ -108,14 +130,11 @@ const upload = file => {
 		
 		reader.onload  = evt => {
 			const data = JSON.parse( evt.target.result );
-			console.log( data );
+			//console.log( data );
 			
 			save( data )
-				.then( data => {
-					console.log( 'Data' );
-					
-					resolve( data );
-				}, error => error );
+				.then( data => resolve( data ),
+					error => reject( error ) );
 		};
 		reader.onerror = () => {
 			reject( 'Error reading file' );

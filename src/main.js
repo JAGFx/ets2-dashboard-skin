@@ -1,6 +1,7 @@
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import Vue                           from 'vue';
 import VueSocketIO                   from 'vue-socket.io';
+import VueClipboard                  from 'vue-clipboard2';
 import App                           from './App.vue';
 import store                         from './store';
 
@@ -15,6 +16,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.use( BootstrapVue );
 Vue.use( IconsPlugin );
+Vue.use( VueClipboard );
 
 Vue.use( new VueSocketIO( {
 	debug:      false,

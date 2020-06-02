@@ -1,5 +1,5 @@
 <template>
-	<div class="tab-skins mb-4">
+	<div class="tab-skins">
 		<div :class="{
 				'active': $isActive(skin),
 				'disabled': $isDisabled(skin),

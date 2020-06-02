@@ -42,6 +42,7 @@
     "nosleep.js": "^0.9.0",
     "units-converter": "^1.0.3",
     "vue": "^2.6.11",
+    "vue-clipboard2": "^0.3.1",
     "vue-socket.io": "3.0.7",
     "vuex": "^3.4.0"
   },
