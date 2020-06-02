@@ -17,8 +17,8 @@ import packageJson from '../../package.json';
 // --- Variables
 const DATE_FORMAT_NONE  = null;
 const DATE_FORMAT_SHORT = 'MM/DD';
-const DATE_FORMAT_LONG  = 'ddd, Do';
-const DATE_FORMAT_FULL  = 'dddd, Do';
+const DATE_FORMAT_LONG  = 'ddd';
+const DATE_FORMAT_FULL  = 'dddd';
 const TIME_FORMAT_NONE  = null;
 const TIME_FORMAT_SHORT = 'LT';
 const TIME_FORMAT_FULL  = 'LTS';
@@ -70,7 +70,7 @@ const diffDateTimeLocalized = ( dFrom, dTo, withPrefix = true ) => {
 	const momentTo   = moment( dTo, 'X' );
 	const diff       = momentTo.diff( momentFrom );
 	
-	return 'in ' + moment.utc( diff ).format( 'HH[h] mm[m] ss[s]' );
+	return moment.utc( diff ).format( 'HH[h] mm[m] ss[s]' );
 };
 
 const sleep = milliseconds => {
