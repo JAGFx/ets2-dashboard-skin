@@ -20,6 +20,7 @@
 	
 	&.active {
 		background: transparentize($cRed, .5);
+		display: flex;
 		border-color: $cRed;
 		
 		small.text-muted {

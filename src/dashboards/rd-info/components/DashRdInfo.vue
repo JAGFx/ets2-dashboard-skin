@@ -5,7 +5,7 @@
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">
-			<div :class="{'yes': dashProps.job.cargo.id}" class="hasJob">
+			<div :class="{'yes': telemetry.job.cargo.id}" class="hasJob">
 				<!-- meters -->
 				<!--
 					Attributes:
@@ -17,17 +17,17 @@
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-speed',
 					'type': 'meter',
-					'value': $truckSpeed(),
+					'value': telemetry.truck.speed.kph,
 					'min': 0,
 					'max': 120,
 					'minAngle' : -111,
 					'maxAngle': 110,
 				}"></CadranElement>-->
-<!--				<div class="truck-speedRounded wrapper-area"><span>{{ dashProps.truck.speed.kph }}</span></div>-->
+				<!--				<div class="truck-speedRounded wrapper-area"><span>{{ telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false ) }}</span></div>-->
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
-					'value': dashProps.truck.engine.rpm.value / 100,
+					'value': telemetry.truck.engine.rpm.value / 100,
 					'min': 0,
 					'max': 30,
 					'minAngle' : -111,
@@ -36,16 +36,16 @@
 				<CadranElement v-bind="{
 					'classCSS': 'truck-fuel',
 					'type': 'meter',
-					'value': dashProps.truck.fuel.value,
+					'value': telemetry.truck.fuel.value,
 					'min': 0,
-					'max': dashProps.truck.fuel.capacity,
+					'max': telemetry.truck.fuel.capacity,
 					'minAngle' : -103,
 					'maxAngle': 103,
 				}"></CadranElement>-->
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-waterTemperature',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
+					'value': telemetry.truck.engine.waterTemperature.value,
 					'min': -48,
 					'max': 100,
 					'minAngle' : -48,
@@ -54,84 +54,98 @@
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-airPressure',
 					'type': 'meter',
-					'value': dashProps.truck.engine.waterTemperature.value,
+					'value': telemetry.truck.engine.waterTemperature.value,
 					'min': 0,
 					'max': 200,
 					'minAngle' : -103,
 					'maxAngle': 111,
 				}"></CadranElement>-->
 				
-				<div class="truck-wearEngine wrapper-area"><span>{{ ( dashProps.truck.damage.engine * 100).toFixed(0) }}%</span></div>
-				<div class="truck-wearTransmission wrapper-area"><span>{{ ( dashProps.truck.damage.transmission * 100).toFixed(0) }}%</span></div>
-				<div class="truck-wearCabin wrapper-area"><span>{{ ( dashProps.truck.damage.cabin * 100).toFixed(0) }}%</span></div>
-				<div class="truck-wearWheels wrapper-area"><span>{{ ( dashProps.truck.damage.wheels * 100).toFixed(0) }}%</span>
+				<div class="truck-wearEngine wrapper-area"><span>{{ ( telemetry.truck.damage.engine * 100).toFixed(0) }}%</span>
 				</div>
-				<div class="truck-wearChassis wrapper-area"><span>{{ ( dashProps.truck.damage.chassis * 100).toFixed(0) }}%</span>
+				<div class="truck-wearTransmission wrapper-area"><span>{{ ( telemetry.truck.damage.transmission * 100).toFixed(0) }}%</span>
+				</div>
+				<div class="truck-wearCabin wrapper-area">
+					<span>{{ ( telemetry.truck.damage.cabin * 100).toFixed(0) }}%</span>
+				</div>
+				<div class="truck-wearWheels wrapper-area"><span>{{ ( telemetry.truck.damage.wheels * 100).toFixed(0) }}%</span>
+				</div>
+				<div class="truck-wearChassis wrapper-area"><span>{{ ( telemetry.truck.damage.chassis * 100).toFixed(0) }}%</span>
 				</div>
 				<div class="trailer-wear wrapper-area">
-					<span>{{ (dashProps.trailer.cargo.damage * 100).toFixed(0) }} %</span></div>
-				<div class="truck-make wrapper-area"><span>{{ dashProps.truck.brand.name }}</span></div>
-				<div :class="{ 'yes': dashProps.truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
-				<div :class="{ 'yes': dashProps.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
-				<div :class="{ 'yes': dashProps.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
-				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.warning.enabled }" class="_airPressureOn"></div>
-				<div class="truck-fuel">{{ dashProps.truck.fuel.value.toFixed(0) }}</div>
-				<div class="truck-fuelAverageConsumption">{{ (dashProps.truck.fuel.avgConsumption * 100).toFixed(1) }}
+					<span>{{ (telemetry.trailer.cargo.damage * 100).toFixed(0) }} %</span>
 				</div>
-				<div class="_fuelAvg">L/100</div>
-				<div :style="{ width: ( dashProps.controls.game.brake * 606) + 'px' }" class="_gameBrakeBar"></div>
-				<div :style="{ width: ( dashProps.controls.input.brake * 606)  + 'px'}" class="_userBrakeBar"></div>
-				<div :style="{ width: ( dashProps.controls.game.throttle * 606) + 'px' }" class="_gameThrottleBar"></div>
-				<div :style="{ width: ( dashProps.controls.input.throttle * 606) + 'px' }" class="_userThrottleBar"></div>
-				<!--				<div :class="{ 'yes': dashProps.truck.lights.beacon.enabled }" class="truck-lightsBeaconOn"></div>-->
-				<div :class="{ 'yes': ( dashProps.truck.lights.blinker.left.active || dashProps.truck.lights.blinker.right.active ) }" class="_dangerWarning"></div>
-				<div :class="{ 'yes': dashProps.truck.lights.parking.enabled }" class="_auxLights"></div>
-				<div :class="{ 'yes': ( dashProps.truck.lights.auxFront.value !== 0 || dashProps.truck.lights.auxRoof.value !== 0 ) }" class="truck-lightsParkingOn"></div>
-				<div class="navigation-speedLimit">{{ dashProps.navigation.speedLimit.kph }}</div>
+				<div class="truck-make wrapper-area"><span>{{ telemetry.truck.brand.name }}</span></div>
+				<div :class="{ 'yes': telemetry.truck.lights.beamHigh.enabled }" class="truck-lightsBeamHighOn"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.beamLow.enabled }" class="truck-lightsBeamLowOn"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
+				<div :class="{ 'yes': telemetry.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>
+				<div :class="{ 'yes': telemetry.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
+				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="_airPressureOn"></div>
+				<div class="truck-fuel">{{ unit_volume( telemetry.truck.fuel.value ) }}</div>
+				<div class="truck-fuelAverageConsumption">{{ unit_consumption( telemetry.truck.fuel.avgConsumption )
+					}}
+				</div>
+				<div class="_fuelAvg">{{ unit_consumption( telemetry.truck.fuel.avgConsumption, false ) }}</div>
+				<div :style="{ width: ( telemetry.controls.game.brake * 606) + 'px' }" class="_gameBrakeBar"></div>
+				<div :style="{ width: ( telemetry.controls.input.brake * 606)  + 'px'}" class="_userBrakeBar"></div>
+				<div :style="{ width: ( telemetry.controls.game.throttle * 606) + 'px' }" class="_gameThrottleBar"></div>
+				<div :style="{ width: ( telemetry.controls.input.throttle * 606) + 'px' }" class="_userThrottleBar"></div>
+				<!--				<div :class="{ 'yes': telemetry.truck.lights.beacon.enabled }" class="truck-lightsBeaconOn"></div>-->
+				<div :class="{ 'yes': ( telemetry.truck.lights.blinker.left.active || telemetry.truck.lights.blinker.right.active ) }" class="_dangerWarning"></div>
+				<div :class="{ 'yes': telemetry.truck.lights.parking.enabled }" class="_auxLights"></div>
+				<div :class="{ 'yes': ( telemetry.truck.lights.auxFront.value !== 0 || telemetry.truck.lights.auxRoof.value !== 0 ) }" class="truck-lightsParkingOn"></div>
+				<div class="navigation-speedLimit">{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}
+				</div>
 				
-<!--				<div class="truck-odometer wrapper-area"><span>{{ dashProps.truck.odometer.toFixed(0) }}</span></div>-->
-				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ dashProps.truck.cruiseControl.kph }}</span></div>-->
-				<div class="truck-displayedGear wrapper-area"><span>{{ $trukGear( dashProps.truck.transmission, dashProps.truck.brand ) }}</span>
+				<!--				<div class="truck-odometer wrapper-area"><span>{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span></div>-->
+				<!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
+				<div class="truck-displayedGear wrapper-area">
+					<span>{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
 				</div>
 				<!-- indicators -->
-<!--				<div :class="{ 'yes': dashProps.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>-->
-<!--				<div :class="{ 'yes': dashProps.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>-->
+				<!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>-->
+				<!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>-->
 				
-				<div class="job-remainingTime wrapper-area"><span>{{ $formatTime( dashProps.job.deliveryTime.unix ) }}</span></div>
-				<div class="job-sourceCity wrapper-area"><span>{{ dashProps.job.source.city.name }}</span></div>
-				<div class="job-destinationCity wrapper-area"><span>{{ dashProps.job.destination.city.name }}</span></div>
-				<div class="_jobIncome wrapper-area"><span>&euro;<span class="job-income">{{ dashProps.job.income.toLocaleString() }}</span></span></div>
-				<div class="trailer-name wrapper-area"><span>{{ dashProps.trailer.model.name }}</span></div>
+				<div class="job-remainingTime wrapper-area">
+					<span v-if="$jobRemainingTimeToDueDate()">{{ telemetry.job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+					<span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
+				</div>
+				<div class="job-sourceCity wrapper-area"><span>{{ telemetry.job.source.city.name }}</span></div>
+				<div class="job-destinationCity wrapper-area"><span>{{ telemetry.job.destination.city.name }}</span>
+				</div>
+				<div class="_jobIncome wrapper-area">
+					<span><span class="job-income">{{ unit_currency( telemetry.job.income ) }}</span></span>
+				</div>
+				<div class="trailer-name wrapper-area"><span>{{ telemetry.trailer.model.name }}</span></div>
 				
-<!--				<div :class="{'yes': dashProps.trailer.attached}" class="trailer-attached"></div>-->
-<!--				<div class="trailer-mass wrapper-area">-->
-<!--					<span>{{ (dashProps.job.cargo.mass / 1000).toFixed(1) }}<span class="ton">t</span></span></div>-->
-<!--				<div class="trailer-name">{{ dashProps.job.cargo.name }}</div>-->
-<!--				<div :class="{ 'yes': dashProps.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>-->
-<!--				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->
+				<!--				<div :class="{'yes': telemetry.trailer.attached}" class="trailer-attached"></div>-->
+				<!--				<div class="trailer-mass wrapper-area">-->
+				<!--					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
+				<!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
+				<!--				<div :class="{ 'yes': telemetry.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>-->
+				<!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->
 				
-<!--				<div class="truck-retarderBrake">{{ dashProps.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>-->
-<!--				<div class="truck-oilTemperature">{{ dashProps.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
-<!--				<div class="truck-batteryVoltage">{{ dashProps.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
-<!--				<div class="game-time wrapper-area"><span>{{ $formatDate( $telemetryData().game.time.unix ) }}</span></div>-->
-<!--				<div :class="{ 'yes': dashProps.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
+				<!--				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>-->
+				<!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
+				<!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
+				<!--				<div class="game-time wrapper-area"><span>{{ $formatDate( $telemetryData().game.time.unix ) }}</span></div>-->
+				<!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
 			</div>
 		</div>
 	</Dashboard>
 </template>
 
 <script>
-	import Dashboard     from '../../../components/Elements/Dashboard';
-	import dashMixins    from '../../../components/Mixins/dashMixins';
+	import Dashboard  from '../../../components/Elements/Dashboard';
+	import AppDashMixins from '../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:       'DashRdInfo',
 		components: {
 			Dashboard
 		},
-		mixins:     [ dashMixins ],
+		mixins:     [ AppDashMixins ],
 		methods:    {}
 	};
 </script>

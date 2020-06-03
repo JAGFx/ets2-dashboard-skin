@@ -1,0 +1,48 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_switch.scss
+ * Date: 	21/05/2020
+ * Time: 	16:10
+ */
+
+@import "../../common/variables";
+
+.tab-config {
+	.field {
+		.switch {
+			background: $cBlackTransparentHigh;
+			min-width: 15rem;
+			cursor: pointer;
+			
+			.value {
+				border: 1px solid $cGray;
+				transition: all .3s ease-in-out;
+				
+				input[type="checkbox"] {
+					display: none;
+				}
+				
+				&:not(.active):first-child {
+					border-right: none;
+				}
+				
+				&:not(.active):last-child {
+					border-left: none;
+				}
+				
+				&.active {
+					border-color: $cRed;
+					background: transparentize($cRed, .5);
+					transition: all .1s ease-in-out;
+				}
+			}
+			
+			&.processing, &.processing > .value {
+				border-color: lighten(#000, 40%);
+				background: transparentize(lighten(#000, 75%), .95);
+				transition: all .1s ease-in-out;
+			}
+		}
+	}
+}

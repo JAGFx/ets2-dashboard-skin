@@ -1,5 +1,5 @@
 <template>
-	<div class="tab-skins mb-4">
+	<div class="tab-skins">
 		<div :class="{
 				'active': $isActive(skin),
 				'disabled': $isDisabled(skin),
@@ -32,11 +32,11 @@
 </template>
 
 <script>
-	import skinsMixins from '../../Mixins/skinsMixins';
+	import AppSkinsMixins from '../../Mixins/AppSkinsMixins';
 	
 	export default {
 		name:   'TabSkins',
-		mixins: [ skinsMixins ]
+		mixins: [ AppSkinsMixins ]
 	};
 </script>
 

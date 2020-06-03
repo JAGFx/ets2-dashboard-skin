@@ -1,37 +1,37 @@
 <template>
 	<div class="dash-symbol-wrapper">
 		<!-- Brake parking | parkingBrake -->
-		<div :class="{ 'red': $parent.brakes.parking.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('parkingBrake')">
+		<div :class="{ 'red': $parent.telemetry.truck.brakes.parking.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('jagfx_elements_mid_top_parkingBrake')">
 			<span>
 				<i class="icon-parking_brakes"></i>
 			</span>
 		</div>
 		
 		<!-- Retarder | retarder -->
-		<div :class="{ 'green': $parent.brakes.retarder.level > 0, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('retarder')">
+		<div :class="{ 'green': $parent.telemetry.truck.brakes.retarder.level > 0, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('jagfx_elements_mid_top_retarder')">
 			<span>
 				<i class="icon-retarder"></i>
 			</span>
 		</div>
 		
 		<!-- Beacon | beacon -->
-		<div :class="{ 'green': $parent.lights.beacon.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('beacon')">
+		<div :class="{ 'green': $parent.telemetry.truck.lights.beacon.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('jagfx_elements_mid_top_beacon')">
 			<span>
 				<i class="icon-beacons"></i>
 			</span>
 		</div>
 		
 		<!-- Beam high | beamHigh -->
-		<div :class="{ 'blue': $parent.lights.beamHigh.enabled
-							&& $parent.lights.beamLow.enabled
-							&& $parent.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('beamHigh')">
+		<div :class="{ 'blue': $parent.telemetry.truck.lights.beamHigh.enabled
+							&& $parent.telemetry.truck.lights.beamLow.enabled
+							&& $parent.telemetry.truck.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('jagfx_elements_mid_top_beamHigh')">
 			<span>
 				<i class="icon-beam_high"></i>
 			</span>
 		</div>
 		
 		<!-- Beam low | beamLow -->
-		<div :class="{ 'green': $parent.lights.beamLow.enabled && $parent.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('beamLow')">
+		<div :class="{ 'green': $parent.telemetry.truck.lights.beamLow.enabled && $parent.telemetry.truck.engine.enabled, 'left': sideLeft(), 'right': sideRight() }" class="dash-symbol" v-if="elementIsEnabled('jagfx_elements_mid_top_beamLow')">
 			<span>
 				<i class="icon-beam_low"></i>
 			</span>
@@ -51,11 +51,11 @@
 </template>
 
 <script>
-	import configMixins from '../Mixins/configMixins';
+	import JagfxConfigMixins from '../Mixins/JagfxConfigMixins';
 	
 	export default {
 		name:    'DashSymbolArea',
-		mixins:  [ configMixins ],
+		mixins:  [ JagfxConfigMixins ],
 		props:   [ 'side' ],
 		methods: {
 			elementIsEnabled:  function ( elm ) {
@@ -68,8 +68,8 @@
 				return this.side === 'right';
 			},
 			indexEmptyElement: function () {
-				const elementLength    = this.$elementsLength( 'middle' );
-				const maxElement       = this.$maxMiddleElements();
+				const elementLength    = this.$elementsLength( 'middle-t' );
+				const maxElement       = this.maxElements[ 'middle-t' ];
 				const maxElementBySide = maxElement / 2;
 				
 				let diff = 0;

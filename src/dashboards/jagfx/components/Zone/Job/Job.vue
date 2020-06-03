@@ -1,106 +1,89 @@
 <template>
 	<div class="job">
 		<!--<div class="header">
-			<div class="name">{{cargo.name}}</div>
+			<div class="name">{{telemetry.job.cargo.name}}</div>
 		</div>-->
-		<!--<div class="wear">{{Math.floor(100 * cargo.damage)}}%</div>-->
+		<!--<div class="wear">{{Math.floor(100 * telemetry.job.cargo.damage)}}%</div>-->
 		
 		<ul class="dash-element left ">
-			<li :class="{ 'disabled': hasNoJob()  }" class="multiline default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="multiline default">
 				<div class="round from">
 					<i class="icon-startpoint"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="!$hasJob()">N/A</span>
 				<span v-else>
-					<span>{{source.city.name}}</span>
-					<small class="text-muted text-italic">{{source.company.name}}</small>
+					<span>{{telemetry.job.source.city.name}}</span>
+					<small class="text-muted text-italic">{{telemetry.job.source.company.name}}</small>
 				</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="multiline default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="multiline default">
 				<div class="round to">
 					<i class="icon-endpoint"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
+				<span v-if="!$hasJob()">N/A</span>
 				<span v-else>
-					<span>{{destination.city.name}}</span>
-					<small class="text-muted">{{destination.company.name}}</small>
+					<span>{{telemetry.job.destination.city.name}}</span>
+					<small class="text-muted">{{telemetry.job.destination.company.name}}</small>
 				</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-time"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
-				<span v-else>{{$formatDate( deliveryTime.unix )}}</span>
+				<span v-if="!$hasJob()">N/A</span>
+				<span v-else-if="$jobRemainingTimeToDueDate()">{{ telemetry.job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+				<span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-currency"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
-				<span v-else>{{['?', '€', '$'][game.id]}} {{income.toLocaleString()}}</span>
+				<span v-if="!$hasJob()">N/A</span>
+				<span v-else>{{ unit_currency( telemetry.job.income ) }}</span>
 			</li>
-			<li :class="{ 'disabled': distance === 0  }" class="default">
+			<li :class="{ 'disabled': telemetry.navigation.distance === 0  }" class="default">
 				<div class="round">
 					<i class="icon-ruler"></i>
 				</div>
-				<span v-if="distance === 0">N/A</span>
-				<span v-else-if="distance < 1000">{{distance.toFixed().toLocaleString()}} m</span>
-				<span v-else>{{(distance / 1000).toFixed().toLocaleString()}} km</span>
+				<span v-if="telemetry.navigation.distance === 0">N/A</span>
+				<span v-else-if="telemetry.navigation.distance < 1000"> {{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
+				<span v-else>{{unit_length( telemetry.navigation.distance ) }}</span>
 			</li>
-			<li :class="{ 'disabled': hasNoJob()  }" class="default">
+			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-weight"></i>
 				</div>
-				<span v-if="hasNoJob()">N/A</span>
-				<span v-else>{{(cargo.mass / 1000).toFixed()}} t</span>
+				<span v-if="!$hasJob()">N/A</span>
+				<span v-else>{{ unit_weight( telemetry.job.cargo.mass ) }}</span>
 			</li>
 		</ul>
 		
 		<!--<div class="info list">
 			<div><b>Expected:</b><span>{{formatDeliveryTime()}}</span></div>
-			<div><b>Destination:</b><span>{{destination.city.name}} - {{destination.company.name}}</span></div>
-			<div><b>Source:</b><span>{{source.city.name}} - {{source.company.name}}</span></div>
+			<div><b>Destination:</b><span>{{telemetry.job.destination.city.name}} - {{telemetry.job.destination.company.name}}</span></div>
+			<div><b>Source:</b><span>{{telemetry.job.source.city.name}} - {{telemetry.job.source.company.name}}</span></div>
 			<div><b>Market:</b><span>{{market.name}}</span></div>
-			<div><b>Income:</b><span>{{[ '?', '€', '$' ][ game.id ]}}{{income.toLocaleString()}}</span></div>
+			<div><b>Income:</b><span>{{unit_currency( telemetry.job.income )}}</span></div>
 			<div><b>Special transport:</b><span>{{isSpecial ? 'YES' : 'NO'}}</span></div>
-			<div><b>Planned distance:</b><span>{{plannedDistance.km}}km / {{plannedDistance.miles}}Miles</span></div>
+			<div><b>Planned telemetry.navigation.distance:</b><span>{{plannedDistance.km}}km / {{plannedDistance.miles}}Miles</span></div>
 		</div>
 		
-		<div class="cargo list">
-			<div><b>Name:</b><span>{{cargo.name}}</span></div>
-			<div><b>Mass:</b><span>{{(cargo.mass / 1000).toFixed()}}t</span></div>
-			<div><b>Unit Mass:</b><span>{{(cargo.unitMass / 1000).toFixed()}}t</span></div>
-			<div><b>Damage:</b><span>{{Math.floor(100 * cargo.damage)}}%</span></div>
-			<div><b>Loaded:</b><span>{{cargo.isLoaded ? 'YES' : 'NO'}}</span></div>
+		<div class="telemetry.job.cargo list">
+			<div><b>Name:</b><span>{{telemetry.job.cargo.name}}</span></div>
+			<div><b>Mass:</b><span>{{(telemetry.job.cargo.mass / 1000).toFixed()}}t</span></div>
+			<div><b>Unit Mass:</b><span>{{(telemetry.job.cargo.unitMass / 1000).toFixed()}}t</span></div>
+			<div><b>Damage:</b><span>{{Math.floor(100 * telemetry.job.cargo.damage)}}%</span></div>
+			<div><b>Loaded:</b><span>{{telemetry.job.cargo.isLoaded ? 'YES' : 'NO'}}</span></div>
 		</div>-->
 	</div>
 </template>
 
 <script>
-	import dashMixins from '../../../../../components/Mixins/dashMixins';
+	import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
 	
 	export default {
-		name:  'Job',
-		props: [
-			'game',
-			'deliveryTime',
-			'cargo',
-			'isSpecial',
-			'destination',
-			'source',
-			'market',
-			'income',
-			'plannedDistance',
-			'distance'
-		],
-		mixins: [ dashMixins ],
-		
-		methods: {
-			hasNoJob:           function () {
-				return (this.cargo.id.length === 0);
-			}
-		}
+		name:    'Job',
+		mixins:  [ AppDashMixins ]
 	};
 </script>
 

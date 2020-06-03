@@ -2,7 +2,7 @@
    "game": {
       "sdkActive": true,
       "timestamp": {
-         "value": 601859.258
+         "value" : 1590690478
       },
       "paused": false,
       "pluginVersion": 10,
@@ -13,8 +13,8 @@
       },
       "telemetryVersion": "1.15",
       "time": {
-         "value": 780,
-         "unix": 392400000
+         "value": 1590690478,
+         "unix": 1590690478
       },
       "maxTrailerCount": 10,
       "scale": 3
@@ -188,8 +188,8 @@
             }
          ],
          "gear": {
-            "selected": 10,
-            "displayed": 10
+            "selected": 14,
+            "displayed": 14
          },
          "gearRatiosForward": [
             14.9399995803833,
@@ -451,13 +451,13 @@
       "speed": {
          "value": 34.7222222222222222,
          "kph": 125,
-         "mph": 21
+         "mph": 77.6714
       },
       "cruiseControl": {
          "value" :   0,
          "enabled" : true,
          "kph" :     80,
-         "mph" :     0
+         "mph" :     15
       },
       "cabin": {
          "damage": 0,
@@ -585,7 +585,7 @@
    "job": {
       "deliveryTime": {
          "value": 1049,
-         "unix": 408540000
+         "unix": 1590693700
       },
       "plannedDistance": {
          "km": 1,
@@ -624,7 +624,7 @@
          "id": "quick_job",
          "name": "Quick Job"
       },
-      "income": 354
+      "income": 12532
    },
    "trailer": {
       "wheels": [
@@ -900,12 +900,12 @@
    },
    "navigation": {
       "nextRestStop": 37740000,
-      "distance": 754.2119140625,
+      "distance": 1754.2119140625,
       "time": 117480.46112060547,
       "speedLimit": {
-         "value": 0,
+         "value": 15,
          "kph": 30,
-         "mph": 0
+         "mph": 15
       }
    },
    "controls": {

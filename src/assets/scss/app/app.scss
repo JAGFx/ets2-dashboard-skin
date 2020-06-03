@@ -6,6 +6,7 @@
  * Time: 	14:01
  */
 
+@import "~bootstrap/scss/bootstrap";
 @import "../common/variables";
 
 * {
@@ -26,7 +27,7 @@
 }
 
 html {
-	@include prefixer( display, flex, ("webkit", "moz", "o") );
+	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	height: 100vh;
 	width: 100vw;
 	font-family: roboto;
@@ -35,8 +36,8 @@ html {
 body,
 #app,
 main {
-	@include prefixer( display, flex, ("webkit", "moz", "o") );
-	@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
+	@include prefixer(display, flex, ("webkit", "moz", "o"));
+	@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
 	width: 100%;
 	overflow: hidden;
 	background: $cBlack !important;
@@ -50,7 +51,7 @@ body {
 
 #app {
 	background: $cBlack;
-	@include prefixer( background-size, cover, ("webkit", "moz", "o") );
+	@include prefixer(background-size, cover, ("webkit", "moz", "o"));
 	font-family: 'Inconsolata', monospace;
 }
 
@@ -58,9 +59,9 @@ main {
 	height: 100%;
 	
 	&.waiting {
-		@include prefixer( display, flex, ("webkit", "moz", "o") );
-		@include prefixer( justify-content, center, ("webkit", "moz", "o") );
-		@include prefixer( align-items, center, ("webkit", "moz", "o") );
+		@include prefixer(display, flex, ("webkit", "moz", "o"));
+		@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+		@include prefixer(align-items, center, ("webkit", "moz", "o"));
 		
 		h1 {
 			width: 100%;
@@ -79,6 +80,11 @@ main {
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	height: 100%;
 	
+	&.menu {
+		height: auto;
+		overflow-y: auto;
+	}
+	
 	position: relative;
 	
 	> * {
@@ -86,13 +92,37 @@ main {
 	}
 }
 
-.zone-wrapper{
-	@include prefixer( display, flex, ("webkit", "moz", "o") );
-	@include prefixer( flex-direction, column, ("webkit", "moz", "o") );
-	@include prefixer( justify-content, center, ("webkit", "moz", "o") );
-	@include prefixer( align-items, center, ("webkit", "moz", "o") );
+.zone-wrapper {
+	@include prefixer(display, flex, ("webkit", "moz", "o"));
+	@include prefixer(flex-direction, column, ("webkit", "moz", "o"));
+	@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+	@include prefixer(align-items, center, ("webkit", "moz", "o"));
 	
 	> * {
 		width: 100%;
 	}
+}
+
+.btn-outline-ets{
+	@include button-outline-variant($cWhite, $cWhite, transparentize($cRed, .5), $cRed);
+	background: $cBlackTransparentHigh;
+	color: $cWhite;
+	border-radius: 0;
+	box-shadow: none;
+	border: 1px solid $cGray;
+	min-width: 5rem;
+	transition: all .3s ease-in-out;
+	
+	:not([disabled]) {
+		&:hover, &:focus, &.active {
+			border-color: $cRed;
+			background: transparentize($cRed, .5);
+			transition: all .1s ease-in-out;
+		}
+	}
+}
+
+input.btn-outline-ets{
+	height: 2rem;
+	padding: 2px 3px;
 }

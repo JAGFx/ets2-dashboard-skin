@@ -33,13 +33,14 @@ const srcTruckBrandSvgs  = 'resources/truck-brand/svgs/*.svg';
 const destTruckBrandSvgs = 'public/img/Truck/brands/';
 
 // --- Bundle
-const filesToZip         = [
-	'./doc',
-	'./LICENSE',
-	'./package.json',
-	'./README.md',
-	'./screenshot.png'
-];
+const filesToZip         = {
+	'./doc':                                    './doc',
+	'./LICENSE':                                './LICENSE',
+	'./package.json':                           './package.json',
+	'./README.md':                              './README.md',
+	'./screenshot.png':                         './screenshot.png',
+	'./server/config.ets2-dashboard-skin.json': './config.ets2-dashboard-skin.json'
+};
 const sdkTelemetryName   = 'scsSDKTelemetry';
 const binPath            = './bin/';
 const bundleFileName     = `${ pkg.name }_v${ pkg.version }`;
@@ -127,15 +128,20 @@ gulp.task( 'bundle:copy', ( cb ) => {
 		const scsTelemetryBinFileName   = `${ sdkTelemetryName }.${ currentTarget }`;
 		const scsTelemetryBuildFileName = `${ sdkTelemetryName }.node`;
 		
-		filesToZip.forEach( function ( value ) {
-			const destPath = getTargetBuildPath( currentTarget, value );
-			console.log( `\t> Coping ${ value } to ${ destPath }` );
+		console.log( `=== Target: ${ currentTarget } ===` );
+		
+		Object.keys( filesToZip ).forEach( function ( from ) {
+			const to       = filesToZip[ from ];
+			const destPath = getTargetBuildPath( currentTarget, to );
+			console.log( `\t> Coping ${ from } to ${ destPath }` );
 			
-			fs.copySync( value, destPath );
+			fs.copySync( from, destPath );
 		} );
 		
 		fs.copySync( getTargetBinPath( scsTelemetryBinFileName ),
 			getTargetBuildPath( currentTarget, scsTelemetryBuildFileName ) );
+		
+		console.log( '' );
 	} );
 	
 	

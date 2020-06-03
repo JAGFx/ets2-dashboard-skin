@@ -24,14 +24,9 @@
 				value          = Math.min( value, maxValue );
 				value          = Math.max( value, minValue );
 				const offset   = (value - minValue) / (maxValue - minValue);
-				const angle    = (maxAngle - minAngle) * offset + minAngle;
 				
-				return angle;
+				return (maxAngle - minAngle) * offset + minAngle;
 			}
 		}
 	};
 </script>
-
-<style scoped>
-
-</style>

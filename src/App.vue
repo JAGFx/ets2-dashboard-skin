@@ -1,12 +1,14 @@
 <template>
-	<main class="waiting" v-if="!telemetryData().game || !telemetryData().game.sdkActive">
+	
+	<main class="waiting" v-if="!telemetry.game || !telemetry.game.sdkActive">
 		<h1>
 			<span class="animated flipInX infinite">Waiting on connection...</span>
 		</h1>
 	</main>
-	<main :class="`${telemetryData().game && telemetryData().game.game.id == 2 ? 'ats' : 'ets2'}`" v-else>
-		<Game id="game" v-bind="{...telemetryData().game}" />
-		<div class="wrapper" v-show="menuIsDisplayed()">
+	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`" v-else>
+		<OverlayElement></OverlayElement>
+		<Game id="game" />
+		<div class="wrapper menu h-100" v-show="menuIsDisplayed()">
 			<Menu></Menu>
 		</div>
 		<component v-bind:is="currentSkinComponent()" v-show="!menuIsDisplayed()"></component>
@@ -17,7 +19,9 @@
 
 <script>
 	import { mapGetters }    from 'vuex';
+	import OverlayElement    from './components/Elements/OverlayElement';
 	import Menu              from './components/Menu/Menu';
+	import AppDashMixins     from './components/Mixins/AppDashMixins';
 	import Game              from './components/Zone/Game/Game';
 	import DashDafXF         from './dashboards/daf-xf/components/DashDafXF';
 	import DashDefault       from './dashboards/defaut/components/DashDefault';
@@ -28,7 +32,7 @@
 	import DashScania        from './dashboards/scania/components/DashScania';
 	import DashTest          from './dashboards/test/components/DashTest';
 	import DashVolvoFH       from './dashboards/volvo-fh/components/DashVolvoFH';
-	import { DATA_ELEMENTS } from './store/modules/_telemetry';
+	
 	
 	export default {
 		name:       'app',
@@ -43,15 +47,21 @@
 			DashScania,
 			DashVolvoFH,
 			Game,
-			Menu
+			Menu,
+			OverlayElement
 		},
 		
+		mixins: [ AppDashMixins ],
+		
 		created() {
+			//console.log( this );
 			this.$store.dispatch( 'skins/setFirstActive' );
+			this.$store.dispatch( 'config/load' );
 		},
 		
 		methods: {
 			currentSkinComponent() {
+				
 				//console.log( this.currentSkin );
 				const currentSkin = this.$store.getters[ 'skins/current' ];
 				
@@ -60,17 +70,17 @@
 				
 				return 'Dash' + currentSkin.id;
 			},
-			telemetryData() {
-				return this.pickData()( DATA_ELEMENTS.game );
-			},
+			/*telemetryData() {
+			 return this.pickData()( DATA_ELEMENTS.game );
+			 },*/
 			...mapGetters( {
-				pickData:        'telemetry/pick',
+				//pickData:        'telemetry/pick',
 				menuIsDisplayed: 'menu/isDisplayed'
 			} )
 		},
 		sockets: {
 			connect: function () {
-				//console.log("connected")
+				console.log( 'connected' );
 			},
 			update:  function ( data ) {
 				let srvData = {};
@@ -82,8 +92,8 @@
 				this.$store.commit( 'telemetry/update', srvData );
 			},
 			log:     function ( log ) {
-				log.reverse();
-				this.log = log;
+				/*log.reverse();
+				 this.log = log;*/
 			}
 		}
 	};

@@ -1,0 +1,204 @@
+{
+	"categories" : [
+		{
+			"name" :     "General",
+			"elements" : [
+				{
+					"id" :          "general_region",
+					"label" :       "Region",
+					"disabled" :    true,
+					"description" : "Set your region display. If the 'Unit auto' is set to 'Yes', all unit was set with this regions",
+					"values" :      [
+						{
+							"label" : "Europe",
+							"value" : "eu"
+						},
+						{
+							"label" : "United Kingdom",
+							"value" : "uk"
+						},
+						{
+							"label" : "USA",
+							"value" : "usa"
+						}
+					]
+				},
+				{
+					"id" :          "general_job_remaining",
+					"label" :       "Job delivery time",
+					"description" : "Display the due date or the remaining time for a job",
+					"values" :      [
+						{
+							"label" : "Due date",
+							"value" : "due_date"
+						},
+						{
+							"label" : "Remaining date",
+							"value" : "remaining_date"
+						}
+					]
+				},
+				{
+					"id" :          "general_unit_auto",
+					"label" :       "Unit auto",
+					"disabled" :    true,
+					"description" : "Auto adapt the unit from the game (Euro Truck Simulator 2 and American Truck Simulator",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : "true"
+						},
+						{
+							"label" : "No",
+							"value" : "false"
+						}
+					]
+				},
+				{
+					"id" :          "general_h-shift-layout",
+					"label" :       "H-Shift layout",
+					"description" : "Show the current range of H-Shifter OR the automatic number",
+					"values" :      [
+						{
+							"label" : "H-Shifter",
+							"value" : "h-shifter"
+						},
+						{
+							"label" : "Automatic",
+							"value" : "automatic"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" :     "Unit",
+			"elements" : [
+				{
+					"id" :          "unit_weight",
+					"label" :       "Weight",
+					"description" : "Set the weight unit. Used for the weight of the cargo",
+					"values" :      [
+						{
+							"label" : "Kilogram",
+							"value" : "kg"
+						},
+						{
+							"label" : "Pound & Long ton",
+							"value" : "lb"
+						}
+					]
+				},
+				{
+					"id" :          "unit_length",
+					"label" :       "Length",
+					"description" : "Set the length unit. Used for the distance of travel (job or point on the map)",
+					"values" :      [
+						{
+							"label" : "Meters & Kilometers",
+							"value" : "m"
+						},
+						{
+							"label" : "Foot & Miles",
+							"value" : "ft"
+						}
+					]
+				},
+				{
+					"id" :          "unit_degrees",
+					"label" :       "Degrees",
+					"description" : "Set degrees unit. Used for the temperature of water, oil and engine",
+					"values" :      [
+						{
+							"label" : "Celsius",
+							"value" : "C"
+						},
+						{
+							"label" : "Fahrenheit",
+							"value" : "F"
+						}
+					]
+				},
+				{
+					"id" :          "unit_consumption",
+					"label" :       "Consumption",
+					"description" : "Set the consumption unit",
+					"values" :      [
+						{
+							"label" : "L/100 km",
+							"value" : "lpkm"
+						},
+						{
+							"label" : "Mpg",
+							"value" : "mpg"
+						}
+					]
+				},
+				{
+					"id" :          "unit_volume",
+					"label" :       "Volume",
+					"description" : "Set the volume unit. Used for the fuel capacity",
+					"values" :      [
+						{
+							"label" : "Liters",
+							"value" : "l"
+						},
+						{
+							"label" : "Gallons",
+							"value" : "gal"
+						}
+					]
+				},
+				{
+					"id" :          "unit_pressure",
+					"label" :       "Pressure",
+					"description" : "Set the pressure unit. Used for the Air pressure or oil pressure",
+					"values" :      [
+						{
+							"label" : "PSI",
+							"value" : "psi"
+						},
+						{
+							"label" : "Bar",
+							"value" : "bar"
+						}
+					]
+				},
+				{
+					"id" :          "unit_speed",
+					"label" :       "Speed",
+					"description" : "Set the speed unit",
+					"values" :      [
+						{
+							"label" : "Km/h",
+							"value" : "kph"
+						},
+						{
+							"label" : "Mph",
+							"value" : "mph"
+						}
+					]
+				},
+				{
+					"id" :          "unit_currency",
+					"label" :       "Currency",
+					"description" : "Set the currency unit",
+					"values" :      [
+						{
+							"label" : "€ EUR",
+							"value" : "EUR"
+						},
+						{
+							"label" : "£ GBP",
+							"value" : "GBP"
+						},
+						{
+							"label" : "$ US",
+							"value" : "USD"
+						}
+					]
+				}
+			]
+		}
+	]
+}

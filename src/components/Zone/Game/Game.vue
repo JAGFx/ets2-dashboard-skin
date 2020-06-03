@@ -1,12 +1,12 @@
 <template>
 	<nav class="game">
 		<ul>
-			<li><span>Game</span>{{game.name.toUpperCase()}}</li>
-			<li><span>API</span>v{{telemetryVersion}}</li>
+			<li><span>Game</span>{{telemetry.game.game.name.toUpperCase()}}</li>
+			<li><span>API</span>v{{telemetry.game.telemetryVersion}}</li>
 			<!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
 		</ul>
 		<div class="game-time">
-			<span>{{$formatDate(time.unix)}}</span>
+			<span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
 		</div>
 		<ul>
 			<li @click="onClickGear()">
@@ -16,7 +16,7 @@
 			<li>JAGFx - {{ getVersion() }}<span>&copy;</span></li>
 		</ul>
 		
-		<!--<div><span>Game:</span><span>{{game.name.toUpperCase()}}</span></div>
+		<!--<div><span>Game:</span><span>{{telemetry.game.name.toUpperCase()}}</span></div>
 		<div><span>Telemetry version:</span><span>{{telemetryVersion}}</span></div>
 		&lt;!&ndash;<div><span>Paused:</span><span>{{paused ? "YES" : "NO"}}</span></div>&ndash;&gt;
 		<div><span>Uptime:</span><span>{{formatedTimestamp()}}</span></div>
@@ -27,28 +27,13 @@
 <script>
 	import { mapGetters } from 'vuex';
 	import * as utils     from '../../../utils/utils';
-	import dashMixins     from '../../Mixins/dashMixins';
+	import AppDashMixins     from '../../Mixins/AppDashMixins';
 	
 	export default {
 		name:   'Game',
-		props:  [
-			'timestamp',
-			'time',
-			'game',
-			'paused',
-			'sdkActive',
-			'pluginVersion',
-			'version',
-			'telemetryVersion',
-			'maxTrailerCount',
-			'scale'
-		],
-		mixins: [ dashMixins ],
+		mixins: [ AppDashMixins ],
 		
 		methods: {
-			double: function ( num ) {
-				return num < 10 ? `0${ num }` : num;
-			},
 			getVersion() {
 				return utils.app.version;
 			},

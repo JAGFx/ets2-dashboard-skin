@@ -1,20 +1,22 @@
 <template>
-	<Dashboard class="test wrapper" v-slot:default="dashProps">
+	<Dashboard class="test wrapper">
 		<div class="speed">
-			<span class="value">{{dashProps.truck.speed.kph}}</span>
-			<small class="unit">km/h</small>
+			<span class="value">{{ unit_speed( telemetry.truck.speed, true, false )}}</span>
+			<small class="unit">{{ unit_speed( telemetry.truck.speed, false )}}</small>
 		</div>
 	</Dashboard>
 </template>
 
 <script>
-	import Dashboard from '../../../components/Elements/Dashboard';
+	import Dashboard     from '../../../components/Elements/Dashboard';
+	import AppDashMixins from '../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:       'DashTest',
 		components: {
 			Dashboard
-		}
+		},
+		mixins:     [ AppDashMixins ]
 	};
 </script>
 

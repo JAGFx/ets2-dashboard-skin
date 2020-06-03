@@ -1,0 +1,32 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_overlay.scss
+ * Date: 	02/06/2020
+ * Time: 	13:23
+ */
+
+@import "../common/variables";
+
+.overlay {
+	.h {
+		font-size: .8rem;
+		.copy {
+			font-size: 0.6rem;
+			padding: 0.2rem 0.3rem;
+			min-width: auto;
+		}
+	}
+	
+	
+	pre{
+		color: $cWhite;
+		font-size: .5rem;
+		max-width: 30rem;
+		height: 13rem;
+		overflow: auto;
+		background: $cBlackTransparentMid;
+		border-radius: .1rem;
+		border: 1px solid $cRed;
+	}
+}

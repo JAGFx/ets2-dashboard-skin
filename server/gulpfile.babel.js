@@ -3,11 +3,11 @@ import babel   from 'gulp-babel';
 import plumber from 'gulp-plumber';
 
 function watch() {
-	gulp.watch( 'index.js', { cwd: './' }, gulp.series( build ) );
+	gulp.watch( [ 'src/**/*.js', 'src/**/*.mjs' ], { cwd: './' }, gulp.series( build ) );
 }
 
 function build() {
-	return gulp.src( 'index.js' )
+	return gulp.src( [ 'src/**/*.js', 'src/**/*.mjs' ] )
 			   .pipe( plumber() )
 			   .pipe( babel( { presets: [ '@babel/env' ] } ) )
 			   .pipe( gulp.dest( 'dist' ) );

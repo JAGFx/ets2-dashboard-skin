@@ -7,41 +7,42 @@
 					<!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
 					<!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
 					<small>
-						<span>{{model.name}}</span>
+						<span>{{telemetry.truck.model.name}}</span>
 					</small>
 					<!--<span>
-						{{(fuel.avgConsumption * 100).toFixed(1)}} l/100
+						{{unit_consumption( telemetry.truck.fuel.avgConsumption )}} l/100
 					</span>-->
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{ $averageDamage( damage ) }} %</span>
+						<span>{{ $averageDamage( telemetry.truck.damage ) }} %</span>
 					</div>
 					<span>
-						<span class="licencePlate"><span class="flag">{{getFlag( licensePlate.country.id )}}</span>{{licensePlate.value}}</span>
+						<span class="licencePlate"><span class="flag">{{ $flag( telemetry.truck.licensePlate.country.id )}}</span>{{telemetry.truck.licensePlate.value}}</span>
 					</span>
 				</div>
 			</div>
 		</div>
 		
 		<!--<div class="truck-wear text-center capitalized">
-			&lt;!&ndash;<div class="damage" v-for="key in Object.keys(damage)">
+			&lt;!&ndash;<div class="telemetry.truck.damage" v-for="key in Object.keys(telemetry.truck.damage)">
 				<b>{{key}}</b>
-				<span>{{Math.round(100 * damage[key])}}%</span>
+				<span>{{Math.round(100 * telemetry.truck.damage[key])}}%</span>
 			</div>&ndash;&gt;
-			<div class="damage">
-				<span>{{Math.floor(100 * chassis.damage)}}%</span>
+			<div class="telemetry.truck.damage">
+				<span>{{Math.floor(100 * chassis.telemetry.truck.damage)}}%</span>
 			</div>
 		</div>-->
 		
 		<ul class="dash-element right">
 			<!-- Cruise control -->
 			<li v-bind:class="{
-					'green' : cruiseControl.enabled,
-					'disabled' : !cruiseControl.enabled
+					'green' : telemetry.truck.cruiseControl.enabled,
+					'disabled' : !telemetry.truck.cruiseControl.enabled
 				}"
-				v-if="elementIsEnabled( 'cruiseControl' )">
-				<span>{{cruiseControl.enabled ? cruiseControl.kph + ' km/h' : 'OFF'}}</span>
+				v-if="elementIsEnabled( 'jagfx_elements_right_cruiseControl' )">
+				<span v-show="!telemetry.truck.cruiseControl.enabled">OFF</span>
+				<span v-show="telemetry.truck.cruiseControl.enabled">{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
 				<div class="round">
 					<i class="icon-cruise_control"></i>
 				</div>
@@ -49,18 +50,18 @@
 			
 			<!-- Fuel -->
 			<li class="blue" v-bind:class="{
-					'orange': fuel.warning.enabled
+					'orange': telemetry.truck.fuel.warning.enabled
 				}"
-				v-if="elementIsEnabled( 'fuel' )">
-				<span>{{Math.round(fuel.value)}} L</span>
+				v-if="elementIsEnabled( 'jagfx_elements_right_fuel' )">
+				<span>{{  unit_volume( telemetry.truck.fuel.value ) }}</span>
 				<div class="round">
 					<i class="icon-fuel"></i>
 				</div>
 			</li>
 			
 			<!-- Fuel consumption -->
-			<li class="white" v-if="elementIsEnabled( 'fuelConsumption' )">
-				<span>{{(fuel.avgConsumption * 100).toFixed(1)}}</span>
+			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_fuelConsumption' )">
+				<span>{{ unit_consumption( telemetry.truck.fuel.avgConsumption ) }}</span>
 				<div class="round">
 					<i class="icon-fuel_consumption"></i>
 				</div>
@@ -68,27 +69,27 @@
 			
 			<!-- Air pressure -->
 			<li class="blue" v-bind:class="{
-					'orange': brakes.airPressure.warning.enabled,
-					'red': brakes.airPressure.emergency.enabled
+					'orange': telemetry.truck.brakes.airPressure.warning.enabled,
+					'red': telemetry.truck.brakes.airPressure.emergency.enabled
 				}"
-				v-if="elementIsEnabled( 'brakesAirPressure' )">
-				<span>{{Math.round(brakes.airPressure.value)}} PSI</span>
+				v-if="elementIsEnabled( 'jagfx_elements_right_brakesAirPressure' )">
+				<span>{{ unit_pressure( telemetry.truck.brakes.airPressure.value ) }}</span>
 				<div class="round">
 					<i class="icon-air_pressure"></i>
 				</div>
 			</li>
 			
 			<!-- Oil temperature -->
-			<li class="default" v-if="elementIsEnabled( 'oilTemperature' )">
-				<span>{{Math.round(engine.oilTemperature.value)}} °C</span>
+			<li class="default" v-if="elementIsEnabled( 'jagfx_elements_right_oilTemperature' )">
+				<span>{{ unit_degrees( telemetry.truck.engine.oilTemperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-oil"></i>
 				</div>
 			</li>
 			
 			<!-- Brakes temparature -->
-			<li class="white" v-if="elementIsEnabled( 'brakesTemperature' )">
-				<span>{{Math.round(brakes.temperature.value)}} °C</span>
+			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_brakesTemperature' )">
+				<span>{{ unit_degrees( telemetry.truck.brakes.temperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-startpoint"></i>
 				</div>
@@ -96,10 +97,10 @@
 			
 			<!-- Water temperature -->
 			<li class="blue" v-bind:class="{
-					'orange': engine.waterTemperature.warning.enabled
+					'orange': telemetry.truck.engine.waterTemperature.warning.enabled
 				}"
-				v-if="elementIsEnabled( 'waterTemperature' )">
-				<span>{{Math.round(engine.waterTemperature.value)}} °C</span>
+				v-if="elementIsEnabled( 'jagfx_elements_right_waterTemperature' )">
+				<span>{{ unit_degrees( telemetry.truck.engine.waterTemperature.value ) }}</span>
 				<div class="round">
 					<i class="icon-water_temperature"></i>
 				</div>
@@ -107,10 +108,10 @@
 			
 			<!-- Battery -->
 			<li class="blue" v-bind:class="{
-					'orange': engine.batteryVoltage.warning.enabled
+					'orange': telemetry.truck.engine.batteryVoltage.warning.enabled
 				}"
-				v-if="elementIsEnabled( 'batteryVoltage' )">
-				<span>{{Math.round(engine.batteryVoltage.value)}} V</span>
+				v-if="elementIsEnabled( 'jagfx_elements_right_batteryVoltage' )">
+				<span>{{Math.round(telemetry.truck.engine.batteryVoltage.value)}} V</span>
 				<div class="round">
 					<i class="icon-battery"></i>
 				</div>
@@ -127,44 +128,17 @@
 </template>
 
 <script>
-	import dashMixins from '../../../../../components/Mixins/dashMixins';
-	import * as utils from '../../../../../utils/utils';
+	import AppDashMixins   from '../../../../../components/Mixins/AppDashMixins';
+	import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
 	
 	export default {
-		name:   'Truck',
-		mixins: [ dashMixins ],
-		props:  [
-			'brand',
-			'model',
-			'licensePlate',
-			'transmission',
-			'fuel',
-			'adBlue',
-			'cabin',
-			'lights',
-			'position',
-			'acceleration',
-			'orientation',
-			'brakes',
-			'wheels',
-			'engine',
-			'damage',
-			'odometer',
-			'wipers',
-			'head',
-			'hook',
-			'chassis',
-			'differential',
-			'cruiseControl'
-		],
-		
+		name:    'Truck',
+		mixins:  [ AppDashMixins, JagfxConfigMixins ],
 		methods: {
 			indexEmptyElement: function () {
 				const elementLength = this.$elementsLength( 'right' );
-				const maxElement    = this.$maxSideElements();
+				const maxElement    = this.maxElements[ 'right' ];
 				const diff          = maxElement - elementLength;
-				
-				//console.log( elementLength, maxElement, diff, this.currentEnabled );
 				
 				return (diff <= 0)
 					? 0
@@ -172,9 +146,6 @@
 			},
 			elementIsEnabled:  function ( element ) {
 				return this.$elementIsEnabled( 'right', element );
-			},
-			getFlag( countryName ) {
-				return utils.app.flag( countryName );
 			}
 		}
 	};
