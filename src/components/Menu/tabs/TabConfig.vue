@@ -78,7 +78,7 @@
 				config:      config,
 				skins:       skinsOk,
 				configSkins: configSkins,
-				showUpload:  false,
+				showUpload:  false
 				//processing:  false
 				//data:        data
 			};
@@ -110,7 +110,19 @@
 						console.log( data );
 						this.$store.commit( 'config/setElms', data );
 						
-					}, e => alert( e ) )
+					}, e => {
+						this.$store.dispatch( 'app/setError', {
+							message: {
+								type:    'dark',
+								title:   'Upload failed',
+								message: e
+							},
+							details: {
+								message: e,
+								code:    '#CONFIG_UPLOAD_FAILED'
+							}
+						} );
+					} )
 					.finally( () => {
 						this.$refs.uploadFile.value = null;
 						this.showUpload             = false;

@@ -6,17 +6,21 @@
  * Time: 	15:56
  */
 
+const defaultMessage = {
+	type:    'dark',
+	title:   'Processing',
+	message: 'Your app are on processing. Please wait'
+};
+
+const defaultDetails = {
+	message: null,
+	code:    null
+};
+
 const state = () => ({
 	processing: false,
-	message:    {
-		type: 'dark',
-		title:   'Processing',
-		message: 'Your app are on processing. Please wait'
-	},
-	details:    {
-		message: null,
-		code: null,
-	}
+	message:    defaultMessage,
+	details:    defaultDetails
 });
 
 // getters
@@ -36,8 +40,11 @@ const actions = {
 	},
 	endProcessing( { commit } ) {
 		commit( 'setProcessing', false );
+		commit( 'setMessage', defaultMessage );
+		commit( 'setDetails', defaultDetails );
 	},
-	setError( { commit }, payload ){
+	setError( { commit }, payload ) {
+		commit( 'setProcessing', true );
 		commit( 'setMessage', payload.message );
 		commit( 'setDetails', payload.details );
 	}
@@ -48,10 +55,10 @@ const mutations = {
 	setProcessing( state, value ) {
 		state.processing = value;
 	},
-	setMessage( state, message ){
+	setMessage( state, message ) {
 		state.message = message;
 	},
-	setDetails( state, details ){
+	setDetails( state, details ) {
 		state.details = details;
 	}
 };

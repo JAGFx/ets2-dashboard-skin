@@ -121,25 +121,58 @@ const load = () => {
 };
 
 const upload = file => {
-	if ( file.type !== 'application/json' )
-		throw 'Invalid file type';
-	
 	return new Promise( ( resolve, reject ) => {
-		let reader = new FileReader();
-		reader.readAsText( file, 'UTF-8' );
-		
-		reader.onload  = evt => {
-			const data = JSON.parse( evt.target.result );
-			//console.log( data );
+		try {
+			if ( file.type !== 'application/json' )
+				throw 'Invalid file type';
 			
-			save( data )
-				.then( data => resolve( data ),
-					error => reject( error ) );
-		};
-		reader.onerror = () => {
-			reject( 'Error reading file' );
-		};
+			let reader = new FileReader();
+			reader.readAsText( file, 'UTF-8' );
+			
+			reader.onload  = evt => {
+				try {
+					const data        = JSON.parse( evt.target.result );
+					const checkResult = uploadChecker( data );
+					//console.log( 'a', data );
+					
+					if ( !checkResult.state )
+						throw 'An entry required was not found: ' + checkResult.value;
+					
+					save( data )
+						.then( data => resolve( data ),
+							error => reject( error ) );
+					
+				} catch ( e ) {
+					reject( e );
+				}
+				
+			};
+			reader.onerror = () => {
+				reject( 'Error reading file' );
+			};
+			
+		} catch ( e ) {
+			reject( e );
+		}
 	} );
+};
+
+const uploadChecker = input => {
+	let result = {
+		state: true
+	};
+	
+	Object.entries( defaultData ).forEach( entry => {
+		const key = entry[ 0 ];
+		
+		if ( !input.hasOwnProperty( key ) )
+			result = {
+				state: false,
+				value: key
+			};
+	} );
+	
+	return result;
 };
 
 
