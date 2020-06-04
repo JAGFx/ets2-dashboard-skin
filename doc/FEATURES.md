@@ -1,80 +1,62 @@
 # Features
 
-We can find three part:
+## General
 
-- The left: `Trailer & Job`
-- The middle: `Navigation`
-- The right: `Truck`
+![Skins](screens/error.png)
 
-Currently, i'm integrate only data. In the future, i'm integrate some events.
+I'm introduce an overlay for processing (e.g. saving config, loading config and upload config) and error.
 
-## Data
+In the error overlay, you can access to the full errors details.
 
-All dada may not be displayed. See the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) to know how to enable it
+Why the full details ? It can help me to debug and fix the error. Please to send me an email or create an issue with this detail ;)
 
-### Left - Trailer & Job
+See the [Issue template](https://github.com/JAGFx/ets2-dashboard-skin/issues/new?assignees=&labels=bug%2C+feature%2Ftodo&template=bug_report.md&title=) 
 
-#### Trailer
+## Skin
 
-- Licence plate flag of country
-- Licence plate number
-- Wear level (Average Cargo + Chassis)
+![Skins](screens/skins.png)
 
-#### Job
+In this app, you find all skin from the [Funbit / ets2-telemetry-server](https://github.com/Funbit/ets2-telemetry-server)
 
-- Cargo name
-- City destination
-- City source
-- Company destination
-- Company source
-- Distance to travel (Work without job active)
-- Due time
-- Spent
-- Weight
+The goal of this project is to have the skin dashboard for this repository with the latest telemetry data.
 
-### Middle - Navigation
+- DAF XF
+- Man TGX
+- Mercedes Atego
+- RD Info
+- Scania
+- Volvo FH
 
-#### State icons
+## Configuration
 
-- Beacon ON
-- Current speed limit
-- High beam ON
-- Low beam ON
-- Parking brake ON
-- Retarder ON
+![Skins](screens/config.png)
 
-#### Others data
+For all skin, you can set more information (unit or other setting).
+Go to `Menu > Config` to change with your preference.
 
-- Current gear selected (_With or not splitter indicator_)
-- Current speed
-- Engine RPM level
-- Fuel level
-- Odometer
+### How to
 
-### Right - Truck
+The config file will stored on the release archive.
+It's name `config.ets2-dashboard-skin.json`.
 
-- Air pressure
-- Battery level
-- Brake temperature
-- Brand logo
-- Cruise control speed
-- Fuel consumption
-- Fuel level
-- Licence plate flag of country
-- Licence plate number
-- Model name
-- Oil temperature
-- Water temperature
-- Wear level
+This JSON file store your preference. I'm recommend you to change data from the app instead of this file
 
-## Skins
+#### Save my config
 
-We can change the skin of dashboard. Open the menu, clic on Skins tab, and choose you skins.
+To save your config, two way:
+- Click on "Download" button to save config on your device
+- Copy & past the config file from the release folder 
 
-Available skins:
+#### Update my config after release update
 
-- JAGFx
-- Test
+When you want to keep your config on a new release, you can:
+- Save your config from the old release
+- Download and extract the new release
+- Upload your config file on the `Menu > Config`
+
+Note: If a missing entry was found, you can't upload your config.
+
+### List
 
 ---
 ↩️ [Home](../README.md)
