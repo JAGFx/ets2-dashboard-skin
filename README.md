@@ -46,6 +46,10 @@ To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.
 
 To know more about the skin integrated or how to add a new skin, see the [SKINS.md](doc/SKINS.md)
 
+## Configuration
+
+To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
+
 
 ## Quick use
 
@@ -123,9 +127,6 @@ If you wan to disable the fullscreen for development, set to `false`:
 ```dotenv
 VUE_APP_ENABLE_FULLSCREEN=false
 ```
-
-### Config settings
-You can choose to display element than you want. To setting up, see [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
 
 ### Resources
 I provide all resources what i'm use to develop this dashboard. Such as svg, AI file for svg or others element who can be need to contribute too.

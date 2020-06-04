@@ -19,7 +19,7 @@
     "dashboard:start": "http-server dist/",
     "server:install": "cd server && npm i && npm rb",
     "server:build": "cd server && set NODE_ENV=production && npx gulp",
-    "server:start": "cd server && node ./dist/main.js",
+    "server:start": "cd server && npm run start",
     "font:build": "npx gulp build:font"
   },
   "main": "index.js",
