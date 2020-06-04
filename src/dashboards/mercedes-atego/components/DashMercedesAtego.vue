@@ -80,7 +80,7 @@
 				<div :class="{ 'yes': telemetry.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>
 				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
 				<div :class="{ 'yes': telemetry.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
-				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>
+				<div class="truck-retarderBrake wrapper-area"><span>{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</span></div>
 				<!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
 				<!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
 				<div class="game-time wrapper-area"><span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>

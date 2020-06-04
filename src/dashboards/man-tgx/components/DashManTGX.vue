@@ -84,12 +84,12 @@
 				<div :class="{ 'yes': telemetry.truck.lights.parking.enabled }" class="truck-lightsParkingOn"></div>
 				<!--				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>-->
 				<div class="trailer-mass wrapper-area">
-					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span>
+					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 0 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span>
 				</div>
 				<div :class="{ 'yes': telemetry.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
 				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>
 				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>
-				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>
+				<div class="truck-oilTemperature">{{ unit_degrees( telemetry.truck.engine.oilTemperature.value ) }}</div>
 				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0)
 					}}
 				</div>

@@ -83,7 +83,7 @@
 				<div :class="{ 'yes': telemetry.truck.brakes.parking.enabled }" class="truck-parkBrakeOn"></div>
 				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="_airPressureOn"></div>
 				<div class="truck-fuel">{{ unit_volume( telemetry.truck.fuel.value ) }}</div>
-				<div class="truck-fuelAverageConsumption">{{ unit_consumption( telemetry.truck.fuel.avgConsumption )
+				<div class="truck-fuelAverageConsumption">{{ unit_consumption( telemetry.truck.fuel.avgConsumption, true, false ) | $toFixed( 1 )
 					}}
 				</div>
 				<div class="_fuelAvg">{{ unit_consumption( telemetry.truck.fuel.avgConsumption, false ) }}</div>
