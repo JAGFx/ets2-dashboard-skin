@@ -3,7 +3,7 @@
   "general_unit_auto": "false",
   "general_h-shift-layout": "h-shifter",
   "unit_weight": "kg",
-  "unit_length": "km",
+  "unit_length": "m",
   "unit_degrees": "C",
   "unit_consumption": "lpkm",
   "unit_volume": "l",
