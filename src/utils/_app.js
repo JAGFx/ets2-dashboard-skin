@@ -8,7 +8,7 @@
 
 import countryList from 'country-list';
 import emojiFlags  from 'emoji-flags';
-import moment      from 'moment';
+import moment      from 'moment-timezone';
 
 
 import packageJson from '../../package.json';
@@ -58,19 +58,24 @@ const jsonReadable = ( dataIn ) => {
 
 const dateTimeLocalized = ( input, formatDate, formatTime ) => {
 	const format     = formatDate + ' ' + formatTime;
-	const momentData = moment( input, 'X' );
+	const momentData = moment( input, 'x' );
 	
 	//console.log( input, format, momentData, new Date( input ) );
 	
-	return momentData.format( format );
+	return momentData.tz( 'Africa/Abidjan' ).format( format );
 };
 
-const diffDateTimeLocalized = ( dFrom, dTo, withPrefix = true ) => {
-	const momentFrom = moment( dFrom, 'X' );
-	const momentTo   = moment( dTo, 'X' );
+const diffDateTimeLocalized = ( dFrom, dTo ) => {
+	const momentFrom = moment( dFrom, 'x' );
+	const momentTo   = moment( dTo, 'x' );
 	const diff       = momentTo.diff( momentFrom );
 	
-	return moment.utc( diff ).format( 'HH[h] mm[m] ss[s]' );
+	//console.log( dFrom, dTo, diff );
+	
+	return moment
+		.utc( diff )
+		.tz( 'Africa/Abidjan' )
+		.format( 'HH[h] mm[m] ss[s]' );
 };
 
 const sleep = milliseconds => {
