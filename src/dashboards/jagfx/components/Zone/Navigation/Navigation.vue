@@ -26,7 +26,6 @@
 					</div>
 					<div class="middle">
 						<div class="speed">
-							<span>{{ telemetry.truck.speed.kph }}</span>
 							<span class="value">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 )  }}</span>
 							<small class="unit">{{ unit_speed( telemetry.truck.speed, false ) }}</small>
 						</div>
