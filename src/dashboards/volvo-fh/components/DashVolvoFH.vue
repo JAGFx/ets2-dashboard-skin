@@ -23,7 +23,7 @@
 					'minAngle' : -97,
 					'maxAngle': 97,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( telemetry.truck.speed, true, false ) }}</span>
+				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 )  }}</span>
 				</div>
 				<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',

@@ -23,7 +23,7 @@
 					'minAngle' : -114,
 					'maxAngle': 114,
 				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( telemetry.truck.speed, true, false ) }}</span>
+				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
 				</div>
 				<div class="truck-speedRounded-unit wrapper-area">
 					<span>{{ unit_speed( telemetry.truck.speed, false ) }}</span>

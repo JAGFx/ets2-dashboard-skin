@@ -75,7 +75,7 @@ const diffDateTimeLocalized = ( dFrom, dTo ) => {
 	return moment
 		.utc( diff )
 		.tz( 'Africa/Abidjan' )
-		.format( 'HH[h] mm[m] ss[s]' );
+		.format( 'DD[d] HH[h] mm[m]' );
 };
 
 const sleep = milliseconds => {

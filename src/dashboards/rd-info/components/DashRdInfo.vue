@@ -23,7 +23,7 @@
 					'minAngle' : -111,
 					'maxAngle': 110,
 				}"></CadranElement>-->
-				<!--				<div class="truck-speedRounded wrapper-area"><span>{{ telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false ) }}</span></div>-->
+				<!--				<div class="truck-speedRounded wrapper-area"><span>{{ telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 )  }}</span></div>-->
 				<!--<CadranElement v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
@@ -95,7 +95,8 @@
 				<div :class="{ 'yes': ( telemetry.truck.lights.blinker.left.active || telemetry.truck.lights.blinker.right.active ) }" class="_dangerWarning"></div>
 				<div :class="{ 'yes': telemetry.truck.lights.parking.enabled }" class="_auxLights"></div>
 				<div :class="{ 'yes': ( telemetry.truck.lights.auxFront.value !== 0 || telemetry.truck.lights.auxRoof.value !== 0 ) }" class="truck-lightsParkingOn"></div>
-				<div class="navigation-speedLimit">{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}
+				<div class="navigation-speedLimit">{{ unit_speed( telemetry.navigation.speedLimit, true, false ) |
+					$toFixed( 0 ) }}
 				</div>
 				
 				<!--				<div class="truck-odometer wrapper-area"><span>{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span></div>-->

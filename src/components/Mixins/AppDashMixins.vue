@@ -52,7 +52,7 @@
 				}
 				
 				if ( showValue && !showSymbol )
-					return value.toFixed( 0 );
+					return value;
 				
 				if ( !showValue && showSymbol )
 					return unit;
@@ -137,17 +137,25 @@
 							.from( weight )
 							.toBest( { exclude: unitExcluded } );
 						
+						value = conversion.value;
+						unit  = conversion.unit;
+						
+						if ( value > 1000 ) {
+							value /= 1000;
+							unit = 't';
+						}
+						
 						break;
 					case 'lb':
 						conversion = uc_mass( conversion.value )
 							.from( weight )
 							.toBest( { exclude: unitExcluded } );
 						
+						value = conversion.value;
+						unit  = conversion.unit;
+						
 						break;
 				}
-				
-				value = conversion.value;
-				unit  = conversion.unit;
 				
 				if ( showValue && !showSymbol )
 					return value;
