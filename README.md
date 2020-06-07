@@ -21,7 +21,25 @@ The first to be rework are my own dashboard. In the future, all dashboard in the
 
 This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniffen/TruckSim-Telemetry-Demo)
 
-![Screenshot](screenshot.png)
+![Screenshot](doc/screens/demo.gif)
+
+## What's it ?
+
+This is an web app who you can switch over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes, Renault, Scania or Volvo)). [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
+
+I'm also introduce the possibility to change the unit of measurement as you prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/CONFIG_SETTINGS.md)
+
+It's work on desktop and mobile browser.
+
+## Use from a mobile device
+
+1. Find your local IP address (Find how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
+2. Open a web browser on your mobile device
+3. Access to the dashboard: `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.1.42:3000`)
+4. And voilà ! You can enable / disable the fullscreen on tap on the dashboard
+
+Tip: You can save a shortcut on your home screen to use it as an app like.
+ 
 
 ## Environement
 
@@ -68,13 +86,6 @@ Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
 2. Follow the [installation](#installation) instructions
 3. Launch the [bundle](#bundle) command
 4. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
-
-### Use from a mobile device
-
-1. Find your local IP address (Find how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
-2. Open a web browser on your mobile device
-3. Access to the dashboard: `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.1.42:3000`)
-4. And voilà ! You can enable / disable the fullscreen on tap on the dashboard
 
 ## Prerequisite
 
