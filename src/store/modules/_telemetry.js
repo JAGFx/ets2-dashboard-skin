@@ -65,7 +65,11 @@ const actions = {};
 // mutations
 const mutations = {
 	update( state, data ) {
-		Vue.set( state, 'data', data );
+		const gameReady = data.game !== null &&
+						  (typeof data.game === 'object' && Object.keys( data.game ).length > 0);
+		
+		if ( gameReady )
+			Vue.set( state, 'data', data );
 	}
 };
 

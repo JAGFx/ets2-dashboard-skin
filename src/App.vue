@@ -5,9 +5,11 @@
 				<div class="d-flex justify-content-center flex-column align-items-center">
 					<transition mode="out-in" name="slide-fade">
 						<div :key="launching.text" class="d-flex justify-content-center align-items-center flex-column">
-							<h1><span class="mr-3" v-html="launching.icon"></span>{{ launching.text }}</h1>
-							<small>{{ launching.subText }}</small>
+							<h1><span class="mb-3" v-html="launching.icon"></span></h1>
+							<h1>{{ launching.text }}</h1>
+							<small class="mb-3">{{ launching.subText }}</small>
 							<b-spinner label="Processing..." type="grow"></b-spinner>
+							{{ gameConnected }}
 						</div>
 					</transition>
 				</div>
@@ -116,16 +118,24 @@
 		},
 		computed: {
 			gameConnected() {
-				return this.telemetry.game && this.telemetry.game.sdkActive;
+				const gameReady = this.telemetry.game !== null &&
+								  (typeof this.telemetry.game
+								  === 'object'
+								  && Object.keys( this.telemetry.game ).length
+								  > 0);
+				
+				console.log( 'Game', this.telemetry.game, gameReady );
+				
+				return gameReady && this.telemetry.game.sdkActive;
 			}
 		},
 		sockets:  {
 			connect: function () {
-				//console.log( 'connected' );
+				console.log( 'connected' );
 				this.launching = {
 					icon:    '<i class="fas fa-truck"></i>',
 					text:    'Connected to telemetry server',
-					subText: 'Arrived on delivery site'
+					subText: 'Ready to delivering'
 				};
 			},
 			update:  function ( data ) {
@@ -140,6 +150,17 @@
 			log:     function ( log ) {
 				/*log.reverse();
 				 this.log = log;*/
+				
+				//console.log( 'Log---', log );
+				switch ( log.eventName ) {
+					case 'game.connected':
+						this.launching = {
+							icon:    '<i class="fas fa-truck-loading"></i>',
+							text:    'Game connected',
+							subText: 'Delivering. Waiting you on road !'
+						};
+						break;
+				}
 			}
 		}
 	};
