@@ -1,17 +1,25 @@
 <template>
-	
-	<main class="waiting" v-if="!telemetry.game || !telemetry.game.sdkActive">
-		<h1>
-			<span class="animated flipInX infinite">Waiting on connection...</span>
-		</h1>
-	</main>
-	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`" v-else>
-		<OverlayElement></OverlayElement>
-		<Game id="game" />
-		<div class="wrapper menu h-100" v-show="menuIsDisplayed()">
+	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`">
+		<b-overlay :show="!gameConnected" :variant="'dark'" no-wrap>
+			<template v-slot:overlay>
+				<div class="d-flex justify-content-center flex-column align-items-center">
+					<transition mode="out-in" name="slide-fade">
+						<div :key="launching.text" class="d-flex justify-content-center align-items-center flex-column">
+							<h1><span class="mr-3" v-html="launching.icon"></span>{{ launching.text }}</h1>
+							<small>{{ launching.subText }}</small>
+							<b-spinner label="Processing..." type="grow"></b-spinner>
+						</div>
+					</transition>
+				</div>
+			</template>
+		</b-overlay>
+		
+		<OverlayElement v-if="gameConnected"></OverlayElement>
+		<Game id="game" v-if="gameConnected" />
+		<div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed()">
 			<Menu></Menu>
 		</div>
-		<component v-bind:is="currentSkinComponent()" v-show="!menuIsDisplayed()"></component>
+		<component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed()"></component>
 		<!--<Events id="events" v-bind="{log}" />-->
 		<!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
 	</main>
@@ -53,13 +61,41 @@
 		
 		mixins: [ AppDashMixins ],
 		
+		data() {
+			return {
+				launching: {
+					icon:    '<i class="fas fa-box"></i>',
+					text:    'App ready !',
+					subText: 'Starting delivering'
+				}
+			};
+		},
+		
 		created() {
 			//console.log( this );
 			this.$store.dispatch( 'skins/setFirstActive' );
 			this.$store.dispatch( 'config/load' );
+			
+			/*// Game connected
+			 setTimeout(()=> {
+			 this.launching = {
+			 icon: '<i class="fas fa-truck-loading"></i>',
+			 text: 'Game connected',
+			 subText: 'Delivering'
+			 }
+			 }, 6000);
+			 
+			 // After game connected + 3s
+			 setTimeout(()=> {
+			 this.launching = {
+			 icon: '<i class="fas fa-box-open"></i>',
+			 text: 'Finished',
+			 subText: 'Delivered'
+			 }
+			 }, 9000);*/
 		},
 		
-		methods: {
+		methods:  {
 			currentSkinComponent() {
 				
 				//console.log( this.currentSkin );
@@ -78,9 +114,19 @@
 				menuIsDisplayed: 'menu/isDisplayed'
 			} )
 		},
-		sockets: {
+		computed: {
+			gameConnected() {
+				return this.telemetry.game && this.telemetry.game.sdkActive;
+			}
+		},
+		sockets:  {
 			connect: function () {
-				console.log( 'connected' );
+				//console.log( 'connected' );
+				this.launching = {
+					icon:    '<i class="fas fa-truck"></i>',
+					text:    'Connected to telemetry server',
+					subText: 'Arrived on delivery site'
+				};
 			},
 			update:  function ( data ) {
 				let srvData = {};

@@ -103,7 +103,7 @@ main {
 	}
 }
 
-.btn-outline-ets{
+.btn-outline-ets {
 	@include button-outline-variant($cWhite, $cWhite, transparentize($cRed, .5), $cRed);
 	background: $cBlackTransparentHigh;
 	color: $cWhite;
@@ -122,7 +122,22 @@ main {
 	}
 }
 
-input.btn-outline-ets{
+input.btn-outline-ets {
 	height: 2rem;
 	padding: 2px 3px;
+}
+
+.slide-fade-enter-active {
+	transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+	transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+	/* .slide-fade-leave-active for <2.1.8 */
+{
+	transform: translateX(10px);
+	opacity: 0;
 }
