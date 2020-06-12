@@ -67,6 +67,14 @@
 				</div>
 			</li>
 			
+			<!-- Next rest stop -->
+			<li class="default" v-if="elementIsEnabled( 'jagfx_elements_right_restStop' )">
+				<span>{{ telemetry.navigation.nextRestStop | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+				<div class="round">
+					<i class="icon-battery"></i>
+				</div>
+			</li>
+			
 			<!-- Air pressure -->
 			<li class="blue" v-bind:class="{
 					'orange': telemetry.truck.brakes.airPressure.warning.enabled,

@@ -122,6 +122,21 @@
 							"value" : "false"
 						}
 					]
+				},
+				{
+					"id" :          "jagfx_elements_right_restStop",
+					"label" :       "Next rest stop",
+					"description" : "Display the time to go to the nex rest stop",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : "true"
+						},
+						{
+							"label" : "No",
+							"value" : "false"
+						}
+					]
 				}
 			]
 		},

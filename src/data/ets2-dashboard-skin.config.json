@@ -26,5 +26,6 @@
   "jagfx_elements_mid_top_beacon": "false",
   "jagfx_elements_mid_bottom_rpm": "true",
   "jagfx_elements_mid_bottom_fuel": "true",
-  "jagfx_elements_mid_bottom_speedLimit": "true"
+  "jagfx_elements_mid_bottom_speedLimit": "true",
+  "jagfx_elements_right_restStop": "false"
 }
