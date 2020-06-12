@@ -65,17 +65,18 @@ const dateTimeLocalized = ( input, formatDate, formatTime ) => {
 	return momentData.tz( 'Africa/Abidjan' ).format( format );
 };
 
-const diffDateTimeLocalized = ( dFrom, dTo ) => {
+const diffDateTimeLocalized = ( dFrom, dTo, withDay = true ) => {
 	const momentFrom = moment( dFrom, 'x' );
 	const momentTo   = moment( dTo, 'x' );
 	const diff       = momentTo.diff( momentFrom );
-	
-	//console.log( dFrom, dTo, diff );
+	const format     = (withDay)
+		? 'DD[d] HH[h] mm[m]'
+		: 'HH[h] mm[m]';
 	
 	return moment
 		.utc( diff )
 		.tz( 'Africa/Abidjan' )
-		.format( 'DD[d] HH[h] mm[m]' );
+		.format( format );
 };
 
 const sleep = milliseconds => {

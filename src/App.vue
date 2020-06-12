@@ -9,7 +9,6 @@
 							<h1>{{ launching.text }}</h1>
 							<small class="mb-3">{{ launching.subText }}</small>
 							<b-spinner label="Processing..." type="grow"></b-spinner>
-							{{ gameConnected }}
 						</div>
 					</transition>
 				</div>

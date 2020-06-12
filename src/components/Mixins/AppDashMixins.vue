@@ -335,6 +335,9 @@
 				
 				return configData.general_job_remaining === 'due_date';
 			},
+			$nextRestStop( time ) {
+				return utils.app.diffDateTimeLocalized( 0, time, false );
+			},
 			
 			// --- ./Job
 			

@@ -69,9 +69,9 @@
 			
 			<!-- Next rest stop -->
 			<li class="default" v-if="elementIsEnabled( 'jagfx_elements_right_restStop' )">
-				<span>{{ telemetry.navigation.nextRestStop | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+				<span>in {{ $nextRestStop( telemetry.navigation.nextRestStop ) }}</span>
 				<div class="round">
-					<i class="icon-battery"></i>
+					<i class="icon-rest_stop"></i>
 				</div>
 			</li>
 			
@@ -99,7 +99,7 @@
 			<li class="white" v-if="elementIsEnabled( 'jagfx_elements_right_brakesTemperature' )">
 				<span>{{ unit_degrees( telemetry.truck.brakes.temperature.value ) }}</span>
 				<div class="round">
-					<i class="icon-startpoint"></i>
+					<i class="icon-brakes_temperature"></i>
 				</div>
 			</li>
 			
