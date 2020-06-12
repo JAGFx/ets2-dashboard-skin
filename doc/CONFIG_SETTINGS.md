@@ -312,6 +312,17 @@ You can find common elements, and skin config.
         </td>
         <td>Yes</td>
     </tr>
+    <tr>
+        <td>jagfx_elements_right_restStop</td>
+        <td>Next rest stop</td>
+        <td>
+            <ul>
+                <li>Yes</li>
+                <li>No</li>
+            </ul>
+        </td>
+        <td>No</td>
+    </tr>
             
 </table>
 
