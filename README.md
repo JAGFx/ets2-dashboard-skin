@@ -56,6 +56,10 @@ The view is optimized for a `5.5"` screen. To develop on you web browser, you ca
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
+## Know issues
+
+If you found an issue, please see the [KNOW_ISSUES.md](doc/KNOW_ISSUES.md). Your issue may be already known.
+
 ## Features
 
 To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md).

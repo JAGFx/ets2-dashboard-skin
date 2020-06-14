@@ -323,6 +323,17 @@ You can find common elements, and skin config.
         </td>
         <td>No</td>
     </tr>
+    <tr>
+        <td>jagfx_elements_mid_bottom_blinker_turn</td>
+        <td>Turning indicator</td>
+        <td>
+            <ul>
+                <li>Yes</li>
+                <li>No</li>
+            </ul>
+        </td>
+        <td>No</td>
+    </tr>
             
 </table>
 
