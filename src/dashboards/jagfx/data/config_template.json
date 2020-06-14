@@ -267,6 +267,21 @@
 							"value" : "false"
 						}
 					]
+				},
+				{
+					"id" :          "jagfx_elements_mid_bottom_blinker_turn",
+					"label" :       "Turning indicator",
+					"description" : "Display an indicator when the turn left or turn right blinker are ON",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : "true"
+						},
+						{
+							"label" : "No",
+							"value" : "false"
+						}
+					]
 				}
 			]
 		}

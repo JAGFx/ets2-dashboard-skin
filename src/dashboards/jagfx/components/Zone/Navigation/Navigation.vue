@@ -61,8 +61,14 @@
 			</div>
 			
 			<!-- Speed limit -->
-			<div :class="{ 'hidden': telemetry.navigation.speedLimit.value === 0 }" class="speedLimits" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )">
-				<div class="speedLimitKPH">{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</div>
+			<div class="bottomArea">
+				<div :class="{ 'active': telemetry.truck.lights.blinker.left.active}" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_blinker_turn' )" class="blinkers">
+					<i class="icon-blinker_left"></i></div>
+				<div :class="{ 'hidden': telemetry.navigation.speedLimit.value === 0 }" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )" class="speedLimitKPH">
+					{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}
+				</div>
+				<div :class="{ 'active': telemetry.truck.lights.blinker.right.active}" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_blinker_turn' )" class="blinkers">
+					<i class="icon-blinker_right"></i></div>
 				<!--<div class="speedLimitMPH">{{telemetry.navigation.speedLimit.mph}}</div>-->
 			</div>
 		

@@ -123,7 +123,7 @@
 								  && Object.keys( this.telemetry.game ).length
 								  > 0);
 				
-				console.log( 'Game', this.telemetry.game, gameReady );
+				//console.log( 'Game', this.telemetry.game, gameReady );
 				
 				return gameReady && this.telemetry.game.sdkActive;
 			}
