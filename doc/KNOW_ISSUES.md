@@ -4,6 +4,9 @@ Retrieve here the list of know issues
 
 - Changing settings on config tab may not be take in considaration on skin
     - Current solution: Relaunch app
+- Wrong timestamp for job delivery time (and remaining delivery time) on World of Trucks
+    - Cause: The timestamp provider by the API was wrong. And then, the estimated remaining delivery time was wrong too
+    - Solution: Nothing yet
 
 ---
 ↩️ [Home](../README.md)
