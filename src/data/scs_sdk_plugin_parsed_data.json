@@ -830,14 +830,14 @@
             "deliveryTime": 0,
             "startingTime": 0,
             "finishingTime": 0,
-            "earnedXP": 0,
+            "earnedXP": 1200,
             "cargoDamage": 0,
             "distance": {
-               "km": 0,
-               "miles": 0
+               "km": 1250,
+               "miles": 1523
             },
             "autoParked": false,
-            "revenue": 0,
+            "revenue": 12558,
             "active": false
          },
          "started": {

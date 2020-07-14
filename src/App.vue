@@ -16,6 +16,7 @@
 		</b-overlay>
 		
 		<OverlayElement v-if="gameConnected"></OverlayElement>
+		<EventOverlayElement v-if="gameConnected"></EventOverlayElement>
 		<Game id="game" v-if="gameConnected" />
 		<div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed()">
 			<Menu></Menu>
@@ -27,25 +28,27 @@
 </template>
 
 <script>
-	import { mapGetters }    from 'vuex';
-	import OverlayElement    from './components/Elements/OverlayElement';
-	import Menu              from './components/Menu/Menu';
-	import AppDashMixins     from './components/Mixins/AppDashMixins';
-	import Game              from './components/Zone/Game/Game';
-	import DashDafXF         from './dashboards/daf-xf/components/DashDafXF';
-	import DashDefault       from './dashboards/defaut/components/DashDefault';
-	import DashJAGFx         from './dashboards/jagfx/components/DashJAGFx';
-	import DashManTGX        from './dashboards/man-tgx/components/DashManTGX';
-	import DashMercedesAtego from './dashboards/mercedes-atego/components/DashMercedesAtego';
-	import DashRdInfo        from './dashboards/rd-info/components/DashRdInfo';
-	import DashScania        from './dashboards/scania/components/DashScania';
-	import DashTest          from './dashboards/test/components/DashTest';
-	import DashVolvoFH       from './dashboards/volvo-fh/components/DashVolvoFH';
+	import { mapGetters }      from 'vuex';
+	import EventOverlayElement from './components/Elements/EventOverlayElement';
+	import OverlayElement      from './components/Elements/OverlayElement';
+	import Menu                from './components/Menu/Menu';
+	import AppDashMixins       from './components/Mixins/AppDashMixins';
+	import Game                from './components/Zone/Game/Game';
+	import DashDafXF           from './dashboards/daf-xf/components/DashDafXF';
+	import DashDefault         from './dashboards/defaut/components/DashDefault';
+	import DashJAGFx           from './dashboards/jagfx/components/DashJAGFx';
+	import DashManTGX          from './dashboards/man-tgx/components/DashManTGX';
+	import DashMercedesAtego   from './dashboards/mercedes-atego/components/DashMercedesAtego';
+	import DashRdInfo          from './dashboards/rd-info/components/DashRdInfo';
+	import DashScania          from './dashboards/scania/components/DashScania';
+	import DashTest            from './dashboards/test/components/DashTest';
+	import DashVolvoFH         from './dashboards/volvo-fh/components/DashVolvoFH';
 	
 	
 	export default {
 		name:       'app',
 		components: {
+			EventOverlayElement,
 			DashJAGFx,
 			DashTest,
 			DashDefault,

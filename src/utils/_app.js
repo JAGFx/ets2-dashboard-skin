@@ -30,6 +30,8 @@ const basePathHost = 'http://' + window.location.host + '/';
 
 const version = packageJson.version;
 
+const isOnDevEnvironment = process.env.NODE_ENV === 'development';
+
 const flag = ( countryName ) => {
 	let flag = undefined;
 	
@@ -90,6 +92,7 @@ const sleep = milliseconds => {
 export default {
 	basePathHost,
 	version,
+	isOnDevEnvironment,
 	flag,
 	numberDigit,
 	jsonReadable,

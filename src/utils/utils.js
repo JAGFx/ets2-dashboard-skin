@@ -8,10 +8,12 @@
 
 import utilsApp    from './_app';
 import utilsConfig from './_config';
+import utilsEvent  from './_event';
 
 export {
 	utilsApp as app,
-	utilsConfig as config
+	utilsConfig as config,
+	utilsEvent as event
 };
 
 export default {};

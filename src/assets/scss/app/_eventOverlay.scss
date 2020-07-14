@@ -1,0 +1,61 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_eventOverlay.scss
+ * Date: 	23/06/2020
+ * Time: 	13:26
+ */
+
+@import "../common/variables";
+
+.event-overlay {
+	.item {
+		.ico {
+			background: $cRed;
+			border: 1px solid darken($cRed, 30%);
+			transform: rotateZ(-45deg);
+			
+			> i {
+				font-size: 1.2rem;
+				transform: rotateZ(45deg);
+				color: darken($cRed, 30%);
+			}
+		}
+		
+		.event {
+			.title {
+				font-weight: bold;
+				font-size: 1.1rem;
+			}
+			
+			.sub-title {
+				font-size: .9rem;
+			}
+		}
+		
+		.job-delivered {
+			color: #00E070;
+		}
+	}
+	
+	.data {
+		.item {
+			border-right: 1px solid $cBlack;
+			background: transparentize($cBlack, .7);
+			border-radius: .1rem;
+			
+			.title {
+				font-weight: bold;
+				font-size: 1.1rem;
+			}
+			
+			.data {
+				font-size: .9rem;
+			}
+			
+			&:last-child {
+				border: 0;
+			}
+		}
+	}
+}
