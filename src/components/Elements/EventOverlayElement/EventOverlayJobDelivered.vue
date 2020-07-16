@@ -2,11 +2,11 @@
 	<div>
 		<div :class="event.replace('.', '-')" class="item d-flex justify-content-center align-items-center">
 					<span class="ico m-4 p-3 d-flex justify-content-center align-items-center">
-						<i class="far fa-building"></i>
+						<i :class="eventsText()[ event ].icon"></i>
 					</span>
 			<div class="event d-flex justify-content-between align-items-start flex-column">
-				<span class="title">Cargo delivered !</span>
-				<small class="sub-title font-italic">You just end a job !</small>
+				<span class="title">{{ eventsText()[ event ].title }}</span>
+				<small class="sub-title font-italic">{{ eventsText()[ event ].subtitle }}</small>
 			</div>
 		</div>
 		<hr class="m-0 mb-4">
@@ -29,6 +29,7 @@
 
 <script>
 	import { mapGetters } from 'vuex';
+	import eventsText     from '../../../data/events.json';
 	import AppDashMixins  from '../../Mixins/AppDashMixins';
 	
 	export default {
@@ -36,6 +37,12 @@
 		mixins:   [
 			AppDashMixins
 		],
+		methods:  {
+			eventsText() {
+				console.log( this.event, eventsText );
+				return eventsText;
+			}
+		},
 		computed: {
 			...mapGetters( {
 				event:   'events/event',

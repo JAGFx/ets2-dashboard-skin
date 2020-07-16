@@ -7,13 +7,15 @@
  */
 
 const eventNameToComponent = function ( eventName ) {
-	switch ( eventName ) {
-		case 'job.delivered':
-			return 'EventOverlayJobDelivered';
-		
-		default:
-			return null;
-	}
+	const splitedEvent = eventName.split( '.' );
+	let finalStr       = 'EventOverlay';
+	
+	splitedEvent.forEach( ( elm ) => {
+		finalStr += elm.charAt( 0 ).toUpperCase() + elm.slice( 1 );
+	} );
+	
+	//console.log( finalStr );
+	return finalStr;
 };
 
 export default {

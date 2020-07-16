@@ -1,0 +1,12 @@
+{
+	"game.pause" :    {
+		"icon" :     "far fa-building",
+		"title" :    "Game paused",
+		"subtitle" : null
+	},
+	"job.delivered" : {
+		"icon" :     "far fa-building",
+		"title" :    "Cargo delivered !",
+		"subtitle" : "You finish your job"
+	}
+}

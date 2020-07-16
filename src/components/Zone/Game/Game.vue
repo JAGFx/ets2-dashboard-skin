@@ -18,8 +18,8 @@
 				<select @change="onEventChange" v-model="event">
 					<option disabled selected value="">Select one</option>
 					<optgroup label="Game">
-						<option value="game.connected">Connected</option>
-						<option value="game.disconnected">Disconnected</option>
+						<!--						<option value="game.connected">Connected</option>-->
+						<!--						<option value="game.disconnected">Disconnected</option>-->
 						<option value="game.pause">Pause / Unpause</option>
 						<option value="game.fine">Fine</option>
 						<option value="game.tollgate">Toll gate</option>

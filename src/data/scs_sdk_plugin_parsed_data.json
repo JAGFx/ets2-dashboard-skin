@@ -825,6 +825,9 @@
       }
    },
    "events": {
+      "game": {
+         "pause": true
+      },
       "job": {
          "delivered": {
             "deliveryTime": 0,

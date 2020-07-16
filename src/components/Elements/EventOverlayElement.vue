@@ -11,11 +11,13 @@
 <script>
 	import { mapGetters }           from 'vuex';
 	import _event                   from '../../utils/_event';
+	import EventOverlayDefault      from './EventOverlayElement/EventOverlayDefault';
 	import EventOverlayJobDelivered from './EventOverlayElement/EventOverlayJobDelivered';
 	
 	export default {
 		name:       'EventOverlayElement',
 		components: {
+			EventOverlayDefault,
 			EventOverlayJobDelivered
 		},
 		computed:   {
@@ -24,7 +26,15 @@
 				event:          'events/event'
 			} ),
 			currentRawDataComponent() {
-				return _event.eventNameToComponent( this.event );
+				const eventComponentName = _event.eventNameToComponent( this.event );
+				
+				try {
+					require( './EventOverlayElement/' + eventComponentName );
+					return eventComponentName;
+					
+				} catch ( e ) {
+					return 'EventOverlayDefault';
+				}
 			}
 		}
 	};
