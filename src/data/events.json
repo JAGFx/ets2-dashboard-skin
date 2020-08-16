@@ -1,32 +1,32 @@
 {
 	"game.pause" :                    {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-gamepad",
 		"title" :    "Game paused",
 		"subtitle" : null
 	},
 	"game.fine" :                     {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-credit-card",
 		"title" :    "Fine",
 		"subtitle" : null
 	},
 	"game.tollgate" :                 {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-credit-card",
 		"title" :    "Toll gate",
 		"subtitle" : null
 	},
 	"game.ferry" :                    {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-credit-card",
 		"title" :    "Ferry !",
 		"subtitle" : null
 	},
 	"game.train" :                    {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-credit-card",
 		"title" :    "train",
 		"subtitle" : null
 	},
 	"game.refuel-payed" :             {
-		"icon" :     "far fa-building",
-		"title" :    "Refueling",
+		"icon" :     "fas fa-credit-card",
+		"title" :    "Refuel payed",
 		"subtitle" : null
 	},
 	"job.cancelled" :                 {
@@ -50,68 +50,68 @@
 		"subtitle" : "You finish your job"
 	},
 	"navigation.speed-limit" :        {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-tachometer-alt",
 		"title" :    "Speed limit",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"trailers.coupling" :             {
-		"icon" :     "far fa-building",
-		"title" :    "Trailer coupling !",
-		"subtitle" : "You finish your job"
+		"icon" :     "fas fa-truck-moving",
+		"title" :    "Trailer coupled !",
+		"subtitle" : "You are ready to go"
 	},
 	"trailers.damage" :               {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-truck-moving",
 		"title" :    "Trailer damage",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.cruise-control" :          {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-tachometer-alt",
 		"title" :    "Cruise control set",
 		"subtitle" : "You finish your job"
 	},
 	"truck.cruise-control-increase" : {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-tachometer-alt",
 		"title" :    "Cruise control increase",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.cruise-control-decrease" : {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-tachometer-alt",
 		"title" :    "Cruise control decrease",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.warning" :                 {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-truck-moving",
 		"title" :    "Truck warning",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.emergency" :               {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-truck-moving",
 		"title" :    "Truck emergency",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.electric" :                {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-power-off",
 		"title" :    "Truck electric",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.engine" :                  {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-truck-moving",
 		"title" :    "Truck engine",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.park" :                    {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-parking",
 		"title" :    "Truck park",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.damage" :                  {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-house-damage",
 		"title" :    "Truck damage",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	},
 	"truck.refuel" :                  {
-		"icon" :     "far fa-building",
+		"icon" :     "fas fa-gas-pump",
 		"title" :    "Truck refuel",
-		"subtitle" : "You finish your job"
+		"subtitle" : null
 	}
 }

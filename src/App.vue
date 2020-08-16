@@ -28,35 +28,35 @@
 </template>
 
 <script>
-	import scsSDKData          from '@/data/scs_sdk_plugin_parsed_data.json';
-  import { mapGetters }      from 'vuex';
-	import EventOverlayElement from './components/Elements/EventOverlayElement';
-	import OverlayElement      from './components/Elements/OverlayElement';
-	import Menu                from './components/Menu/Menu';
-	import AppDashMixins       from './components/Mixins/AppDashMixins';
-	import Game                from './components/Zone/Game/Game';
-	import DashDafXF           from './dashboards/daf-xf/components/DashDafXF';
-	import DashDefault         from './dashboards/defaut/components/DashDefault';
-	import DashJAGFx           from './dashboards/jagfx/components/DashJAGFx';
-	import DashManTGX          from './dashboards/man-tgx/components/DashManTGX';
-	import DashMercedesAtego   from './dashboards/mercedes-atego/components/DashMercedesAtego';
-	import DashRdInfo          from './dashboards/rd-info/components/DashRdInfo';
-	import DashScania          from './dashboards/scania/components/DashScania';
-	import DashTest            from './dashboards/test/components/DashTest';
-	import DashVolvoFH         from './dashboards/volvo-fh/components/DashVolvoFH';
+import _event              from '@/utils/_event';
+import { mapGetters }      from 'vuex';
+import EventOverlayElement from './components/Elements/EventOverlayElement';
+import OverlayElement      from './components/Elements/OverlayElement';
+import Menu                from './components/Menu/Menu';
+import AppDashMixins       from './components/Mixins/AppDashMixins';
+import Game                from './components/Zone/Game/Game';
+import DashDafXF           from './dashboards/daf-xf/components/DashDafXF';
+import DashDefault         from './dashboards/defaut/components/DashDefault';
+import DashJAGFx           from './dashboards/jagfx/components/DashJAGFx';
+import DashManTGX          from './dashboards/man-tgx/components/DashManTGX';
+import DashMercedesAtego   from './dashboards/mercedes-atego/components/DashMercedesAtego';
+import DashRdInfo          from './dashboards/rd-info/components/DashRdInfo';
+import DashScania          from './dashboards/scania/components/DashScania';
+import DashTest            from './dashboards/test/components/DashTest';
+import DashVolvoFH         from './dashboards/volvo-fh/components/DashVolvoFH';
 
 
-	export default {
-		name:       'app',
-		components: {
-			EventOverlayElement,
-			DashJAGFx,
-			DashTest,
-			DashDefault,
-			DashDafXF,
-			DashManTGX,
-			DashMercedesAtego,
-			DashRdInfo,
+export default {
+  name:       'app',
+  components: {
+    EventOverlayElement,
+    DashJAGFx,
+    DashTest,
+    DashDefault,
+    DashDafXF,
+    DashManTGX,
+    DashMercedesAtego,
+    DashRdInfo,
 			DashScania,
 			DashVolvoFH,
 			Game,
@@ -156,23 +156,24 @@
 
 				//console.log( 'Log---', log );
 				/*switch ( log.eventName ) {
-					case 'game.connected':
-						this.launching = {
-							icon:    '<i class="fas fa-truck-loading"></i>',
-							text:    'Game connected',
-							subText: 'Delivering. Waiting you on road !'
-						};
-						break;
-				}*/
-        const eventName   = log.eventName;
-        const spitedEvent = eventName.split( '.' );
-        let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
+         case 'game.connected':
+         this.launching = {
+         icon:    '<i class="fas fa-truck-loading"></i>',
+         text:    'Game connected',
+         subText: 'Delivering. Waiting you on road !'
+         };
+         break;
+         }*/
+        const event = _event.filterInputEvent( log );
 
-        this.$store.dispatch( 'events/emitEvent', {
-          eventName: eventName,
-          rawData:   rawData
-        } );
-			}
+        if ( event !== false ) {
+          console.log( log );
+          this.$store.dispatch( 'events/emitEvent', {
+            eventName: event.eventName,
+            rawData:   event.rawData
+          } );
+        }
+      }
 		}
 	};
 </script>
