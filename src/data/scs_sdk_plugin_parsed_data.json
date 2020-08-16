@@ -857,6 +857,52 @@
             "active": false
          }
       },
+      "navigation": {
+         "speed-limit": {
+         
+         }
+      },
+      "trailers": {
+         "coupling": {
+      
+         },
+         "damage": {
+      
+         }
+      },
+      "truck": {
+         "cruise-control": {
+      
+         },
+         "cruise-control-increase": {
+      
+         },
+         "cruise-control-decrease": {
+      
+         },
+         "warning": {
+      
+         },
+         "emergency": {
+      
+         },
+         "electric": {
+      
+         },
+         "engine": {
+      
+         },
+         "park": {
+      
+         },
+         "damage": {
+      
+         },
+         "refuel": {
+            "amount": 0,
+            "active": false
+         }
+      },
       "refuel": {
          "amount": 0,
          "active": false

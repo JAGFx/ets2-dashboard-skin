@@ -14,7 +14,7 @@
 				</div>
 			</template>
 		</b-overlay>
-		
+
 		<OverlayElement v-if="gameConnected"></OverlayElement>
 		<EventOverlayElement v-if="gameConnected"></EventOverlayElement>
 		<Game id="game" v-if="gameConnected" />
@@ -28,7 +28,8 @@
 </template>
 
 <script>
-	import { mapGetters }      from 'vuex';
+	import scsSDKData          from '@/data/scs_sdk_plugin_parsed_data.json';
+  import { mapGetters }      from 'vuex';
 	import EventOverlayElement from './components/Elements/EventOverlayElement';
 	import OverlayElement      from './components/Elements/OverlayElement';
 	import Menu                from './components/Menu/Menu';
@@ -43,8 +44,8 @@
 	import DashScania          from './dashboards/scania/components/DashScania';
 	import DashTest            from './dashboards/test/components/DashTest';
 	import DashVolvoFH         from './dashboards/volvo-fh/components/DashVolvoFH';
-	
-	
+
+
 	export default {
 		name:       'app',
 		components: {
@@ -62,9 +63,9 @@
 			Menu,
 			OverlayElement
 		},
-		
+
 		mixins: [ AppDashMixins ],
-		
+
 		data() {
 			return {
 				launching: {
@@ -74,12 +75,12 @@
 				}
 			};
 		},
-		
+
 		created() {
 			//console.log( this );
 			this.$store.dispatch( 'skins/setFirstActive' );
 			this.$store.dispatch( 'config/load' );
-			
+
 			/*// Game connected
 			 setTimeout(()=> {
 			 this.launching = {
@@ -88,7 +89,7 @@
 			 subText: 'Delivering'
 			 }
 			 }, 6000);
-			 
+
 			 // After game connected + 3s
 			 setTimeout(()=> {
 			 this.launching = {
@@ -98,16 +99,16 @@
 			 }
 			 }, 9000);*/
 		},
-		
+
 		methods:  {
 			currentSkinComponent() {
-				
+
 				//console.log( this.currentSkin );
 				const currentSkin = this.$store.getters[ 'skins/current' ];
-				
+
 				if ( currentSkin === undefined || currentSkin === null )
 					return null;
-				
+
 				return 'Dash' + currentSkin.id;
 			},
 			/*telemetryData() {
@@ -125,9 +126,9 @@
 								  === 'object'
 								  && Object.keys( this.telemetry.game ).length
 								  > 0);
-				
+
 				//console.log( 'Game', this.telemetry.game, gameReady );
-				
+
 				return gameReady && this.telemetry.game.sdkActive;
 			}
 		},
@@ -142,19 +143,19 @@
 			},
 			update:  function ( data ) {
 				let srvData = {};
-				
+
 				for ( const key of Object.keys( data ) ) {
 					srvData[ key ] = data[ key ];
 				}
-				
+
 				this.$store.commit( 'telemetry/update', srvData );
 			},
 			log:     function ( log ) {
 				/*log.reverse();
 				 this.log = log;*/
-				
+
 				//console.log( 'Log---', log );
-				switch ( log.eventName ) {
+				/*switch ( log.eventName ) {
 					case 'game.connected':
 						this.launching = {
 							icon:    '<i class="fas fa-truck-loading"></i>',
@@ -162,7 +163,15 @@
 							subText: 'Delivering. Waiting you on road !'
 						};
 						break;
-				}
+				}*/
+        const eventName   = log.eventName;
+        const spitedEvent = eventName.split( '.' );
+        let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
+
+        this.$store.dispatch( 'events/emitEvent', {
+          eventName: eventName,
+          rawData:   rawData
+        } );
 			}
 		}
 	};

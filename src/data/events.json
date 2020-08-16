@@ -1,12 +1,117 @@
 {
-	"game.pause" :    {
+	"game.pause" :                    {
 		"icon" :     "far fa-building",
 		"title" :    "Game paused",
 		"subtitle" : null
 	},
-	"job.delivered" : {
+	"game.fine" :                     {
+		"icon" :     "far fa-building",
+		"title" :    "Fine",
+		"subtitle" : null
+	},
+	"game.tollgate" :                 {
+		"icon" :     "far fa-building",
+		"title" :    "Toll gate",
+		"subtitle" : null
+	},
+	"game.ferry" :                    {
+		"icon" :     "far fa-building",
+		"title" :    "Ferry !",
+		"subtitle" : null
+	},
+	"game.train" :                    {
+		"icon" :     "far fa-building",
+		"title" :    "train",
+		"subtitle" : null
+	},
+	"game.refuel-payed" :             {
+		"icon" :     "far fa-building",
+		"title" :    "Refueling",
+		"subtitle" : null
+	},
+	"job.cancelled" :                 {
+		"icon" :     "far fa-building",
+		"title" :    "Cargo canceled !",
+		"subtitle" : "You finish your job"
+	},
+	"job.delivered" :                 {
 		"icon" :     "far fa-building",
 		"title" :    "Cargo delivered !",
+		"subtitle" : "You finish your job"
+	},
+	"job.finished" :                  {
+		"icon" :     "far fa-building",
+		"title" :    "Cargo finished !",
+		"subtitle" : "You finish your job"
+	},
+	"job.started" :                   {
+		"icon" :     "far fa-building",
+		"title" :    "Cargo started !",
+		"subtitle" : "You finish your job"
+	},
+	"navigation.speed-limit" :        {
+		"icon" :     "far fa-building",
+		"title" :    "Speed limit",
+		"subtitle" : "You finish your job"
+	},
+	"trailers.coupling" :             {
+		"icon" :     "far fa-building",
+		"title" :    "Trailer coupling !",
+		"subtitle" : "You finish your job"
+	},
+	"trailers.damage" :               {
+		"icon" :     "far fa-building",
+		"title" :    "Trailer damage",
+		"subtitle" : "You finish your job"
+	},
+	"truck.cruise-control" :          {
+		"icon" :     "far fa-building",
+		"title" :    "Cruise control set",
+		"subtitle" : "You finish your job"
+	},
+	"truck.cruise-control-increase" : {
+		"icon" :     "far fa-building",
+		"title" :    "Cruise control increase",
+		"subtitle" : "You finish your job"
+	},
+	"truck.cruise-control-decrease" : {
+		"icon" :     "far fa-building",
+		"title" :    "Cruise control decrease",
+		"subtitle" : "You finish your job"
+	},
+	"truck.warning" :                 {
+		"icon" :     "far fa-building",
+		"title" :    "Truck warning",
+		"subtitle" : "You finish your job"
+	},
+	"truck.emergency" :               {
+		"icon" :     "far fa-building",
+		"title" :    "Truck emergency",
+		"subtitle" : "You finish your job"
+	},
+	"truck.electric" :                {
+		"icon" :     "far fa-building",
+		"title" :    "Truck electric",
+		"subtitle" : "You finish your job"
+	},
+	"truck.engine" :                  {
+		"icon" :     "far fa-building",
+		"title" :    "Truck engine",
+		"subtitle" : "You finish your job"
+	},
+	"truck.park" :                    {
+		"icon" :     "far fa-building",
+		"title" :    "Truck park",
+		"subtitle" : "You finish your job"
+	},
+	"truck.damage" :                  {
+		"icon" :     "far fa-building",
+		"title" :    "Truck damage",
+		"subtitle" : "You finish your job"
+	},
+	"truck.refuel" :                  {
+		"icon" :     "far fa-building",
+		"title" :    "Truck refuel",
 		"subtitle" : "You finish your job"
 	}
 }
