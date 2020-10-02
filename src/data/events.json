@@ -6,7 +6,7 @@
 	},
 	"game.fine" :                     {
 		"icon" :     "fas fa-credit-card",
-		"title" :    "Fine",
+		"title" :    "Road fine",
 		"subtitle" : null
 	},
 	"game.tollgate" :                 {
@@ -15,13 +15,13 @@
 		"subtitle" : null
 	},
 	"game.ferry" :                    {
-		"icon" :     "fas fa-credit-card",
-		"title" :    "Ferry !",
+		"icon" :     "fas fa-ship",
+		"title" :    "Ferry travel",
 		"subtitle" : null
 	},
 	"game.train" :                    {
-		"icon" :     "fas fa-credit-card",
-		"title" :    "train",
+		"icon" :     "fas fa-train",
+		"title" :    "Train travel",
 		"subtitle" : null
 	},
 	"game.refuel-payed" :             {

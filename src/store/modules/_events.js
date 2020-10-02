@@ -27,7 +27,6 @@ const actions = {
 		commit( 'setRawData', payload.rawData );
 		//console.log( 'Start event', payload.eventName, payload.rawData );
 		
-		// TODO Use a data from config + add view
 		setTimeout( () => {
 			dispatch( 'stopEvent' );
 		}, 3000 );
