@@ -31,22 +31,22 @@
 	},
 	"job.cancelled" :                 {
 		"icon" :     "far fa-building",
-		"title" :    "Cargo canceled !",
+		"title" :    "Job canceled !",
 		"subtitle" : "You finish your job"
 	},
 	"job.delivered" :                 {
 		"icon" :     "far fa-building",
-		"title" :    "Cargo delivered !",
+		"title" :    "Job delivered !",
 		"subtitle" : "You finish your job"
 	},
 	"job.finished" :                  {
 		"icon" :     "far fa-building",
-		"title" :    "Cargo finished !",
+		"title" :    "Job finished !",
 		"subtitle" : "You finish your job"
 	},
 	"job.started" :                   {
 		"icon" :     "far fa-building",
-		"title" :    "Cargo started !",
+		"title" :    "Job started !",
 		"subtitle" : "You finish your job"
 	},
 	"navigation.speed-limit" :        {
