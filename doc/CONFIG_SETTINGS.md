@@ -56,7 +56,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_game.fine</td>
@@ -122,7 +122,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_job.delivered</td>
@@ -144,7 +144,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_job.started</td>
@@ -155,7 +155,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_navigation.speed-limit</td>
@@ -166,7 +166,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_trailers.coupling</td>
@@ -188,7 +188,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.cruise-control</td>
@@ -199,7 +199,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.cruise-control-increase</td>
@@ -210,7 +210,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.cruise-control-decrease</td>
@@ -221,7 +221,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.warning</td>
@@ -254,7 +254,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.engine</td>
@@ -265,7 +265,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.park</td>
@@ -276,7 +276,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.damage</td>
@@ -287,7 +287,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     <tr>
         <td>events_truck.refuel</td>
@@ -298,7 +298,7 @@ You can find common elements, and skin config.
                 <li>false</li>
             </ul>
         </td>
-        <td>true</td>
+        <td>false</td>
     </tr>
     
 
