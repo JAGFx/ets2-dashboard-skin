@@ -27,6 +27,38 @@ The goal of this project is to have the skin dashboard for this repository with 
 - Scania
 - Volvo FH
 
+## Events overlay
+
+![Skins](screens/event-overlay.png)
+
+When an event occurred from the game, an overlay was displayed with some datas (if available)).
+
+Which events ? See the list below:
+
+- Game pause
+- Road fine
+- Toll gate
+- Ferry travel
+- Train travel
+- Refuel payed
+- Job canceled
+- Job delivered
+- Job finished
+- Job started
+- Speed limit
+- Trailer coupled
+- Trailer damage
+- Cruise control set
+- Cruise control increase
+- Cruise control decrease
+- Truck warning
+- Truck emergency
+- Truck electric
+- Truck engine
+- Truck park
+- Truck damage
+- Truck refuel
+
 ## Configuration
 
 ![Skins](screens/config.png)
@@ -55,8 +87,6 @@ When you want to keep your config on a new release, you can:
 - Upload your config file on the `Menu > Config`
 
 Note: If a missing entry was found, you can't upload your config.
-
-### List
 
 ---
 ↩️ [Home](../README.md)
