@@ -10,24 +10,22 @@
 	import AppDashMixins     from '../Mixins/AppDashMixins';
 	
 	export default {
-		name:    'Dashboard',
-		mixins:  [ AppDashMixins ],
-		methods: {
-			enabledFullScreen() {
-				return process.env.VUE_APP_ENABLE_FULLSCREEN === 'true';
-			},
-			/*telemetryData() {
-			 return this.pickData()();
-			 },*/
-			skinData() {
-				return this.currentSkin();
-			},
-			...mapGetters( {
-				//pickData:    'telemetry/pick',
-				currentSkin: 'skins/current'
-			} )
-		}
-	};
+    name:     'Dashboard',
+    mixins:   [ AppDashMixins ],
+    methods:  {
+      enabledFullScreen() {
+        return process.env.VUE_APP_ENABLE_FULLSCREEN === 'true';
+      },
+      skinData() {
+        return this.currentSkin;
+      }
+    },
+    computed: {
+      ...mapGetters( {
+        currentSkin: 'skins/current'
+      } )
+    }
+  };
 </script>
 
 <style lang="scss" scoped>

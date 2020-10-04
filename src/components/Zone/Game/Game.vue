@@ -10,9 +10,9 @@
 		</div>
 		<ul>
 			<li @click="onClickGear()">
-				<span v-show="!menuIsDisplayed()">Menu <i class="fas fa-bars"></i>️</span>
-				<span v-show="menuIsDisplayed()">Close <i class="fas fa-times"></i>️</span>
-			</li>
+        <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars"></i>️</span>
+        <span v-show="menuIsDisplayed">Close <i class="fas fa-times"></i>️</span>
+      </li>
 			<li v-if="isOnDevEnvironment()">JAGFx - {{ getVersion() }}<span>&copy;</span></li>
 			<li v-else>
 				<select @change="onEventChange" v-model="event">

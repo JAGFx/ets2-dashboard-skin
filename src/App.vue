@@ -1,30 +1,30 @@
 <template>
 	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`">
 		<b-overlay :show="!gameConnected" :variant="'dark'" no-wrap>
-			<template v-slot:overlay>
-				<div class="d-flex justify-content-center flex-column align-items-center">
-					<transition mode="out-in" name="slide-fade">
-						<div :key="launching.text" class="d-flex justify-content-center align-items-center flex-column">
-							<h1><span class="mb-3" v-html="launching.icon"></span></h1>
-							<h1>{{ launching.text }}</h1>
-							<small class="mb-3">{{ launching.subText }}</small>
-							<b-spinner label="Processing..." type="grow"></b-spinner>
-						</div>
-					</transition>
-				</div>
-			</template>
-		</b-overlay>
+      <template v-slot:overlay>
+        <div class="d-flex justify-content-center flex-column align-items-center">
+          <transition mode="out-in" name="slide-fade">
+            <div :key="launching.text" class="d-flex justify-content-center align-items-center flex-column">
+              <h1><span class="mb-3" v-html="launching.icon"></span></h1>
+              <h1>{{ launching.text }}</h1>
+              <small class="mb-3">{{ launching.subText }}</small>
+              <b-spinner label="Processing..." type="grow"></b-spinner>
+            </div>
+          </transition>
+        </div>
+      </template>
+    </b-overlay>
 
-		<OverlayElement v-if="gameConnected"></OverlayElement>
-		<EventOverlayElement v-if="gameConnected"></EventOverlayElement>
-		<Game id="game" v-if="gameConnected" />
-		<div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed()">
-			<Menu></Menu>
-		</div>
-		<component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed()"></component>
-		<!--<Events id="events" v-bind="{log}" />-->
-		<!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
-	</main>
+    <OverlayElement v-if="gameConnected"></OverlayElement>
+    <EventOverlayElement v-if="gameConnected"></EventOverlayElement>
+    <Game id="game" v-if="gameConnected" />
+    <div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed">
+      <Menu></Menu>
+    </div>
+    <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
+    <!--<Events id="events" v-bind="{log}" />-->
+    <!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
+  </main>
 </template>
 
 <script>
@@ -100,48 +100,43 @@ export default {
 			 }, 9000);*/
 		},
 
-		methods:  {
+		methods: {
 			currentSkinComponent() {
+        const currentSkin = this.currentSkin; //this.$store.getters[ 'skins/current' ];
 
-				//console.log( this.currentSkin );
-				const currentSkin = this.$store.getters[ 'skins/current' ];
+        if ( currentSkin === undefined || currentSkin === null )
+          return null;
 
-				if ( currentSkin === undefined || currentSkin === null )
-					return null;
-
-				return 'Dash' + currentSkin.id;
-			},
-			/*telemetryData() {
-			 return this.pickData()( DATA_ELEMENTS.game );
-			 },*/
-			...mapGetters( {
-				//pickData:        'telemetry/pick',
-				menuIsDisplayed: 'menu/isDisplayed'
-			} )
+        return 'Dash' + currentSkin.id;
+      }
 		},
-		computed: {
-			gameConnected() {
-				const gameReady = this.telemetry.game !== null &&
-								  (typeof this.telemetry.game
-								  === 'object'
-								  && Object.keys( this.telemetry.game ).length
-								  > 0);
+  computed:  {
+    gameConnected() {
+      const gameReady = this.telemetry.game !== null &&
+                        (typeof this.telemetry.game
+                        === 'object'
+                        && Object.keys( this.telemetry.game ).length
+                        > 0);
 
-				//console.log( 'Game', this.telemetry.game, gameReady );
+      //console.log( 'Game', this.telemetry.game, gameReady );
 
-				return gameReady && this.telemetry.game.sdkActive;
-			}
-		},
-		sockets:  {
-			connect: function () {
-				console.log( 'connected' );
-				this.launching = {
-					icon:    '<i class="fas fa-truck"></i>',
-					text:    'Connected to telemetry server',
-					subText: 'Ready to delivering'
-				};
-			},
-			update:  function ( data ) {
+      return gameReady && this.telemetry.game.sdkActive;
+    },
+    ...mapGetters( {
+      menuIsDisplayed: 'menu/isDisplayed',
+      currentSkin:     'skins/current'
+    } )
+  },
+  sockets:   {
+    connect:   function () {
+      console.log( 'connected' );
+      this.launching = {
+        icon:    '<i class="fas fa-truck"></i>',
+        text:    'Connected to telemetry server',
+        subText: 'Ready to delivering'
+      };
+    },
+    update:    function ( data ) {
 				let srvData = {};
 
 				for ( const key of Object.keys( data ) ) {
