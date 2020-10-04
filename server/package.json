@@ -1,45 +1,45 @@
 {
-  "name" :            "ets2-dashboard-skin-server",
-  "version" :         "2.0.0",
-  "bin" :             "./dist/main.js",
-  "main" :            "./src/main.js",
-  "module" :          "./src/main.js",
-  "scripts" :         {
-    "test" :  "echo \"Error: no test specified\" && exit 1",
-    "start" : "node ./dist/main.js",
-    "dev" :   "npx gulp watch",
-    "build" : "npx gulp"
-  },
-  "dependencies" :    {
-    "@std/esm" :           "^0.26.0",
-    "body-parser" :        "^1.19.0",
-    "esm" :                "^3.2.25",
-    "express" :            "^4.17.1",
-    "socket.io" :          "^2.2.0",
-    "trucksim-telemetry" : "^0.6.4"
-  },
-  "devDependencies" : {
-    "@babel/core" :       "^7.10.2",
-    "@babel/polyfill" :   "^7.10.1",
-    "@babel/preset-env" : "^7.10.2",
-    "@babel/register" :   "^7.10.1",
-    "gulp" :              "^4.0.2",
-    "gulp-babel" :        "^8.0.0",
-    "gulp-plumber" :      "^1.2.1",
-    "nodemon" :           "^2.0.4"
-  },
-  "babel" :           {
-    "presets" : [
-      "@babel/preset-env"
-    ]
-  },
-  "pkg" :             {
-    "assets" :  [
-      "../dist/"
-    ],
-    "targets" : [
-      "node13",
-      "node14"
-    ]
-  }
+	"name" :            "ets2-dashboard-skin-server",
+	"version" :         "2.0.0",
+	"bin" :             "./dist/main.js",
+	"main" :            "./src/main.js",
+	"module" :          "./src/main.js",
+	"scripts" :         {
+		"test" :  "echo \"Error: no test specified\" && exit 1",
+		"start" : "node ./dist/main.js",
+		"dev" :   "npx gulp watch",
+		"build" : "npx gulp"
+	},
+	"dependencies" :    {
+		"@std/esm" :           "^0.26.0",
+		"body-parser" :        "^1.19.0",
+		"esm" :                "^3.2.25",
+		"express" :            "^4.17.1",
+		"socket.io" :          "^2.2.0",
+		"trucksim-telemetry" : "^0.6.4"
+	},
+	"devDependencies" : {
+		"@babel/core" :       "^7.11.6",
+		"@babel/polyfill" :   "^7.11.5",
+		"@babel/preset-env" : "^7.11.5",
+		"@babel/register" :   "^7.11.5",
+		"gulp" :              "^4.0.2",
+		"gulp-babel" :        "^8.0.0",
+		"gulp-plumber" :      "^1.2.1",
+		"nodemon" :           "^2.0.4"
+	},
+	"babel" :           {
+		"presets" : [
+			"@babel/preset-env"
+		]
+	},
+	"pkg" :             {
+		"assets" :  [
+			"../dist/"
+		],
+		"targets" : [
+			"node13",
+			"node14"
+		]
+	}
 }
