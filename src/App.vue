@@ -167,7 +167,7 @@ export default {
         const event = _event.filterInputEvent( log );
 
         if ( event !== false ) {
-          console.log( log );
+          //console.log( log );
           this.$store.dispatch( 'events/emitEvent', {
             eventName: event.eventName,
             rawData:   event.rawData
