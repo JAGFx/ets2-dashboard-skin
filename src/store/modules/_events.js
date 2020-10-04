@@ -6,6 +6,8 @@
  * Time: 	15:56
  */
 
+import store from '../index';
+
 const state = () => ({
 	processing: false,
 	event:      null,
@@ -21,15 +23,22 @@ const getters = {
 
 // actions
 const actions = {
-	emitEvent( { commit, dispatch }, payload ) {
-		commit( 'setProcessing', true );
-		commit( 'setEvent', payload.eventName );
-		commit( 'setRawData', payload.rawData );
-		//console.log( 'Start event', payload.eventName, payload.rawData );
+	emitEvent( { commit, dispatch, state }, payload ) {
+		const configName = `events_${payload.eventName}`;
+		const isActive = store.getters['config/get']( configName );
 		
-		setTimeout( () => {
-			dispatch( 'stopEvent' );
-		}, 3000 );
+		//console.log( 'Config - isActive', configName, isActive );
+		
+		if( isActive ){
+			commit( 'setProcessing', true );
+			commit( 'setEvent', payload.eventName );
+			commit( 'setRawData', payload.rawData );
+			//console.log( 'Start event', payload.eventName, payload.rawData );
+			
+			setTimeout( () => {
+				dispatch( 'stopEvent' );
+			}, 3000 );
+		}
 	},
 	stopEvent( { commit } ) {
 		//console.log( 'Stop event' );
