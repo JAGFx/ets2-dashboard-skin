@@ -940,8 +940,9 @@
 				"enabled" : false,
 				"warning" : "Battery Voltage"
 			},
-			"emergency" :               {
-				"enabled" : false
+			"emergency" : {
+				"enabled" :   false,
+				"emergency" : "Air Pressure"
 			},
 			"electric" :                {
 				"enabled" : false

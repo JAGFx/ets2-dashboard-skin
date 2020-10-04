@@ -2,7 +2,7 @@
   <EventOverlayBase>
     <hr class="m-0 mb-4">
     <div class="data d-flex justify-content-around align-items-center">
-      <span class="data">- {{ unit_currency( rawData.amount ) }}</span>
+      <span class="data">- {{ unit_currency( rawData.tollgate.amount ) }}</span>
     </div>
   </EventOverlayBase>
 </template>

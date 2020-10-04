@@ -3,8 +3,8 @@
     <hr class="m-0 mb-4">
     <div class="data d-flex justify-content-around align-items-center">
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
-        <span class="title">{{ rawData.offence.name }}</span>
-        <span class="data">- {{ unit_currency( rawData.amount ) }}</span>
+        <span class="title">{{ rawData.fine.offence.name }}</span>
+        <span class="data">- {{ unit_currency( rawData.fine.amount ) }}</span>
       </div>
     </div>
   </EventOverlayBase>
