@@ -825,124 +825,156 @@
 		}
 	},
 	"events" :     {
-		"game" :        {
+		"game" :       {
 			"paused" :       true,
 			"refuel-payed" : null,
 			"fine" :         {
-				"active" :  true,
-				"amount" :  400,
-				"offence" : {
-					"id" :   "speeding",
-					"name" : "Speeding"
+				"fine" : {
+					"active" :  true,
+					"amount" :  400,
+					"offence" : {
+						"id" :   "speeding",
+						"name" : "Speeding"
+					}
 				}
 			},
-			"tollgate" :    {
-				"amount" : 500,
-				"active" : false
+			"tollgate" :     {
+				"tollgate" : {
+					"amount" : 500,
+					"active" : false
+				}
 			},
-			"ferry" :       {
-				"source" : {
-					"name" : "Calais",
-					"id" :   ""
-				},
-				"target" : {
-					"name" : "Duisburg",
-					"id" :   ""
-				},
-				"amount" : 1250.0256,
-				"active" : false
+			"ferry" :        {
+				"ferry" : {
+					"source" : {
+						"name" : "Calais",
+						"id" :   ""
+					},
+					"target" : {
+						"name" : "Duisburg",
+						"id" :   ""
+					},
+					"amount" : 1250.0256,
+					"active" : false
+				}
 			},
-			"train" :       {
-				"source" : {
-					"name" : "Calais",
-					"id" :   ""
-				},
-				"target" : {
-					"name" : "Duisburg",
-					"id" :   ""
-				},
-				"amount" : 12589.699,
-				"active" : false
+			"train" :        {
+				"train" : {
+					"source" : {
+						"name" : "Calais",
+						"id" :   ""
+					},
+					"target" : {
+						"name" : "Duisburg",
+						"id" :   ""
+					},
+					"amount" : 12589.699,
+					"active" : false
+				}
 			}
 		},
-		"job" :         {
+		"job" :        {
 			"delivered" : {
-				"deliveryTime" :  0,
-				"startingTime" :  0,
-				"finishingTime" : 0,
-				"earnedXP" :      1200,
-				"cargoDamage" :   0,
-				"distance" :      {
-					"km" :    1250,
-					"miles" : 1523
-				},
-				"autoParked" :    false,
-				"revenue" :       12558,
-				"active" :        false
+				"delivered" : {
+					"deliveryTime" :  0,
+					"startingTime" :  0,
+					"finishingTime" : 0,
+					"earnedXP" :      1200,
+					"cargoDamage" :   0,
+					"distance" :      {
+						"km" :    1250,
+						"miles" : 1523
+					},
+					"autoParked" :    false,
+					"revenue" :       12558,
+					"active" :        false
+				}
 			},
 			"started" :   {
-				"autoLoaded" : false,
-				"active" :     true
+				"started" : {
+					"autoLoaded" : false,
+					"active" :     true
+				}
 			},
 			"cancelled" : {
-				"penalty" :       0,
-				"active" :        false,
-				"startingTime" :  0,
-				"finishingTime" : 0
+				"cancelled" : {
+					"penalty" :       0,
+					"active" :        false,
+					"startingTime" :  0,
+					"finishingTime" : 0
+				}
 			},
 			"finished" :  {
-				"active" : false
-			}
-		},
-		"navigation" :  {
-			"speed-limit" : {
-				"speed" : {
-					"value" : 13.88888931274414,
-					"kph" :   50,
-					"mph" :   31
+				"finished" : {
+					"active" : false
 				}
 			}
 		},
-		"trailers" :    {
+		"navigation" : {
+			"speed-limit" : {
+				"speed-limit" : {
+					"speed" : {
+						"value" : 13.88888931274414,
+						"kph" :   50,
+						"mph" :   31
+					}
+				}
+			}
+		},
+		"trailers" :   {
 			"coupling" : {
-				"id" :      0,
-				"enabled" : false
+				"coupling" : {
+					"id" :      0,
+					"enabled" : false
+				}
 			},
 			"damage" :   {
-				"id" :   0,
-				"data" : {
-					"cargo" :   0.99985565889895995,
-					"chassis" : 0.02274438738822937
+				"damage" : {
+					"id" :   0,
+					"data" : {
+						"cargo" :   0.99985565889895995,
+						"chassis" : 0.02274438738822937
+					}
 				}
 			}
 		},
-		"truck" :       {
+		"truck" :      {
 			"cruise-control" :          {
-				"enabled" : false
+				"cruise-control" : {
+					"enabled" : false
+				}
 			},
 			"cruise-control-increase" : {
-				"cruiseControl" : {
-					"enabled" : false,
-					"kph" :     55,
-					"mph" :     35,
-					"value" :   15.400381088256836
+				"cruise-control-increase" : {
+					"cruiseControl" : {
+						"enabled" : false,
+						"kph" :     55,
+						"mph" :     35,
+						"value" :   15.400381088256836
+					}
 				}
 			},
 			"cruise-control-decrease" : {
-				"cruiseControl" : {
-					"enabled" : false,
-					"kph" :     54,
-					"mph" :     34,
-					"value" :   14.985581088256836
+				"cruise-control-decrease" : {
+					"cruiseControl" : {
+						"enabled" : false,
+						"kph" :     54,
+						"mph" :     34,
+						"value" :   14.985581088256836
+					}
 				}
 			},
 			"warning" :                 {
-				"enabled" : false,
-				"warning" : "Battery Voltage"
+				"warning" : {
+					"enabled" : false,
+					"warning" : "Battery Voltage"
+				}
 			},
-			"emergency" : {
-				"enabled" :   false,
-				"emergency" : "Air Pressure"
+			"emergency" :               {
+				"emergency" : {
+					"enabled" :   false,
+					"emergency" : "Air Pressure"
+				}
 			},
 			"electric" :                {
 				"enabled" : false
@@ -954,20 +986,24 @@
 				"enabled" : false
 			},
 			"damage" :                  {
-				"cabin" :        0.010395976714789867,
-				"chassis" :      0.012994971126317978,
-				"engine" :       0.006499485112726688,
-				"transmission" : 0.003900491399690509,
-				"wheels" :       0.0019692457281053066
+				"damage" : {
+					"cabin" :        0.010395976714789867,
+					"chassis" :      0.012994971126317978,
+					"engine" :       0.006499485112726688,
+					"transmission" : 0.003900491399690509,
+					"wheels" :       0.0019692457281053066
+				}
 			},
 			"refuel" :                  {
-				"curr" : {
-					"amount" : 0,
-					"active" : true
-				},
-				"prev" : {
-					"amount" : 0,
-					"active" : false
+				"refuel" : {
+					"curr" : {
+						"amount" : 0,
+						"active" : true
+					},
+					"prev" : {
+						"amount" : 0,
+						"active" : false
+					}
 				}
 			}
 		}
