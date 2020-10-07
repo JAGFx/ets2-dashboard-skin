@@ -1,6 +1,6 @@
 <template>
-	<main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`">
-		<b-overlay :show="!gameConnected" :variant="'dark'" no-wrap>
+  <main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`">
+    <b-overlay :show="!gameConnected" :variant="'dark'" no-wrap>
       <template v-slot:overlay>
         <div class="d-flex justify-content-center flex-column align-items-center">
           <transition mode="out-in" name="slide-fade">
@@ -21,7 +21,9 @@
     <div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed">
       <Menu></Menu>
     </div>
-    <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
+    <keep-alive>
+      <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
+    </keep-alive>
     <!--<Events id="events" v-bind="{log}" />-->
     <!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
   </main>
@@ -57,60 +59,60 @@ export default {
     DashManTGX,
     DashMercedesAtego,
     DashRdInfo,
-			DashScania,
-			DashVolvoFH,
-			Game,
-			Menu,
-			OverlayElement
-		},
+    DashScania,
+    DashVolvoFH,
+    Game,
+    Menu,
+    OverlayElement
+  },
 
-		mixins: [ AppDashMixins ],
+  mixins: [ AppDashMixins ],
 
-		data() {
-			return {
-				launching: {
-					icon:    '<i class="fas fa-box"></i>',
-					text:    'App ready !',
-					subText: 'Starting delivering'
-				}
-			};
-		},
-
-		created() {
-			//console.log( this );
-			this.$store.dispatch( 'skins/setFirstActive' );
-			this.$store.dispatch( 'config/load' );
-
-			/*// Game connected
-			 setTimeout(()=> {
-			 this.launching = {
-			 icon: '<i class="fas fa-truck-loading"></i>',
-			 text: 'Game connected',
-			 subText: 'Delivering'
-			 }
-			 }, 6000);
-
-			 // After game connected + 3s
-			 setTimeout(()=> {
-			 this.launching = {
-			 icon: '<i class="fas fa-box-open"></i>',
-			 text: 'Finished',
-			 subText: 'Delivered'
-			 }
-			 }, 9000);*/
-		},
-
-		methods: {
-			currentSkinComponent() {
-        const currentSkin = this.currentSkin; //this.$store.getters[ 'skins/current' ];
-
-        if ( currentSkin === undefined || currentSkin === null )
-          return null;
-
-        return 'Dash' + currentSkin.id;
+  data() {
+    return {
+      launching: {
+        icon:    '<i class="fas fa-box"></i>',
+        text:    'App ready !',
+        subText: 'Starting delivering'
       }
-		},
-  computed:  {
+    };
+  },
+
+  created() {
+    //console.log( 'Vue env: ', process.env );
+    this.$store.dispatch( 'skins/setFirstActive' );
+    this.$store.dispatch( 'config/load' );
+
+    /*// Game connected
+     setTimeout(()=> {
+     this.launching = {
+     icon: '<i class="fas fa-truck-loading"></i>',
+     text: 'Game connected',
+     subText: 'Delivering'
+     }
+     }, 6000);
+
+     // After game connected + 3s
+     setTimeout(()=> {
+     this.launching = {
+     icon: '<i class="fas fa-box-open"></i>',
+     text: 'Finished',
+     subText: 'Delivered'
+     }
+     }, 9000);*/
+  },
+
+  methods:  {
+    currentSkinComponent() {
+      const currentSkin = this.currentSkin; //this.$store.getters[ 'skins/current' ];
+
+      if ( currentSkin === undefined || currentSkin === null )
+        return null;
+
+      return 'Dash' + currentSkin.id;
+    }
+  },
+  computed: {
     gameConnected() {
       const gameReady = this.telemetry.game !== null &&
                         (typeof this.telemetry.game
@@ -127,8 +129,8 @@ export default {
       currentSkin:     'skins/current'
     } )
   },
-  sockets:   {
-    connect:   function () {
+  sockets:  {
+    connect: function () {
       console.log( 'connected' );
       this.launching = {
         icon:    '<i class="fas fa-truck"></i>',
@@ -136,43 +138,43 @@ export default {
         subText: 'Ready to delivering'
       };
     },
-    update:    function ( data ) {
-				let srvData = {};
+    update:  function ( data ) {
+      let srvData = {};
 
-				for ( const key of Object.keys( data ) ) {
-					srvData[ key ] = data[ key ];
-				}
-
-				this.$store.commit( 'telemetry/update', srvData );
-			},
-			log:     function ( log ) {
-				/*log.reverse();
-				 this.log = log;*/
-
-				//console.log( 'Log---', log );
-				/*switch ( log.eventName ) {
-         case 'game.connected':
-         this.launching = {
-         icon:    '<i class="fas fa-truck-loading"></i>',
-         text:    'Game connected',
-         subText: 'Delivering. Waiting you on road !'
-         };
-         break;
-         }*/
-        const event = _event.filterInputEvent( log );
-
-        if ( event !== false ) {
-          //console.log( log );
-          this.$store.dispatch( 'events/emitEvent', {
-            eventName: event.eventName,
-            rawData:   event.rawData
-          } );
-        }
+      for ( const key of Object.keys( data ) ) {
+        srvData[ key ] = data[ key ];
       }
-		}
-	};
+
+      this.$store.commit( 'telemetry/update', srvData );
+    },
+    log:     function ( log ) {
+      /*log.reverse();
+       this.log = log;*/
+
+      //console.log( 'Log---', log );
+      /*switch ( log.eventName ) {
+       case 'game.connected':
+       this.launching = {
+       icon:    '<i class="fas fa-truck-loading"></i>',
+       text:    'Game connected',
+       subText: 'Delivering. Waiting you on road !'
+       };
+       break;
+       }*/
+      const event = _event.filterInputEvent( log );
+
+      if ( event !== false ) {
+        //console.log( log );
+        this.$store.dispatch( 'events/emitEvent', {
+          eventName: event.eventName,
+          rawData:   event.rawData
+        } );
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss">
-	@import "assets/scss/app/app";
+@import "assets/scss/app/app";
 </style>

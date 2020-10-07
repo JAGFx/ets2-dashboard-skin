@@ -1,20 +1,20 @@
 <template>
 	<div class="tab-config">
 		<div class="d-flex justify-content-center align-items-center pb-3">
-			<!--<button :disabled="isOnProcessing()" @click="save" class="btn btn-sm btn-outline-ets mx-1">
-				<b-icon-file-earmark-check></b-icon-file-earmark-check>
-				Save
-			</button>-->
-			<button :disabled="isOnProcessing()" @click="download" class="btn btn-sm btn-outline-ets mx-1">
-				<b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
-				Download
-			</button>
-			<!--<button :disabled="isOnProcessing()" @click="reset" class="btn btn-sm btn-outline-ets mx-1">
-				<b-icon-file-earmark-break></b-icon-file-earmark-break>
-				Reset
-			</button>-->
-			<span>
-				<button :disabled="isOnProcessing()" @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1">
+      <!--<button :disabled="isOnProcessing" @click="save" class="btn btn-sm btn-outline-ets mx-1">
+        <b-icon-file-earmark-check></b-icon-file-earmark-check>
+        Save
+      </button>-->
+      <button :disabled="isOnProcessing" @click="download" class="btn btn-sm btn-outline-ets mx-1">
+        <b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
+        Download
+      </button>
+      <!--<button :disabled="isOnProcessing" @click="reset" class="btn btn-sm btn-outline-ets mx-1">
+        <b-icon-file-earmark-break></b-icon-file-earmark-break>
+        Reset
+      </button>-->
+      <span>
+				<button :disabled="isOnProcessing" @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1">
 					<b-icon-file-earmark-arrow-up></b-icon-file-earmark-arrow-up> Upload
 				</button>
 				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" ref="uploadFile" />
@@ -85,8 +85,9 @@
 		},
 		computed:   {
 			...mapGetters( {
-				configAll: 'config/all'
-			} )
+        configAll:      'config/all',
+        isOnProcessing: 'app/isOnProcessing'
+      } )
 		},
 		methods:    {
 			skinsConfigTemplate( skinTarget ) {
@@ -117,20 +118,17 @@
 								title:   'Upload failed',
 								message: e
 							},
-							details: {
-								message: e,
-								code:    '#CONFIG_UPLOAD_FAILED'
-							}
-						} );
-					} )
-					.finally( () => {
-						this.$refs.uploadFile.value = null;
-						this.showUpload             = false;
-					} );
-			},
-			...mapGetters( {
-				isOnProcessing: 'app/isOnProcessing'
-			} )
+              details: {
+                message: e,
+                code:    '#CONFIG_UPLOAD_FAILED'
+              }
+            } );
+          } )
+          .finally( () => {
+            this.$refs.uploadFile.value = null;
+            this.showUpload             = false;
+          } );
+      }
 		}
 	};
 </script>
