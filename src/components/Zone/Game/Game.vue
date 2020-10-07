@@ -9,21 +9,21 @@
 			<span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
 		</div>
 		<ul>
-			<li @click="onClickGear()">
+      <li @click="onClickGear()">
         <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars"></i>️</span>
         <span v-show="menuIsDisplayed">Close <i class="fas fa-times"></i>️</span>
       </li>
-			<li v-if="isOnDevEnvironment()">JAGFx - {{ getVersion() }}<span>&copy;</span></li>
-			<li v-else>
-				<select @change="onEventChange" v-model="event">
-					<option disabled selected value="">Select one</option>
-					<optgroup label="Game">
-						<!--						<option value="game.connected">Connected</option>-->
-						<!--						<option value="game.disconnected">Disconnected</option>-->
-						<option value="game.pause">Pause / Unpause</option>
-						<option value="game.fine">Fine</option>
-						<option value="game.tollgate">Toll gate</option>
-						<option value="game.ferry">Ferry</option>
+      <li v-if="!isOnDevEnvironment()">JAGFx - {{ getVersion() }}<span>&copy;</span></li>
+      <li v-else>
+        <select @change="onEventChange" v-model="event">
+          <option disabled selected value="">Select one</option>
+          <optgroup label="Game">
+            <!--						<option value="game.connected">Connected</option>-->
+            <!--						<option value="game.disconnected">Disconnected</option>-->
+            <option value="game.pause">Pause / Unpause</option>
+            <option value="game.fine">Fine</option>
+            <option value="game.tollgate">Toll gate</option>
+            <option value="game.ferry">Ferry</option>
 						<option value="game.train">Train</option>
 						<option value="game.refuel-payed">Refuel played</option>
 					</optgroup>
@@ -86,22 +86,24 @@
 				return utils.app.isOnDevEnvironment;
 			},
 			onEventChange() {
-				const spitedEvent = this.event.split( '.' );
-				let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
-				
-				this.$store.dispatch( 'events/emitEvent', {
-					eventName: this.event,
-					rawData:   rawData
-				} );
-			},
-			onClickGear() {
-				this.$store.dispatch( 'menu/toggle' );
-			},
-			...mapGetters( {
-				menuIsDisplayed: 'menu/isDisplayed'
-			} )
-		}
-	};
+        const spitedEvent = this.event.split( '.' );
+        let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
+
+        this.$store.dispatch( 'events/emitEvent', {
+          eventName: this.event,
+          rawData:   rawData
+        } );
+      },
+      onClickGear() {
+        this.$store.dispatch( 'menu/toggle' );
+      }
+    },
+    computed: {
+      ...mapGetters( {
+        menuIsDisplayed: 'menu/isDisplayed'
+      } )
+    }
+  };
 </script>
 
 <style scoped lang="scss">

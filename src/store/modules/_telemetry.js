@@ -6,7 +6,7 @@
  * Time: 	09:49
  */
 
-import _        from 'lodash';
+//import _        from 'lodash';
 import Vue      from 'vue';
 import testData from '../../data/scs_sdk_plugin_parsed_data.json';
 
@@ -55,7 +55,7 @@ const getters = {
 		
 		//console.log( elms, elmList, state.data );
 		
-		return _.pick( state.data, elmList );
+		//return _.pick( state.data, elmList );
 	}
 };
 
