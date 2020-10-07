@@ -1,26 +1,26 @@
 {
-  "name": "ets2-dashboard-skin",
-  "version": "1.3.1",
-  "private": false,
-  "description": "Euro Truck Simulator 2 dashboard",
-  "author": {
-    "name": "Emmanuel SMITH",
-    "email": "hey@emmanuel-smith.me",
-    "url": "https://emmanuel-smith.me"
+  "name" :        "ets2-dashboard-skin",
+  "version" :     "1.4.0-beta.0",
+  "private" :     false,
+  "description" : "Euro Truck Simulator 2 dashboard",
+  "author" :      {
+    "name" :  "Emmanuel SMITH",
+    "email" : "hey@emmanuel-smith.me",
+    "url" :   "https://emmanuel-smith.me"
   },
-  "scripts": {
-    "lint": "vue-cli-service lint",
-    "build": "set NODE_ENV=production && npx gulp build",
-    "bundle": "set NODE_ENV=production && npx gulp bundle",
-    "bAndB": "npx gulp bAndB",
-    "start": "npm run server:start",
-    "dashboard:dev": "vue-cli-service serve",
-    "dashboard:build": "vue-cli-service build",
-    "dashboard:start": "http-server dist/",
-    "server:install": "cd server && npm i && npm rb",
-    "server:build": "cd server && set NODE_ENV=production && npx gulp",
-    "server:start": "cd server && npm run start",
-    "font:build": "npx gulp build:font",
+  "scripts" :     {
+    "lint" :            "vue-cli-service lint",
+    "build" :           "set NODE_ENV=production && npx gulp build",
+    "bundle" :          "set NODE_ENV=production && npx gulp bundle",
+    "bAndB" :           "npx gulp bAndB",
+    "start" :           "npm run server:start",
+    "dashboard:dev" :   "vue-cli-service serve",
+    "dashboard:build" : "vue-cli-service build",
+    "dashboard:start" : "http-server dist/",
+    "server:install" :  "cd server && npm i && npm rb",
+    "server:build" :    "cd server && set NODE_ENV=production && npx gulp",
+    "server:start" :    "cd server && npm run start",
+    "font:build" :      "npx gulp build:font",
     "commitSince": "git log --pretty=\"%h - %s (%an)\" v1.3.0..HEAD"
   },
   "main": "index.js",
