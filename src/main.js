@@ -20,7 +20,11 @@ Vue.use( VueClipboard );
 
 Vue.use( new VueSocketIO( {
 	debug:      false,
-	connection: 'http://' + window.location.hostname + ':3000'
+	connection: 'http://' + window.location.hostname + ':3000',
+	vuex:       {
+		store,
+		actionPrefix: 'SOCKET_'
+	}
 } ) );
 
 Vue.config.productionTip = false;

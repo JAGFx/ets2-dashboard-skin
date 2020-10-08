@@ -139,13 +139,15 @@ export default {
       };
     },
     update:  function ( data ) {
-      let srvData = {};
+      //let srvData = {};
+      //
+      //for ( const key of Object.keys( data ) ) {
+      //  srvData[ key ] = data[ key ];
+      //}
 
-      for ( const key of Object.keys( data ) ) {
-        srvData[ key ] = data[ key ];
-      }
+      console.log( this.$store.state );
 
-      this.$store.commit( 'telemetry/update', srvData );
+      //this.$store.commit( 'telemetry/update', srvData );
     },
     log:     function ( log ) {
       /*log.reverse();

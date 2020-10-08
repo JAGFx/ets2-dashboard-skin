@@ -7,12 +7,13 @@
  */
 
 const path     = require( 'path' );
+const fs       = require( 'fs' );
 const socketio = require( 'socket.io' );
 
-const options = { /* ... */ };
-const io      = socketio( options );
-const data    = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
-const port    = 3000;
+const options      = { /* ... */ };
+const io           = socketio( options );
+const dateFilename = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
+const port         = 3000;
 
 io.listen( port, () => {
 	const url       = `localhost:${ port }`;
@@ -28,7 +29,9 @@ io.listen( port, () => {
 	} );
 	console.log( `[${ eventName }] ${ txt }` );
 } );
+
 io.on( 'connection', socket => {
-	io.emit( 'update', data );
+	const data = fs.readFileSync( dateFilename );
+	io.emit( 'update', JSON.parse( data.toString() ) );
 	console.log( 'Update' );
 } );

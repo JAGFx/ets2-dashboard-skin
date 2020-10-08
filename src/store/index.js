@@ -21,7 +21,7 @@ Vue.use( Vuex );
 const debug = process.env.NODE_ENV !== 'production';
 
 export default new Vuex.Store( {
-	modules: {
+	modules:   {
 		skins,
 		telemetry,
 		config,
@@ -29,5 +29,15 @@ export default new Vuex.Store( {
 		app,
 		events
 	},
-	strict:  debug
+	actions:   {
+		'SOCKET_update'( context, data ) {
+			context.commit( 'setData', data );
+		}
+	},
+	mutations: {
+		[ 'setData' ]( state, data ) {
+			state.telemetry.data = data;
+		}
+	},
+	strict:    debug
 } );
