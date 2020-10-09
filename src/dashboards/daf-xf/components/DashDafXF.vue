@@ -84,7 +84,7 @@
 <script>
 	import CadranElement from '../../../components/Elements/CadranElement';
 	import Dashboard     from '../../../components/Elements/Dashboard';
-	import AppDashMixins    from '../../../components/Mixins/AppDashMixins';
+	//import AppDashMixins    from '../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:       'DashDefault',
@@ -92,7 +92,7 @@
 			Dashboard,
 			CadranElement
 		},
-		mixins:     [ AppDashMixins ],
+		//mixins:     [ AppDashMixins ],
 		methods: {
 			speed( truckSpeed, showValue = true, showSymbol = true ){
 				return this.$options.filters.unit_speed( truckSpeed, showValue, showSymbol );

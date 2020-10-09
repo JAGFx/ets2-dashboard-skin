@@ -21,9 +21,7 @@
     <div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed">
       <Menu></Menu>
     </div>
-    <keep-alive>
-      <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
-    </keep-alive>
+    <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
     <!--<Events id="events" v-bind="{log}" />-->
     <!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
   </main>
@@ -35,7 +33,7 @@ import { mapGetters }      from 'vuex';
 import EventOverlayElement from './components/Elements/EventOverlayElement';
 import OverlayElement      from './components/Elements/OverlayElement';
 import Menu                from './components/Menu/Menu';
-import AppDashMixins       from './components/Mixins/AppDashMixins';
+//import AppDashMixins       from './components/Mixins/AppDashMixins';
 import Game                from './components/Zone/Game/Game';
 import DashDafXF           from './dashboards/daf-xf/components/DashDafXF';
 import DashDefault         from './dashboards/defaut/components/DashDefault';
@@ -66,7 +64,7 @@ export default {
     OverlayElement
   },
 
-  mixins: [ AppDashMixins ],
+  //mixins: [ AppDashMixins ],
 
   data() {
     return {
@@ -145,7 +143,7 @@ export default {
       //  srvData[ key ] = data[ key ];
       //}
 
-      console.log( this.$store.state );
+      //console.log( this.$store.state );
 
       //this.$store.commit( 'telemetry/update', srvData );
     },

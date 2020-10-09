@@ -411,6 +411,5 @@ export default {
       getConfig: 'config/get'
     } )
   }
-
 };
 </script>

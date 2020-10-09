@@ -14,7 +14,7 @@
 	import EventOverlayBase from './EventOverlayBase';
   import { mapGetters }   from 'vuex';
 	import eventsText       from '../../../data/events.json';
-	import AppDashMixins    from '../../Mixins/AppDashMixins';
+	//import AppDashMixins    from '../../Mixins/AppDashMixins';
 
 	export default {
 		name:     'EventOverlayNavigationSpeed-limit',
@@ -22,7 +22,7 @@
       EventOverlayBase
     },
 		mixins:   [
-			AppDashMixins
+			//AppDashMixins
 		],
 		methods:  {
 			eventsText() {

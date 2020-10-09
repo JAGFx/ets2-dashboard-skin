@@ -136,12 +136,12 @@
 </template>
 
 <script>
-	import AppDashMixins   from '../../../../../components/Mixins/AppDashMixins';
+	//import AppDashMixins   from '../../../../../components/Mixins/AppDashMixins';
 	import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
 	
 	export default {
 		name:    'Truck',
-		mixins:  [ AppDashMixins, JagfxConfigMixins ],
+		mixins:  [ /*AppDashMixins,*/ JagfxConfigMixins ],
 		methods: {
 			indexEmptyElement: function () {
 				const elementLength = this.$elementsLength( 'right' );

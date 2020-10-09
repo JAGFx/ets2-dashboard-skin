@@ -79,11 +79,11 @@
 </template>
 
 <script>
-	import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
+	//import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:    'Job',
-		mixins:  [ AppDashMixins ]
+		//mixins:  [ AppDashMixins ]
 	};
 </script>
 

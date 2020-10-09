@@ -83,7 +83,7 @@
 </template>
 
 <script>
-	import AppDashMixins     from '../../../../../components/Mixins/AppDashMixins';
+	//import AppDashMixins     from '../../../../../components/Mixins/AppDashMixins';
 	import DashSymbolArea from '../../Elements/DashSymbolArea';
 	import JagfxConfigMixins   from '../../Mixins/JagfxConfigMixins';
 	import RPMBars        from './Elements/RPMBars';
@@ -91,7 +91,7 @@
 	export default {
 		name:       'Navigation',
 		components: { DashSymbolArea, RPMBars },
-		mixins:     [ AppDashMixins, JagfxConfigMixins ],
+		mixins:     [ /*AppDashMixins,*/ JagfxConfigMixins ],
 		methods:    {
 			getFuelByBar:     function () {
 				return (this.telemetry.truck.fuel.capacity * this.telemetry.truck.fuel.warning.factor).toFixed( 0 );

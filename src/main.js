@@ -3,7 +3,8 @@ import Vue                           from 'vue';
 import VueClipboard                  from 'vue-clipboard2';
 import VueSocketIO                   from 'vue-socket.io';
 import App                           from './App.vue';
-import store                         from './store';
+import store           from './store';
+import TelemetryPlugin from './plugins/telemetry.plugin';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'animate.css';
@@ -17,6 +18,7 @@ window.NoSleep = require( 'nosleep.js' );
 Vue.use( BootstrapVue );
 Vue.use( IconsPlugin );
 Vue.use( VueClipboard );
+Vue.use( TelemetryPlugin );
 
 Vue.use( new VueSocketIO( {
 	debug:      false,

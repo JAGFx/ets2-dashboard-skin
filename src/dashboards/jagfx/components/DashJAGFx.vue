@@ -15,7 +15,7 @@
 
 <script>
 	import Dashboard  from '../../../components/Elements/Dashboard';
-	import AppDashMixins from '../../../components/Mixins/AppDashMixins';
+	//import AppDashMixins from '../../../components/Mixins/AppDashMixins';
 	import Job        from './Zone/Job/Job';
 	import Trailer    from './Zone/Job/Trailer';
 	import Navigation from './Zone/Navigation/Navigation';
@@ -23,7 +23,7 @@
 	
 	export default {
 		name:       'DashJAGFx',
-		mixins:     [ AppDashMixins ],
+		//mixins:     [ AppDashMixins ],
 		components: {
 			Dashboard,
 			Navigation,

@@ -97,7 +97,7 @@
 <script>
 	import CadranElement from '../../../components/Elements/CadranElement';
 	import Dashboard     from '../../../components/Elements/Dashboard';
-	import AppDashMixins    from '../../../components/Mixins/AppDashMixins';
+	//import AppDashMixins    from '../../../components/Mixins/AppDashMixins';
 	
 	export default {
 		name:       'DashScania',
@@ -105,7 +105,7 @@
 			Dashboard,
 			CadranElement
 		},
-		mixins:     [ AppDashMixins ]
+		//mixins:     [ AppDashMixins ]
 	};
 </script>
 

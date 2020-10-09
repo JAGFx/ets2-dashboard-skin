@@ -14,6 +14,7 @@ const options      = { /* ... */ };
 const io           = socketio( options );
 const dateFilename = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
 const port         = 3000;
+const interval = 1000; // Milisecond
 
 io.listen( port, () => {
 	const url       = `localhost:${ port }`;
@@ -32,6 +33,7 @@ io.listen( port, () => {
 
 io.on( 'connection', socket => {
 	const data = fs.readFileSync( dateFilename );
-	io.emit( 'update', JSON.parse( data.toString() ) );
 	console.log( 'Update' );
+	setInterval( () => io.emit( 'update', JSON.parse( data.toString() ) ), interval );
+	//io.emit( 'update', JSON.parse( data.toString() ) );
 } );

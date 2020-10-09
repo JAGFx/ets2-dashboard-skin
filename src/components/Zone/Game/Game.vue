@@ -68,11 +68,11 @@
 	import { mapGetters } from 'vuex';
 	import scsSDKData     from '../../../data/scs_sdk_plugin_parsed_data.json';
 	import * as utils     from '../../../utils/utils';
-	import AppDashMixins  from '../../Mixins/AppDashMixins';
+	//import AppDashMixins  from '../../Mixins/AppDashMixins';
 	
 	export default {
 		name:    'Game',
-		mixins:  [ AppDashMixins ],
+		//mixins:  [ AppDashMixins ],
 		data() {
 			return {
 				event: ''
