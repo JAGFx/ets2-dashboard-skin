@@ -31,6 +31,7 @@ const basePathHost = 'http://' + window.location.host + '/';
 const version = packageJson.version;
 
 const isOnDevEnvironment = process.env.NODE_ENV === 'development';
+const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
 const flag = ( countryName ) => {
 	let flag = undefined;
@@ -93,6 +94,7 @@ export default {
 	basePathHost,
 	version,
 	isOnDevEnvironment,
+	useFakeData,
 	flag,
 	numberDigit,
 	jsonReadable,

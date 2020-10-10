@@ -9,6 +9,7 @@
 import testData       from '@/data/scs_sdk_plugin_parsed_data.json';
 import { EventBus }   from '@/event-bus.js';
 import store          from '@/store';
+import _app           from '@/utils/_app';
 import * as utils     from '@/utils/utils';
 import {
 	length as uc_length,
@@ -443,13 +444,7 @@ export default {
 			},
 			computed: {
 				gameConnected() {
-					const gameReady = this.telemetry.game !== null &&
-									  (typeof this.telemetry.game
-									  === 'object'
-									  && Object.keys( this.telemetry.game ).length
-									  > 0);
-					
-					return this.receivedData && this.telemetry.game.sdkActive;
+					return _app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive);
 				},
 				// ----------------
 				...mapGetters( {

@@ -6,7 +6,7 @@
           <transition mode="out-in" name="slide-fade">
             <div :key="launching.text" class="d-flex justify-content-center align-items-center flex-column">
               <h1><span class="mb-3" v-html="launching.icon"></span></h1>
-              <h1>{{ launching.text }}</h1>
+              <h1 class="text-center">{{ launching.text }}</h1>
               <small class="mb-3">{{ launching.subText }}</small>
               <b-spinner label="Processing..." type="grow"></b-spinner>
             </div>
@@ -113,7 +113,7 @@ export default {
   },
   sockets:  {
     connect() {
-      console.log( 'connected', this.gameConnected );
+      console.log( 'connected' );
       this.launching = {
         icon:    '<i class="fas fa-truck"></i>',
         text:    'Connected to telemetry server',
