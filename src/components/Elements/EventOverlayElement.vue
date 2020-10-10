@@ -1,11 +1,11 @@
 <template>
-	<div class="event-overlay">
-		<b-overlay :show="isOnProcessing" :variant="'dark'" no-wrap>
-			<template class="d-flex justify-content-around align-items-center flex-column" v-slot:overlay>
-				<component v-bind:is="currentRawDataComponent"></component>
-			</template>
-		</b-overlay>
-	</div>
+  <div class="event-overlay">
+    <b-overlay :show="isOnProcessing" :variant="'dark'" no-wrap>
+      <template v-slot:overlay class="d-flex justify-content-around align-items-center flex-column">
+        <component v-bind:is="currentRawDataComponent"></component>
+      </template>
+    </b-overlay>
+  </div>
 </template>
 
 <script>
@@ -29,8 +29,8 @@ import { mapGetters }           from 'vuex';
 import _event                   from '../../utils/_event';
 
 export default {
-  name:         'EventOverlayElement',
-  components:   {
+  name:       'EventOverlayElement',
+  components: {
     EventOverlayDefault,
     EventOverlayJobDelivered,
     EventOverlayGameFine,
@@ -39,31 +39,31 @@ export default {
     EventOverlayGameTrain,
     EventOverlayNavigationSpeedLimit,
     EventOverlayTrailersDamage,
-      EventOverlayTruckCruiseControlIncrease,
-      EventOverlayTruckCruiseControlDecrease,
-      EventOverlayTruckWarning,
-      EventOverlayTruckDamage,
-		},
-		computed:   {
-			...mapGetters( {
-				isOnProcessing: 'events/isOnProcessing',
-				event:          'events/event'
-			} ),
-			currentRawDataComponent() {
-				const eventComponentName = _event.eventNameToComponent( this.event );
-				
-				try {
-					require( './EventOverlayElement/' + eventComponentName );
-					return eventComponentName;
-					
-				} catch ( e ) {
-					return 'EventOverlayDefault';
-				}
-			}
-		}
-	};
+    EventOverlayTruckCruiseControlIncrease,
+    EventOverlayTruckCruiseControlDecrease,
+    EventOverlayTruckWarning,
+    EventOverlayTruckDamage
+  },
+  computed:   {
+    ...mapGetters( {
+      isOnProcessing: 'events/isOnProcessing',
+      event:          'events/event'
+    } ),
+    currentRawDataComponent() {
+      const eventComponentName = _event.eventNameToComponent( this.event );
+
+      try {
+        require( './EventOverlayElement/' + eventComponentName );
+        return eventComponentName;
+
+      } catch ( e ) {
+        return 'EventOverlayDefault';
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-	@import "../../assets/scss/app/eventOverlay";
+@import "../../assets/scss/app/eventOverlay";
 </style>

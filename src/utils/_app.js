@@ -30,7 +30,7 @@ const basePathHost = 'http://' + window.location.host + '/';
 
 const version = packageJson.version;
 
-const isOnDevEnvironment = process.env.NODE_ENV === 'development';
+const isOnDevEnvironment = process.env.NODE_ENV.startsWith( 'dev' );
 const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
 const flag = ( countryName ) => {
