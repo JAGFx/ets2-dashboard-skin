@@ -6,21 +6,19 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex';
-	//import AppDashMixins     from '../Mixins/AppDashMixins';
-	
-	export default {
-    name:     'Dashboard',
-    //mixins:   [ AppDashMixins ],
-    methods:  {
-      enabledFullScreen() {
-        return process.env.VUE_APP_ENABLE_FULLSCREEN === 'true';
-      },
-      skinData() {
-        return this.currentSkin;
-      }
+import { mapGetters } from 'vuex';
+
+export default {
+  name:     'Dashboard',
+  methods:  {
+    enabledFullScreen() {
+      return process.env.VUE_APP_ENABLE_FULLSCREEN === 'true';
     },
-    computed: {
+    skinData() {
+      return this.currentSkin;
+    }
+  },
+  computed: {
       ...mapGetters( {
         currentSkin: 'skins/current'
       } )

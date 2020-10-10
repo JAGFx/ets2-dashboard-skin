@@ -27,20 +27,20 @@
 		height: 100%;
 		width: 100%;
 		
-		.card-content{
+		.card-content {
 			z-index: 1;
 			padding: 1rem 0;
 			
-			h2{
+			h2 {
 				margin: 0 0 .5rem;
 				font-weight: 600;
-				font-size:1.5rem;
+				font-size: 1.5rem;
 				
-				small{
+				small {
 					display: inline-block;
 					font-size: 1rem;
 					
-					&.badge-author{
+					&.badge-author {
 						font-size: .8rem;
 						font-weight: normal;
 					}
@@ -61,7 +61,7 @@
 				height: 1.8rem;
 				font-size: 1rem;
 				border-radius: 50%;
-				margin:0 .5rem;
+				margin: 0 .5rem;
 				
 				@include prefixer(display, flex, ("webkit", "moz", "o"));
 				@include prefixer(justify-content, center, ("webkit", "moz", "o"));
@@ -69,7 +69,7 @@
 			}
 		}
 		
-		&.author{
+		&.author {
 			font-family: 'Open Sans', Arial, sans-serif;
 			color: $cWhite;
 			border: none;
@@ -80,7 +80,7 @@
 			@include prefixer(display, flex, ("webkit", "moz", "o"));
 			@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 			
-			img.background{
+			img.background {
 				position: absolute;
 				opacity: 0.9;
 				filter: blur(5px);
@@ -94,7 +94,7 @@
 				@include prefixer(object-fit, cover, ("webkit", "moz", "o"));
 			}
 			
-			img.profile{
+			img.profile {
 				border-radius: 50%;
 				width: 75px;
 				min-height: 75px;
@@ -106,7 +106,7 @@
 			}
 		}
 		
-		&.project{
+		&.project {
 			font-family: 'Open Sans', Arial, sans-serif;
 			color: $cWhite;
 			border: none;
@@ -119,14 +119,14 @@
 			@include prefixer(display, flex, ("webkit", "moz", "o"));
 			@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 			
-			.card-content{
+			.card-content {
 				height: 100%;
 				@include prefixer(display, flex, ("webkit", "moz", "o"));
 				@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 				@include prefixer(align-items, center, ("webkit", "moz", "o"));
 			}
 			
-			.icons a{
+			.icons a {
 				color: $cRed;
 				border-color: $cRed;
 			}

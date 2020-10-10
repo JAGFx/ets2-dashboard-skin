@@ -48,14 +48,14 @@
 </template>
 
 <script>
-	import pkg from '../../../../package.json';
-	
-	export default {
-		name: 'TabAbout',
-		data() {
-			return pkg;
-		}
-	};
+import pkg from '../../../../package.json';
+
+export default {
+  name: 'TabAbout',
+  data() {
+    return pkg;
+  }
+};
 </script>
 
 <style lang="scss" scoped>

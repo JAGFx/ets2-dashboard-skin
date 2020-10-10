@@ -14,24 +14,22 @@
 </template>
 
 <script>
-	import Dashboard  from '../../../components/Elements/Dashboard';
-	//import AppDashMixins from '../../../components/Mixins/AppDashMixins';
-	import Job        from './Zone/Job/Job';
-	import Trailer    from './Zone/Job/Trailer';
-	import Navigation from './Zone/Navigation/Navigation';
-	import Truck      from './Zone/Truck/Truck';
-	
-	export default {
-		name:       'DashJAGFx',
-		//mixins:     [ AppDashMixins ],
-		components: {
-			Dashboard,
-			Navigation,
-			Job,
-			Truck,
-			Trailer
-		}
-	};
+import Dashboard  from '../../../components/Elements/Dashboard';
+import Job        from './Zone/Job/Job';
+import Trailer    from './Zone/Job/Trailer';
+import Navigation from './Zone/Navigation/Navigation';
+import Truck      from './Zone/Truck/Truck';
+
+export default {
+  name:       'DashJAGFx',
+  components: {
+    Dashboard,
+    Navigation,
+    Job,
+    Truck,
+    Trailer
+  }
+};
 </script>
 
 <style lang="scss" scoped>

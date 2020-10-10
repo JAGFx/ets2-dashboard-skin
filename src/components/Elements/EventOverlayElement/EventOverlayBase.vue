@@ -14,20 +14,20 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
-  import eventsText     from '../../../data/events.json';
+import { mapGetters } from 'vuex';
+import eventsText     from '../../../data/events.json';
 
-  export default {
-    name:     'EventOverlayBase',
-    methods:  {
-      eventsText() {
-        //console.log( this.event, eventsText );
-        return eventsText;
-      }
-    },
-    computed: {
-      ...mapGetters( {
-        event: 'events/event'
+export default {
+  name:     'EventOverlayBase',
+  methods:  {
+    eventsText() {
+      //console.log( this.event, eventsText );
+      return eventsText;
+    }
+  },
+  computed: {
+    ...mapGetters( {
+      event: 'events/event'
       } )
     }
   };

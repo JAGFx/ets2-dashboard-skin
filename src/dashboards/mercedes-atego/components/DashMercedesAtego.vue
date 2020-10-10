@@ -92,19 +92,17 @@
 </template>
 
 <script>
-	import CadranElement from '../../../components/Elements/CadranElement';
-	import Dashboard     from '../../../components/Elements/Dashboard';
-	//import AppDashMixins    from '../../../components/Mixins/AppDashMixins';
-	
-	export default {
-		name:       'DashMercedesAtego',
-		components: {
-			Dashboard,
-			CadranElement
-		},
-		//mixins:     [ AppDashMixins ],
-		methods:    {}
-	};
+import CadranElement from '../../../components/Elements/CadranElement';
+import Dashboard     from '../../../components/Elements/Dashboard';
+
+export default {
+  name:       'DashMercedesAtego',
+  components: {
+    Dashboard,
+    CadranElement
+  },
+  methods:    {}
+};
 </script>
 
 <style lang="scss" scoped>

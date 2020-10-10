@@ -21,25 +21,21 @@
 </template>
 
 <script>
-	import EventOverlayBase from './EventOverlayBase';
-  import { mapGetters }   from 'vuex';
-	import eventsText       from '../../../data/events.json';
-	//import AppDashMixins    from '../../Mixins/AppDashMixins';
+import { mapGetters }   from 'vuex';
+import eventsText       from '../../../data/events.json';
+import EventOverlayBase from './EventOverlayBase';
 
-	export default {
-		name:     'EventOverlayJobDelivered',
-    components: {
-      EventOverlayBase
-    },
-		mixins:   [
-			//AppDashMixins
-		],
-		methods:  {
-			eventsText() {
-				console.log( this.event, eventsText );
-				return eventsText;
-			}
-		},
+export default {
+  name:       'EventOverlayJobDelivered',
+  components: {
+    EventOverlayBase
+  },
+  methods:    {
+    eventsText() {
+      console.log( this.event, eventsText );
+      return eventsText;
+    }
+  },
 		computed: {
 			...mapGetters( {
 				event:   'events/event',

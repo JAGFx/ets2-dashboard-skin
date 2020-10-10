@@ -40,12 +40,9 @@
 </template>
 
 <script>
-	//import AppDashMixins from '../../../../../components/Mixins/AppDashMixins';
-	
 	export default {
-		name:   'Trailer',
-		//mixins: [ AppDashMixins ]
-	};
+    name: 'Trailer'
+  };
 </script>
 
 <style scoped lang="scss">

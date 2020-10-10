@@ -24,12 +24,12 @@ const getters = {
 // actions
 const actions = {
 	emitEvent( { commit, dispatch, state }, payload ) {
-		const configName = `events_${payload.eventName}`;
-		const isActive = store.getters['config/get']( configName );
+		const configName = `events_${ payload.eventName }`;
+		const isActive   = store.getters[ 'config/get' ]( configName );
 		
 		//console.log( 'Config - isActive', configName, isActive );
 		
-		if( isActive ){
+		if ( isActive ) {
 			commit( 'setProcessing', true );
 			commit( 'setEvent', payload.eventName );
 			commit( 'setRawData', payload.rawData );

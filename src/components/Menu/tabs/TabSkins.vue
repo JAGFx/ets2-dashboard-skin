@@ -32,12 +32,12 @@
 </template>
 
 <script>
-	import AppSkinsMixins from '../../Mixins/AppSkinsMixins';
-	
-	export default {
-		name:   'TabSkins',
-		mixins: [ AppSkinsMixins ]
-	};
+import AppSkinsMixins from '../../Mixins/AppSkinsMixins';
+
+export default {
+  name:   'TabSkins',
+  mixins: [ AppSkinsMixins ]
+};
 </script>
 
 <style lang="scss" scoped>

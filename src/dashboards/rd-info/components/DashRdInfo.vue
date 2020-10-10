@@ -138,17 +138,15 @@
 </template>
 
 <script>
-	import Dashboard  from '../../../components/Elements/Dashboard';
-	//import AppDashMixins from '../../../components/Mixins/AppDashMixins';
-	
-	export default {
-		name:       'DashRdInfo',
-		components: {
-			Dashboard
-		},
-		//mixins:     [ AppDashMixins ],
-		methods:    {}
-	};
+import Dashboard from '../../../components/Elements/Dashboard';
+
+export default {
+  name:       'DashRdInfo',
+  components: {
+    Dashboard
+  },
+  methods:    {}
+};
 </script>
 
 <style lang="scss" scoped>

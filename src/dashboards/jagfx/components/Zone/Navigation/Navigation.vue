@@ -83,35 +83,34 @@
 </template>
 
 <script>
-	//import AppDashMixins     from '../../../../../components/Mixins/AppDashMixins';
-	import DashSymbolArea from '../../Elements/DashSymbolArea';
-	import JagfxConfigMixins   from '../../Mixins/JagfxConfigMixins';
-	import RPMBars        from './Elements/RPMBars';
-	
-	export default {
-		name:       'Navigation',
-		components: { DashSymbolArea, RPMBars },
-		mixins:     [ /*AppDashMixins,*/ JagfxConfigMixins ],
-		methods:    {
-			getFuelByBar:     function () {
-				return (this.telemetry.truck.fuel.capacity * this.telemetry.truck.fuel.warning.factor).toFixed( 0 );
-			},
-			getFuelBarCount:  function () {
-				return Math.ceil( this.telemetry.truck.fuel.capacity / this.getFuelByBar() );
-			},
-			getFuelBarActive: function ( i ) {
-				const fuelByBar   = this.getFuelByBar();
-				const iLow        = i - 1;
-				const fuelBarFrom = (iLow * fuelByBar);
-				
-				//console.log( i, this.telemetry.truck.fuel.value, fuelBarFrom );
-				return (this.telemetry.truck.fuel.value >= fuelBarFrom);
-			},
-			onWarningLevel:   function () {
-				return this.telemetry.truck.fuel.value < this.getFuelByBar();
-			}
-		}
-	};
+import DashSymbolArea    from '../../Elements/DashSymbolArea';
+import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
+import RPMBars           from './Elements/RPMBars';
+
+export default {
+  name:       'Navigation',
+  components: { DashSymbolArea, RPMBars },
+  mixins:     [ JagfxConfigMixins ],
+  methods:    {
+    getFuelByBar:     function () {
+      return (this.telemetry.truck.fuel.capacity * this.telemetry.truck.fuel.warning.factor).toFixed( 0 );
+    },
+    getFuelBarCount:  function () {
+      return Math.ceil( this.telemetry.truck.fuel.capacity / this.getFuelByBar() );
+    },
+    getFuelBarActive: function ( i ) {
+      const fuelByBar   = this.getFuelByBar();
+      const iLow        = i - 1;
+      const fuelBarFrom = (iLow * fuelByBar);
+
+      //console.log( i, this.telemetry.truck.fuel.value, fuelBarFrom );
+      return (this.telemetry.truck.fuel.value >= fuelBarFrom);
+    },
+    onWarningLevel:   function () {
+      return this.telemetry.truck.fuel.value < this.getFuelByBar();
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">

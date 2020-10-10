@@ -53,26 +53,26 @@
 </template>
 
 <script>
-	import _              from 'lodash';
-	import { mapGetters } from 'vuex';
-	import configJAGFx    from '../../../dashboards/jagfx/data/config_template.json';
-	
-	import config      from '../../../data/config_template.json';
-	import skins       from '../../../data/skins.json';
-	import utilsConfig from '../../../utils/_config';
-	
-	import TabConfigElement from './Elements/TabConfigElement';
-	
-	export default {
-		name:       'TabConfig',
-		components: { TabConfigElement },
-		data() {
-			const skinsOk     = _.pickBy( skins.skins, skin => {
-				return skin.config_template !== undefined && skin.config_template;
-			} );
-			const configSkins = {
-				JAGFx: configJAGFx
-			};
+import _              from 'lodash';
+import { mapGetters } from 'vuex';
+import configJAGFx    from '../../../dashboards/jagfx/data/config_template.json';
+
+import config      from '../../../data/config_template.json';
+import skins       from '../../../data/skins.json';
+import utilsConfig from '../../../utils/_config';
+
+import TabConfigElement from './Elements/TabConfigElement';
+
+export default {
+  name:       'TabConfig',
+  components: { TabConfigElement },
+  data() {
+    const skinsOk     = _.pickBy( skins.skins, skin => {
+      return skin.config_template !== undefined && skin.config_template;
+    } );
+    const configSkins = {
+      JAGFx: configJAGFx
+    };
 			
 			return {
 				config:      config,

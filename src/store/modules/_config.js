@@ -9,8 +9,8 @@
 import Vue         from 'vue';
 import defaultData from '../../data/ets2-dashboard-skin.config.json';
 import config      from '../../utils/_config';
-	
-	// initial state
+
+// initial state
 const state = () => (defaultData);
 
 // getters

@@ -136,27 +136,26 @@
 </template>
 
 <script>
-	//import AppDashMixins   from '../../../../../components/Mixins/AppDashMixins';
-	import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
-	
-	export default {
-		name:    'Truck',
-		mixins:  [ /*AppDashMixins,*/ JagfxConfigMixins ],
-		methods: {
-			indexEmptyElement: function () {
-				const elementLength = this.$elementsLength( 'right' );
-				const maxElement    = this.maxElements[ 'right' ];
-				const diff          = maxElement - elementLength;
-				
-				return (diff <= 0)
-					? 0
-					: diff;
-			},
-			elementIsEnabled:  function ( element ) {
-				return this.$elementIsEnabled( 'right', element );
-			}
-		}
-	};
+import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
+
+export default {
+  name:    'Truck',
+  mixins:  [ JagfxConfigMixins ],
+  methods: {
+    indexEmptyElement: function () {
+      const elementLength = this.$elementsLength( 'right' );
+      const maxElement    = this.maxElements[ 'right' ];
+      const diff          = maxElement - elementLength;
+
+      return (diff <= 0)
+          ? 0
+          : diff;
+    },
+    elementIsEnabled:  function ( element ) {
+      return this.$elementIsEnabled( 'right', element );
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">

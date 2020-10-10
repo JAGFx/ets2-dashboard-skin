@@ -17,8 +17,8 @@
 
     <OverlayElement v-if="gameConnected"></OverlayElement>
     <EventOverlayElement v-if="gameConnected"></EventOverlayElement>
-    <Game id="game" v-if="gameConnected" />
-    <div class="wrapper menu h-100" v-if="gameConnected" v-show="menuIsDisplayed">
+    <Game v-if="gameConnected" id="game" />
+    <div v-if="gameConnected" v-show="menuIsDisplayed" class="wrapper menu h-100">
       <Menu></Menu>
     </div>
     <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
@@ -33,7 +33,6 @@ import { mapGetters }      from 'vuex';
 import EventOverlayElement from './components/Elements/EventOverlayElement';
 import OverlayElement      from './components/Elements/OverlayElement';
 import Menu                from './components/Menu/Menu';
-//import AppDashMixins       from './components/Mixins/AppDashMixins';
 import Game                from './components/Zone/Game/Game';
 import DashDafXF           from './dashboards/daf-xf/components/DashDafXF';
 import DashDefault         from './dashboards/defaut/components/DashDefault';
@@ -63,9 +62,6 @@ export default {
     Menu,
     OverlayElement
   },
-
-  //mixins: [ AppDashMixins ],
-
   data() {
     return {
       launching: {
@@ -77,7 +73,6 @@ export default {
   },
 
   created() {
-    //console.log( 'Vue env: ', process.env );
     this.$store.dispatch( 'skins/setFirstActive' );
     this.$store.dispatch( 'config/load' );
 
@@ -111,56 +106,24 @@ export default {
     }
   },
   computed: {
-    gameConnected() {
-      const gameReady = this.telemetry.game !== null &&
-                        (typeof this.telemetry.game
-                        === 'object'
-                        && Object.keys( this.telemetry.game ).length
-                        > 0);
-
-      //console.log( 'Game', this.telemetry.game, gameReady );
-
-      return gameReady && this.telemetry.game.sdkActive;
-    },
     ...mapGetters( {
       menuIsDisplayed: 'menu/isDisplayed',
       currentSkin:     'skins/current'
     } )
   },
   sockets:  {
-    connect: function () {
-      console.log( 'connected' );
+    connect() {
+      console.log( 'connected', this.gameConnected );
       this.launching = {
         icon:    '<i class="fas fa-truck"></i>',
         text:    'Connected to telemetry server',
         subText: 'Ready to delivering'
       };
     },
-    update:  function ( data ) {
-      //let srvData = {};
-      //
-      //for ( const key of Object.keys( data ) ) {
-      //  srvData[ key ] = data[ key ];
-      //}
-
-      //console.log( this.$store.state );
-
-      //this.$store.commit( 'telemetry/update', srvData );
+    update( data ) {
+      this.$updateTelemetry( { ...data } );
     },
-    log:     function ( log ) {
-      /*log.reverse();
-       this.log = log;*/
-
-      //console.log( 'Log---', log );
-      /*switch ( log.eventName ) {
-       case 'game.connected':
-       this.launching = {
-       icon:    '<i class="fas fa-truck-loading"></i>',
-       text:    'Game connected',
-       subText: 'Delivering. Waiting you on road !'
-       };
-       break;
-       }*/
+    log( log ) {
       const event = _event.filterInputEvent( log );
 
       if ( event !== false ) {

@@ -9,34 +9,36 @@
 </template>
 
 <script>
-	import EventOverlayDefault                    from '@/components/Elements/EventOverlayElement/EventOverlayDefault';
-  import EventOverlayGameFerry                  from '@/components/Elements/EventOverlayElement/EventOverlayGameFerry';
-  import EventOverlayGameFine                   from '@/components/Elements/EventOverlayElement/EventOverlayGameFine';
-  import EventOverlayGameTollgate               from '@/components/Elements/EventOverlayElement/EventOverlayGameTollgate';
-  import EventOverlayGameTrain                  from '@/components/Elements/EventOverlayElement/EventOverlayGameTrain';
-  import EventOverlayJobDelivered               from '@/components/Elements/EventOverlayElement/EventOverlayJobDelivered';
-  import EventOverlayNavigationSpeedLimit       from '@/components/Elements/EventOverlayElement/EventOverlayNavigationSpeed-limit';
-  import EventOverlayTruckCruiseControlIncrease from '@/components/Elements/EventOverlayElement/EventOverlayTruckCruise-control-increase';
-  import EventOverlayTruckCruiseControlDecrease from '@/components/Elements/EventOverlayElement/EventOverlayTruckCruise-control-decrease';
-  import EventOverlayTrailersDamage             from '@/components/Elements/EventOverlayElement/EventOverlayTrailersDamage';
-  import EventOverlayTruckDamage
-                                                from '@/components/Elements/EventOverlayElement/EventOverlayTruckDamage';
-  import EventOverlayTruckWarning
-                                                from '@/components/Elements/EventOverlayElement/EventOverlayTruckWarning';
-  import { mapGetters }                         from 'vuex';
-	import _event                                 from '../../utils/_event';
+import EventOverlayDefault      from '@/components/Elements/EventOverlayElement/EventOverlayDefault';
+import EventOverlayGameFerry    from '@/components/Elements/EventOverlayElement/EventOverlayGameFerry';
+import EventOverlayGameFine     from '@/components/Elements/EventOverlayElement/EventOverlayGameFine';
+import EventOverlayGameTollgate from '@/components/Elements/EventOverlayElement/EventOverlayGameTollgate';
+import EventOverlayGameTrain    from '@/components/Elements/EventOverlayElement/EventOverlayGameTrain';
+import EventOverlayJobDelivered from '@/components/Elements/EventOverlayElement/EventOverlayJobDelivered';
+import EventOverlayNavigationSpeedLimit
+                                from '@/components/Elements/EventOverlayElement/EventOverlayNavigationSpeed-limit';
+import EventOverlayTrailersDamage
+                                from '@/components/Elements/EventOverlayElement/EventOverlayTrailersDamage';
+import EventOverlayTruckCruiseControlDecrease
+                                from '@/components/Elements/EventOverlayElement/EventOverlayTruckCruise-control-decrease';
+import EventOverlayTruckCruiseControlIncrease
+                                from '@/components/Elements/EventOverlayElement/EventOverlayTruckCruise-control-increase';
+import EventOverlayTruckDamage  from '@/components/Elements/EventOverlayElement/EventOverlayTruckDamage';
+import EventOverlayTruckWarning from '@/components/Elements/EventOverlayElement/EventOverlayTruckWarning';
+import { mapGetters }           from 'vuex';
+import _event                   from '../../utils/_event';
 
-	export default {
-		name:       'EventOverlayElement',
-		components: {
-			EventOverlayDefault,
-			EventOverlayJobDelivered,
-      EventOverlayGameFine,
-      EventOverlayGameTollgate,
-      EventOverlayGameFerry,
-      EventOverlayGameTrain,
-      EventOverlayNavigationSpeedLimit,
-      EventOverlayTrailersDamage,
+export default {
+  name:         'EventOverlayElement',
+  components:   {
+    EventOverlayDefault,
+    EventOverlayJobDelivered,
+    EventOverlayGameFine,
+    EventOverlayGameTollgate,
+    EventOverlayGameFerry,
+    EventOverlayGameTrain,
+    EventOverlayNavigationSpeedLimit,
+    EventOverlayTrailersDamage,
       EventOverlayTruckCruiseControlIncrease,
       EventOverlayTruckCruiseControlDecrease,
       EventOverlayTruckWarning,

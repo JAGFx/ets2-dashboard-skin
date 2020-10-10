@@ -35,19 +35,19 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex';
-	
-	export default {
-		name:     'OverlayElement',
-		data(){
-			return {
-				showDetails: false
-			};
-		},
-		methods:{
-			close(){
-				//console.log( 'CLose' );
-				this.$store.dispatch('app/endProcessing');
+import { mapGetters } from 'vuex';
+
+export default {
+  name:       'OverlayElement',
+  data() {
+    return {
+      showDetails: false
+    };
+  },
+  methods:    {
+    close() {
+      //console.log( 'CLose' );
+      this.$store.dispatch( 'app/endProcessing' );
 			}
 		},
 		computed: {

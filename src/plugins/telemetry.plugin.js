@@ -6,34 +6,62 @@
  * Time: 	17:28
  */
 
-import store      from '@/store';
-import * as utils from '@/utils/utils';
+import testData       from '@/data/scs_sdk_plugin_parsed_data.json';
+import { EventBus }   from '@/event-bus.js';
+import store          from '@/store';
+import * as utils     from '@/utils/utils';
 import {
 	length as uc_length,
 	mass as uc_mass,
 	pressure as uc_pressure,
 	temperature as uc_temperature,
 	volume as uc_volume
-}                 from 'units-converter';
+}                     from 'units-converter';
+import { mapGetters } from 'vuex';
 
 export default {
 	store,
 	install( Vue, options ) {
 		console.log( 'Telemetry plugin' );
 		
-		Vue.prototype.telemetry = store.getters[ 'telemetry/current' ];
-		Vue.prototype.allConfig = store.getters[ 'config/all' ];
-		Vue.prototype.getConfig = store.getters[ 'config/get' ];
+		// --- Update telemetry data
+		
+		Vue.prototype.$updateTelemetry = ( data ) => {
+			const gameReady = data.game !== null &&
+							  (typeof data.game === 'object' && Object.keys( data.game ).length > 0);
+			
+			if ( gameReady )
+				EventBus.$emit( 'tmp_update', data );
+		};
+		
+		// --- Filters
+		
+		Vue.filter( '$dateTimeLocalized', ( time, dFormat, tFormat ) => {
+			return utils.app.dateTimeLocalized( time, dFormat, tFormat );
+		} );
+		Vue.filter( '$toFixed', ( value, decimal ) => {
+			return value.toFixed( decimal );
+		} );
 		
 		Vue.mixin( {
+			data() {
+				return {
+					telemetry:    testData,
+					receivedData: false
+				};
+			},
 			created() {
-				//console.log( utils.app.formatConstants );
 				Object.keys( utils.app.formatConstants ).forEach( ( key ) => {
 					const value = utils.app.formatConstants[ key ];
 					this[ key ] = value;
 				} );
+				
+				EventBus.$on( 'tmp_update', dataIn => {
+					this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
+					this.receivedData = true;
+				} );
 			},
-			methods: {
+			methods:  {
 				// ---------------------------------------
 				// --- Commons methods
 				
@@ -412,13 +440,23 @@ export default {
 				}
 				
 				// --- ./Navigation
+			},
+			computed: {
+				gameConnected() {
+					const gameReady = this.telemetry.game !== null &&
+									  (typeof this.telemetry.game
+									  === 'object'
+									  && Object.keys( this.telemetry.game ).length
+									  > 0);
+					
+					return this.receivedData && this.telemetry.game.sdkActive;
+				},
+				// ----------------
+				...mapGetters( {
+					allConfig: 'config/all',
+					getConfig: 'config/get'
+				} )
 			}
-		} );
-		Vue.filter( '$dateTimeLocalized', ( time, dFormat, tFormat ) => {
-			return utils.app.dateTimeLocalized( time, dFormat, tFormat );
-		} );
-		Vue.filter( '$toFixed', ( value, decimal ) => {
-			return value.toFixed( decimal );
 		} );
 	}
 };

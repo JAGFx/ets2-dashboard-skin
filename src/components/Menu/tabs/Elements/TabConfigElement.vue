@@ -20,19 +20,19 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex';
-	
-	export default {
-		name:     'TabConfigElement',
-		props:    [ 'elm' ],
-		data() {
-			return {};
-		},
-		computed: {
-			...mapGetters( {
-        current:          'config/get',
-        appGetProcessing: 'app/getProcessing'
-      } )
+import { mapGetters } from 'vuex';
+
+export default {
+  name:       'TabConfigElement',
+  props:      [ 'elm' ],
+  data() {
+    return {};
+  },
+  computed:   {
+    ...mapGetters( {
+      current:          'config/get',
+      appGetProcessing: 'app/getProcessing'
+    } )
 		},
 		methods:  {
 			set( value ) {

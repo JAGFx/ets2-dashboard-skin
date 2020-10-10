@@ -51,19 +51,19 @@
 </template>
 
 <script>
-	import JagfxConfigMixins from '../Mixins/JagfxConfigMixins';
-	
-	export default {
-		name:    'DashSymbolArea',
-		mixins:  [ JagfxConfigMixins ],
-		props:   [ 'side' ],
-		methods: {
-			elementIsEnabled:  function ( elm ) {
-				return this.$elementIsEnabled( 'middle-t', elm, { side: this.side } );
-			},
-			sideLeft:          function () {
-				return this.side === 'left';
-			},
+import JagfxConfigMixins from '../Mixins/JagfxConfigMixins';
+
+export default {
+  name:    'DashSymbolArea',
+  mixins:  [ JagfxConfigMixins ],
+  props:   [ 'side' ],
+  methods: {
+    elementIsEnabled:    function ( elm ) {
+      return this.$elementIsEnabled( 'middle-t', elm, { side: this.side } );
+    },
+    sideLeft:            function () {
+      return this.side === 'left';
+    },
 			sideRight:         function () {
 				return this.side === 'right';
 			},
