@@ -29,32 +29,92 @@ This is an web app who you can switch over dashboard skin (Custom or from other 
 
 I'm also introduce the possibility to change the unit of measurement as you prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/CONFIG_SETTINGS.md)
 
+A event overlay can also be configured !
+
 It's work on desktop and mobile browser.
-
-## Use from a mobile device
-
-1. Find your local IP address (Find how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
-2. Open a web browser on your mobile device
-3. Access to the dashboard: `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.1.42:3000`)
-4. And voilà ! You can enable / disable the fullscreen on tap on the dashboard
-
-Tip: You can save a shortcut on your home screen to use it as an app like.
- 
-
-## Environement
-
-All development are made under **Windows**. It's not operable under all other OS.
-
-The view is optimized for a `5.5"` screen. To develop on you web browser, you can set phone view to `800px * 455px`
 
 ## Requirements
 
 - OS: Windows 64Bits
 - Game: Euro Truck Simulator 2
-- SCS SDK: v1.10.4
+- SCS SDK plugin: v1.10.4
 - Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop dans Mobile), Edge ( Desktop and mobile )
 
 **Important: It dosen't work with all Internet Explorer browsers**
+
+## Installation
+
+### Prerequisite
+
+Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
+
+- Download the supported version zip `v1.10.4` at the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.4/release_v_1_10_4.zip) page
+- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
+
+### For normal use
+
+You can use this dashboard without build anything.
+
+You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest) page.
+
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
+
+See the *[How to use]()* section to know how to run it !
+
+### For development
+
+1. Install the prerequisite things
+2. Install the Windows-Build-Tools 
+3. Clone this repository
+4. Build this project
+5. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
+
+#### Windows-Build-Tools
+
+Install *[Windows-Build-Tools](https://github.com/felixrieseberg/windows-build-tools)*
+
+````bash
+$ npm install --global windows-build-tools
+````
+
+#### Clone this repository
+
+````bash
+$ git clone https://github.com/JAGFx/ets2-dashboard-skin.git
+$ cd ets2-dashboard-skin
+````
+
+#### Build resources
+
+````bash
+$ npm i && npm rb
+$ npm run server:install
+$ npm run build
+````
+
+
+## How to use ?
+
+First, you need to run the dashboard app. See the *[Installation](#installation)* section
+
+### Use from desktop device
+
+1. Open your favorite web browser
+2. Go to [http://localhost:3000](http://localhost:3000)
+
+And that's it :D
+
+### Use from a mobile device
+
+1. Find your local IP address for your PC (Find how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
+2. Open a web browser on your mobile device
+3. Access to the dashboard on your mobile: `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.1.42:3000`)
+4. And voilà ! You can enable / disable the fullscreen on tap on the dashboard
+
+> Note: Your mobile device AND your PC need to be on the same network
+
+> Tip: You can save a shortcut on your home screen to use it as an app like.
+
 
 ## Know issues
 
@@ -71,59 +131,6 @@ To know more about the skin integrated or how to add a new skin, see the [SKINS.
 ## Configuration
 
 To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
-
-
-## Quick use
-
-
-### Without install
-
-You can use this dashboard without build anything. Just to get the `scs-sdk-plugin` (See below).
-
-You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest) page.
-
-Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
-
-### From sources files 
-
-1. Install the prerequisite things
-2. Follow the [installation](#installation) instructions
-3. Launch the [bundle](#bundle) command
-4. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
-
-## Prerequisite
-
-### scs-sdk-plugin
-
-Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
-
-- Download the supported version zip `v1.10.4` at the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.4/release_v_1_10_4.zip) page
-- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
-
-### Windows-Build-Tools
-
-Install *[Windows-Build-Tools](https://github.com/felixrieseberg/windows-build-tools)*
-
-````bash
-$ npm install --global windows-build-tools
-````
-
-## Installation
-
-### Clone this repository
-
-````bash
-$ git clone https://github.com/JAGFx/ets2-dashboard-skin.git
-$ cd ets2-dashboard-skin
-````
-
-### Build resources
-
-````bash
-$ npm i && npm rb
-$ npm run server:install
-$ npm run build
-````
 
 ## Development
 
@@ -154,7 +161,7 @@ See the [RESOURCES.md](doc/RESOURCES.md) section to get more details
 
 #### Dev
 
-Launch the dashboard development server
+Launch the dashboard development app
 
 ````bash
 $ npm run dashboard:dev
@@ -176,17 +183,17 @@ Start the production version of dashboard
 $ npm run dashboard:start
 ````
 
-### Production
+### Server
 
-#### Server install
+#### Install
 
-Install all necessary dependencies for the server
+Install server dependencies
 
 ````bash
 $ npm run server:install
 ````
 
-#### Server build
+#### Build
 
 Build the server dist files for the production 
 
@@ -194,7 +201,7 @@ Build the server dist files for the production
 $ npm run server:build
 ````
 
-#### Server start
+#### Start
 
 Start the production version of the server
 
@@ -205,6 +212,16 @@ OR
 ````bash
 $ npm start
 ````
+
+#### Dev
+
+Start a tiny version of server to get data through Socket
+
+````bash
+$ npm run server:dev
+````
+
+### Production
 
 #### Build
 
