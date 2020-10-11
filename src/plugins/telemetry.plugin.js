@@ -24,6 +24,7 @@ export default {
 	store,
 	install( Vue, options ) {
 		console.log( 'Telemetry plugin' );
+		const TMP_UPDATE = 'tmp-update';
 		
 		// --- Update telemetry data
 		
@@ -32,7 +33,7 @@ export default {
 							  (typeof data.game === 'object' && Object.keys( data.game ).length > 0);
 			
 			if ( gameReady )
-				EventBus.$emit( 'tmp_update', data );
+				EventBus.$emit( TMP_UPDATE, data );
 		};
 		
 		// --- Filters
@@ -57,7 +58,7 @@ export default {
 					this[ key ] = value;
 				} );
 				
-				EventBus.$on( 'tmp_update', dataIn => {
+				EventBus.$on( TMP_UPDATE, dataIn => {
 					this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
 					this.receivedData = true;
 				} );
