@@ -23,6 +23,10 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](doc/screens/demo.gif)
 
+## Info
+
+The current stable version have a memory leak issue. It may cause slow down on the data update or cause a crash for the app. I'm still on a solution research.
+
 ## What's it ?
 
 This is an web app who you can switch over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes, Renault, Scania or Volvo)). [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
@@ -61,6 +65,8 @@ Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
 
 See the *[How to use]()* section to know how to run it !
 
+> Note: You need to start the game to see the dashboard
+
 ### For development
 
 1. Install the prerequisite things
@@ -96,6 +102,7 @@ $ npm run build
 ## How to use ?
 
 First, you need to run the dashboard app. See the *[Installation](#installation)* section
+End then run the ETS2 or ATS game.
 
 ### Use from desktop device
 
