@@ -22,7 +22,7 @@
     "server:start" :    "cd server && npm run start",
     "server:dev" :      "cd server.dev && npm run start",
     "font:build" :      "npx gulp build:font",
-    "commitSince": "git log --pretty=\"%h - %s (%an)\" v1.3.0..HEAD"
+    "commitSince" : "git log --pretty=\"%h - %s (%an)\" v1.4.0-beta.0..HEAD"
   },
   "main": "index.js",
   "dependencies":    {

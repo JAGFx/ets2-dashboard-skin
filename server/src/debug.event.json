@@ -1,0 +1,200 @@
+[
+  server.listen
+] Euro Truck Simulator 2 dashboard is running at http://localhost:3000/ {
+"url" : "localhost:3000",
+"port" : 3000
+}
+[ game.connected ] Game | Connected null
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ truck.damage ] Truck | Truck damage increased 1% {
+"damages" : {
+"cabin" : 0.010830743238329887,
+"chassis" : 0.01353843230754137,
+"engine": 0.00692721689119935,
+"transmission" : 0.004219531547278166,
+"wheels" : 0.00361075927503407
+}
+}
+[ truck.warning ] Truck | Warning : Oil Pressure {
+"warning" : "Oil Pressure",
+"enabled" : true
+}
+[ truck.warning ] Truck | Warning : Battery Voltage {
+"warning" : "Battery Voltage",
+"enabled" : true
+}
+[ truck.park ] Truck | Parking brake ON {
+"enabled" : true
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
+"id" : 0,
+"enabled" : true
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ truck.electric ] Truck | Truck electrical ON {
+"enabled" : true
+}
+[ truck.park ] Truck | Parking brake OFF {
+"enabled" : false
+}
+[ truck.warning ] Truck | Battery Voltage warning disabled {
+"warning" : "Battery Voltage",
+"enabled" : false
+}
+[ truck.warning ] Truck | Oil Pressure warning disabled {
+"warning" : "Oil Pressure",
+"enabled" : false
+}
+[ truck.engine ] Truck | Truck engine ON {
+"enabled" : true
+}
+[ navigation.speed-limit ] Navigation | Speed limit changed to 50kph / 31mph {
+"speed" : {
+"value" : 13.88888931274414,
+"kph" : 50,
+"mph" : 31
+}
+}
+[ game.fine ] Game | Red Signal, €360 fine {
+"fine" : {
+"offence" : {
+"id" : "red_signal",
+"name" : "Red Signal"
+},
+"amount" : 360,
+"active" : true
+}
+}
+[ navigation.speed-limit ] Navigation | Speed limit changed to 0kph / 0mph {
+"speed" : {
+"value" : 0,
+"kph" : 0,
+"mph" : 0
+}
+}
+[ truck.park ] Truck | Parking brake ON {
+"enabled" : true
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ job.started ] Job | New job started {
+"job" : {
+"autoLoaded": false,
+"active" : true
+}
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ truck.park ] Truck | Parking brake OFF {
+"enabled" : false
+}
+[ truck.park ] Truck | Parking brake ON {
+"enabled" : true
+}
+[ truck.warning ] Truck | Warning : Battery Voltage {
+"warning" : "Battery Voltage",
+"enabled" : true
+}
+[ truck.engine ] Truck | Truck engine OFF {
+"enabled" : false
+}
+[ truck.electric ] Truck | Truck electrical OFF {
+"enabled" : false
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling disconnected {
+"id" : 0,
+"enabled" : false
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ truck.warning ] Truck | Warning : Oil Pressure {
+"warning" : "Oil Pressure",
+"enabled" : true
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
+"id" : 0,
+"enabled" : true
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ truck.electric ] Truck | Truck electrical ON {
+"enabled" : true
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ job.finished ] Job | Job finished { }
+[ job.cancelled ] Job | Job cancelled, Penalty : €12, 000 {
+"job" : {
+"penalty" : 12000,
+"active" : true,
+"startingTime" : 942845280000,
+"finishingTime" : 942849180000
+}
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling disconnected {
+"id" : 0,
+"enabled" : false
+}
+[ job.started ] Job | New job started {
+"job" : {
+"autoLoaded": false,
+"active" : true
+}
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
+"id" : 0,
+"enabled" : true
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ game.pause ] Game | Paused {
+"paused" : true
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling disconnected {
+"id" : 0,
+"enabled" : false
+}
+[ game.pause ] Game | Unpaused {
+"paused" : false
+}
+[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
+"id" : 0,
+"enabled" : true
+}

@@ -14,7 +14,7 @@ const logIt = ( eventName, rawData, txt ) => {
 		eventName: eventName,
 		rawData:   rawData
 	} );
-	console.log( `[${ eventName }] ${ txt }` );
+	console.log( `[${ eventName }] ${ txt }`, JSON.stringify( rawData, null, 2 ) );
 };
 
 const currency = () => {
