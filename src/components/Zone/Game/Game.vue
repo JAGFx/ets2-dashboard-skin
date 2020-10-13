@@ -89,7 +89,9 @@ export default {
 
       this.$store.dispatch( 'events/emitEvent', {
         eventName: this.event,
-        rawData:   rawData
+        rawData:   {
+          [ spitedEvent[ 0 ] ]: rawData
+        }
       } );
     },
     onClickGear() {

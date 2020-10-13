@@ -875,39 +875,37 @@
 		},
 		"job" :        {
 			"delivered" : {
-				"delivered" : {
-					"deliveryTime" :  0,
-					"startingTime" :  0,
-					"finishingTime" : 0,
-					"earnedXP" :      1200,
-					"cargoDamage" :   0,
-					"distance" :      {
-						"km" :    1250,
-						"miles" : 1523
-					},
-					"autoParked" :    false,
-					"revenue" :       12558,
-					"active" :        false
-				}
-			},
-			"started" :   {
-				"started" : {
-					"autoLoaded" : false,
-					"active" :     true
-				}
-			},
+				"deliveryTime" :  0,
+				"startingTime" :  0,
+				"finishingTime" : 0,
+				"earnedXP" :      1200,
+				"cargoDamage" :   0,
+				"distance" :      {
+					"km" :    1250,
+					"miles" : 1523
+				},
+				"autoParked" :    false,
+				"revenue" :       12558,
+				"active" :        false
+			}
+		},
+		"started" :    {
+			"started" : {
+				"autoLoaded" : false,
+				"active" :     true
+			}
+		},
+		"cancelled" :  {
 			"cancelled" : {
-				"cancelled" : {
-					"penalty" :       0,
-					"active" :        false,
-					"startingTime" :  0,
-					"finishingTime" : 0
-				}
-			},
-			"finished" :  {
-				"finished" : {
-					"active" : false
-				}
+				"penalty" :       0,
+				"active" :        false,
+				"startingTime" :  0,
+				"finishingTime" : 0
+			}
+		},
+		"finished" :   {
+			"finished" : {
+				"active" : false
 			}
 		},
 		"navigation" : {
