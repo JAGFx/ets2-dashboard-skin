@@ -1,16 +1,22 @@
 <template>
-	<Dashboard class="jagfx wrapper">
-		<div class="zone-wrapper">
-			<div class="left">
-				<Trailer id="trailers" />
-				<Job id="job" />
-			</div>
-		</div>
-		<Navigation id="navigation" />
-		<div class="zone-wrapper">
-			<Truck id="truck" />
-		</div>
-	</Dashboard>
+  <Dashboard v-slot:default="dashProps" class="jagfx wrapper">
+    <div class="dashboard" v-bind:style="{
+			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)',
+			width: dashProps.skinData.size.width + 'px',
+			height: dashProps.skinData.size.height + 'px',
+		}">
+      <div class="zone-wrapper w-100">
+        <div class="left">
+          <Trailer id="trailers" />
+          <Job id="job" />
+        </div>
+      </div>
+      <Navigation id="navigation" class="w-100" />
+      <div class="zone-wrapper w-100">
+        <Truck id="truck" />
+      </div>
+    </div>
+  </Dashboard>
 </template>
 
 <script>
