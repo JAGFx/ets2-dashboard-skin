@@ -38,7 +38,6 @@ export default {
   },
   methods:    {
     eventsText() {
-      console.log( this.event, eventsText );
       return eventsText;
     }
   },
