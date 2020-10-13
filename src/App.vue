@@ -119,6 +119,14 @@ export default {
         text:    'Connected to telemetry server',
         subText: 'Ready to delivering'
       };
+
+      setTimeout( () => {
+        this.launching = {
+          icon:    '<i class="fas fa-truck"></i>',
+          text:    'Waiting game connection',
+          subText: 'Run the game to start your job !'
+        };
+      }, 5000 );
     },
     update( data ) {
       this.$updateTelemetry( { ...data } );
