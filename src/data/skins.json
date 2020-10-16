@@ -16,7 +16,7 @@
 				"url" :  "https://github.com/JAGFx/ets2-dashboard-skin"
 			},
 			"screenshot" :      "https://github.com/JAGFx/ets2-dashboard-skin/raw/master/screenshot.png",
-			"size" : {
+			"size" :            {
 				"width" :  800,
 				"height" : 400
 			}
