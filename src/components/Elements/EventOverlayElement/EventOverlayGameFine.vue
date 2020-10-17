@@ -3,15 +3,15 @@
     <hr class="m-0 mb-4">
     <div class="data d-flex justify-content-around align-items-center">
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
-        <span class="title">{{ rawData.fine.offence.name }}</span>
-        <span class="data">- {{ unit_currency( rawData.fine.amount ) }}</span>
+        <span class="title">{{ eventRawData.fine.offence.name }}</span>
+        <span class="data">- {{ unit_currency( eventRawData.fine.amount ) }}</span>
       </div>
     </div>
   </EventOverlayBase>
 </template>
 
 <script>
-import { mapGetters }   from 'vuex';
+//import { mapGetters }   from 'vuex';
 import eventsText       from '../../../data/events.json';
 import EventOverlayBase from './EventOverlayBase';
 
@@ -24,14 +24,14 @@ export default {
     eventsText() {
       return eventsText;
     }
-  },
-		computed: {
-			...mapGetters( {
-				event:   'events/event',
-				rawData: 'events/rawData'
-			} )
-		}
-	};
+  }
+  //computed: {
+  //	...mapGetters( {
+  //		event:   'events/event',
+  //		rawData: 'events/rawData'
+  //	} )
+  //}
+};
 </script>
 
 <style lang="scss" scoped>

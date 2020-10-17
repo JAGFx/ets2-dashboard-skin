@@ -87,12 +87,18 @@ export default {
       const spitedEvent = this.event.split( '.' );
       let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
 
-      this.$store.dispatch( 'events/emitEvent', {
+      this.$updateEvent( {
         eventName: this.event,
         rawData:   {
           [ spitedEvent[ 0 ] ]: rawData
         }
       } );
+      /*this.$store.dispatch( 'events/emitEvent', {
+       eventName: this.event,
+       rawData:   {
+       [ spitedEvent[ 0 ] ]: rawData
+       }
+       } );*/
     },
     onClickGear() {
       this.$store.dispatch( 'menu/toggle' );

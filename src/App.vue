@@ -132,15 +132,15 @@ export default {
       this.$updateTelemetry( { ...data } );
     },
     log( log ) {
-      const event = _event.filterInputEvent( log );
+      this.$updateEvent( log );
 
-      if ( event !== false ) {
-        //console.log( log );
-        this.$store.dispatch( 'events/emitEvent', {
-          eventName: event.eventName,
-          rawData:   event.rawData
-        } );
-      }
+      /*if ( event !== false ) {
+       //console.log( log );
+       this.$store.dispatch( 'events/emitEvent', {
+       eventName: event.eventName,
+       rawData:   event.rawData
+       } );
+       }*/
     }
   }
 };

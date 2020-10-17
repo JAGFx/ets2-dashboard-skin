@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapGetters }   from 'vuex';
+//import { mapGetters }   from 'vuex';
 import eventsText       from '../../../data/events.json';
 import EventOverlayBase from './EventOverlayBase';
 
@@ -24,14 +24,14 @@ export default {
     eventsText() {
       return eventsText;
     }
-  },
-		computed: {
-			...mapGetters( {
-				event:   'events/event',
-				rawData: 'events/rawData'
-			} )
-		}
-	};
+  }
+  //computed: {
+  //	...mapGetters( {
+  //		event:   'events/event',
+  //		rawData: 'events/rawData'
+  //	} )
+  //}
+};
 </script>
 
 <style lang="scss" scoped>

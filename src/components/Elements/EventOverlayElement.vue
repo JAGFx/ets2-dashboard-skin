@@ -1,6 +1,6 @@
 <template>
   <div class="event-overlay">
-    <b-overlay :show="isOnProcessing" :variant="'dark'" no-wrap>
+    <b-overlay :show="eventProcessing" :variant="'dark'" no-wrap>
       <template v-slot:overlay class="d-flex justify-content-around align-items-center flex-column">
         <component v-bind:is="currentRawDataComponent"></component>
       </template>
@@ -25,7 +25,7 @@ import EventOverlayTruckCruiseControlIncrease
                                 from '@/components/Elements/EventOverlayElement/EventOverlayTruckCruise-control-increase';
 import EventOverlayTruckDamage  from '@/components/Elements/EventOverlayElement/EventOverlayTruckDamage';
 import EventOverlayTruckWarning from '@/components/Elements/EventOverlayElement/EventOverlayTruckWarning';
-import { mapGetters }           from 'vuex';
+//import { mapGetters }           from 'vuex';
 import _event                   from '../../utils/_event';
 
 export default {
@@ -44,13 +44,13 @@ export default {
     EventOverlayTruckWarning,
     EventOverlayTruckDamage
   },
-  computed:   {
-    ...mapGetters( {
-      isOnProcessing: 'events/isOnProcessing',
-      event:          'events/event'
-    } ),
+  computed: {
+    //...mapGetters( {
+    //  isOnProcessing: 'events/isOnProcessing',
+    //  event:          'events/event'
+    //} ),
     currentRawDataComponent() {
-      const eventComponentName = _event.eventNameToComponent( this.event );
+      const eventComponentName = _event.eventNameToComponent( this.eventName );
 
       try {
         require( './EventOverlayElement/' + eventComponentName );

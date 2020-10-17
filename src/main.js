@@ -8,6 +8,7 @@ import VueClipboard                  from 'vue-clipboard2';
 import VueSocketIO                   from 'vue-socket.io';
 import App                           from './App.vue';
 import TelemetryPlugin               from './plugins/telemetry.plugin';
+import EventPlugin                   from './plugins/event.plugin';
 import store                         from './store';
 
 window.$       = require( 'jquery' );
@@ -18,6 +19,7 @@ Vue.use( BootstrapVue );
 Vue.use( IconsPlugin );
 Vue.use( VueClipboard );
 Vue.use( TelemetryPlugin );
+Vue.use( EventPlugin );
 
 Vue.use( new VueSocketIO( {
 	debug:      false,
