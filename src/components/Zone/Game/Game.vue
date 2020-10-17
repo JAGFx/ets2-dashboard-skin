@@ -1,6 +1,6 @@
 <template>
   <nav class="game">
-    <ul>
+    <ul class="w-100">
       <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>
       <li><span>API</span>v{{ telemetry.game.telemetryVersion }}</li>
       <!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
@@ -8,14 +8,14 @@
     <div class="game-time">
       <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
     </div>
-    <ul>
+    <ul class="w-100">
       <li @click="onClickGear()">
         <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars"></i>️</span>
         <span v-show="menuIsDisplayed">Close <i class="fas fa-times"></i>️</span>
       </li>
       <li v-if="!isOnDevEnvironment()">JAGFx - {{ getVersion() }}<span>&copy;</span></li>
       <li v-else>
-        <select @change="onEventChange" v-model="event">
+        <select v-model="event" class="w-100" @change="onEventChange">
           <option disabled selected value="">Select one</option>
           <optgroup label="Game">
             <!--						<option value="game.connected">Connected</option>-->
