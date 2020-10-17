@@ -9,6 +9,8 @@ import _app       from '@/utils/_app';
  * Time: 	11:17
  */
 
+const EVT_UPDATE = 'evt-update';
+
 const eventNameToComponent = function ( eventName ) {
 	const splitedEvent = eventName.split( '.' );
 	let finalStr       = 'EventOverlay';
@@ -47,6 +49,7 @@ const filterInputEvent = function ( event ) {
 };
 
 export default {
+	EVT_UPDATE,
 	eventNameToComponent,
 	filterInputEvent
 };

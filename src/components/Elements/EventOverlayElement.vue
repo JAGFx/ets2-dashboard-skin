@@ -25,11 +25,13 @@ import EventOverlayTruckCruiseControlIncrease
                                 from '@/components/Elements/EventOverlayElement/EventOverlayTruckCruise-control-increase';
 import EventOverlayTruckDamage  from '@/components/Elements/EventOverlayElement/EventOverlayTruckDamage';
 import EventOverlayTruckWarning from '@/components/Elements/EventOverlayElement/EventOverlayTruckWarning';
+import AppEventOverlayMixins    from '@/components/Mixins/AppEventOverlayMixins';
 //import { mapGetters }           from 'vuex';
 import _event                   from '../../utils/_event';
 
 export default {
   name:       'EventOverlayElement',
+  mixins:     [ AppEventOverlayMixins ],
   components: {
     EventOverlayDefault,
     EventOverlayJobDelivered,

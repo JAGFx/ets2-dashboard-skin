@@ -14,11 +14,14 @@
 </template>
 
 <script>
+import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
+
 //import { mapGetters } from 'vuex';
-import eventsText     from '../../../data/events.json';
+import eventsText from '../../../data/events.json';
 
 export default {
   name:    'EventOverlayBase',
+  mixins:  [ AppEventOverlayMixins ],
   methods: {
     eventsText() {
       //console.log( this.event, eventsText );

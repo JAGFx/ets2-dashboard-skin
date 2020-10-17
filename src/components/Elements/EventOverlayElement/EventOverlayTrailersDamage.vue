@@ -15,12 +15,15 @@
 </template>
 
 <script>
+import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
+
 //import { mapGetters }   from 'vuex';
 import eventsText       from '../../../data/events.json';
 import EventOverlayBase from './EventOverlayBase';
 
 export default {
   name:       'EventOverlayTrailersDamage',
+  mixins:     [ AppEventOverlayMixins ],
   components: {
     EventOverlayBase
   },

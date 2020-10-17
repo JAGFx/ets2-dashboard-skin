@@ -89,9 +89,7 @@ export default {
 
       this.$updateEvent( {
         eventName: this.event,
-        rawData:   {
-          [ spitedEvent[ 0 ] ]: rawData
-        }
+        rawData: { ...rawData }
       } );
       /*this.$store.dispatch( 'events/emitEvent', {
        eventName: this.event,

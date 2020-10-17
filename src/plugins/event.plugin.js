@@ -15,22 +15,6 @@ export default {
 	install( Vue, options ) {
 		console.log( 'Events plugin' );
 		
-		// TODO Get default data form scs sdk file
-		const EVT_UPDATE  = 'evt-update';
-		const defaultData = {
-			eventProcessing: false,
-			eventName:       null,
-			eventRawData:    {
-				'game': {
-					'fine': {
-						'active':  true,
-						'amount':  1000,
-						'offence': { 'id': 'speeding', 'name': 'Speeding' }
-					}
-				}
-			}
-		};
-		
 		// --- Update telemetry data
 		
 		Vue.prototype.$updateEvent = ( log ) => {
@@ -41,34 +25,14 @@ export default {
 				const isActive   = store.getters[ 'config/get' ]( configName );
 				
 				if ( isActive ) {
-					EventBus.$emit( EVT_UPDATE, {
+					EventBus.$emit( _event.EVT_UPDATE, {
 						eventProcessing: true,
 						eventName:       event.eventName,
 						eventRawData:    event.rawData
 					} );
-					/*setTimeout( () => {
-					 this.$stopEvent();
-					 }, 3000 );*/
+					
 				}
 			}
 		};
-		
-		Vue.prototype.$stopEvent = () => {
-			EventBus.$emit( EVT_UPDATE, defaultData );
-		};
-		
-		Vue.mixin( {
-			data() {
-				return defaultData;
-			},
-			created() {
-				EventBus.$on( EVT_UPDATE, dataIn => {
-					console.log( 'Plop', Object.assign( {}, this.eventRawData, dataIn.eventRawData ) );
-					this.eventProcessing = dataIn.eventProcessing;
-					this.eventName       = dataIn.eventName;
-					this.eventRawData    = Object.assign( {}, this.eventRawData, dataIn.eventRawData );
-				} );
-			}
-		} );
 	}
 };

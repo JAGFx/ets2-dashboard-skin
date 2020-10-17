@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import _event              from '@/utils/_event';
 import { mapGetters }      from 'vuex';
 import EventOverlayElement from './components/Elements/EventOverlayElement';
 import OverlayElement      from './components/Elements/OverlayElement';
@@ -130,17 +129,6 @@ export default {
     },
     update( data ) {
       this.$updateTelemetry( { ...data } );
-    },
-    log( log ) {
-      this.$updateEvent( log );
-
-      /*if ( event !== false ) {
-       //console.log( log );
-       this.$store.dispatch( 'events/emitEvent', {
-       eventName: event.eventName,
-       rawData:   event.rawData
-       } );
-       }*/
     }
   }
 };
