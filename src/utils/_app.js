@@ -41,7 +41,9 @@ const flag = ( countryName ) => {
 			? 'United Kingdom of Great Britain and Northern Ireland'
 			: countryName;
 		const countryCode = countryList.getCode( countryName );
-		flag              = emojiFlags.countryCode( countryCode );
+		
+		if ( countryCode !== undefined )
+			flag = emojiFlags.countryCode( countryCode );
 	}
 	
 	//console.log( countryName, countryCode, flag, flag.emoji );
