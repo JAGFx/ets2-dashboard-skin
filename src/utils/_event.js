@@ -27,7 +27,7 @@ const filterInputEvent = function ( event ) {
 	const eventName   = event.eventName;
 	const spitedEvent = eventName.split( '.' );
 	const eventToSkip = [
-		'truck.warning',
+		//'truck.warning',
 		'truck.cruise-control',
 		'truck.refuel'
 	];
@@ -38,10 +38,9 @@ const filterInputEvent = function ( event ) {
 	
 	if ( eventToSkip.indexOf( eventName ) !== -1
 		 || (eventName === 'truck.cruise-control-decrease' && !rawData.cruiseControl.enabled)
+		 || (eventName === 'navigation.speed-limit' && rawData.speed.value === 0)
 	)
 		eventSkipped = true;
-	
-	// TODO Add custom message with value on the raw data
 	
 	return (eventSkipped)
 		? false
