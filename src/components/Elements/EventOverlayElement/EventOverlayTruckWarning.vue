@@ -3,8 +3,7 @@
     <hr class="m-0 mb-4">
     <div class="data d-flex justify-content-around align-items-center">
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
-        <span class="title">{{ rawData.warning }}</span>
-<!--        <span class="data">{{ (rawData.data.cargo * 100) | $toFixed(2) }} %</span>-->
+        <span class="title">{{ eventRawData.warning }}</span>
       </div>
     </div>
   </EventOverlayBase>
