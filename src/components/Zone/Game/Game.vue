@@ -3,7 +3,7 @@
     <ul class="w-100">
       <!--      <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>-->
       <li><span>API</span>v{{ telemetry.game.telemetryVersion }}</li>
-      <li v-if="!isOnDevEnvironment()">JAGFx - {{ getVersion() }}<span>&copy;</span></li>
+      <li v-if="!isOnDevEnvironment()"><span>&copy;</span>JAGFx - {{ getVersion() }}</li>
       <li v-else>
         <select v-model="event" class="w-100" @change="onEventChange">
           <option disabled selected value="">Select one</option>
