@@ -16,7 +16,8 @@ const defaultData = {
   }
 };
 
-let data = Object.assign( {}, defaultData );
+let data        = Object.assign( {}, defaultData );
+let lastTimeOut = null;
 
 export default {
   data() {
@@ -24,11 +25,14 @@ export default {
   },
   created() {
     EventBus.$on( _event.EVT_UPDATE, dataIn => {
+      if ( lastTimeOut !== null )
+        clearTimeout( lastTimeOut );
+
       this.eventProcessing = dataIn.eventProcessing;
       this.eventName       = dataIn.eventName;
       this.eventRawData    = Object.assign( {}, this.eventRawData, dataIn.eventRawData );
 
-      setTimeout( () => {
+      lastTimeOut = setTimeout( () => {
         this.eventProcessing = defaultData.eventProcessing;
         this.eventName       = defaultData.eventName;
         this.eventRawData    = Object.assign( {}, this.eventRawData, defaultData.eventRawData );
