@@ -1,18 +1,8 @@
 <template>
   <nav class="game">
     <ul class="w-100">
-      <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>
+      <!--      <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>-->
       <li><span>API</span>v{{ telemetry.game.telemetryVersion }}</li>
-      <!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
-    </ul>
-    <div class="game-time">
-      <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
-    </div>
-    <ul class="w-100">
-      <li @click="onClickGear()">
-        <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars"></i>️</span>
-        <span v-show="menuIsDisplayed">Close <i class="fas fa-times"></i>️</span>
-      </li>
       <li v-if="!isOnDevEnvironment()">JAGFx - {{ getVersion() }}<span>&copy;</span></li>
       <li v-else>
         <select v-model="event" class="w-100" @change="onEventChange">
@@ -54,13 +44,21 @@
           </optgroup>
         </select>
       </li>
+      <!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
     </ul>
-
-    <!--<div><span>Game:</span><span>{{telemetry.game.name.toUpperCase()}}</span></div>
-    <div><span>Telemetry version:</span><span>{{telemetryVersion}}</span></div>
-    &lt;!&ndash;<div><span>Paused:</span><span>{{paused ? "YES" : "NO"}}</span></div>&ndash;&gt;
-    <div><span>Uptime:</span><span>{{formatedTimestamp()}}</span></div>
-    <div><span>Game time:</span><span>{{formatedTime()}}</span></div>-->
+    <div class="game-time">
+      <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
+    </div>
+    <ul class="w-100">
+      <li @click="onClickFullscreen()">
+        <span v-show="!fullscreen"><i class="fas fa-expand"></i></span>
+        <span v-show="fullscreen"><i class="fas fa-compress"></i></span>
+      </li>
+      <li @click="onClickGear()">
+        <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars"></i>️</span>
+        <span v-show="menuIsDisplayed">Close <i class="fas fa-times"></i>️</span>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -73,7 +71,8 @@ export default {
   name:     'Game',
   data() {
     return {
-      event: ''
+      event:      '',
+      fullscreen: false
     };
   },
   methods:  {
@@ -89,7 +88,7 @@ export default {
 
       this.$updateEvent( {
         eventName: this.event,
-        rawData: { ...rawData }
+        rawData:   { ...rawData }
       } );
       /*this.$store.dispatch( 'events/emitEvent', {
        eventName: this.event,
@@ -100,6 +99,46 @@ export default {
     },
     onClickGear() {
       this.$store.dispatch( 'menu/toggle' );
+    },
+    onClickFullscreen() {
+      const elem = document.querySelector( 'html' );
+
+      if ( !this.fullscreen ) {
+        // Enable fullscreen
+
+        if ( elem.requestFullscreen )
+          elem.requestFullscreen();
+
+        else if ( elem.mozRequestFullScreen )
+          elem.mozRequestFullScreen();
+
+        else if ( elem.webkitRequestFullscreen )
+          elem.webkitRequestFullscreen();
+
+        else if ( elem.msRequestFullscreen )
+          elem.msRequestFullscreen();
+
+        this.$NoSleep.enable();
+
+      } else {
+        // Disable fullscreen
+
+        if ( document.exitFullscreen )
+          document.exitFullscreen();
+
+        else if ( document.mozCancelFullScreen )
+          document.mozCancelFullScreen();
+
+        else if ( document.webkitExitFullscreen )
+          document.webkitExitFullscreen();
+
+        else if ( document.msExitFullscreen )
+          document.msExitFullscreen();
+
+        this.$NoSleep.disable();
+      }
+
+      this.fullscreen = !this.fullscreen;
     }
   },
   computed: {

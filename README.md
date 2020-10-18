@@ -152,11 +152,6 @@ If you want to use a fake file data instead of the data from the SCS API, set th
 VUE_APP_USE_FAKE_DATA=true
 ```
 
-If you wan to disable the fullscreen for development, set to `false`:
-```dotenv
-VUE_APP_ENABLE_FULLSCREEN=false
-```
-
 ### Resources
 I provide all resources what i'm use to develop this dashboard. Such as svg, AI file for svg or others element who can be need to contribute too.
 
