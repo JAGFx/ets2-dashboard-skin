@@ -6,9 +6,10 @@ Retrieve here the list of know issues
     - Current solution: Relaunch app
 - Wrong timestamp for job delivery time (and remaining delivery time) on World of Trucks
     - Cause: The timestamp provider by the API was wrong. And then, the estimated remaining delivery time was wrong too
-    - Solution: Nothing yet
-- App crash or the updating of data was not fluent
-    - No solution yet
+    - Solution: Add support for SCS SDK 1.10.6 #33
+- ~~App crash or the updating of data was not fluent~~
+    - Cause: Memory leak on telemetry data update
+    - Solution: Fixed on #35
 
 ---
 ↩️ [Home](../README.md)
