@@ -9,6 +9,7 @@
 import { EventBus } from '@/event-bus';
 import store        from '@/store';
 import _event       from '@/utils/_event';
+import _history     from '@/utils/_history';
 
 export default {
 	store,
@@ -25,12 +26,12 @@ export default {
 				const isActive   = store.getters[ 'config/get' ]( configName );
 				
 				if ( isActive ) {
+					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( event ), _history.HTY_ZONE.MAIN );
 					EventBus.$emit( _event.EVT_UPDATE, {
 						eventProcessing: true,
 						eventName:       event.eventName,
 						eventRawData:    event.rawData
 					} );
-					
 				}
 			}
 		};

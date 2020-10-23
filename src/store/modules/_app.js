@@ -1,3 +1,6 @@
+import _history from '@/utils/_history';
+import Vue      from 'vue';
+
 /**
  * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
  * project:	customDefault
@@ -44,6 +47,8 @@ const actions = {
 		commit( 'setDetails', defaultDetails );
 	},
 	setError( { commit }, payload ) {
+		Vue.prototype.$pushALog( 'Error thrown', JSON.stringify( payload ), _history.HTY_ZONE.ERROR );
+		
 		commit( 'setProcessing', true );
 		commit( 'setMessage', payload.message );
 		commit( 'setDetails', payload.details );

@@ -9,6 +9,7 @@ import VueClipboard                  from 'vue-clipboard2';
 import VueSocketIO                   from 'vue-socket.io';
 import App                           from './App.vue';
 import EventPlugin                   from './plugins/event.plugin';
+import HistoryPlugin                 from './plugins/history.plugin';
 import TelemetryPlugin               from './plugins/telemetry.plugin';
 import store                         from './store';
 
@@ -23,6 +24,7 @@ Vue.use( IconsPlugin );
 Vue.use( VueClipboard );
 Vue.use( TelemetryPlugin );
 Vue.use( EventPlugin );
+Vue.use( HistoryPlugin );
 
 Vue.use( new VueSocketIO( {
 	debug:      false,

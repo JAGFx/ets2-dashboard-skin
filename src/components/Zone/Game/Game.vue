@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import _history       from '@/utils/_history';
 import { mapGetters } from 'vuex';
 import scsSDKData     from '../../../data/scs_sdk_plugin_parsed_data.json';
 import * as utils     from '../../../utils/utils';
@@ -86,6 +87,8 @@ export default {
       const spitedEvent = this.event.split( '.' );
       let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
 
+      this.$pushALog( 'Throw event ' + this.event, _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+
       this.$updateEvent( {
         eventName: this.event,
         rawData:   { ...rawData }
@@ -98,6 +101,8 @@ export default {
        } );*/
     },
     onClickGear() {
+      this.$pushALog( 'Menu toggle', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+
       this.$store.dispatch( 'menu/toggle' );
     },
     onClickFullscreen() {
@@ -118,6 +123,8 @@ export default {
         else if ( elem.msRequestFullscreen )
           elem.msRequestFullscreen();
 
+        this.$pushALog( 'Enable fullscreen', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+
         this.$NoSleep.enable();
 
       } else {
@@ -134,6 +141,8 @@ export default {
 
         else if ( document.msExitFullscreen )
           document.msExitFullscreen();
+
+        this.$pushALog( 'Disable fullscreen', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
 
         this.$NoSleep.disable();
       }

@@ -1,0 +1,42 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	history.scss
+ * Date: 	22/10/2020
+ * Time: 	21:42
+ */
+
+.history {
+	.area {
+		position: absolute;
+		width: 2.5%;
+		height: 5%;
+		background: transparent;
+		left: 0;
+		bottom: 0;
+		z-index: 100000;
+	}
+	
+	.history-wrapper {
+		width: 100vw;
+		height: 100vh;
+		
+		.log-list {
+			overflow-y: auto;
+			
+			.line {
+				font-size: .7rem;
+			}
+		}
+	}
+	
+	.overlay {
+		background: #00000055;
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 100005;
+	}
+}

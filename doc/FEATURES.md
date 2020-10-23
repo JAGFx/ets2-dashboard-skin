@@ -88,5 +88,17 @@ When you want to keep your config on a new release, you can:
 
 Note: If a missing entry was found, you can't upload your config.
 
+## Log zone
+
+![Skins](screens/log.png)
+
+To help me to debug when you have an issue, you can access to a log page.
+
+It keep the last 20 lines.
+
+To open it, tape 5 time on the left bottom corner.
+
+Click on the copy button to coping this list in your clipboard.
+
 ---
 ↩️ [Home](../README.md)

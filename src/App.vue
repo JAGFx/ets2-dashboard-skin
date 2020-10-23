@@ -15,6 +15,8 @@
       </template>
     </b-overlay>
 
+    <History></History>
+
     <OverlayElement v-if="gameConnected"></OverlayElement>
     <EventOverlayElement v-if="gameConnected"></EventOverlayElement>
     <Game v-if="gameConnected" id="game" />
@@ -28,11 +30,13 @@
 </template>
 
 <script>
+import _history            from '@/utils/_history';
 import { mapGetters }      from 'vuex';
 import EventOverlayElement from './components/Elements/EventOverlayElement';
 import OverlayElement      from './components/Elements/OverlayElement';
 import Menu                from './components/Menu/Menu';
 import Game                from './components/Zone/Game/Game';
+import History             from './components/Zone/History';
 import DashDafXF           from './dashboards/daf-xf/components/DashDafXF';
 import DashDefault         from './dashboards/defaut/components/DashDefault';
 import DashJAGFx           from './dashboards/jagfx/components/DashJAGFx';
@@ -59,7 +63,8 @@ export default {
     DashVolvoFH,
     Game,
     Menu,
-    OverlayElement
+    OverlayElement,
+    History
   },
   data() {
     return {
@@ -74,6 +79,7 @@ export default {
   created() {
     this.$store.dispatch( 'skins/setFirstActive' );
     this.$store.dispatch( 'config/load' );
+    this.$pushALog( 'App launched', _history.HTY_ZONE.MAIN );
 
     /*// Game connected
      setTimeout(()=> {
@@ -118,6 +124,7 @@ export default {
         text:    'Connected to telemetry server',
         subText: 'Ready to delivering'
       };
+      this.$pushALog( 'Connected to telemetry server', _history.HTY_ZONE.MAIN );
 
       setTimeout( () => {
         this.launching = {
@@ -125,6 +132,7 @@ export default {
           text:    'Waiting game connection',
           subText: 'Run the game to start your job !'
         };
+        this.$pushALog( 'Waiting game connection', _history.HTY_ZONE.MAIN );
       }, 5000 );
     },
     update( data ) {

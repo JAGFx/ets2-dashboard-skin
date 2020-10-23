@@ -6,14 +6,16 @@
  * Time: 	08:34
  */
 
-import utilsApp    from './_app';
-import utilsConfig from './_config';
-import utilsEvent  from './_event';
+import utilsApp     from './_app';
+import utilsConfig  from './_config';
+import utilsEvent   from './_event';
+import utilsHistory from './_history';
 
 export {
 	utilsApp as app,
 	utilsConfig as config,
-	utilsEvent as event
+	utilsEvent as event,
+	utilsHistory as history
 };
 
 export default {};
