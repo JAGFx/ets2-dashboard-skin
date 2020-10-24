@@ -231,6 +231,113 @@
 					"high" :    {
 						"from" : 2300
 					}
+				},
+				{
+					"modelId" : "vehicle.volvo.vnl",
+					"low" :     {
+						"from" : 950,
+						"to" :   1600
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2300
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "international",
+			"models" :  [
+				{
+					"modelId" : "vehicle.international.fh16_2012",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2000
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "kenworth",
+			"models" :  [
+				{
+					"modelId" : "vehicle.kenworth.t680",
+					"low" :     null,
+					"mid" :     null,
+					"high" :    {
+						"from" : 3000
+					}
+				},
+				{
+					"modelId" : "vehicle.kenworth.w900",
+					"low" :     null,
+					"mid" :     null,
+					"high" :    {
+						"from" : 3000
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "mack",
+			"models" :  [
+				{
+					"modelId" : "vehicle.mack.anthem",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2000
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "peterbilt",
+			"models" :  [
+				{
+					"modelId" : "vehicle.peterbilt.389",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2000
+					}
+				},
+				{
+					"modelId" : "vehicle.peterbilt.579",
+					"low" :     {
+						"from" : 950,
+						"to" :   1600
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2300
+					}
+				}
+			]
+		},
+		{
+			"brandId" : "western-star",
+			"models" :  [
+				{
+					"modelId" : "vehicle.western-star.49x",
+					"low" :     {
+						"from" : 1000,
+						"to" :   1500
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 2000
+					}
 				}
 			]
 		}

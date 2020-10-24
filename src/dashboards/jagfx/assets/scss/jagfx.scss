@@ -20,6 +20,11 @@
 		@include brandTruckBackground('man');
 		@include brandTruckBackground('mercedes');
 		@include brandTruckBackground('renault');
+		@include brandTruckBackground('international');
+		@include brandTruckBackground('kenworth');
+		@include brandTruckBackground('mack');
+		@include brandTruckBackground('peterbilt');
+		@include brandTruckBackground('western-star');
 	}
 	
 	.dashboard {
