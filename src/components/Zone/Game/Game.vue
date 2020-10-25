@@ -3,7 +3,14 @@
     <ul class="w-100">
       <!--      <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>-->
       <li><span>API</span>v{{ telemetry.game.telemetryVersion }}</li>
-      <li v-if="!isOnDevEnvironment()"><span>&copy;</span>JAGFx - {{ getVersion() }}</li>
+      <li v-if="!isOnDevEnvironment() && !newReleaseAvailable"><span>&copy;</span>JAGFx - {{ getVersion() }}</li>
+      <li v-else-if="!isOnDevEnvironment() && newReleaseAvailable" class="new-release">
+        <span class="d-flex justify-content-center align-items-center">
+          <a href="https://github.com/JAGFx/ets2-dashboard-skin/releases/latest" target="_blank">
+            Get new ! <i class="ml-1 fas fa-cloud-download-alt"></i>
+          </a>
+        </span>
+      </li>
       <li v-else>
         <select v-model="event" class="w-100" @change="onEventChange">
           <option disabled selected value="">Select one</option>
@@ -64,19 +71,32 @@
 
 <script>
 import _history       from '@/utils/_history';
+import * as axios     from 'axios';
 import { mapGetters } from 'vuex';
 import scsSDKData     from '../../../data/scs_sdk_plugin_parsed_data.json';
 import * as utils     from '../../../utils/utils';
 
 export default {
-  name:     'Game',
+  name:    'Game',
   data() {
     return {
-      event:      '',
-      fullscreen: false
+      event:               '',
+      fullscreen:          false,
+      newReleaseAvailable: false
     };
   },
-  methods:  {
+  created() {
+    axios.get( 'https://api.github.com/repos/JAGFx/ets2-dashboard-skin/releases/latest' )
+         .then( ( data ) => {
+           const latestReleaseVersion = data.data.tag_name;
+           const appVersion           = `v${ utils.app.version }`;
+           //const latestReleaseVersion  = 'v1.4.2';
+           //console.log( latestReleaseVersion, appVersion );
+           if ( latestReleaseVersion !== appVersion )
+             this.newReleaseAvailable = true;
+         } );
+  },
+  methods: {
     getVersion() {
       return utils.app.version;
     },

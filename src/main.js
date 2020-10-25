@@ -1,5 +1,4 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'animate.css';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
