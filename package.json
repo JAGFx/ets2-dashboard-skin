@@ -1,14 +1,14 @@
 {
-  "name" :        "ets2-dashboard-skin",
-  "version" :     "1.4.1",
-  "private" :     false,
-  "description" : "Euro Truck Simulator 2 dashboard",
-  "author" :      {
+  "name" :            "ets2-dashboard-skin",
+  "version" :         "1.4.1",
+  "private" :         false,
+  "description" :     "Euro Truck Simulator 2 dashboard",
+  "author" :          {
     "name" :  "Emmanuel SMITH",
     "email" : "hey@emmanuel-smith.me",
     "url" :   "https://emmanuel-smith.me"
   },
-  "scripts" :     {
+  "scripts" :         {
     "lint" :            "vue-cli-service lint",
     "build" :           "set NODE_ENV=production && npx gulp build",
     "bundle" :          "set NODE_ENV=production && npx gulp bundle",
@@ -22,15 +22,14 @@
     "server:start" :    "cd server && npm run start",
     "server:dev" :      "cd server.dev && npm run start",
     "font:build" :      "npx gulp build:font",
-    "commitSince" : "git log --pretty=\"%h - %s (%an)\" v1.4.0-beta.0..HEAD"
+    "commitSince" :     "git log --pretty=\"%h - %s (%an)\" v1.4.0-beta.0..HEAD"
   },
-  "main": "index.js",
-  "dependencies":    {
+  "main" :            "index.js",
+  "dependencies" :    {
     "@fortawesome/fontawesome-free" : "~5.15.1",
-    "animate.css" :                   "~3.7.2",
-    "axios" :                         "~0.19.2",
+    "axios" :                         "~0.21.0",
     "bootstrap" :                     "~4.5.2",
-    "bootstrap-vue" :                 "~2.17.3",
+    "bootstrap-vue" :                 "~2.18.1",
     "core-js" :                       "~3.6.5",
     "country-list" :                  "~2.2.0",
     "emoji-flags" :                   "~1.3.0",
@@ -41,7 +40,7 @@
     "lodash" :                        "~4.17.20",
     "moment" :                        "~2.29.1",
     "moment-timezone" :               "~0.5.31",
-    "nosleep.js" :                    "~0.9.0",
+    "nosleep.js" :                    "~0.11.0",
     "units-converter" :               "~1.0.3",
     "vue" :                           "~2.6.12",
     "vue-clipboard2" :                "~0.3.1",
@@ -49,14 +48,14 @@
     "vue-socket.io" :                 "^3.0.10",
     "vuex" :                          "~3.5.1"
   },
-  "devDependencies": {
+  "devDependencies" : {
     "@vue/cli-plugin-babel" :  "~4.5.7",
     "@vue/cli-plugin-eslint" : "~4.5.7",
     "@vue/cli-service" :       "~4.5.7",
     "babel-eslint" :           "~10.1.0",
     "bourbon" :                "~7.0.0",
-    "eslint" :                 "~7.11.0",
-    "eslint-plugin-vue" :      "~7.0.1",
+    "eslint" :                 "~7.12.0",
+    "eslint-plugin-vue" :      "~7.1.0",
     "fs-extra" :               "~9.0.1",
     "gulp" :                   "~4.0.2",
     "gulp-gzip" :              "~1.4.2",
