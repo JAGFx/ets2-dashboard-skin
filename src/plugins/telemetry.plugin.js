@@ -311,8 +311,8 @@ export default {
 				
 				// --- Commons
 				
-				$flag( countryName ) {
-					return utils.app.flag( countryName );
+				$flag( countryName, gameID ) {
+					return utils.app.flag( countryName, gameID );
 				},
 				$averageDamage( arrayDamage ) {
 					const keyLength = Object.keys( arrayDamage ).length;

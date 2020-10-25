@@ -1,5 +1,5 @@
 <template>
-  <main :class="`${telemetry.game && telemetry.game.game.id === 2 ? 'ats' : 'ets2'}`">
+  <main :class="`${telemetry.game ? telemetry.game.game.name : ''}`">
     <b-overlay :show="!gameConnected" :variant="'dark'" no-wrap>
       <template v-slot:overlay>
         <div class="d-flex justify-content-center flex-column align-items-center">

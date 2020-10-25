@@ -23,6 +23,8 @@ const TIME_FORMAT_NONE  = null;
 const TIME_FORMAT_SHORT = 'LT';
 const TIME_FORMAT_FULL  = 'LTS';
 
+const GAME_ID_ETS2 = 1;
+const GAME_ID_ATS  = 2;
 
 // --- Methods
 
@@ -33,7 +35,7 @@ const version = packageJson.version;
 const isOnDevEnvironment = process.env.NODE_ENV.startsWith( 'dev' );
 const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
-const flag = ( countryName ) => {
+const flag = ( countryName, gameID ) => {
 	let flag = undefined;
 	
 	if ( countryName.length !== 0 ) {
@@ -44,6 +46,9 @@ const flag = ( countryName ) => {
 		
 		if ( countryCode !== undefined )
 			flag = emojiFlags.countryCode( countryCode );
+		
+		if ( gameIsATS( gameID ) )
+			flag = emojiFlags.countryCode( 'US' );
 	}
 	
 	//console.log( countryName, countryCode, flag, flag.emoji );
@@ -92,6 +97,10 @@ const sleep = milliseconds => {
 	} while ( currentDate - date < milliseconds );
 };
 
+const gameIsATS = gameID => gameID === GAME_ID_ATS;
+
+const gameIsETS2 = gameID => gameID === GAME_ID_ETS2;
+
 export default {
 	basePathHost,
 	version,
@@ -103,6 +112,8 @@ export default {
 	dateTimeLocalized,
 	diffDateTimeLocalized,
 	sleep,
+	gameIsATS,
+	gameIsETS2,
 	formatConstants: {
 		DATE_FORMAT_NONE,
 		DATE_FORMAT_SHORT,
@@ -110,6 +121,8 @@ export default {
 		DATE_FORMAT_FULL,
 		TIME_FORMAT_NONE,
 		TIME_FORMAT_SHORT,
-		TIME_FORMAT_FULL
+		TIME_FORMAT_FULL,
+		GAME_ID_ATS,
+		GAME_ID_ETS2
 	}
 };
