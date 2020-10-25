@@ -1,108 +1,109 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128">
   <defs>
-    <linearGradient id="GradientFill_1" data-name="GradientFill 1" x1="39.06" y1="61.41" x2="88.07" y2="33.12"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" />
-      <stop offset="1" stop-color="#fff" />
-    </linearGradient>
-    <linearGradient id="GradientFill_2" data-name="GradientFill 2" x1="63.17" y1="40.47" x2="74.54" y2="33.9"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" />
-      <stop offset="1" stop-color="#999" />
-    </linearGradient>
-    <linearGradient id="GradientFill_1-2" x1="52.78" y1="24.32" x2="72.89" y2="35.93" xlink:href="#GradientFill_1" />
-    <linearGradient id="GradientFill_3" data-name="GradientFill 3" x1="40.48" y1="22" x2="68.85" y2="38.38"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#666" />
-      <stop offset="1" stop-color="#fff" />
-    </linearGradient>
-    <linearGradient id="GradientFill_4" data-name="GradientFill 4" x1="66.28" y1="39.17" x2="89.85" y2="25.56"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ccc" />
-      <stop offset="1" stop-color="#fff" />
-    </linearGradient>
-    <linearGradient id="GradientFill_5" data-name="GradientFill 5" x1="63.51" y1="63.97" x2="55.67" y2="50.38"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="gray" />
-      <stop offset="1" stop-color="#fff" />
-    </linearGradient>
-    <linearGradient id="GradientFill_2-2" x1="61.05" y1="77.2" x2="67.86" y2="51.76" xlink:href="#GradientFill_2" />
-    <linearGradient id="GradientFill_6" data-name="GradientFill 6" x1="60.76" y1="57.12" x2="85.07" y2="71.16"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1a1a1a" />
-      <stop offset="1" stop-color="#fff" />
-    </linearGradient>
-    <linearGradient id="GradientFill_7" data-name="GradientFill 7" x1="37.29" y1="69.08" x2="60.86" y2="55.48"
-                    gradientUnits="userSpaceOnUse">
-      <stop offset="0" />
-      <stop offset="1" stop-color="#ccc" />
-    </linearGradient>
+	  <linearGradient id="GradientFill_1" data-name="GradientFill 1" x1="39.06" y1="61.41" x2="88.07" y2="33.12"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" />
+		  <stop offset="1" stop-color="#fff" />
+	  </linearGradient>
+	  <linearGradient id="GradientFill_2" data-name="GradientFill 2" x1="63.17" y1="40.47" x2="74.54" y2="33.9"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" />
+		  <stop offset="1" stop-color="#999" />
+	  </linearGradient>
+	  <linearGradient id="GradientFill_1-2" x1="52.78" y1="24.32" x2="72.89" y2="35.93" xlink:href="#GradientFill_1" />
+	  <linearGradient id="GradientFill_3" data-name="GradientFill 3" x1="40.48" y1="22" x2="68.85" y2="38.38"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" stop-color="#666" />
+		  <stop offset="1" stop-color="#fff" />
+	  </linearGradient>
+	  <linearGradient id="GradientFill_4" data-name="GradientFill 4" x1="66.28" y1="39.17" x2="89.85" y2="25.56"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" stop-color="#ccc" />
+		  <stop offset="1" stop-color="#fff" />
+	  </linearGradient>
+	  <linearGradient id="GradientFill_5" data-name="GradientFill 5" x1="63.51" y1="63.97" x2="55.67" y2="50.38"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" stop-color="gray" />
+		  <stop offset="1" stop-color="#fff" />
+	  </linearGradient>
+	  <linearGradient id="GradientFill_2-2" x1="61.05" y1="77.2" x2="67.86" y2="51.76" xlink:href="#GradientFill_2" />
+	  <linearGradient id="GradientFill_6" data-name="GradientFill 6" x1="60.76" y1="57.12" x2="85.07" y2="71.16"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" stop-color="#1a1a1a" />
+		  <stop offset="1" stop-color="#fff" />
+	  </linearGradient>
+	  <linearGradient id="GradientFill_7" data-name="GradientFill 7" x1="37.29" y1="69.08" x2="60.86" y2="55.48"
+					  gradientUnits="userSpaceOnUse">
+		  <stop offset="0" />
+		  <stop offset="1" stop-color="#ccc" />
+	  </linearGradient>
   </defs>
   <title>renault</title>
   <g id="renault">
-    <g>
-      <rect x="20.3" y="0.1" width="87.3" height="95.01" fill="#ec000d" />
-      <path
-          d="M25.9,104.1v4.8c0,1.2.1,1.4,1.1,1.4h.3v1.1h-7v-1.1h.3c1,0,1.1-.2,1.1-1.4V99.8c0-1.2-.1-1.4-1.1-1.4h-.3v-1h8.6c1.2,0,1.9,0,2.3.3s1.3,1.4,1.3,3-.8,3.5-2.2,3.5H30l2.6,5.1c.4.9.5.9,1.1.9h.2v1.2H29.2l-3.3-7.3Zm0-.8h.5c1.3,0,1.8-.6,1.8-2.4s-.4-2.6-1.6-2.6h-.7Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M43.7,106.1H41.8v-.4c0-.9-.3-1.1-1-1.1h-.3c-.5,0-.7.2-.7.5v4c0,1.1.1,1.2,1.5,1.2h.5c1.1,0,1.4-.1,1.7-.6s.3-.6.3-1.6v-.9H46v4.2H34.1v-1.1h.4c1,0,1.1-.2,1.1-1.4V99.8c0-1.2-.1-1.4-1.1-1.4h-.4v-1H45.7V101H43.5v-.7c-.1-1.6-.4-1.8-2-1.8h-.4c-1.2,0-1.3.1-1.3,1.2v2.9c0,.7.1.8.8.8h.3c.7,0,.9-.2.9-1.1v-.5h1.9Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M54.3,111.4l-4.8-9.1v6.6c0,1.2.1,1.4,1.1,1.4h.5v1.1H46.5v-1.1h.3c1,0,1.1-.2,1.1-1.4V99.8c0-1.2-.1-1.4-1.1-1.4h-.3v-1h5.1l5.2,9.4v-7c0-1.2-.1-1.4-1.2-1.4h-.3v-1h4.5v1h-.3c-1.1,0-1.2.2-1.2,1.4v11.6Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M72.3,109.3c.2.8.4,1,1.1,1h.3v1.1h-7v-1.1h.4c.5,0,.7-.2.7-.6a1.3,1.3,0,0,0-.1-.5l-.7-2.3c-.2-.6-.1-.6-.7-.6H63.6c-.3,0-.4.1-.4.5l-.8,2.6a.8.8,0,0,0-.1.4c0,.3.2.5.6.5h.6v1.1H59.3v-1.1h.4c.7-.1.8-.3,1.2-1.3l2.7-9.3a1.3,1.3,0,0,0,.1-.5c0-.6-.2-.7-1-.7h-.4V97.4h6.3l3.7,11.9Zm-8.6-4.7v.2c0,.2.1.2.4.2H66c.3,0,.4,0,.4-.2v-.2L65,99.7Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M84.3,107.9c0,2.6-1.5,3.8-4.9,3.8s-5.5-1.3-5.5-3.9v-8c0-1.2-.2-1.4-1.2-1.4h-.3v-1h7.1v1h-.4c-1,0-1.1.2-1.1,1.4v8.1c0,1,.1,1.3.5,1.6a2.1,2.1,0,0,0,1.8.7,2.1,2.1,0,0,0,2.4-2.3V99.8c0-1.2-.1-1.4-1.1-1.4h-.3v-1h4.4v1h-.3c-1,0-1.1.2-1.1,1.4Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M97.3,111.4H86v-1.1h.3c1.1,0,1.2-.2,1.2-1.4V99.8c0-1.2-.1-1.4-1.2-1.4H86v-1h7.1v1h-.3c-1,0-1.1.2-1.1,1.4v8.9c0,1.5.1,1.6,1.2,1.6h.5c1.3-.1,1.7-.6,1.7-2.1v-1h2.2Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M107.7,97.4v4.1h-2.2v-.6c0-1.2,0-1.5-.4-2a1,1,0,0,0-.8-.5c-.4,0-.5.2-.5.8v9.7c0,1.2.1,1.4,1.1,1.4h.3v1.1H98.1v-1.1h.4c1,0,1.1-.2,1.1-1.4V99.2c0-.6-.1-.8-.5-.8s-1.2.8-1.2,2.4v.7H95.7V97.4Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M37,113.6v4.2H34.8v-.6a3.5,3.5,0,0,0-.4-2.1,1,1,0,0,0-.8-.5c-.4,0-.5.2-.5.8V125c0,1.3.1,1.5,1.1,1.5h.3v1.1H27.4v-1.1h.3c1,0,1.1-.2,1.1-1.5v-9.6c0-.6,0-.8-.4-.8s-1.2.8-1.2,2.4v.8H25v-4.2Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M42.8,120.3V125c0,1.3.1,1.5,1.1,1.5h.4v1.1h-7v-1.1h.2c1.1,0,1.1-.2,1.1-1.5v-8.9c0-1.3-.1-1.4-1.1-1.4h-.2v-1.1h8.6a6,6,0,0,1,2.3.3c.9.5,1.2,1.5,1.2,3s-.7,3.5-2.2,3.5h-.3l2.6,5.1c.5.9.6,1,1.1,1h.2v1.1H46.1l-3.3-7.3Zm0-.8h.6c1.3,0,1.8-.6,1.8-2.4s-.4-2.6-1.7-2.6h-.7Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M63,124.1c0,2.6-1.6,3.8-5,3.8s-5.5-1.3-5.5-3.9v-7.9c0-1.3-.1-1.5-1.1-1.5h-.3v-1h7v1h-.3c-1,0-1.1.2-1.1,1.5v8c0,1,.1,1.3.5,1.6a2.5,2.5,0,0,0,1.8.7,2.1,2.1,0,0,0,2.4-2.3v-8c0-1.3-.1-1.5-1.1-1.5H60v-1h4.3v1H64c-.9,0-1,.2-1,1.5Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M76.2,117.5H73.9v-.8c0-1.7-.7-2.5-2.1-2.5a2,2,0,0,0-2.2,1.8,21.8,21.8,0,0,0-.3,4.6,21.2,21.2,0,0,0,.2,3.8c.1,1.7.8,2.6,2.3,2.6s2.2-.9,2.2-3v-.8h2.2v3.9a12.1,12.1,0,0,1-4.8.8c-2.5,0-4.3-.5-5.3-1.8s-1.1-2.7-1.1-5.7c0-5.4,1.6-7.1,6.4-7.1a16.7,16.7,0,0,1,4.3.5h.5Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M89.4,125.7c.2.7.4.8.9.8h.2v1.1H85.4l-2.3-5.9-.8,1V125c0,1.3.2,1.5,1.2,1.5h.3v1.1H76.7v-1.1H77c1,0,1.1-.2,1.1-1.5v-8.9c0-1.3-.1-1.5-1.1-1.5h-.3v-1h7.1v1h-.3c-1,0-1.2.2-1.2,1.5v4.2l3.6-4.6.2-.3c.2-.2.2-.3.2-.4a.3.3,0,0,0-.3-.3h-.7v-1.1h4.3v1.1h-.2c-.9.1-1,.1-1.8,1.1l-1.7,2.3Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M101,117.4H98.8v-.5c0-1.8-.7-2.6-2.1-2.6a1.6,1.6,0,0,0-1.8,1.8c0,1.1.4,1.6,1.9,2.1l.8.3c3.2,1.2,4.1,2.1,4.1,4.6a4.1,4.1,0,0,1-1.1,3.3,6.3,6.3,0,0,1-4.4,1.5,11.5,11.5,0,0,1-4.5-1h-.5v-3.7h2.2v.7c0,2.1.7,3,2.3,3a1.9,1.9,0,0,0,2-2.1c0-1.5-.3-1.9-2.9-2.8s-3.7-1.8-3.7-4.3,1.6-4.4,5.2-4.4a20.6,20.6,0,0,1,4.7.7Z"
-          fill="#fff" fill-rule="evenodd" />
-      <path
-          d="M90.1,47.2h-.3L71.9,80.6H55.6L37.8,48.3h-.2v-.2h.2L55.6,13.8H71.9L89.8,46.1h.3Zm-16.2,0-10-20-10.1,20,10.1,20Z"
-          fill="gray" fill-rule="evenodd" />
-      <path
-          d="M90.7,47.2a2.2,2.2,0,0,1-.4,1.3l-18,32.4a1.1,1.1,0,0,1-1,.4H56.1c-.5,0-.8-.1-1-.5L37.3,48.5a2.8,2.8,0,0,1-.4-1.3,3.7,3.7,0,0,1,.4-1.4L55.1,13.5c.2-.4.5-.5,1-.5H71.3c.5,0,.8.1,1,.5l18,32.3a2.7,2.7,0,0,1,.4,1.4Zm-18.4,0L63.8,29.5,55.4,47.2l8.4,17.6Z"
-          fill-rule="evenodd" fill="url(#GradientFill_1)" />
-      <polygon points="73.9 47.2 73.9 47.2 72.3 47.2 72.3 47.2 63.8 29.5 63.8 29.6 63.8 27.2 63.9 27.2 73.9 47.2"
-               fill-rule="evenodd" fill="url(#GradientFill_2)" />
-      <path d="M72.3,13.5c-2.4,4.2-5,8.6-8.5,16.1l-2.7,5.6-5.7,12H53.8l10-20c2.6-4.7,5.3-9.5,8-14.1a.7.7,0,0,1,.5.4Z"
-            fill-rule="evenodd" fill="url(#GradientFill_1-2)" />
-      <path d="M37.5,47.2h.1v-.2h.2L55.9,13.4c.1-.2.3-.2.6-.3H71.8c-2.6,4.4-5.5,9.5-7.9,14h-.1l-10,20Z"
-            fill-rule="evenodd" fill="url(#GradientFill_3)" />
-      <path d="M73.9,47.2H90.1a2,2,0,0,0-.3-1.1L72,14.1c-2.2,3.7-4.5,7.8-7.6,14.2Z" fill-rule="evenodd"
-            fill="url(#GradientFill_4)" />
-      <polygon points="53.8 47.2 53.8 47.2 55.4 47.2 55.4 47.2 63.8 64.8 63.8 64.8 63.8 67.1 63.8 67.2 53.8 47.2"
-               fill-rule="evenodd" fill="url(#GradientFill_5)" />
-      <path d="M55.3,80.9a178,178,0,0,0,8.5-16.1l2.7-5.6,5.8-12h1.6L63.8,67.1c-2.5,4.7-5.2,9.5-8,14.2l-.5-.4Z"
-            fill-rule="evenodd" fill="url(#GradientFill_2-2)" />
-      <path d="M90.1,47.2h-.3L71.8,81c-.1.2-.4.2-.6.2H55.8c2.6-4.5,5.5-9.5,8-14h0L73.9,47.2Z" fill-rule="evenodd"
-            fill="url(#GradientFill_6)" />
-      <path d="M53.8,47.2H37.5a2,2,0,0,0,.3,1.1l17.8,32A143.2,143.2,0,0,0,63.2,66Z" fill-rule="evenodd"
-            fill="url(#GradientFill_7)" />
-    </g>
+	  <g>
+		  <rect x="20.3" y="0.1" width="87.3" height="95.01" fill="#ec000d" />
+		  <path
+			  d="M25.9,104.1v4.8c0,1.2.1,1.4,1.1,1.4h.3v1.1h-7v-1.1h.3c1,0,1.1-.2,1.1-1.4V99.8c0-1.2-.1-1.4-1.1-1.4h-.3v-1h8.6c1.2,0,1.9,0,2.3.3s1.3,1.4,1.3,3-.8,3.5-2.2,3.5H30l2.6,5.1c.4.9.5.9,1.1.9h.2v1.2H29.2l-3.3-7.3Zm0-.8h.5c1.3,0,1.8-.6,1.8-2.4s-.4-2.6-1.6-2.6h-.7Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M43.7,106.1H41.8v-.4c0-.9-.3-1.1-1-1.1h-.3c-.5,0-.7.2-.7.5v4c0,1.1.1,1.2,1.5,1.2h.5c1.1,0,1.4-.1,1.7-.6s.3-.6.3-1.6v-.9H46v4.2H34.1v-1.1h.4c1,0,1.1-.2,1.1-1.4V99.8c0-1.2-.1-1.4-1.1-1.4h-.4v-1H45.7V101H43.5v-.7c-.1-1.6-.4-1.8-2-1.8h-.4c-1.2,0-1.3.1-1.3,1.2v2.9c0,.7.1.8.8.8h.3c.7,0,.9-.2.9-1.1v-.5h1.9Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M54.3,111.4l-4.8-9.1v6.6c0,1.2.1,1.4,1.1,1.4h.5v1.1H46.5v-1.1h.3c1,0,1.1-.2,1.1-1.4V99.8c0-1.2-.1-1.4-1.1-1.4h-.3v-1h5.1l5.2,9.4v-7c0-1.2-.1-1.4-1.2-1.4h-.3v-1h4.5v1h-.3c-1.1,0-1.2.2-1.2,1.4v11.6Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M72.3,109.3c.2.8.4,1,1.1,1h.3v1.1h-7v-1.1h.4c.5,0,.7-.2.7-.6a1.3,1.3,0,0,0-.1-.5l-.7-2.3c-.2-.6-.1-.6-.7-.6H63.6c-.3,0-.4.1-.4.5l-.8,2.6a.8.8,0,0,0-.1.4c0,.3.2.5.6.5h.6v1.1H59.3v-1.1h.4c.7-.1.8-.3,1.2-1.3l2.7-9.3a1.3,1.3,0,0,0,.1-.5c0-.6-.2-.7-1-.7h-.4V97.4h6.3l3.7,11.9Zm-8.6-4.7v.2c0,.2.1.2.4.2H66c.3,0,.4,0,.4-.2v-.2L65,99.7Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M84.3,107.9c0,2.6-1.5,3.8-4.9,3.8s-5.5-1.3-5.5-3.9v-8c0-1.2-.2-1.4-1.2-1.4h-.3v-1h7.1v1h-.4c-1,0-1.1.2-1.1,1.4v8.1c0,1,.1,1.3.5,1.6a2.1,2.1,0,0,0,1.8.7,2.1,2.1,0,0,0,2.4-2.3V99.8c0-1.2-.1-1.4-1.1-1.4h-.3v-1h4.4v1h-.3c-1,0-1.1.2-1.1,1.4Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M97.3,111.4H86v-1.1h.3c1.1,0,1.2-.2,1.2-1.4V99.8c0-1.2-.1-1.4-1.2-1.4H86v-1h7.1v1h-.3c-1,0-1.1.2-1.1,1.4v8.9c0,1.5.1,1.6,1.2,1.6h.5c1.3-.1,1.7-.6,1.7-2.1v-1h2.2Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M107.7,97.4v4.1h-2.2v-.6c0-1.2,0-1.5-.4-2a1,1,0,0,0-.8-.5c-.4,0-.5.2-.5.8v9.7c0,1.2.1,1.4,1.1,1.4h.3v1.1H98.1v-1.1h.4c1,0,1.1-.2,1.1-1.4V99.2c0-.6-.1-.8-.5-.8s-1.2.8-1.2,2.4v.7H95.7V97.4Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M37,113.6v4.2H34.8v-.6a3.5,3.5,0,0,0-.4-2.1,1,1,0,0,0-.8-.5c-.4,0-.5.2-.5.8V125c0,1.3.1,1.5,1.1,1.5h.3v1.1H27.4v-1.1h.3c1,0,1.1-.2,1.1-1.5v-9.6c0-.6,0-.8-.4-.8s-1.2.8-1.2,2.4v.8H25v-4.2Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M42.8,120.3V125c0,1.3.1,1.5,1.1,1.5h.4v1.1h-7v-1.1h.2c1.1,0,1.1-.2,1.1-1.5v-8.9c0-1.3-.1-1.4-1.1-1.4h-.2v-1.1h8.6a6,6,0,0,1,2.3.3c.9.5,1.2,1.5,1.2,3s-.7,3.5-2.2,3.5h-.3l2.6,5.1c.5.9.6,1,1.1,1h.2v1.1H46.1l-3.3-7.3Zm0-.8h.6c1.3,0,1.8-.6,1.8-2.4s-.4-2.6-1.7-2.6h-.7Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M63,124.1c0,2.6-1.6,3.8-5,3.8s-5.5-1.3-5.5-3.9v-7.9c0-1.3-.1-1.5-1.1-1.5h-.3v-1h7v1h-.3c-1,0-1.1.2-1.1,1.5v8c0,1,.1,1.3.5,1.6a2.5,2.5,0,0,0,1.8.7,2.1,2.1,0,0,0,2.4-2.3v-8c0-1.3-.1-1.5-1.1-1.5H60v-1h4.3v1H64c-.9,0-1,.2-1,1.5Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M76.2,117.5H73.9v-.8c0-1.7-.7-2.5-2.1-2.5a2,2,0,0,0-2.2,1.8,21.8,21.8,0,0,0-.3,4.6,21.2,21.2,0,0,0,.2,3.8c.1,1.7.8,2.6,2.3,2.6s2.2-.9,2.2-3v-.8h2.2v3.9a12.1,12.1,0,0,1-4.8.8c-2.5,0-4.3-.5-5.3-1.8s-1.1-2.7-1.1-5.7c0-5.4,1.6-7.1,6.4-7.1a16.7,16.7,0,0,1,4.3.5h.5Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M89.4,125.7c.2.7.4.8.9.8h.2v1.1H85.4l-2.3-5.9-.8,1V125c0,1.3.2,1.5,1.2,1.5h.3v1.1H76.7v-1.1H77c1,0,1.1-.2,1.1-1.5v-8.9c0-1.3-.1-1.5-1.1-1.5h-.3v-1h7.1v1h-.3c-1,0-1.2.2-1.2,1.5v4.2l3.6-4.6.2-.3c.2-.2.2-.3.2-.4a.3.3,0,0,0-.3-.3h-.7v-1.1h4.3v1.1h-.2c-.9.1-1,.1-1.8,1.1l-1.7,2.3Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M101,117.4H98.8v-.5c0-1.8-.7-2.6-2.1-2.6a1.6,1.6,0,0,0-1.8,1.8c0,1.1.4,1.6,1.9,2.1l.8.3c3.2,1.2,4.1,2.1,4.1,4.6a4.1,4.1,0,0,1-1.1,3.3,6.3,6.3,0,0,1-4.4,1.5,11.5,11.5,0,0,1-4.5-1h-.5v-3.7h2.2v.7c0,2.1.7,3,2.3,3a1.9,1.9,0,0,0,2-2.1c0-1.5-.3-1.9-2.9-2.8s-3.7-1.8-3.7-4.3,1.6-4.4,5.2-4.4a20.6,20.6,0,0,1,4.7.7Z"
+			  fill="#fff" fill-rule="evenodd" />
+		  <path
+			  d="M90.1,47.2h-.3L71.9,80.6H55.6L37.8,48.3h-.2v-.2h.2L55.6,13.8H71.9L89.8,46.1h.3Zm-16.2,0-10-20-10.1,20,10.1,20Z"
+			  fill="gray" fill-rule="evenodd" />
+		  <path
+			  d="M90.7,47.2a2.2,2.2,0,0,1-.4,1.3l-18,32.4a1.1,1.1,0,0,1-1,.4H56.1c-.5,0-.8-.1-1-.5L37.3,48.5a2.8,2.8,0,0,1-.4-1.3,3.7,3.7,0,0,1,.4-1.4L55.1,13.5c.2-.4.5-.5,1-.5H71.3c.5,0,.8.1,1,.5l18,32.3a2.7,2.7,0,0,1,.4,1.4Zm-18.4,0L63.8,29.5,55.4,47.2l8.4,17.6Z"
+			  fill-rule="evenodd" fill="url(#GradientFill_1)" />
+		  <polygon points="73.9 47.2 73.9 47.2 72.3 47.2 72.3 47.2 63.8 29.5 63.8 29.6 63.8 27.2 63.9 27.2 73.9 47.2"
+				   fill-rule="evenodd" fill="url(#GradientFill_2)" />
+		  <path
+			  d="M72.3,13.5c-2.4,4.2-5,8.6-8.5,16.1l-2.7,5.6-5.7,12H53.8l10-20c2.6-4.7,5.3-9.5,8-14.1a.7.7,0,0,1,.5.4Z"
+			  fill-rule="evenodd" fill="url(#GradientFill_1-2)" />
+		  <path d="M37.5,47.2h.1v-.2h.2L55.9,13.4c.1-.2.3-.2.6-.3H71.8c-2.6,4.4-5.5,9.5-7.9,14h-.1l-10,20Z"
+				fill-rule="evenodd" fill="url(#GradientFill_3)" />
+		  <path d="M73.9,47.2H90.1a2,2,0,0,0-.3-1.1L72,14.1c-2.2,3.7-4.5,7.8-7.6,14.2Z" fill-rule="evenodd"
+				fill="url(#GradientFill_4)" />
+		  <polygon points="53.8 47.2 53.8 47.2 55.4 47.2 55.4 47.2 63.8 64.8 63.8 64.8 63.8 67.1 63.8 67.2 53.8 47.2"
+				   fill-rule="evenodd" fill="url(#GradientFill_5)" />
+		  <path d="M55.3,80.9a178,178,0,0,0,8.5-16.1l2.7-5.6,5.8-12h1.6L63.8,67.1c-2.5,4.7-5.2,9.5-8,14.2l-.5-.4Z"
+				fill-rule="evenodd" fill="url(#GradientFill_2-2)" />
+		  <path d="M90.1,47.2h-.3L71.8,81c-.1.2-.4.2-.6.2H55.8c2.6-4.5,5.5-9.5,8-14h0L73.9,47.2Z" fill-rule="evenodd"
+				fill="url(#GradientFill_6)" />
+		  <path d="M53.8,47.2H37.5a2,2,0,0,0,.3,1.1l17.8,32A143.2,143.2,0,0,0,63.2,66Z" fill-rule="evenodd"
+				fill="url(#GradientFill_7)" />
+	  </g>
   </g>
 </svg>

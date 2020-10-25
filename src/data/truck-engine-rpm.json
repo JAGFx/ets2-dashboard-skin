@@ -234,30 +234,25 @@
 				},
 				{
 					"modelId" : "vehicle.volvo.vnl",
-					"low" :     {
-						"from" : 950,
+					"low" :  {
+						"from" : 1000,
 						"to" :   1600
 					},
 					"mid" :     null,
-					"high" :    {
-						"from" : 2300
+					"high" : {
+						"from" : 2200
 					}
 				}
 			]
 		},
 		{
-			"brandId" : "international",
+			"brandId" : "intnational",
 			"models" :  [
 				{
-					"modelId" : "vehicle.international.fh16_2012",
-					"low" :     {
-						"from" : 1000,
-						"to" :   1500
-					},
+					"modelId" : "vehicle.intnational.lonestar",
+					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 2000
-					}
+					"high" :    null
 				}
 			]
 		},
@@ -268,17 +263,13 @@
 					"modelId" : "vehicle.kenworth.t680",
 					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 3000
-					}
+					"high" :    null
 				},
 				{
 					"modelId" : "vehicle.kenworth.w900",
 					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 3000
-					}
+					"high" :    null
 				}
 			]
 		},
@@ -287,14 +278,9 @@
 			"models" :  [
 				{
 					"modelId" : "vehicle.mack.anthem",
-					"low" :     {
-						"from" : 1000,
-						"to" :   1500
-					},
+					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 2000
-					}
+					"high" :    null
 				}
 			]
 		},
@@ -303,41 +289,26 @@
 			"models" :  [
 				{
 					"modelId" : "vehicle.peterbilt.389",
-					"low" :     {
-						"from" : 1000,
-						"to" :   1500
-					},
+					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 2000
-					}
+					"high" :    null
 				},
 				{
 					"modelId" : "vehicle.peterbilt.579",
-					"low" :     {
-						"from" : 950,
-						"to" :   1600
-					},
+					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 2300
-					}
+					"high" :    null
 				}
 			]
 		},
 		{
-			"brandId" : "western-star",
+			"brandId" : "westernstar",
 			"models" :  [
 				{
-					"modelId" : "vehicle.western-star.49x",
-					"low" :     {
-						"from" : 1000,
-						"to" :   1500
-					},
+					"modelId" : "vehicle.westernstar.49X",
+					"low" :     null,
 					"mid" :     null,
-					"high" :    {
-						"from" : 2000
-					}
+					"high" :    null
 				}
 			]
 		}

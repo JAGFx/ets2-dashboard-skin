@@ -68,19 +68,19 @@
     "sass-loader" :            "~10.0.2",
     "vue-template-compiler" :  "~2.6.12"
   },
-  "bugs": {
-    "url": "https://github.com/JAGFx/ets2-dashboard-skin/issues"
+  "bugs" :            {
+    "url" : "https://github.com/JAGFx/ets2-dashboard-skin/issues"
   },
-  "homepage": "https://jagfx.github.io/ets2-dashboard-skin/",
-  "keywords": [
+  "homepage" :        "https://jagfx.github.io/ets2-dashboard-skin/",
+  "keywords" :        [
     "ets2",
     "eurotrucksimulator2",
     "dashboard",
     "telemetry"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JAGFx/ets2-dashboard-skin.git"
+  "license" :         "MIT",
+  "repository" :      {
+    "type" : "git",
+    "url" :  "https://github.com/JAGFx/ets2-dashboard-skin.git"
   }
 }
