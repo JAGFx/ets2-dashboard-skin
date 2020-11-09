@@ -10,6 +10,12 @@ Retrieve here the list of know issues
 - ~~App crash or the updating of data was not fluent~~
     - Cause: Memory leak on telemetry data update
     - Solution: Fixed on #35
+- Desyncing data on dashboard (All data may be updated with a delay)
+    - Cause: If CPU was over used, this delay may be more fat
+    - Solution: No solution yet.
+- May dosen't work with some Apple mobile device
+    - Cause: Unknown
+    - Solution: No solution yet
 
 ---
 ↩️ [Home](../README.md)
