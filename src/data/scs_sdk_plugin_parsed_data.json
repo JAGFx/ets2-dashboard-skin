@@ -1,18 +1,24 @@
 {
-	"game" :       {
-		"sdkActive" :        true,
-		"timestamp" :        {
+	"game" : {
+		"sdkActive" :           true,
+		"timestamp" :           {
 			"value" : 1590690478
 		},
-		"paused" :           false,
-		"pluginVersion" :    10,
-		"version" :          "1.16",
-		"game" :             {
+		"simulationTimestamp" : {
+			"value" : 393950
+		},
+		"renderTimestamp" :     {
+			"value" : 393921
+		},
+		"paused" :              false,
+		"pluginVersion" :       10,
+		"version" :             "1.16",
+		"game" :                {
 			"id" :   1,
 			"name" : "ets2"
 		},
-		"telemetryVersion" : "1.15",
-		"time" :             {
+		"telemetryVersion" :    "1.15",
+		"time" :                {
 			"value" : 1590690478,
 			"unix" :  1590690478
 		},

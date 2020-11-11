@@ -1,14 +1,14 @@
 {
-  "name" :        "ets2-dashboard-skin",
-  "version" :     "1.4.2",
-  "private" :     false,
-  "description" : "Euro Truck Simulator 2 dashboard",
-  "author" :      {
+  "name" :            "ets2-dashboard-skin",
+  "version" :         "1.4.2",
+  "private" :         false,
+  "description" :     "Euro Truck Simulator 2 dashboard",
+  "author" :          {
     "name" :  "Emmanuel SMITH",
     "email" : "hey@emmanuel-smith.me",
     "url" :   "https://emmanuel-smith.me"
   },
-  "scripts" :     {
+  "scripts" :         {
     "lint" :            "vue-cli-service lint",
     "build" :           "set NODE_ENV=production && npx gulp build",
     "bundle" :          "set NODE_ENV=production && npx gulp bundle",
@@ -40,10 +40,10 @@
     "lodash" :                        "~4.17.20",
     "moment" :                        "~2.29.1",
     "moment-timezone" :               "~0.5.31",
-    "nosleep.js" :                    "~0.11.0",
     "units-converter" :               "~1.0.3",
     "vue" :                           "~2.6.12",
     "vue-clipboard2" :                "~0.3.1",
+    "vue-insomnia" :                  "^0.1.0",
     "vue-progressbar" :               "~0.7.5",
     "vue-socket.io" :                 "^3.0.10",
     "vuex" :                          "~3.5.1"

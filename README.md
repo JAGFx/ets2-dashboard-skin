@@ -27,10 +27,6 @@ You can check also a review  and installation guide made by [Neranjana Wijesingh
 
 [![Alt text](https://img.youtube.com/vi/dE55M7TaPTY/0.jpg)](https://www.youtube.com/watch?v=dE55M7TaPTY) 
 
-## Info
-
-The current stable version have a memory leak issue. It may cause slow down on the data update or cause a crash for the app. I'm still on a solution research.
-
 ## What's it ?
 
 This is an web app who you can switch over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes, Renault, Scania or Volvo)). [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
@@ -45,7 +41,7 @@ It's work on desktop and mobile browser.
 
 - OS: Windows 64Bits
 - Game: Euro Truck Simulator 2
-- SCS SDK plugin: v1.10.4
+- SCS SDK plugin: v1.10.6
 - Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop dans Mobile), Edge ( Desktop and mobile )
 
 **Important: It dosen't work with all Internet Explorer browsers**
@@ -56,7 +52,7 @@ It's work on desktop and mobile browser.
 
 Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
 
-- Download the supported version zip `v1.10.4` at the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.4/release_v_1_10_4.zip) page
+- Download the supported version zip `v1.10.6` at the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.6/release_v_1_10_6.zip) page
 - Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
 
 ### For normal use

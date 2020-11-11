@@ -54,7 +54,7 @@
       <!--<li><span>Uptime</span>{{formatedTimestamp()}}</li>-->
     </ul>
     <div class="game-time">
-      <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_FULL ) }}</span>
+      <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
     </div>
     <ul class="w-100">
       <li @click="onClickFullscreen()">
@@ -82,6 +82,7 @@ export default {
     return {
       event:               '',
       fullscreen:          false,
+      wakeLock:            null,
       newReleaseAvailable: false
     };
   },
@@ -145,8 +146,6 @@ export default {
 
         this.$pushALog( 'Enable fullscreen', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
 
-        this.$NoSleep.enable();
-
       } else {
         // Disable fullscreen
 
@@ -163,11 +162,49 @@ export default {
           document.msExitFullscreen();
 
         this.$pushALog( 'Disable fullscreen', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
-
-        this.$NoSleep.disable();
       }
 
+      this.switchAwakeScreen();
+
       this.fullscreen = !this.fullscreen;
+    },
+    switchAwakeScreen() {
+      this.$pushALog( 'Wake Lock API support: ' + ('wakeLock' in navigator),
+          _history.HTY_ZONE.ZONE_GAME,
+          _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Screen Keep awake support: ' + ('keepAwake' in screen),
+          _history.HTY_ZONE.ZONE_GAME,
+          _history.HTY_LEVEL.DEBUG );
+
+      if ( 'wakeLock' in navigator )
+        this.useWakeLock();
+      else if ( 'keepAwake' in screen )
+        this.useScreenAwake();
+      else
+        this.useVueInsomnia();
+    },
+    useVueInsomnia() {
+      this.$pushALog( 'Awake screen - Use VueInsomnia', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+
+      if ( !this.fullscreen )
+        this.vueInsomnia().on();
+      else
+        this.vueInsomnia().off();
+    },
+    useWakeLock() {
+      this.$pushALog( 'Awake screen - Use WakeLock API', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+
+      if ( !this.fullscreen )
+        navigator.wakeLock.request( 'screen' )
+                 .then( ( wakeLock ) => {
+                   this.wakeLock = wakeLock;
+                 } );
+      else
+        this.wakeLock.release();
+    },
+    useScreenAwake() {
+      this.$pushALog( 'Awake screen - Use Screen Awake API', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+      screen.keepAwake = this.fullscreen;
     }
   },
   computed: {
