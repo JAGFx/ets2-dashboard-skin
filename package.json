@@ -28,7 +28,7 @@
   "dependencies" :    {
     "@fortawesome/fontawesome-free" : "~5.15.1",
     "axios" :                         "~0.21.0",
-    "bootstrap" :                     "~4.5.2",
+    "bootstrap" :                     "^4.5.3",
     "bootstrap-vue" :                 "~2.18.1",
     "core-js" :                       "~3.6.5",
     "country-list" :                  "~2.2.0",
@@ -49,12 +49,12 @@
     "vuex" :                          "~3.5.1"
   },
   "devDependencies" : {
-    "@vue/cli-plugin-babel" :  "~4.5.7",
-    "@vue/cli-plugin-eslint" : "~4.5.7",
-    "@vue/cli-service" :       "~4.5.7",
+    "@vue/cli-plugin-babel" :  "^4.5.8",
+    "@vue/cli-plugin-eslint" : "^4.5.8",
+    "@vue/cli-service" :       "^4.5.8",
     "babel-eslint" :           "~10.1.0",
     "bourbon" :                "~7.0.0",
-    "eslint" :                 "~7.12.0",
+    "eslint" :                 "^7.12.1",
     "eslint-plugin-vue" :      "~7.1.0",
     "fs-extra" :               "~9.0.1",
     "gulp" :                   "~4.0.2",
@@ -62,10 +62,10 @@
     "gulp-load-plugins" :      "~2.0.5",
     "gulp-run-command" :       "0.0.10",
     "gulp-tar" :               "~3.1.0",
-    "icon-font-generator" :    "~2.1.10",
+    "icon-font-generator" :    "^2.1.11",
     "node-sass" :              "~4.14.1",
     "pkg" :                    "~4.4.9",
-    "sass-loader" :            "~10.0.2",
+    "sass-loader" :            "^10.0.5",
     "vue-template-compiler" :  "~2.6.12"
   },
   "bugs" :            {
