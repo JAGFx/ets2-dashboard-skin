@@ -24,9 +24,7 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](doc/screens/demo.gif)
 
-You can check also a review  and installation guide made by [Neranjana Wijesinghe](https://www.youtube.com/channel/UC5oTrqQK3JWooclY74SeHuQ)
-
-[![Alt text](https://img.youtube.com/vi/dE55M7TaPTY/0.jpg)](https://www.youtube.com/watch?v=dE55M7TaPTY) 
+You can check also a review  and installation guide made by [Neranjana Wijesinghe](https://www.youtube.com/watch?v=dE55M7TaPTY)
 
 ## What's it ?
 
