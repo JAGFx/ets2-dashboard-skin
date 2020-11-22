@@ -1,7 +1,9 @@
 {
 	"name" :            "ets2-dashboard-skin-server",
 	"version" :         "2.0.0",
-	"bin" :             "./dist/main.js",
+	"bin" :             {
+		"ets2-dashboard-skin-server" : "dist/main.js"
+	},
 	"main" :            "./src/main.js",
 	"module" :          "./src/main.js",
 	"scripts" :         {
