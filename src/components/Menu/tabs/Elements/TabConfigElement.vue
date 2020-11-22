@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="select d-flex justify-content-between align-items-stretch" v-else-if="elm.values.length > 2" :class="{ 'processing': appGetProcessing }">
-      <select :disabled="appGetProcessing" :multiple="elm.multiple !== undefined && elm.multiple" @change="set( current( elm.id ) )" class="custom-select value w-100 m-0 py-1 px-2">
+      <select :disabled="appGetProcessing" :multiple="elm.multiple !== undefined && elm.multiple" v-model="val" @change="set( val )" class="custom-select value w-100 m-0 py-1 px-2">
         <option :key="value.value" :selected="current( elm.id ) === value.value" :value="value.value" v-for="value in elm.values">
           {{ value.label }}
         </option>
@@ -21,23 +21,29 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import _              from 'lodash';
 
 export default {
-  name:       'TabConfigElement',
-  props:      [ 'elm' ],
+  name:     'TabConfigElement',
+  props:    [ 'elm' ],
   data() {
-    return {};
+    return {
+      val: _.first( this.elm.values ).value
+    };
   },
-  computed:   {
+  mounted() {
+    this.val = this.current( this.elm.id );
+  },
+  computed: {
     ...mapGetters( {
       current:          'config/get',
       appGetProcessing: 'app/getProcessing'
     } )
-		},
-		methods:  {
-			set( value ) {
-        this.$store.commit( 'config/setElm', {
-          id:    this.elm.id,
+  },
+  methods:  {
+    set( value ) {
+      this.$store.commit( 'config/setElm', {
+        id:      this.elm.id,
           value: value
         } );
       }
