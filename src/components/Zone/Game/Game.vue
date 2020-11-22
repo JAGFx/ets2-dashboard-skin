@@ -57,13 +57,13 @@
       <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
     </div>
     <ul class="w-100">
-      <li @click="onClickFullscreen()">
-        <span v-show="!fullscreen"><i class="fas fa-expand"></i></span>
-        <span v-show="fullscreen"><i class="fas fa-compress"></i></span>
-      </li>
       <li @click="onClickGear()">
         <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars"></i>️</span>
         <span v-show="menuIsDisplayed">Close <i class="fas fa-times"></i>️</span>
+      </li>
+      <li @click="onClickFullscreen()">
+        <span v-show="!fullscreen"><i class="fas fa-expand"></i></span>
+        <span v-show="fullscreen"><i class="fas fa-compress"></i></span>
       </li>
     </ul>
   </nav>
