@@ -24,6 +24,50 @@
 					]
 				},
 				{
+					"id" :          "general_skin_on_load",
+					"label" :       "Default skin loaded",
+					"disabled" :    false,
+					"description" : "Set the skin loaded when this app was started",
+					"values" :      [
+						{
+							"label" : "JAGFx dashboard",
+							"value" : "JAGFx"
+						},
+						{
+							"label" : "Base",
+							"value" : "Test"
+						},
+						{
+							"label" : "Default",
+							"value" : "Default"
+						},
+						{
+							"label" : "DAF XF",
+							"value" : "DafXF"
+						},
+						{
+							"label" : "Man TGX",
+							"value" : "ManTGX"
+						},
+						{
+							"label" : "Mercedes Benz Atego",
+							"value" : "MercedesAtego"
+						},
+						{
+							"label" : "RD-Info",
+							"value" : "RdInfo"
+						},
+						{
+							"label" : "Scania",
+							"value" : "Scania"
+						},
+						{
+							"label" : "Volvo FH",
+							"value" : "VolvoFH"
+						}
+					]
+				},
+				{
 					"id" :          "general_job_remaining",
 					"label" :       "Job delivery time",
 					"description" : "Display the due date or the remaining time for a job",

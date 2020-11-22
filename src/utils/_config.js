@@ -23,7 +23,7 @@ const generateEmptyData = ( config, configSkins ) => {
 	} );
 	
 	Object.entries( configSkins ).forEach( ( [ key, skin ] ) => {
-		console.log( key, 'Plop', skin );
+		//console.log( key, 'Plop', skin );
 		skin.categories.forEach( category => {
 			category.elements.forEach( element => {
 				emptyData[ element.id ] = null;
@@ -31,7 +31,7 @@ const generateEmptyData = ( config, configSkins ) => {
 		} );
 	} );
 	
-	console.log( emptyData );
+	//console.log( emptyData );
 	
 	return emptyData;
 };

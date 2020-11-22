@@ -44,6 +44,19 @@ const actions = {
 const mutations = {
 	setCurrent( state, skin ) {
 		state.currentSkin = skin;
+	},
+	setConfigActive( state, name ) {
+		let skin = state.all.filter( skin => skin.id === name );
+		
+		//console.log( skin, name );
+		
+		if ( skin.length === 0 )
+			throw 'NoSkinFound';
+		
+		skin = _.first( skin );
+		//console.log( skin );
+		
+		state.currentSkin = skin;
 	}
 };
 

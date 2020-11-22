@@ -77,7 +77,20 @@ export default {
   },
 
   created() {
-    this.$store.dispatch( 'skins/setFirstActive' );
+    const skinToLoad = this.getConfig( 'general_skin_on_load' );
+
+    try {
+      //console.log( skinToLoad );
+      this.$store.commit( 'skins/setConfigActive', skinToLoad );
+
+    } catch ( e ) {
+      //console.error( e );
+      this.$pushALog( 'Value set in "general_skin_on_load" was not a valid skin: ' + skinToLoad,
+          _history.HTY_ZONE.MAIN,
+          _history.HTY_LEVEL.ERROR );
+      this.$store.dispatch( 'skins/setFirstActive' );
+    }
+
     this.$store.dispatch( 'config/load' );
     this.$pushALog( 'App launched', _history.HTY_ZONE.MAIN );
 
@@ -113,7 +126,8 @@ export default {
   computed: {
     ...mapGetters( {
       menuIsDisplayed: 'menu/isDisplayed',
-      currentSkin:     'skins/current'
+      currentSkin:     'skins/current',
+      getConfig:       'config/get'
     } )
   },
   sockets:  {
