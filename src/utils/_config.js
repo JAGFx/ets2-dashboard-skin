@@ -56,7 +56,6 @@ const save = async data => {
 		.then( response => {
 			store.dispatch( 'app/endProcessing' );
 			return response.data;
-			//console.log( 'Save', response.data );
 		}, error => {
 			store.dispatch( 'app/setError', {
 				message: {

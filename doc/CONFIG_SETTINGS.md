@@ -26,6 +26,24 @@ You can find common elements, and skin config.
         <td>due_date</td>
     </tr>
     <tr>
+        <td>general_skin_on_load</td>
+        <td>Default skin loaded</td>
+        <td>
+            <ul>
+                <li>JAGFx</li>
+                <li>Test</li>
+                <li>Default</li>
+                <li>DafXF</li>
+                <li>ManTGX</li>
+                <li>MercedesAtego</li>
+                <li>RdInfo</li>
+                <li>Scania</li>
+                <li>VolvoFH</li>
+            </ul>
+        </td>
+        <td>JAGFx</td>
+    </tr>
+    <tr>
         <td>general_h-shift-layout</td>
         <td>H-Shift layout</td>
         <td>

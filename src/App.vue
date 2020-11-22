@@ -77,22 +77,27 @@ export default {
   },
 
   created() {
-    const skinToLoad = this.getConfig( 'general_skin_on_load' );
-
-    try {
-      //console.log( skinToLoad );
-      this.$store.commit( 'skins/setConfigActive', skinToLoad );
-
-    } catch ( e ) {
-      //console.error( e );
-      this.$pushALog( 'Value set in "general_skin_on_load" was not a valid skin: ' + skinToLoad,
-          _history.HTY_ZONE.MAIN,
-          _history.HTY_LEVEL.ERROR );
-      this.$store.dispatch( 'skins/setFirstActive' );
-    }
-
-    this.$store.dispatch( 'config/load' );
     this.$pushALog( 'App launched', _history.HTY_ZONE.MAIN );
+
+    this.$store
+        .dispatch( 'config/load' )
+        .then( () => {
+          this.$pushALog( 'Config loaded', _history.HTY_ZONE.MAIN );
+
+          const skinToLoad = this.getConfig( 'general_skin_on_load' );
+
+          try {
+            //console.log( skinToLoad );
+            this.$store.commit( 'skins/setConfigActive', skinToLoad );
+
+          } catch ( e ) {
+            //console.error( e );
+            this.$pushALog( 'Value set in "general_skin_on_load" was not a valid skin: ' + skinToLoad,
+                _history.HTY_ZONE.MAIN,
+                _history.HTY_LEVEL.ERROR );
+            this.$store.dispatch( 'skins/setFirstActive' );
+          }
+        } );
 
     /*// Game connected
      setTimeout(()=> {

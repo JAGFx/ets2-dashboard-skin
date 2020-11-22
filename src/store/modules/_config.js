@@ -26,7 +26,7 @@ const getters = {
 // actions
 const actions = {
 	load( { commit } ) {
-		config
+		return config
 			.load()
 			.then( data => commit( 'setElms', data ) );
 	}
