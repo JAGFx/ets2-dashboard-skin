@@ -1,7 +1,7 @@
 <template>
   <Dashboard v-slot:default="dashProps" class="jagfx wrapper">
     <div class="dashboard" v-bind:style="{
-			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)',
+			transform: 'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">

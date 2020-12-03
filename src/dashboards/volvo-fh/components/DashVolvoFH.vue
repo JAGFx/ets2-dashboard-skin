@@ -1,7 +1,7 @@
 <template>
 	<Dashboard class="volvo-fh wrapper" v-slot:default="dashProps">
 		<div class="dashboard game-connected yes" v-bind:style="{
-			transform: 'scale(' + $scale( dashProps.skinData ) + ') translate(-50%, -50%)',
+			transform: 'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">
