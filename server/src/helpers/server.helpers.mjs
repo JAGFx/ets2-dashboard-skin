@@ -15,7 +15,7 @@ import socketio          from 'socket.io';
 import truckSimTelemetry from 'trucksim-telemetry';
 import { logIt }         from './utils.helpers';
 
-let app, server, io, telemetry, port, interval, pathDist;
+let app, server, io, telemetry, port, config, interval, pathDist;
 const configFilePath = path.resolve( process.cwd(), './config.ets2-dashboard-skin.json' );
 
 const init = () => {
@@ -24,7 +24,14 @@ const init = () => {
 	io        = socketio( server );
 	telemetry = truckSimTelemetry();
 	port      = 3000;
-	interval  = 15;
+	interval  = () => {
+		const config    = JSON.parse( fs.readFileSync( configFilePath, 'UTF-8' ) );
+		const rateFound = config.hasOwnProperty( 'general_refresh_rate' );
+		
+		return (rateFound)
+			? parseInt( config.general_refresh_rate )
+			: 15;
+	};
 	pathDist  = path.resolve( __dirname, '../../../dist' );
 	
 	app.use( bodyParser.json() );
@@ -42,7 +49,7 @@ const init = () => {
 		res.send( file );
 	} );
 	
-	telemetry.watch( { interval: interval }, data => {
+	telemetry.watch( { interval: interval() }, data => {
 		io.emit( 'update', data );
 	} );
 	

@@ -24,6 +24,30 @@
 					]
 				},
 				{
+					"id" :          "general_refresh_rate",
+					"label" :       "Refresh rate",
+					"disabled" :    false,
+					"description" : "Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date",
+					"values" :      [
+						{
+							"label" : "Realtime (15ms)",
+							"value" : "15"
+						},
+						{
+							"label" : "Quickly (150ms)",
+							"value" : "150"
+						},
+						{
+							"label" : "Balanced (500ms)",
+							"value" : "500"
+						},
+						{
+							"label" : "Slowly (1000ms)",
+							"value" : "1000"
+						}
+					]
+				},
+				{
 					"id" :          "general_skin_on_load",
 					"label" :       "Default skin loaded",
 					"disabled" :    false,
