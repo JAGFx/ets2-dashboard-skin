@@ -27,7 +27,7 @@
 					"id" :          "general_refresh_rate",
 					"label" :       "Refresh rate",
 					"disabled" :    false,
-					"description" : "Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date",
+					"description" : "Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;)",
 					"values" :      [
 						{
 							"label" : "Realtime (15ms)",
