@@ -15,15 +15,17 @@ You can find common elements, and skin config.
         <th>Default</th>
     </tr>
     <tr>
-        <td>general_job_remaining</td>
-        <td>Job delivery time</td>
+        <td>general_refresh_rate</td>
+        <td>Refresh rate</td>
         <td>
             <ul>
-                <li>due_date</li>
-                <li>remaining_date</li>
+                <li>15</li>
+                <li>150</li>
+                <li>500</li>
+                <li>1000</li>
             </ul>
         </td>
-        <td>due_date</td>
+        <td>15</td>
     </tr>
     <tr>
         <td>general_skin_on_load</td>
@@ -42,6 +44,17 @@ You can find common elements, and skin config.
             </ul>
         </td>
         <td>JAGFx</td>
+    </tr>
+    <tr>
+        <td>general_job_remaining</td>
+        <td>Job delivery time</td>
+        <td>
+            <ul>
+                <li>due_date</li>
+                <li>remaining_date</li>
+            </ul>
+        </td>
+        <td>due_date</td>
     </tr>
     <tr>
         <td>general_h-shift-layout</td>
