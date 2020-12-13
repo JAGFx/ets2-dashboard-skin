@@ -351,7 +351,6 @@ export default {
 					return pressure;
 				},
 				$gameTime() {
-					// TODO Get the correct time
 					const currentGameTime = this.telemetry.game.time.unix;
 					
 					return currentGameTime;
@@ -359,6 +358,13 @@ export default {
 				
 				// --- ./Commons
 				
+				// --- Truck
+				
+				$hasTruck: function () {
+					return (this.telemetry.truck.brand.id.length !== 0);
+				},
+				
+				// --- ./Truck
 				
 				// --- Job
 				
@@ -445,7 +451,7 @@ export default {
 			},
 			computed: {
 				gameConnected() {
-					return _app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive);
+					return _app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
 				},
 				// ----------------
 				...mapGetters( {

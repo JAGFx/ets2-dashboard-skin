@@ -24,21 +24,22 @@ const eventNameToComponent = function ( eventName ) {
 };
 
 const filterInputEvent = function ( event ) {
-	const eventName   = event.eventName;
-	const spitedEvent = eventName.split( '.' );
-	const eventToSkip = [
+	const eventName    = event.eventName;
+	const splicedEvent = eventName.split( '.' );
+	const eventToSkip  = [
 		//'truck.warning',
 		'truck.cruise-control',
 		'truck.refuel'
 	];
-	const rawData     = (_app.isOnDevEnvironment)
-		? scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ]
+	
+	const rawData    = (_app.isOnDevEnvironment)
+		? scsSDKData.events[ splicedEvent[ 0 ] ][ splicedEvent[ 1 ] ]
 		: event.rawData;
-	let eventSkipped  = false;
+	let eventSkipped = false;
 	
 	if ( eventToSkip.indexOf( eventName ) !== -1
 		 || (eventName === 'truck.cruise-control-decrease' && !rawData.cruiseControl.enabled)
-		 || (eventName === 'navigation.speed-limit' && rawData.speed.value === 0)
+		 || (eventName === 'navigation.speed-limit' && rawData[ 'speed-limit' ].speed.value === 0)
 	)
 		eventSkipped = true;
 	
