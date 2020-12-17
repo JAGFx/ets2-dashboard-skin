@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import DashMaps            from '@/dashboards/maps/components/DashMaps';
 import _history            from '@/utils/_history';
 import { mapGetters }      from 'vuex';
 import EventOverlayElement from './components/Elements/EventOverlayElement';
@@ -61,6 +62,7 @@ export default {
     DashRdInfo,
     DashScania,
     DashVolvoFH,
+    DashMaps,
     Game,
     Menu,
     OverlayElement,

@@ -1,0 +1,94 @@
+<template>
+  <Dashboard class="maps wrapper">
+    <!--    <img src="../../../../resources/maps/maps/ets2/tiles/2/2/0.png" alt="">-->
+    <l-map
+        ref="map"
+        :options="mapOptions"
+        class="w-100 h-100"
+    >
+      <l-tile-layer
+          :url="url"
+          :options="tileOptions"
+      />
+    </l-map>
+  </Dashboard>
+</template>
+
+<script>
+import L                       from 'leaflet';
+import { LTileLayer, LMap } from 'vue2-leaflet';
+import Dashboard               from '../../../components/Elements/Dashboard';
+
+
+const MAX_X = 19200;
+const MAX_Y = 18688;
+
+export default {
+  name:       'DashMaps',
+  components: {
+    Dashboard,
+    LMap,
+    LTileLayer,
+    //LImageOverlay
+    //LMarker,
+    //LPopup,
+    //LPolyline
+  },
+  data() {
+    const CustomProjection = {
+      project: function ( latlng ) {
+        return new L.Point( latlng.lat, latlng.lng );
+      },
+
+      unproject: function ( point ) {
+        return new L.LatLng( point.x, point.y );
+      },
+
+      bounds: L.bounds( [ 0, 0 ], [ MAX_X, MAX_Y ] )
+    };
+    const CustomCRS        = L.extend( {}, L.CRS, {
+      projection:     CustomProjection,
+      // Why 128? Because 7 is the maximum zoom level (i.e. 1:1 scale), and pow(2, 7) = 128.
+      transformation: new L.Transformation( 1.0 / 128, 0, 1.0 / 128, 0 ),
+
+      scale: function ( zoom ) {
+        return Math.pow( 2, zoom );
+      },
+
+      distance: function ( latlng1, latlng2 ) {
+        const dx = latlng2.lng - latlng1.lng,
+            dy = latlng2.lat - latlng1.lat;
+
+        return Math.sqrt( dx * dx + dy * dy );
+      },
+
+      infinite: false
+    } );
+
+    return {
+      mapOptions:  {
+        crs:       CustomCRS,
+        //maxBounds: [
+        //  [ 0, 0 ],
+        //  [ MAX_X, MAX_Y ]
+        //]
+      },
+      url:             'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
+      tileOptions: {
+        minZoom: -50,
+        maxZoom: 7,
+        tileSize: 256,
+        continuousWorld: false,
+        bounds:          [ [ 0, 0 ], [ MAX_X, MAX_Y ] ]
+      }
+    };
+  },
+  mounted() {
+    this.$refs.map.mapObject.setView( [ MAX_X / 2, MAX_Y / 2 ], 3 );
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+@import "../assets/scss/maps";
+</style>

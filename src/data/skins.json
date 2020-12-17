@@ -156,6 +156,23 @@
 				"width" :  2000,
 				"height" : 664
 			}
+		},
+		{
+			"id" :          "Maps",
+			"disabled" :    false,
+			"title" :       "Map",
+			"description" : "Map",
+			"author" :      {
+				"name" :  "SMITH Emmanuel",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
+			},
+			"repository" :  null,
+			"screenshot" :  "img/screenshots/test.png",
+			"size" :        {
+				"width" :  1920,
+				"height" : 1080
+			}
 		}
 	]
 }
