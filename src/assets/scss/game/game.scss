@@ -12,7 +12,7 @@
 	background: #272727;
 	font-size: .7rem;
 	border-bottom: 1px solid $cRed;
-	margin-bottom: .5rem;
+	//margin-bottom: .5rem;
 	height: 2rem;
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));

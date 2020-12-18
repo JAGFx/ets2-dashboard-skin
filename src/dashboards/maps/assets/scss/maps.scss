@@ -7,13 +7,61 @@
  */
 
 @import "~bourbon/core/bourbon";
+@import "../../../../assets/scss/common/variables";
 
 .maps {
+	background: #303030;
+	
 	&.wrapper {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
 		position: relative;
+		
+		.ol-control {
+			display: block;
+			position: absolute;
+			right: .3rem;
+			bottom: .3rem;
+			height: 1.5rem;
+			
+			button {
+				background: $cBlack;
+				border: 1px solid $cRed;
+				border-width: 0 0 .15rem 0;
+				color: #fff;
+				font-size: 1rem;
+				padding: 0 0 .1rem 0;
+				margin-right: .15rem;
+				outline: 0;
+				width: 1.5rem;
+				height: 1.5rem;
+				
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+		
+		#rotate-button-div {
+			font-size: .7rem;
+			position: absolute;
+			right: .3rem;
+			width: auto;
+			top: .3rem;
+			
+			button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				font-size: .6rem;
+				
+				i {
+					padding: .2rem 0 0 0;
+				}
+			}
+		}
 	}
 }
