@@ -2,10 +2,15 @@
   <Dashboard class="maps wrapper">
     <div id="map" class="w-100 h-100">
     </div>
-    <div id="rotate-button-div" class="ol-unselectable ol-control">
-      <button id="rotate-button" @click="onClickRotate">
-        <i :style="this.arrowRotate" class="fas fa-location-arrow"></i>
+    <div id="rotate-wrapper" class="ol-unselectable ol-control">
+      <button id="rotate-button" :class="{ enable: rotateWithPlayer }" @click="onClickRotate">
+        <i class="fas fa-location-arrow"></i>
       </button>
+    </div>
+    <div id="eta">
+      ETA:
+      {{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }},
+      {{ unit_length( telemetry.job.plannedDistance.km, 'km' ) }}
     </div>
   </Dashboard>
 </template>
@@ -21,7 +26,7 @@ export default {
   },
   data() {
     return {
-      arrowRotate: ''
+      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer
     };
   },
   mounted() {
@@ -29,10 +34,12 @@ export default {
   },
   methods:    {
     onClickRotate() {
-      console.log( 'R', _maps.d );
+      //console.log( 'R', _maps.d );
       _maps.d.gBehaviorRotateWithPlayer = (_maps.d.gBehaviorCenterOnPlayer)
           ? !_maps.d.gBehaviorRotateWithPlayer
           : true;
+
+      this.rotateWithPlayer = _maps.d.gBehaviorRotateWithPlayer;
     }
   },
   sockets:    {

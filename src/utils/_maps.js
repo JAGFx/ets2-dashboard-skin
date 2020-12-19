@@ -79,7 +79,7 @@ const init = () => {
 	// Creating custom controls.
 	let rotate_control = new ol.control.Control( {
 		//target: 'rotate-button-div'
-		element: document.getElementById( 'rotate-button-div' )
+		element: document.getElementById( 'rotate-wrapper' )
 	} );
 	/*let speed_limit_control = new ol.control.Control({
 	 element: document.getElementById('speed-limit')
