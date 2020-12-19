@@ -1016,9 +1016,9 @@
 		"nextRestStop" : 37740000,
 		"distance" :     1754.2119140625,
 		"time" :         117480.46112060547,
-		"speedLimit" :   {
+		"speedLimit" : {
 			"value" : 15,
-			"kph" :   30,
+			"kph" :   100,
 			"mph" :   15
 		}
 	},

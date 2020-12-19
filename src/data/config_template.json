@@ -88,6 +88,10 @@
 						{
 							"label" : "Volvo FH",
 							"value" : "VolvoFH"
+						},
+						{
+							"label" : "Maps",
+							"value" : "Maps"
 						}
 					]
 				},

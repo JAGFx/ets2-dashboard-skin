@@ -160,15 +160,15 @@
 		{
 			"id" :          "Maps",
 			"disabled" :    false,
-			"title" :       "Map",
-			"description" : "Map",
+			"title" :       "Map of route advisor",
+			"description" : "The map from the route advisor1",
 			"author" :      {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",
 				"url" :   "https://emmanuel-smith.me"
 			},
 			"repository" :  null,
-			"screenshot" :  "img/screenshots/test.png",
+			"screenshot" :  "img/screenshots/maps.png",
 			"size" :        {
 				"width" :  1920,
 				"height" : 1080
