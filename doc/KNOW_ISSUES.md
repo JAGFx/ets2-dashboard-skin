@@ -11,14 +11,20 @@ Retrieve here the list of know issues
     - Cause: Memory leak on telemetry data update
     - Solution: Fixed on #35
 - ~~Desyncing data on dashboard (All data may be updated with a delay)~~
-    - Cause: If CPU was over used, this delay may be more fat
-    - Solution: No more problem now. #41
+  - Cause: If CPU was over used, this delay may be more fat
+  - Solution: No more problem now. #41
 - May dosen't work with some Apple mobile device
-    - Cause: Unknown
-    - Solution: No solution yet
+  - Cause: Unknown
+  - Solution: No solution yet
 - App freeze sometime (Mobile device only)
-    - Cause: Unknown
-    - Solution: Top on screen to reactivate it #41
+  - Cause: Unknown
+  - Solution: Top on screen to reactivate it #41
+- Job Information Disappears when using Eurotunnel #47
+  - Cause: It's seem be an SCS SDK issue
+  - Solution: Pending correction from RenCloud
+- Next rest time and reamining time bad #46
+  - Cause: See [here](https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001)
+  - Solution: No solution yet
 
 ---
 ↩️ [Home](../README.md)
