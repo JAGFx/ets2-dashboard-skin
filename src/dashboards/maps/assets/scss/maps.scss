@@ -20,23 +20,30 @@
 		position: relative;
 		
 		.ol-control {
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
 			position: absolute;
 			right: .3rem;
 			bottom: .3rem;
-			height: 1.5rem;
+			height: 2rem;
 			
 			button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
 				color: $cWhite;
 				border: 0;
 				border-bottom: 2px solid $cRed;
 				background: $cBlackTransparentMid;
-				font-size: 1rem;
+				font-size: 1.5rem;
 				padding: 0 0 .1rem 0;
 				margin-right: .15rem;
 				outline: 0;
-				width: 1.5rem;
-				height: 1.5rem;
+				width: 2rem;
+				height: 2rem;
 				
 				&:last-child {
 					margin-right: 0;
@@ -45,7 +52,6 @@
 		}
 		
 		#rotate-wrapper {
-			font-size: .7rem;
 			position: absolute;
 			right: .3rem;
 			width: auto;
@@ -56,7 +62,7 @@
 				justify-content: center;
 				align-items: center;
 				text-align: center;
-				font-size: .6rem;
+				font-size: .9rem;
 				
 				i {
 					padding: .2rem 0 0 0;
@@ -81,16 +87,16 @@
 			justify-content: center;
 			align-items: center;
 			text-align: center;
-			font-size: .6rem;
+			font-size: 1rem;
 			color: $cWhite;
 			border: 0;
 			border-bottom: 2px solid $cRed;
 			background: $cBlackTransparentMid;
-			padding: .1rem 0.5rem 0;
+			padding: .5rem 0.5rem;
 			margin-right: .15rem;
 			outline: 0;
 			//width: 1.5rem;
-			height: 1.5rem;
+			height: 2rem;
 		}
 		
 		.ol-mouse-position {

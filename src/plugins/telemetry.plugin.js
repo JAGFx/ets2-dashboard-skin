@@ -445,6 +445,19 @@ export default {
 						strGear = 'R' + Math.abs( transmission.gear.displayed );
 					
 					return strGear;
+				},
+				
+				$etaDueDate: function () {
+					const currentGameTime = this.$gameTime();
+					let etaTime           = this.telemetry.navigation.time + currentGameTime;
+					
+					return etaTime;
+				},
+				$etaRemaing: function () {
+					const currentGameTime = this.$gameTime();
+					const etaTime         = this.$etaDueDate();
+					
+					return utils.app.diffDateTimeLocalized( currentGameTime, etaTime );
 				}
 				
 				// --- ./Navigation

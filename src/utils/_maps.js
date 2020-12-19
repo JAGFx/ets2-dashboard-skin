@@ -13,13 +13,16 @@ let d = {
 	playerIcon:                null,
 	playerFeature:             null,
 	gBehaviorCenterOnPlayer:   true,
-	gBehaviorRotateWithPlayer: false,
+	gBehaviorRotateWithPlayer: true,
 	gIgnoreViewChangeEvents:   false,
 	arrowRotate:               ''
 };
 
-const MAX_X = 131072;
-const MAX_Y = 131072;
+const MAP_MAX_X    = 131072;
+const MAP_MAX_Y    = 131072;
+const ZOOM_MIN     = 0;
+const ZOOM_MAX     = 9;
+const ZOOM_DEFAULT = 9;
 
 // ----
 
@@ -28,15 +31,15 @@ const init = () => {
 		// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
 		code:        'Funbit',
 		units:       'pixels',
-		extent:      [ 0, 0, MAX_X, MAX_Y ],
-		worldExtent: [ 0, 0, MAX_X, MAX_Y ]
+		extent:      [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
+		worldExtent: [ 0, 0, MAP_MAX_X, MAP_MAX_Y ]
 	} );
 	ol.proj.addProjection( projection );
 	
 	// Adding a marker for the player position/rotation.
 	d.playerIcon = new ol.style.Icon( {
 		anchor:         [ 0.5, 39 ],
-		scale:          .5,
+		scale:          .7,
 		anchorXUnits:   'fraction',
 		anchorYUnits:   'pixels',
 		rotateWithView: true,
@@ -47,7 +50,7 @@ const init = () => {
 		image: d.playerIcon
 	} );
 	d.playerFeature     = new ol.Feature( {
-		geometry: new ol.geom.Point( [ MAX_X / 2, MAX_Y / 2 ] )
+		geometry: new ol.geom.Point( [ MAP_MAX_X / 2, MAP_MAX_Y / 2 ] )
 	} );
 	// For some reason, we cannot pass the style in the constructor.
 	d.playerFeature.setStyle( playerIconStyle );
@@ -63,9 +66,9 @@ const init = () => {
 	
 	// Configuring the custom map tiles.
 	let custom_tilegrid = new ol.tilegrid.TileGrid( {
-		extent:      [ 0, 0, MAX_X, MAX_Y ],
-		minZoom:     0,
-		origin:      [ 0, MAX_Y ],
+		extent:      [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
+		minZoom:     ZOOM_MIN,
+		origin:      [ 0, MAP_MAX_Y ],
 		tileSize:    [ 512, 512 ],
 		resolutions: (function () {
 			let r = [];
@@ -93,8 +96,8 @@ const init = () => {
 		target:   'map',
 		controls: [
 			//new ol.control.ZoomSlider(),
-			// new ol.control.OverviewMap(),
-			// new ol.control.Rotate(),
+			//new ol.control.OverviewMap(),
+			//new ol.control.Rotate(),
 			// new ol.control.MousePosition(),  // DEBUG
 			new ol.control.Zoom(),
 			rotate_control
@@ -130,12 +133,12 @@ const init = () => {
 		],
 		view:     new ol.View( {
 			projection: projection,
-			extent:     [ 0, 0, MAX_X, MAX_Y ],
+			extent:     [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
 			//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-			center:     [ MAX_X / 2, MAX_Y / 2 ],
-			minZoom:    2,
-			maxZoom:    9,
-			zoom:       3//8
+			center:     [ MAP_MAX_X / 2, MAP_MAX_Y / 2 ],
+			minZoom:    ZOOM_MIN,
+			maxZoom:    ZOOM_MAX,
+			zoom:       ZOOM_DEFAULT
 		} )
 	} );
 	
@@ -180,7 +183,7 @@ const init = () => {
 
 const getMapTilesLayer = ( projection, tileGrid ) => {
 	return new ol.layer.Tile( {
-		extent: [ 0, 0, MAX_X, MAX_Y ],
+		extent: [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
 		source: new ol.source.XYZ( {
 			projection: projection,
 			url:        'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
@@ -255,7 +258,7 @@ const gameCoordToPixels = ( x, y ) => {
 	if ( x < -31056.8 && y < -5832.867 ) {
 		let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
 	}
-	r[ 1 ] = MAX_Y - r[ 1 ];
+	r[ 1 ] = MAP_MAX_Y - r[ 1 ];
 	return r;
 };
 

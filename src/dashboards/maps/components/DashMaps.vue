@@ -6,11 +6,15 @@
       <button id="rotate-button" :class="{ enable: rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>
+      <button id="center-button" :class="{ enable: focusOnPlayer }" @click="onClickCenter">
+        <i class="fas fa-bullseye"></i>
+      </button>
     </div>
     <div id="eta">
       ETA:
-      {{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }},
-      {{ unit_length( telemetry.job.plannedDistance.km, 'km' ) }}
+      {{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }},
+      {{ unit_length( telemetry.navigation.distance, 'm' ) }},
+      {{ $etaRemaing() }}
     </div>
   </Dashboard>
 </template>
@@ -19,6 +23,7 @@
 import { EventBus } from '@/event-bus.js';
 import _maps        from '@/utils/_maps';
 import Dashboard    from '../../../components/Elements/Dashboard';
+import _app         from '../../../utils/_app';
 
 export default {
   name:       'DashMaps',
@@ -27,7 +32,8 @@ export default {
   },
   data() {
     return {
-      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer
+      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer,
+      focusOnPlayer:    _maps.d.gBehaviorCenterOnPlayer
     };
   },
   mounted() {
@@ -36,17 +42,18 @@ export default {
     EventBus.$on( 'tmp-update', dataIn => {
       _maps.updatePlayerPositionAndRotation(
           dataIn.truck.position.X,
-          dataIn.truck.position.Y,
+          dataIn.truck.position.Z,
           dataIn.truck.orientation.heading,
           dataIn.truck.speed.kph );
     } );
 
     // --- Dev
-    /*_maps.updatePlayerPositionAndRotation(
-     this.telemetry.truck.position.X,
-     this.telemetry.truck.position.Y,
-     this.telemetry.truck.orientation.heading,
-     this.telemetry.truck.speed.kph );*/
+    if ( _app.isOnDevEnvironment )
+      _maps.updatePlayerPositionAndRotation(
+          this.telemetry.truck.position.X,
+          this.telemetry.truck.position.Z,
+          this.telemetry.truck.orientation.heading,
+          this.telemetry.truck.speed.kph );
     // --- ./Dev
   },
   methods:    {
@@ -57,6 +64,11 @@ export default {
           : true;
 
       this.rotateWithPlayer = _maps.d.gBehaviorRotateWithPlayer;
+    },
+    onClickCenter() {
+      _maps.d.gBehaviorCenterOnPlayer = !_maps.d.gBehaviorCenterOnPlayer;
+
+      this.focusOnPlayer = _maps.d.gBehaviorCenterOnPlayer;
     }
   }
 };
