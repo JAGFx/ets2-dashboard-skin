@@ -16,8 +16,9 @@
 </template>
 
 <script>
-import _maps     from '@/utils/_maps';
-import Dashboard from '../../../components/Elements/Dashboard';
+import { EventBus } from '@/event-bus.js';
+import _maps        from '@/utils/_maps';
+import Dashboard    from '../../../components/Elements/Dashboard';
 
 export default {
   name:       'DashMaps',
@@ -31,6 +32,22 @@ export default {
   },
   mounted() {
     _maps.init();
+
+    EventBus.$on( 'tmp-update', dataIn => {
+      _maps.updatePlayerPositionAndRotation(
+          dataIn.truck.position.X,
+          dataIn.truck.position.Y,
+          dataIn.truck.orientation.heading,
+          dataIn.truck.speed.kph );
+    } );
+
+    // --- Dev
+    /*_maps.updatePlayerPositionAndRotation(
+     this.telemetry.truck.position.X,
+     this.telemetry.truck.position.Y,
+     this.telemetry.truck.orientation.heading,
+     this.telemetry.truck.speed.kph );*/
+    // --- ./Dev
   },
   methods:    {
     onClickRotate() {
@@ -40,15 +57,6 @@ export default {
           : true;
 
       this.rotateWithPlayer = _maps.d.gBehaviorRotateWithPlayer;
-    }
-  },
-  sockets:    {
-    update() {
-      _maps.updatePlayerPositionAndRotation(
-          this.telemetry.truck.cabin.offset.position.X,
-          this.telemetry.truck.cabin.offset.position.Y,
-          this.telemetry.truck.cabin.offset.orientation.heading,
-          this.telemetry.truck.speed.kph );
     }
   }
 };

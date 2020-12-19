@@ -13,7 +13,7 @@ let d = {
 	playerIcon:                null,
 	playerFeature:             null,
 	gBehaviorCenterOnPlayer:   true,
-	gBehaviorRotateWithPlayer: true,
+	gBehaviorRotateWithPlayer: false,
 	gIgnoreViewChangeEvents:   false,
 	arrowRotate:               ''
 };
@@ -143,7 +143,7 @@ const init = () => {
 	//let rotate_button = document.getElementById( 'rotate-button' );
 	//let rotate_arrow  = rotate_button.firstElementChild;
 	d.map.getView().on( 'change:rotation', function ( ev ) {
-		console.log( 'Plop' );
+		//console.log( 'Plop' );
 		d.arrowRotate = {
 			transform: `rotate(${ ev.target.getRotation() }rad)`
 		};
@@ -152,7 +152,7 @@ const init = () => {
 	// Detecting when the user interacts with the map.
 	// https://stackoverflow.com/q/32868671/
 	d.map.getView().on( [ 'change:center', 'change:rotation' ], function ( ev ) {
-		console.log( 'Hola', d.gIgnoreViewChangeEvents );
+		//console.log( 'Hola', d.gIgnoreViewChangeEvents );
 		
 		if ( d.gIgnoreViewChangeEvents ) {
 			return;

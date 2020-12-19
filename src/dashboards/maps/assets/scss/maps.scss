@@ -92,5 +92,14 @@
 			//width: 1.5rem;
 			height: 1.5rem;
 		}
+		
+		.ol-mouse-position {
+			position: absolute;
+			width: 5rem;
+			height: 5rem;
+			left: 5rem;
+			top: 5rem;
+			background: $cBlackTransparentMid;
+		}
 	}
 }
