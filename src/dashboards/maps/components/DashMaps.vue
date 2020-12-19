@@ -10,6 +10,9 @@
         <i class="fas fa-bullseye"></i>
       </button>
     </div>
+    <div id="speed-limit">
+      <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
+    </div>
     <div id="eta">
       ETA:
       {{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }},

@@ -99,6 +99,28 @@
 			height: 2rem;
 		}
 		
+		#speed-limit {
+			position: absolute;
+			left: .3rem;
+			width: auto;
+			top: .3rem;
+			
+			span {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				background: $cWhite;
+				border: .3rem solid $cRed;
+				border-radius: 100%;
+				width: 3rem;
+				height: 3rem;
+				color: $cBlack;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+		}
+		
 		.ol-mouse-position {
 			position: absolute;
 			width: 5rem;
