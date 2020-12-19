@@ -80,10 +80,10 @@ const init = () => {
 	} );
 	
 	// Creating custom controls.
-	let rotate_control = new ol.control.Control( {
-		//target: 'rotate-button-div'
-		element: document.getElementById( 'rotate-wrapper' )
-	} );
+	//let rotate_control = new ol.control.Control( {
+	//	//target: 'rotate-button-div'
+	//	element: document.getElementById( 'rotate-wrapper' )
+	//} );
 	/*let speed_limit_control = new ol.control.Control({
 	 element: document.getElementById('speed-limit')
 	 });
@@ -99,8 +99,8 @@ const init = () => {
 			//new ol.control.OverviewMap(),
 			//new ol.control.Rotate(),
 			// new ol.control.MousePosition(),  // DEBUG
-			new ol.control.Zoom(),
-			rotate_control
+			new ol.control.Zoom()
+			//rotate_control
 			//speed_limit_control,
 			//text_control
 			// TODO: Set 'tipLabel' on both zoom and rotate controls to language-specific translations.
@@ -145,12 +145,12 @@ const init = () => {
 	// Adding behavior to the custom button.
 	//let rotate_button = document.getElementById( 'rotate-button' );
 	//let rotate_arrow  = rotate_button.firstElementChild;
-	d.map.getView().on( 'change:rotation', function ( ev ) {
-		//console.log( 'Plop' );
-		d.arrowRotate = {
-			transform: `rotate(${ ev.target.getRotation() }rad)`
-		};
-	} );
+	//d.map.getView().on( 'change:rotation', function ( ev ) {
+	//	//console.log( 'Plop' );
+	//	d.arrowRotate = {
+	//		transform: `rotate(${ ev.target.getRotation() }rad)`
+	//	};
+	//} );
 	
 	// Detecting when the user interacts with the map.
 	// https://stackoverflow.com/q/32868671/
@@ -201,8 +201,8 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 			//     tileSize: [256, 256]
 			// }),
 			wrapX:      false,
-			minZoom:    2,
-			maxZoom:    9
+			minZoom:    ZOOM_MIN,
+			maxZoom:    ZOOM_MAX
 		} )
 	} );
 };
