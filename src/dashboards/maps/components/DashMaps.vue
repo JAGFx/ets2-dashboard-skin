@@ -6,14 +6,14 @@
       <button id="rotate-button" :class="{ enable: rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>
-      <button id="center-button" :class="{ enable: focusOnPlayer }" @click="onClickCenter">
+      <button id="center-button" class="enable" @click="onClickCenter">
         <i class="fas fa-bullseye"></i>
       </button>
     </div>
-    <div id="speed-limit">
+    <div id="speed-limit" v-show="telemetry.navigation.speedLimit.value > 0">
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
-    <div id="eta">
+    <div id="eta" v-show="telemetry.navigation.distance > 0">
       ETA:
       {{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }},
       {{ unit_length( telemetry.navigation.distance, 'm' ) }},
@@ -35,8 +35,7 @@ export default {
   },
   data() {
     return {
-      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer,
-      focusOnPlayer:    _maps.d.gBehaviorCenterOnPlayer
+      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer
     };
   },
   mounted() {
@@ -61,7 +60,6 @@ export default {
   },
   methods:    {
     onClickRotate() {
-      //console.log( 'R', _maps.d );
       _maps.d.gBehaviorRotateWithPlayer = (_maps.d.gBehaviorCenterOnPlayer)
           ? !_maps.d.gBehaviorRotateWithPlayer
           : true;
@@ -70,8 +68,6 @@ export default {
     },
     onClickCenter() {
       _maps.d.gBehaviorCenterOnPlayer = !_maps.d.gBehaviorCenterOnPlayer;
-
-      this.focusOnPlayer = _maps.d.gBehaviorCenterOnPlayer;
     }
   }
 };

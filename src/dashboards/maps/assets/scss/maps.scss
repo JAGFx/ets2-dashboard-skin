@@ -37,8 +37,8 @@
 				color: $cWhite;
 				border: 0;
 				border-bottom: 2px solid $cRed;
-				background: $cBlackTransparentMid;
-				font-size: 1.5rem;
+				background: transparentize($cBlackTransparentMid, .3);
+				font-size: 2rem;
 				padding: 0 0 .1rem 0;
 				margin-right: .15rem;
 				outline: 0;
@@ -48,6 +48,10 @@
 				&:last-child {
 					margin-right: 0;
 				}
+			}
+			
+			&.ol-zoom > button {
+				padding: 0 0 .4rem 0;
 			}
 		}
 		
@@ -62,14 +66,14 @@
 				justify-content: center;
 				align-items: center;
 				text-align: center;
-				font-size: .9rem;
+				font-size: 1rem;
 				
 				i {
 					padding: .2rem 0 0 0;
 				}
 				
 				&:not(.enable) {
-					background: $cBlackTransparentHigh;
+					background: transparentize($cBlackTransparentHigh, .3);
 					border-color: $cGray;
 					color: $cGray;
 				}
@@ -87,11 +91,11 @@
 			justify-content: center;
 			align-items: center;
 			text-align: center;
-			font-size: 1rem;
+			font-size: 1.5rem;
 			color: $cWhite;
 			border: 0;
 			border-bottom: 2px solid $cRed;
-			background: $cBlackTransparentMid;
+			background: transparentize($cBlackTransparentMid, .3);
 			padding: .5rem 0.5rem;
 			margin-right: .15rem;
 			outline: 0;
@@ -113,11 +117,11 @@
 				background: $cWhite;
 				border: .3rem solid $cRed;
 				border-radius: 100%;
-				width: 3rem;
-				height: 3rem;
+				width: 3.2rem;
+				height: 3.2rem;
 				color: $cBlack;
 				font-weight: bold;
-				font-size: 1.2rem;
+				font-size: 1.5rem;
 			}
 		}
 		
@@ -127,7 +131,7 @@
 			height: 5rem;
 			left: 5rem;
 			top: 5rem;
-			background: $cBlackTransparentMid;
+			background: transparentize($cBlackTransparentMid, .3);;
 		}
 	}
 }
