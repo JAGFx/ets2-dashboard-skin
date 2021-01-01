@@ -2,23 +2,61 @@
   <Dashboard class="maps wrapper">
     <div id="map" class="w-100 h-100">
     </div>
-    <div id="rotate-wrapper" class="ol-unselectable ol-control">
-      <button id="rotate-button" :class="{ enable: rotateWithPlayer }" @click="onClickRotate">
+
+    <!-- Speed area-->
+    <div id="speed-area" class="justify-content-center align-items-center bottom">
+      <div class="speed button w-auto d-flex justify-content-center align-items-center flex-column">
+        <span class="value h-100">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
+        <small class="unit h-100">{{ unit_speed( telemetry.truck.speed, false ) }}</small>
+      </div>
+
+      <div :class="telemetry.truck.transmission.shifterType" class="truck-gear button">
+        <span class="value">{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
+      </div>
+    </div>
+    <!-- ./Speed area -->
+
+    <!-- Control map buttons -->
+    <div class="controls-wrapper bottom">
+      <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>
-      <button id="center-button" class="enable" @click="onClickCenter">
+      <button id="center-button" @click="onClickCenter">
         <i class="fas fa-bullseye"></i>
       </button>
+      <div id="ol-zoom-wrapper"></div>
     </div>
-    <div id="speed-limit" v-show="telemetry.navigation.speedLimit.value > 0">
+    <!-- ./Control map buttons -->
+
+    <!-- Speed limit -->
+    <div v-show="telemetry.navigation.speedLimit.value > 0" id="speed-limit" class="justify-content-center align-items-center">
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
-    <div id="eta" v-show="telemetry.navigation.distance > 0">
-      ETA:
-      {{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }},
-      {{ unit_length( telemetry.navigation.distance, 'm' ) }},
-      {{ $etaRemaing() }}
+    <!-- ./Speed limit -->
+
+    <!-- Navigation ETA -->
+    <div v-show="telemetry.navigation.distance > 0" class="eta-wrapper d-flex justify-content-end align-items-start flex-column left">
+      <!--      <span class="w-100 button">ETA:</span>-->
+      <span class="button">
+        <div class="round h-100">
+					<i class="icon-time"></i>
+				</div>
+        <span class="w-100">{{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+      </span>
+      <span class="button">
+        <div class="round h-100">
+					<i class="icon-time"></i>
+				</div>
+        <span class="w-100">{{ $etaRemaing() }}</span>
+      </span>
+      <span class="button">
+        <div class="round h-100">
+					<i class="icon-ruler"></i>
+				</div>
+        <span class="w-100">{{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
+      </span>
     </div>
+    <!-- ./Navigation ETA -->
   </Dashboard>
 </template>
 
@@ -58,7 +96,7 @@ export default {
           this.telemetry.truck.speed.kph );
     // --- ./Dev
   },
-  methods:    {
+  methods: {
     onClickRotate() {
       _maps.d.gBehaviorRotateWithPlayer = (_maps.d.gBehaviorCenterOnPlayer)
           ? !_maps.d.gBehaviorRotateWithPlayer

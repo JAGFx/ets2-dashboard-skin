@@ -19,95 +19,128 @@
 		text-align: center;
 		position: relative;
 		
-		.ol-control {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
+		
+		.controls-wrapper {
 			position: absolute;
 			right: .3rem;
+			width: auto;
 			bottom: .3rem;
+		}
+		
+		.controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
+			display: flex;
+			justify-content: center;
+			align-items: end;
+			text-align: center;
 			height: 2rem;
 			
-			button {
+			&.left {
+				button, .button {
+					border-left: 2px solid $cRed;
+				}
+			}
+			
+			&.bottom {
+				button, .button {
+					border-bottom: 2px solid $cRed;
+				}
+			}
+			
+			&.top {
+				button, .button {
+					border-top: 2px solid $cRed;
+				}
+			}
+			
+			button, .button {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				text-align: center;
 				color: $cWhite;
 				border: 0;
-				border-bottom: 2px solid $cRed;
+				
 				background: transparentize($cBlackTransparentMid, .3);
-				font-size: 2rem;
-				padding: 0 0 .1rem 0;
+				font-size: 1.4rem;
 				margin-right: .15rem;
+				margin-bottom: .15rem;
 				outline: 0;
 				width: 2rem;
 				height: 2rem;
+				overflow: hidden;
+				
+				> span {
+					padding: .2rem;
+				}
 				
 				&:last-child {
 					margin-right: 0;
 				}
-			}
-			
-			&.ol-zoom > button {
-				padding: 0 0 .4rem 0;
-			}
-		}
-		
-		#rotate-wrapper {
-			position: absolute;
-			right: .3rem;
-			width: auto;
-			top: .3rem;
-			
-			button {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				font-size: 1rem;
 				
 				i {
 					padding: .2rem 0 0 0;
 				}
 				
-				&:not(.enable) {
+				&.disabled {
 					background: transparentize($cBlackTransparentHigh, .3);
 					border-color: $cGray;
 					color: $cGray;
 				}
 			}
+			
+			//&.ol-zoom > button {
+			//	padding: 0 0 .4rem 0;
+			//}
 		}
 		
-		#eta {
-			
+		//.controls-wrapper {
+		//	position: absolute;
+		//	right: .3rem;
+		//	width: auto;
+		//	top: .3rem;
+		//
+		//	button {
+		//		display: flex;
+		//		justify-content: center;
+		//		align-items: center;
+		//		text-align: center;
+		//		font-size: 1rem;
+		//
+		//
+		//	}
+		//}
+		
+		.eta-wrapper {
+			height: inherit;
 			position: absolute;
 			left: .3rem;
 			width: auto;
 			bottom: .3rem;
 			
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			font-size: 1.5rem;
-			color: $cWhite;
-			border: 0;
-			border-bottom: 2px solid $cRed;
-			background: transparentize($cBlackTransparentMid, .3);
-			padding: .5rem 0.5rem;
-			margin-right: .15rem;
-			outline: 0;
-			//width: 1.5rem;
-			height: 2rem;
+			.button {
+				width: auto;
+				
+				.round {
+					width: $deHeight;
+					height: $deHeight;
+					overflow: hidden;
+					background: $cBlackTransparentHigh;
+					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+					padding: 0 .5rem;
+					vertical-align: center;
+					@include prefixer(display, flex, ("webkit", "moz", "o"));
+					@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+					@include prefixer(align-items, center, ("webkit", "moz", "o"));
+					font-size: 1.5rem;
+				}
+			}
 		}
 		
 		#speed-limit {
 			position: absolute;
-			left: .3rem;
 			width: auto;
-			top: .3rem;
+			bottom: .6rem;
 			
 			span {
 				display: flex;
@@ -121,6 +154,34 @@
 				height: 3.2rem;
 				color: $cBlack;
 				font-weight: bold;
+				font-size: 1.5rem;
+			}
+		}
+		
+		#speed-area {
+			position: absolute;
+			top: .3rem;
+			height: 3.1rem;
+			
+			.speed {
+				height: 3rem;
+				
+				.value {
+					font-size: 2rem;
+					line-height: 1.5rem;
+				}
+				
+				.unit {
+					font-size: .7rem;
+				}
+			}
+			
+			.truck-gear {
+				line-height: 1rem;
+				background: $cWhiteGray;
+				color: $cBlack;
+				width: 3rem;
+				height: 3rem;
 				font-size: 1.5rem;
 			}
 		}

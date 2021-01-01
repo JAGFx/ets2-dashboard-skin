@@ -99,7 +99,12 @@ const init = () => {
 			//new ol.control.OverviewMap(),
 			//new ol.control.Rotate(),
 			// new ol.control.MousePosition(),  // DEBUG
-			new ol.control.Zoom()
+			new ol.control.Zoom( {
+				className:    'ol-zoom',
+				zoomInLabel:  '<i class="fas fa-search-plus"></i>',
+				zoomOutLabel: '<i class="fas fa-search-minus"></i>',
+				target:       'ol-zoom-wrapper'
+			} )
 			//rotate_control
 			//speed_limit_control,
 			//text_control
@@ -111,7 +116,7 @@ const init = () => {
 		 // Without it, Shift+mouse-drag creates a rectangle to zoom to an area.
 		 //new ol.interaction.DragRotateAndZoom()
 		 ] ),*/
-		layers:   [
+		layers: [
 			getMapTilesLayer( projection, custom_tilegrid ),
 			//getTextLayer(),
 			// Debug layer below.
@@ -131,14 +136,14 @@ const init = () => {
 			//}),
 			vectorLayer
 		],
-		view:     new ol.View( {
+		view:   new ol.View( {
 			projection: projection,
 			extent:     [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
 			//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-			center:     [ MAP_MAX_X / 2, MAP_MAX_Y / 2 ],
-			minZoom:    ZOOM_MIN,
-			maxZoom:    ZOOM_MAX,
-			zoom:       ZOOM_DEFAULT
+			center:  [ MAP_MAX_X / 2, MAP_MAX_Y / 2 ],
+			minZoom: ZOOM_MIN,
+			maxZoom: ZOOM_MAX,
+			zoom:    ZOOM_DEFAULT
 		} )
 	} );
 	
@@ -193,16 +198,16 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 			//
 			// Using custom_tilegrid causes rescaling of all image tiles before drawing
 			// (i.e. no image will be rendered at 1:1 pixels), But fixes all other issues.
-			tileGrid:   tileGrid,
+			tileGrid: tileGrid,
 			// tileGrid: ol.tilegrid.createXYZ({
 			//     extent: [0, 0, MAX_X, MAX_Y],
 			//     minZoom: 0,
 			//     maxZoom: 7,
 			//     tileSize: [256, 256]
 			// }),
-			wrapX:      false,
-			minZoom:    ZOOM_MIN,
-			maxZoom:    ZOOM_MAX
+			wrapX:   false,
+			minZoom: ZOOM_MIN,
+			maxZoom: ZOOM_MAX
 		} )
 	} );
 };
