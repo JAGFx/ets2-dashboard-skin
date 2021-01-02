@@ -140,7 +140,8 @@
 		#speed-limit {
 			position: absolute;
 			width: auto;
-			bottom: .6rem;
+			left: .3rem;
+			top: .3rem;
 			
 			span {
 				display: flex;
@@ -160,15 +161,21 @@
 		
 		#speed-area {
 			position: absolute;
-			top: .3rem;
-			height: 3.1rem;
+			bottom: .3rem;
+			height: auto;
+			
+			.button {
+				height: auto;
+				width: auto;
+				padding: .3rem;
+			}
 			
 			.speed {
-				height: 3rem;
-				
 				.value {
-					font-size: 2rem;
-					line-height: 1.5rem;
+					font-family: suprrpg !important;
+					@include prefixer(transform, skew(19deg, 0deg), ("webkit", "moz", "o"));
+					font-size: 2.5rem;
+					line-height: 2.3rem;
 				}
 				
 				.unit {
@@ -177,11 +184,14 @@
 			}
 			
 			.truck-gear {
-				line-height: 1rem;
+				line-height: 1.4rem;
 				background: $cWhiteGray;
 				color: $cBlack;
-				width: 3rem;
-				height: 3rem;
+				padding: .3rem;
+				height: inherit;
+				font-weight: bold;
+				//width: 3rem;
+				//height: 3rem;
 				font-size: 1.5rem;
 			}
 		}

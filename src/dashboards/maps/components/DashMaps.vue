@@ -1,20 +1,12 @@
 <template>
   <Dashboard class="maps wrapper">
-    <div id="map" class="w-100 h-100">
-    </div>
+    <div id="map" class="w-100 h-100"></div>
 
-    <!-- Speed area-->
-    <div id="speed-area" class="justify-content-center align-items-center bottom">
-      <div class="speed button w-auto d-flex justify-content-center align-items-center flex-column">
-        <span class="value h-100">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
-        <small class="unit h-100">{{ unit_speed( telemetry.truck.speed, false ) }}</small>
-      </div>
-
-      <div :class="telemetry.truck.transmission.shifterType" class="truck-gear button">
-        <span class="value">{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
-      </div>
+    <!-- Speed limit -->
+    <div v-show="telemetry.navigation.speedLimit.value > 0" id="speed-limit" class="justify-content-center align-items-center">
+      <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
-    <!-- ./Speed area -->
+    <!-- ./Speed limit -->
 
     <!-- Control map buttons -->
     <div class="controls-wrapper bottom">
@@ -28,11 +20,20 @@
     </div>
     <!-- ./Control map buttons -->
 
-    <!-- Speed limit -->
-    <div v-show="telemetry.navigation.speedLimit.value > 0" id="speed-limit" class="justify-content-center align-items-center">
-      <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
+    <!-- Speed area-->
+    <div id="speed-area" class=" bottom button">
+      <div class="d-flex justify-content-center align-items-center bottom button">
+        <div class="speed">
+          <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
+          <!--        <small class="unit h-100">{{ unit_speed( telemetry.truck.speed, false ) }}</small>-->
+        </div>
+
+        <div :class="telemetry.truck.transmission.shifterType" class="truck-gear ml-2">
+          {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
+        </div>
+      </div>
     </div>
-    <!-- ./Speed limit -->
+    <!-- ./Speed area -->
 
     <!-- Navigation ETA -->
     <div v-show="telemetry.navigation.distance > 0" class="eta-wrapper d-flex justify-content-end align-items-start flex-column left">
