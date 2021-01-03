@@ -15,10 +15,13 @@ const state = () => (defaultData);
 
 // getters
 const getters = {
-	get: ( state ) => ( elm ) => {
+	get:   ( state ) => ( elm ) => {
 		return state[ elm ];
 	},
-	all: ( state ) => {
+	exist: ( state ) => ( elm ) => {
+		return state.hasOwnProperty( elm );
+	},
+	all:   ( state ) => {
 		return state;
 	}
 };

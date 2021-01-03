@@ -158,18 +158,19 @@
 			}
 		},
 		{
-			"id" :          "Maps",
-			"disabled" :    false,
-			"title" :       "Map of route advisor",
-			"description" : "The map from the route advisor1",
-			"author" :      {
+			"id" :              "Maps",
+			"disabled" :        false,
+			"title" :           "Map of route advisor",
+			"description" :     "The map from the route advisor1",
+			"config_template" : "true",
+			"author" :          {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",
 				"url" :   "https://emmanuel-smith.me"
 			},
-			"repository" :  null,
-			"screenshot" :  "img/screenshots/maps.png",
-			"size" :        {
+			"repository" :      null,
+			"screenshot" :      "img/screenshots/maps.png",
+			"size" :            {
 				"width" :  1920,
 				"height" : 1080
 			}

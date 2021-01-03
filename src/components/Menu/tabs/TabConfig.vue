@@ -40,7 +40,6 @@
 					Show more
 				</span>
       </h3>
-      <!--			{{ skinsConfigTemplate( skin ) }}-->
       <div v-for="category in skinsConfigTemplate( skin )" :key="category.name" :class="'config-skin-' + skin.id" class="collapse fields mb-4">
         <h4 class="d-flex justify-content-between align-items-center">{{ category.name }}</h4>
 
@@ -57,6 +56,7 @@ import _history       from '@/utils/_history';
 import _              from 'lodash';
 import { mapGetters } from 'vuex';
 import configJAGFx    from '../../../dashboards/jagfx/data/config_template.json';
+import configMaps     from '../../../dashboards/maps/data/config_template.json';
 
 import config      from '../../../data/config_template.json';
 import skins       from '../../../data/skins.json';
@@ -72,7 +72,8 @@ export default {
       return skin.config_template !== undefined && skin.config_template;
     } );
     const configSkins = {
-      JAGFx: configJAGFx
+      JAGFx: configJAGFx,
+      Maps:  configMaps
     };
 
     return {

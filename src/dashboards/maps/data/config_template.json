@@ -1,0 +1,119 @@
+{
+	"categories" : [
+		{
+			"name" :     "Elements",
+			"elements" : [
+				{
+					"id" :          "maps_elements_eta",
+					"label" :       "ETA information",
+					"description" : "Display the remaining or ETA time and the current remaining distance to the destination",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : true
+						},
+						{
+							"label" : "No",
+							"value" : false
+						}
+					]
+				},
+				{
+					"id" :          "maps_elements_speedAndGear",
+					"label" :       "Speed and gear",
+					"description" : "Display the current speed and gear",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : true
+						},
+						{
+							"label" : "No",
+							"value" : false
+						}
+					]
+				},
+				{
+					"id" :          "maps_elements_mapControls",
+					"label" :       "Map controls",
+					"description" : "Display map controls (Recenter, focus on user, zoom in and zoom out)",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : true
+						},
+						{
+							"label" : "No",
+							"value" : false
+						}
+					]
+				},
+				{
+					"id" :          "maps_elements_speedLimit",
+					"label" :       "Speed limit",
+					"description" : "Display current speed limit",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : true
+						},
+						{
+							"label" : "No",
+							"value" : false
+						}
+					]
+				}
+			]
+		},
+		{
+			"name" :     "Map",
+			"elements" : [
+				{
+					"id" :          "maps_map_tilesLocations",
+					"label" :       "Tiles location",
+					"description" : "Change the way to get map tiles. From a distant serveur or form a local source",
+					"values" :      [
+						{
+							"label" : "Remote",
+							"value" : "remote"
+						},
+						{
+							"label" : "Local",
+							"value" : "local"
+						}
+					]
+				},
+				{
+					"id" :          "maps_map_activeMap",
+					"label" :       "Active map",
+					"description" : "Change the active map",
+					"values" :      [
+						{
+							"label" : "Vanilla ETS and ATS",
+							"value" : "vanilla"
+						},
+						{
+							"label" : "Promods",
+							"value" : "promods"
+						}
+					]
+				},
+				{
+					"id" :          "maps_map_navigationRemaining",
+					"label" :       "Navigation ETA",
+					"description" : "Display the due date or the remaining time for the current route",
+					"values" :      [
+						{
+							"label" : "Due date",
+							"value" : "due_date"
+						},
+						{
+							"label" : "Remaining date",
+							"value" : "remaining_date"
+						}
+					]
+				}
+			]
+		}
+	]
+}

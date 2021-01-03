@@ -458,6 +458,12 @@ export default {
 					const etaTime         = this.$etaDueDate();
 					
 					return utils.app.diffDateTimeLocalized( currentGameTime, etaTime );
+				},
+				$haveAnActiveNavigation() {
+					return this.telemetry.navigation.distance > 0;
+				},
+				$haveAnActiveSpeedLimit() {
+					return this.telemetry.navigation.speedLimit.value > 0;
 				}
 				
 				// --- ./Navigation

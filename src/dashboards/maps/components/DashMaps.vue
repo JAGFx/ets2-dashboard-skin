@@ -3,13 +3,13 @@
     <div id="map" class="w-100 h-100"></div>
 
     <!-- Speed limit -->
-    <div v-show="telemetry.navigation.speedLimit.value > 0" id="speed-limit" class="justify-content-center align-items-center">
+    <div v-if="$haveAnActiveSpeedLimit() && getConfig('maps_elements_speedLimit')" id="speed-limit" class="justify-content-center align-items-center">
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
     <!-- ./Speed limit -->
 
     <!-- Control map buttons -->
-    <div class="controls-wrapper left h-100 flex-column justify-content-end">
+    <div v-if="getConfig('maps_elements_mapControls')" class="controls-wrapper left h-100 flex-column justify-content-end">
       <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>
@@ -21,7 +21,7 @@
     <!-- ./Control map buttons -->
 
     <!-- Speed area-->
-    <div id="speed-area" class="top button">
+    <div v-if="getConfig('maps_elements_speedAndGear')" id="speed-area" class="top button">
       <div class="d-flex justify-content-center align-items-center bottom button">
         <div class="speed">
           <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
@@ -36,15 +36,15 @@
     <!-- ./Speed area -->
 
     <!-- Navigation ETA -->
-    <div v-show="telemetry.navigation.distance > 0" class="eta-wrapper d-flex justify-content-end align-items-start flex-column">
+    <div v-if="$haveAnActiveNavigation() && getConfig('maps_elements_eta')" class="eta-wrapper d-flex justify-content-end align-items-start flex-column">
       <!--      <span class="w-100 button">ETA:</span>-->
-      <span class="button">
+      <span class="button" v-if="getConfig('maps_map_navigationRemaining') === 'due_date'">
         <div class="round h-100">
 					<i class="icon-time"></i>
 				</div>
         <span class="w-100">{{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
       </span>
-      <span class="button">
+      <span class="button" v-else>
         <div class="round h-100">
 					<i class="icon-time"></i>
 				</div>
@@ -62,10 +62,11 @@
 </template>
 
 <script>
-import { EventBus } from '@/event-bus.js';
-import _maps        from '@/utils/_maps';
-import Dashboard    from '../../../components/Elements/Dashboard';
-import _app         from '../../../utils/_app';
+import { EventBus }   from '@/event-bus.js';
+import _maps          from '@/utils/_maps';
+import { mapGetters } from 'vuex';
+import Dashboard      from '../../../components/Elements/Dashboard';
+import _app           from '../../../utils/_app';
 
 export default {
   name:       'DashMaps',
@@ -97,7 +98,7 @@ export default {
           this.telemetry.truck.speed.kph );
     // --- ./Dev
   },
-  methods: {
+  methods:  {
     onClickRotate() {
       _maps.d.gBehaviorRotateWithPlayer = (_maps.d.gBehaviorCenterOnPlayer)
           ? !_maps.d.gBehaviorRotateWithPlayer
@@ -108,6 +109,11 @@ export default {
     onClickCenter() {
       _maps.d.gBehaviorCenterOnPlayer = !_maps.d.gBehaviorCenterOnPlayer;
     }
+  },
+  computed: {
+    ...mapGetters( {
+      getConfig: 'config/get'
+    } )
   }
 };
 </script>

@@ -1,8 +1,8 @@
 {
 	"general_region" :                         "eu",
-	"general_refresh_rate" :                   "15",
+	"general_refresh_rate" :                   15,
 	"general_skin_on_load" :                   "Maps",
-	"general_unit_auto" :                      "false",
+	"general_unit_auto" :                      false,
 	"general_h-shift-layout" :                 "h-shifter",
 	"unit_weight" :                            "kg",
 	"unit_length" :                            "m",
@@ -53,5 +53,12 @@
 	"events_game.ferry" :                      true,
 	"events_game.tollgate" :                   true,
 	"events_game.fine" :                       true,
-	"events_game.pause" :                      true
+	"events_game.pause" :                      true,
+	"maps_elements_eta" :                      true,
+	"maps_elements_speedAndGear" :             true,
+	"maps_elements_mapControls" :              true,
+	"maps_elements_speedLimit" :               true,
+	"maps_map_tilesLocations" :                "remote",
+	"maps_map_activeMap" :                     "vanilla",
+	"maps_map_navigationRemaining" :           "remaining_date"
 }
