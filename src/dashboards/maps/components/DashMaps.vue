@@ -9,7 +9,7 @@
     <!-- ./Speed limit -->
 
     <!-- Control map buttons -->
-    <div class="controls-wrapper bottom">
+    <div class="controls-wrapper left h-100 flex-column justify-content-end">
       <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>
@@ -21,7 +21,7 @@
     <!-- ./Control map buttons -->
 
     <!-- Speed area-->
-    <div id="speed-area" class=" bottom button">
+    <div id="speed-area" class="top button">
       <div class="d-flex justify-content-center align-items-center bottom button">
         <div class="speed">
           <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
@@ -36,7 +36,7 @@
     <!-- ./Speed area -->
 
     <!-- Navigation ETA -->
-    <div v-show="telemetry.navigation.distance > 0" class="eta-wrapper d-flex justify-content-end align-items-start flex-column left">
+    <div v-show="telemetry.navigation.distance > 0" class="eta-wrapper d-flex justify-content-end align-items-start flex-column">
       <!--      <span class="w-100 button">ETA:</span>-->
       <span class="button">
         <div class="round h-100">

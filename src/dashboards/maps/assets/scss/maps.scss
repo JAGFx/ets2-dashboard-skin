@@ -13,195 +13,220 @@
 	background: #303030;
 	
 	&.wrapper {
-		display: flex;
+		display:         flex;
 		justify-content: center;
-		align-items: center;
-		text-align: center;
-		position: relative;
-		
-		
-		.controls-wrapper {
-			position: absolute;
-			right: .3rem;
-			width: auto;
-			bottom: .3rem;
-		}
+		align-items:     center;
+		text-align:      center;
+		position:        relative;
 		
 		.controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
-			display: flex;
+			display:         flex;
 			justify-content: center;
-			align-items: end;
-			text-align: center;
-			height: 2rem;
+			align-items:     end;
+			text-align:      center;
+			height:          2rem;
+			
+			button, .button {
+				display:         flex;
+				justify-content: center;
+				align-items:     center;
+				text-align:      center;
+				color:           $cWhite;
+				border:          0;
+				background:      transparentize($cBlackTransparentMid, .3);
+				font-size:       1.4rem;
+				margin:          0;
+				outline:         0;
+				width:           $deHeight;
+				height:          2rem;
+				overflow:        hidden;
+				
+				> span { padding: .2rem; }
+				
+				i { padding: .2rem 0 0 0; }
+				
+				&:last-child { margin-right: 0; }
+				
+				&.disabled {
+					background:   transparentize($cBlackTransparentHigh, .3);
+					border-color: $cGray;
+					color:        $cGray;
+				}
+			}
 			
 			&.left {
-				button, .button {
-					border-left: 2px solid $cRed;
-				}
+				button, .button { border-left: 2px solid $cRed; }
 			}
 			
 			&.bottom {
-				button, .button {
-					border-bottom: 2px solid $cRed;
-				}
+				button, .button { border-bottom: 2px solid $cRed; }
 			}
 			
 			&.top {
-				button, .button {
-					border-top: 2px solid $cRed;
-				}
+				button, .button { border-top: 2px solid $cRed; }
 			}
-			
-			button, .button {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				color: $cWhite;
-				border: 0;
-				
-				background: transparentize($cBlackTransparentMid, .3);
-				font-size: 1.4rem;
-				margin-right: .15rem;
-				margin-bottom: .15rem;
-				outline: 0;
-				width: 2rem;
-				height: 2rem;
-				overflow: hidden;
-				
-				> span {
-					padding: .2rem;
-				}
-				
-				&:last-child {
-					margin-right: 0;
-				}
-				
-				i {
-					padding: .2rem 0 0 0;
-				}
-				
-				&.disabled {
-					background: transparentize($cBlackTransparentHigh, .3);
-					border-color: $cGray;
-					color: $cGray;
-				}
-			}
-			
-			//&.ol-zoom > button {
-			//	padding: 0 0 .4rem 0;
-			//}
 		}
 		
-		//.controls-wrapper {
-		//	position: absolute;
-		//	right: .3rem;
-		//	width: auto;
-		//	top: .3rem;
-		//
-		//	button {
-		//		display: flex;
-		//		justify-content: center;
-		//		align-items: center;
-		//		text-align: center;
-		//		font-size: 1rem;
-		//
-		//
-		//	}
-		//}
+		.controls-wrapper {
+			
+			position: absolute;
+			right:    0;
+			bottom:   0;
+			height:   auto;
+			width:    auto;
+			
+			.ol-zoom {
+				flex-direction: column;
+				height:         100%;
+				
+				.ol-zoom-in { content: "fas fa-search-plus" }
+			}
+			
+			&:before {
+				content:     " ";
+				width:       $deHeight;
+				height:      $deHeight;
+				left:        -0.1rem;
+				background:  transparentize($cBlackTransparentMid, .3);
+				border-left: 2px solid $cRed;
+				border-top:  1px solid $cRed;
+				
+				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+				@include prefixer(transform, skew(-45deg, 0deg), ("webkit", "moz", "o"));
+			}
+		}
 		
 		.eta-wrapper {
-			height: inherit;
+			height:   inherit;
 			position: absolute;
-			left: .3rem;
-			width: auto;
-			bottom: .3rem;
+			left:     0;
+			width:    auto;
+			bottom:   0;
 			
 			.button {
 				width: auto;
 				
 				.round {
-					width: $deHeight;
-					height: $deHeight;
-					overflow: hidden;
-					background: $cBlackTransparentHigh;
-					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
-					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
-					padding: 0 .5rem;
+					min-width:      $deHeight;
+					max-width:      $deHeight;
+					height:         $deHeight;
+					border-right:   2px solid $cRed;
+					overflow:       hidden;
+					background:     $cBlackTransparentHigh;
+					padding:        0 .5rem;
 					vertical-align: center;
+					font-size:      1.5rem;
+					
+					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
 					@include prefixer(display, flex, ("webkit", "moz", "o"));
 					@include prefixer(justify-content, center, ("webkit", "moz", "o"));
 					@include prefixer(align-items, center, ("webkit", "moz", "o"));
-					font-size: 1.5rem;
 				}
+			}
+			
+			&:before {
+				content:      " ";
+				width:        $deHeight;
+				height:       $deHeight;
+				left:         -0.1rem;
+				background:   $cBlackTransparentHigh;
+				border-right: 2px solid $cRed;
+				border-top:   1px solid $cRed;
+				
+				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+				@include prefixer(transform, skew(45deg, 0deg), ("webkit", "moz", "o"));
 			}
 		}
 		
 		#speed-limit {
 			position: absolute;
-			width: auto;
-			left: .3rem;
-			top: .3rem;
+			width:    auto;
+			left:     .3rem;
+			top:      .3rem;
 			
 			span {
-				display: flex;
+				display:         flex;
 				justify-content: center;
-				align-items: center;
-				text-align: center;
-				background: $cWhite;
-				border: .3rem solid $cRed;
-				border-radius: 100%;
-				width: 3.2rem;
-				height: 3.2rem;
-				color: $cBlack;
-				font-weight: bold;
-				font-size: 1.5rem;
+				align-items:     center;
+				text-align:      center;
+				background:      $cWhite;
+				border:          .3rem solid $cRed;
+				border-radius:   100%;
+				width:           3.2rem;
+				height:          3.2rem;
+				color:           $cBlack;
+				font-weight:     bold;
+				font-size:       1.5rem;
 			}
 		}
 		
 		#speed-area {
 			position: absolute;
-			bottom: .3rem;
-			height: auto;
+			bottom:   0;
+			height:   auto;
 			
 			.button {
-				height: auto;
-				width: auto;
+				height:  auto;
+				width:   auto;
 				padding: .3rem;
+				z-index: 1;
 			}
 			
 			.speed {
 				.value {
 					font-family: suprrpg !important;
 					@include prefixer(transform, skew(19deg, 0deg), ("webkit", "moz", "o"));
-					font-size: 2.5rem;
+					font-size:   2.5rem;
 					line-height: 2.3rem;
 				}
 				
-				.unit {
-					font-size: .7rem;
-				}
+				.unit { font-size: .7rem; }
 			}
 			
 			.truck-gear {
 				line-height: 1.4rem;
-				background: $cWhiteGray;
-				color: $cBlack;
-				padding: .3rem;
-				height: inherit;
+				background:  $cWhiteGray;
+				color:       $cBlack;
+				padding:     .3rem;
+				height:      inherit;
 				font-weight: bold;
-				//width: 3rem;
-				//height: 3rem;
-				font-size: 1.5rem;
+				font-size:   1.5rem;
+			}
+			
+			&:before {
+				content:     " ";
+				width:       2rem;
+				height:      3rem;
+				padding:     .3rem;
+				left:        -0.1rem;
+				background:  transparentize($cBlackTransparentMid, .3);
+				border-left: 1px solid $cRed;
+				border-top:  2px solid $cRed;
+				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+				@include prefixer(transform, skew(-30deg, 0deg), ("webkit", "moz", "o"));
+			}
+			
+			&:after {
+				content:      " ";
+				width:        2rem;
+				height:       3rem;
+				padding:      .3rem;
+				right:        -0.1rem;
+				background:   transparentize($cBlackTransparentMid, .3);
+				border-right: 1px solid $cRed;
+				border-top:   2px solid $cRed;
+				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+				@include prefixer(transform, skew(30deg, 0deg), ("webkit", "moz", "o"));
 			}
 		}
 		
 		.ol-mouse-position {
-			position: absolute;
-			width: 5rem;
-			height: 5rem;
-			left: 5rem;
-			top: 5rem;
+			position:   absolute;
+			width:      5rem;
+			height:     5rem;
+			left:       5rem;
+			top:        5rem;
 			background: transparentize($cBlackTransparentMid, .3);;
 		}
 	}

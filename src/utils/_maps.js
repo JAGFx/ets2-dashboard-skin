@@ -99,11 +99,12 @@ const init = () => {
 			//new ol.control.OverviewMap(),
 			//new ol.control.Rotate(),
 			// new ol.control.MousePosition(),  // DEBUG
+			// FIXME: Add way to custom the icon
 			new ol.control.Zoom( {
-				className:    'ol-zoom',
-				zoomInLabel:  '<i class="fas fa-search-plus"></i>',
-				zoomOutLabel: '<i class="fas fa-search-minus"></i>',
-				target:       'ol-zoom-wrapper'
+				className: 'ol-zoom',
+				//zoomInLabel:  '<i class="fas fa-search-plus"></i>',
+				//zoomOutLabel: '<i class="fas fa-search-minus"></i>',
+				target: 'ol-zoom-wrapper'
 			} )
 			//rotate_control
 			//speed_limit_control,
