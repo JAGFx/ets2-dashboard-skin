@@ -53,6 +53,11 @@ You can find the list of all skins integrated.
         <td>Volvo FH 2012 Dashboard</td>
         <td>Klauzzy</td>
     </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/maps.png" alt="JAGFX"></td>
+        <td>Map of route advisor</td>
+        <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
+    </tr>
 </table>
 
 ## Create your own

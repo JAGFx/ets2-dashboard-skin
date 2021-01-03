@@ -41,6 +41,7 @@ You can find common elements, and skin config.
                 <li>RdInfo</li>
                 <li>Scania</li>
                 <li>VolvoFH</li>
+                <li>Maps</li>
             </ul>
         </td>
         <td>JAGFx</td>
@@ -642,9 +643,99 @@ You can find common elements, and skin config.
         </td>
         <td>false</td>
     </tr>
-            
+
 </table>
 
-> Note: We can displayed 7 element max in the right side and 4 in the middle side. Place your element on the top. 
+> Note: We can displayed 7 element max in the right side and 4 in the middle side. Place your element on the top.
+
+### Maps
+
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Name</th>
+        <th>Values</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>maps_elements_eta</td>
+        <td>ETA information</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>maps_elements_speedAndGear</td>
+        <td>Speed and gear</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>maps_elements_mapControls</td>
+        <td>Map controls</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>maps_elements_speedLimit</td>
+        <td>Speed limit</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>true</td>
+    </tr>
+    <tr>
+        <td>maps_map_tilesLocations</td>
+        <td>Tiles location</td>
+        <td>
+            <ul>
+                <li>remote</li>
+                <li>local</li>
+            </ul>
+        </td>
+        <td>remote</td>
+    </tr>
+    <tr>
+        <td>maps_map_activeMap</td>
+        <td>Active map</td>
+        <td>
+            <ul>
+                <li>vanilla</li>
+                <li>promods</li>
+            </ul>
+        </td>
+        <td>vanilla</td>
+    </tr>
+    <tr>
+        <td>maps_map_navigationRemaining</td>
+        <td>Navigation ETA</td>
+        <td>
+            <ul>
+                <li>due_date</li>
+                <li>remaining_date</li>
+            </ul>
+        </td>
+        <td>remaining_date</td>
+    </tr>
+
+</table>
+
 ---
 ↩️ [Home](../README.md)
