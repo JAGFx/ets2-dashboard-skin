@@ -34,6 +34,13 @@ const TILES_REMOTE_HOST = 'https://ets2.jagfx.fr';
 
 // ----
 
+/**
+ * TODO: Add logs for init of config, init of tiles location and init of map
+ * TODO: Add verification for the min map version and the min map version allowed by the dash
+ * FIXME: Correct the CORS not allowed with the remote tile location
+ * TODO: Add an automation to extract json files, compress into a tar.gz and publish it on server
+ */
+
 const initConfig = ( game ) => {
 	const type          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
 	const tilesLocation = store.getters[ 'config/get' ]( 'maps_map_tilesLocations' );
