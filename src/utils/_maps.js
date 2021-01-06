@@ -17,6 +17,7 @@ let d = {
 	gBehaviorCenterOnPlayer:   true,
 	gBehaviorRotateWithPlayer: true,
 	gIgnoreViewChangeEvents:   false,
+	ready:                     false,
 	arrowRotate:               '',
 	config:                    null,
 	paths:                     {
@@ -26,9 +27,10 @@ let d = {
 	}
 };
 
-const ZOOM_MIN     = 0;
-const ZOOM_MAX     = 9;
-const ZOOM_DEFAULT = 9;
+const ZOOM_MIN          = 0;
+const ZOOM_MAX          = 9;
+const ZOOM_DEFAULT      = 9;
+const TILES_REMOTE_HOST = 'https://ets2.jagfx.fr';
 
 // ----
 
@@ -36,7 +38,7 @@ const initConfig = ( game ) => {
 	const type          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
 	const tilesLocation = store.getters[ 'config/get' ]( 'maps_map_tilesLocations' );
 	const basePath      = (tilesLocation === 'remote')
-		? `https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/${ type }/${ game }/`
+		? `${ TILES_REMOTE_HOST }/maps/${ type }/${ game }/`
 		: `http://${ window.location.hostname }:3000/maps/${ type }/${ game }/`;
 	
 	d.paths.base = basePath;
@@ -47,10 +49,7 @@ const initConfig = ( game ) => {
 			//console.log( 'config', response.data );
 			d.config = response.data;
 			
-			const replaces  = {
-				'{x}': 1, '{y}': 2, '{z}': 2
-			};
-			const tilesPath = d.paths.tiles.replace( /{[xyz]}/g, m => replaces[ m ] );
+			const tilesPath = d.paths.tiles.replace( /{[xyz]}/g, 0 );
 			
 			//console.log( tilesPath );
 			
@@ -59,6 +58,8 @@ const initConfig = ( game ) => {
 				.then( response => {
 					//console.log( 'tiles', response );
 					//d.config = response.data;
+					
+					d.ready = true;
 				}, err => {
 					console.error( 'Cant get tiles', err );
 					//throw err;
@@ -115,7 +116,7 @@ const initMap = () => {
 		extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		minZoom:     ZOOM_MIN,
 		origin:      [ 0, d.config.map.maxY ],
-		tileSize:    [ 512, 512 ],
+		tileSize:    d.map.tileSize,//[ 512, 512 ],
 		resolutions: (function () {
 			let r = [];
 			for ( let z = 0; z <= 8; ++z ) {
@@ -246,7 +247,7 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 			//url:
 			// 'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
 			url:      d.paths.base + d.paths.tiles,
-			tileSize: [ 512, 512 ],
+			tileSize: d.map.tileSize,//[ 512, 512 ],
 			// Using createXYZ() makes the vector layer (with the features) unaligned.
 			// It also tries loading non-existent tiles.
 			//
@@ -268,7 +269,7 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 
 const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 	
-	if ( d.config === null )
+	if ( d.ready === null )
 		return;
 	
 	let map_coords = gameCoordToPixels( lon, lat );
