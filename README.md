@@ -112,7 +112,8 @@ And that's it :D
 
 ### Use from a mobile device
 
-1. Find your local IP address for your PC (Find how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
+1. Find your local IP address for your PC (Find
+   how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
 2. Open a web browser on your mobile device
 3. Access to the dashboard on your mobile: `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.1.42:3000`)
 4. And voilà ! You can enable / disable the fullscreen on tap on the dashboard
@@ -121,6 +122,20 @@ And that's it :D
 
 > Tip: You can save a shortcut on your home screen to use it as an app like.
 
+### Maps
+
+The map feature need tiles collection. Two way to get this tiles:
+
+- **Remotly**, you don't need to download anything. But you need to have an internet connexion
+- **Localy**, you **need** to download the tiles collection that you need. See below.
+
+Download tiles collection for the local use:
+
+1. Download the [`vanilla`](https://ets2.jagfx.fr/maps.vanilla.tar.gz) and
+   or [`promod`](https://ets2.jagfx.fr/maps.promod.tar.gz) tiles collection
+2. Extract them into the folder of your installation folder. Final path example: `ETSDashFolder/maps/vanilla/...`
+3. Set the `Tiles location` (Menu > Config > Map's options > Map > Tile location) to `Local`
+4. And that's it !
 
 ## Know issues
 
