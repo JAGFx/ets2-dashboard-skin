@@ -6,7 +6,9 @@
  * Time: 	21:38
  */
 
-import ol from 'openlayers';
+import axios from 'axios';
+import ol    from 'openlayers';
+import store from '../store/index';
 
 let d = {
 	map:                       null,
@@ -15,24 +17,68 @@ let d = {
 	gBehaviorCenterOnPlayer:   true,
 	gBehaviorRotateWithPlayer: true,
 	gIgnoreViewChangeEvents:   false,
-	arrowRotate:               ''
+	arrowRotate:               '',
+	config:                    null,
+	paths:                     {
+		base:   '',
+		tiles:  'tiles/{z}/{x}/{y}.png',
+		config: 'config.json'
+	}
 };
 
-const MAP_MAX_X    = 131072;
-const MAP_MAX_Y    = 131072;
 const ZOOM_MIN     = 0;
 const ZOOM_MAX     = 9;
 const ZOOM_DEFAULT = 9;
 
 // ----
 
-const init = () => {
+const initConfig = ( game ) => {
+	const type          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
+	const tilesLocation = store.getters[ 'config/get' ]( 'maps_map_tilesLocations' );
+	const basePath      = (tilesLocation === 'remote')
+		? `https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/${ type }/${ game }/`
+		: `http://${ window.location.hostname }:3000/maps/${ type }/${ game }/`;
+	
+	d.paths.base = basePath;
+	
+	return axios
+		.get( d.paths.base + d.paths.config )
+		.then( response => {
+			//console.log( 'config', response.data );
+			d.config = response.data;
+			
+			const replaces  = {
+				'{x}': 1, '{y}': 2, '{z}': 2
+			};
+			const tilesPath = d.paths.tiles.replace( /{[xyz]}/g, m => replaces[ m ] );
+			
+			//console.log( tilesPath );
+			
+			return axios
+				.get( d.paths.base + tilesPath )
+				.then( response => {
+					//console.log( 'tiles', response );
+					//d.config = response.data;
+				}, err => {
+					console.error( 'Cant get tiles', err );
+					//throw err;
+				} );
+		}, err => {
+			console.error( 'Cant get config', err );
+			//throw err;
+		} );
+	
+	//console.log( game, type, tilesLocation, basePath );
+	//console.log( d.paths );
+};
+
+const initMap = () => {
 	let projection = new ol.proj.Projection( {
 		// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
 		code:        'Funbit',
 		units:       'pixels',
-		extent:      [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
-		worldExtent: [ 0, 0, MAP_MAX_X, MAP_MAX_Y ]
+		extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
+		worldExtent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ]
 	} );
 	ol.proj.addProjection( projection );
 	
@@ -50,7 +96,7 @@ const init = () => {
 		image: d.playerIcon
 	} );
 	d.playerFeature     = new ol.Feature( {
-		geometry: new ol.geom.Point( [ MAP_MAX_X / 2, MAP_MAX_Y / 2 ] )
+		geometry: new ol.geom.Point( [ d.config.map.maxX / 2, d.config.map.maxY / 2 ] )
 	} );
 	// For some reason, we cannot pass the style in the constructor.
 	d.playerFeature.setStyle( playerIconStyle );
@@ -66,9 +112,9 @@ const init = () => {
 	
 	// Configuring the custom map tiles.
 	let custom_tilegrid = new ol.tilegrid.TileGrid( {
-		extent:      [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
+		extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		minZoom:     ZOOM_MIN,
-		origin:      [ 0, MAP_MAX_Y ],
+		origin:      [ 0, d.config.map.maxY ],
 		tileSize:    [ 512, 512 ],
 		resolutions: (function () {
 			let r = [];
@@ -139,9 +185,9 @@ const init = () => {
 		],
 		view:   new ol.View( {
 			projection: projection,
-			extent:     [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
+			extent:     [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 			//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-			center:  [ MAP_MAX_X / 2, MAP_MAX_Y / 2 ],
+			center:  [ d.config.map.maxX / 2, d.config.map.maxY / 2 ],
 			minZoom: ZOOM_MIN,
 			maxZoom: ZOOM_MAX,
 			zoom:    ZOOM_DEFAULT
@@ -185,15 +231,22 @@ const init = () => {
 	// });
 };
 
+const init = ( game ) => {
+	initConfig( game )
+		.then( () => initMap() );
+};
+
 // ----
 
 const getMapTilesLayer = ( projection, tileGrid ) => {
 	return new ol.layer.Tile( {
-		extent: [ 0, 0, MAP_MAX_X, MAP_MAX_Y ],
+		extent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		source: new ol.source.XYZ( {
 			projection: projection,
-			url:        'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
-			tileSize:   [ 512, 512 ],
+			//url:
+			// 'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
+			url:      d.paths.base + d.paths.tiles,
+			tileSize: [ 512, 512 ],
 			// Using createXYZ() makes the vector layer (with the features) unaligned.
 			// It also tries loading non-existent tiles.
 			//
@@ -214,6 +267,10 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 };
 
 const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
+	
+	if ( d.config === null )
+		return;
+	
 	let map_coords = gameCoordToPixels( lon, lat );
 	let rad        = rot * Math.PI * 2;
 	
@@ -258,13 +315,16 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 };
 
 const gameCoordToPixels = ( x, y ) => {
-	let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
+	//let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
+	let r = [ x / d.config.transposition.x.factor + d.config.transposition.x.offset, y
+																					 / d.config.transposition.y.factor
+																					 + d.config.transposition.y.offset ];
 	
 	// The United Kingdom of Great Britain and Northern Ireland
-	if ( x < -31056.8 && y < -5832.867 ) {
-		let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
-	}
-	r[ 1 ] = MAP_MAX_Y - r[ 1 ];
+	//if ( x < -31056.8 && y < -5832.867 ) {
+	//	let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
+	//}
+	r[ 1 ] = d.config.map.maxY - r[ 1 ];
 	return r;
 };
 

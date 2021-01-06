@@ -10,6 +10,12 @@ const path     = require( 'path' );
 const fs       = require( 'fs' );
 const socketio = require( 'socket.io' );
 
+const express    = require( 'express' );
+const http       = require( 'http' );
+const bodyParser = require( 'body-parser' );
+const cors       = require( 'cors' );
+
+
 const options        = { /* ... */ };
 const io             = socketio( options );
 const dateFilename   = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
@@ -24,24 +30,60 @@ const interval       = () => {
 		: 15;
 }; // Milisecond
 
-io.listen( port, () => {
-	const url       = `localhost:${ port }`;
-	const data      = {
-		url:  url,
-		port: port
-	};
-	const eventName = 'server.listen';
-	const txt       = `Euro Truck Simulator 2 dashboard is running at http://${ url }/`;
-	io.emit( 'log', {
-		eventName: eventName,
-		rawData:   data
-	} );
-	console.log( `[${ eventName }] ${ txt }` );
-} );
+// ---
+
+let app    = express();
+let server = http.createServer( app );
+
+app.use( bodyParser.json() );
+app.use( cors( {
+	origin:      /http:\/\/localhost:\d+/,
+	credentials: true
+} ) );
+app.use( '/maps', express.static( path.resolve( __dirname, '../../maps' ) ) );
+
+// ---
+
+//io.listen( port, () => {
+//	const url       = `localhost:${ port }`;
+//	const data      = {
+//		url:  url,
+//		port: port
+//	};
+//	const eventName = 'server.listen';
+//	const txt       = `Euro Truck Simulator 2 dashboard is running at http://${ url }/`;
+//	io.emit( 'log', {
+//		eventName: eventName,
+//		rawData:   data
+//	} );
+//	console.log( `[${ eventName }] ${ txt }` );
+//} );
 
 io.on( 'connection', socket => {
 	const data = fs.readFileSync( dateFilename );
 	console.log( 'Update' );
 	setInterval( () => io.emit( 'update', JSON.parse( data.toString() ) ), interval() );
 	//io.emit( 'update', JSON.parse( data.toString() ) );
+} );
+
+server.listen( port, () => {
+	const url  = `localhost:${ port }`;
+	const data = {
+		url:  url,
+		port: port
+	};
+	
+	//	const url       = `localhost:${ port }`;
+	//	const data      = {
+	//		url:  url,
+	//		port: port
+	//	};
+	const eventName = 'server.listen';
+	//const txt       = `Euro Truck Simulator 2 dashboard is running at http://${ url }/`;
+	io.emit( 'log', {
+		eventName: eventName,
+		rawData:   data
+	} );
+	
+	console.log( 'server.listen', data, `Euro Truck Simulator 2 dashboard is running at http://${ url }/` );
 } );

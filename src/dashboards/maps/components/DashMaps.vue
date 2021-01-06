@@ -79,7 +79,7 @@ export default {
     };
   },
   mounted() {
-    _maps.init();
+    _maps.init( this.telemetry.game.game.name );
 
     EventBus.$on( 'tmp-update', dataIn => {
       _maps.updatePlayerPositionAndRotation(
@@ -91,11 +91,13 @@ export default {
 
     // --- Dev
     if ( _app.isOnDevEnvironment )
-      _maps.updatePlayerPositionAndRotation(
-          this.telemetry.truck.position.X,
-          this.telemetry.truck.position.Z,
-          this.telemetry.truck.orientation.heading,
-          this.telemetry.truck.speed.kph );
+      setTimeout( () => {
+        _maps.updatePlayerPositionAndRotation(
+            this.telemetry.truck.position.X,
+            this.telemetry.truck.position.Z,
+            this.telemetry.truck.orientation.heading,
+            this.telemetry.truck.speed.kph );
+      }, 1000 );
     // --- ./Dev
   },
   methods:  {
