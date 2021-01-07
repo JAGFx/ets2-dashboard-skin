@@ -38,7 +38,6 @@ const TILES_REMOTE_HOST = 'https://ets2.jagfx.fr';
 
 /**
  * TODO: Add verification for the min map version and the min map version allowed by the dash
- * FIXME: Correct the CORS not allowed with the remote tile location
  */
 
 const initConfig = ( game ) => {
@@ -61,8 +60,6 @@ const initConfig = ( game ) => {
 			Vue.prototype.$pushALog( `Map config found`, _history.HTY_ZONE.MAPS_INIT );
 			
 			const tilesPath = d.paths.tiles.replace( /{[xyz]}/g, 0 );
-			
-			//console.log( tilesPath );
 			
 			return axios
 				.get( d.paths.base + tilesPath )
@@ -129,10 +126,11 @@ const initMap = () => {
 	
 	// Configuring the custom map tiles.
 	let custom_tilegrid = new ol.tilegrid.TileGrid( {
-		extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-		minZoom:     ZOOM_MIN,
-		origin:      [ 0, d.config.map.maxY ],
-		tileSize:    d.map.tileSize,//[ 512, 512 ],
+		extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
+		minZoom: ZOOM_MIN,
+		origin:  [ 0, d.config.map.maxY ],
+		//tileSize: [ 512, 512 ],
+		tileSize:    d.config.map.tileSize,//[ 512, 512 ],
 		resolutions: (function () {
 			let r = [];
 			for ( let z = 0; z <= 8; ++z ) {
@@ -262,8 +260,9 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 			projection: projection,
 			//url:
 			// 'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
-			url:      d.paths.base + d.paths.tiles,
-			tileSize: d.map.tileSize,//[ 512, 512 ],
+			url: d.paths.base + d.paths.tiles,
+			//tileSize: [ 512, 512 ],
+			tileSize: d.config.map.tileSize,
 			// Using createXYZ() makes the vector layer (with the features) unaligned.
 			// It also tries loading non-existent tiles.
 			//

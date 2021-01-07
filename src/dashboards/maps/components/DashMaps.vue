@@ -125,8 +125,6 @@ export default {
            this.ready = true;
          } )
          .catch( e => {
-           console.log( 'AAAAA' );
-
            this.message.icon       = '<i class="fas fa-times"></i>';
            this.message.text       = 'Unable to load map';
            this.message.sub        = e;
