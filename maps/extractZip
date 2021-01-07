@@ -1,0 +1,4 @@
+#!/bin/bash
+
+tar -zxvf maps.vanilla.tar.gz vanilla
+tar -zxvf maps.promod.tar.gz promod

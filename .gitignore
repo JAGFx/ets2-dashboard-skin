@@ -10,6 +10,7 @@ public/icons/*
 maps/*
 !maps/.gitkeep
 !maps/createZip
+!maps/extractZip
 
 # local env files
 .env.local
