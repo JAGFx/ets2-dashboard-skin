@@ -1,5 +1,17 @@
 <template>
   <Dashboard class="maps wrapper">
+    <div v-if="!ready" class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center">
+      <transition mode="out-in" name="slide-fade">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <h1>
+            <span class="mb-3" v-html="message.icon"></span>
+          </h1>
+          <h1 class="text-center">{{ message.text }}</h1>
+          <small v-if="message.sub.length > 0" class="mb-3">{{ message.sub }}</small>
+          <b-spinner v-show="message.processing" label="Processing..." type="grow"></b-spinner>
+        </div>
+      </transition>
+    </div>
     <div id="map" class="w-100 h-100"></div>
 
     <!-- Speed limit -->
@@ -75,30 +87,52 @@ export default {
   },
   data() {
     return {
-      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer
+      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer,
+      ready:            false,
+      message:          {
+        icon:       '<i class="fas fa-map-marked-alt"></i>',
+        text:       'Map initialiation',
+        sub:        '',
+        processing: true
+      }
     };
   },
   mounted() {
-    _maps.init( this.telemetry.game.game.name );
 
-    EventBus.$on( 'tmp-update', dataIn => {
-      _maps.updatePlayerPositionAndRotation(
-          dataIn.truck.position.X,
-          dataIn.truck.position.Z,
-          dataIn.truck.orientation.heading,
-          dataIn.truck.speed.kph );
-    } );
 
-    // --- Dev
-    if ( _app.isOnDevEnvironment )
-      setTimeout( () => {
-        _maps.updatePlayerPositionAndRotation(
-            this.telemetry.truck.position.X,
-            this.telemetry.truck.position.Z,
-            this.telemetry.truck.orientation.heading,
-            this.telemetry.truck.speed.kph );
-      }, 1000 );
-    // --- ./Dev
+    _maps.init( this.telemetry.game.game.name )
+         .then( () => {
+
+           EventBus.$on( 'tmp-update', dataIn => {
+             _maps.updatePlayerPositionAndRotation(
+                 dataIn.truck.position.X,
+                 dataIn.truck.position.Z,
+                 dataIn.truck.orientation.heading,
+                 dataIn.truck.speed.kph );
+           } );
+
+           // --- Dev
+           if ( _app.isOnDevEnvironment )
+             setTimeout( () => {
+               _maps.updatePlayerPositionAndRotation(
+                   this.telemetry.truck.position.X,
+                   this.telemetry.truck.position.Z,
+                   this.telemetry.truck.orientation.heading,
+                   this.telemetry.truck.speed.kph );
+             }, 1000 );
+           // --- ./Dev
+
+           this.ready = true;
+         } )
+         .catch( e => {
+           console.log( 'AAAAA' );
+
+           this.message.icon       = '<i class="fas fa-times"></i>';
+           this.message.text       = 'Unable to load map';
+           this.message.sub        = e;
+           this.message.processing = false;
+         } );
+
   },
   methods:  {
     onClickRotate() {

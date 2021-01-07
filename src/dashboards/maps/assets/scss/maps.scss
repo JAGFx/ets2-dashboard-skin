@@ -19,6 +19,11 @@
 		text-align:      center;
 		position:        relative;
 		
+		.loader {
+			position:   absolute;
+			background: $cBlackTransparentMid;
+		}
+		
 		.controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
 			display:         flex;
 			justify-content: center;

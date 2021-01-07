@@ -6,9 +6,11 @@
  * Time: 	21:38
  */
 
-import axios from 'axios';
-import ol    from 'openlayers';
-import store from '../store/index';
+import _history from '@/utils/_history';
+import axios    from 'axios';
+import ol       from 'openlayers';
+import Vue      from 'vue';
+import store    from '../store/index';
 
 let d = {
 	map:                       null,
@@ -35,10 +37,8 @@ const TILES_REMOTE_HOST = 'https://ets2.jagfx.fr';
 // ----
 
 /**
- * TODO: Add logs for init of config, init of tiles location and init of map
  * TODO: Add verification for the min map version and the min map version allowed by the dash
  * FIXME: Correct the CORS not allowed with the remote tile location
- * TODO: Add an automation to extract json files, compress into a tar.gz and publish it on server
  */
 
 const initConfig = ( game ) => {
@@ -48,6 +48,9 @@ const initConfig = ( game ) => {
 		? `${ TILES_REMOTE_HOST }/maps/${ type }/${ game }/`
 		: `http://${ window.location.hostname }:3000/maps/${ type }/${ game }/`;
 	
+	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile location: ${ tilesLocation }`,
+		_history.HTY_ZONE.MAPS_INIT );
+	
 	d.paths.base = basePath;
 	
 	return axios
@@ -55,6 +58,7 @@ const initConfig = ( game ) => {
 		.then( response => {
 			//console.log( 'config', response.data );
 			d.config = response.data;
+			Vue.prototype.$pushALog( `Map config found`, _history.HTY_ZONE.MAPS_INIT );
 			
 			const tilesPath = d.paths.tiles.replace( /{[xyz]}/g, 0 );
 			
@@ -63,17 +67,22 @@ const initConfig = ( game ) => {
 			return axios
 				.get( d.paths.base + tilesPath )
 				.then( response => {
+					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, _history.HTY_ZONE.MAPS_INIT );
 					//console.log( 'tiles', response );
 					//d.config = response.data;
 					
 					d.ready = true;
+					
 				}, err => {
 					console.error( 'Cant get tiles', err );
-					//throw err;
+					Vue.prototype.$pushALog( `Tiles NOT FOUND`, _history.HTY_ZONE.MAPS_INIT, _history.HTY_LEVEL.ERROR );
+					throw 'Tiles NOT FOUND';
 				} );
+			
 		}, err => {
 			console.error( 'Cant get config', err );
-			//throw err;
+			Vue.prototype.$pushALog( `Map config NOT FOUND`, _history.HTY_ZONE.MAPS_INIT, _history.HTY_LEVEL.ERROR );
+			throw 'Map config NOT FOUND';
 		} );
 	
 	//console.log( game, type, tilesLocation, basePath );
@@ -240,7 +249,7 @@ const initMap = () => {
 };
 
 const init = ( game ) => {
-	initConfig( game )
+	return initConfig( game )
 		.then( () => initMap() );
 };
 
@@ -323,6 +332,9 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 };
 
 const gameCoordToPixels = ( x, y ) => {
+	if ( d.ready === null )
+		return;
+	
 	//let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
 	let r = [ x / d.config.transposition.x.factor + d.config.transposition.x.offset, y
 																					 / d.config.transposition.y.factor

@@ -14,6 +14,7 @@ const HTY_ZONE      = {
 	MENU:        'Menu',
 	MENU_SKIN:   'Menu/Skin',
 	MENU_CONFIG: 'Menu/Config',
+	MAPS_INIT:   'Maps/Init',
 	ERROR:       'Error'
 };
 const HTY_LEVEL     = {
