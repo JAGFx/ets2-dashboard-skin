@@ -7,8 +7,9 @@ build
 bundle
 
 public/icons/*
-maps
+maps/*
 !maps/.gitkeep
+!maps/createZip
 
 # local env files
 .env.local
