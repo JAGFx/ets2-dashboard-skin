@@ -135,7 +135,8 @@ Download tiles collection for the local use:
    or [`promod`](https://ets2.jagfx.fr/maps.promod.tar.gz) tiles collection
 2. Extract them into the folder of your installation folder. Final path example: `ETSDashFolder/maps/vanilla/...`
 3. Set the `Tiles location` (Menu > Config > Map's options > Map > Tile location) to `Local`
-4. And that's it !
+4. Restart the app
+5. And that's it !
 
 ## Know issues
 
