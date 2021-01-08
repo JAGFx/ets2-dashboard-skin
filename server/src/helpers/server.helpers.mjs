@@ -12,10 +12,11 @@ import fs                from 'fs';
 import http              from 'http';
 import path              from 'path';
 import socketio          from 'socket.io';
+import cors              from 'cors';
 import truckSimTelemetry from 'trucksim-telemetry';
 import { logIt }         from './utils.helpers';
 
-let app, server, io, telemetry, port, config, interval, pathDist;
+let app, server, io, telemetry, port, config, interval, pathDist, pathMap;
 const configFilePath = path.resolve( process.cwd(), './config.ets2-dashboard-skin.json' );
 
 const init = () => {
@@ -33,9 +34,17 @@ const init = () => {
 			: 15;
 	};
 	pathDist  = path.resolve( __dirname, '../../../dist' );
+	pathMap   = path.resolve( process.cwd(), './maps' );
 	
 	app.use( bodyParser.json() );
+	app.use( cors( {
+		origin:      /http:\/\/localhost:\d+/,
+		credentials: true
+	} ) );
 	app.use( express.static( pathDist ) );
+	
+	if ( fs.existsSync( pathMap ) )
+		app.use( '/maps', express.static( pathMap ) );
 	
 	app.post( '/config', ( req, res ) => {
 		fs.writeFileSync( configFilePath, JSON.stringify( req.body, null, 2 ) );

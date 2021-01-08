@@ -44,26 +44,10 @@ app.use( '/maps', express.static( path.resolve( __dirname, '../../maps' ) ) );
 
 // ---
 
-//io.listen( port, () => {
-//	const url       = `localhost:${ port }`;
-//	const data      = {
-//		url:  url,
-//		port: port
-//	};
-//	const eventName = 'server.listen';
-//	const txt       = `Euro Truck Simulator 2 dashboard is running at http://${ url }/`;
-//	io.emit( 'log', {
-//		eventName: eventName,
-//		rawData:   data
-//	} );
-//	console.log( `[${ eventName }] ${ txt }` );
-//} );
-
 io.on( 'connection', socket => {
 	const data = fs.readFileSync( dateFilename );
 	console.log( 'Update' );
 	setInterval( () => io.emit( 'update', JSON.parse( data.toString() ) ), interval() );
-	//io.emit( 'update', JSON.parse( data.toString() ) );
 } );
 
 server.listen( port, () => {
@@ -73,13 +57,7 @@ server.listen( port, () => {
 		port: port
 	};
 	
-	//	const url       = `localhost:${ port }`;
-	//	const data      = {
-	//		url:  url,
-	//		port: port
-	//	};
 	const eventName = 'server.listen';
-	//const txt       = `Euro Truck Simulator 2 dashboard is running at http://${ url }/`;
 	io.emit( 'log', {
 		eventName: eventName,
 		rawData:   data
