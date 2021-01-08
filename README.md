@@ -124,10 +124,10 @@ And that's it :D
 
 ### Maps
 
-The map feature need tiles collection. Two way to get this tiles:
+The map feature need tiles collection. You've two way to get this tiles:
 
-- **Remotly**, you don't need to download anything. But you need to have an internet connexion
-- **Localy**, you **need** to download the tiles collection that you need. See below.
+- **Remotly**, you don't need to download anything. But you need an internet connexion
+- **Localy**, you **NEED** to download the tiles collection. See below.
 
 Download tiles collection for the local use:
 

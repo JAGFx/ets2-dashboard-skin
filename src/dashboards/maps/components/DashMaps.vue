@@ -76,6 +76,7 @@
 <script>
 import { EventBus }   from '@/event-bus.js';
 import _maps          from '@/utils/_maps';
+import _history       from '@/utils/_history';
 import { mapGetters } from 'vuex';
 import Dashboard      from '../../../components/Elements/Dashboard';
 import _app           from '../../../utils/_app';
@@ -129,6 +130,10 @@ export default {
            this.message.text       = 'Unable to load map';
            this.message.sub        = e;
            this.message.processing = false;
+
+           const errorMessage = e.message || e;
+
+           this.$pushALog( `Unknown error: ${ errorMessage }`, _history.HTY_ZONE.MAPS_INIT, _history.HTY_LEVEL.ERROR );
          } );
 
   },
