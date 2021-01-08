@@ -737,5 +737,7 @@ You can find common elements, and skin config.
 
 </table>
 
+> Note: When the `maps_map_tilesLocations` is set to `local`, you need to download the tiles collection. See the main README.
+
 ---
 ↩️ [Home](../README.md)

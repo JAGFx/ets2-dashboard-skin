@@ -100,5 +100,41 @@ To open it, tape 5 time on the left bottom corner.
 
 Click on the copy button to coping this list in your clipboard.
 
+## Maps
+
+![Maps](../public/img/screenshots/maps.png)
+
+I'm proud to introduce the Map (You can retreive this map on the Ets2-Route-Advisor) !
+
+Currently, I'm introduced the map with some navigation data only. Not the full route advisor.
+
+#### Features
+
+- ETA remaining time for the current target navigation
+- ETA due time for the current target navigation
+- ETA remaining distance
+- Map controls (North lock, recenter, zoom in and zoom out)
+- Current speed
+- Current gear
+
+#### Map support
+
+- Vanilla map (ETS & ATS)
+- Promod map (Promod for ETS & Promod Canada)
+
+#### Available configuration
+
+You can chose to show or hide all features elements listed below.
+
+Go to the `Map > Config > Map of route advisor` section to set your choices ;)
+
+To know all available configurations, see the `CONFIG_SETTINGS.md`
+
+#### Additionnal setup
+
+You can choos to load the tiles map from a remote (by default) or choice to load it from your computer.
+
+See the main `README.md` to know how :D
+
 ---
 ↩️ [Home](../README.md)
