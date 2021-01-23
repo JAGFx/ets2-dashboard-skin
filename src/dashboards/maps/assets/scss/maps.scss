@@ -27,7 +27,7 @@
 		.controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
 			display:         flex;
 			justify-content: center;
-			align-items:     end;
+			align-items:     flex-end;
 			text-align:      center;
 			height:          2rem;
 			
@@ -38,8 +38,8 @@
 				text-align:      center;
 				color:           $cWhite;
 				border:          0;
-				background:      transparentize($cBlackTransparentMid, .3);
-				font-size:       1.4rem;
+				background:      $cBlackTransparentMid;
+				font-size:       1.8rem;
 				margin:          0;
 				outline:         0;
 				width:           $deHeight;
@@ -80,6 +80,10 @@
 			height:   auto;
 			width:    auto;
 			z-index:  2;
+			
+			button, .button {
+				font-size: 1.4rem;
+			}
 			
 			.ol-zoom {
 				flex-direction: column;
@@ -202,11 +206,13 @@
 			
 			&:before {
 				content:     " ";
+				position:    relative;
+				bottom:      -1px;
 				width:       2rem;
 				height:      3rem;
 				padding:     .3rem;
 				left:        -0.1rem;
-				background:  transparentize($cBlackTransparentMid, .3);
+				background:  $cBlackTransparentMid;
 				border-left: 1px solid $cRed;
 				border-top:  2px solid $cRed;
 				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
@@ -215,11 +221,13 @@
 			
 			&:after {
 				content:      " ";
+				position:     relative;
+				bottom:       -1px;
 				width:        2rem;
 				height:       3rem;
 				padding:      .3rem;
 				right:        -0.1rem;
-				background:   transparentize($cBlackTransparentMid, .3);
+				background:   $cBlackTransparentMid;
 				border-right: 1px solid $cRed;
 				border-top:   2px solid $cRed;
 				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
