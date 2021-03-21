@@ -137,7 +137,10 @@ export default {
       getConfig:       'config/get'
     } )
   },
-  sockets:  {
+  sockets: {
+    disconnect() {
+      console.log( 'disconnected' );
+    },
     connect() {
       console.log( 'connected' );
       this.launching = {
