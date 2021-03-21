@@ -2,7 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/badge)](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/overview)
 [![GitHub Version](https://img.shields.io/github/v/release/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
-[![GitHub Milestone](https://img.shields.io/github/milestones/progress/JAGFx/ets2-dashboard-skin/5?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.5)
+[![GitHub Milestone](https://img.shields.io/github/milestones/progress/JAGFx/ets2-dashboard-skin/6?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.5)
 [![GitHub Commit since](https://img.shields.io/github/commits-since/JAGFx/ets2-dashboard-skin/v1.4.4?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
 [![GitHub Release Download](https://img.shields.io/github/downloads/JAGFx/ets2-dashboard-skin/total?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![Github Licence](https://img.shields.io/github/license/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/README.md)
@@ -14,7 +14,8 @@
 
 ## About
 
-The idea with this repository is to update a collection of dashboard from the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK.
+The idea with this repository is to update a collection of dashboard from
+the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK.
 
 And then, use a best way to maintain the different dashboard.
 
@@ -24,13 +25,19 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](doc/screens/demo.gif)
 
-You can check also a review  and installation guide made by [Neranjana Wijesinghe](https://www.youtube.com/watch?v=dE55M7TaPTY)
+This project have also a Map integration. [See here](#maps)
+
+You can check also a review and installation guide made
+by [Neranjana Wijesinghe](https://www.youtube.com/playlist?list=PLJONr1a8YX5Tyw-i49yk2jYTAFJJ5h7fw)
 
 ## What's it ?
 
-This is an web app who you can switch over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes, Renault, Scania or Volvo)). [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
+This is an web app who you can switch over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes,
+Renault, Scania or Volvo))
+. [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
 
-I'm also introduce the possibility to change the unit of measurement as you prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/CONFIG_SETTINGS.md)
+I'm also introduce the possibility to change the unit of measurement as you
+prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/CONFIG_SETTINGS.md)
 
 A event overlay can also be configured !
 
@@ -124,6 +131,15 @@ And that's it :D
 
 ### Maps
 
+#### Supported game / mod
+
+| Map / Mod | Supported ? | Latest version |
+|---|---|---|
+|ETS2 base map|YES|v1.38|
+|Promod ETS|Not tested|--|
+|ATS base map|YES|v1.38|
+|Promod ATS|Not tested|--|
+
 The map feature need tiles collection. You've two way to get this tiles:
 
 - **Remotly**, you don't need to download anything. But you need an internet connexion
@@ -137,6 +153,10 @@ Download tiles collection for the local use:
 3. Set the `Tiles location` (Menu > Config > Map's options > Map > Tile location) to `Local`
 4. Restart the app
 5. And that's it !
+
+> Please note all tiles was picked up from [mike-koch / ets2-mobile-route-advisor](https://github.com/mike-koch/ets2-mobile-route-advisor). I'm not (yet) able to generate tiles for ETS2 (Base map and Promod map) or ATS (Base map or Promod). I've not all the DLC for it. If you're interested to participate, send me a message.
+>
+> I'm work on side project to be able to update map tiles myself.
 
 ## Know issues
 
