@@ -24,7 +24,7 @@
 			background: $cBlackTransparentMid;
 		}
 		
-		.controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
+		#controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
 			display:         flex;
 			justify-content: center;
 			align-items:     flex-end;
@@ -72,7 +72,7 @@
 			}
 		}
 		
-		.controls-wrapper {
+		#controls-wrapper {
 			
 			position: absolute;
 			right:    0;

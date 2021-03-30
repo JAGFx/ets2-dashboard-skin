@@ -21,7 +21,7 @@
     <!-- ./Speed limit -->
 
     <!-- Control map buttons -->
-    <div v-if="getConfig('maps_elements_mapControls')" class="controls-wrapper left h-100 flex-column justify-content-end">
+    <div v-if="getConfig('maps_elements_mapControls')" id="controls-wrapper" class="left h-100 flex-column justify-content-end">
       <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>

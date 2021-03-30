@@ -6,11 +6,23 @@
  * Time: 	21:38
  */
 
-import _history from '@/utils/_history';
-import axios    from 'axios';
-import ol       from 'openlayers';
-import Vue      from 'vue';
-import store    from '../store/index';
+import _history                        from '@/utils/_history';
+import axios                           from 'axios';
+import { Feature }                     from 'ol';
+import { defaults as defaultControls } from 'ol/control';
+import Point                           from 'ol/geom/Point';
+import Tile                            from 'ol/layer/Tile';
+import VectorLayer                     from 'ol/layer/Vector';
+import Map                             from 'ol/Map';
+import { addProjection }               from 'ol/proj';
+import Projection                      from 'ol/proj/Projection';
+import VectorSource                    from 'ol/source/Vector';
+import XYZ                             from 'ol/source/XYZ';
+import { Icon, Style }                 from 'ol/style';
+import TileGrid                        from 'ol/tilegrid/TileGrid';
+import View                            from 'ol/View';
+import Vue                             from 'vue';
+import store                           from '../store/index';
 
 let d = {
 	map:                       null,
@@ -87,17 +99,17 @@ const initConfig = ( game ) => {
 };
 
 const initMap = () => {
-	let projection = new ol.proj.Projection( {
+	let projection = new Projection( {
 		// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
 		code:        'Funbit',
 		units:       'pixels',
 		extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		worldExtent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ]
 	} );
-	ol.proj.addProjection( projection );
+	addProjection( projection );
 	
 	// Adding a marker for the player position/rotation.
-	d.playerIcon = new ol.style.Icon( {
+	d.playerIcon = new Icon( {
 		anchor:         [ 0.5, 39 ],
 		scale:          .7,
 		anchorXUnits:   'fraction',
@@ -106,26 +118,26 @@ const initMap = () => {
 		src:            'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/img/player_proportions.png'
 	} );
 	
-	let playerIconStyle = new ol.style.Style( {
+	let playerIconStyle = new Style( {
 		image: d.playerIcon
 	} );
-	d.playerFeature     = new ol.Feature( {
-		geometry: new ol.geom.Point( [ d.config.map.maxX / 2, d.config.map.maxY / 2 ] )
+	d.playerFeature     = new Feature( {
+		geometry: new Point( [ d.config.map.maxX / 2, d.config.map.maxY / 2 ] )
 	} );
 	// For some reason, we cannot pass the style in the constructor.
 	d.playerFeature.setStyle( playerIconStyle );
 	
 	// Adding a layer for features overlaid on the map.
-	let featureSource = new ol.source.Vector( {
+	let featureSource = new VectorSource( {
 		features: [ d.playerFeature ],
 		wrapX:    false
 	} );
-	let vectorLayer   = new ol.layer.Vector( {
+	let vectorLayer   = new VectorLayer( {
 		source: featureSource
 	} );
 	
 	// Configuring the custom map tiles.
-	let custom_tilegrid = new ol.tilegrid.TileGrid( {
+	let custom_tilegrid = new TileGrid( {
 		extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		minZoom: ZOOM_MIN,
 		origin:  [ 0, d.config.map.maxY ],
@@ -140,65 +152,24 @@ const initMap = () => {
 		})()
 	} );
 	
-	// Creating custom controls.
-	//let rotate_control = new ol.control.Control( {
-	//	//target: 'rotate-button-div'
-	//	element: document.getElementById( 'rotate-wrapper' )
-	//} );
-	/*let speed_limit_control = new ol.control.Control({
-	 element: document.getElementById('speed-limit')
-	 });
-	 let text_control = new ol.control.Control({
-	 element: document.getElementById('map-text')
-	 });*/
-	
 	// Creating the map.
-	d.map = new ol.Map( {
-		target:   'map',
-		controls: [
-			//new ol.control.ZoomSlider(),
-			//new ol.control.OverviewMap(),
-			//new ol.control.Rotate(),
-			// new ol.control.MousePosition(),  // DEBUG
-			// FIXME: Add way to custom the icon
-			new ol.control.Zoom( {
-				className: 'ol-zoom',
-				//zoomInLabel:  '<i class="fas fa-search-plus"></i>',
-				//zoomOutLabel: '<i class="fas fa-search-minus"></i>',
-				target: 'ol-zoom-wrapper'
-			} )
-			//rotate_control
-			//speed_limit_control,
-			//text_control
-			// TODO: Set 'tipLabel' on both zoom and rotate controls to language-specific translations.
-		],
-		/*interactions: ol.interaction.defaults().extend( [
-		 // Rotating by using two fingers is implemented in PinchRotate(), which is enabled by default.
-		 // With DragRotateAndZoom(), it is possible to use Shift+mouse-drag to rotate the map.
-		 // Without it, Shift+mouse-drag creates a rectangle to zoom to an area.
-		 //new ol.interaction.DragRotateAndZoom()
-		 ] ),*/
-		layers: [
+	d.map = new Map( {
+		controls: defaultControls( {
+			zoom:        true,
+			zoomOptions: {
+				className:    'ol-zoom',
+				zoomInLabel:  '<i class="fas fa-search-plus"></i>',
+				zoomOutLabel: '<i class="fas fa-search-minus"></i>',
+				target:       'ol-zoom-wrapper'
+			},
+			rotate:      false
+		} ),
+		layers:   [
 			getMapTilesLayer( projection, custom_tilegrid ),
-			//getTextLayer(),
-			// Debug layer below.
-			//new ol.layer.Tile({
-			//	extent: [0, 0, MAX_X, MAX_Y],
-			//	source: new ol.source.TileDebug({
-			//		projection: projection,
-			//		tileGrid: custom_tilegrid,
-			//		// tileGrid: ol.tilegrid.createXYZ({
-			//		//  extent: [0, 0, MAX_X, MAX_Y],
-			//		//  minZoom: 0,
-			//		//  maxZoom: 7,
-			//		//  tileSize: [256, 256]
-			//		// }),
-			//		wrapX: false
-			//	})
-			//}),
 			vectorLayer
 		],
-		view:   new ol.View( {
+		target:   'map',
+		view:     new View( {
 			projection: projection,
 			extent:     [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 			//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
@@ -208,16 +179,6 @@ const initMap = () => {
 			zoom:    ZOOM_DEFAULT
 		} )
 	} );
-	
-	// Adding behavior to the custom button.
-	//let rotate_button = document.getElementById( 'rotate-button' );
-	//let rotate_arrow  = rotate_button.firstElementChild;
-	//d.map.getView().on( 'change:rotation', function ( ev ) {
-	//	//console.log( 'Plop' );
-	//	d.arrowRotate = {
-	//		transform: `rotate(${ ev.target.getRotation() }rad)`
-	//	};
-	//} );
 	
 	// Detecting when the user interacts with the map.
 	// https://stackoverflow.com/q/32868671/
@@ -254,30 +215,17 @@ const init = ( game ) => {
 // ----
 
 const getMapTilesLayer = ( projection, tileGrid ) => {
-	return new ol.layer.Tile( {
+	return new Tile( {
 		extent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-		source: new ol.source.XYZ( {
+		source: new XYZ( {
 			projection: projection,
-			//url:
 			// 'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
-			url: d.paths.base + d.paths.tiles,
-			//tileSize: [ 512, 512 ],
+			url:      d.paths.base + d.paths.tiles,
 			tileSize: d.config.map.tileSize,
-			// Using createXYZ() makes the vector layer (with the features) unaligned.
-			// It also tries loading non-existent tiles.
-			//
-			// Using custom_tilegrid causes rescaling of all image tiles before drawing
-			// (i.e. no image will be rendered at 1:1 pixels), But fixes all other issues.
 			tileGrid: tileGrid,
-			// tileGrid: ol.tilegrid.createXYZ({
-			//     extent: [0, 0, MAX_X, MAX_Y],
-			//     minZoom: 0,
-			//     maxZoom: 7,
-			//     tileSize: [256, 256]
-			// }),
-			wrapX:   false,
-			minZoom: ZOOM_MIN,
-			maxZoom: ZOOM_MAX
+			wrapX:    false,
+			minZoom:  ZOOM_MIN,
+			maxZoom:  ZOOM_MAX
 		} )
 	} );
 };
@@ -300,7 +248,6 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 			let height           = d.map.getSize()[ 1 ];
 			let max_ahead_amount = height / 3.0 * d.map.getView().getResolution();
 			
-			//console.log(parseFloat((speed).toFixed(0)));
 			//auto-zoom map by speed
 			if ( parseFloat( (speed).toFixed( 0 ) ) >= 15 && parseFloat( (speed).toFixed( 0 ) ) <= 35 ) {
 				d.map.getView().getZoom( d.map.getView().setZoom( 9 ) );
@@ -334,7 +281,6 @@ const gameCoordToPixels = ( x, y ) => {
 	if ( d.ready === null )
 		return;
 	
-	//let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
 	let r = [ x / d.config.transposition.x.factor + d.config.transposition.x.offset, y
 																					 / d.config.transposition.y.factor
 																					 + d.config.transposition.y.offset ];
