@@ -69,7 +69,7 @@
 			"name" :     "Map",
 			"elements" : [
 				{
-					"id" :          "maps_map_tilesLocations",
+					"id" :          "maps_map_tilesLocation",
 					"label" :       "Tiles location",
 					"description" : "Change the way to get map tiles. From a distant serveur or form a local source",
 					"values" :      [
@@ -84,17 +84,36 @@
 					]
 				},
 				{
-					"id" :          "maps_map_activeMap",
-					"label" :       "Active map",
-					"description" : "Change the active map",
+					"id" :          "maps_map_type",
+					"label" :       "Kind of map",
+					"description" : "Use the ETS2 or ATS map automatically or use the modded map",
 					"values" :      [
 						{
-							"label" : "Vanilla ETS and ATS",
+							"label" : "Vanilla",
 							"value" : "vanilla"
 						},
 						{
-							"label" : "Promods",
-							"value" : "promods"
+							"label" : "Mod",
+							"value" : "mod"
+						}
+					]
+				},
+				{
+					"id" :          "maps_map_tilesRemotePath",
+					"label" :       "Custom remote tiles location",
+					"description" : "Use a custom remote location for the map tiles",
+					"values" :      null,
+					"type" :        "url"
+				},
+				{
+					"id" :          "maps_map_activeMap",
+					"label" :       "Active map",
+					"description" : "Change the active map",
+					"asyncValues" : true,
+					"values" :      [
+						{
+							"label" : "Auto",
+							"value" : null
 						}
 					]
 				},

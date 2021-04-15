@@ -34,10 +34,10 @@ let d = {
 	ready:                     false,
 	arrowRotate:               '',
 	config:                    null,
-	paths:                     {
+	paths: {
 		base:   '',
-		tiles:  'tiles/{z}/{x}/{y}.png',
-		config: 'config.json'
+		tiles:  'Tiles/{z}/{x}/{y}.png',
+		config: 'TileMapInfo.json'
 	}
 };
 
@@ -53,11 +53,16 @@ const TILES_REMOTE_HOST = 'https://ets2.jagfx.fr';
  */
 
 const initConfig = ( game ) => {
-	const type          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
-	const tilesLocation = store.getters[ 'config/get' ]( 'maps_map_tilesLocations' );
-	const basePath      = (tilesLocation === 'remote')
-		? `${ TILES_REMOTE_HOST }/maps/${ type }/${ game }/`
-		: `http://${ window.location.hostname }:3000/maps/${ type }/${ game }/`;
+	const type               = store.getters[ 'config/get' ]( 'maps_map_type' );
+	const tileRemoteLocation = store.getters[ 'config/get' ]( 'maps_map_tilesRemotePath' );
+	const tilesLocation      = store.getters[ 'config/get' ]( 'maps_map_tilesLocation' );
+	const activeMap          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
+	const map                = (type === 'vanilla')
+		? game
+		: activeMap;
+	const basePath           = (tilesLocation === 'remote')
+		? `${ tileRemoteLocation }/${ map }/`
+		: `http://${ window.location.hostname }:3000/maps/${ map }/`;
 	
 	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile location: ${ tilesLocation }`,
 		_history.HTY_ZONE.MAPS_INIT );
@@ -99,6 +104,8 @@ const initConfig = ( game ) => {
 };
 
 const initMap = () => {
+	// TODO: Add minimal data for map on TileMapInfo.json
+	
 	let projection = new Projection( {
 		// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
 		code:        'Funbit',
@@ -212,6 +219,45 @@ const init = ( game ) => {
 		.then( () => initMap() );
 };
 
+const getAvailableMap = () => {
+	// TODO Get list from a server
+	
+	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
+		return new Promise( resolve => {
+			setTimeout( () => {
+				//store.dispatch( 'app/endProcessing' );
+				resolve( [
+					{
+						id:          'ets2',
+						name:        'ETS2 base map',
+						game:        'ets2',
+						x1:          -62252.0547,
+						x2:          80465.8,
+						y1:          -64572.1328,
+						y2:          78145.72,
+						minZoom:     0,
+						maxZoom:     8,
+						gameVersion: '1.40.2.0',
+						generatedAt: '2021-04-08T19:29:11.4191534+02:00'
+					},
+					{
+						id:          'ats',
+						name:        'ATS base map',
+						game:        'ats',
+						x1:          -62252.0547,
+						x2:          80465.8,
+						y1:          -64572.1328,
+						y2:          78145.72,
+						minZoom:     0,
+						maxZoom:     8,
+						gameVersion: '1.40.2.0',
+						generatedAt: '2021-04-08T19:29:11.4191534+02:00'
+					}
+				] );
+			}, 1000 );
+		} );
+};
+
 // ----
 
 const getMapTilesLayer = ( projection, tileGrid ) => {
@@ -298,5 +344,7 @@ export default {
 	init,
 	getMapTilesLayer,
 	updatePlayerPositionAndRotation,
-	gameCoordToPixels
+	gameCoordToPixels,
+	getAvailableMap
 };
+

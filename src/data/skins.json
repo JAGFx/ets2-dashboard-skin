@@ -22,6 +22,24 @@
 			}
 		},
 		{
+			"id" :              "Maps",
+			"disabled" :        false,
+			"title" :           "Map of route advisor",
+			"description" :     "The map from the route advisor1",
+			"config_template" : "true",
+			"author" :          {
+				"name" :  "SMITH Emmanuel",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
+			},
+			"repository" :      null,
+			"screenshot" :      "img/screenshots/maps.png",
+			"size" :            {
+				"width" :  1920,
+				"height" : 1080
+			}
+		},
+		{
 			"id" :          "Test",
 			"disabled" :    false,
 			"title" :       "Base",
@@ -155,24 +173,6 @@
 			"size" :        {
 				"width" :  2000,
 				"height" : 664
-			}
-		},
-		{
-			"id" :              "Maps",
-			"disabled" :        false,
-			"title" :           "Map of route advisor",
-			"description" :     "The map from the route advisor1",
-			"config_template" : "true",
-			"author" :          {
-				"name" :  "SMITH Emmanuel",
-				"email" : "hey@emmanuel-smith.me",
-				"url" :   "https://emmanuel-smith.me"
-			},
-			"repository" :      null,
-			"screenshot" :      "img/screenshots/maps.png",
-			"size" :            {
-				"width" :  1920,
-				"height" : 1080
 			}
 		}
 	]

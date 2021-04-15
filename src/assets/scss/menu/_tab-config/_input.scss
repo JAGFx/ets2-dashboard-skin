@@ -1,19 +1,17 @@
 /**
  * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
  * project:	ets2-dashboard-skin
- * file: 	_switch.scss
- * Date: 	21/05/2020
- * Time: 	16:10
+ * file: 	_input.scss
+ * Date: 	09/04/2021
+ * Time: 	13:51
  */
-
-@import "../../common/variables";
 
 .tab-config {
 	.field {
-		.select, .input input {
-			cursor: pointer;
-			
-			.value {
+		.input {
+			.input-zone {
+				cursor:        pointer;
+				
 				background:    $cBlackTransparentHigh;
 				color:         $cWhite;
 				border-radius: 0;
@@ -22,10 +20,27 @@
 				min-width:     15rem;
 				transition:    all .3s ease-in-out;
 				
-				&:hover, &:focus {
+				&:hover:not(.prefix), &:focus {
 					border-color: $cRed;
 					background:   transparentize($cRed, .5);
 					transition:   all .1s ease-in-out;
+				}
+				
+				&.prefix, &.valid {
+					min-width:       auto;
+					padding:         0 .5rem;
+					cursor:          inherit;
+					display:         flex;
+					justify-content: center;
+					align-items:     center;
+				}
+				
+				&.prefix {
+					border-right: none;
+				}
+				
+				&.valid {
+					border-left: none;
 				}
 			}
 			
