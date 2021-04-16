@@ -34,17 +34,14 @@ let d = {
 	ready:                     false,
 	arrowRotate:               '',
 	config:                    null,
-	paths: {
+	paths:                     {
 		base:   '',
 		tiles:  'Tiles/{z}/{x}/{y}.png',
 		config: 'TileMapInfo.json'
 	}
 };
 
-const ZOOM_MIN          = 0;
-const ZOOM_MAX          = 9;
-const ZOOM_DEFAULT      = 9;
-const TILES_REMOTE_HOST = 'https://ets2.jagfx.fr';
+const ZOOM_DEFAULT = 8;
 
 // ----
 
@@ -146,14 +143,14 @@ const initMap = () => {
 	// Configuring the custom map tiles.
 	let custom_tilegrid = new TileGrid( {
 		extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-		minZoom: ZOOM_MIN,
+		minZoom: d.config.map.minZoom,
 		origin:  [ 0, d.config.map.maxY ],
 		//tileSize: [ 512, 512 ],
 		tileSize:    d.config.map.tileSize,//[ 512, 512 ],
 		resolutions: (function () {
 			let r = [];
-			for ( let z = 0; z <= 8; ++z ) {
-				r[ z ] = Math.pow( 2, 8 - z );
+			for ( let z = 0; z <= d.config.map.maxZoom; ++z ) {
+				r[ z ] = Math.pow( 2, d.config.map.maxZoom - z );
 			}
 			return r;
 		})()
@@ -181,8 +178,8 @@ const initMap = () => {
 			extent:     [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 			//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
 			center:  [ d.config.map.maxX / 2, d.config.map.maxY / 2 ],
-			minZoom: ZOOM_MIN,
-			maxZoom: ZOOM_MAX,
+			minZoom: d.config.map.minZoom,
+			maxZoom: d.config.map.maxZoom + 1,
 			zoom:    ZOOM_DEFAULT
 		} )
 	} );
@@ -228,17 +225,27 @@ const getAvailableMap = () => {
 				//store.dispatch( 'app/endProcessing' );
 				resolve( [
 					{
-						id:          'ets2',
-						name:        'ETS2 base map',
-						game:        'ets2',
-						x1:          -62252.0547,
-						x2:          80465.8,
-						y1:          -64572.1328,
-						y2:          78145.72,
-						minZoom:     0,
-						maxZoom:     8,
-						gameVersion: '1.40.2.0',
-						generatedAt: '2021-04-08T19:29:11.4191534+02:00'
+						'map':           {
+							'maxX':     140526.531,
+							'maxY':     142717.859,
+							'tileSize': 256,
+							'minZoom':  0,
+							'maxZoom':  6
+						},
+						'transposition': {
+							'x': {
+								'factor': 1.087326,
+								'offset': 57157
+							},
+							'y': {
+								'factor': 1.087326,
+								'offset': 59287
+							}
+						},
+						'game':          {
+							'version':     '1.40.3.3',
+							'generatedAt': '2021-04-16T18:31:37.8729669+02:00'
+						}
 					},
 					{
 						id:          'ats',
@@ -270,8 +277,8 @@ const getMapTilesLayer = ( projection, tileGrid ) => {
 			tileSize: d.config.map.tileSize,
 			tileGrid: tileGrid,
 			wrapX:    false,
-			minZoom:  ZOOM_MIN,
-			maxZoom:  ZOOM_MAX
+			minZoom:  d.config.map.minZoom,
+			maxZoom:  d.config.map.maxZoom + 1
 		} )
 	} );
 };
@@ -327,9 +334,8 @@ const gameCoordToPixels = ( x, y ) => {
 	if ( d.ready === null )
 		return;
 	
-	let r = [ x / d.config.transposition.x.factor + d.config.transposition.x.offset, y
-																					 / d.config.transposition.y.factor
-																					 + d.config.transposition.y.offset ];
+	let r = [ x / d.config.transposition.x.factor + d.config.transposition.x.offset,
+			  y / d.config.transposition.y.factor + d.config.transposition.y.offset ];
 	
 	// The United Kingdom of Great Britain and Northern Ireland
 	//if ( x < -31056.8 && y < -5832.867 ) {
