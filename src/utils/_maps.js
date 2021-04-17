@@ -144,6 +144,7 @@ const initMap = () => {
 	let custom_tilegrid = new TileGrid( {
 		extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		minZoom: d.config.map.minZoom,
+		maxZoom: d.config.map.maxZoom + 1,
 		origin:  [ 0, d.config.map.maxY ],
 		//tileSize: [ 512, 512 ],
 		tileSize:    d.config.map.tileSize,//[ 512, 512 ],
@@ -225,26 +226,23 @@ const getAvailableMap = () => {
 				//store.dispatch( 'app/endProcessing' );
 				resolve( [
 					{
-						'map':           {
-							'maxX':     140526.531,
-							'maxY':     142717.859,
-							'tileSize': 256,
+						'map':  {
+							'maxX':     131072,
+							'maxY':     131072,
+							'x1':       -62136.0625,
+							'x2':       80349.8,
+							'y1':       -64456.1328,
+							'y2':       78029.73,
+							'tileSize': 512,
 							'minZoom':  0,
-							'maxZoom':  6
+							'maxZoom':  8
 						},
-						'transposition': {
-							'x': {
-								'factor': 1.087326,
-								'offset': 57157
-							},
-							'y': {
-								'factor': 1.087326,
-								'offset': 59287
-							}
-						},
-						'game':          {
+						'game': {
+							'id':          'ets2',
+							'game':        'ets2',
+							'name':        'Euro Truck Simulator 2',
 							'version':     '1.40.3.3',
-							'generatedAt': '2021-04-16T18:31:37.8729669+02:00'
+							'generatedAt': '2021-04-17T19:04:28.8557659+02:00'
 						}
 					},
 					{
@@ -334,15 +332,22 @@ const gameCoordToPixels = ( x, y ) => {
 	if ( d.ready === null )
 		return;
 	
-	let r = [ x / d.config.transposition.x.factor + d.config.transposition.x.offset,
-			  y / d.config.transposition.y.factor + d.config.transposition.y.offset ];
+	const x1 = d.config.map.x1;
+	const x2 = d.config.map.x2;
+	const y1 = d.config.map.y1;
+	const y2 = d.config.map.y2;
 	
-	// The United Kingdom of Great Britain and Northern Ireland
-	//if ( x < -31056.8 && y < -5832.867 ) {
-	//	let r = [ x / 1.087326 + 57157, y / 1.087326 + 59287 ];
-	//}
-	r[ 1 ] = d.config.map.maxY - r[ 1 ];
-	return r;
+	const xtot = x2 - x1; // Total X length
+	const ytot = y2 - y1; // Total Y length
+	
+	const xrel = (x - x1) / xtot; // The fraction where the X is (between 0 and 1, 0 being fully left, 1 being fully
+								  // right)
+	const yrel = (y - y1) / ytot; // The fraction where the Y is
+	
+	return [
+		xrel * d.config.map.maxX, // Where X actually is, so multiplied the actual width
+		d.config.map.maxY - (yrel * d.config.map.maxY) // Where Y actually is, only Y is inverted
+	];
 };
 
 export default {
