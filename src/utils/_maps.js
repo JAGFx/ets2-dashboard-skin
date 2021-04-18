@@ -14,12 +14,10 @@ import Point                           from 'ol/geom/Point';
 import Tile                            from 'ol/layer/Tile';
 import VectorLayer                     from 'ol/layer/Vector';
 import Map                             from 'ol/Map';
-import { addProjection }               from 'ol/proj';
 import Projection                      from 'ol/proj/Projection';
 import VectorSource                    from 'ol/source/Vector';
 import XYZ                             from 'ol/source/XYZ';
 import { Icon, Style }                 from 'ol/style';
-import TileGrid                        from 'ol/tilegrid/TileGrid';
 import View                            from 'ol/View';
 import Vue                             from 'vue';
 import store                           from '../store/index';
@@ -101,61 +99,51 @@ const initConfig = ( game ) => {
 };
 
 const initMap = () => {
-	// TODO: Add minimal data for map on TileMapInfo.json
-	
-	let projection = new Projection( {
-		// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
-		code:        'Funbit',
-		units:       'pixels',
-		extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-		worldExtent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ]
-	} );
-	addProjection( projection );
-	
-	// Adding a marker for the player position/rotation.
-	d.playerIcon = new Icon( {
-		anchor:         [ 0.5, 39 ],
-		scale:          .7,
-		anchorXUnits:   'fraction',
-		anchorYUnits:   'pixels',
-		rotateWithView: true,
-		src:            'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/img/player_proportions.png'
-	} );
-	
-	let playerIconStyle = new Style( {
-		image: d.playerIcon
-	} );
-	d.playerFeature     = new Feature( {
-		geometry: new Point( [ d.config.map.maxX / 2, d.config.map.maxY / 2 ] )
-	} );
-	// For some reason, we cannot pass the style in the constructor.
-	d.playerFeature.setStyle( playerIconStyle );
-	
-	// Adding a layer for features overlaid on the map.
-	let featureSource = new VectorSource( {
-		features: [ d.playerFeature ],
-		wrapX:    false
-	} );
-	let vectorLayer   = new VectorLayer( {
-		source: featureSource
-	} );
+	//let projection = new Projection( {
+	//	// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
+	//	code:        'Funbit',
+	//	units:       'pixels',
+	//	extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
+	//	worldExtent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ]
+	//} );
+	//addProjection( projection );
 	
 	// Configuring the custom map tiles.
-	let custom_tilegrid = new TileGrid( {
-		extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-		minZoom: d.config.map.minZoom,
-		maxZoom: d.config.map.maxZoom + 1,
-		origin:  [ 0, d.config.map.maxY ],
-		//tileSize: [ 512, 512 ],
-		tileSize:    d.config.map.tileSize,//[ 512, 512 ],
-		resolutions: (function () {
-			let r = [];
-			for ( let z = 0; z <= d.config.map.maxZoom; ++z ) {
-				r[ z ] = Math.pow( 2, d.config.map.maxZoom - z );
-			}
-			return r;
-		})()
+	//let custom_tilegrid = new TileGrid( {
+	//	extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
+	//	minZoom: d.config.map.minZoom,
+	//	maxZoom: d.config.map.maxZoom + 1,
+	//	origin:  [ 0, d.config.map.maxY ],
+	//	//tileSize: [ 512, 512 ],
+	//	tileSize:    d.config.map.tileSize,//[ 512, 512 ],
+	//	resolutions: (function () {
+	//		let r = [];
+	//		for ( let z = 0; z <= d.config.map.maxZoom; ++z ) {
+	//			r[ z ] = Math.pow( 2, d.config.map.maxZoom - z );
+	//		}
+	//		return r;
+	//	})()
+	//} );
+	
+	// --- [Debug] Mouse position
+	//const mousePosition = new MousePosition( {
+	//	coordinateFormat: createStringXY( 0 )
+	//} );
+	// --- ./[Debug] Mouse position
+	
+	// --- TsMap
+	let projection = new Projection( {
+		code:   'ZOOMIFY',
+		units:  'pixels',
+		extent: [
+			d.config.map.x1,
+			-d.config.map.y2,
+			d.config.map.x2,
+			-d.config.map.y1 // x1, -y2, x2, -y1 (reverse y direction)
+		]
 	} );
+	// --- ./TsMap
+	
 	
 	// Creating the map.
 	d.map = new Map( {
@@ -169,20 +157,30 @@ const initMap = () => {
 			},
 			rotate:      false
 		} ),
-		layers:   [
-			getMapTilesLayer( projection, custom_tilegrid ),
-			vectorLayer
+		//controls: [ mousePosition ],
+		layers: [
+			//getMapTilesLayer( projection, custom_tilegrid ),
+			getMapTilesLayer( projection ),
+			getPlayerLayer()
 		],
-		target:   'map',
-		view:     new View( {
+		target: 'map',
+		view:   new View( {
+			center:     [ 0, 0 ],
+			zoom:       ZOOM_DEFAULT,
+			minZoom:    d.config.map.minZoom,
+			maxZoom:    d.config.map.maxZoom,
 			projection: projection,
-			extent:     [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-			//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-			center:  [ d.config.map.maxX / 2, d.config.map.maxY / 2 ],
-			minZoom: d.config.map.minZoom,
-			maxZoom: d.config.map.maxZoom + 1,
-			zoom:    ZOOM_DEFAULT
+			extent:     projection.getExtent()
 		} )
+		//view:     new View( {
+		//	projection: projection,
+		//	extent:     [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
+		//	//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
+		//	center:  [ d.config.map.maxX / 2, d.config.map.maxY / 2 ],
+		//	minZoom: d.config.map.minZoom,
+		//	maxZoom: d.config.map.maxZoom + 1,
+		//	zoom:    ZOOM_DEFAULT
+		//} )
 	} );
 	
 	// Detecting when the user interacts with the map.
@@ -198,18 +196,6 @@ const initMap = () => {
 		// Not needed:
 		// g_behavior_rotate_with_player = false;
 	} );
-	
-	// Debugging.
-	//d.map.getView().on('singleclick', function(evt) {
-	//	let coordinate = evt.coordinate;
-	//	console.log(coordinate);
-	//});
-	// map.getView().on('change:center', function(ev) {
-	//   console.log(ev);
-	// });
-	// map.getView().on('change:rotation', function(ev) {
-	//   console.log(ev);
-	// });
 };
 
 const init = ( game ) => {
@@ -267,17 +253,47 @@ const getAvailableMap = () => {
 
 const getMapTilesLayer = ( projection, tileGrid ) => {
 	return new Tile( {
-		extent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
+		//extent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		source: new XYZ( {
 			projection: projection,
 			// 'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
-			url:      d.paths.base + d.paths.tiles,
-			tileSize: d.config.map.tileSize,
-			tileGrid: tileGrid,
-			wrapX:    false,
-			minZoom:  d.config.map.minZoom,
-			maxZoom:  d.config.map.maxZoom + 1
+			url: d.paths.base + d.paths.tiles
+			//tileSize: d.config.map.tileSize,
+			//tileGrid: tileGrid,
+			//wrapX:    false,
+			//minZoom:  d.config.map.minZoom,
+			//maxZoom:  d.config.map.maxZoom + 1
 		} )
+	} );
+};
+
+const getPlayerLayer = () => {
+	// Adding a marker for the player position/rotation.
+	d.playerIcon = new Icon( {
+		anchor:         [ 0.5, 39 ],
+		scale:          .7,
+		anchorXUnits:   'fraction',
+		anchorYUnits:   'pixels',
+		rotateWithView: true,
+		src:            'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/img/player_proportions.png'
+	} );
+	
+	let playerIconStyle = new Style( {
+		image: d.playerIcon
+	} );
+	d.playerFeature     = new Feature( {
+		geometry: new Point( [ d.config.map.maxX / 2, d.config.map.maxY / 2 ] )
+	} );
+	// For some reason, we cannot pass the style in the constructor.
+	d.playerFeature.setStyle( playerIconStyle );
+	
+	// Adding a layer for features overlaid on the map.
+	let featureSource = new VectorSource( {
+		features: [ d.playerFeature ],
+		wrapX:    false
+	} );
+	return new VectorLayer( {
+		source: featureSource
 	} );
 };
 
@@ -301,13 +317,13 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 			
 			//auto-zoom map by speed
 			if ( parseFloat( (speed).toFixed( 0 ) ) >= 15 && parseFloat( (speed).toFixed( 0 ) ) <= 35 ) {
-				d.map.getView().getZoom( d.map.getView().setZoom( 9 ) );
+				d.map.getView().setZoom( 9 );
 			} else if ( parseFloat( (speed).toFixed( 0 ) ) >= 51 && parseFloat( (speed).toFixed( 0 ) ) <= 55 ) {
-				d.map.getView().getZoom( d.map.getView().setZoom( 8 ) );
+				d.map.getView().setZoom( 8 );
 			} else if ( parseFloat( (speed).toFixed( 0 ) ) >= 61 && parseFloat( (speed).toFixed( 0 ) ) <= 65 ) {
-				d.map.getView().getZoom( d.map.getView().setZoom( 7 ) );
+				d.map.getView().setZoom( 7 );
 			} else if ( parseFloat( (speed).toFixed( 0 ) ) >= 81 && parseFloat( (speed).toFixed( 0 ) ) <= 88 ) {
-				d.map.getView().getZoom( d.map.getView().setZoom( 6 ) );
+				d.map.getView().setZoom( 6 );
 			}
 			
 			let amount_ahead = speed * 0.25;
@@ -332,22 +348,24 @@ const gameCoordToPixels = ( x, y ) => {
 	if ( d.ready === null )
 		return;
 	
-	const x1 = d.config.map.x1;
-	const x2 = d.config.map.x2;
-	const y1 = d.config.map.y1;
-	const y2 = d.config.map.y2;
+	return [ x, -y ];
 	
-	const xtot = x2 - x1; // Total X length
-	const ytot = y2 - y1; // Total Y length
-	
-	const xrel = (x - x1) / xtot; // The fraction where the X is (between 0 and 1, 0 being fully left, 1 being fully
-								  // right)
-	const yrel = (y - y1) / ytot; // The fraction where the Y is
-	
-	return [
-		xrel * d.config.map.maxX, // Where X actually is, so multiplied the actual width
-		d.config.map.maxY - (yrel * d.config.map.maxY) // Where Y actually is, only Y is inverted
-	];
+	//const x1 = d.config.map.x1;
+	//const x2 = d.config.map.x2;
+	//const y1 = d.config.map.y1;
+	//const y2 = d.config.map.y2;
+	//
+	//const xtot = x2 - x1; // Total X length
+	//const ytot = y2 - y1; // Total Y length
+	//
+	//const xrel = (x - x1) / xtot; // The fraction where the X is (between 0 and 1, 0 being fully left, 1 being fully
+	//							  // right)
+	//const yrel = (y - y1) / ytot; // The fraction where the Y is
+	//
+	//return [
+	//	xrel * d.config.map.maxX, // Where X actually is, so multiplied the actual width
+	//	d.config.map.maxY - (yrel * d.config.map.maxY) // Where Y actually is, only Y is inverted
+	//];
 };
 
 export default {
