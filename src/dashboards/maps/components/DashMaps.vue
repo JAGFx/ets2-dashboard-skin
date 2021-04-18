@@ -22,6 +22,9 @@
 
     <!-- Control map buttons -->
     <div v-if="getConfig('maps_elements_mapControls')" id="controls-wrapper" class="left h-100 flex-column justify-content-end">
+      <button id="info-button" :class="{ disabled: !displayMapInfo }" @click="onClickMapInfo">
+        <i class="fas fa-info"></i>
+      </button>
       <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
         <i class="fas fa-location-arrow"></i>
       </button>
@@ -31,6 +34,33 @@
       <div id="ol-zoom-wrapper"></div>
     </div>
     <!-- ./Control map buttons -->
+
+    <!-- Map info overlay -->
+    <div id="mapInfoOverlay" v-if="displayMapInfo">
+      <h5>
+        <span>Map Information</span>
+        <i class="fas fa-times" @click="onClickMapInfo"></i>
+      </h5>
+      <hr>
+      <table v-if="mapInfo() !== null && mapInfo().hasOwnProperty( 'game' )">
+        <tr>
+          <th>Game</th>
+          <td>{{ mapInfo().game.name }}</td>
+        </tr>
+        <tr>
+          <th>Version</th>
+          <td>{{ mapInfo().game.version }}</td>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <td>{{ mapInfo().game.generatedAt }}</td>
+        </tr>
+      </table>
+      <div v-else>
+        No data available
+      </div>
+    </div>
+    <!-- ./Map info overlay -->
 
     <!-- Speed area-->
     <div v-if="getConfig('maps_elements_speedAndGear')" id="speed-area" class="top button">
@@ -75,8 +105,8 @@
 
 <script>
 import { EventBus }   from '@/event-bus.js';
-import _maps          from '@/utils/_maps';
 import _history       from '@/utils/_history';
+import _maps          from '@/utils/_maps';
 import { mapGetters } from 'vuex';
 import Dashboard      from '../../../components/Elements/Dashboard';
 import _app           from '../../../utils/_app';
@@ -88,6 +118,7 @@ export default {
   },
   data() {
     return {
+      displayMapInfo:   false,
       rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer,
       ready:            false,
       message:          {
@@ -137,7 +168,10 @@ export default {
          } );
 
   },
-  methods:  {
+  methods: {
+    onClickMapInfo() {
+      this.displayMapInfo = !this.displayMapInfo;
+    },
     onClickRotate() {
       _maps.d.gBehaviorRotateWithPlayer = (_maps.d.gBehaviorCenterOnPlayer)
           ? !_maps.d.gBehaviorRotateWithPlayer
@@ -147,6 +181,9 @@ export default {
     },
     onClickCenter() {
       _maps.d.gBehaviorCenterOnPlayer = !_maps.d.gBehaviorCenterOnPlayer;
+    },
+    mapInfo() {
+      return _maps.d.config;
     }
   },
   computed: {

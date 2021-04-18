@@ -48,13 +48,13 @@
 				
 				> span { padding: .2rem; }
 				
-				i { padding: .2rem 0 0 0; }
+				i { padding: 0; }
 				
 				&:last-child { margin-right: 0; }
 				
 				&.disabled {
 					background:   transparentize($cBlackTransparentHigh, .3);
-					border-color: $cGray;
+					border-color: $cGray !important;
 					color:        $cGray;
 				}
 			}
@@ -82,27 +82,20 @@
 			z-index:  2;
 			
 			button, .button {
-				font-size: 1.4rem;
+				font-size:     1.4rem;
+				border-radius: .5rem;
+				margin:        0 .2rem .2rem 0;
 			}
 			
 			.ol-zoom {
-				flex-direction: column;
-				height:         100%;
+				display: block;
+				//flex-direction: column;
+				height:  100%;
 				
-				.ol-zoom-in { content: "fas fa-search-plus" }
-			}
-			
-			&:before {
-				content:     " ";
-				width:       $deHeight;
-				height:      $deHeight;
-				left:        -0.1rem;
-				background:  transparentize($cBlackTransparentMid, .3);
-				border-left: 2px solid $cRed;
-				border-top:  1px solid $cRed;
-				
-				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
-				@include prefixer(transform, skew(-45deg, 0deg), ("webkit", "moz", "o"));
+				.ol-zoom-in, .ol-zoom-out {
+					margin:  0 .2rem .2rem 0;
+					content: "fas fa-search-plus";
+				}
 			}
 		}
 		
@@ -114,7 +107,9 @@
 			bottom:   0;
 			
 			.button {
-				width: auto;
+				width:         auto;
+				border-radius: .5rem;
+				margin:        0 0 .2rem .2rem;
 				
 				.round {
 					min-width:      $deHeight;
@@ -134,18 +129,42 @@
 					@include prefixer(align-items, center, ("webkit", "moz", "o"));
 				}
 			}
+		}
+		
+		#mapInfoOverlay {
+			position:   absolute;
+			width:      auto;
+			right:      .3rem;
+			top:        .3rem;
+			color:      $cWhite;
+			background: $cBlackTransparentMid;
+			padding:    .2rem;
+			border:     1px solid $cRed;
+			z-index:    2;
 			
-			&:before {
-				content:      " ";
-				width:        $deHeight;
-				height:       $deHeight;
-				left:         -0.1rem;
-				background:   $cBlackTransparentHigh;
-				border-right: 2px solid $cRed;
-				border-top:   1px solid $cRed;
+			h5 {
+				display:         flex;
+				margin:          0;
+				justify-content: center;
+				align-items:     center;
 				
-				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
-				@include prefixer(transform, skew(45deg, 0deg), ("webkit", "moz", "o"));
+				> span { width: 100%;}
+				
+				> i { font-size: .7rem; padding: .2rem; }
+			}
+			
+			hr {
+				display:      block;
+				border-color: $cGray;
+				margin:       .5rem 0;
+			}
+			
+			table {
+				font-size: .8rem;
+				
+				th { text-align: right; padding-right: .2rem; }
+				
+				td { text-align: left; padding-left: .2rem;}
 			}
 		}
 		
