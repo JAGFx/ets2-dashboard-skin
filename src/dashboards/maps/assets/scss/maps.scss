@@ -122,6 +122,8 @@
 					vertical-align: center;
 					font-size:      1.5rem;
 					
+					> i { padding-top: .3rem; }
+					
 					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
 					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
 					@include prefixer(display, flex, ("webkit", "moz", "o"));

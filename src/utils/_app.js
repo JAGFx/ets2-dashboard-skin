@@ -100,6 +100,10 @@ const gameIsATS = gameID => gameID === GAME_ID_ATS;
 
 const gameIsETS2 = gameID => gameID === GAME_ID_ETS2;
 
+const betweenFloat = ( data, a, b ) => {
+	return parseFloat( data ) >= a && parseFloat( data ) <= b;
+};
+
 export default {
 	basePathHost,
 	version,
@@ -113,6 +117,7 @@ export default {
 	sleep,
 	gameIsATS,
 	gameIsETS2,
+	betweenFloat,
 	formatConstants: {
 		DATE_FORMAT_NONE,
 		DATE_FORMAT_SHORT,

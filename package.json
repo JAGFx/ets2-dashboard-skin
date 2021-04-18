@@ -21,7 +21,7 @@
     "server:build" :    "cd server && set NODE_ENV=production && npx gulp",
     "server:start" :    "cd server && npm run start",
     "server:dev" :      "cd server.dev && npm run start",
-    "tiles:serv" :      "http-server ./maps -p 8081 --cors -s",
+    "tiles:serv" :      "http-server W:\\Others\\ETS\\tiles -p 8081 --cors -s",
     "font:build" :      "npx gulp build:font",
     "commitSince" :     "git log --pretty=\"%h - %s (%an)\" v1.4.0-beta.0..HEAD"
   },

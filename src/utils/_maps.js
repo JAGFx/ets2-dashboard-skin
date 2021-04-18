@@ -6,6 +6,7 @@
  * Time: 	21:38
  */
 
+import _app                            from '@/utils/_app';
 import _history                        from '@/utils/_history';
 import axios                           from 'axios';
 import { Feature }                     from 'ol';
@@ -99,32 +100,6 @@ const initConfig = ( game ) => {
 };
 
 const initMap = () => {
-	//let projection = new Projection( {
-	//	// Any name here. I chose "Funbit" because we are using funbit's image coordinates.
-	//	code:        'Funbit',
-	//	units:       'pixels',
-	//	extent:      [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-	//	worldExtent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ]
-	//} );
-	//addProjection( projection );
-	
-	// Configuring the custom map tiles.
-	//let custom_tilegrid = new TileGrid( {
-	//	extent:  [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-	//	minZoom: d.config.map.minZoom,
-	//	maxZoom: d.config.map.maxZoom + 1,
-	//	origin:  [ 0, d.config.map.maxY ],
-	//	//tileSize: [ 512, 512 ],
-	//	tileSize:    d.config.map.tileSize,//[ 512, 512 ],
-	//	resolutions: (function () {
-	//		let r = [];
-	//		for ( let z = 0; z <= d.config.map.maxZoom; ++z ) {
-	//			r[ z ] = Math.pow( 2, d.config.map.maxZoom - z );
-	//		}
-	//		return r;
-	//	})()
-	//} );
-	
 	// --- [Debug] Mouse position
 	//const mousePosition = new MousePosition( {
 	//	coordinateFormat: createStringXY( 0 )
@@ -146,25 +121,28 @@ const initMap = () => {
 	
 	
 	// Creating the map.
+	let zoomInLabel = document.createElement( 'span' );
+	zoomInLabel.classList.add( 'fas', 'fa-search-plus' );
+	
+	let zoomOutLabel = document.createElement( 'span' );
+	zoomOutLabel.classList.add( 'fas', 'fa-search-minus' );
+	
 	d.map = new Map( {
 		controls: defaultControls( {
 			zoom:        true,
 			zoomOptions: {
-				className:    'ol-zoom',
-				zoomInLabel:  '<i class="fas fa-search-plus"></i>',
-				zoomOutLabel: '<i class="fas fa-search-minus"></i>',
+				zoomInLabel:  zoomInLabel,
+				zoomOutLabel: zoomOutLabel,
 				target:       'ol-zoom-wrapper'
 			},
 			rotate:      false
 		} ),
-		//controls: [ mousePosition ],
-		layers: [
-			//getMapTilesLayer( projection, custom_tilegrid ),
+		layers:   [
 			getMapTilesLayer( projection ),
 			getPlayerLayer()
 		],
-		target: 'map',
-		view:   new View( {
+		target:   'map',
+		view:     new View( {
 			center:     [ 0, 0 ],
 			zoom:       ZOOM_DEFAULT,
 			minZoom:    d.config.map.minZoom,
@@ -172,29 +150,16 @@ const initMap = () => {
 			projection: projection,
 			extent:     projection.getExtent()
 		} )
-		//view:     new View( {
-		//	projection: projection,
-		//	extent:     [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
-		//	//center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-		//	center:  [ d.config.map.maxX / 2, d.config.map.maxY / 2 ],
-		//	minZoom: d.config.map.minZoom,
-		//	maxZoom: d.config.map.maxZoom + 1,
-		//	zoom:    ZOOM_DEFAULT
-		//} )
 	} );
 	
 	// Detecting when the user interacts with the map.
 	// https://stackoverflow.com/q/32868671/
 	d.map.getView().on( [ 'change:center', 'change:rotation' ], function ( ev ) {
-		//console.log( 'Hola', d.gIgnoreViewChangeEvents );
-		
-		if ( d.gIgnoreViewChangeEvents ) {
+		if ( d.gIgnoreViewChangeEvents )
 			return;
-		}
+		
 		// The user has moved or rotated the map.
 		d.gBehaviorCenterOnPlayer = false;
-		// Not needed:
-		// g_behavior_rotate_with_player = false;
 	} );
 };
 
@@ -251,18 +216,11 @@ const getAvailableMap = () => {
 
 // ----
 
-const getMapTilesLayer = ( projection, tileGrid ) => {
+const getMapTilesLayer = ( projection ) => {
 	return new Tile( {
-		//extent: [ 0, 0, d.config.map.maxX, d.config.map.maxY ],
 		source: new XYZ( {
 			projection: projection,
-			// 'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/maps/ets2/tiles/{z}/{x}/{y}.png',
-			url: d.paths.base + d.paths.tiles
-			//tileSize: d.config.map.tileSize,
-			//tileGrid: tileGrid,
-			//wrapX:    false,
-			//minZoom:  d.config.map.minZoom,
-			//maxZoom:  d.config.map.maxZoom + 1
+			url:        d.paths.base + d.paths.tiles
 		} )
 	} );
 };
@@ -271,7 +229,6 @@ const getPlayerLayer = () => {
 	// Adding a marker for the player position/rotation.
 	d.playerIcon = new Icon( {
 		anchor:         [ 0.5, 39 ],
-		scale:          .7,
 		anchorXUnits:   'fraction',
 		anchorYUnits:   'pixels',
 		rotateWithView: true,
@@ -312,27 +269,30 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 	if ( d.gBehaviorCenterOnPlayer ) {
 		
 		if ( d.gBehaviorRotateWithPlayer ) {
-			let height           = d.map.getSize()[ 1 ];
-			let max_ahead_amount = height / 3.0 * d.map.getView().getResolution();
-			
-			//auto-zoom map by speed
-			if ( parseFloat( (speed).toFixed( 0 ) ) >= 15 && parseFloat( (speed).toFixed( 0 ) ) <= 35 ) {
-				d.map.getView().setZoom( 9 );
-			} else if ( parseFloat( (speed).toFixed( 0 ) ) >= 51 && parseFloat( (speed).toFixed( 0 ) ) <= 55 ) {
-				d.map.getView().setZoom( 8 );
-			} else if ( parseFloat( (speed).toFixed( 0 ) ) >= 61 && parseFloat( (speed).toFixed( 0 ) ) <= 65 ) {
-				d.map.getView().setZoom( 7 );
-			} else if ( parseFloat( (speed).toFixed( 0 ) ) >= 81 && parseFloat( (speed).toFixed( 0 ) ) <= 88 ) {
-				d.map.getView().setZoom( 6 );
-			}
-			
-			let amount_ahead = speed * 0.25;
-			amount_ahead     = Math.max( -max_ahead_amount, Math.min( amount_ahead, max_ahead_amount ) );
-			
-			let ahead_coords = [
+			const height           = d.map.getSize()[ 1 ];
+			const max_ahead_amount = height / 3.0 * d.map.getView().getResolution();
+			const amount_ahead     = Math.max( -max_ahead_amount, Math.min( speed * 0.25, max_ahead_amount ) );
+			const ahead_coords     = [
 				map_coords[ 0 ] + Math.sin( -rad ) * amount_ahead,
 				map_coords[ 1 ] + Math.cos( -rad ) * amount_ahead
 			];
+			
+			speed = (speed).toFixed( 0 );
+			
+			//auto-zoom map by speed
+			if ( _app.betweenFloat( speed, 15, 35 ) )
+				d.map.getView().setZoom( 9 );
+			
+			else if ( _app.betweenFloat( speed, 51, 55 ) )
+				d.map.getView().setZoom( 8 );
+			
+			else if ( _app.betweenFloat( speed, 61, 65 ) )
+				d.map.getView().setZoom( 7 );
+			
+			else if ( _app.betweenFloat( speed, 81, 88 ) )
+				d.map.getView().setZoom( 6 );
+			
+			
 			d.map.getView().setCenter( ahead_coords );
 			d.map.getView().setRotation( rad );
 			
@@ -349,23 +309,6 @@ const gameCoordToPixels = ( x, y ) => {
 		return;
 	
 	return [ x, -y ];
-	
-	//const x1 = d.config.map.x1;
-	//const x2 = d.config.map.x2;
-	//const y1 = d.config.map.y1;
-	//const y2 = d.config.map.y2;
-	//
-	//const xtot = x2 - x1; // Total X length
-	//const ytot = y2 - y1; // Total Y length
-	//
-	//const xrel = (x - x1) / xtot; // The fraction where the X is (between 0 and 1, 0 being fully left, 1 being fully
-	//							  // right)
-	//const yrel = (y - y1) / ytot; // The fraction where the Y is
-	//
-	//return [
-	//	xrel * d.config.map.maxX, // Where X actually is, so multiplied the actual width
-	//	d.config.map.maxY - (yrel * d.config.map.maxY) // Where Y actually is, only Y is inverted
-	//];
 };
 
 export default {
