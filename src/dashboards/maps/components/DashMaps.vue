@@ -106,7 +106,7 @@
 <script>
 import { EventBus }   from '@/event-bus.js';
 import _history       from '@/utils/_history';
-import _maps          from '@/utils/_maps';
+import * as _maps     from '@/utils/_maps';
 import { mapGetters } from 'vuex';
 import Dashboard      from '../../../components/Elements/Dashboard';
 import _app           from '../../../utils/_app';

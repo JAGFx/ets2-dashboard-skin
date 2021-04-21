@@ -5,9 +5,9 @@
       <small class="font-italic text-muted">{{ elm.description }}</small>
     </div>
     <div class="input d-flex justify-content-between align-items-stretch" v-if="values === null" :class="{ 'processing': appGetProcessing }">
-      <div class="input-zone prefix">@</div>
+      <div class="input-zone prefix"><i class="fas fa-globe"></i></div>
       <input :type="elm.type" class="form-control input-zone" v-model="val">
-      <button class="input-zone valid" @click="set( val )">V</button>
+      <button class="input-zone valid" @click="set( val )"><i class="fas fa-check"></i></button>
     </div>
     <div class="switch d-flex justify-content-between align-items-stretch" v-else-if="values.length <= 2" :class="{ 'processing': appGetProcessing }">
       <div :class="{ 'active': current( elm.id ) === value.value }" :key="value.value" @click="set( value.value )" class="value w-100 m-0 text-center d-flex justify-content-center align-items-center" v-for="value in values">
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import _maps          from '@/utils/_maps';
 import _              from 'lodash';
 import { mapGetters } from 'vuex';
 
@@ -48,24 +47,9 @@ export default {
     if ( this.elm.hasOwnProperty( 'asyncValues' ) && this.elm.asyncValues ) {
       //console.log( 'asyncValues !', this.elm );
 
-      switch ( this.elm.id ) {
-        case 'maps_map_activeMap': {
-          let values = [];
-
-          _maps.getAvailableMap()
-               .then( maps => {
-                 maps.forEach( map => values.push( {
-                   label: map.name,
-                   value: map.id
-                 } ) );
-
-                 this.values = this.values.concat( values );
-                 //console.log( values );
-               } );
-
-          break;
-        }
-      }
+      //switch ( this.elm.id ) {
+      //
+      //}
     }
   },
   computed: {

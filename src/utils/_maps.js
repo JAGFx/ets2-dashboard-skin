@@ -168,52 +168,6 @@ const init = ( game ) => {
 		.then( () => initMap() );
 };
 
-const getAvailableMap = () => {
-	// TODO Get list from a server
-	
-	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
-		return new Promise( resolve => {
-			setTimeout( () => {
-				//store.dispatch( 'app/endProcessing' );
-				resolve( [
-					{
-						'map':  {
-							'maxX':     131072,
-							'maxY':     131072,
-							'x1':       -62136.0625,
-							'x2':       80349.8,
-							'y1':       -64456.1328,
-							'y2':       78029.73,
-							'tileSize': 512,
-							'minZoom':  0,
-							'maxZoom':  8
-						},
-						'game': {
-							'id':          'ets2',
-							'game':        'ets2',
-							'name':        'Euro Truck Simulator 2',
-							'version':     '1.40.3.3',
-							'generatedAt': '2021-04-17T19:04:28.8557659+02:00'
-						}
-					},
-					{
-						id:          'ats',
-						name:        'ATS base map',
-						game:        'ats',
-						x1:          -62252.0547,
-						x2:          80465.8,
-						y1:          -64572.1328,
-						y2:          78145.72,
-						minZoom:     0,
-						maxZoom:     8,
-						gameVersion: '1.40.2.0',
-						generatedAt: '2021-04-08T19:29:11.4191534+02:00'
-					}
-				] );
-			}, 1000 );
-		} );
-};
-
 // ----
 
 const getMapTilesLayer = ( projection ) => {
@@ -253,6 +207,8 @@ const getPlayerLayer = () => {
 		source: featureSource
 	} );
 };
+
+// ----
 
 const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 	
@@ -311,12 +267,10 @@ const gameCoordToPixels = ( x, y ) => {
 	return [ x, -y ];
 };
 
-export default {
+export {
 	d,
 	init,
-	getMapTilesLayer,
 	updatePlayerPositionAndRotation,
-	gameCoordToPixels,
-	getAvailableMap
+	gameCoordToPixels
 };
 

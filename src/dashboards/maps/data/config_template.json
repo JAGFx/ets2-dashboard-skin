@@ -109,11 +109,26 @@
 					"id" :          "maps_map_activeMap",
 					"label" :       "Active map",
 					"description" : "Change the active map",
-					"asyncValues" : true,
-					"values" :      [
+					"values" : [
 						{
 							"label" : "Auto",
 							"value" : null
+						},
+						{
+							"label" : "ETS2 base map (Full DLC)",
+							"value" : "ets"
+						},
+						{
+							"label" : "ATS base map (Full DLC)",
+							"value" : "ats"
+						},
+						{
+							"label" : "Promod (ETS)",
+							"value" : "promod"
+						},
+						{
+							"label" : "Promod Canada",
+							"value" : "promod-ca"
 						}
 					]
 				},

@@ -134,15 +134,16 @@
 		}
 		
 		#mapInfoOverlay {
-			position:   absolute;
-			width:      auto;
-			right:      .3rem;
-			top:        .3rem;
-			color:      $cWhite;
-			background: $cBlackTransparentMid;
-			padding:    .2rem;
-			border:     1px solid $cRed;
-			z-index:    2;
+			position:      absolute;
+			width:         auto;
+			right:         .3rem;
+			top:           .3rem;
+			color:         $cWhite;
+			background:    $cBlackTransparentMid;
+			padding:       .5rem;
+			border:        1px solid $cRed;
+			z-index:       2;
+			border-radius: .5rem;
 			
 			h5 {
 				display:         flex;
