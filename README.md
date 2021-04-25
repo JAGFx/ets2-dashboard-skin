@@ -25,7 +25,7 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](doc/screens/demo.gif)
 
-This project have also a Map integration. [See here](#maps)
+This project have also a Map integration. [See here](./doc/MAP.md)
 
 You can check also a review and installation guide made
 by [Neranjana Wijesinghe](https://www.youtube.com/playlist?list=PLJONr1a8YX5Tyw-i49yk2jYTAFJJ5h7fw)
@@ -42,6 +42,21 @@ prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/bl
 A event overlay can also be configured !
 
 It's work on desktop and mobile browser.
+
+## Map
+
+|Map|Game|Version|Download|
+|---|---|---|---|
+|Base|Euro Truck Simulator 2|v1.40.3.3|Download|
+|Base|American Truck Simulator (1)|v1.40.3.3|-|
+|Promod|Euro Truck Simulator 2 (1) (2)|v2.50|-|
+|Promod Canada|American Truck Simulator (1) (2)|v2.50|-|
+
+> (1) Not yet available
+>
+> (2) Not required on self-hosting
+
+More information on the [Map](./doc/MAP.md) readme
 
 ## Requirements
 
@@ -129,34 +144,6 @@ And that's it :D
 
 > Tip: You can save a shortcut on your home screen to use it as an app like.
 
-### Maps
-
-#### Supported game / mod
-
-| Map / Mod | Supported ? | Latest version |
-|---|---|---|
-|ETS2 base map|YES|v1.38|
-|Promod ETS|Not tested|--|
-|ATS base map|YES|v1.38|
-|Promod ATS|Not tested|--|
-
-The map feature need tiles collection. You've two way to get this tiles:
-
-- **Remotly**, you don't need to download anything. But you need an internet connexion
-- **Localy**, you **NEED** to download the tiles collection. See below.
-
-Download tiles collection for the local use:
-
-1. Download the [`vanilla`](https://ets2.jagfx.fr/maps.vanilla.tar.gz) and
-   or [`promod`](https://ets2.jagfx.fr/maps.promod.tar.gz) tiles collection
-2. Extract them into the folder of your installation folder. Final path example: `ETSDashFolder/maps/vanilla/...`
-3. Set the `Tiles location` (Menu > Config > Map's options > Map > Tile location) to `Local`
-4. Restart the app
-5. And that's it !
-
-> Please note all tiles was picked up from [mike-koch / ets2-mobile-route-advisor](https://github.com/mike-koch/ets2-mobile-route-advisor). I'm not (yet) able to generate tiles for ETS2 (Base map and Promod map) or ATS (Base map or Promod). I've not all the DLC for it. If you're interested to participate, send me a message.
->
-> I'm work on side project to be able to update map tiles myself.
 
 ## Know issues
 

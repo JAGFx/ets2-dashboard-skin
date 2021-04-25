@@ -19,11 +19,20 @@ On this section, you can retrieve the following information:
 
 ## Usage
 
-To use the map skin, you need a map tiles collection. This collection may be use from:
+The map feature need tiles collection. You've three way to get this tiles:
 
-- Local: On your machine
-- Default remote: Collection hosted on a remote by me
-- Your remote: Self-hosted
+- **Default remote**, you don't need to download anything. But you need an internet connexion
+- **Self-hosted remote**, you can use your own remote.
+- **Localy**, you **NEED** to download the tiles collection. See below.
+
+Download tiles collection for the local use:
+
+1. Download the [`vanilla`](https://ets2.jagfx.fr/maps.vanilla.tar.gz) and
+   or [`promod`](https://ets2.jagfx.fr/maps.promod.tar.gz) tiles collection
+2. Extract them into the folder of your installation folder. Final path example: `ETSDashFolder/maps/vanilla/...`
+3. Set the `Tiles location` (Menu > Config > Map's options > Map > Tile location) to `Local`
+4. Restart the app
+5. And that's it !
 
 ### Default
 
@@ -110,6 +119,16 @@ This project support the map tiles collection generated from this project
 only: [JAGFx / ts-map](https://github.com/JAGFx/ts-map).
 
 Follow the instruction in `Generation` section.
+
+#### Example
+
+You can use `http-server` to host a local tiles collection
+
+````bash
+$ http-server ./maps -p 8081 --cors -s
+````
+
+And then set the `Custom remote tiles location` to `http://localhost:8081`
 
 ## Generation
 

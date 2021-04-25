@@ -702,7 +702,7 @@ You can find common elements, and skin config.
         <td>true</td>
     </tr>
     <tr>
-        <td>maps_map_tilesLocations</td>
+        <td>maps_map_tilesLocation</td>
         <td>Tiles location</td>
         <td>
             <ul>
@@ -713,15 +713,37 @@ You can find common elements, and skin config.
         <td>remote</td>
     </tr>
     <tr>
+        <td>maps_map_type</td>
+        <td>Kind of map</td>
+        <td>
+            <ul>
+                <li>vanilla</li>
+                <li>mod</li>
+            </ul>
+        </td>
+        <td>vanilla</td>
+    </tr>
+    <tr>
+        <td>maps_map_tilesRemotePath</td>
+        <td>Custom remote tiles location</td>
+        <td>
+            N/A
+        </td>
+        <td>https://ets.jagfx.fr</td>
+    </tr>
+    <tr>
         <td>maps_map_activeMap</td>
         <td>Active map</td>
         <td>
             <ul>
-                <li>vanilla</li>
-                <li>promods</li>
+                <li>null</li>
+                <li>ets</li>
+                <li>ats</li>
+                <li>promod</li>
+                <li>promod-ca</li>
             </ul>
         </td>
-        <td>vanilla</td>
+        <td>null</td>
     </tr>
     <tr>
         <td>maps_map_navigationRemaining</td>
@@ -737,7 +759,7 @@ You can find common elements, and skin config.
 
 </table>
 
-> Note: When the `maps_map_tilesLocations` is set to `local`, you need to download the tiles collection. See the main README.
+> Note: When the `maps_map_tilesLocations` is set to `local`, you need to download the tiles collection. See the [MAP](./MAP.md) README.
 
 ---
 ↩️ [Home](../README.md)

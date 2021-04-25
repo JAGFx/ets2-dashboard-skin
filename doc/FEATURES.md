@@ -119,8 +119,7 @@ Currently, I'm introduced the map with some navigation data only. Not the full r
 
 #### Map support
 
-- Vanilla map (ETS & ATS)
-- Promod map (Promod for ETS & Promod Canada)
+See the [Map](./MAP.md) section
 
 #### Available configuration
 
@@ -132,9 +131,7 @@ To know all available configurations, see the `CONFIG_SETTINGS.md`
 
 #### Additionnal setup
 
-You can choos to load the tiles map from a remote (by default) or choice to load it from your computer.
-
-See the main `README.md` to know how :D
+See the [Map](./MAP.md) section
 
 ---
 ↩️ [Home](../README.md)
