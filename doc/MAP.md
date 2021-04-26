@@ -1,15 +1,19 @@
 # Map
 
+The map feature need tiles collection. To do that, you need to generate it.
+
+If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) project.
+
+The following tab show you the tiles collection and the download link
+
 |Map|Game|Version|Download|
 |---|---|---|---|
 |Base|Euro Truck Simulator 2|v1.40.3.3|Download|
-|Base|American Truck Simulator (1)|v1.40.3.3|-|
-|Promod|Euro Truck Simulator 2 (1) (2)|v2.50|-|
-|Promod Canada|American Truck Simulator (1) (2)|v2.50|-|
+|Base|American Truck Simulator|v1.40.3.3|-|
+|Promod|Euro Truck Simulator 2 (1)|v2.50|-|
+|Promod Canada|American Truck Simulator (1)|v2.50|-|
 
-> (1) Not yet available
->
-> (2) Not required on self-hosting
+> (1) Not required on self-hosting
 
 On this section, you can retrieve the following information:
 
@@ -132,4 +136,21 @@ And then set the `Custom remote tiles location` to `http://localhost:8081`
 
 ## Generation
 
-SOON
+If you want to participate on this step, You'll made me happy.
+
+This project need the tiles for:
+
+- ETS2 base map (Full DLC)
+- ATS base map (Full DLC)
+- Promod (ETS)
+- Promod Canada
+
+### Export the tiles
+
+Check the side project [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) to know how ;)
+
+### Send your export
+
+Thanks so much for your participation.
+
+Send a link of the archive at `hey@emmanuel-smith.me`. It's recommended to host your archive and send the link.

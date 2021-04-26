@@ -67,58 +67,6 @@ More information on the [Map](./doc/MAP.md) readme
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
-## Installation
-
-### Prerequisite
-
-Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
-
-- Download the supported version zip `v1.10.6` at the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.6/release_v_1_10_6.zip) page
-- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
-
-### For normal use
-
-You can use this dashboard without build anything.
-
-You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest) page.
-
-Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
-
-See the *[How to use]()* section to know how to run it !
-
-> Note: You need to start the game to see the dashboard
-
-### For development
-
-1. Install the prerequisite things
-2. Install the Windows-Build-Tools 
-3. Clone this repository
-4. Build this project
-5. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
-
-#### Windows-Build-Tools
-
-Install *[Windows-Build-Tools](https://github.com/felixrieseberg/windows-build-tools)*
-
-````bash
-$ npm install --global windows-build-tools
-````
-
-#### Clone this repository
-
-````bash
-$ git clone https://github.com/JAGFx/ets2-dashboard-skin.git
-$ cd ets2-dashboard-skin
-````
-
-#### Build resources
-
-````bash
-$ npm i && npm rb
-$ npm run server:install
-$ npm run build
-````
-
 
 ## How to use ?
 
@@ -161,13 +109,69 @@ To know more about the skin integrated or how to add a new skin, see the [SKINS.
 
 To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
 
+## Installation
+
+### Prerequisite
+
+Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
+
+- Download the supported version zip `v1.10.6` at
+  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.6/release_v_1_10_6.zip) page
+- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
+
+### For normal use
+
+You can use this dashboard without build anything.
+
+You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
+page.
+
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
+
+See the *[How to use]()* section to know how to run it !
+
+> Note: You need to start the game to see the dashboard
+
+### For development
+
+1. Install the prerequisite things
+2. Install the Windows-Build-Tools
+3. Clone this repository
+4. Build this project
+5. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
+
+#### Windows-Build-Tools
+
+Install *[Windows-Build-Tools](https://github.com/felixrieseberg/windows-build-tools)*
+
+````bash
+$ npm install --global windows-build-tools
+````
+
+#### Clone this repository
+
+````bash
+$ git clone https://github.com/JAGFx/ets2-dashboard-skin.git
+$ cd ets2-dashboard-skin
+````
+
+#### Build resources
+
+````bash
+$ npm i && npm rb
+$ npm run server:install
+$ npm run build
+````
+
 ## Development
 
 ### Environment file
 
-This project use a `.env` file. If you wan to override one or more variable in the development, create a `.env.local` at the same place of the `.env` file
+This project use a `.env` file. If you wan to override one or more variable in the development, create a `.env.local` at
+the same place of the `.env` file
 
 #### Telemetry data
+
 If you want to use a fake file data instead of the data from the SCS API, set the `VUE_APP_USE_FAKE_DATA` to `true`
 
 ```dotenv
