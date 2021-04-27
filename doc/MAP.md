@@ -44,7 +44,7 @@ On default configuration, the map settings are:
 
 - Tiles location: `Remote`
 - Kind of map: `Vanilla`
-- Custom remote tiles location: `https://ets.jagfx.fr`
+- Custom remote tiles location: `https://ets2.jagfx.fr`
 - Active map: `Auto`
 
 This configuration can only use the base map and can switch automatically between ETS or ATS. This configuration do not

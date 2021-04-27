@@ -729,7 +729,7 @@ You can find common elements, and skin config.
         <td>
             N/A
         </td>
-        <td>https://ets.jagfx.fr</td>
+        <td>https://ets2.jagfx.fr</td>
     </tr>
     <tr>
         <td>maps_map_activeMap</td>

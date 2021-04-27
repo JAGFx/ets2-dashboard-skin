@@ -69,21 +69,6 @@
 			"name" :     "Map",
 			"elements" : [
 				{
-					"id" :          "maps_map_tilesLocation",
-					"label" :       "Tiles location",
-					"description" : "Change the way to get map tiles. From a distant serveur or form a local source",
-					"values" :      [
-						{
-							"label" : "Remote",
-							"value" : "remote"
-						},
-						{
-							"label" : "Local",
-							"value" : "local"
-						}
-					]
-				},
-				{
 					"id" :          "maps_map_type",
 					"label" :       "Kind of map",
 					"description" : "Use the ETS2 or ATS map automatically or use the modded map",
@@ -100,8 +85,8 @@
 				},
 				{
 					"id" :          "maps_map_tilesRemotePath",
-					"label" :       "Custom remote tiles location",
-					"description" : "Use a custom remote location for the map tiles",
+					"label" :       "Remote tiles location",
+					"description" : "Set a remote location for the map tiles. It can be on your local machine",
 					"values" :      null,
 					"type" :        "url"
 				},
@@ -129,6 +114,21 @@
 						{
 							"label" : "Promod Canada",
 							"value" : "promod-ca"
+						}
+					]
+				},
+				{
+					"id" :          "maps_map_tilesVersion",
+					"label" :       "Game version",
+					"description" : "The latest get the tiles for the latest version, else the specified version",
+					"values" :      [
+						{
+							"label" : "Latest",
+							"value" : "latest"
+						},
+						{
+							"label" : "1.39",
+							"value" : "1.39"
 						}
 					]
 				},

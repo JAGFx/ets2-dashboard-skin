@@ -51,16 +51,14 @@ const ZOOM_DEFAULT = 8;
 const initConfig = ( game ) => {
 	const type               = store.getters[ 'config/get' ]( 'maps_map_type' );
 	const tileRemoteLocation = store.getters[ 'config/get' ]( 'maps_map_tilesRemotePath' );
-	const tilesLocation      = store.getters[ 'config/get' ]( 'maps_map_tilesLocation' );
+	const tilesVersion       = store.getters[ 'config/get' ]( 'maps_map_tilesVersion' );
 	const activeMap          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
 	const map                = (type === 'vanilla')
 		? game
 		: activeMap;
-	const basePath           = (tilesLocation === 'remote')
-		? `${ tileRemoteLocation }/${ map }/`
-		: `http://${ window.location.hostname }:3000/maps/${ map }/`;
+	const basePath           = `${ tileRemoteLocation }/${ map }/${ tilesVersion }`;
 	
-	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile location: ${ tilesLocation }`,
+	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile version: ${ tilesVersion }`,
 		_history.HTY_ZONE.MAPS_INIT );
 	
 	d.paths.base = basePath;
