@@ -47,13 +47,11 @@ It's work on desktop and mobile browser.
 
 |Map|Game|Version|Download|
 |---|---|---|---|
-|Base|Euro Truck Simulator 2|v1.40.3.3|Download|
-|Base|American Truck Simulator (1)|v1.40.3.3|-|
-|Promod|Euro Truck Simulator 2 (1) (2)|v2.50|-|
-|Promod Canada|American Truck Simulator (1) (2)|v2.50|-|
+|Base|Euro Truck Simulator 2|v1.40.3.25|Download|
+|Base|American Truck Simulator|v1.40.3.3|-|
+|Promod|Euro Truck Simulator 2 (2)|v2.55|Download|
+|Promod Canada|American Truck Simulator (2)|v1.0.1|-|
 
-> (1) Not yet available
->
 > (2) Not required on self-hosting
 
 More information on the [Map](./doc/MAP.md) readme
