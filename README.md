@@ -47,12 +47,11 @@ It's work on desktop and mobile browser.
 
 |Map|Game|Version|Download|
 |---|---|---|---|
-|Base|Euro Truck Simulator 2|v1.40.3.25|Download|
+|Base|Euro Truck Simulator 2|v1.40.3.25|[Download](https://github.com/JAGFx/ts-map/releases/download/v0.10/jagfx-map-ets2.tar.gz)|
 |Base|American Truck Simulator|v1.40.3.3|-|
-|Promod|Euro Truck Simulator 2 (2)|v2.55|Download|
-|Promod Canada|American Truck Simulator (2)|v1.0.1|-|
+|Promod|Euro Truck Simulator 2|v2.55|[Download](https://github.com/JAGFx/ts-map/releases/download/v0.10/jagfx-map-promod.tar.gz)|
+|Promod Canada|American Truck Simulator|v1.0.1|-|
 
-> (2) Not required on self-hosting
 
 More information on the [Map](./doc/MAP.md) readme
 
