@@ -60,6 +60,14 @@ The following tab show you the tiles collection and the download link
 
 More information on the [Map](./doc/MAP.md) readme
 
+### Breaking change
+
+It's not be planned, but a major change was introduced and cause a breaking change.
+
+From `v1.6.X` and more, there will not be able to work with the old map tiles collection (under `v1.5.X`)
+
+Please download the latest map tiles collection before to use the Map skin.
+
 ## Requirements
 
 - OS: Windows 64Bits
