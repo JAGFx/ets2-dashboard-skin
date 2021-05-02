@@ -1,6 +1,6 @@
 {
   "name" :            "ets2-dashboard-skin",
-  "version" :         "1.5.0",
+  "version" :         "1.6.0",
   "private" :         false,
   "description" :     "Euro Truck Simulator 2 dashboard",
   "author" :          {
