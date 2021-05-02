@@ -24,8 +24,8 @@
 		{
 			"id" :              "Maps",
 			"disabled" :        false,
-			"title" :           "Map of route advisor",
-			"description" :     "The map from the route advisor1",
+			"title" :           "Map",
+			"description" :     "The map from the route advisor",
 			"config_template" : "true",
 			"author" :          {
 				"name" :  "SMITH Emmanuel",
