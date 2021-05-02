@@ -25,14 +25,12 @@ This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniff
 
 ![Screenshot](doc/screens/demo.gif)
 
-This project have also a Map integration. [See here](./doc/MAP.md)
-
 You can check also a review and installation guide made
 by [Neranjana Wijesinghe](https://www.youtube.com/playlist?list=PLJONr1a8YX5Tyw-i49yk2jYTAFJJ5h7fw)
 
 ## What's it ?
 
-This is an web app who you can switch over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes,
+This is an web app who you can choose over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes,
 Renault, Scania or Volvo))
 . [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
 
@@ -41,9 +39,17 @@ prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/bl
 
 A event overlay can also be configured !
 
+Now, you've got a map integration !
+
 It's work on desktop and mobile browser.
 
 ## Map
+
+The map feature need tiles collection. To do that, you need to generate it.
+
+If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) project.
+
+The following tab show you the tiles collection and the download link
 
 |Map|Game|Version|Download|
 |---|---|---|---|
@@ -51,7 +57,6 @@ It's work on desktop and mobile browser.
 |Base|American Truck Simulator|v1.40.3.3|-|
 |Promod|Euro Truck Simulator 2|v2.55|[Download](https://github.com/JAGFx/ts-map/releases/download/v0.10/jagfx-map-promod.tar.gz)|
 |Promod Canada|American Truck Simulator|v1.0.1|-|
-
 
 More information on the [Map](./doc/MAP.md) readme
 
@@ -64,11 +69,26 @@ More information on the [Map](./doc/MAP.md) readme
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
-
 ## How to use ?
 
-First, you need to run the dashboard app. See the *[Installation](#installation)* section
-End then run the ETS2 or ATS game.
+### Prerequisite
+
+Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
+
+- Download the supported version zip `v1.10.6` at
+  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.6/release_v_1_10_6.zip) page
+- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
+
+### Installation
+
+You can use this dashboard without build anything.
+
+You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
+page.
+
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
+
+> Note: You need to start the game to see the dashboard
 
 ### Use from desktop device
 
@@ -107,29 +127,6 @@ To know more about the skin integrated or how to add a new skin, see the [SKINS.
 To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
 
 ## Installation
-
-### Prerequisite
-
-Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
-
-- Download the supported version zip `v1.10.6` at
-  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.6/release_v_1_10_6.zip) page
-- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
-
-### For normal use
-
-You can use this dashboard without build anything.
-
-You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
-page.
-
-Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
-
-See the *[How to use]()* section to know how to run it !
-
-> Note: You need to start the game to see the dashboard
-
-### For development
 
 1. Install the prerequisite things
 2. Install the Windows-Build-Tools
@@ -176,7 +173,9 @@ VUE_APP_USE_FAKE_DATA=true
 ```
 
 ### Resources
-I provide all resources what i'm use to develop this dashboard. Such as svg, AI file for svg or others element who can be need to contribute too.
+
+I provide all resources what I'm use to develop this dashboard. Such as svg, AI file for svg or others element who can
+be need to contribute too.
 
 See the [RESOURCES.md](doc/RESOURCES.md) section to get more details
 
