@@ -56,7 +56,7 @@ const initConfig = ( game ) => {
 	const map                = (type === 'vanilla')
 		? game
 		: activeMap;
-	const basePath           = `${ tileRemoteLocation }/${ map }/${ tilesVersion }`;
+	const basePath           = `${ tileRemoteLocation }/${ map }/${ tilesVersion }/`;
 	
 	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile version: ${ tilesVersion }`,
 		_history.HTY_ZONE.MAPS_INIT );
