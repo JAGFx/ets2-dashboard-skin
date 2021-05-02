@@ -125,10 +125,6 @@
 						{
 							"label" : "Latest",
 							"value" : "latest"
-						},
-						{
-							"label" : "1.39",
-							"value" : "1.39"
 						}
 					]
 				},
