@@ -27,13 +27,15 @@
 				</span>
 			</li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
-				<div class="round">
-					<i class="icon-time"></i>
-				</div>
-				<span v-if="!$hasJob()">N/A</span>
-				<span v-else-if="$jobRemainingTimeToDueDate()">{{ telemetry.job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
-				<span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
-			</li>
+        <div class="round">
+          <i class="icon-time"></i>
+        </div>
+        <span v-if="!$hasJob() || !telemetry.job.hasOwnProperty( 'deliveryTime' ) ">N/A</span>
+        <span v-else-if="$jobRemainingTimeToDueDate()">{{
+            telemetry.job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT )
+          }}</span>
+        <span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
+      </li>
 			<li :class="{ 'disabled': !$hasJob()  }" class="default">
 				<div class="round">
 					<i class="icon-currency"></i>
