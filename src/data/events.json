@@ -29,25 +29,25 @@
 		"title" :    "Refuel payed",
 		"subtitle" : null
 	},
-	"job.cancelled" :                 {
+	"job.cancelled" : {
 		"icon" :     "far fa-building",
 		"title" :    "Job canceled !",
-		"subtitle" : "You finish your job"
+		"subtitle" : "You cancel this job"
 	},
-	"job.delivered" :                 {
+	"job.delivered" : {
 		"icon" :     "far fa-building",
 		"title" :    "Job delivered !",
-		"subtitle" : "You finish your job"
+		"subtitle" : "Delivered !"
 	},
 	"job.finished" :                  {
 		"icon" :     "far fa-building",
 		"title" :    "Job finished !",
 		"subtitle" : "You finish your job"
 	},
-	"job.started" :                   {
+	"job.started" :   {
 		"icon" :     "far fa-building",
 		"title" :    "Job started !",
-		"subtitle" : "You finish your job"
+		"subtitle" : "You start this job"
 	},
 	"navigation.speed-limit" :        {
 		"icon" :     "fas fa-tachometer-alt",

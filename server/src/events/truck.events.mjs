@@ -41,9 +41,9 @@ export default () => {
 	);
 	telemetry.truck.on( eventNames.cruiseControlIncrease,
 		( cruiseControl ) => {
-			const text = `Cruise control increased to ${ cruiseControl.kph }kph / ${ cruiseControl.mph }mph`;
+			const text = `Cruise control increased to ${ cruiseControl.currentSpeed.kph }kph / ${ cruiseControl.currentSpeed.mph }mph`;
 			const data = {
-				cruiseControl: cruiseControl
+				cruiseControl: cruiseControl.currentSpeed
 			};
 			
 			log( eventNames.cruiseControlIncrease, data, text );
@@ -51,9 +51,12 @@ export default () => {
 	);
 	telemetry.truck.on( eventNames.cruiseControlDecrease,
 		( cruiseControl ) => {
-			const text = `Cruise control decreased to ${ cruiseControl.kph }kph / ${ cruiseControl.mph }mph`;
+			const text = `Cruise control decreased to ${ cruiseControl.currentSpeed.kph }kph / ${ cruiseControl.currentSpeed.mph }mph`;
 			const data = {
-				cruiseControl: cruiseControl
+				cruiseControl: {
+					enabled: cruiseControl.enabled,
+					...cruiseControl.currentSpeed
+				}
 			};
 			
 			log( eventNames.cruiseControlDecrease, data, text );
