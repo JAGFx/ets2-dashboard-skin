@@ -26,10 +26,10 @@
         <i class="fas fa-info"></i>
       </button>
       <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
-        <i class="fas fa-location-arrow"></i>
+        <i class="icon-location_arrow"></i>
       </button>
       <button id="center-button" @click="onClickCenter">
-        <i class="fas fa-bullseye"></i>
+        <i class="icon-target"></i>
       </button>
       <div id="ol-zoom-wrapper"></div>
     </div>

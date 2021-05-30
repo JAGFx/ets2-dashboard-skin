@@ -48,7 +48,12 @@
 				
 				> span { padding: .2rem; }
 				
-				i { padding: 0; }
+				i {
+					padding:         0;
+					display:         flex;
+					justify-content: center;
+					align-items:     center;
+				}
 				
 				&:last-child { margin-right: 0; }
 				

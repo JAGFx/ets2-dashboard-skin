@@ -119,11 +119,11 @@ const initMap = () => {
 	
 	
 	// Creating the map.
-	let zoomInLabel = document.createElement( 'span' );
-	zoomInLabel.classList.add( 'fas', 'fa-search-plus' );
+	let zoomInLabel = document.createElement( 'i' );
+	zoomInLabel.classList.add( 'icon-zoom_in' );
 	
-	let zoomOutLabel = document.createElement( 'span' );
-	zoomOutLabel.classList.add( 'fas', 'fa-search-minus' );
+	let zoomOutLabel = document.createElement( 'i' );
+	zoomOutLabel.classList.add( 'icon-zoom_out' );
 	
 	d.map = new Map( {
 		controls: defaultControls( {
