@@ -140,6 +140,21 @@
 							"value" : "automatic"
 						}
 					]
+				},
+				{
+					"id" :          "general_damage_accurate",
+					"label" :       "Damage accurate",
+					"description" : "Show the average with value of 'Damage diagnostic' or same as the 'Route advisor'",
+					"values" :      [
+						{
+							"label" : "Damage diagnostic",
+							"value" : "damage-diagnostic"
+						},
+						{
+							"label" : "Route advisor",
+							"value" : "route-advisor"
+						}
+					]
 				}
 			]
 		},

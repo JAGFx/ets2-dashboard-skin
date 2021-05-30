@@ -15,8 +15,8 @@
 				</div>
 				<div class="truck-stats">
 					<div class="damage right">
-						<span>{{ $averageDamage( telemetry.truck.damage ) }} %</span>
-					</div>
+            <span>{{ $truckDamage() }} %</span>
+          </div>
 					<span>
 						<span class="licencePlate"><span class="flag">{{
                 $flag( telemetry.truck.licensePlate.country.id,

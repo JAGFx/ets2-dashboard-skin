@@ -13,14 +13,14 @@
 				</div>
 			</div>
 			<div class="job-data">
-				<small class="licencePlate">
+        <small class="licencePlate">
           <span class="flag">{{ $flag( telemetry.trailer.licensePlate.country.id, telemetry.game.game.id ) }}</span>
           <span v-if="$hasTrailer()">{{ telemetry.trailer.licensePlate.value }}</span>
           <span v-else>N/A</span>
         </small>
-				<div class="damage left" v-if="$hasTrailer()">{{ $averageDamage( telemetry.trailer.damage ) }} %</div>
-				<div class="damage left" v-else>N/A</div>
-			</div>
+        <div class="damage left" v-if="$hasTrailer()">{{ $trailerDamage() }} %</div>
+        <div class="damage left" v-else>N/A</div>
+      </div>
 			<!--<div class="trailer-wear text-center">
 				<div class="damage" v-for="key in Object.keys(damage)">
 					<b>{{key}}</b><span>{{(100 * damage[key]).toFixed()}}%</span>

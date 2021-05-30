@@ -364,7 +364,25 @@ export default {
 					return (this.telemetry.truck.brand.id.length !== 0);
 				},
 				
+				$truckDamage: function () {
+					const configData = this.allConfig;
+					
+					return (configData.general_damage_accurate === 'damage-diagnostic')
+						? this.$averageDamage( this.telemetry.truck.damage )
+						: Math.floor( 100 * this.telemetry.truck.damage.chassis );
+				},
+				
 				// --- ./Truck
+				
+				// --- Trailer
+				$trailerDamage: function () {
+					const configData = this.allConfig;
+					
+					return (configData.general_damage_accurate === 'damage-diagnostic')
+						? this.$averageDamage( this.telemetry.trailer.damage )
+						: Math.floor( 100 * this.telemetry.trailer.damage.chassis );
+				},
+				// --- ./Trailer
 				
 				// --- Job
 				
