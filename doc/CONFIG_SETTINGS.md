@@ -68,6 +68,17 @@ You can find common elements, and skin config.
         </td>
         <td>h-shifter</td>
     </tr>
+    <tr>
+        <td>general_damage_accurate</td>
+        <td>Damage accurate</td>
+        <td>
+            <ul>
+                <li>damage-diagnostic</li>
+                <li>route-advisor</li>
+            </ul>
+        </td>
+        <td>damage-diagnostic</td>
+    </tr>
 </table>
 
 #### Event
