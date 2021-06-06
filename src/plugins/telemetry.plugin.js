@@ -315,11 +315,12 @@ export default {
 					return utils.app.flag( countryName, gameID );
 				},
 				$averageDamage( arrayDamage ) {
-					const keyLength = Object.keys( arrayDamage ).length;
+					const keyLength = Object.keys( arrayDamage ).filter( k => k !== 'total' ).length;
 					let sum         = 0;
 					
 					for ( const key in arrayDamage ) {
-						sum += arrayDamage[ key ];
+						if ( key !== 'total' )
+							sum += arrayDamage[ key ];
 					}
 					
 					return Math.floor( 100 * (sum / keyLength) );
@@ -374,16 +375,6 @@ export default {
 				
 				// --- ./Truck
 				
-				// --- Trailer
-				$trailerDamage: function () {
-					const configData = this.allConfig;
-					
-					return (configData.general_damage_accurate === 'damage-diagnostic')
-						? this.$averageDamage( this.telemetry.trailer.damage )
-						: Math.floor( 100 * this.telemetry.trailer.damage.chassis );
-				},
-				// --- ./Trailer
-				
 				// --- Job
 				
 				$hasJob: function () {
@@ -413,6 +404,13 @@ export default {
 				},
 				$hasTrailerAndJob: function () {
 					return this.telemetry.trailer.model.id.length !== 0 && this.telemetry.job.cargo.name.length !== 0;
+				},
+				$trailerDamage:    function () {
+					const configData = this.allConfig;
+					
+					return (configData.general_damage_accurate === 'damage-diagnostic')
+						? this.$averageDamage( this.telemetry.trailer.damage )
+						: Math.floor( 100 * this.telemetry.trailer.damage.chassis );
 				},
 				
 				// --- ./Trailer
