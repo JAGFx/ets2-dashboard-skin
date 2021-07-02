@@ -1,14 +1,14 @@
 {
-  "name" :        "ets2-dashboard-skin",
-  "version" :     "1.6.1",
-  "private" :     false,
-  "description" : "Euro Truck Simulator 2 dashboard",
-  "author" :      {
+  "name" :            "ets2-dashboard-skin",
+  "version" :         "1.6.1",
+  "private" :         false,
+  "description" :     "Euro Truck Simulator 2 dashboard",
+  "author" :          {
     "name" :  "Emmanuel SMITH",
     "email" : "hey@emmanuel-smith.me",
     "url" :   "https://emmanuel-smith.me"
   },
-  "scripts" :     {
+  "scripts" :         {
     "lint" :            "vue-cli-service lint",
     "build" :           "set NODE_ENV=production && npx gulp build",
     "bundle" :          "set NODE_ENV=production && npx gulp bundle",

@@ -1,0 +1,274 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	test.scss
+ * Date: 	01/05/2020
+ * Time: 	17:40
+ */
+
+@import "~bourbon/core/bourbon";
+@import "../common/variables";
+
+.maps {
+	background: #303030;
+	
+	&.wrapper {
+		display:         flex;
+		justify-content: center;
+		align-items:     center;
+		text-align:      center;
+		position:        relative;
+		
+		.loader {
+			position:   absolute;
+			background: $cBlackTransparentMid;
+		}
+		
+		#controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
+			display:         flex;
+			justify-content: center;
+			align-items:     flex-end;
+			text-align:      center;
+			height:          2rem;
+			
+			button, .button {
+				display:         flex;
+				justify-content: center;
+				align-items:     center;
+				text-align:      center;
+				color:           $cWhite;
+				border:          0;
+				background:      $cBlackTransparentMid;
+				font-size:       1.8rem;
+				margin:          0;
+				outline:         0;
+				width:           $deHeight;
+				height:          2rem;
+				overflow:        hidden;
+				
+				> span { padding: .2rem; }
+				
+				i {
+					padding:         0;
+					display:         flex;
+					justify-content: center;
+					align-items:     center;
+				}
+				
+				&:last-child { margin-right: 0; }
+				
+				&.disabled {
+					background:   transparentize($cBlackTransparentHigh, .3);
+					border-color: $cGray !important;
+					color:        $cGray;
+				}
+			}
+			
+			&.left {
+				button, .button { border-left: 2px solid $cRed; }
+			}
+			
+			&.bottom {
+				button, .button { border-bottom: 2px solid $cRed; }
+			}
+			
+			&.top {
+				button, .button { border-top: 2px solid $cRed; }
+			}
+		}
+		
+		#controls-wrapper {
+			
+			position: absolute;
+			right:    0;
+			bottom:   0;
+			height:   auto;
+			width:    auto;
+			z-index:  2;
+			
+			button, .button {
+				font-size:     1.4rem;
+				border-radius: .5rem;
+				margin:        0 .2rem .2rem 0;
+			}
+			
+			.ol-zoom {
+				display: block;
+				//flex-direction: column;
+				height:  100%;
+				
+				.ol-zoom-in, .ol-zoom-out {
+					margin:  0 .2rem .2rem 0;
+					content: "fas fa-search-plus";
+				}
+			}
+		}
+		
+		.eta-wrapper {
+			height:   inherit;
+			position: absolute;
+			left:     0;
+			width:    auto;
+			bottom:   0;
+			
+			.button {
+				width:         auto;
+				border-radius: .5rem;
+				margin:        0 0 .2rem .2rem;
+				
+				.round {
+					min-width:      $deHeight;
+					max-width:      $deHeight;
+					height:         $deHeight;
+					border-right:   2px solid $cRed;
+					overflow:       hidden;
+					background:     $cBlackTransparentHigh;
+					padding:        0 .5rem;
+					vertical-align: center;
+					font-size:      1.5rem;
+					
+					> i { padding-top: .3rem; }
+					
+					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+					@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+					@include prefixer(display, flex, ("webkit", "moz", "o"));
+					@include prefixer(justify-content, center, ("webkit", "moz", "o"));
+					@include prefixer(align-items, center, ("webkit", "moz", "o"));
+				}
+			}
+		}
+		
+		#mapInfoOverlay {
+			position:      absolute;
+			width:         auto;
+			right:         .3rem;
+			top:           .3rem;
+			color:         $cWhite;
+			background:    $cBlackTransparentMid;
+			padding:       .5rem;
+			border:        1px solid $cRed;
+			z-index:       2;
+			border-radius: .5rem;
+			
+			h5 {
+				display:         flex;
+				margin:          0;
+				justify-content: center;
+				align-items:     center;
+				
+				> span { width: 100%;}
+				
+				> i { font-size: .7rem; padding: .2rem; }
+			}
+			
+			hr {
+				display:      block;
+				border-color: $cGray;
+				margin:       .5rem 0;
+			}
+			
+			table {
+				font-size: .8rem;
+				
+				th { text-align: right; padding-right: .2rem; }
+				
+				td { text-align: left; padding-left: .2rem;}
+			}
+		}
+		
+		#speed-limit {
+			position: absolute;
+			width:    auto;
+			left:     .3rem;
+			top:      .3rem;
+			
+			span {
+				display:         flex;
+				justify-content: center;
+				align-items:     center;
+				text-align:      center;
+				background:      $cWhite;
+				border:          .3rem solid $cRed;
+				border-radius:   100%;
+				width:           3.2rem;
+				height:          3.2rem;
+				color:           $cBlack;
+				font-weight:     bold;
+				font-size:       1.5rem;
+			}
+		}
+		
+		#speed-area {
+			position: absolute;
+			bottom:   0;
+			height:   auto;
+			
+			.button {
+				height:  auto;
+				width:   auto;
+				padding: .3rem;
+				z-index: 1;
+			}
+			
+			.speed {
+				.value {
+					font-family: suprrpg !important;
+					@include prefixer(transform, skew(19deg, 0deg), ("webkit", "moz", "o"));
+					font-size:   2.5rem;
+					line-height: 2.3rem;
+				}
+				
+				.unit { font-size: .7rem; }
+			}
+			
+			.truck-gear {
+				line-height: 1.4rem;
+				background:  $cWhiteGray;
+				color:       $cBlack;
+				padding:     .3rem;
+				height:      inherit;
+				font-weight: bold;
+				font-size:   1.5rem;
+			}
+			
+			&:before {
+				content:     " ";
+				position:    relative;
+				bottom:      -1px;
+				width:       2rem;
+				height:      3rem;
+				padding:     .3rem;
+				left:        -0.1rem;
+				background:  $cBlackTransparentMid;
+				border-left: 1px solid $cRed;
+				border-top:  2px solid $cRed;
+				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+				@include prefixer(transform, skew(-30deg, 0deg), ("webkit", "moz", "o"));
+			}
+			
+			&:after {
+				content:      " ";
+				position:     relative;
+				bottom:       -1px;
+				width:        2rem;
+				height:       3rem;
+				padding:      .3rem;
+				right:        -0.1rem;
+				background:   $cBlackTransparentMid;
+				border-right: 1px solid $cRed;
+				border-top:   2px solid $cRed;
+				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
+				@include prefixer(transform, skew(30deg, 0deg), ("webkit", "moz", "o"));
+			}
+		}
+		
+		.ol-mouse-position {
+			position:   absolute;
+			width:      5rem;
+			height:     5rem;
+			left:       5rem;
+			top:        5rem;
+			background: transparentize($cBlackTransparentMid, .3);;
+		}
+	}
+}
