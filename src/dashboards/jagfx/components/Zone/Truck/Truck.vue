@@ -37,8 +37,8 @@
       </div>
     </div>-->
 
-    <MapElement :show-speed="false" :show-speed-limit="false" :show-navigation-eta="false" class="dash-element mx-3 my-2 theMap"></MapElement>
-    <ul class="dash-element right" v-if="false">
+    <MapElement :show-speed="false" :show-speed-limit="false" :show-navigation-eta="false" class="dash-element mx-3 my-2 theMap" v-if="allConfig['jagfx_elements_right_map'] === 'true'"></MapElement>
+    <ul class="dash-element right" v-else>
       <!-- Cruise control -->
       <li v-bind:class="{
 					'green' : telemetry.truck.cruiseControl.enabled,

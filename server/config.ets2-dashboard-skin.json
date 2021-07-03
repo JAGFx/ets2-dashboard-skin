@@ -63,5 +63,6 @@
 	"maps_map_activeMap" :            null,
 	"maps_map_navigationRemaining" :  "remaining_date",
 	"maps_map_tilesVersion" :         "latest",
-	"general_damage_accurate" :       "damage-diagnostic"
+	"general_damage_accurate" :       "damage-diagnostic",
+	"jagfx_elements_right_map" :      "false"
 }

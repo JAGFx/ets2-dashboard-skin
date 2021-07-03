@@ -137,6 +137,21 @@
 							"value" : "false"
 						}
 					]
+				},
+				{
+					"id" :          "jagfx_elements_right_map",
+					"label" :       "Display map",
+					"description" : "Enable or disable the map view",
+					"values" :      [
+						{
+							"label" : "Yes",
+							"value" : "true"
+						},
+						{
+							"label" : "No",
+							"value" : "false"
+						}
+					]
 				}
 			]
 		},
