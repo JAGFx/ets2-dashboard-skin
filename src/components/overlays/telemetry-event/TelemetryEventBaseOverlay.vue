@@ -16,23 +16,16 @@
 <script>
 import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
 
-//import { mapGetters } from 'vuex';
 import eventsText from '../../../data/events.json';
 
 export default {
-  name:    'EventOverlayBase',
+  name:    'TelemetryEventBaseOverlay',
   mixins:  [ AppEventOverlayMixins ],
   methods: {
     eventsText() {
-      //console.log( this.event, eventsText );
       return eventsText;
     }
   }
-  //computed: {
-  //...mapGetters( {
-  //  event: 'events/event'
-  //  } )
-  //}
 };
 </script>
 

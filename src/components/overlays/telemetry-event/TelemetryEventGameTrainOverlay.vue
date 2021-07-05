@@ -1,49 +1,40 @@
 <template>
-  <EventOverlayBase>
+  <TelemetryEventBaseOverlay>
     <hr class="m-0 mb-4">
     <div class="data d-flex justify-content-around align-items-center">
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
-        <span class="title">Delivered time</span>
-        <span class="data">{{
-            eventRawData.job.deliveryTime | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT )
-          }}</span>
+        <span class="title">From</span>
+        <span class="data">{{ eventRawData.train.source.name }}</span>
       </div>
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
-        <span class="title">Earned XP</span>
-        <span class="data">{{ eventRawData.job.earnedXP }}</span>
+        <span class="title">To</span>
+        <span class="data">{{ eventRawData.train.target.name }}</span>
       </div>
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
-        <span class="title">Revenue</span>
-        <span class="data">{{ unit_currency( eventRawData.job.revenue ) }}</span>
+        <span class="title">Cost</span>
+        <span class="data">{{ unit_currency( eventRawData.train.amount ) }}</span>
       </div>
     </div>
-  </EventOverlayBase>
+  </TelemetryEventBaseOverlay>
 </template>
 
 <script>
 import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
 
-//import { mapGetters }   from 'vuex';
-import eventsText       from '../../../data/events.json';
-import EventOverlayBase from './EventOverlayBase';
+import eventsText                from '../../../data/events.json';
+import TelemetryEventBaseOverlay from './TelemetryEventBaseOverlay';
 
 export default {
-  name:       'EventOverlayJobDelivered',
+  name:       'TelemetryEventGameTrainOverlay',
   mixins:     [ AppEventOverlayMixins ],
   components: {
-    EventOverlayBase
+    TelemetryEventBaseOverlay
   },
   methods:    {
     eventsText() {
       return eventsText;
     }
   }
-  //computed: {
-  //	...mapGetters( {
-  //		event:   'events/event',
-  //		rawData: 'events/rawData'
-  //	} )
-  //}
 };
 </script>
 

@@ -1,0 +1,71 @@
+<template>
+  <div class="event-overlay">
+    <b-overlay :show="eventProcessing" :variant="'dark'" no-wrap>
+      <template v-slot:overlay class="d-flex justify-content-around align-items-center flex-column">
+        <component v-bind:is="currentRawDataComponent"></component>
+      </template>
+    </b-overlay>
+  </div>
+</template>
+
+<script>
+import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
+import TelemetryEventDefaultOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventDefaultOverlay';
+import TelemetryEventGameFerryOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventGameFerryOverlay';
+import TelemetryEventGameFineOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventGameFineOverlay';
+import TelemetryEventGameTollgateOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventGameTollgateOverlay';
+import TelemetryEventGameTrainOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventGameTrainOverlay';
+import TelemetryEventJobDeliveredOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventJobDeliveredOverlay';
+import TelemetryEventNavigationSpeedLimitOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventNavigationSpeedLimitOverlay';
+import TelemetryEventTrailersDamageOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventTrailersDamageOverlay';
+import TelemetryEventTruckCruiseControlIncreaseOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventTruckCruiseControlIncreaseOverlay';
+import TelemetryEventTruckDamageOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventTruckDamageOverlay';
+import TelemetryEventTruckWarningOverlay
+                             from '@/components/overlays/telemetry-event/TelemetryEventTruckWarningOverlay';
+import _event                from '../../../utils/_event';
+
+export default {
+  name:       'TelemetryEventOverlay',
+  mixins:     [ AppEventOverlayMixins ],
+  components: {
+    TelemetryEventDefaultOverlay,
+    TelemetryEventJobDeliveredOverlay,
+    TelemetryEventGameFineOverlay,
+    TelemetryEventGameTollgateOverlay,
+    TelemetryEventGameFerryOverlay,
+    TelemetryEventGameTrainOverlay,
+    TelemetryEventNavigationSpeedLimitOverlay,
+    TelemetryEventTrailersDamageOverlay,
+    TelemetryEventTruckCruiseControlIncreaseOverlay,
+    TelemetryEventTruckWarningOverlay,
+    TelemetryEventTruckDamageOverlay
+  },
+  computed: {
+    currentRawDataComponent() {
+      const eventComponentName = _event.eventNameToComponent( this.eventName );
+
+      try {
+        require( './TelemetryEventOverlay/' + eventComponentName );
+        return eventComponentName;
+
+      } catch ( e ) {
+        return 'TelemetryEventDefaultOverlay';
+      }
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+@import "../../../assets/scss/app/eventOverlay";
+</style>
