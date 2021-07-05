@@ -70,10 +70,10 @@
 </template>
 
 <script>
+import scsSDKData     from '@/data/scs_sdk_plugin_parsed_data.json';
 import _history       from '@/utils/_history';
 import * as axios     from 'axios';
 import { mapGetters } from 'vuex';
-import scsSDKData     from '../../../data/scs_sdk_plugin_parsed_data.json';
 import * as utils     from '../../../utils/utils';
 
 export default {

@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import AppSkinsMixins from '../../Mixins/AppSkinsMixins';
+import SkinsMixin from '@/mixins/SkinsMixin';
 
 export default {
   name:   'TabSkins',
-  mixins: [ AppSkinsMixins ]
+  mixins: [ SkinsMixin ]
 };
 </script>
 

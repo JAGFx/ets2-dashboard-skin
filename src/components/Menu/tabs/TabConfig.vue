@@ -52,15 +52,14 @@
 </template>
 
 <script>
+import config         from '@/data/config_template.json';
+import skins          from '@/data/skins.json';
 import _history       from '@/utils/_history';
 import _              from 'lodash';
 import { mapGetters } from 'vuex';
 import configJAGFx    from '../../../dashboards/jagfx/data/config_template.json';
 import configMaps     from '../../../dashboards/maps/data/config_template.json';
-
-import config      from '../../../data/config_template.json';
-import skins       from '../../../data/skins.json';
-import utilsConfig from '../../../utils/_config';
+import utilsConfig    from '../../../utils/_config';
 
 import TabConfigElement from './Elements/TabConfigElement';
 

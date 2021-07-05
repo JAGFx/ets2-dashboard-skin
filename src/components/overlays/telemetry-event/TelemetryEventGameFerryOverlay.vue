@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
+import TelemetryEventBaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
 
-import eventsText                from '../../../data/events.json';
-import TelemetryEventBaseOverlay from './TelemetryEventBaseOverlay';
+import eventsText                 from '@/data/events.json';
+import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
 
 export default {
   name:       'TelemetryEventGameFerryOverlay',
-  mixins:     [ AppEventOverlayMixins ],
+  mixins:     [ TelemetryEventOverlayMixin ],
   components: {
     TelemetryEventBaseOverlay
   },

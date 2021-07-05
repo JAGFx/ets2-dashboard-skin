@@ -11,14 +11,13 @@
 </template>
 
 <script>
-import AppEventOverlayMixins from '@/components/Mixins/AppEventOverlayMixins';
-
-import eventsText                from '../../../data/events.json';
-import TelemetryEventBaseOverlay from './TelemetryEventBaseOverlay';
+import TelemetryEventBaseOverlay  from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
+import eventsText                 from '@/data/events.json';
+import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
 
 export default {
   name:       'TelemetryEventGameFineOverlay',
-  mixins:     [ AppEventOverlayMixins ],
+  mixins:     [ TelemetryEventOverlayMixin ],
   components: {
     TelemetryEventBaseOverlay
   },

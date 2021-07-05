@@ -13,7 +13,7 @@ import { mapGetters } from 'vuex';
 export default {
   methods:  {
     $isActive( skin ) {
-      const currentSkin = this.currentSkin;//this.$store.getters[ 'skins/current' ];
+      const currentSkin = this.currentSkin;
 
       if ( currentSkin === undefined || currentSkin === null )
         return false;
@@ -27,14 +27,13 @@ export default {
       return skin.disabled;
     },
     $setActive( skin ) {
-      //console.log( 'Update', skin );
       this.$pushALog( 'Set skin active ' + JSON.stringify( skin ), _history.HTY_ZONE.MENU_SKIN );
 
       this.$store.commit( 'skins/setCurrent', skin );
       this.$store.dispatch( 'menu/toggle' );
     },
     $skins() {
-      return this.allSkin; //this.$store.getters[ 'skins/all' ];
+      return this.allSkin;
     }
   },
   computed: {
