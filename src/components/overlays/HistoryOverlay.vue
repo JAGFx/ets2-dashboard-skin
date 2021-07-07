@@ -1,9 +1,9 @@
 <template>
-  <div class="history">
+  <div class="history-overlay">
     <div class="area" @click="onClickArea()"></div>
     <b-overlay :show="counter === 5" :variant="'dark'" no-wrap>
       <template v-slot:overlay>
-        <div class="d-flex justify-content-start flex-column align-items-center history-wrapper">
+        <div class="d-flex justify-content-start flex-column align-items-center history-overlay-wrapper">
           <button v-clipboard:copy="JSON.stringify( histories.h, null, 2 )" class="my-3 copy btn btn-sm btn-outline-ets d-flex justify-content-around align-items-center">
             <i class="far fa-clipboard pr-1"></i>
             Copy
@@ -33,7 +33,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/scss/app/history";
-</style>

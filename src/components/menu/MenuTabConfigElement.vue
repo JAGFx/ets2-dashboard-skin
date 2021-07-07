@@ -72,9 +72,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/scss/menu/_tab-config/switch";
-@import "../../assets/scss/menu/_tab-config/select";
-@import "../../assets/scss/menu/_tab-config/input";
-</style>

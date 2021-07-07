@@ -39,7 +39,3 @@ export default {
   mixins: [ SkinsMixin ]
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/scss/menu/tab-skins";
-</style>

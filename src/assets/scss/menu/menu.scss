@@ -6,10 +6,8 @@
 * Time: 	13:02
 */
 
-@import "../common/variables";
-
-@import "tab-about";
-@import "tab-skins";
+@import "menu-tab-about";
+@import "menu-tab-config";
 
 .menu {
 	@include prefixer(display, flex, ("webkit", "moz", "o"));

@@ -1,5 +1,5 @@
 <template>
-  <div id="map-element" class="maps wrapper">
+  <div id="map-element" class="map-shared wrapper">
     <div v-if="!ready" class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center">
       <transition mode="out-in" name="slide-fade">
         <div class="d-flex justify-content-center align-items-center flex-column">
@@ -208,7 +208,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-@import "../../../assets/scss/map/maps";
-</style>

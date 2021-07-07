@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-config">
+  <div class="menu-tab-config">
     <div class="d-flex justify-content-center align-items-center pb-3">
       <!--<button :disabled="isOnProcessing" @click="save" class="btn btn-sm btn-outline-ets mx-1">
         <b-icon-file-earmark-check></b-icon-file-earmark-check>
@@ -138,7 +138,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/scss/menu/_tab-config/tab-config";
-</style>

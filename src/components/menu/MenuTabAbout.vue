@@ -1,15 +1,15 @@
 <template>
-	<div class="tab-about">
-		<aside class="author card">
-			<img alt="" class="background" src="https://www.emmanuel-smith.me/build/images/bg.home4.7af46a47.jpg">
-			<img class="profile img-fluid" src="https://avatars3.githubusercontent.com/u/12508080?s=460&u=f59ce1bde619fa0e6c226e92ab97945c4561eea5&v=4">
-			<div class="card-content">
-				<h2>
-					<small class="m-0 mb-2 badge badge-success badge-author">Author</small>
-					<span class="d-block">{{ author.name }}</span>
-					<small class="font-italic">{{ author.email }}</small>
-				</h2>
-				<div class="icons">
+  <div class="menu-tab-about">
+    <aside class="author card">
+      <img alt="" class="background" src="https://www.emmanuel-smith.me/build/images/bg.home4.7af46a47.jpg">
+      <img class="profile img-fluid" src="https://avatars3.githubusercontent.com/u/12508080?s=460&u=f59ce1bde619fa0e6c226e92ab97945c4561eea5&v=4">
+      <div class="card-content">
+        <h2>
+          <small class="m-0 mb-2 badge badge-success badge-author">Author</small>
+          <span class="d-block">{{ author.name }}</span>
+          <small class="font-italic">{{ author.email }}</small>
+        </h2>
+        <div class="icons">
 					<a :href="author.url" target="_blank">
 						<i class="fas fa-globe-europe"></i>
 					</a>
@@ -57,7 +57,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/scss/menu/tab-about";
-</style>

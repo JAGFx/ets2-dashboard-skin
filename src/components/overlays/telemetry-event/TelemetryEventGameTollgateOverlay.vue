@@ -25,7 +25,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-	@import "../../../assets/scss/app/eventOverlay";
-</style>

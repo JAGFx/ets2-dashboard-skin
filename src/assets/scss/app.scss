@@ -1,0 +1,17 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	app.scss
+ * Date: 	07/07/2021
+ * Time: 	20:21
+ */
+
+@import "~bourbon/core/bourbon";
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+
+@import "base";
+@import "common/form/form";
+@import "overlays/overlay";
+@import "menu/menu";
+@import "dashboard/dashboard";

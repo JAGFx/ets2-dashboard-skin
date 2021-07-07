@@ -1,5 +1,5 @@
 <template>
-  <nav class="game">
+  <nav class="header-game-information-overlay">
     <ul class="w-100">
       <!--      <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>-->
       <li><span>API</span>v{{ telemetry.game.telemetryVersion }}</li>
@@ -207,7 +207,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-@import "../../assets/scss/game/game";
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="event-overlay">
+  <div class="telemetry-event-overlay">
     <b-overlay :show="eventProcessing" :variant="'dark'" no-wrap>
       <template v-slot:overlay class="d-flex justify-content-around align-items-center flex-column">
         <component v-bind:is="currentRawDataComponent"></component>
@@ -64,7 +64,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../../assets/scss/app/eventOverlay";
-</style>

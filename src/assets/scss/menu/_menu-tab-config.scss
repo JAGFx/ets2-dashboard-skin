@@ -6,18 +6,16 @@
  * Time: 	15:22
  */
 
-@import "../../common/variables";
-
-.tab-config {
+.menu-tab-config {
 	h3 {
-		color: $cWhite;
+		color:         $cWhite;
 		border-bottom: 2px solid $cRed;
-		background: $cBlackTransparentMid;
+		background:    $cBlackTransparentMid;
 		margin-bottom: 1rem;
 		
 		.more {
 			font-size: .8rem;
-			cursor: pointer;
+			cursor:    pointer;
 			
 			&:hover {
 				color: $cWhite;

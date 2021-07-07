@@ -6,17 +6,15 @@
  * Time: 	22:27
  */
 
-@import "../common/variables";
-
-.game {
-	background: #272727;
-	font-size: .7rem;
+.header-game-information-overlay {
+	background:    #272727;
+	font-size:     .7rem;
 	border-bottom: 1px solid $cRed;
 	//margin-bottom: .5rem;
-	height: 2rem;
+	height:        2rem;
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
-	z-index: 1;
+	z-index:       1;
 	
 	ul {
 		@include prefixer(display, flex, ("webkit", "moz", "o"));

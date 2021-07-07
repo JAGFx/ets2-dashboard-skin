@@ -6,19 +6,17 @@
  * Time: 	13:26
  */
 
-@import "../common/variables";
-
-.event-overlay {
+.telemetry-event-overlay {
 	.item {
 		.ico {
 			background: $cRed;
-			border: 1px solid darken($cRed, 30%);
-			transform: rotateZ(-45deg);
+			border:     1px solid darken($cRed, 30%);
+			transform:  rotateZ(-45deg);
 			
 			> i {
 				font-size: 1.2rem;
 				transform: rotateZ(45deg);
-				color: darken($cRed, 30%);
+				color:     darken($cRed, 30%);
 			}
 		}
 		

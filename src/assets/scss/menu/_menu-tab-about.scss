@@ -6,10 +6,7 @@
  * Time: 	13:48
  */
 
-@import "../common/variables";
-
-
-.tab-about {
+.menu-tab-about {
 	text-align: center;
 	@include prefixer(display, flex, ("webkit", "moz", "o"));
 	@include prefixer(justify-content, center, ("webkit", "moz", "o"));
@@ -19,7 +16,7 @@
 		@include prefixer(display, flex, ("webkit", "moz", "o"));
 		@include prefixer(justify-content, space-between, ("webkit", "moz", "o"));
 		@include prefixer(align-items, center, ("webkit", "moz", "o"));
-		padding: .5rem;
+		padding:       .5rem;
 		background: transparentize($cRed, 0.8);
 		border: 1px solid $cRed;
 		border-radius: .5rem;
@@ -70,12 +67,12 @@
 		}
 		
 		&.author {
-			font-family: 'Open Sans', Arial, sans-serif;
-			color: $cWhite;
-			border: none;
-			position: relative;
-			overflow: hidden;
-			padding: 1rem;
+			font-family: "Open Sans", Arial, sans-serif;
+			color:       $cWhite;
+			border:      none;
+			position:    relative;
+			overflow:    hidden;
+			padding:     1rem;
 			
 			@include prefixer(display, flex, ("webkit", "moz", "o"));
 			@include prefixer(justify-content, center, ("webkit", "moz", "o"));
@@ -107,14 +104,14 @@
 		}
 		
 		&.project {
-			font-family: 'Open Sans', Arial, sans-serif;
-			color: $cWhite;
-			border: none;
-			position: relative;
-			overflow: hidden;
-			height: auto;
-			padding: 1rem;
-			background: $cBlackTransparentHigh;
+			font-family: "Open Sans", Arial, sans-serif;
+			color:       $cWhite;
+			border:      none;
+			position:    relative;
+			overflow:    hidden;
+			height:      auto;
+			padding:     1rem;
+			background:  $cBlackTransparentHigh;
 			
 			@include prefixer(display, flex, ("webkit", "moz", "o"));
 			@include prefixer(justify-content, center, ("webkit", "moz", "o"));

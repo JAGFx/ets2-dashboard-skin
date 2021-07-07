@@ -6,7 +6,7 @@
  * Time: 	17:56
  */
 
-@import "../../../../../assets/scss/common/variables";
+@import "../../../../../assets/scss/variables";
 
 .truck-gear {
 	@include prefixer( display, flex, ("webkit", "moz", "o") );

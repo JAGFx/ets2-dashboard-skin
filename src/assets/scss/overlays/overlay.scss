@@ -6,7 +6,9 @@
  * Time: 	13:23
  */
 
-@import "../common/variables";
+@import "header-game-information";
+@import "history";
+@import "telemetry-event";
 
 .overlay {
 	.h {
