@@ -24,8 +24,6 @@ export default {
 		// --- Push a log
 		
 		Vue.prototype.$pushALog = ( message, zone, level = _history.HTY_LEVEL.INFO ) => {
-			//console.log( 'HST emit', message, zone, level );
-			
 			EventBus.$emit( _history.HTY_EVENT, {
 				message,
 				zone,
@@ -39,8 +37,6 @@ export default {
 			},
 			created() {
 				EventBus.$on( _history.HTY_EVENT, dataIn => {
-					//console.log( 'HST event', dataIn );
-					
 					const date    = moment();
 					const level   = dataIn.level;
 					const zone    = dataIn.zone;
@@ -55,8 +51,6 @@ export default {
 					}
 					
 					this.histories = Object.assign( {}, defaultData, this.histories );
-					
-					//console.log( this.histories );
 				} );
 			}
 		} );

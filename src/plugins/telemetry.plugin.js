@@ -70,7 +70,7 @@ export default {
 				// --- Filters
 				
 				unit_speed( value, showValue = true, showSymbol = true ) {
-					const speed = this.getConfig( 'unit_speed' ); //this.$store.getters[ 'config/get' ]( 'unit_speed' );
+					const speed = this.getConfig( 'unit_speed' );
 					let unit    = '';
 					
 					value = value[ speed ];
@@ -93,9 +93,8 @@ export default {
 					return value.toFixed( 0 ) + ' ' + unit;
 				},
 				unit_currency( value, showValue = true, showSymbol = true ) {
-					const currencySymbolValue = this.getConfig( 'unit_currency' ); //this.$store.getters[ 'config/get'
-																				   // ]( 'unit_currency' );
-					let unit = '';
+					const currencySymbolValue = this.getConfig( 'unit_currency' );
+					let unit                  = '';
 					
 					switch ( currencySymbolValue ) {
 						case 'EUR':
@@ -120,12 +119,10 @@ export default {
 					return unit + ' ' + value.toLocaleString();
 				},
 				unit_length( value, unitFrom = 'm', showValue = true, showSymbol = true ) {
-					const length = this.getConfig( 'unit_length' ); //this.$store.getters[ 'config/get' ](
-																	// 'unit_length' );
+					const length       = this.getConfig( 'unit_length' );
 					const unitExcluded = [ 'in', 'yd', 'ft-us', 'fathom', 'nMi' ];
 					let unit           = '';
-					
-					let conversion = uc_length( value )
+					let conversion     = uc_length( value )
 						.from( unitFrom )
 						.to( length );
 					
@@ -158,12 +155,10 @@ export default {
 					return value.toLocaleString() + ' ' + unit;
 				},
 				unit_weight( value, showValue = true, showSymbol = true ) {
-					const weight = this.getConfig( 'unit_weight' ); //this.$store.getters[ 'config/get' ](
-																	// 'unit_weight' );
+					const weight       = this.getConfig( 'unit_weight' );
 					const unitExcluded = [ 'mcg', 'mg', 'mt', 'oz' ];
 					let unit           = '';
-					
-					let conversion = uc_mass( value )
+					let conversion     = uc_mass( value )
 						.from( 'kg' )
 						.to( weight );
 					
@@ -202,12 +197,9 @@ export default {
 					return value.toFixed( 1 ) + ' ' + unit;
 				},
 				unit_volume( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_volume' ); //this.$store.getters[ 'config/get' ](
-																		 // 'unit_volume' );
-					
-					let unit = '';
-					
-					let conversion = uc_volume( value )
+					const unitDefined = this.getConfig( 'unit_volume' );
+					let unit          = '';
+					let conversion    = uc_volume( value )
 						.from( 'l' )
 						.to( unitDefined );
 					
@@ -223,11 +215,9 @@ export default {
 					return value.toFixed( 0 ) + ' ' + unit;
 				},
 				unit_consumption( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_consumption' ); //this.$store.getters[ 'config/get' ](
-																			  // 'unit_consumption' );
-					let conversion = null;
-					
-					let unit = '';
+					const unitDefined = this.getConfig( 'unit_consumption' );
+					let conversion    = null;
+					let unit          = '';
 					
 					value *= 100;
 					
@@ -264,12 +254,9 @@ export default {
 					return value + ' ' + unit;
 				},
 				unit_pressure( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_pressure' ); //this.$store.getters[ 'config/get' ](
-																		   // 'unit_pressure' );
-					
-					let unit = '';
-					
-					let conversion = uc_pressure( value )
+					const unitDefined = this.getConfig( 'unit_pressure' );
+					let unit          = '';
+					let conversion    = uc_pressure( value )
 						.from( 'psi' )
 						.to( unitDefined );
 					
@@ -285,12 +272,9 @@ export default {
 					return value.toFixed( 0 ) + ' ' + unit;
 				},
 				unit_degrees( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_degrees' ); //this.$store.getters[ 'config/get' ](
-																		  // 'unit_degrees' );
-					
-					let unit = '';
-					
-					let conversion = uc_temperature( value )
+					const unitDefined = this.getConfig( 'unit_degrees' );
+					let unit          = '';
+					let conversion    = uc_temperature( value )
 						.from( 'C' )
 						.to( unitDefined );
 					
@@ -386,7 +370,7 @@ export default {
 					return utils.app.diffDateTimeLocalized( currentGameTime, time );
 				},
 				$jobRemainingTimeToDueDate() {
-					const configData = this.allConfig; //this.$store.getters[ 'config/all' ];
+					const configData = this.allConfig;
 					
 					return configData.general_job_remaining === 'due_date';
 				},
@@ -419,7 +403,6 @@ export default {
 				// --- Navigation
 				
 				$trukGear: function ( transmission, brand ) {
-					/*console.log( this );*/
 					const configSettings          = this.allConfig; //this.$store.getters[ 'config/all' ];
 					const hShiftLayout            = configSettings[ 'general_h-shift-layout' ];
 					const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
@@ -436,7 +419,6 @@ export default {
 							break;
 					}
 					
-					//console.log( rangeAndSplitterEnabled );
 					if ( transmission.shifterType === 'hshifter' && rangeAndSplitterEnabled ) {
 						let realGearCount = gear - crawlingGear;
 						let spliter       = (realGearCount % 2)
