@@ -1,7 +1,7 @@
 <template>
   <main :class="`${telemetry.game ? telemetry.game.game.name : ''}`">
     <LoadingOverlay />
-    <History />
+    <HistoryOverlay />
     <Overlay v-if="gameConnected" />
     <TelemetryEventOverlay v-if="gameConnected" />
     <Header />
@@ -11,10 +11,10 @@
 
 <script>
 import Header                from '@/components/header/Header';
+import HistoryOverlay        from '@/components/overlays/HistoryOverlay';
 import LoadingOverlay        from '@/components/overlays/LoadingOverlay';
 import Overlay               from '@/components/overlays/Overlay';
 import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import History               from '@/components/Zone/History';
 import DashDafXF             from '@/dashboards/daf-xf/components/DashDafXF';
 import DashDefault           from '@/dashboards/defaut/components/DashDefault';
 import DashJAGFx             from '@/dashboards/jagfx/components/DashJAGFx';
@@ -27,7 +27,6 @@ import DashTest              from '@/dashboards/test/components/DashTest';
 import DashVolvoFH           from '@/dashboards/volvo-fh/components/DashVolvoFH';
 import _history              from '@/utils/_history';
 import { mapGetters }        from 'vuex';
-
 
 export default {
   name:       'app',
@@ -44,7 +43,7 @@ export default {
     DashVolvoFH,
     DashMaps,
     Overlay,
-    History,
+    HistoryOverlay,
     Header,
     LoadingOverlay
   },

@@ -18,10 +18,8 @@
 </template>
 
 <script>
-//import AppHistoryMixins from '@/components/Mixins/AppHistoryMixins';
-
 export default {
-  name:    'History',
+  name: 'HistoryOverlay',
   data() {
     return {
       counter: 0
@@ -33,7 +31,6 @@ export default {
         this.counter = 0;
     }
   }
-  //mixins: [ AppHistoryMixins ]
 };
 </script>
 
