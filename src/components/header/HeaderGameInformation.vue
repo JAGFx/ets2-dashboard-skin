@@ -72,12 +72,12 @@
 <script>
 import scsSDKData     from '@/data/scs_sdk_plugin_parsed_data.json';
 import _history       from '@/utils/_history';
+import * as utils     from '@/utils/utils';
 import * as axios     from 'axios';
 import { mapGetters } from 'vuex';
-import * as utils     from '../../../utils/utils';
 
 export default {
-  name:    'Game',
+  name: 'HeaderGameInformation',
   data() {
     return {
       event:               '',
@@ -91,8 +91,7 @@ export default {
          .then( ( data ) => {
            const latestReleaseVersion = data.data.tag_name;
            const appVersion           = `v${ utils.app.version }`;
-           //const latestReleaseVersion  = 'v1.4.2';
-           //console.log( latestReleaseVersion, appVersion );
+
            if ( latestReleaseVersion !== appVersion )
              this.newReleaseAvailable = true;
          } );
@@ -114,12 +113,6 @@ export default {
         eventName: this.event,
         rawData:   { ...rawData }
       } );
-      /*this.$store.dispatch( 'events/emitEvent', {
-       eventName: this.event,
-       rawData:   {
-       [ spitedEvent[ 0 ] ]: rawData
-       }
-       } );*/
     },
     onClickGear() {
       this.$pushALog( 'Menu toggle', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
@@ -216,5 +209,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../../assets/scss/game/game";
+@import "../../assets/scss/game/game";
 </style>

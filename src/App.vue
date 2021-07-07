@@ -19,21 +19,15 @@
 
     <OverlayElement v-if="gameConnected"></OverlayElement>
     <TelemetryEventOverlay v-if="gameConnected"></TelemetryEventOverlay>
-    <Game v-if="gameConnected" id="game" />
-    <div v-if="gameConnected" v-show="menuIsDisplayed" class="wrapper menu h-100">
-      <Menu></Menu>
-    </div>
+    <Header />
     <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
-    <!--<Events id="events" v-bind="{log}" />-->
-    <!--<Controls id="controls" v-bind="{...controls, transmission: truck.transmission}" />-->
   </main>
 </template>
 
 <script>
 import OverlayElement        from '@/components/Elements/OverlayElement';
-import Menu                  from '@/components/menu/Menu';
+import Header                from '@/components/header/Header';
 import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import Game                  from '@/components/Zone/Game/Game';
 import History               from '@/components/Zone/History';
 import DashDafXF             from '@/dashboards/daf-xf/components/DashDafXF';
 import DashDefault           from '@/dashboards/defaut/components/DashDefault';
@@ -63,10 +57,9 @@ export default {
     DashScania,
     DashVolvoFH,
     DashMaps,
-    Game,
-    Menu,
     OverlayElement,
-    History
+    History,
+    Header
   },
   data() {
     return {
@@ -101,11 +94,11 @@ export default {
           }
         } );
 
-    /*// Game connected
+    /*// HeaderGameInformation connected
      setTimeout(()=> {
      this.launching = {
      icon: '<i class="fas fa-truck-loading"></i>',
-     text: 'Game connected',
+     text: 'HeaderGameInformation connected',
      subText: 'Delivering'
      }
      }, 6000);

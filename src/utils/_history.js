@@ -10,7 +10,7 @@ const HTY_EVENT = 'hty-event';
 
 const HTY_ZONE      = {
 	MAIN:        'Main',
-	ZONE_GAME:   'Zone/Game',
+	ZONE_GAME:   'Header/HeaderGameInformation',
 	MENU:        'Menu',
 	MENU_SKIN:   'Menu/Skin',
 	MENU_CONFIG: 'Menu/Config',
