@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Dashboard  from '../../../components/Elements/Dashboard';
+import Dashboard  from '../../../components/dashboards/Dashboard';
 import Job        from './Zone/Job/Job';
 import Trailer    from './Zone/Job/Trailer';
 import Navigation from './Zone/Navigation/Navigation';

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Dashboard from '../../../components/Elements/Dashboard';
+import Dashboard from '../../../components/dashboards/Dashboard';
 
 export default {
   name:       'DashTest',

@@ -1,18 +1,18 @@
 <template>
   <Dashboard class="w-100 h-100">
-    <MapElement></MapElement>
+    <Map></Map>
   </Dashboard>
 </template>
 
 <script>
-import Dashboard  from '@/components/Elements/Dashboard';
-import MapElement from '@/components/Elements/MapElement';
+import Dashboard from '@/components/dashboards/Dashboard';
+import Map       from '@/components/dashboards/shared/Map';
 
 export default {
   name:       'DashMaps',
   components: {
     Dashboard,
-    MapElement
+    Map
   }
 
 };

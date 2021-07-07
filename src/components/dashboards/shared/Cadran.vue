@@ -4,17 +4,17 @@
 
 <script>
 	export default {
-		name:    'CadranElement',
-		props:   [
-			'classCSS',
-			'type',
-			'value',
-			'min',
-			'max',
-			'minAngle',
-			'maxAngle'
-		],
-		methods: {
+    name:    'Cadran',
+    props:   [
+      'classCSS',
+      'type',
+      'value',
+      'min',
+      'max',
+      'minAngle',
+      'maxAngle'
+    ],
+    methods: {
 			angle() {
 				const minValue = this.min;
 				const maxValue = this.max;

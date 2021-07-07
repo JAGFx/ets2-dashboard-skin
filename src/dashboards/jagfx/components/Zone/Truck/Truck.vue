@@ -37,7 +37,7 @@
       </div>
     </div>-->
 
-    <MapElement :show-speed="false" :show-speed-limit="false" :show-navigation-eta="false" class="dash-element mx-3 my-2 theMap" v-if="allConfig['jagfx_elements_right_map'] === 'true'"></MapElement>
+    <Map :show-speed="false" :show-speed-limit="false" :show-navigation-eta="false" class="dash-element mx-3 my-2 theMap" v-if="allConfig['jagfx_elements_right_map'] === 'true'"></Map>
     <ul class="dash-element right" v-else>
       <!-- Cruise control -->
       <li v-bind:class="{
@@ -140,12 +140,12 @@
 </template>
 
 <script>
-import MapElement        from '@/components/Elements/MapElement';
+import Map               from '@/components/dashboards/shared/Map';
 import JagfxConfigMixins from '../../Mixins/JagfxConfigMixins';
 
 export default {
   name:       'Truck',
-  components: { MapElement },
+  components: { Map },
   mixins:     [ JagfxConfigMixins ],
   methods:    {
     indexEmptyElement: function () {

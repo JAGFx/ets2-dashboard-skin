@@ -6,15 +6,15 @@
 			height: dashProps.skinData.size.height + 'px',
 		}">
 			<div :class="{'yes': telemetry.job.cargo.id}" class="hasJob">
-				<!-- meters -->
-				<!--
-					Attributes:
-					data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
-					data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
-					data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-					data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-					-->
-				<CadranElement v-bind="{
+        <!-- meters -->
+        <!--
+          Attributes:
+          data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
+          data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
+          data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
+          data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
+          -->
+        <Cadran v-bind="{
 					'classCSS': 'truck-speed',
 					'type': 'meter',
 					'value': telemetry.truck.speed.kph,
@@ -22,13 +22,17 @@
 					'max': 140,
 					'minAngle' : -114,
 					'maxAngle': 114,
-				}"></CadranElement>
-				<div class="truck-speedRounded wrapper-area"><span>{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
-				</div>
-				<div class="truck-speedRounded-unit wrapper-area">
-					<span>{{ unit_speed( telemetry.truck.speed, false ) }}</span>
-				</div>
-				<CadranElement v-bind="{
+				}"></Cadran>
+        <div class="truck-speedRounded wrapper-area"><span>{{
+            unit_speed( telemetry.truck.speed,
+                true,
+                false ) | $toFixed( 0 )
+          }}</span>
+        </div>
+        <div class="truck-speedRounded-unit wrapper-area">
+          <span>{{ unit_speed( telemetry.truck.speed, false ) }}</span>
+        </div>
+        <Cadran v-bind="{
 					'classCSS': 'truck-engineRpm',
 					'type': 'meter',
 					'value': telemetry.truck.engine.rpm.value / 100,
@@ -36,8 +40,8 @@
 					'max': 24,
 					'minAngle' : -97,
 					'maxAngle': 97,
-				}"></CadranElement>
-				<CadranElement v-bind="{
+				}"></Cadran>
+        <Cadran v-bind="{
 					'classCSS': 'truck-fuel',
 					'type': 'meter',
 					'value': telemetry.truck.fuel.value,
@@ -45,8 +49,8 @@
 					'max': telemetry.truck.fuel.capacity,
 					'minAngle' : -96,
 					'maxAngle': 0,
-				}"></CadranElement>
-				<CadranElement v-bind="{
+				}"></Cadran>
+        <Cadran v-bind="{
 					'classCSS': 'truck-waterTemperature',
 					'type': 'meter',
 					'value': telemetry.truck.engine.waterTemperature.value,
@@ -54,9 +58,14 @@
 					'max': 100,
 					'minAngle' : -96,
 					'maxAngle': 0,
-				}"></CadranElement>
-				<div class="truck-odometer wrapper-area"><span>{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span>
-				</div>
+				}"></Cadran>
+        <div class="truck-odometer wrapper-area"><span>{{
+            unit_length( telemetry.truck.odometer,
+                'km',
+                true,
+                false ) | $toFixed( 0 )
+          }}</span>
+        </div>
 				<div class="truck-cruiseControlSpeedRounded wrapper-area">
 					<span>{{ telemetry.truck.cruiseControl.kph }}</span></div>
 				<div class="truck-gear wrapper-area"><span>{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
@@ -116,14 +125,14 @@
 </template>
 
 <script>
-import CadranElement from '../../../components/Elements/CadranElement';
-import Dashboard     from '../../../components/Elements/Dashboard';
+import Dashboard from '../../../components/dashboards/Dashboard';
+import Cadran    from '../../../components/dashboards/shared/Cadran';
 
 export default {
-  name:       'DashDefault',
+  name: 'DashDefault',
   components: {
     Dashboard,
-    CadranElement
+    Cadran
   }
 };
 </script>

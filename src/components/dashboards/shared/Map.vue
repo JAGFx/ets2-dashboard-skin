@@ -111,7 +111,7 @@ import * as _maps     from '@/utils/_maps';
 import { mapGetters } from 'vuex';
 
 export default {
-  name:  'MapElement',
+  name:  'Map',
   props: {
     showSpeedLimit:    {
       type:    Boolean,
@@ -210,5 +210,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/map/maps.scss";
+@import "../../../assets/scss/map/maps";
 </style>
