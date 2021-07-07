@@ -16,17 +16,17 @@
 </template>
 
 <script>
-import TabAbout  from '@/components/menu/MenuTabAbout';
-import TabConfig from '@/components/menu/MenuTabConfig';
-import TabSkins  from '@/components/menu/MenuTabSkins';
-import _history  from '@/utils/_history';
+import MenuTabAbout  from '@/components/menu/MenuTabAbout';
+import MenuTabConfig from '@/components/menu/MenuTabConfig';
+import MenuTabSkins  from '@/components/menu/MenuTabSkins';
+import _history      from '@/utils/_history';
 
 export default {
   name:       'Menu',
   components: {
-    TabSkins,
-    TabConfig,
-    TabAbout
+    MenuTabAbout,
+    MenuTabConfig,
+    MenuTabSkins
   },
   data() {
     return {
