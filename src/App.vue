@@ -30,23 +30,23 @@
 </template>
 
 <script>
+import OverlayElement        from '@/components/Elements/OverlayElement';
+import Menu                  from '@/components/menu/Menu';
+import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
+import Game                  from '@/components/Zone/Game/Game';
+import History               from '@/components/Zone/History';
+import DashDafXF             from '@/dashboards/daf-xf/components/DashDafXF';
+import DashDefault           from '@/dashboards/defaut/components/DashDefault';
+import DashJAGFx             from '@/dashboards/jagfx/components/DashJAGFx';
+import DashManTGX            from '@/dashboards/man-tgx/components/DashManTGX';
 import DashMaps              from '@/dashboards/maps/components/DashMaps';
+import DashMercedesAtego     from '@/dashboards/mercedes-atego/components/DashMercedesAtego';
+import DashRdInfo            from '@/dashboards/rd-info/components/DashRdInfo';
+import DashScania            from '@/dashboards/scania/components/DashScania';
+import DashTest              from '@/dashboards/test/components/DashTest';
+import DashVolvoFH           from '@/dashboards/volvo-fh/components/DashVolvoFH';
 import _history              from '@/utils/_history';
 import { mapGetters }        from 'vuex';
-import OverlayElement        from './components/Elements/OverlayElement';
-import Menu                  from './components/Menu/Menu';
-import TelemetryEventOverlay from './components/overlays/telemetry-event/TelemetryEventOverlay';
-import Game                  from './components/Zone/Game/Game';
-import History               from './components/Zone/History';
-import DashDafXF             from './dashboards/daf-xf/components/DashDafXF';
-import DashDefault           from './dashboards/defaut/components/DashDefault';
-import DashJAGFx             from './dashboards/jagfx/components/DashJAGFx';
-import DashManTGX            from './dashboards/man-tgx/components/DashManTGX';
-import DashMercedesAtego     from './dashboards/mercedes-atego/components/DashMercedesAtego';
-import DashRdInfo            from './dashboards/rd-info/components/DashRdInfo';
-import DashScania            from './dashboards/scania/components/DashScania';
-import DashTest              from './dashboards/test/components/DashTest';
-import DashVolvoFH           from './dashboards/volvo-fh/components/DashVolvoFH';
 
 
 export default {
@@ -137,7 +137,7 @@ export default {
       getConfig:       'config/get'
     } )
   },
-  sockets: {
+  sockets:    {
     disconnect() {
       console.log( 'disconnected' );
     },

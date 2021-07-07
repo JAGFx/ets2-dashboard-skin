@@ -48,10 +48,10 @@
 </template>
 
 <script>
-import pkg from '../../../../package.json';
+import pkg from '../../../package.json';
 
 export default {
-  name: 'TabAbout',
+  name: 'MenuTabAbout',
   data() {
     return pkg;
   }
@@ -59,5 +59,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import "../../../assets/scss/menu/_tab-about";
+@import "../../assets/scss/menu/tab-about";
 </style>

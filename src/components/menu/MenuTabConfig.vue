@@ -52,19 +52,18 @@
 </template>
 
 <script>
-import config         from '@/data/config_template.json';
-import skins          from '@/data/skins.json';
-import _history       from '@/utils/_history';
-import _              from 'lodash';
-import { mapGetters } from 'vuex';
-import configJAGFx    from '../../../dashboards/jagfx/data/config_template.json';
-import configMaps     from '../../../dashboards/maps/data/config_template.json';
-import utilsConfig    from '../../../utils/_config';
-
-import TabConfigElement from './Elements/TabConfigElement';
+import TabConfigElement from '@/components/menu/MenuTabConfigElement';
+import configJAGFx      from '@/dashboards/jagfx/data/config_template.json';
+import configMaps       from '@/dashboards/maps/data/config_template.json';
+import config           from '@/data/config_template.json';
+import skins            from '@/data/skins.json';
+import utilsConfig      from '@/utils/_config';
+import _history         from '@/utils/_history';
+import _                from 'lodash';
+import { mapGetters }   from 'vuex';
 
 export default {
-  name:       'TabConfig',
+  name:       'MenuTabConfig',
   components: { TabConfigElement },
   data() {
     const skinsOk     = _.pickBy( skins.skins, skin => {
@@ -84,13 +83,13 @@ export default {
       //data:        data
     };
   },
-  computed:   {
+  computed: {
     ...mapGetters( {
       configAll:      'config/all',
       isOnProcessing: 'app/isOnProcessing'
     } )
   },
-  methods:    {
+  methods:  {
     skinsConfigTemplate( skinTarget ) {
       return this.configSkins[ skinTarget.id ].categories;
     },
@@ -141,5 +140,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/scss/menu/_tab-config/tab-config";
+@import "../../assets/scss/menu/_tab-config/tab-config";
 </style>

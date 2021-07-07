@@ -29,8 +29,12 @@ import _              from 'lodash';
 import { mapGetters } from 'vuex';
 
 export default {
-  name:  'TabConfigElement',
-  props: [ 'elm' ],
+  name:  'MenuTabConfigElement',
+  props: {
+    elm: {
+      type: Object
+    }
+  },
   data() {
     const values = this.elm.values;
 
@@ -70,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../assets/scss/menu/_tab-config/switch";
-@import "../../../../assets/scss/menu/_tab-config/select";
-@import "../../../../assets/scss/menu/_tab-config/input";
+@import "../../assets/scss/menu/_tab-config/switch";
+@import "../../assets/scss/menu/_tab-config/select";
+@import "../../assets/scss/menu/_tab-config/input";
 </style>

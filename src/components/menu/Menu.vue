@@ -16,10 +16,10 @@
 </template>
 
 <script>
+import TabAbout  from '@/components/menu/MenuTabAbout';
+import TabConfig from '@/components/menu/MenuTabConfig';
+import TabSkins  from '@/components/menu/MenuTabSkins';
 import _history  from '@/utils/_history';
-import TabAbout  from './tabs/TabAbout';
-import TabConfig from './tabs/TabConfig';
-import TabSkins  from './tabs/TabSkins';
 
 export default {
   name:       'Menu',

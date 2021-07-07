@@ -35,11 +35,11 @@
 import SkinsMixin from '@/mixins/SkinsMixin';
 
 export default {
-  name:   'TabSkins',
+  name:   'MenuTabSkins',
   mixins: [ SkinsMixin ]
 };
 </script>
 
 <style lang="scss" scoped>
-	@import "../../../assets/scss/menu/tab-skins";
+@import "../../assets/scss/menu/tab-skins";
 </style>
