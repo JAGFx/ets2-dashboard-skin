@@ -38,7 +38,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name:       'OverlayElement',
+  name: 'Overlay',
   data() {
     return {
       showDetails: false
@@ -46,10 +46,9 @@ export default {
   },
   methods:    {
     close() {
-      //console.log( 'CLose' );
       this.$store.dispatch( 'app/endProcessing' );
-			}
-		},
+    }
+  },
 		computed: {
 			...mapGetters( {
 				isOnProcessing: 'app/isOnProcessing',

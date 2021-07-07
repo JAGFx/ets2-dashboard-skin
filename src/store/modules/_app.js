@@ -20,10 +20,17 @@ const defaultDetails = {
 	code:    null
 };
 
+const defaultLaunchObject = {
+	icon:    '<i class="fas fa-box"></i>',
+	text:    'App ready !',
+	subText: 'Starting delivering'
+};
+
 const state = () => ({
 	processing: false,
 	message:    defaultMessage,
-	details:    defaultDetails
+	details:    defaultDetails,
+	launch:     defaultLaunchObject
 });
 
 // getters
@@ -31,6 +38,7 @@ const getters = {
 	isOnProcessing: state => state.processing,
 	message:        state => state.message,
 	details:        state => state.details,
+	launch:         state => state.launch,
 	getProcessing:  ( state ) => {
 		return state.processing;
 	}
@@ -65,6 +73,9 @@ const mutations = {
 	},
 	setDetails( state, details ) {
 		state.details = details;
+	},
+	setLaunch( state, launch ) {
+		state.launch = launch;
 	}
 };
 

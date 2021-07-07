@@ -1,32 +1,18 @@
 <template>
   <main :class="`${telemetry.game ? telemetry.game.game.name : ''}`">
-    <b-overlay :show="!gameConnected" :variant="'dark'" no-wrap>
-      <template v-slot:overlay>
-        <div class="d-flex justify-content-center flex-column align-items-center">
-          <transition mode="out-in" name="slide-fade">
-            <div :key="launching.text" class="d-flex justify-content-center align-items-center flex-column">
-              <h1><span class="mb-3" v-html="launching.icon"></span></h1>
-              <h1 class="text-center">{{ launching.text }}</h1>
-              <small class="mb-3">{{ launching.subText }}</small>
-              <b-spinner label="Processing..." type="grow"></b-spinner>
-            </div>
-          </transition>
-        </div>
-      </template>
-    </b-overlay>
-
-    <History></History>
-
-    <OverlayElement v-if="gameConnected"></OverlayElement>
-    <TelemetryEventOverlay v-if="gameConnected"></TelemetryEventOverlay>
+    <LoadingOverlay />
+    <History />
+    <Overlay v-if="gameConnected" />
+    <TelemetryEventOverlay v-if="gameConnected" />
     <Header />
-    <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed"></component>
+    <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed" />
   </main>
 </template>
 
 <script>
-import OverlayElement        from '@/components/Elements/OverlayElement';
 import Header                from '@/components/header/Header';
+import LoadingOverlay        from '@/components/overlays/LoadingOverlay';
+import Overlay               from '@/components/overlays/Overlay';
 import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
 import History               from '@/components/Zone/History';
 import DashDafXF             from '@/dashboards/daf-xf/components/DashDafXF';
@@ -57,18 +43,10 @@ export default {
     DashScania,
     DashVolvoFH,
     DashMaps,
-    OverlayElement,
+    Overlay,
     History,
-    Header
-  },
-  data() {
-    return {
-      launching: {
-        icon:    '<i class="fas fa-box"></i>',
-        text:    'App ready !',
-        subText: 'Starting delivering'
-      }
-    };
+    Header,
+    LoadingOverlay
   },
 
   created() {
@@ -136,19 +114,19 @@ export default {
     },
     connect() {
       console.log( 'connected' );
-      this.launching = {
+      this.$store.commit( 'app/setLaunch', {
         icon:    '<i class="fas fa-truck"></i>',
         text:    'Connected to telemetry server',
         subText: 'Ready to delivering'
-      };
+      } );
       this.$pushALog( 'Connected to telemetry server', _history.HTY_ZONE.MAIN );
 
       setTimeout( () => {
-        this.launching = {
+        this.$store.commit( 'app/setLaunch', {
           icon:    '<i class="fas fa-truck"></i>',
           text:    'Waiting game connection',
           subText: 'Run the game to start your job !'
-        };
+        } );
         this.$pushALog( 'Waiting game connection', _history.HTY_ZONE.MAIN );
       }, 5000 );
     },

@@ -43,7 +43,7 @@ export default {
   },
   computed:   {
     currentTabComponent: function () {
-      return 'Tab' + this.currentTab;
+      return 'MenuTab' + this.currentTab;
     }
   }
 };
