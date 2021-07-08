@@ -1,6 +1,6 @@
 <script>
 import { EventBus } from '@/event-bus';
-import _event       from '@/utils/_event';
+import { event }    from '@/utils/utils';
 
 const defaultData = {
   eventProcessing: false,
@@ -24,7 +24,7 @@ export default {
     return data;
   },
   created() {
-    EventBus.$on( _event.EVT_UPDATE, dataIn => {
+    EventBus.$on( event.EVT_UPDATE, dataIn => {
       if ( lastTimeOut !== null )
         clearTimeout( lastTimeOut );
 

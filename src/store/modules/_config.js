@@ -6,9 +6,9 @@
  * Time: 	17:14
  */
 
+import defaultData from '@/data/ets2-dashboard-skin.config.json';
+import { config }  from '@/utils/utils';
 import Vue         from 'vue';
-import defaultData from '../../data/ets2-dashboard-skin.config.json';
-import config      from '../../utils/_config';
 
 // initial state
 const state = () => (defaultData);

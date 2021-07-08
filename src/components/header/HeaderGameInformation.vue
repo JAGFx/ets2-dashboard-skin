@@ -70,11 +70,10 @@
 </template>
 
 <script>
-import scsSDKData     from '@/data/scs_sdk_plugin_parsed_data.json';
-import _history       from '@/utils/_history';
-import * as utils     from '@/utils/utils';
-import * as axios     from 'axios';
-import { mapGetters } from 'vuex';
+import scsSDKData       from '@/data/scs_sdk_plugin_parsed_data.json';
+import { app, history } from '@/utils/utils';
+import * as axios       from 'axios';
+import { mapGetters }   from 'vuex';
 
 export default {
   name: 'HeaderGameInformation',
@@ -90,7 +89,7 @@ export default {
     axios.get( 'https://api.github.com/repos/JAGFx/ets2-dashboard-skin/releases/latest' )
          .then( ( data ) => {
            const latestReleaseVersion = data.data.tag_name;
-           const appVersion           = `v${ utils.app.version }`;
+           const appVersion           = `v${ app.version }`;
 
            if ( latestReleaseVersion !== appVersion )
              this.newReleaseAvailable = true;
@@ -98,16 +97,16 @@ export default {
   },
   methods: {
     getVersion() {
-      return utils.app.version;
+      return app.version;
     },
     isOnDevEnvironment() {
-      return utils.app.isOnDevEnvironment;
+      return app.isOnDevEnvironment;
     },
     onEventChange() {
       const spitedEvent = this.event.split( '.' );
       let rawData       = scsSDKData.events[ spitedEvent[ 0 ] ][ spitedEvent[ 1 ] ];
 
-      this.$pushALog( 'Throw event ' + this.event, _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Throw event ' + this.event, history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
 
       this.$updateEvent( {
         eventName: this.event,
@@ -115,7 +114,7 @@ export default {
       } );
     },
     onClickGear() {
-      this.$pushALog( 'Menu toggle', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Menu toggle', history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
 
       this.$store.dispatch( 'menu/toggle' );
     },
@@ -137,7 +136,7 @@ export default {
         else if ( elem.msRequestFullscreen )
           elem.msRequestFullscreen();
 
-        this.$pushALog( 'Enable fullscreen', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+        this.$pushALog( 'Enable fullscreen', history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
 
       } else {
         // Disable fullscreen
@@ -154,7 +153,7 @@ export default {
         else if ( document.msExitFullscreen )
           document.msExitFullscreen();
 
-        this.$pushALog( 'Disable fullscreen', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+        this.$pushALog( 'Disable fullscreen', history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
       }
 
       this.switchAwakeScreen();
@@ -163,11 +162,11 @@ export default {
     },
     switchAwakeScreen() {
       this.$pushALog( 'Wake Lock API support: ' + ('wakeLock' in navigator),
-          _history.HTY_ZONE.ZONE_GAME,
-          _history.HTY_LEVEL.DEBUG );
+          history.HTY_ZONE.ZONE_GAME,
+          history.HTY_LEVEL.DEBUG );
       this.$pushALog( 'Screen Keep awake support: ' + ('keepAwake' in screen),
-          _history.HTY_ZONE.ZONE_GAME,
-          _history.HTY_LEVEL.DEBUG );
+          history.HTY_ZONE.ZONE_GAME,
+          history.HTY_LEVEL.DEBUG );
 
       if ( 'wakeLock' in navigator )
         this.useWakeLock();
@@ -177,7 +176,7 @@ export default {
         this.useVueInsomnia();
     },
     useVueInsomnia() {
-      this.$pushALog( 'Awake screen - Use VueInsomnia', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Awake screen - Use VueInsomnia', history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
 
       if ( !this.fullscreen )
         this.vueInsomnia().on();
@@ -185,7 +184,7 @@ export default {
         this.vueInsomnia().off();
     },
     useWakeLock() {
-      this.$pushALog( 'Awake screen - Use WakeLock API', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Awake screen - Use WakeLock API', history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
 
       if ( !this.fullscreen )
         navigator.wakeLock.request( 'screen' )
@@ -196,7 +195,7 @@ export default {
         this.wakeLock.release();
     },
     useScreenAwake() {
-      this.$pushALog( 'Awake screen - Use Screen Awake API', _history.HTY_ZONE.ZONE_GAME, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Awake screen - Use Screen Awake API', history.HTY_ZONE.ZONE_GAME, history.HTY_LEVEL.DEBUG );
       screen.keepAwake = this.fullscreen;
     }
   },

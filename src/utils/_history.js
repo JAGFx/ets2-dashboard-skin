@@ -6,9 +6,9 @@
  * Time: 	13:37
  */
 
-const HTY_EVENT = 'hty-event';
+export const HTY_EVENT = 'hty-event';
 
-const HTY_ZONE      = {
+export const HTY_ZONE      = {
 	MAIN:        'Main',
 	ZONE_GAME:   'Header/HeaderGameInformation',
 	MENU:        'Menu',
@@ -17,18 +17,11 @@ const HTY_ZONE      = {
 	MAPS_INIT:   'Maps/Init',
 	ERROR:       'Error'
 };
-const HTY_LEVEL     = {
+export const HTY_LEVEL     = {
 	DEBUG:    'DEBUG',
 	INFO:     'INFO',
 	WARNING:  'WARNING',
 	ERROR:    'ERROR',
 	CRITICAL: 'CRITICAL'
 };
-const HTY_MAX_LINES = 20;
-
-export default {
-	HTY_EVENT,
-	HTY_ZONE,
-	HTY_LEVEL,
-	HTY_MAX_LINES
-};
+export const HTY_MAX_LINES = 20;

@@ -6,10 +6,9 @@
  * Time: 	11:32
  */
 
-import { EventBus } from '@/event-bus';
-import store        from '@/store';
-import _event       from '@/utils/_event';
-import _history     from '@/utils/_history';
+import { EventBus }       from '@/event-bus';
+import store              from '@/store';
+import { event, history } from '@/utils/utils';
 
 export default {
 	store,
@@ -19,15 +18,15 @@ export default {
 		// --- Update telemetry data
 		
 		Vue.prototype.$updateEvent = ( log ) => {
-			const event = _event.filterInputEvent( log );
+			const event = event.filterInputEvent( log );
 			
 			if ( event !== false ) {
 				const configName = `events_${ event.eventName }`;
 				const isActive   = store.getters[ 'config/get' ]( configName );
 				
 				if ( isActive ) {
-					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( event ), _history.HTY_ZONE.MAIN );
-					EventBus.$emit( _event.EVT_UPDATE, {
+					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( event ), history.HTY_ZONE.MAIN );
+					EventBus.$emit( event.EVT_UPDATE, {
 						eventProcessing: true,
 						eventName:       event.eventName,
 						eventRawData:    event.rawData

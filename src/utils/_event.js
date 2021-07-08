@@ -7,11 +7,11 @@
  */
 
 import scsSDKData from '@/data/scs_sdk_plugin_parsed_data.json';
-import _app       from '@/utils/_app';
+import app        from '@/utils/utils';
 
-const EVT_UPDATE = 'evt-update';
+export const EVT_UPDATE = 'evt-update';
 
-const eventNameToComponent = function ( eventName ) {
+export const eventNameToComponent = function ( eventName ) {
 	const splitedEvent = eventName.split( /\.|-/ );
 	let finalStr       = 'TelemetryEvent';
 	
@@ -24,7 +24,7 @@ const eventNameToComponent = function ( eventName ) {
 	return finalStr;
 };
 
-const filterInputEvent = function ( event ) {
+export const filterInputEvent = function ( event ) {
 	const eventName    = event.eventName;
 	const splicedEvent = eventName.split( '.' );
 	const eventToSkip  = [
@@ -32,7 +32,7 @@ const filterInputEvent = function ( event ) {
 		'truck.refuel'
 	];
 	
-	const rawData    = (_app.isOnDevEnvironment)
+	const rawData    = (app.isOnDevEnvironment)
 		? scsSDKData.events[ splicedEvent[ 0 ] ][ splicedEvent[ 1 ] ]
 		: event.rawData;
 	let eventSkipped = false;
@@ -48,10 +48,4 @@ const filterInputEvent = function ( event ) {
 	return (eventSkipped)
 		? false
 		: event;
-};
-
-export default {
-	EVT_UPDATE,
-	eventNameToComponent,
-	filterInputEvent
 };

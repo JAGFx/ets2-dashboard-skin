@@ -6,8 +6,8 @@
  * Time: 	21:38
  */
 
-import _app                            from '@/utils/_app';
-import _history                        from '@/utils/_history';
+import store                           from '@/store/index';
+import { app, history }                from '@/utils/utils';
 import axios                           from 'axios';
 import { Feature }                     from 'ol';
 import { defaults as defaultControls } from 'ol/control';
@@ -21,7 +21,6 @@ import XYZ                             from 'ol/source/XYZ';
 import { Icon, Style }                 from 'ol/style';
 import View                            from 'ol/View';
 import Vue                             from 'vue';
-import store                           from '../store/index';
 
 let d = {
 	map:                       null,
@@ -59,7 +58,7 @@ const initConfig = ( game ) => {
 	const basePath           = `${ tileRemoteLocation }/${ map }/${ tilesVersion }/`;
 	
 	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile version: ${ tilesVersion }`,
-		_history.HTY_ZONE.MAPS_INIT );
+		history.HTY_ZONE.MAPS_INIT );
 	
 	d.paths.base = basePath;
 	
@@ -68,33 +67,27 @@ const initConfig = ( game ) => {
 		.then( response => {
 			//console.log( 'config', response.data );
 			d.config = response.data;
-			Vue.prototype.$pushALog( `Map config found`, _history.HTY_ZONE.MAPS_INIT );
+			Vue.prototype.$pushALog( `Map config found`, history.HTY_ZONE.MAPS_INIT );
 			
 			const tilesPath = d.paths.tiles.replace( /{[xyz]}/g, 0 );
 			
 			return axios
 				.get( d.paths.base + tilesPath )
 				.then( response => {
-					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, _history.HTY_ZONE.MAPS_INIT );
-					//console.log( 'tiles', response );
-					//d.config = response.data;
-					
+					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, history.HTY_ZONE.MAPS_INIT );
 					d.ready = true;
 					
 				}, err => {
 					console.error( 'Cant get tiles', err );
-					Vue.prototype.$pushALog( `Tiles NOT FOUND`, _history.HTY_ZONE.MAPS_INIT, _history.HTY_LEVEL.ERROR );
+					Vue.prototype.$pushALog( `Tiles NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
 					throw 'Tiles NOT FOUND';
 				} );
 			
 		}, err => {
 			console.error( 'Cant get config', err );
-			Vue.prototype.$pushALog( `Map config NOT FOUND`, _history.HTY_ZONE.MAPS_INIT, _history.HTY_LEVEL.ERROR );
+			Vue.prototype.$pushALog( `Map config NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
 			throw 'Map config NOT FOUND';
 		} );
-	
-	//console.log( game, type, tilesLocation, basePath );
-	//console.log( d.paths );
 };
 
 const initMap = () => {
@@ -234,16 +227,16 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 			speed = (speed).toFixed( 0 );
 			
 			//auto-zoom map by speed
-			if ( _app.betweenFloat( speed, 15, 35 ) )
+			if ( app.betweenFloat( speed, 15, 35 ) )
 				d.map.getView().setZoom( 9 );
 			
-			else if ( _app.betweenFloat( speed, 51, 55 ) )
+			else if ( app.betweenFloat( speed, 51, 55 ) )
 				d.map.getView().setZoom( 8 );
 			
-			else if ( _app.betweenFloat( speed, 61, 65 ) )
+			else if ( app.betweenFloat( speed, 61, 65 ) )
 				d.map.getView().setZoom( 7 );
 			
-			else if ( _app.betweenFloat( speed, 81, 88 ) )
+			else if ( app.betweenFloat( speed, 81, 88 ) )
 				d.map.getView().setZoom( 6 );
 			
 			

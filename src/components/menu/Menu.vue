@@ -19,7 +19,7 @@
 import MenuTabAbout  from '@/components/menu/MenuTabAbout';
 import MenuTabConfig from '@/components/menu/MenuTabConfig';
 import MenuTabSkins  from '@/components/menu/MenuTabSkins';
-import _history      from '@/utils/_history';
+import { history }   from '@/utils/utils';
 
 export default {
   name:       'Menu',
@@ -36,7 +36,7 @@ export default {
   },
   methods:    {
     onClickSwitchTab( tab ) {
-      this.$pushALog( 'Switch tab to ' + tab, _history.HTY_ZONE.MENU, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Switch tab to ' + tab, history.HTY_ZONE.MENU, history.HTY_LEVEL.DEBUG );
 
       this.currentTab = tab;
     }

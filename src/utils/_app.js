@@ -28,14 +28,12 @@ const GAME_ID_ATS  = 2;
 
 // --- Methods
 
-const basePathHost = 'http://' + window.location.host + '/';
+export const basePathHost       = 'http://' + window.location.host + '/';
+export const version            = packageJson.version;
+export const isOnDevEnvironment = process.env.NODE_ENV.startsWith( 'dev' );
+export const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
-const version = packageJson.version;
-
-const isOnDevEnvironment = process.env.NODE_ENV.startsWith( 'dev' );
-const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
-
-const flag = ( countryName, gameID ) => {
+export const flag = ( countryName, gameID ) => {
 	let flag = undefined;
 	
 	if ( countryName.length !== 0 ) {
@@ -51,33 +49,29 @@ const flag = ( countryName, gameID ) => {
 			flag = emojiFlags.countryCode( 'US' );
 	}
 	
-	//console.log( countryName, countryCode, flag, flag.emoji );
-	
 	return (flag !== undefined)
 		? flag.emoji
 		: '🏳️';
 };
 
-const numberDigit = input => {
+export const numberDigit = input => {
 	return input < 10 ? `0${ input }` : input;
 };
 
-const jsonReadable = ( dataIn ) => {
+export const jsonReadable = ( dataIn ) => {
 	return JSON.parse( JSON.stringify( dataIn ) );
 };
 
-const dateTimeLocalized = ( input, formatDate, formatTime ) => {
+export const dateTimeLocalized = ( input, formatDate, formatTime ) => {
 	const format     = formatDate + ' ' + formatTime;
 	const momentData = moment( input, 'x' );
-	
-	//console.log( input, format, momentData, new Date( input ) );
 	
 	return momentData
 		.tz( 'Africa/Abidjan' )
 		.format( format );
 };
 
-const diffDateTimeLocalized = ( dFrom, dTo, withDay = true ) => {
+export const diffDateTimeLocalized = ( dFrom, dTo, withDay = true ) => {
 	const momentFrom = moment( dFrom, 'x' );
 	const momentTo   = moment( dTo, 'x' );
 	const diff       = momentTo.diff( momentFrom );
@@ -88,7 +82,7 @@ const diffDateTimeLocalized = ( dFrom, dTo, withDay = true ) => {
 	return moment( diff, 'x' ).format( format );
 };
 
-const sleep = milliseconds => {
+export const sleep = milliseconds => {
 	const date      = Date.now();
 	let currentDate = null;
 	do {
@@ -96,37 +90,22 @@ const sleep = milliseconds => {
 	} while ( currentDate - date < milliseconds );
 };
 
-const gameIsATS = gameID => gameID === GAME_ID_ATS;
+export const gameIsATS = gameID => gameID === GAME_ID_ATS;
 
-const gameIsETS2 = gameID => gameID === GAME_ID_ETS2;
+export const gameIsETS2 = gameID => gameID === GAME_ID_ETS2;
 
-const betweenFloat = ( data, a, b ) => {
+export const betweenFloat = ( data, a, b ) => {
 	return parseFloat( data ) >= a && parseFloat( data ) <= b;
 };
 
-export default {
-	basePathHost,
-	version,
-	isOnDevEnvironment,
-	useFakeData,
-	flag,
-	numberDigit,
-	jsonReadable,
-	dateTimeLocalized,
-	diffDateTimeLocalized,
-	sleep,
-	gameIsATS,
-	gameIsETS2,
-	betweenFloat,
-	formatConstants: {
-		DATE_FORMAT_NONE,
-		DATE_FORMAT_SHORT,
-		DATE_FORMAT_LONG,
-		DATE_FORMAT_FULL,
-		TIME_FORMAT_NONE,
-		TIME_FORMAT_SHORT,
-		TIME_FORMAT_FULL,
-		GAME_ID_ATS,
-		GAME_ID_ETS2
-	}
+export const formatConstants = {
+	DATE_FORMAT_NONE,
+	DATE_FORMAT_SHORT,
+	DATE_FORMAT_LONG,
+	DATE_FORMAT_FULL,
+	TIME_FORMAT_NONE,
+	TIME_FORMAT_SHORT,
+	TIME_FORMAT_FULL,
+	GAME_ID_ATS,
+	GAME_ID_ETS2
 };

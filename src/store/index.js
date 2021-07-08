@@ -7,12 +7,12 @@
  */
 
 
+import app    from '@/store/modules/_app';
+import config from '@/store/modules/_config';
+import menu   from '@/store/modules/_menu';
+import skins  from '@/store/modules/_skins';
 import Vue    from 'vue';
 import Vuex   from 'vuex';
-import app    from './modules/_app';
-import config from './modules/_config';
-import menu   from './modules/_menu';
-import skins  from './modules/_skins';
 
 Vue.use( Vuex );
 

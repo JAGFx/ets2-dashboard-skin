@@ -104,11 +104,9 @@
 </template>
 
 <script>
-import { EventBus }   from '@/event-bus';
-import _app           from '@/utils/_app';
-import _history       from '@/utils/_history';
-import * as _maps     from '@/utils/_maps';
-import { mapGetters } from 'vuex';
+import { EventBus }          from '@/event-bus';
+import { app, history, map } from '@/utils/utils';
+import { mapGetters }        from 'vuex';
 
 export default {
   name:  'Map',
@@ -137,7 +135,7 @@ export default {
   data() {
     return {
       displayMapInfo:   false,
-      rotateWithPlayer: _maps.d.gBehaviorRotateWithPlayer,
+      rotateWithPlayer: map.d.gBehaviorRotateWithPlayer,
       ready:            false,
       message:          {
         icon:       '<i class="fas fa-map-marked-alt"></i>',
@@ -148,10 +146,10 @@ export default {
     };
   },
   mounted() {
-    _maps.init( this.telemetry.game.game.name )
-         .then( () => {
+    map.init( this.telemetry.game.game.name )
+       .then( () => {
            EventBus.$on( 'tmp-update', dataIn => {
-             _maps.updatePlayerPositionAndRotation(
+             map.updatePlayerPositionAndRotation(
                  dataIn.truck.position.X,
                  dataIn.truck.position.Z,
                  dataIn.truck.orientation.heading,
@@ -159,19 +157,19 @@ export default {
            } );
 
            // --- Dev
-           if ( _app.isOnDevEnvironment )
-             setTimeout( () => {
-               _maps.updatePlayerPositionAndRotation(
-                   this.telemetry.truck.position.X,
-                   this.telemetry.truck.position.Z,
-                   this.telemetry.truck.orientation.heading,
-                   this.telemetry.truck.speed.kph );
-             }, 1000 );
+         if ( app.isOnDevEnvironment )
+           setTimeout( () => {
+             map.updatePlayerPositionAndRotation(
+                 this.telemetry.truck.position.X,
+                 this.telemetry.truck.position.Z,
+                 this.telemetry.truck.orientation.heading,
+                 this.telemetry.truck.speed.kph );
+           }, 1000 );
            // --- ./Dev
 
            this.ready = true;
          } )
-         .catch( e => {
+       .catch( e => {
            this.message.icon       = '<i class="fas fa-times"></i>';
            this.message.text       = 'Unable to load map';
            this.message.sub        = e;
@@ -179,7 +177,7 @@ export default {
 
            const errorMessage = e.message || e;
 
-           this.$pushALog( `Unknown error: ${ errorMessage }`, _history.HTY_ZONE.MAPS_INIT, _history.HTY_LEVEL.ERROR );
+         this.$pushALog( `Unknown error: ${ errorMessage }`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
          } );
 
   },
@@ -188,17 +186,17 @@ export default {
       this.displayMapInfo = !this.displayMapInfo;
     },
     onClickRotate() {
-      _maps.d.gBehaviorRotateWithPlayer = (_maps.d.gBehaviorCenterOnPlayer)
-          ? !_maps.d.gBehaviorRotateWithPlayer
+      map.d.gBehaviorRotateWithPlayer = (map.d.gBehaviorCenterOnPlayer)
+          ? !map.d.gBehaviorRotateWithPlayer
           : true;
 
-      this.rotateWithPlayer = _maps.d.gBehaviorRotateWithPlayer;
+      this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
     },
     onClickCenter() {
-      _maps.d.gBehaviorCenterOnPlayer = !_maps.d.gBehaviorCenterOnPlayer;
+      map.d.gBehaviorCenterOnPlayer = !map.d.gBehaviorCenterOnPlayer;
     },
     mapInfo() {
-      return _maps.d.config;
+      return map.d.config;
     }
   },
   computed: {

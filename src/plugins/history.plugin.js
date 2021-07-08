@@ -8,7 +8,7 @@
 
 import { EventBus } from '@/event-bus';
 import store        from '@/store';
-import _history     from '@/utils/_history';
+import { history }  from '@/utils/utils';
 import * as moment  from 'moment';
 
 export default {
@@ -23,8 +23,8 @@ export default {
 		
 		// --- Push a log
 		
-		Vue.prototype.$pushALog = ( message, zone, level = _history.HTY_LEVEL.INFO ) => {
-			EventBus.$emit( _history.HTY_EVENT, {
+		Vue.prototype.$pushALog = ( message, zone, level = history.HTY_LEVEL.INFO ) => {
+			EventBus.$emit( history.HTY_EVENT, {
 				message,
 				zone,
 				level
@@ -36,7 +36,7 @@ export default {
 				return defaultData;
 			},
 			created() {
-				EventBus.$on( _history.HTY_EVENT, dataIn => {
+				EventBus.$on( history.HTY_EVENT, dataIn => {
 					const date    = moment();
 					const level   = dataIn.level;
 					const zone    = dataIn.zone;
@@ -46,7 +46,7 @@ export default {
 					if ( this.histories.h.indexOf( line ) === -1 ) {
 						this.histories.h.push( line );
 						this.histories.h = this.histories.h.slice(
-							Math.max( this.histories.h.length - _history.HTY_MAX_LINES, 0 )
+							Math.max( this.histories.h.length - history.HTY_MAX_LINES, 0 )
 						);
 					}
 					

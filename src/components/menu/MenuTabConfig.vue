@@ -1,18 +1,10 @@
 <template>
   <div class="menu-tab-config">
     <div class="d-flex justify-content-center align-items-center pb-3">
-      <!--<button :disabled="isOnProcessing" @click="save" class="btn btn-sm btn-outline-ets mx-1">
-        <b-icon-file-earmark-check></b-icon-file-earmark-check>
-        Save
-      </button>-->
       <button :disabled="isOnProcessing" @click="download" class="btn btn-sm btn-outline-ets mx-1">
         <b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
         Download
       </button>
-      <!--<button :disabled="isOnProcessing" @click="reset" class="btn btn-sm btn-outline-ets mx-1">
-        <b-icon-file-earmark-break></b-icon-file-earmark-break>
-        Reset
-      </button>-->
       <span>
 				<button :disabled="isOnProcessing" @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1">
 					<b-icon-file-earmark-arrow-up></b-icon-file-earmark-arrow-up> Upload
@@ -52,15 +44,14 @@
 </template>
 
 <script>
-import TabConfigElement from '@/components/menu/MenuTabConfigElement';
-import configJAGFx      from '@/dashboards/jagfx/data/config_template.json';
-import configMaps       from '@/dashboards/maps/data/config_template.json';
-import config           from '@/data/config_template.json';
-import skins            from '@/data/skins.json';
-import utilsConfig      from '@/utils/_config';
-import _history         from '@/utils/_history';
-import _                from 'lodash';
-import { mapGetters }   from 'vuex';
+import TabConfigElement               from '@/components/menu/MenuTabConfigElement';
+import configJAGFx                    from '@/dashboards/jagfx/data/config_template.json';
+import configMaps                     from '@/dashboards/maps/data/config_template.json';
+import config                         from '@/data/config_template.json';
+import skins                          from '@/data/skins.json';
+import { config as uConfig, history } from '@/utils/utils';
+import _                              from 'lodash';
+import { mapGetters }                 from 'vuex';
 
 export default {
   name:       'MenuTabConfig',
@@ -79,8 +70,6 @@ export default {
       skins:       skinsOk,
       configSkins: configSkins,
       showUpload:  false
-      //processing:  false
-      //data:        data
     };
   },
   computed: {
@@ -93,26 +82,18 @@ export default {
     skinsConfigTemplate( skinTarget ) {
       return this.configSkins[ skinTarget.id ].categories;
     },
-    //reset() {
-    //	const emptyData = utilsConfig.generateEmptyData( config, this.configSkins );
-    //	this.$store.commit('config/setElms', emptyData );
-    //},
-    //save() {
-    //	utilsConfig
-    //		.save( this.data );
-    //},
     download() {
-      this.$pushALog( 'Download config', _history.HTY_ZONE.MENU_CONFIG, _history.HTY_LEVEL.DEBUG );
+      this.$pushALog( 'Download config', history.HTY_ZONE.MENU_CONFIG, history.HTY_LEVEL.DEBUG );
 
-      utilsConfig.download();
+      uConfig.download();
     },
     upload( input ) {
-      this.$pushALog( 'Start config upload', _history.HTY_ZONE.MENU_CONFIG );
+      this.$pushALog( 'Start config upload', history.HTY_ZONE.MENU_CONFIG );
 
-      utilsConfig
+      uConfig
           .upload( input.target.files[ 0 ] )
           .then( data => {
-            this.$pushALog( 'Config upload done', _history.HTY_ZONE.MENU_CONFIG );
+            this.$pushALog( 'Config upload done', history.HTY_ZONE.MENU_CONFIG );
 
             //console.log( data );
             this.$store.commit( 'config/setElms', data );

@@ -9,8 +9,7 @@
 import testData       from '@/data/scs_sdk_plugin_parsed_data.json';
 import { EventBus }   from '@/event-bus.js';
 import store          from '@/store';
-import _app           from '@/utils/_app';
-import * as utils     from '@/utils/utils';
+import { app }        from '@/utils/utils';
 import {
 	length as uc_length,
 	mass as uc_mass,
@@ -39,7 +38,7 @@ export default {
 		// --- Filters
 		
 		Vue.filter( '$dateTimeLocalized', ( time, dFormat, tFormat ) => {
-			return utils.app.dateTimeLocalized( time, dFormat, tFormat );
+			return app.dateTimeLocalized( time, dFormat, tFormat );
 		} );
 		Vue.filter( '$toFixed', ( value, decimal ) => {
 			return value.toFixed( decimal );
@@ -53,8 +52,8 @@ export default {
 				};
 			},
 			created() {
-				Object.keys( utils.app.formatConstants ).forEach( ( key ) => {
-					const value = utils.app.formatConstants[ key ];
+				Object.keys( app.formatConstants ).forEach( ( key ) => {
+					const value = app.formatConstants[ key ];
 					this[ key ] = value;
 				} );
 				
@@ -296,7 +295,7 @@ export default {
 				// --- Commons
 				
 				$flag( countryName, gameID ) {
-					return utils.app.flag( countryName, gameID );
+					return app.flag( countryName, gameID );
 				},
 				$averageDamage( arrayDamage ) {
 					const keyLength = Object.keys( arrayDamage ).filter( k => k !== 'total' ).length;
@@ -367,7 +366,7 @@ export default {
 				$jobRemainingTimeDelivery( time ) {
 					const currentGameTime = this.$gameTime();
 					
-					return utils.app.diffDateTimeLocalized( currentGameTime, time );
+					return app.diffDateTimeLocalized( currentGameTime, time );
 				},
 				$jobRemainingTimeToDueDate() {
 					const configData = this.allConfig;
@@ -375,7 +374,7 @@ export default {
 					return configData.general_job_remaining === 'due_date';
 				},
 				$nextRestStop( time ) {
-					return utils.app.diffDateTimeLocalized( 0, time, false );
+					return app.diffDateTimeLocalized( 0, time, false );
 				},
 				
 				// --- ./Job
@@ -455,7 +454,7 @@ export default {
 					const currentGameTime = this.$gameTime();
 					const etaTime         = this.$etaDueDate();
 					
-					return utils.app.diffDateTimeLocalized( currentGameTime, etaTime );
+					return app.diffDateTimeLocalized( currentGameTime, etaTime );
 				},
 				$haveAnActiveNavigation() {
 					return this.telemetry.navigation.distance > 0;
@@ -468,7 +467,7 @@ export default {
 			},
 			computed: {
 				gameConnected() {
-					return _app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
+					return app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
 				},
 				// ----------------
 				...mapGetters( {

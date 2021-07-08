@@ -25,7 +25,7 @@ import DashRdInfo            from '@/dashboards/rd-info/components/DashRdInfo';
 import DashScania            from '@/dashboards/scania/components/DashScania';
 import DashTest              from '@/dashboards/test/components/DashTest';
 import DashVolvoFH           from '@/dashboards/volvo-fh/components/DashVolvoFH';
-import _history              from '@/utils/_history';
+import { history }           from '@/utils/utils';
 import { mapGetters }        from 'vuex';
 
 export default {
@@ -49,12 +49,12 @@ export default {
   },
 
   created() {
-    this.$pushALog( 'App launched', _history.HTY_ZONE.MAIN );
+    this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
 
     this.$store
         .dispatch( 'config/load' )
         .then( () => {
-          this.$pushALog( 'Config loaded', _history.HTY_ZONE.MAIN );
+          this.$pushALog( 'Config loaded', history.HTY_ZONE.MAIN );
 
           const skinToLoad = this.getConfig( 'general_skin_on_load' );
 
@@ -65,8 +65,8 @@ export default {
           } catch ( e ) {
             //console.error( e );
             this.$pushALog( 'Value set in "general_skin_on_load" was not a valid skin: ' + skinToLoad,
-                _history.HTY_ZONE.MAIN,
-                _history.HTY_LEVEL.ERROR );
+                history.HTY_ZONE.MAIN,
+                history.HTY_LEVEL.ERROR );
             this.$store.dispatch( 'skins/setFirstActive' );
           }
         } );
@@ -118,7 +118,7 @@ export default {
         text:    'Connected to telemetry server',
         subText: 'Ready to delivering'
       } );
-      this.$pushALog( 'Connected to telemetry server', _history.HTY_ZONE.MAIN );
+      this.$pushALog( 'Connected to telemetry server', history.HTY_ZONE.MAIN );
 
       setTimeout( () => {
         this.$store.commit( 'app/setLaunch', {
@@ -126,7 +126,7 @@ export default {
           text:    'Waiting game connection',
           subText: 'Run the game to start your job !'
         } );
-        this.$pushALog( 'Waiting game connection', _history.HTY_ZONE.MAIN );
+        this.$pushALog( 'Waiting game connection', history.HTY_ZONE.MAIN );
       }, 5000 );
     },
     update( data ) {

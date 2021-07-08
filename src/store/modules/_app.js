@@ -1,6 +1,3 @@
-import _history from '@/utils/_history';
-import Vue      from 'vue';
-
 /**
  * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
  * project:	customDefault
@@ -8,6 +5,9 @@ import Vue      from 'vue';
  * Date: 	31-May-20
  * Time: 	15:56
  */
+
+import { history } from '@/utils/utils';
+import Vue         from 'vue';
 
 const defaultMessage = {
 	type:    'dark',
@@ -55,7 +55,7 @@ const actions = {
 		commit( 'setDetails', defaultDetails );
 	},
 	setError( { commit }, payload ) {
-		Vue.prototype.$pushALog( 'Error thrown', JSON.stringify( payload ), _history.HTY_ZONE.ERROR );
+		Vue.prototype.$pushALog( 'Error thrown', JSON.stringify( payload ), history.HTY_ZONE.ERROR );
 		
 		commit( 'setProcessing', true );
 		commit( 'setMessage', payload.message );

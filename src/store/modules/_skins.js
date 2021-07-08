@@ -6,8 +6,8 @@
  * Time: 	09:27
  */
 
+import skins from '@/data/skins.json';
 import _     from 'lodash';
-import skins from '../../data/skins.json';
 
 // initial state
 const state = () => ({

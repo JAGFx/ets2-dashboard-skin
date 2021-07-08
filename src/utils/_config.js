@@ -6,15 +6,13 @@
  * Time: 	17:50
  */
 
+import defaultData from '@/data/ets2-dashboard-skin.config.json';
+import store       from '@/store';
 import axios       from 'axios';
 import FileSaver   from 'file-saver';
-import defaultData from '../data/ets2-dashboard-skin.config.json';
-import store       from '../store';
 
-const generateEmptyData = ( config, configSkins ) => {
+export const generateEmptyData = ( config, configSkins ) => {
 	let emptyData = {};
-	
-	//console.log( config, configSkins );
 	
 	config.categories.forEach( category => {
 		category.elements.forEach( element => {
@@ -23,7 +21,6 @@ const generateEmptyData = ( config, configSkins ) => {
 	} );
 	
 	Object.entries( configSkins ).forEach( ( [ key, skin ] ) => {
-		//console.log( key, 'Plop', skin );
 		skin.categories.forEach( category => {
 			category.elements.forEach( element => {
 				emptyData[ element.id ] = null;
@@ -31,16 +28,14 @@ const generateEmptyData = ( config, configSkins ) => {
 		} );
 	} );
 	
-	//console.log( emptyData );
-	
 	return emptyData;
 };
 
-const emptyData = () => {
+export const emptyData = () => {
 	return defaultData;
 };
 
-const save = async data => {
+export const save = async data => {
 	store.dispatch( 'app/startProcessing' );
 	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
@@ -72,7 +67,7 @@ const save = async data => {
 		} );
 };
 
-const download = () => {
+export const download = () => {
 	return load()
 		.then( data => {
 			const file = new File(
@@ -85,7 +80,7 @@ const download = () => {
 		} );
 };
 
-const load = () => {
+export const load = () => {
 	store.dispatch( 'app/startProcessing' );
 	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
@@ -98,11 +93,9 @@ const load = () => {
 	
 	return axios.get( '/config' )
 				.then( response => {
-					//console.log(  'Load', response.data );
 					store.dispatch( 'app/endProcessing' );
 					return response.data;
 				}, error => {
-					//console.log( error );
 					store.dispatch( 'app/setError', {
 						message: {
 							type:    'dark',
@@ -116,10 +109,9 @@ const load = () => {
 					} );
 					return emptyData();
 				} );
-	//.finally( () => store.dispatch( 'app/endProcessing' ) );
 };
 
-const upload = file => {
+export const upload = file => {
 	return new Promise( ( resolve, reject ) => {
 		try {
 			if ( file.type !== 'application/json' )
@@ -128,7 +120,7 @@ const upload = file => {
 			let reader = new FileReader();
 			reader.readAsText( file, 'UTF-8' );
 			
-			reader.onload  = evt => {
+			reader.onload = evt => {
 				try {
 					const data        = JSON.parse( evt.target.result );
 					const checkResult = uploadChecker( data );
@@ -172,14 +164,4 @@ const uploadChecker = input => {
 	} );
 	
 	return result;
-};
-
-
-export default {
-	load,
-	generateEmptyData,
-	emptyData,
-	save,
-	download,
-	upload
 };
