@@ -21,17 +21,17 @@ import TelemetryEventGameTrainOverlay
 import TelemetryEventJobDeliveredOverlay
                                     from '@/components/overlays/telemetry-event/TelemetryEventJobDeliveredOverlay';
 import TelemetryEventNavigationSpeedLimitOverlay
-                                  from '@/components/overlays/telemetry-event/TelemetryEventNavigationSpeedLimitOverlay';
+                                    from '@/components/overlays/telemetry-event/TelemetryEventNavigationSpeedLimitOverlay';
 import TelemetryEventTrailersDamageOverlay
-                                  from '@/components/overlays/telemetry-event/TelemetryEventTrailersDamageOverlay';
+                                    from '@/components/overlays/telemetry-event/TelemetryEventTrailersDamageOverlay';
 import TelemetryEventTruckCruiseControlIncreaseOverlay
-                                  from '@/components/overlays/telemetry-event/TelemetryEventTruckCruiseControlIncreaseOverlay';
+                                    from '@/components/overlays/telemetry-event/TelemetryEventTruckCruiseControlIncreaseOverlay';
 import TelemetryEventTruckDamageOverlay
-                                  from '@/components/overlays/telemetry-event/TelemetryEventTruckDamageOverlay';
+                                    from '@/components/overlays/telemetry-event/TelemetryEventTruckDamageOverlay';
 import TelemetryEventTruckWarningOverlay
-                                  from '@/components/overlays/telemetry-event/TelemetryEventTruckWarningOverlay';
-import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
-import { event }                  from '@/utils/utils';
+                                    from '@/components/overlays/telemetry-event/TelemetryEventTruckWarningOverlay';
+import TelemetryEventOverlayMixin   from '@/mixins/TelemetryEventOverlayMixin';
+import { event }                    from '@/utils/utils';
 
 export default {
   name:       'TelemetryEventOverlay',
@@ -54,7 +54,7 @@ export default {
       const eventComponentName = event.eventNameToComponent( this.eventName );
 
       try {
-        require( './TelemetryEventOverlay/' + eventComponentName );
+        require( `./${ eventComponentName }` );
         return eventComponentName;
 
       } catch ( e ) {

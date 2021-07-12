@@ -45,9 +45,9 @@
 
 <script>
 import TabConfigElement               from '@/components/menu/MenuTabConfigElement';
-import configJAGFx                    from '@/dashboards/jagfx/data/config_template.json';
-import configMaps                     from '@/dashboards/maps/data/config_template.json';
-import config                         from '@/data/config_template.json';
+import configJAGFx                    from '@/data/config/jagfx.json';
+import configMap                      from '@/data/config/map.json';
+import config                         from '@/data/config/template.json';
 import skins                          from '@/data/skins.json';
 import { config as uConfig, history } from '@/utils/utils';
 import _                              from 'lodash';
@@ -62,7 +62,7 @@ export default {
     } );
     const configSkins = {
       JAGFx: configJAGFx,
-      Maps:  configMaps
+      Map:   configMap
     };
 
     return {

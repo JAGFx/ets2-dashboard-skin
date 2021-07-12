@@ -1,0 +1,249 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	test.scss
+ * Date: 	01/05/2020
+ * Time: 	17:40
+ */
+
+.daf-xf {
+	
+	.wrapper-area {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		> span {
+			line-height: inherit;
+			//margin-top: .5rem;
+		}
+	}
+	
+	.dashboard {
+		position:         absolute;
+		background:       url("/img/dashboard/daf-xf/bg-on.jpg") top left no-repeat;
+		transform-origin: top left;
+		left:             50%;
+		top:              50%;
+	}
+	
+	.truck-speed[data-type="meter"] {
+		visibility:       visible;
+		position:         absolute;
+		left:             498px;
+		top:              470px;
+		width:            26px;
+		height:           265px;
+		background-image: url("/img/dashboard/daf-xf/arrow.png");
+		transform:        rotate(-114deg);
+		transform-origin: 50% 220px;
+	}
+	
+	.truck-engineRpm {
+		position:         absolute;
+		left:             1510px;
+		top:              470px;
+		width:            26px;
+		height:           265px;
+		background-image: url("/img/dashboard/daf-xf/arrow.png");
+		transform:        rotate(-97deg);
+		transform-origin: 50% 220px;
+	}
+	
+	.truck-fuel {
+		position:         absolute;
+		left:             595px;
+		top:              340px;
+		width:            13px;
+		height:           145px;
+		background-image: url("/img/dashboard/daf-xf/arrow-s.png");
+		transform:        rotate(-96deg);
+		transform-origin: 50% 21px;
+	}
+	
+	.truck-waterTemperature {
+		position:         absolute;
+		left:             1430px;
+		top:              245px;
+		width:            13px;
+		height:           145px;
+		background-image: url("/img/dashboard/daf-xf/arrow-s2.png");
+		transform:        rotate(-0deg);
+		transform-origin: 50% 124px;
+	}
+	
+	.truck-speedRounded {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 412px;
+		top: 783px;
+		width: 190px;
+		height: 66px;
+		text-align: center;
+	}
+	
+	.truck-gear {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 1481px;
+		top: 744px;
+		width: 84px;
+		height: 82px;
+		text-align: center;
+	}
+	
+	.truck-gear[data-value="N"] {
+		color: #D8DFE5;
+	}
+	
+	.truck-gear[data-value="R"] {
+		color: #D8DFE5;
+	}
+	
+	.truck-odometer {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 1041px;
+		top: 765px;
+		width: 176px;
+		height: 70px;
+		text-align: left;
+		justify-content: flex-end;
+		
+		> span {
+			margin: 0;
+		}
+	}
+	
+	.truck-blinkerLeftOn {
+		background-image: url("/img/dashboard/daf-xf/blinker-left-off.png");
+		position:         absolute;
+		left:             400px;
+		top:              345px;
+		width:            131px;
+		height:           59px;
+	}
+	
+	.truck-blinkerLeftOn.yes {
+		background-image: url("/img/dashboard/daf-xf/blinker-left-on.png");
+	}
+	
+	.truck-blinkerRightOn {
+		background-image: url("/img/dashboard/daf-xf/blinker-right-off.png");
+		position:         absolute;
+		left:             1528px;
+		top:              350px;
+		width:            131px;
+		height:           59px;
+	}
+	
+	.truck-blinkerRightOn.yes {
+		background-image: url("/img/dashboard/daf-xf/blinker-right-on.png");
+	}
+	
+	.truck-lightsBeamHighOn {
+		background: url("/img/dashboard/daf-xf/highbeam-off.png") no-repeat;
+		position:   absolute;
+		left:       845px;
+		top:        720px;
+		width:      45px;
+		height:     35px;
+	}
+	
+	.truck-lightsBeamHighOn.yes {
+		background-image: url("/img/dashboard/daf-xf/highbeam-on.png");
+	}
+	
+	.truck-lightsBeamLowOn {
+		background-image: url("/img/dashboard/daf-xf/lowbeam-off.png");
+		position:         absolute;
+		left:             845px;
+		top:              680px;
+		width:            45px;
+		height:           35px;
+	}
+	
+	.truck-lightsBeamLowOn.yes {
+		background-image: url("/img/dashboard/daf-xf/lowbeam-on.png");
+	}
+	
+	.truck-lightsParkingOn {
+		background-image: url("/img/dashboard/daf-xf/parklights-off.png");
+		position:         absolute;
+		left:             845px;
+		top:              640px;
+		width:            45px;
+		height:           35px;
+	}
+	
+	.truck-lightsParkingOn.yes {
+		background-image: url("/img/dashboard/daf-xf/parklights-on.png");
+	}
+	
+	.game-time {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 815px;
+		top: 765px;
+		width: 240px;
+		height: 70px;
+		text-align: center;
+		
+		justify-content: flex-start;
+		
+		> span {
+			margin: 0;
+		}
+	}
+	
+	.truck-parkBrakeOn {
+		background-image: url("/img/dashboard/daf-xf/parkingbrake-off.png");
+		position:         absolute;
+		left:             1040px;
+		top:              645px;
+		width:            45px;
+		height:           35px;
+	}
+	
+	.truck-parkBrakeOn.yes {
+		background-image: url("/img/dashboard/daf-xf/parkingbrake.png");
+	}
+	
+	.truck-airPressureWarningOn {
+		background-image: url("/img/dashboard/daf-xf/warning-off.png");
+		position:         absolute;
+		left:             1080px;
+		top:              645px;
+		width:            45px;
+		height:           35px;
+	}
+	
+	.truck-airPressureWarningOn.yes {
+		background-image: url("/img/dashboard/daf-xf/warning.png");
+	}
+	
+	.trailer-mass {
+		color: #D8DFE5;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 1031px;
+		top: 599px;
+		width: 163px;
+		height: 47px;
+		text-align: right;
+	}
+}

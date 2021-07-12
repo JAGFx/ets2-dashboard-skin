@@ -1,0 +1,98 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_nav-element.scss
+ * Date: 	09/04/2020
+ * Time: 	18:20
+ */
+
+.dash-symbol-area {
+	@include prefixer( display, flex, ("webkit", "moz", "o") );
+	@include prefixer( justify-content, space-around, ("webkit", "moz", "o") );
+	@include prefixer( align-items, center, ("webkit", "moz", "o") );
+	padding-bottom: .5rem;
+	
+	.dash-symbol-wrapper {
+		@include prefixer( display, flex, ("webkit", "moz") );
+		@include prefixer( flex-direction, column, ("webkit", "moz") );
+		@include prefixer( justify-content, space-between, ("webkit", "moz") );
+		@include prefixer( align-items, center, ("webkit", "moz") );
+		
+		.dash-symbol {
+			width: $iiWidth;
+			height: $iiWidth;
+			border: 2px solid;
+			background: $cBlackTransparentHigh;
+			border-bottom: none;
+			margin-bottom: .5rem;
+			@include prefixer( display, flex, ("webkit", "moz") );
+			@include prefixer( justify-content, center, ("webkit", "moz") );
+			@include prefixer( align-items, center, ("webkit", "moz") );
+			overflow: hidden;
+			color: $cGray;
+			
+			span {
+				padding-top: .3rem;
+				
+				& > * {
+					width: 100%;
+					height: 100%;
+					padding: 0.3rem;
+					font-size: 1.3rem;
+				}
+			}
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+			
+			@include dashSymbol('red', $cRed);
+			@include dashSymbol('green', $cGreen);
+			@include dashSymbol('orange', $cOrange);
+			@include dashSymbol('blue', $cBlue);
+			@include dashSymbol('disabled', $cGray);
+			
+			&.left {
+				@include prefixer( transform, skew($deSkewLeft), ("webkit", "moz") );
+				border-left: none;
+				border-image: linear-gradient(
+						45deg,
+						transparent,
+						$cGray
+				) 1;
+				
+				span {
+					@include prefixer( transform, skew($deSkewRight), ("webkit", "moz") );
+				}
+				
+				@for $i from 1 through 2 {
+					&:nth-child(#{$i}) {
+						$marginElm: ( $i - 1 ) * 1.8rem;
+						margin-left: $marginElm;
+					}
+				}
+			}
+			
+			&.right {
+				@include prefixer( transform, skew($deSkewRight), ("webkit", "moz") );
+				border-right: none;
+				border-image: linear-gradient(
+						-45deg,
+						transparent,
+						$cGray
+				) 1;
+				
+				span {
+					@include prefixer( transform, skew($deSkewLeft), ("webkit", "moz") );
+				}
+				
+				@for $i from 1 through 2 {
+					&:nth-child(#{$i}) {
+						$marginElm: ( $i - 1 ) * 1.8rem;
+						margin-right: $marginElm;
+					}
+				}
+			}
+		}
+	}
+}

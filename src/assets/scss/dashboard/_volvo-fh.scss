@@ -1,0 +1,279 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	test.scss
+ * Date: 	01/05/2020
+ * Time: 	17:40
+ */
+
+.volvo-fh {
+	background: #37322e;
+	
+	.wrapper-area {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		> span {
+			line-height: inherit;
+		}
+	}
+	
+	.dashboard {
+		position:         absolute;
+		background:       url("/img/dashboard/volvo-fh/bg-on.jpg") top left no-repeat;
+		transform-origin: top left;
+		left:             50%;
+		top:              50%;
+	}
+	
+	.truck-speedRounded {
+		color: #D3D395;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 961px;
+		top: 222px;
+		width: 92px;
+		height: 46px;
+	}
+	.truck-speed[data-type="meter"] {
+		visibility:       visible;
+		position:         absolute;
+		left:             996px;
+		top:              143px;
+		width:            22px;
+		height:           74px;
+		background-image: url("/img/dashboard/volvo-fh/arrow.png");
+		transform:        rotate(-114deg);
+		transform-origin: 50% 230px;
+	}
+	.truck-engineRpm {
+		position:         absolute;
+		left:             1000px;
+		top:              365px;
+		width:            18px;
+		height:           90px;
+		background-image: url("/img/dashboard/volvo-fh/gauge-arrow-s.png");
+		transform:        rotate(-97deg);
+		transform-origin: 50% 190px;
+	}
+	.truck-gear {
+		color: #D3D395;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 918px;
+		top: 270px;
+		width: 84px;
+		height: 38px;
+	}
+	.truck-gear[data-value="N"] {
+		color: #D3D395;
+	}
+	.truck-gear[data-value="R"] {
+		color: #D3D395;
+	}
+	.truck-odometer {
+		color: #D3D395;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 310px;
+		top: 397px;
+		width: 278px;
+		height: 44px;
+		text-align: center;
+		justify-content: flex-start;
+	}
+	.truck-blinkerLeftOn {
+		background-image: url("/img/dashboard/volvo-fh/blinker-left-off.png");
+		position:         absolute;
+		left:             692px;
+		top:              36px;
+		width:            120px;
+		height:           120px;
+	}
+	.truck-blinkerLeftOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/blinker-left-on.png");
+	}
+	.truck-blinkerRightOn {
+		background-image: url("/img/dashboard/volvo-fh/blinker-right-off.png");
+		position:         absolute;
+		left:             1204px;
+		top:              26px;
+		width:            120px;
+		height:           120px;
+	}
+	.truck-blinkerRightOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/blinker-right-on.png");
+	}
+	.truck-lightsBeamHighOn {
+		background-image: url("/img/dashboard/volvo-fh/highbeam-off.png");
+		position:         absolute;
+		left:             475px;
+		top:              126px;
+		width:            40px;
+		height:           23px;
+	}
+	.truck-lightsBeamHighOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/highbeam-on.png");
+	}
+	.truck-lightsBeamLowOn {
+		background-image: url("/img/dashboard/volvo-fh/lowbeam-off.png");
+		position:         absolute;
+		left:             400px;
+		top:              126px;
+		width:            40px;
+		height:           23px;
+	}
+	.truck-lightsBeamLowOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/lowbeam-on.png");
+	}
+	.truck-lightsParkingOn {
+		background-image: url("/img/dashboard/volvo-fh/parklights-off.png");
+		position:         absolute;
+		left:             326px;
+		top:              126px;
+		width:            40px;
+		height:           23px;
+	}
+	.truck-lightsParkingOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/parklights-on.png");
+	}
+	.truck-parkBrakeOn {
+		background-image: url("/img/dashboard/volvo-fh/parkBrakeOn-off.png");
+		position:         absolute;
+		left:             1380px;
+		top:              480px;
+		width:            75px;
+		height:           55px;
+	}
+	.truck-parkBrakeOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/parkBrakeOn.png");
+	}
+	.truck-airPressureWarningOn {
+		background-image: url("/img/dashboard/volvo-fh/warning-off.png");
+		position:         absolute;
+		left:             1480px;
+		top:              480px;
+		width:            65px;
+		height:           55px;
+	}
+	.truck-airPressureWarningOn.yes {
+		background-image: url("/img/dashboard/volvo-fh/warning.png");
+	}
+	.trailer-mass {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-weight: bold;
+		font-size: 28px;
+		position: absolute;
+		left: 310px;
+		top: 311px;
+		width: 316px;
+		height: 40px;
+		text-align: center;
+		justify-content: flex-start;
+	}
+	.trailer-name {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-size: 28px;
+		font-weight: bold;
+		position: absolute;
+		left: 310px;
+		top: 235px;
+		width: 312px;
+		height: 80px;
+		text-align: left;
+		overflow: hidden;
+	}
+	.truck-waterTemperature {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-size: 35px;
+		font-weight: bold;
+		position: absolute;
+		left: 1572px;
+		top: 230px;
+		width: 88px;
+		background: #24201D;
+		height: 40px;
+		text-align: center;
+	}
+	.truck-oilTemperature {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-size: 35px;
+		font-weight: bold;
+		position: absolute;
+		top: 271px;
+		left: 1572px;
+		width: 88px;
+		background: #24201D;
+		height: 40px;
+		text-align: center;
+	}
+	.truck-batteryVoltage {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-size: 35px;
+		font-weight: bold;
+		position: absolute;
+		top: 311px;
+		left: 1562px;
+		width: 61px;
+		height: 40px;
+		text-align: center;
+	}
+	.game-time {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-size: 28px;
+		font-weight: bold;
+		position: absolute;
+		left: 310px;
+		top: 170px;
+		width: 282px;
+		height: 53px;
+		text-align: center;
+		overflow: hidden;
+	}
+	.truck-retarderBrake {
+		color: #D3D395;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 30px;
+		position: absolute;
+		left: 1114px;
+		top: 273px;
+		width: 37px;
+		height: 36px;
+	}
+	.truck-retarderBrake.yes {
+		background-image: url("/img/dashboard/volvo-fh/retarder.png");
+		position:         absolute;
+		left:             1074px;
+		top:              273px;
+		width:            43px;
+		height:           33px;
+	}
+	
+	.truck-fuel {
+		color: #D3D395;
+		font-family: Arial, Tahoma;
+		font-size: 28px;
+		font-weight: bold;
+		position: absolute;
+		left: 320px;
+		top: 270px;
+		width: 242px;
+		height: 80px;
+		text-align: left;
+		overflow: hidden;
+	}
+}

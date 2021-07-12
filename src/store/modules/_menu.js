@@ -6,7 +6,7 @@
  * Time: 	11:22
  */
 	
-	// initial state
+// initial state
 const state = () => ({
 		displayed: false
 	});

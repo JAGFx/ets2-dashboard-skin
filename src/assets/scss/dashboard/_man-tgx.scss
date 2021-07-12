@@ -1,0 +1,313 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	test.scss
+ * Date: 	01/05/2020
+ * Time: 	17:40
+ */
+
+.man-tgx {
+	
+	.wrapper-area {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		> span {
+			line-height: inherit;
+		}
+	}
+	
+	.dashboard {
+		position:         absolute;
+		background:       url("/img/dashboard/man-tgx/bg-on.jpg") top left no-repeat;
+		transform-origin: top left;
+		left:             50%;
+		top:              50%;
+	}
+	
+	.truck-speed[data-type="meter"] {
+		visibility:       visible;
+		position:         absolute;
+		left:             1563px;
+		top:              415px;
+		width:            29px;
+		height:           177px;
+		background-image: url("/img/dashboard/man-tgx/arrow.png");
+		transform:        rotate(-114deg);
+		transform-origin: 50% 212px;
+	}
+	.truck-engineRpm {
+		position:         absolute;
+		left:             495px;
+		top:              396px;
+		width:            29px;
+		height:           177px;
+		background-image: url("/img/dashboard/man-tgx/arrow.png");
+		transform:        rotate(-114deg);
+		transform-origin: 50% 212px;
+	}
+	.truck-fuel {
+		position:         absolute;
+		left:             308px;
+		top:              916px;
+		width:            13px;
+		height:           77px;
+		background-image: url("/img/dashboard/man-tgx/arrow-s.png");
+		transform:        rotate(-96deg);
+		transform-origin: 50% 112px;
+	}
+	.truck-waterTemperature {
+		position:         absolute;
+		left:             671px;
+		top:              914px;
+		width:            13px;
+		height:           77px;
+		background-image: url("/img/dashboard/man-tgx/arrow-s.png");
+		transform:        rotate(0deg);
+		transform-origin: 50% 112px;
+	}
+	.truck-waterTemperature {
+		position:         absolute;
+		left:             671px;
+		top:              914px;
+		width:            13px;
+		height:           77px;
+		background-image: url("/img/dashboard/man-tgx/arrow-s.png");
+		transform:        rotate(0deg);
+		transform-origin: 50% 112px;
+	}
+	.truck-speedRounded {
+		color: #B2B5AF;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 980px;
+		top: 318px;
+		width: 159px;
+		height: 77px;
+		text-align: left;
+	}
+	.truck-gear {
+		color: #B2B5AF;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 837px;
+		top: 314px;
+		width: 140px;
+		height: 76px;
+		text-align: center;
+	}
+	.truck-gear[data-value="N"] {
+		color: #B2B5AF;
+	}
+	.truck-gear[data-value="R"] {
+		color: #B2B5AF;
+	}
+	.truck-odometer {
+		color: #B3A099;
+		font-family: Courier New, Courier, monospace;
+		
+		font-size: 30px;
+		position: absolute;
+		left: 412px;
+		top: 730px;
+		width: 190px;
+		height: 43px;
+		text-align: right;
+	}
+	.truck-blinkerLeftOn {
+		background-image: url("/img/dashboard/man-tgx/blinker-left-off.png");
+		position:         absolute;
+		left:             687px;
+		top:              280px;
+		width:            102px;
+		height:           92px;
+	}
+	.truck-blinkerLeftOn.yes {
+		background-image: url("/img/dashboard/man-tgx/blinker-left-on.png");
+	}
+	.truck-blinkerRightOn {
+		background-image: url("/img/dashboard/man-tgx/blinker-right-off.png");
+		position:         absolute;
+		left:             1288px;
+		top:              309px;
+		width:            102px;
+		height:           92px;
+	}
+	.truck-blinkerRightOn.yes {
+		background-image: url("/img/dashboard/man-tgx/blinker-right-on.png");
+	}
+	.truck-cruiseControlOn {
+		background-image: url("/img/dashboard/man-tgx/cruise-off.png");
+		position:         absolute;
+		left:             1145px;
+		top:              322px;
+		width:            92px;
+		height:           69px;
+	}
+	.truck-cruiseControlOn.yes {
+		background-image: url("/img/dashboard/man-tgx/cruise-on.png");
+	}
+	.truck-lightsBeamHighOn {
+		background-image: url("/img/dashboard/man-tgx/highbeam-off.png");
+		position:         absolute;
+		left:             532px;
+		top:              786px;
+		width:            47px;
+		height:           41px;
+	}
+	.truck-lightsBeamHighOn.yes {
+		background-image: url("/img/dashboard/man-tgx/highbeam-on.png");
+	}
+	.truck-lightsBeamLowOn {
+		background-image: url("/img/dashboard/man-tgx/lowbeam-off.png");
+		position:         absolute;
+		left:             474px;
+		top:              786px;
+		width:            48px;
+		height:           38px;
+	}
+	.truck-lightsBeamLowOn.yes {
+		background-image: url("/img/dashboard/man-tgx/lowbeam-on.png");
+	}
+	.truck-lightsParkingOn {
+		background-image: url("/img/dashboard/man-tgx/parklights-off.png");
+		position:         absolute;
+		left:             418px;
+		top:              788px;
+		width:            49px;
+		height:           42px;
+	}
+	.truck-lightsParkingOn.yes {
+		background-image: url("/img/dashboard/man-tgx/parklights-on.png");
+	}
+	.trailer-mass {
+		color: #B2B5AF;
+		font-family: Courier New, Courier, monospace;
+		font-size: 26px;
+		font-weight: bold;
+		position: absolute;
+		left: 957px;
+		top: 452px;
+		width: 70px;
+		height: 40px;
+		text-align: left;
+	}
+	.truck-parkBrakeOn {
+		background-image: url("/img/dashboard/man-tgx/parking-brake-off.png");
+		font-family:      Arial, Tahoma;
+		font-size:        40px;
+		font-weight:      bold;
+		position:         absolute;
+		left:             916px;
+		top:              680px;
+		width:            45px;
+		height:           45px;
+		text-align:       left;
+		overflow:         hidden;
+	}
+	.truck-parkBrakeOn.yes {
+		background-image: url("/img/dashboard/man-tgx/parking-brake.png");
+	}
+	.truck-airPressureWarningOn {
+		background-image: url("/img/dashboard/man-tgx/air-warning-off.png");
+		font-family:      Arial, Tahoma;
+		font-size:        40px;
+		font-weight:      bold;
+		position:         absolute;
+		left:             1449px;
+		top:              959px;
+		width:            38px;
+		height:           29px;
+		text-align:       left;
+		overflow:         hidden;
+	}
+	.truck-airPressureWarningOn.yes {
+		background-image: url("/img/dashboard/man-tgx/air-warning.png");
+	}
+	.truck-retarderBrake {
+		color: #B2B5AF;
+		font-family: Courier New, Courier, monospace;
+		font-size: 27px;
+		font-weight: bold;
+		position: absolute;
+		left: 985px;
+		top: 412px;
+		width: 45px;
+		height: 34px;
+		text-align: left;
+	}
+	.truck-oilTemperature {
+		color: #B2B5AF;
+		font-family: Courier New, Courier, monospace;
+		font-size: 27px;
+		font-weight: bold;
+		position: absolute;
+		left: 1174px;
+		top: 412px;
+		background: #1d2434;
+		width: 81px;
+		text-align: left;
+		overflow: hidden;
+		
+	}
+	.truck-batteryVoltage {
+		color: #B2B5AF;
+		font-family: Courier New, Courier, monospace;
+		font-size: 27px;
+		font-weight: bold;
+		position: absolute;
+		left: 1176px;
+		top: 455px;
+		width: 40px;
+		height: 66px;
+		text-align: left;
+		overflow: hidden;
+	}
+	.game-time {
+		color: #B3A099;
+		position: absolute;
+		left: 1485px;
+		top: 717px;
+		width: 188px;
+		height: 64px;
+		font-size: 27px;
+	}
+	.truck-airPressure {
+		position:         absolute;
+		left:             1408px;
+		top:              914px;
+		width:            13px;
+		height:           77px;
+		background-image: url("/img/dashboard/man-tgx/arrow-s.png");
+		transform:        rotate(-0deg);
+		transform-origin: 50% 112px;
+	}
+	
+	.truck-oilPressure {
+		position:         absolute;
+		left:             1763px;
+		top:              914px;
+		width:            13px;
+		height:           77px;
+		background-image: url("/img/dashboard/man-tgx/arrow-s.png");
+		transform:        rotate(-0deg);
+		transform-origin: 50% 112px;
+	}
+	.truck-airPressureEmergencyOn {
+		background:      url("/img/dashboard/man-tgx/warning-off.png") no-repeat;
+		background-size: contain;
+		position:        absolute;
+		left:            1017px;
+		top:             685px;
+		width:           37px;
+		height:          45px;
+	}
+	.truck-airPressureEmergencyOn.yes {
+		background-image: url("/img/dashboard/man-tgx/warning.png");
+	}
+}

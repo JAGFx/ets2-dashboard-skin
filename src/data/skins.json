@@ -22,7 +22,7 @@
 			}
 		},
 		{
-			"id" :              "Maps",
+			"id" :              "Map",
 			"disabled" :        false,
 			"title" :           "Map",
 			"description" :     "The map from the route advisor",

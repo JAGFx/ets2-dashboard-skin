@@ -10,38 +10,38 @@
 </template>
 
 <script>
-import Header                from '@/components/header/Header';
-import HistoryOverlay        from '@/components/overlays/HistoryOverlay';
-import LoadingOverlay        from '@/components/overlays/LoadingOverlay';
-import Overlay               from '@/components/overlays/Overlay';
-import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import DashDafXF             from '@/dashboards/daf-xf/components/DashDafXF';
-import DashDefault           from '@/dashboards/defaut/components/DashDefault';
-import DashJAGFx             from '@/dashboards/jagfx/components/DashJAGFx';
-import DashManTGX            from '@/dashboards/man-tgx/components/DashManTGX';
-import DashMaps              from '@/dashboards/maps/components/DashMaps';
-import DashMercedesAtego     from '@/dashboards/mercedes-atego/components/DashMercedesAtego';
-import DashRdInfo            from '@/dashboards/rd-info/components/DashRdInfo';
-import DashScania            from '@/dashboards/scania/components/DashScania';
-import DashTest              from '@/dashboards/test/components/DashTest';
-import DashVolvoFH           from '@/dashboards/volvo-fh/components/DashVolvoFH';
-import { history }           from '@/utils/utils';
-import { mapGetters }        from 'vuex';
+import DafXFDashboard         from '@/components/dashboards/DafXFDashboard';
+import DefaultDashboard       from '@/components/dashboards/DefaultDashboard';
+import JAGFxDashboard         from '@/components/dashboards/JAGFxDashboard';
+import ManTGXDashboard        from '@/components/dashboards/ManTGXDashboard';
+import MapDashboard           from '@/components/dashboards/MapDashboard';
+import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
+import RdInfoDashboard        from '@/components/dashboards/RdInfoDashboard';
+import ScaniaDashboard        from '@/components/dashboards/ScaniaDashboard';
+import TestDashboard          from '@/components/dashboards/TestDashboard';
+import VolvoFHDashboard       from '@/components/dashboards/VolvoFHDashboard';
+import Header                 from '@/components/header/Header';
+import HistoryOverlay         from '@/components/overlays/HistoryOverlay';
+import LoadingOverlay         from '@/components/overlays/LoadingOverlay';
+import Overlay                from '@/components/overlays/Overlay';
+import TelemetryEventOverlay  from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
+import { history }            from '@/utils/utils';
+import { mapGetters }         from 'vuex';
 
 export default {
   name:       'app',
   components: {
     TelemetryEventOverlay,
-    DashJAGFx,
-    DashTest,
-    DashDefault,
-    DashDafXF,
-    DashManTGX,
-    DashMercedesAtego,
-    DashRdInfo,
-    DashScania,
-    DashVolvoFH,
-    DashMaps,
+    JAGFxDashboard,
+    TestDashboard,
+    DafXFDashboard,
+    DefaultDashboard,
+    ManTGXDashboard,
+    MercedesAtegoDashboard,
+    RdInfoDashboard,
+    ScaniaDashboard,
+    VolvoFHDashboard,
+    MapDashboard,
     Overlay,
     HistoryOverlay,
     Header,
@@ -59,11 +59,9 @@ export default {
           const skinToLoad = this.getConfig( 'general_skin_on_load' );
 
           try {
-            //console.log( skinToLoad );
             this.$store.commit( 'skins/setConfigActive', skinToLoad );
 
           } catch ( e ) {
-            //console.error( e );
             this.$pushALog( 'Value set in "general_skin_on_load" was not a valid skin: ' + skinToLoad,
                 history.HTY_ZONE.MAIN,
                 history.HTY_LEVEL.ERROR );
@@ -92,12 +90,12 @@ export default {
 
   methods:  {
     currentSkinComponent() {
-      const currentSkin = this.currentSkin; //this.$store.getters[ 'skins/current' ];
+      const currentSkin = this.currentSkin;
 
       if ( currentSkin === undefined || currentSkin === null )
         return null;
 
-      return 'Dash' + currentSkin.id;
+      return currentSkin.id + 'Dashboard';
     }
   },
   computed: {

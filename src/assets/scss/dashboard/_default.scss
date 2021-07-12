@@ -1,0 +1,354 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	test.scss
+ * Date: 	01/05/2020
+ * Time: 	17:40
+ */
+
+
+.default {
+	background: #1d1d1d;
+	
+	.dashboard {
+		position:         absolute;
+		background:       url("/img/dashboard/default/bg-off.png") top left no-repeat;
+		transform-origin: top left;
+		left:             50%;
+		top:              50%;
+		
+		&.game-connected {
+			background: url("/img/dashboard/default/bg-on.png") top left no-repeat;
+		}
+	}
+	
+	.wrapper-area{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		span{
+			line-height: inherit;
+			margin-top: .5rem;
+		}
+	}
+	
+	.truck-speed[data-type="meter"] {
+		visibility: visible;
+		position: absolute;
+		left: 571px;
+		top: 121px;
+		width: 10px;
+		height: 110px;
+		background-color: #cd0000;
+		transform: rotate(-114deg);
+		transform-origin: 50% 440px;
+	}
+	
+	.truck-engineRpm {
+		position: absolute;
+		left: 1580px;
+		top: 105px;
+		width: 10px;
+		height: 110px;
+		background-color: #cd0000;
+		transform: rotate(-97deg);
+		transform-origin: 50% 336px;
+	}
+	
+	.truck-fuel {
+		position: absolute;
+		left: 1452px;
+		top: 546px;
+		width: 10px;
+		height: 60px;
+		background-color: #cd0000;
+		transform: rotate(-96deg);
+		transform-origin: 50% 198px;
+	}
+	
+	.truck-waterTemperature {
+		position: absolute;
+		left: 1788px;
+		top: 546px;
+		width: 10px;
+		height: 60px;
+		background-color: #cd0000;
+		transform: rotate(0deg);
+		transform-origin: 50% 198px;
+	}
+	
+	.truck-speedRounded, .truck-cruiseControlSpeedRounded {
+		color: #2491b9;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 478px;
+		top: 264px;
+		width: 200px;
+		height: 87px;
+		text-align: center;
+	}
+	
+	.truck-speedRounded-unit {
+		color: #ffffff;
+		background: #1d1d1d;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 40px;
+		position: absolute;
+		left: 478px;
+		top: 354px;
+		width: 200px;
+		height: 67px;
+		text-align: center;
+	}
+	
+	.truck-gear {
+		color: #35b32e;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 501px;
+		top: 673px;
+		width: 151px;
+		height: 119px;
+		text-align: center;
+		
+		&[data-value="N"] {
+			color: #2c8a26;
+		}
+		
+		&[data-value="R"] {
+			color: #ddff00;
+		}
+	}
+	
+	.truck-odometer {
+		color: #1a6783;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 70px;
+		position: absolute;
+		left: 387px;
+		top: 555px;
+		width: 389px;
+		height: 90px;
+		text-align: center;
+	}
+	
+	.truck-blinkerLeftOn {
+		background-image: url("/img/dashboard/default/blinker-left-off.png");
+		position:         absolute;
+		left:             98px;
+		top:              78px;
+		width:            102px;
+		height:           92px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/blinker-left-on.png");
+		}
+	}
+	
+	.truck-blinkerRightOn {
+		background-image: url("/img/dashboard/default/blinker-right-off.png");
+		position:         absolute;
+		left:             950px;
+		top:              78px;
+		width:            102px;
+		height:           92px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/blinker-right-on.png");
+		}
+	}
+	
+	.truck-cruiseControlOn {
+		background-image: url("/img/dashboard/default/cruise-off.png");
+		position:         absolute;
+		left:             687px;
+		top:              434px;
+		width:            82px;
+		height:           72px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/cruise-on.png");
+		}
+	}
+	
+	.truck-cruiseControlSpeedRounded {
+		color: #24b999;
+		top: 423px;
+	}
+	
+	.truck-lightsBeamHighOn {
+		background-image: url("/img/dashboard/default/highbeam-off.png");
+		position:         absolute;
+		left:             1358px;
+		top:              860px;
+		width:            123px;
+		height:           90px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/highbeam-on.png");
+		}
+	}
+	
+	.truck-lightsBeamLowOn {
+		background-image: url("/img/dashboard/default/lowbeam-off.png");
+		position:         absolute;
+		left:             1358px;
+		top:              954px;
+		width:            123px;
+		height:           90px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/lowbeam-on.png");
+		}
+	}
+	
+	.truck-lightsParkingOn {
+		background-image: url("/img/dashboard/default/parklights-off.png");
+		position:         absolute;
+		left:             1484px;
+		top:              904px;
+		width:            104px;
+		height:           98px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/parklights-on.png");
+		}
+	}
+	
+	.trailer-attached {
+		background-image: url("/img/dashboard/default/trailer-off.png");
+		position:         absolute;
+		left:             1726px;
+		top:              890px;
+		width:            278px;
+		height:           152px;
+		
+		&.yes {
+			background-image: url("/img/dashboard/default/trailer-on.png");
+		}
+	}
+	
+	.trailer-mass {
+		color: #3e3b60;
+		font-family: Courier New, Courier, monospace;
+		font-weight: bold;
+		font-size: 40px;
+		position: absolute;
+		left: 1770px;
+		top: 906px;
+		width: 200px;
+		height: 80px;
+		text-align: center;
+	}
+	
+	.trailer-name {
+		color: #222;
+		font-family: Arial, Tahoma;
+		font-size: 28px;
+		font-weight: bold;
+		position: absolute;
+		left: 1742px;
+		top: 952px;
+		width: 242px;
+		height: 80px;
+		text-align: center;
+		overflow: hidden;
+	}
+	
+	.game-time {
+		color: #C2D8ED;
+	}
+	
+	.job-remainingTime {
+		color: #54d9a8;
+	}
+	
+	._jobIncome {
+		color: #5dd954;
+	}
+	
+	.truck-gear, .truck-blinkerLeftOn, .truck-blinkerRightOn, .truck-cruiseControlOn, .truck-lightsBeamHighOn, .truck-lightsBeamLowOn, .truck-lightsParkingOn, .truck-odometer, .truck-speedRounded, .truck-cruiseControlSpeedRounded[data-value="0"], .trailer-mass, .trailer-name, ._truckWearInfo, ._trailerWearInfo, .job-remainingTime, ._jobIncome, ._jobSource, ._jobDestionation {
+		visibility: hidden;
+	}
+	
+	.dashboard.game-connected.yes {
+		.truck-blinkerLeftOn, .truck-blinkerRightOn, .truck-cruiseControlOn, .truck-lightsBeamHighOn, .truck-lightsBeamLowOn, .truck-lightsParkingOn, .truck-gear, ._truckWearInfo, ._trailerWearInfo, .truck-odometer, .truck-speedRounded, .truck-cruiseControlSpeedRounded:not([data-value="0"]) {
+			visibility: visible;
+		}
+	}
+	
+	.hasJob.yes {
+		.trailer-mass, .trailer-name, .job-remainingTime, ._jobIncome, ._jobSource, ._jobDestionation {
+			visibility: visible;
+		}
+	}
+	
+	table._job {
+		border-collapse: collapse;
+		font-family: Courier New, Courier, monospace;
+		font-size: 40px;
+		position: absolute;
+		left: 40px;
+		top: 850px;
+		width: 1300px;
+		height: 280px;
+		
+		th {
+			color: #aaa;
+			width: 260px;
+			text-align: center;
+		}
+		
+		td {
+			padding-left: 20px;
+			text-align: left;
+		}
+	}
+	
+	._jobSource, ._jobDestionation {
+		color: #efbd3a;
+	}
+	
+	.statusMessage {
+		color: coral;
+	}
+	
+	._truckWearInfo {
+		font-family: Courier New, Courier, monospace;
+		font-size: 26px;
+		position: absolute;
+		left: 1600px;
+		top: 1066px;
+		width: 330px;
+		height: 30px;
+		text-align: left;
+		color: #aaa;
+		line-height: 90%;
+	}
+	
+	._trailerWearInfo {
+		font-family: Courier New, Courier, monospace;
+		font-size: 26px;
+		position: absolute;
+		left: 1600px;
+		top: 1066px;
+		width: 330px;
+		height: 30px;
+		text-align: left;
+		color: #aaa;
+		line-height: 90%;
+		left: 1810px;
+	}
+	
+	.truck-wearSum, .trailer-wear {
+		font-size: 44px;
+		color: orangered;
+	}
+}

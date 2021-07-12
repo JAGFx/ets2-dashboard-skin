@@ -18,18 +18,18 @@ export default {
 		// --- Update telemetry data
 		
 		Vue.prototype.$updateEvent = ( log ) => {
-			const event = event.filterInputEvent( log );
+			const theEvent = event.filterInputEvent( log );
 			
-			if ( event !== false ) {
-				const configName = `events_${ event.eventName }`;
+			if ( theEvent !== false ) {
+				const configName = `events_${ theEvent.eventName }`;
 				const isActive   = store.getters[ 'config/get' ]( configName );
 				
 				if ( isActive ) {
-					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( event ), history.HTY_ZONE.MAIN );
+					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( theEvent ), history.HTY_ZONE.MAIN );
 					EventBus.$emit( event.EVT_UPDATE, {
 						eventProcessing: true,
-						eventName:       event.eventName,
-						eventRawData:    event.rawData
+						eventName:       theEvent.eventName,
+						eventRawData:    theEvent.rawData
 					} );
 				}
 			}
