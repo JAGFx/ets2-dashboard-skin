@@ -57,11 +57,17 @@ And then, you can choose your map you want to use on the `Map > Active map`
 If you want, you can host your own map tiles collections, your host must follow the files structure:
 
 ```
-├── <your-host>
-│   ├── <map-collection>
-│   │   └──  Tiles
-│   │       └── ...
-│   │   ├── TileMapInfo.json
+├── <localhost>
+│   ├── <ats>
+│   │   ├──  <latest>
+│   │   │   └──  Tiles
+│   │   │        └── ...
+│   │   │   ├── TileMapInfo.json
+│   ├── <ets2>
+│   │   ├──  <latest>
+│   │   │   └──  Tiles
+│   │   │        └── ...
+│   │   │   ├── TileMapInfo.json
 ```
 
 This project support the map tiles collection generated from this project
