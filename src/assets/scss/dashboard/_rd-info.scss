@@ -12,13 +12,13 @@
 	src:         local("DSDIGI"), url("/font/dashboard/rd-info/DSDIGI.woff") format("woff"), url("/font/dashboard/rd-info/DSDIGI.ttf") format("truetype");
 }
 
-.rd-info {
-	background: #4d0000;
+.rd-info-dash {
+	background: #4D0000;
 	
 	.wrapper-area {
-		display: flex;
+		display:         flex;
 		justify-content: center;
-		align-items: center;
+		align-items:     center;
 		
 		> span {
 			line-height: inherit;

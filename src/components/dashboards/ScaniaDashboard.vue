@@ -1,11 +1,11 @@
 <template>
-	<Dashboard class="scania wrapper" v-slot:default="dashProps">
-		<div class="dashboard game-connected yes" v-bind:style="{
+  <Dashboard class="scania-dash wrapper" v-slot:default="dashProps">
+    <div class="dashboard game-connected yes" v-bind:style="{
 			transform: 'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
 			width: dashProps.skinData.size.width + 'px',
 			height: dashProps.skinData.size.height + 'px',
 		}">
-			<div :class="{'yes': telemetry.job.cargo.id}" class="hasJob">
+      <div :class="{'yes': telemetry.job.cargo.id}" class="hasJob">
         <!-- meters -->
         <!--
           Attributes:
