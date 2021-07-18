@@ -77,7 +77,7 @@ Follow the instruction in `Generation` section.
 
 #### Example
 
-You can use `http-server` to host a local tiles collection
+You can use [`http-server`](https://www.npmjs.com/package/http-server) to host a local tiles collection
 
 ````bash
 $ http-server ./maps -p 8081 --cors -s
