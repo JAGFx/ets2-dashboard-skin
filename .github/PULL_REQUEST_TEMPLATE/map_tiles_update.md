@@ -1,3 +1,8 @@
+---
+name: Map tiles update for a new minor game version
+
+---
+
 # Description
 
 Map tiles update for a new minor game version
