@@ -12,7 +12,11 @@ You can join the discord to exchange about it
 
 The map tiles was generated from a side project: [JAGFx/ts-map](https://github.com/JAGFx/ts-map)
 
-When can you request an map tiles update ? At each new minor release, you can request an upadate.
+When can you request a map tiles update ? At each new minor release, you can request an update.
+
+If a new map DLC are released through the same minor version of the current game, you don't need to follow this guide.
+You just need to generate the map tiles collection and share it to me. See
+this [readme](https://github.com/JAGFx/ts-map/tree/feat/rework#how-to-use-) ;)
 
 Example of valid version for the requesting:
 
