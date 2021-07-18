@@ -8,10 +8,10 @@ The following tab show you the tiles collection and the download link
 
 |Map|Game|Version|Download|
 |---|---|---|---|
-|Base|Euro Truck Simulator 2|v1.40.3.25|[Download](https://github.com/JAGFx/ts-map/releases/download/v0.10/jagfx-map-ets2.tar.gz)|
-|Base|American Truck Simulator|v1.40.3.3|-|
-|Promod|Euro Truck Simulator 2|v2.55|[Download](https://github.com/JAGFx/ts-map/releases/download/v0.10/jagfx-map-promod.tar.gz)|
-|Promod Canada|American Truck Simulator|v1.0.1|-|
+|Base|Euro Truck Simulator 2|v1.41.1.0|[Download](https://ets.jagfx.fr/ETS2_Map_1.41.1.0.7z)|
+|Base|American Truck Simulator|v1.41.1.0|[Download](https://ets2.jagfx.fr/ATS_map_1.41.1.0.7z)|
+|Promod|Euro Truck Simulator 2|v2.55|[Download](https://ets.jagfx.fr/jagfx-map-promod.tar.gz)|
+|Promod Canada|American Truck Simulator|-|-|
 
 On this section, you can retrieve the following information:
 

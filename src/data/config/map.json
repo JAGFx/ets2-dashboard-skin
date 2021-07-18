@@ -121,10 +121,14 @@
 					"id" :          "maps_map_tilesVersion",
 					"label" :       "Game version",
 					"description" : "The latest get the tiles for the latest version, else the specified version",
-					"values" :      [
+					"values" : [
 						{
 							"label" : "Latest",
 							"value" : "latest"
+						},
+						{
+							"label" : "1.40",
+							"value" : "1.40"
 						}
 					]
 				},
