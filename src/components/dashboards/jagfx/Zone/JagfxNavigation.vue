@@ -3,26 +3,34 @@
     <div class="icons-item-wrappers">
       <div class="dash-symbol-area">
         <!-- Left elements -->
-        <JagfxSymbolArea side="left"></JagfxSymbolArea>
+        <JagfxSymbolArea side="left" />
 
-        <div :class="telemetry.truck.transmission.shifterType" class="truck-gear">
+        <div
+          :class="telemetry.truck.transmission.shifterType"
+          class="truck-gear"
+        >
           <span class="value">{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
         </div>
 
         <!-- Right elements -->
-        <JagfxSymbolArea side="right"></JagfxSymbolArea>
+        <JagfxSymbolArea side="right" />
       </div>
 
       <!-- Speed -->
 
       <div class="speed-area">
         <div class="speed-wrapper">
-          <div class="left" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )">
-            <JagfxRPMBars v-bind="{
-							engine: telemetry.truck.engine,
-							brand: telemetry.truck.brand,
-							model: telemetry.truck.model
-						}"></JagfxRPMBars>
+          <div
+            v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )"
+            class="left"
+          >
+            <JagfxRPMBars
+              v-bind="{
+                engine: telemetry.truck.engine,
+                brand: telemetry.truck.brand,
+                model: telemetry.truck.model
+              }"
+            />
           </div>
           <div class="middle">
             <div class="speed">
@@ -30,22 +38,38 @@
               <small class="unit">{{ unit_speed( telemetry.truck.speed, false ) }}</small>
             </div>
 
-            <div class="fuel-level" v-if="$elementIsEnabled( 'middle-b','jagfx_elements_mid_bottom_fuel' )">
-							<span class="fuel-icon-wrapper">
-								<i :class="{'warning': onWarningLevel() }" class="icon-fuel"></i>
-							</span>
+            <div
+              v-if="$elementIsEnabled( 'middle-b','jagfx_elements_mid_bottom_fuel' )"
+              class="fuel-level"
+            >
+              <span class="fuel-icon-wrapper">
+                <i
+                  :class="{'warning': onWarningLevel() }"
+                  class="icon-fuel"
+                />
+              </span>
 
               <div class="bars">
-                <div :class="{ 'active' : getFuelBarActive( i ) }" class="bar" :key="i" v-for="i in getFuelBarCount()"></div>
+                <div
+                  v-for="i in getFuelBarCount()"
+                  :key="i"
+                  :class="{ 'active' : getFuelBarActive( i ) }"
+                  class="bar"
+                />
               </div>
             </div>
           </div>
-          <div class="right" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )">
-            <JagfxRPMBars v-bind="{
-							engine: telemetry.truck.engine,
-							brand: telemetry.truck.brand,
-							model: telemetry.truck.model
-						}"></JagfxRPMBars>
+          <div
+            v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_rpm' )"
+            class="right"
+          >
+            <JagfxRPMBars
+              v-bind="{
+                engine: telemetry.truck.engine,
+                brand: telemetry.truck.brand,
+                model: telemetry.truck.model
+              }"
+            />
           </div>
         </div>
       </div>
@@ -57,15 +81,28 @@
 
       <!-- Speed limit -->
       <div class="bottomArea">
-        <div :class="{ 'active': telemetry.truck.lights.blinker.left.active}" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_blinker_turn' )" class="blinkers">
-          <i class="icon-blinker_left"></i></div>
-        <div :class="{ 'hidden': telemetry.navigation.speedLimit.value === 0 }" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )" class="speedLimitKPH">
+        <div
+          v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_blinker_turn' )"
+          :class="{ 'active': telemetry.truck.lights.blinker.left.active}"
+          class="blinkers"
+        >
+          <i class="icon-blinker_left" />
+        </div>
+        <div
+          v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_speedLimit' )"
+          :class="{ 'hidden': telemetry.navigation.speedLimit.value === 0 }"
+          class="speedLimitKPH"
+        >
           {{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}
         </div>
-        <div :class="{ 'active': telemetry.truck.lights.blinker.right.active}" v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_blinker_turn' )" class="blinkers">
-          <i class="icon-blinker_right"></i></div>
+        <div
+          v-if="$elementIsEnabled( 'middle-b', 'jagfx_elements_mid_bottom_blinker_turn' )"
+          :class="{ 'active': telemetry.truck.lights.blinker.right.active}"
+          class="blinkers"
+        >
+          <i class="icon-blinker_right" />
+        </div>
       </div>
-
     </div>
   </div>
 </template>

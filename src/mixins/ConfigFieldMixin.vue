@@ -33,6 +33,12 @@ export default {
       vals: []
     };
   },
+  computed: {
+    ...mapGetters( {
+      current:          'config/get',
+      appGetProcessing: 'app/getProcessing'
+    } )
+  },
   created() {
 
     if ( this.values !== null )
@@ -47,12 +53,6 @@ export default {
           } );
     else
       this.val = this.$store.getters[ 'config/get' ]( this.id );
-  },
-  computed: {
-    ...mapGetters( {
-      current:          'config/get',
-      appGetProcessing: 'app/getProcessing'
-    } )
   },
   methods:  {
     set( value ) {

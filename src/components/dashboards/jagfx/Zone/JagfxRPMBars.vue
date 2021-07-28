@@ -1,12 +1,17 @@
 <template>
-	<div class="bars">
-		<div :class="{
-			'active' : getRPMBarActive( i ),
-			'green': isAGreenBar( i ),
-			'blue': isABlueBar( i ),
-			'red': isARedBar( i )
-		}" class="bar" :key="i" v-for="i in maxBarRpm"></div>
-	</div>
+  <div class="bars">
+    <div
+      v-for="i in maxBarRpm"
+      :key="i"
+      :class="{
+        'active' : getRPMBarActive( i ),
+        'green': isAGreenBar( i ),
+        'blue': isABlueBar( i ),
+        'red': isARedBar( i )
+      }"
+      class="bar"
+    />
+  </div>
 </template>
 
 <script>
@@ -15,11 +20,20 @@ import jq               from 'json-query';
 
 export default {
   name:  'JagfxRPMBars',
-  props: [
-    'brand',
-    'engine',
-    'model'
-  ],
+  props: {
+    brand: {
+      type: Object,
+      required: true
+    },
+    engine: {
+      type: Object,
+      required: true
+    },
+    model: {
+      type: Object,
+      required: true
+    }
+  },
   data:  function () {
     return {
       ter:       null,

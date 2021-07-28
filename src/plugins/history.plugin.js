@@ -13,8 +13,7 @@ import * as moment  from 'moment';
 
 export default {
 	store,
-	install( Vue, options ) {
-		console.log( 'History plugin' );
+	install( Vue ) {
 		const defaultData = {
 			histories: {
 				h: []

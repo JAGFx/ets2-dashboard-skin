@@ -11,6 +11,13 @@ import { history }    from '@/utils/utils';
 import { mapGetters } from 'vuex';
 
 export default {
+  name: 'SkinsMixin',
+  computed: {
+    ...mapGetters( {
+      currentSkin: 'skins/current',
+      allSkin:     'skins/all'
+    } )
+  },
   methods:  {
     $isActive( skin ) {
       const currentSkin = this.currentSkin;
@@ -35,12 +42,6 @@ export default {
     $skins() {
       return this.allSkin;
     }
-  },
-  computed: {
-    ...mapGetters( {
-      currentSkin: 'skins/current',
-      allSkin:     'skins/all'
-    } )
   }
 };
 </script>

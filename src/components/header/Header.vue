@@ -1,7 +1,14 @@
 <template>
   <div id="header">
-    <HeaderGameInformation v-if="gameConnected" id="game" />
-    <div v-if="gameConnected" v-show="menuIsDisplayed" class="wrapper menu h-100">
+    <HeaderGameInformation
+      v-if="gameConnected"
+      id="game"
+    />
+    <div
+      v-if="gameConnected"
+      v-show="menuIsDisplayed"
+      class="wrapper menu h-100"
+    >
       <Menu />
     </div>
   </div>

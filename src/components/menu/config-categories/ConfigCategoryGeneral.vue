@@ -2,41 +2,51 @@
   <div class="fields mb-4">
     <h4>General</h4>
 
-    <ConfigFieldChoice v-bind="{
+    <ConfigFieldChoice
+      v-bind="{
         id: 'general_refresh_rate',
         label: 'Refresh rate',
         disabled: false,
         description: 'Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;)',
         values: fieldValues( 'general_refresh_rate' )
-      }" />
-    <ConfigFieldChoice v-bind="{
+      }"
+    />
+    <ConfigFieldChoice
+      v-bind="{
         id: 'general_skin_on_load',
         label: 'Default skin loaded',
         disabled: false,
         description: 'Set the skin loaded when this app was started',
         values: fieldValues( 'general_skin_on_load' )
-      }" />
-    <ConfigFieldChoice v-bind="{
+      }"
+    />
+    <ConfigFieldChoice
+      v-bind="{
         id: 'general_job_remaining',
         label: 'Job delivery time',
         disabled: false,
         description: 'Display the due date or the remaining time for a job',
         values: fieldValues( 'general_job_remaining' )
-      }" />
-    <ConfigFieldChoice v-bind="{
+      }"
+    />
+    <ConfigFieldChoice
+      v-bind="{
         id: 'general_h-shift-layout',
         label: 'H-Shift layout',
         disabled: false,
         description: 'Show the current range of H-Shifter OR the automatic number',
         values: fieldValues( 'general_h-shift-layout' )
-      }" />
-    <ConfigFieldChoice v-bind="{
+      }"
+    />
+    <ConfigFieldChoice
+      v-bind="{
         id: 'general_damage_accurate',
         label: 'Damage accurate',
         disabled: false,
         description: 'Show the average with value of \'Damage diagnostic\' or same as the \'Route advisor\'',
         values: fieldValues( 'general_damage_accurate' )
-      }" />
+      }"
+    />
   </div>
 </template>
 

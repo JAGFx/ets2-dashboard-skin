@@ -73,20 +73,18 @@ const initConfig = ( game ) => {
 			
 			return axios
 				.get( d.paths.base + tilesPath )
-				.then( response => {
+				.then( () => {
 					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, history.HTY_ZONE.MAPS_INIT );
 					d.ready = true;
 					
-				}, err => {
-					console.error( 'Cant get tiles', err );
+				}, () => {
 					Vue.prototype.$pushALog( `Tiles NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
-					throw 'Tiles NOT FOUND';
+					throw new Error( 'Cant get tiles - Tiles NOT FOUND' );
 				} );
 			
-		}, err => {
-			console.error( 'Cant get config', err );
+		}, () => {
 			Vue.prototype.$pushALog( `Map config NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
-			throw 'Map config NOT FOUND';
+			throw new Error( 'Cant get config - Map config NOT FOUND' );
 		} );
 };
 
@@ -145,7 +143,7 @@ const initMap = () => {
 	
 	// Detecting when the user interacts with the map.
 	// https://stackoverflow.com/q/32868671/
-	d.map.getView().on( [ 'change:center', 'change:rotation' ], function ( ev ) {
+	d.map.getView().on( [ 'change:center', 'change:rotation' ], function () {
 		if ( d.gIgnoreViewChangeEvents )
 			return;
 		

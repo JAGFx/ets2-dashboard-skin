@@ -5,7 +5,11 @@
     <Overlay v-if="gameConnected" />
     <TelemetryEventOverlay v-if="gameConnected" />
     <Header />
-    <component v-bind:is="currentSkinComponent()" v-if="gameConnected" v-show="!menuIsDisplayed" />
+    <component
+      :is="currentSkinComponent()"
+      v-if="gameConnected"
+      v-show="!menuIsDisplayed"
+    />
   </main>
 </template>
 
@@ -29,7 +33,7 @@ import { history }            from '@/utils/utils';
 import { mapGetters }         from 'vuex';
 
 export default {
-  name:       'app',
+  name:       'App',
   components: {
     TelemetryEventOverlay,
     JAGFxDashboard,
@@ -47,7 +51,13 @@ export default {
     Header,
     LoadingOverlay
   },
-
+  computed: {
+    ...mapGetters( {
+      menuIsDisplayed: 'menu/isDisplayed',
+      currentSkin:     'skins/current',
+      getConfig:       'config/get'
+    } )
+  },
   created() {
     this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
 
@@ -98,19 +108,12 @@ export default {
       return currentSkin.id + 'Dashboard';
     }
   },
-  computed: {
-    ...mapGetters( {
-      menuIsDisplayed: 'menu/isDisplayed',
-      currentSkin:     'skins/current',
-      getConfig:       'config/get'
-    } )
-  },
   sockets:    {
     disconnect() {
-      console.log( 'disconnected' );
+      //console.log( 'disconnected' );
     },
     connect() {
-      console.log( 'connected' );
+      //console.log( 'connected' );
       this.$store.commit( 'app/setLaunch', {
         icon:    '<i class="fas fa-truck"></i>',
         text:    'Connected to telemetry server',

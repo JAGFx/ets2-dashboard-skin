@@ -23,7 +23,7 @@ const getters = {
 		return getters.exist( elm ) && getters.get( elm ) === true;
 	},
 	exist:   state => elm => {
-		return state.hasOwnProperty( elm );
+		return Object.hasOwnProperty.call( state, elm );
 	},
 	all:     state => {
 		return state;

@@ -17,10 +17,10 @@ import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
 
 export default {
   name:       'TelemetryEventNavigationSpeedLimitOverlay',
-  mixins:     [ TelemetryEventOverlayMixin ],
   components: {
     TelemetryEventBaseOverlay
   },
+  mixins:     [ TelemetryEventOverlayMixin ],
   methods:    {
     eventsText() {
       return eventsText;

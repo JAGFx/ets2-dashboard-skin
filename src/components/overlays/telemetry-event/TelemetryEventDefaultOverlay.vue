@@ -1,5 +1,5 @@
 <template>
-  <TelemetryEventBaseOverlay></TelemetryEventBaseOverlay>
+  <TelemetryEventBaseOverlay />
 </template>
 
 <script>

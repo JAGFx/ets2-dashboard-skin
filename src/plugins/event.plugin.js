@@ -12,9 +12,7 @@ import { event, history } from '@/utils/utils';
 
 export default {
 	store,
-	install( Vue, options ) {
-		console.log( 'Events plugin' );
-		
+	install( Vue ) {
 		// --- Update telemetry data
 		
 		Vue.prototype.$updateEvent = ( log ) => {

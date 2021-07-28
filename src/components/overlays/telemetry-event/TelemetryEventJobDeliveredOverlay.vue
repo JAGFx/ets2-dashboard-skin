@@ -5,8 +5,8 @@
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
         <span class="title">Delivered time</span>
         <span class="data">{{
-            eventRawData.job.deliveryTime | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT )
-          }}</span>
+          eventRawData.job.deliveryTime | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT )
+        }}</span>
       </div>
       <div class="item px-3 py-1 mx-1 d-flex justify-content-between align-items-center flex-column">
         <span class="title">Earned XP</span>
@@ -27,10 +27,10 @@ import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
 
 export default {
   name:       'TelemetryEventJobDeliveredOverlay',
-  mixins:     [ TelemetryEventOverlayMixin ],
   components: {
     TelemetryEventBaseOverlay
   },
+  mixins:     [ TelemetryEventOverlayMixin ],
   methods:    {
     eventsText() {
       return eventsText;

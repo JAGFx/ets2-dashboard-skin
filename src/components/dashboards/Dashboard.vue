@@ -1,6 +1,6 @@
 <template>
   <div :class="telemetry.truck.brand.id">
-    <slot v-bind="{ skinData: skinData(), currentScale }"></slot>
+    <slot v-bind="{ skinData: skinData(), currentScale }" />
   </div>
 </template>
 
@@ -14,13 +14,10 @@ export default {
       currentScale: 1
     };
   },
-  methods:  {
-    skinData() {
-      return this.currentSkin;
-    },
-    updateScale() {
-      this.currentScale = this.$scale( this.currentSkin );
-    }
+  computed: {
+    ...mapGetters( {
+      currentSkin: 'skins/current'
+    } )
   },
   created() {
     this.updateScale();
@@ -29,10 +26,13 @@ export default {
   destroyed() {
     window.removeEventListener( 'resize', this.updateScale );
   },
-  computed: {
-    ...mapGetters( {
-      currentSkin: 'skins/current'
-    } )
+  methods:  {
+    skinData() {
+      return this.currentSkin;
+    },
+    updateScale() {
+      this.currentScale = this.$scale( this.currentSkin );
+    }
   }
 };
 </script>

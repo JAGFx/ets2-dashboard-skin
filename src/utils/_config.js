@@ -21,7 +21,7 @@ export const generateEmptyData = ( config, configSkins ) => {
 		} );
 	} );
 	
-	Object.entries( configSkins ).forEach( ( [ key, skin ] ) => {
+	Object.entries( configSkins ).forEach( ( skin ) => {
 		skin.categories.forEach( category => {
 			category.elements.forEach( element => {
 				emptyData[ element.id ] = null;
@@ -150,7 +150,7 @@ export const upload = file => {
 };
 
 export const getFieldValues = fieldId => {
-	if ( fieldValues.hasOwnProperty( fieldId ) )
+	if ( Object.hasOwnProperty.call( fieldValues, fieldId ) )
 		return new Promise( resolve => resolve( fieldValues[ fieldId ] ) );
 	
 	// TODO Use async
@@ -165,7 +165,7 @@ const uploadChecker = input => {
 	Object.entries( defaultData ).forEach( entry => {
 		const key = entry[ 0 ];
 		
-		if ( !input.hasOwnProperty( key ) )
+		if ( !Object.hasOwnProperty.call( input, key ) )
 			result = {
 				state: false,
 				value: key

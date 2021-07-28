@@ -1,45 +1,94 @@
 <template>
-  <div id="map-element" class="map-shared wrapper">
-    <div v-if="!ready" class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center">
-      <transition mode="out-in" name="slide-fade">
+  <div
+    id="map-element"
+    class="map-shared wrapper"
+  >
+    <div
+      v-if="!ready"
+      class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center"
+    >
+      <transition
+        mode="out-in"
+        name="slide-fade"
+      >
         <div class="d-flex justify-content-center align-items-center flex-column">
           <h1>
-            <span class="mb-3" v-html="message.icon"></span>
+            <span
+              class="mb-3"
+              v-html="message.icon"
+            />
           </h1>
-          <h1 class="text-center">{{ message.text }}</h1>
-          <small v-if="message.sub.length > 0" class="mb-3">{{ message.sub }}</small>
-          <b-spinner v-show="message.processing" label="Processing..." type="grow"></b-spinner>
+          <h1 class="text-center">
+            {{ message.text }}
+          </h1>
+          <small
+            v-if="message.sub.length > 0"
+            class="mb-3"
+          >{{ message.sub }}</small>
+          <b-spinner
+            v-show="message.processing"
+            label="Processing..."
+            type="grow"
+          />
         </div>
       </transition>
     </div>
-    <div id="map" class="w-100 h-100"></div>
+    <div
+      id="map"
+      class="w-100 h-100"
+    />
 
     <!-- Speed limit -->
-    <div v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit')  && showSpeedLimit" id="speed-limit" class="justify-content-center align-items-center">
+    <div
+      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && showSpeedLimit"
+      id="speed-limit"
+      class="justify-content-center align-items-center"
+    >
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
     <!-- ./Speed limit -->
 
     <!-- Control map buttons -->
-    <div v-if="configEnabled('maps_elements_mapControls') && showControls" id="controls-wrapper" class="left h-100 flex-column justify-content-end">
-      <button id="info-button" :class="{ disabled: !displayMapInfo }" @click="onClickMapInfo">
-        <i class="fas fa-info"></i>
+    <div
+      v-if="configEnabled('maps_elements_mapControls') && showControls"
+      id="controls-wrapper"
+      class="left h-100 flex-column justify-content-end"
+    >
+      <button
+        id="info-button"
+        :class="{ disabled: !displayMapInfo }"
+        @click="onClickMapInfo"
+      >
+        <i class="fas fa-info" />
       </button>
-      <button id="rotate-button" :class="{ disabled: !rotateWithPlayer }" @click="onClickRotate">
-        <i class="icon-location_arrow"></i>
+      <button
+        id="rotate-button"
+        :class="{ disabled: !rotateWithPlayer }"
+        @click="onClickRotate"
+      >
+        <i class="icon-location_arrow" />
       </button>
-      <button id="center-button" @click="onClickCenter">
-        <i class="icon-target"></i>
+      <button
+        id="center-button"
+        @click="onClickCenter"
+      >
+        <i class="icon-target" />
       </button>
-      <div id="ol-zoom-wrapper"></div>
+      <div id="ol-zoom-wrapper" />
     </div>
     <!-- ./Control map buttons -->
 
     <!-- Map info overlay -->
-    <div id="mapInfoOverlay" v-if="displayMapInfo && showMapInfo">
+    <div
+      v-if="displayMapInfo && showMapInfo"
+      id="mapInfoOverlay"
+    >
       <h5>
         <span>Map Information</span>
-        <i class="fas fa-times" @click="onClickMapInfo"></i>
+        <i
+          class="fas fa-times"
+          @click="onClickMapInfo"
+        />
       </h5>
       <hr>
       <table v-if="mapInfo() !== null && mapInfo().hasOwnProperty( 'game' )">
@@ -63,14 +112,21 @@
     <!-- ./Map info overlay -->
 
     <!-- Speed area-->
-    <div v-if="configEnabled('maps_elements_speedAndGear') && showSpeed" id="speed-area" class="top button">
+    <div
+      v-if="configEnabled('maps_elements_speedAndGear') && showSpeed"
+      id="speed-area"
+      class="top button"
+    >
       <div class="d-flex justify-content-center align-items-center bottom button">
         <div class="speed">
           <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
           <!--        <small class="unit h-100">{{ unit_speed( telemetry.truck.speed, false ) }}</small>-->
         </div>
 
-        <div :class="telemetry.truck.transmission.shifterType" class="truck-gear ml-2">
+        <div
+          :class="telemetry.truck.transmission.shifterType"
+          class="truck-gear ml-2"
+        >
           {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
         </div>
       </div>
@@ -78,24 +134,33 @@
     <!-- ./Speed area -->
 
     <!-- Navigation ETA -->
-    <div v-if="$haveAnActiveNavigation() && configEnabled('maps_elements_eta') && showNavigationEta" class="eta-wrapper d-flex justify-content-end align-items-start flex-column">
+    <div
+      v-if="$haveAnActiveNavigation() && configEnabled('maps_elements_eta') && showNavigationEta"
+      class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
+    >
       <!--      <span class="w-100 button">ETA:</span>-->
-      <span class="button" v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'">
+      <span
+        v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'"
+        class="button"
+      >
         <div class="round h-100">
-					<i class="icon-time"></i>
-				</div>
+          <i class="icon-time" />
+        </div>
         <span class="w-100">{{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
       </span>
-      <span class="button" v-else>
+      <span
+        v-else
+        class="button"
+      >
         <div class="round h-100">
-					<i class="icon-time"></i>
-				</div>
+          <i class="icon-time" />
+        </div>
         <span class="w-100">{{ $etaRemaing() }}</span>
       </span>
       <span class="button">
         <div class="round h-100">
-					<i class="icon-ruler"></i>
-				</div>
+          <i class="icon-ruler" />
+        </div>
         <span class="w-100">{{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
       </span>
     </div>
@@ -144,6 +209,11 @@ export default {
         processing: true
       }
     };
+  },
+  computed: {
+    ...mapGetters( {
+      configEnabled: 'config/enabled'
+    } )
   },
   created() {
     map.init( this.telemetry.game.game.name )
@@ -198,11 +268,6 @@ export default {
     mapInfo() {
       return map.d.config;
     }
-  },
-  computed: {
-    ...mapGetters( {
-      configEnabled: 'config/enabled'
-    } )
   }
 };
 </script>

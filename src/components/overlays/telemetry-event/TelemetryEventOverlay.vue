@@ -1,8 +1,15 @@
 <template>
   <div class="telemetry-event-overlay">
-    <b-overlay :show="eventProcessing" :variant="'dark'" no-wrap>
-      <template v-slot:overlay class="d-flex justify-content-around align-items-center flex-column">
-        <component v-bind:is="currentRawDataComponent"></component>
+    <b-overlay
+      :show="eventProcessing"
+      :variant="'dark'"
+      no-wrap
+    >
+      <template
+        #overlay
+        class="d-flex justify-content-around align-items-center flex-column"
+      >
+        <component :is="currentRawDataComponent" />
       </template>
     </b-overlay>
   </div>
@@ -35,7 +42,6 @@ import { event }                    from '@/utils/utils';
 
 export default {
   name:       'TelemetryEventOverlay',
-  mixins:     [ TelemetryEventOverlayMixin ],
   components: {
     TelemetryEventDefaultOverlay,
     TelemetryEventJobDeliveredOverlay,
@@ -49,6 +55,7 @@ export default {
     TelemetryEventTruckWarningOverlay,
     TelemetryEventTruckDamageOverlay
   },
+  mixins:     [ TelemetryEventOverlayMixin ],
   computed: {
     currentRawDataComponent() {
       const eventComponentName = event.eventNameToComponent( this.eventName );

@@ -21,8 +21,7 @@ import { mapGetters } from 'vuex';
 
 export default {
 	store,
-	install( Vue, options ) {
-		console.log( 'Telemetry plugin' );
+	install( Vue ) {
 		const TMP_UPDATE = 'tmp-update';
 		
 		// --- Update telemetry data
@@ -50,6 +49,16 @@ export default {
 					telemetry:    testData,
 					receivedData: false
 				};
+			},
+			computed: {
+				gameConnected() {
+					return app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
+				},
+				// ----------------
+				...mapGetters( {
+					allConfig: 'config/all',
+					getConfig: 'config/get'
+				} )
 			},
 			created() {
 				Object.keys( app.formatConstants ).forEach( ( key ) => {
@@ -464,16 +473,6 @@ export default {
 				}
 				
 				// --- ./Navigation
-			},
-			computed: {
-				gameConnected() {
-					return app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
-				},
-				// ----------------
-				...mapGetters( {
-					allConfig: 'config/all',
-					getConfig: 'config/get'
-				} )
 			}
 		} );
 	}

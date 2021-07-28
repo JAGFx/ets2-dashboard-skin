@@ -1,19 +1,44 @@
 <template>
-	<div :class="classCSS" :style="{ 'transform' : 'rotate(' + angle() + 'deg)' }" v-bind:data-type="type"></div>
+  <div
+    :class="classCSS"
+    :style="{ 'transform' : 'rotate(' + angle() + 'deg)' }"
+    :data-type="type"
+  />
 </template>
 
 <script>
 	export default {
     name:    'Cadran',
-    props:   [
-      'classCSS',
-      'type',
-      'value',
-      'min',
-      'max',
-      'minAngle',
-      'maxAngle'
-    ],
+    props: {
+      classCSS: {
+        type: String,
+        required: true
+      },
+      type: {
+        type: String,
+        required: true
+      },
+      value: {
+        type: Number,
+        required: true
+      },
+      min: {
+        type: Number,
+        required: true
+      },
+      max: {
+        type: Number,
+        required: true
+      },
+      minAngle: {
+        type: Number,
+        required: true
+      },
+      maxAngle: {
+        type: Number,
+        required: true
+      }
+    },
     methods: {
 			angle() {
 				const minValue = this.min;

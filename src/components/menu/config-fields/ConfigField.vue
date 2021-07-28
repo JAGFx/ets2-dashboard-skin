@@ -1,10 +1,12 @@
 <template>
   <div class="pl-3 p-2 field d-flex justify-content-between align-items-center">
     <div>
-      <h5 class="m-0">{{ label }}</h5>
+      <h5 class="m-0">
+        {{ label }}
+      </h5>
       <small class="font-italic text-muted">{{ description }}</small>
     </div>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

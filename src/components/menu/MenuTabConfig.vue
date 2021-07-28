@@ -1,29 +1,53 @@
 <template>
   <div class="menu-tab-config">
     <div class="d-flex justify-content-center align-items-center pb-3">
-      <button :disabled="isOnProcessing" @click="download" class="btn btn-sm btn-outline-ets mx-1">
-        <b-icon-file-earmark-arrow-down></b-icon-file-earmark-arrow-down>
+      <button
+        :disabled="isOnProcessing"
+        class="btn btn-sm btn-outline-ets mx-1"
+        @click="download"
+      >
+        <b-icon-file-earmark-arrow-down />
         Download
       </button>
       <span>
-				<button :disabled="isOnProcessing" @click="showUpload = !showUpload" class="btn btn-sm btn-outline-ets mx-1">
-					<b-icon-file-earmark-arrow-up></b-icon-file-earmark-arrow-up> Upload
-				</button>
-				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" ref="uploadFile" />
-			</span>
+        <button
+          :disabled="isOnProcessing"
+          class="btn btn-sm btn-outline-ets mx-1"
+          @click="showUpload = !showUpload"
+        >
+          <b-icon-file-earmark-arrow-up /> Upload
+        </button>
+        <input
+          v-show="showUpload"
+          ref="uploadFile"
+          accept="application/json"
+          class="btn btn-sm btn-outline-ets mx-1"
+          type="file"
+          @change="upload"
+        >
+      </span>
     </div>
 
-    <ConfigSection id="general" name="General">
+    <ConfigSection
+      id="general"
+      name="General"
+    >
       <ConfigCategoryGeneral />
       <ConfigCategoryEvents />
       <ConfigCategoryUnits />
     </ConfigSection>
 
-    <ConfigSection id="map" name="Map">
+    <ConfigSection
+      id="map"
+      name="Map"
+    >
       <ConfigCategoryMap />
     </ConfigSection>
 
-    <ConfigSection id="jagfx" name="JAGFx">
+    <ConfigSection
+      id="jagfx"
+      name="JAGFx"
+    >
       <ConfigCategoryJagfx />
     </ConfigSection>
   </div>
