@@ -1,11 +1,3 @@
-/**
- * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
- * project:	customDefault
- * file: 	_config.js
- * Date: 	30-May-20
- * Time: 	17:14
- */
-
 import defaultData from '@/data/ets2-dashboard-skin.config.json';
 import { config }  from '@/utils/utils';
 import Vue         from 'vue';
@@ -15,13 +7,25 @@ const state = () => (defaultData);
 
 // getters
 const getters = {
-	get:   ( state ) => ( elm ) => {
-		return state[ elm ];
+	get:     state => elm => {
+		let value = state[ elm ];
+		
+		if ( value === 'true' )
+			value = true;
+		else if ( value === 'false' )
+			value = false;
+		
+		return value ?? null;
 	},
-	exist: ( state ) => ( elm ) => {
+	enabled: ( state, getters ) => elm => {
+		//console.log( elm, getters.exist( elm ), getters.get( elm ) );
+		
+		return getters.exist( elm ) && getters.get( elm ) === true;
+	},
+	exist:   state => elm => {
 		return state.hasOwnProperty( elm );
 	},
-	all:   ( state ) => {
+	all:     state => {
 		return state;
 	}
 };

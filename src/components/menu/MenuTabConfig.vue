@@ -12,76 +12,54 @@
 				<input @change="upload" accept="application/json" class="btn btn-sm btn-outline-ets mx-1" type="file" v-show="showUpload" ref="uploadFile" />
 			</span>
     </div>
-    <section id="general">
-      <h3 class="p-2">General</h3>
 
-      <div v-for="category in config.categories" :key="category.name" class="fields mb-4">
-        <h4>{{ category.name }}</h4>
+    <ConfigSection id="general" name="General">
+      <ConfigCategoryGeneral />
+      <ConfigCategoryEvents />
+      <ConfigCategoryUnits />
+    </ConfigSection>
 
-        <TabConfigElement :key="element.id" v-bind="{
-					'elm': element,
-				}" class="pl-3 p-2" v-for="element in category.elements" />
-      </div>
-    </section>
+    <ConfigSection id="map" name="Map">
+      <ConfigCategoryMap />
+    </ConfigSection>
 
-    <section v-for="skin in skins" :id="skin.id" :key="skin.id">
-      <h3 class="d-flex justify-content-between align-items-center p-2">
-        <span>{{ skin.title }}</span>
-        <span :data-target="'.config-skin-' + skin.id" class="text-muted more" data-toggle="collapse">
-					<i class="fas fa-angle-double-right"></i>
-					Show more
-				</span>
-      </h3>
-      <div v-for="category in skinsConfigTemplate( skin )" :key="category.name" :class="'config-skin-' + skin.id" class="collapse fields mb-4">
-        <h4 class="d-flex justify-content-between align-items-center">{{ category.name }}</h4>
-
-        <TabConfigElement :key="element.id" v-bind="{
-					'elm': element,
-				}" class="pl-3 p-2" v-for="element in category.elements" />
-      </div>
-    </section>
+    <ConfigSection id="jagfx" name="JAGFx">
+      <ConfigCategoryJagfx />
+    </ConfigSection>
   </div>
 </template>
 
 <script>
-import TabConfigElement               from '@/components/menu/MenuTabConfigElement';
-import configJAGFx                    from '@/data/config/jagfx.json';
-import configMap                      from '@/data/config/map.json';
-import config                         from '@/data/config/template.json';
-import skins                          from '@/data/skins.json';
+import ConfigCategoryEvents           from '@/components/menu/config-categories/ConfigCategoryEvents';
+import ConfigCategoryGeneral          from '@/components/menu/config-categories/ConfigCategoryGeneral';
+import ConfigCategoryJagfx            from '@/components/menu/config-categories/ConfigCategoryJagfx';
+import ConfigCategoryMap              from '@/components/menu/config-categories/ConfigCategoryMap';
+import ConfigCategoryUnits            from '@/components/menu/config-categories/ConfigCategoryUnits';
+import ConfigSection                  from '@/components/menu/ConfigSection';
 import { config as uConfig, history } from '@/utils/utils';
-import _                              from 'lodash';
 import { mapGetters }                 from 'vuex';
 
 export default {
   name:       'MenuTabConfig',
-  components: { TabConfigElement },
+  components: {
+    ConfigSection,
+    ConfigCategoryGeneral,
+    ConfigCategoryEvents,
+    ConfigCategoryUnits,
+    ConfigCategoryMap,
+    ConfigCategoryJagfx
+  },
   data() {
-    const skinsOk     = _.pickBy( skins.skins, skin => {
-      return skin.config_template !== undefined && skin.config_template;
-    } );
-    const configSkins = {
-      JAGFx: configJAGFx,
-      Map:   configMap
-    };
-
     return {
-      config:      config,
-      skins:       skinsOk,
-      configSkins: configSkins,
-      showUpload:  false
+      showUpload: false
     };
   },
   computed: {
     ...mapGetters( {
-      configAll:      'config/all',
       isOnProcessing: 'app/isOnProcessing'
     } )
   },
   methods:  {
-    skinsConfigTemplate( skinTarget ) {
-      return this.configSkins[ skinTarget.id ].categories;
-    },
     download() {
       this.$pushALog( 'Download config', history.HTY_ZONE.MENU_CONFIG, history.HTY_LEVEL.DEBUG );
 

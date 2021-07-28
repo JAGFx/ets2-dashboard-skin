@@ -1,6 +1,6 @@
 <template>
   <Dashboard class="w-100 h-100">
-    <Map></Map>
+    <Map />
   </Dashboard>
 </template>
 

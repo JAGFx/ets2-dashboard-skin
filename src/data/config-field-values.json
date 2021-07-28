@@ -1,0 +1,238 @@
+{
+	"general_refresh_rate" :         [
+		{
+			"label" : "Realtime (15ms)",
+			"value" : "15"
+		},
+		{
+			"label" : "Quickly (150ms)",
+			"value" : "150"
+		},
+		{
+			"label" : "Balanced (500ms)",
+			"value" : "500"
+		},
+		{
+			"label" : "Slowly (1000ms)",
+			"value" : "1000"
+		}
+	],
+	"general_skin_on_load" :         [
+		{
+			"label" : "JAGFx dashboard",
+			"value" : "JAGFx"
+		},
+		{
+			"label" : "Map",
+			"value" : "Map"
+		},
+		{
+			"label" : "Base",
+			"value" : "Test"
+		},
+		{
+			"label" : "Default",
+			"value" : "Default"
+		},
+		{
+			"label" : "DAF XF",
+			"value" : "DafXF"
+		},
+		{
+			"label" : "Man TGX",
+			"value" : "ManTGX"
+		},
+		{
+			"label" : "Mercedes Benz Atego",
+			"value" : "MercedesAtego"
+		},
+		{
+			"label" : "RD-Info",
+			"value" : "RdInfo"
+		},
+		{
+			"label" : "Scania",
+			"value" : "Scania"
+		},
+		{
+			"label" : "Volvo FH",
+			"value" : "VolvoFH"
+		}
+	],
+	"general_job_remaining" :        [
+		{
+			"label" : "Due date",
+			"value" : "due_date"
+		},
+		{
+			"label" : "Remaining date",
+			"value" : "remaining_date"
+		}
+	],
+	"general_h-shift-layout" :       [
+		{
+			"label" : "H-Shifter",
+			"value" : "h-shifter"
+		},
+		{
+			"label" : "Automatic",
+			"value" : "automatic"
+		}
+	],
+	"general_damage_accurate" :      [
+		{
+			"label" : "Damage diagnostic",
+			"value" : "damage-diagnostic"
+		},
+		{
+			"label" : "Route advisor",
+			"value" : "route-advisor"
+		}
+	],
+	"on_off" :                       [
+		{
+			"label" : "On",
+			"value" : true
+		},
+		{
+			"label" : "Off",
+			"value" : false
+		}
+	],
+	"unit_weight" :                  [
+		{
+			"label" : "Kilogram",
+			"value" : "kg"
+		},
+		{
+			"label" : "Pound & Long ton",
+			"value" : "lb"
+		}
+	],
+	"unit_length" :                  [
+		{
+			"label" : "Meters & Kilometers",
+			"value" : "m"
+		},
+		{
+			"label" : "Foot & Miles",
+			"value" : "ft"
+		}
+	],
+	"unit_degrees" :                 [
+		{
+			"label" : "Celsius",
+			"value" : "C"
+		},
+		{
+			"label" : "Fahrenheit",
+			"value" : "F"
+		}
+	],
+	"unit_consumption" :             [
+		{
+			"label" : "L/100 km",
+			"value" : "lpkm"
+		},
+		{
+			"label" : "Mpg",
+			"value" : "mpg"
+		}
+	],
+	"unit_volume" :                  [
+		{
+			"label" : "Liters",
+			"value" : "l"
+		},
+		{
+			"label" : "Gallons",
+			"value" : "gal"
+		}
+	],
+	"unit_pressure" :                [
+		{
+			"label" : "PSI",
+			"value" : "psi"
+		},
+		{
+			"label" : "Bar",
+			"value" : "bar"
+		}
+	],
+	"unit_speed" :                   [
+		{
+			"label" : "Km/h",
+			"value" : "kph"
+		},
+		{
+			"label" : "Mph",
+			"value" : "mph"
+		}
+	],
+	"unit_currency" :                [
+		{
+			"label" : "€ EUR",
+			"value" : "EUR"
+		},
+		{
+			"label" : "£ GBP",
+			"value" : "GBP"
+		},
+		{
+			"label" : "$ US",
+			"value" : "USD"
+		}
+	],
+	"maps_map_type" :                [
+		{
+			"label" : "Vanilla",
+			"value" : "vanilla"
+		},
+		{
+			"label" : "Mod",
+			"value" : "mod"
+		}
+	],
+	"maps_map_activeMap" :           [
+		{
+			"label" : "Auto",
+			"value" : null
+		},
+		{
+			"label" : "ETS2 base map (Full DLC)",
+			"value" : "ets"
+		},
+		{
+			"label" : "ATS base map (Full DLC)",
+			"value" : "ats"
+		},
+		{
+			"label" : "Promod (ETS)",
+			"value" : "promod"
+		},
+		{
+			"label" : "Promod Canada",
+			"value" : "promod-ca"
+		}
+	],
+	"maps_map_tilesVersion" :        [
+		{
+			"label" : "Latest",
+			"value" : "latest"
+		},
+		{
+			"label" : "1.40",
+			"value" : "1.40"
+		}
+	],
+	"maps_map_navigationRemaining" : [
+		{
+			"label" : "Due date",
+			"value" : "due_date"
+		},
+		{
+			"label" : "Remaining date",
+			"value" : "remaining_date"
+		}
+	]
+}

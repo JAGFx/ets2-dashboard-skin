@@ -15,13 +15,13 @@
     <div id="map" class="w-100 h-100"></div>
 
     <!-- Speed limit -->
-    <div v-if="$haveAnActiveSpeedLimit() && getConfig('maps_elements_speedLimit')  && showSpeedLimit" id="speed-limit" class="justify-content-center align-items-center">
+    <div v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit')  && showSpeedLimit" id="speed-limit" class="justify-content-center align-items-center">
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
     <!-- ./Speed limit -->
 
     <!-- Control map buttons -->
-    <div v-if="getConfig('maps_elements_mapControls') && showControls" id="controls-wrapper" class="left h-100 flex-column justify-content-end">
+    <div v-if="configEnabled('maps_elements_mapControls') && showControls" id="controls-wrapper" class="left h-100 flex-column justify-content-end">
       <button id="info-button" :class="{ disabled: !displayMapInfo }" @click="onClickMapInfo">
         <i class="fas fa-info"></i>
       </button>
@@ -63,7 +63,7 @@
     <!-- ./Map info overlay -->
 
     <!-- Speed area-->
-    <div v-if="getConfig('maps_elements_speedAndGear') && showSpeed" id="speed-area" class="top button">
+    <div v-if="configEnabled('maps_elements_speedAndGear') && showSpeed" id="speed-area" class="top button">
       <div class="d-flex justify-content-center align-items-center bottom button">
         <div class="speed">
           <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
@@ -78,9 +78,9 @@
     <!-- ./Speed area -->
 
     <!-- Navigation ETA -->
-    <div v-if="$haveAnActiveNavigation() && getConfig('maps_elements_eta') && showNavigationEta" class="eta-wrapper d-flex justify-content-end align-items-start flex-column">
+    <div v-if="$haveAnActiveNavigation() && configEnabled('maps_elements_eta') && showNavigationEta" class="eta-wrapper d-flex justify-content-end align-items-start flex-column">
       <!--      <span class="w-100 button">ETA:</span>-->
-      <span class="button" v-if="getConfig('maps_map_navigationRemaining') === 'due_date'">
+      <span class="button" v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'">
         <div class="round h-100">
 					<i class="icon-time"></i>
 				</div>
@@ -145,16 +145,16 @@ export default {
       }
     };
   },
-  mounted() {
+  created() {
     map.init( this.telemetry.game.game.name )
        .then( () => {
-           EventBus.$on( 'tmp-update', dataIn => {
-             map.updatePlayerPositionAndRotation(
-                 dataIn.truck.position.X,
-                 dataIn.truck.position.Z,
-                 dataIn.truck.orientation.heading,
-                 dataIn.truck.speed.kph );
-           } );
+         EventBus.$on( 'tmp-update', dataIn => {
+           map.updatePlayerPositionAndRotation(
+               dataIn.truck.position.X,
+               dataIn.truck.position.Z,
+               dataIn.truck.orientation.heading,
+               dataIn.truck.speed.kph );
+         } );
 
            // --- Dev
          if ( app.isOnDevEnvironment )
@@ -201,7 +201,7 @@ export default {
   },
   computed: {
     ...mapGetters( {
-      getConfig: 'config/get'
+      configEnabled: 'config/enabled'
     } )
   }
 };

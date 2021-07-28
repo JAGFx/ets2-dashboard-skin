@@ -1,11 +1,3 @@
-/**
- * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
- * project:	ets2-dashboard-skin
- * file: 	menu.js
- * Date: 	21/05/2020
- * Time: 	11:22
- */
-	
 // initial state
 const state = () => ({
 		displayed: false

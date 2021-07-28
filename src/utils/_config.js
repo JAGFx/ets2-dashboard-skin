@@ -6,6 +6,7 @@
  * Time: 	17:50
  */
 
+import fieldValues from '@/data/config-field-values.json';
 import defaultData from '@/data/ets2-dashboard-skin.config.json';
 import store       from '@/store';
 import axios       from 'axios';
@@ -120,7 +121,7 @@ export const upload = file => {
 			let reader = new FileReader();
 			reader.readAsText( file, 'UTF-8' );
 			
-			reader.onload = evt => {
+			reader.onload  = evt => {
 				try {
 					const data        = JSON.parse( evt.target.result );
 					const checkResult = uploadChecker( data );
@@ -146,6 +147,14 @@ export const upload = file => {
 			reject( e );
 		}
 	} );
+};
+
+export const getFieldValues = fieldId => {
+	if ( fieldValues.hasOwnProperty( fieldId ) )
+		return new Promise( resolve => resolve( fieldValues[ fieldId ] ) );
+	
+	// TODO Use async
+	else return new Promise( resolve => resolve( [] ) );
 };
 
 const uploadChecker = input => {
