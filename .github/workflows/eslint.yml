@@ -1,4 +1,4 @@
-name: Linter
+name: Code style
 on:
     push:
         branches: [ master ]
@@ -28,4 +28,4 @@ jobs:
                 run: npm i
 
             -   name: Run linter
-                run: eslint "src/**/*.{js,vue}"
+                run: npm run lint
