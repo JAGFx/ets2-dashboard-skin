@@ -20,7 +20,7 @@ jobs:
                 uses: actions/setup-node@v1
 
             -   name: Npm install
-            -   run: npm install
+                run: npm install
 
             -   name: Run linter
-            -   run: vue-cli-service lint src --no-fix
+                run: vue-cli-service lint src --no-fix
