@@ -1,4 +1,4 @@
-name: Code style
+name: CodeStyle
 on:
     push:
         branches: [ master ]
