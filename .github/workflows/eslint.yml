@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Linter
 on:
     push:
         branches: [ master ]
@@ -8,6 +8,9 @@ jobs:
     analyze:
         name: Eslint
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [ 10.x, 12.x, 14.x, 15.x ]
         steps:
             -   name: Checkout repository
                 uses: actions/checkout@v2
@@ -16,11 +19,16 @@ jobs:
             -   run: git checkout HEAD^2
                 if: ${{ github.event_name == 'pull_request' }}
 
-            -   name: Install nodejs
-                uses: actions/setup-node@v1
+            -   name: Use Node.js ${{ matrix.node-version }}
+                uses: actions/setup-node@v2
+                with:
+                    node-version: ${{ matrix.node-version }}
 
-            -   name: Npm install
-                run: npm install
+            -   name: Install vue cli service
+                run: npm i @vue/cli-service -g
+
+            -   name: Install dependencies
+                run: npm i
 
             -   name: Run linter
                 run: vue-cli-service lint src --no-fix
