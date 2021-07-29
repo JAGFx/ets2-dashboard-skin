@@ -1,0 +1,26 @@
+name: GitHub Actions Demo
+on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+jobs:
+    analyze:
+        name: Eslint
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v2
+                with:
+                    fetch-depth: 2
+            -   run: git checkout HEAD^2
+                if: ${{ github.event_name == 'pull_request' }}
+
+            -   name: Install nodejs
+                uses: actions/setup-node@v1
+
+            -   name: Npm install
+            -   run: npm install
+
+            -   name: Run linter
+            -   run: vue-cli-service lint src --no-fix
