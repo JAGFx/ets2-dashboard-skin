@@ -54,11 +54,11 @@ export default {
 				gameConnected() {
 					return app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
 				},
-				// ----------------
-				...mapGetters( {
-					allConfig: 'config/all',
-					getConfig: 'config/get'
-				} )
+				jobDeliveryTime(){
+					return ( this.telemetry.job.market.id === 'external_contracts' )
+						? this.telemetry.job.expectedDeliveryTimestamp.value
+						: this.telemetry.job.expectedDeliveryTimestamp.unix
+				},
 			},
 			created() {
 				Object.keys( app.formatConstants ).forEach( ( key ) => {
