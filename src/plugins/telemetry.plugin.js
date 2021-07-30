@@ -6,18 +6,17 @@
  * Time: 	17:28
  */
 
-import testData       from '@/data/scs_sdk_plugin_parsed_data.json';
-import { EventBus }   from '@/event-bus.js';
-import store          from '@/store';
-import { app }        from '@/utils/utils';
+import testData     from '@/data/scs_sdk_plugin_parsed_data.json';
+import { EventBus } from '@/event-bus.js';
+import store        from '@/store';
+import { app }      from '@/utils/utils';
 import {
 	length as uc_length,
 	mass as uc_mass,
 	pressure as uc_pressure,
 	temperature as uc_temperature,
 	volume as uc_volume
-}                     from 'units-converter';
-import { mapGetters } from 'vuex';
+}                   from 'units-converter';
 
 export default {
 	store,
@@ -75,10 +74,12 @@ export default {
 				// ---------------------------------------
 				// --- Commons methods
 				
+				config(name){ return this.$store.getters['config/get'](name) },
+				
 				// --- Filters
 				
 				unit_speed( value, showValue = true, showSymbol = true ) {
-					const speed = this.getConfig( 'unit_speed' );
+					const speed = this.config( 'unit_speed' );
 					let unit    = '';
 					
 					value = value[ speed ];
@@ -101,7 +102,7 @@ export default {
 					return value.toFixed( 0 ) + ' ' + unit;
 				},
 				unit_currency( value, showValue = true, showSymbol = true ) {
-					const currencySymbolValue = this.getConfig( 'unit_currency' );
+					const currencySymbolValue = this.config( 'unit_currency' );
 					let unit                  = '';
 					
 					switch ( currencySymbolValue ) {
@@ -127,7 +128,7 @@ export default {
 					return unit + ' ' + value.toLocaleString();
 				},
 				unit_length( value, unitFrom = 'm', showValue = true, showSymbol = true ) {
-					const length       = this.getConfig( 'unit_length' );
+					const length       = this.config( 'unit_length' );
 					const unitExcluded = [ 'in', 'yd', 'ft-us', 'fathom', 'nMi' ];
 					let unit           = '';
 					let conversion     = uc_length( value )
@@ -163,7 +164,7 @@ export default {
 					return value.toLocaleString() + ' ' + unit;
 				},
 				unit_weight( value, showValue = true, showSymbol = true ) {
-					const weight       = this.getConfig( 'unit_weight' );
+					const weight       = this.config( 'unit_weight' );
 					const unitExcluded = [ 'mcg', 'mg', 'mt', 'oz' ];
 					let unit           = '';
 					let conversion     = uc_mass( value )
@@ -205,7 +206,7 @@ export default {
 					return value.toFixed( 1 ) + ' ' + unit;
 				},
 				unit_volume( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_volume' );
+					const unitDefined = this.config( 'unit_volume' );
 					let unit          = '';
 					let conversion    = uc_volume( value )
 						.from( 'l' )
@@ -223,7 +224,7 @@ export default {
 					return value.toFixed( 0 ) + ' ' + unit;
 				},
 				unit_consumption( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_consumption' );
+					const unitDefined = this.config( 'unit_consumption' );
 					let conversion    = null;
 					let unit          = '';
 					
@@ -262,7 +263,7 @@ export default {
 					return value + ' ' + unit;
 				},
 				unit_pressure( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_pressure' );
+					const unitDefined = this.config( 'unit_pressure' );
 					let unit          = '';
 					let conversion    = uc_pressure( value )
 						.from( 'psi' )
@@ -280,7 +281,7 @@ export default {
 					return value.toFixed( 0 ) + ' ' + unit;
 				},
 				unit_degrees( value, showValue = true, showSymbol = true ) {
-					const unitDefined = this.getConfig( 'unit_degrees' );
+					const unitDefined = this.config( 'unit_degrees' );
 					let unit          = '';
 					let conversion    = uc_temperature( value )
 						.from( 'C' )
@@ -356,11 +357,8 @@ export default {
 				$hasTruck: function () {
 					return (this.telemetry.truck.brand.id.length !== 0);
 				},
-				
 				$truckDamage: function () {
-					const configData = this.allConfig;
-					
-					return (configData.general_damage_accurate === 'damage-diagnostic')
+					return (this.config('general_damage_accurate') === 'damage-diagnostic')
 						? this.$averageDamage( this.telemetry.truck.damage )
 						: Math.floor( 100 * this.telemetry.truck.damage.chassis );
 				},
@@ -378,9 +376,7 @@ export default {
 					return app.diffDateTimeLocalized( currentGameTime, time );
 				},
 				$jobRemainingTimeToDueDate() {
-					const configData = this.allConfig;
-					
-					return configData.general_job_remaining === 'due_date';
+					return this.config('general_job_remaining') === 'due_date';
 				},
 				$nextRestStop( time ) {
 					return app.diffDateTimeLocalized( 0, time, false );
@@ -398,9 +394,7 @@ export default {
 					return this.telemetry.trailer.model.id.length !== 0 && this.telemetry.job.cargo.name.length !== 0;
 				},
 				$trailerDamage:    function () {
-					const configData = this.allConfig;
-					
-					return (configData.general_damage_accurate === 'damage-diagnostic')
+					return (this.config('general_damage_accurate') === 'damage-diagnostic')
 						? this.$averageDamage( this.telemetry.trailer.damage )
 						: Math.floor( 100 * this.telemetry.trailer.damage.chassis );
 				},
@@ -411,8 +405,7 @@ export default {
 				// --- Navigation
 				
 				$trukGear: function ( transmission, brand ) {
-					const configSettings          = this.allConfig; //this.$store.getters[ 'config/all' ];
-					const hShiftLayout            = configSettings[ 'general_h-shift-layout' ];
+					const hShiftLayout            = this.config[ 'general_h-shift-layout' ];
 					const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
 					
 					let gear         = transmission.gear.displayed;

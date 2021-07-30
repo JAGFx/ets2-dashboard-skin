@@ -66,7 +66,7 @@ export default {
         .then( () => {
           this.$pushALog( 'Config loaded', history.HTY_ZONE.MAIN );
 
-          const skinToLoad = this.getConfig( 'general_skin_on_load' );
+          const skinToLoad = this.config( 'general_skin_on_load' );
 
           try {
             this.$store.commit( 'skins/setConfigActive', skinToLoad );

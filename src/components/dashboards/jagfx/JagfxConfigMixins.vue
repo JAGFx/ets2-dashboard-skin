@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     $elementIsEnabled: function ( side, element, options ) {
-      //const config       = this.allConfig;
       const sideElements = this.elements[ side ];
       const indexElement = sideElements.indexOf( element );
       const isOnSide     = indexElement !== -1;

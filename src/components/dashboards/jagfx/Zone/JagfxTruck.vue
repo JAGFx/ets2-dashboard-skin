@@ -38,7 +38,7 @@
     </div>-->
 
     <Map
-      v-if="allConfig['jagfx_elements_right_map'] === 'true'"
+      v-if="config('jagfx_elements_right_map') === 'true'"
       :show-speed="false"
       :show-speed-limit="false"
       :show-navigation-eta="false"

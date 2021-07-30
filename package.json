@@ -10,6 +10,7 @@
   },
   "scripts": {
     "lint": "vue-cli-service lint src",
+    "lint:no-fix": "vue-cli-service lint --no-fix src",
     "build": "set NODE_ENV=production && npx gulp build",
     "bundle": "set NODE_ENV=production && npx gulp bundle",
     "bAndB": "npx gulp bAndB",
