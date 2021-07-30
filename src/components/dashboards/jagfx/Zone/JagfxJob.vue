@@ -39,11 +39,11 @@
         <div class="round">
           <i class="icon-time" />
         </div>
-        <span v-if="!$hasJob() || !telemetry.job.hasOwnProperty( 'deliveryTime' ) ">N/A</span>
+        <span v-if="!$hasJob() || !telemetry.job.hasOwnProperty( 'expectedDeliveryTimestamp' ) ">N/A</span>
         <span v-else-if="$jobRemainingTimeToDueDate()">{{
-          telemetry.job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT )
+          telemetry.job.expectedDeliveryTimestamp.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT )
         }}</span>
-        <span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
+        <span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.expectedDeliveryTimestamp.unix ) }}</span>
       </li>
       <li
         :class="{ 'disabled': !$hasJob() }"
