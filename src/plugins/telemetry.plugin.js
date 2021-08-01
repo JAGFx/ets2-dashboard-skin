@@ -371,9 +371,11 @@ export default {
 					return (this.telemetry.job.cargo.id.length !== 0);
 				},
 				$jobRemainingTimeDelivery( time ) {
-					const currentGameTime = this.$gameTime();
+					const gameTime = this.telemetry.game.time.value;
+					const jobDeliveringTime = time;
+					let diff = (jobDeliveringTime - gameTime) ;
 					
-					return app.diffDateTimeLocalized( currentGameTime, time );
+					return app.displayDuration( diff );
 				},
 				$jobRemainingTimeToDueDate() {
 					return this.config('general_job_remaining') === 'due_date';

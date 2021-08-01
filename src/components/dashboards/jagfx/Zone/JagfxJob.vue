@@ -42,7 +42,7 @@
         <span v-if="$hasJob() && $jobRemainingTimeToDueDate()">{{
           jobDeliveryTime | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT )
         }}</span>
-        <span v-else-if="$hasJob() && !$jobRemainingTimeToDueDate()">{{ $jobRemainingTimeDelivery( jobDeliveryTime ) }}</span>
+        <span v-else-if="$hasJob() && !$jobRemainingTimeToDueDate()">{{ $jobRemainingTimeDelivery( telemetry.job.expectedDeliveryTimestamp.value ) }}</span>
         <span v-else>N/A</span>
       </li>
       <li
@@ -77,7 +77,7 @@
         <span v-else>{{ unit_weight( telemetry.job.cargo.mass ) }}</span>
       </li>
     </ul>
-		
+
     <!--<div class="info list">
 			<div><b>Expected:</b><span>{{formatDeliveryTime()}}</span></div>
 			<div><b>Destination:</b><span>{{telemetry.job.destination.city.name}} - {{telemetry.job.destination.company.name}}</span></div>

@@ -79,8 +79,20 @@ export const diffDateTimeLocalized = ( dFrom, dTo, withDay = true ) => {
 		? 'DD[d] HH[h] mm[m]'
 		: 'HH[h] mm[m]';
 	
-	return moment( diff, 'x' ).format( format );
+	return moment( diff, 'x' )
+		.tz( 'Africa/Abidjan' )
+		.format( format );
 };
+
+export const displayDuration = ( duration, withDay = true ) => {
+	const d = Math.trunc( duration / 60 /24 )
+	const h = Math.trunc(( ( duration / 60 / 24 ) %  1 ) * 24)
+	const m = Math.trunc( ( ( duration / 60 ) %  1 ) * 60 )
+	
+	return ( withDay )
+	? d +  'd ' + h + 'h ' + m + 'm'
+		: (h + d * 24 ) + 'h ' + m + 'm'
+}
 
 export const sleep = milliseconds => {
 	const date      = Date.now();
