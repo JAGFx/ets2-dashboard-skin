@@ -30,8 +30,8 @@ const init = () => {
 		const rateFound = config.hasOwnProperty( 'general_refresh_rate' );
 		
 		return (rateFound)
-			? parseInt( config.general_refresh_rate )
-			: 15;
+			? Math.min( parseInt( config.general_refresh_rate ), 100 )
+			: 100;
 	};
 	pathDist  = path.resolve( __dirname, '../../../dist' );
 	pathMap   = path.resolve( process.cwd(), './maps' );

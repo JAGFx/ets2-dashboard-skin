@@ -19,8 +19,7 @@ You can find common elements, and skin config.
         <td>Refresh rate</td>
         <td>
             <ul>
-                <li>15</li>
-                <li>150</li>
+                <li>100</li>
                 <li>500</li>
                 <li>1000</li>
             </ul>

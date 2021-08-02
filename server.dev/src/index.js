@@ -26,8 +26,8 @@ const interval       = () => {
 	const rateFound = config.hasOwnProperty( 'general_refresh_rate' );
 	
 	return (rateFound)
-		? parseInt( config.general_refresh_rate )
-		: 15;
+		? Math.min( parseInt( config.general_refresh_rate ), 100 )
+		: 100;
 }; // Milisecond
 
 // ---

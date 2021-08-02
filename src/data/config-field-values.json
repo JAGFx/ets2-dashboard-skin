@@ -1,12 +1,8 @@
 {
 	"general_refresh_rate" :         [
 		{
-			"label" : "Realtime (15ms)",
-			"value" : "15"
-		},
-		{
-			"label" : "Quickly (150ms)",
-			"value" : "150"
+			"label" : "Quickly (100ms)",
+			"value" : "100"
 		},
 		{
 			"label" : "Balanced (500ms)",
