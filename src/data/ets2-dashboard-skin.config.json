@@ -58,6 +58,7 @@
 	"maps_elements_speedAndGear" :    true,
 	"maps_elements_mapControls" :     true,
 	"maps_elements_speedLimit" :      true,
+	"maps_elements_rotateWithPlayer" :      true,
 	"maps_map_type" :                 "vanilla",
 	"maps_map_tilesRemotePath" :      "https://ets2.jagfx.fr",
 	"maps_map_activeMap" :            null,

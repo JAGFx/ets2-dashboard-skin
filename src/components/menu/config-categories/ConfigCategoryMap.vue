@@ -39,10 +39,37 @@
           values: fieldValues( 'on_off' )
         }"
       />
+      <ConfigFieldChoice
+        v-bind="{
+          id: 'maps_elements_rotateWithPlayer',
+          label: 'Map rotation',
+          disabled: !configEnabled( 'maps_elements_mapControls' ),
+          description: 'Enable or disable the map rotation on the first load',
+          values: fieldValues( 'on_off' )
+        }"
+      />
+      <ConfigFieldChoice
+        v-bind="{
+          id: 'maps_map_navigationRemaining',
+          label: 'Navigation ETA',
+          disabled: !configEnabled( 'maps_elements_eta' ),
+          description: 'Display the due date or the remaining time for the current route',
+          values: fieldValues( 'maps_map_navigationRemaining' )
+        }"
+      />
     </div>
     <div class="fields mb-4">
-      <h4>Map</h4>
+      <h4>Tiles</h4>
 
+      <ConfigFieldChoice
+        v-bind="{
+          id: 'maps_map_activeMap',
+          label: 'Active map',
+          disabled: false,
+          description: 'Change the active map',
+          values: fieldValues( 'maps_map_activeMap' )
+        }"
+      />
       <ConfigFieldChoice
         v-bind="{
           id: 'maps_map_type',
@@ -62,29 +89,11 @@
       />
       <ConfigFieldChoice
         v-bind="{
-          id: 'maps_map_activeMap',
-          label: 'Active map',
-          disabled: false,
-          description: 'Change the active map',
-          values: fieldValues( 'maps_map_activeMap' )
-        }"
-      />
-      <ConfigFieldChoice
-        v-bind="{
           id: 'maps_map_tilesVersion',
           label: 'Game version',
           disabled: false,
           description: 'The latest get the tiles for the latest version, else the specified version',
           values: fieldValues( 'maps_map_tilesVersion' )
-        }"
-      />
-      <ConfigFieldChoice
-        v-bind="{
-          id: 'maps_map_navigationRemaining',
-          label: 'Navigation ETA',
-          disabled: false,
-          description: 'Display the due date or the remaining time for the current route',
-          values: fieldValues( 'maps_map_navigationRemaining' )
         }"
       />
     </div>

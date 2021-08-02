@@ -56,6 +56,9 @@ export default {
   },
   methods:  {
     set( value ) {
+      if( this.disabled )
+        return;
+
       this.$store.commit( 'config/setElm', {
         id:    this.id,
         value: value

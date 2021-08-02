@@ -16,7 +16,7 @@
         <span v-if="!$hasJob()">N/A</span>
         <span v-else>
           <span>{{ telemetry.job.source.city.name }}</span>
-          <small class="text-muted text-italic">{{ telemetry.job.source.company.name }}</small>
+          <small class="text-muted text-italic text-size-1rem text-line-height-1rem">{{ telemetry.job.source.company.name }}</small>
         </span>
       </li>
       <li
@@ -29,7 +29,7 @@
         <span v-if="!$hasJob()">N/A</span>
         <span v-else>
           <span>{{ telemetry.job.destination.city.name }}</span>
-          <small class="text-muted">{{ telemetry.job.destination.company.name }}</small>
+          <small class="text-muted text-italic text-size-1rem text-line-height-1rem">{{ telemetry.job.destination.company.name }}</small>
         </span>
       </li>
       <li

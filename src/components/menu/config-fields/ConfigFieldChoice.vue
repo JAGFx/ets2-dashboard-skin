@@ -13,7 +13,7 @@
       <div
         v-for="value in vals"
         :key="value.value"
-        :class="{ 'active': current( id ) === value.value }"
+        :class="{ 'active': current( id ) === value.value, 'disabled' : disabled }"
         class="value w-100 m-0 text-center d-flex justify-content-center align-items-center"
         @click="set( value.value )"
       >
@@ -27,7 +27,7 @@
     >
       <select
         v-model="val"
-        :disabled="appGetProcessing"
+        :disabled="appGetProcessing || disabled"
         :multiple="multiple !== undefined && multiple"
         class="custom-select value w-100 m-0 py-1 px-2"
         @change="set( val )"

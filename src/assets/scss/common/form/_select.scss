@@ -24,6 +24,13 @@
 				background:   transparentize($cRed, .5);
 				transition:   all .1s ease-in-out;
 			}
+			
+			&[disabled="disabled"] {
+				background: $cBlackTransparentHigh;
+				color: $cGray;
+				border-color: $cGray;
+				cursor: not-allowed;
+			}
 		}
 		
 		&.processing, &.processing > .value {

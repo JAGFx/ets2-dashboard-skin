@@ -120,7 +120,6 @@
       <div class="d-flex justify-content-center align-items-center bottom button">
         <div class="speed">
           <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
-          <!--        <small class="unit h-100">{{ unit_speed( telemetry.truck.speed, false ) }}</small>-->
         </div>
 
         <div
@@ -138,7 +137,6 @@
       v-if="$haveAnActiveNavigation() && configEnabled('maps_elements_eta') && showNavigationEta"
       class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
-      <!--      <span class="w-100 button">ETA:</span>-->
       <span
         v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'"
         class="button"
@@ -226,7 +224,7 @@ export default {
                dataIn.truck.speed.kph );
          } );
 
-           // --- Dev
+         // --- Dev
          if ( app.isOnDevEnvironment )
            setTimeout( () => {
              map.updatePlayerPositionAndRotation(
@@ -235,23 +233,24 @@ export default {
                  this.telemetry.truck.orientation.heading,
                  this.telemetry.truck.speed.kph );
            }, 1000 );
-           // --- ./Dev
+         // --- ./Dev
 
-           this.ready = true;
-         } )
+         this.ready            = true;
+         this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
+       } )
        .catch( e => {
-           this.message.icon       = '<i class="fas fa-times"></i>';
-           this.message.text       = 'Unable to load map';
-           this.message.sub        = e;
-           this.message.processing = false;
+         this.message.icon       = '<i class="fas fa-times"></i>';
+         this.message.text       = 'Unable to load map';
+         this.message.sub        = e;
+         this.message.processing = false;
 
-           const errorMessage = e.message || e;
+         const errorMessage = e.message || e;
 
          this.$pushALog( `Unknown error: ${ errorMessage }`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
-         } );
+       } );
 
   },
-  methods:  {
+  methods: {
     onClickMapInfo() {
       this.displayMapInfo = !this.displayMapInfo;
     },

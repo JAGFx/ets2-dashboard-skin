@@ -24,10 +24,20 @@
         </div>
       </div>
       <div class="job-data">
-        <small class="licencePlate">
-          <span class="flag">{{ $flag( telemetry.trailer.licensePlate.country.id, telemetry.game.game.id ) }}</span>
-          <span v-if="$hasTrailer()">{{ telemetry.trailer.licensePlate.value }}</span>
-          <span v-else>N/A</span>
+        <small class="licencePlate left">
+          <span class="flag">
+            {{ $flag( telemetry.trailer.licensePlate.country.id, telemetry.game.game.id ) }}
+          </span>
+          <span
+            v-if="$hasTrailer()"
+            class="w-100 text-center"
+          >
+            <span>{{ telemetry.trailer.licensePlate.value }}</span>
+          </span>
+          <span
+            v-else
+            class="w-100 text-center"
+          >N/A</span>
         </small>
         <div
           v-if="$hasTrailer()"

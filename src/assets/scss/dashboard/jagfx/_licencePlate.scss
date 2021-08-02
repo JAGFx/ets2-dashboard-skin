@@ -7,7 +7,6 @@
  */
 
 .licencePlate{
-	padding: 0 .5rem 0 0;
 	background: $cRed;
 	color: $cBlack;
 	font-size: 1rem;
@@ -16,9 +15,11 @@
 	width: 100%;
 	@include prefixer( justify-content, space-between, ("webkit", "moz") );
 	
+	&.left{  }
+	&.right{ flex-direction: row-reverse }
+	
 	.flag {
 		padding: 0 .2rem;
-		margin-right: .5rem;
 		background: darken( $cRed, 15% );
 		color: $cWhite;
 		height: 100%;

@@ -18,10 +18,14 @@
             <span>{{ $truckDamage() }} %</span>
           </div>
           <span>
-            <span class="licencePlate"><span class="flag">{{
-              $flag( telemetry.truck.licensePlate.country.id,
-                     telemetry.game.game.id )
-            }}</span>{{ telemetry.truck.licensePlate.value }}</span>
+            <span class="licencePlate right">
+              <span class="flag">
+                {{ $flag( telemetry.truck.licensePlate.country.id, telemetry.game.game.id ) }}
+              </span>
+              <span class="w-100 text-center">
+                <span>{{ telemetry.truck.licensePlate.value }}</span>
+              </span>
+            </span>
           </span>
         </div>
       </div>

@@ -52,6 +52,7 @@ const initConfig = ( game ) => {
 	const tileRemoteLocation = store.getters[ 'config/get' ]( 'maps_map_tilesRemotePath' );
 	const tilesVersion       = store.getters[ 'config/get' ]( 'maps_map_tilesVersion' );
 	const activeMap          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
+	const rotateWithPlayer          = store.getters[ 'config/get' ]( 'maps_elements_rotateWithPlayer' );
 	const map                = (type === 'vanilla')
 		? game
 		: activeMap;
@@ -76,6 +77,7 @@ const initConfig = ( game ) => {
 				.then( () => {
 					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, history.HTY_ZONE.MAPS_INIT );
 					d.ready = true;
+					d.gBehaviorRotateWithPlayer = rotateWithPlayer;
 					
 				}, () => {
 					Vue.prototype.$pushALog( `Tiles NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );

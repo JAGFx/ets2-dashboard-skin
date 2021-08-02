@@ -17,9 +17,11 @@
         v-model="val"
         :type="type"
         class="form-control input-zone"
+        :disabled="disabled"
       >
       <button
         class="input-zone valid"
+        :disabled="disabled"
         @click="set( val )"
       >
         <i class="fas fa-check" />

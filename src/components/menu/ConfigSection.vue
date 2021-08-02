@@ -1,16 +1,29 @@
 <template>
-  <section :id="id">
-    <h3 class="d-flex justify-content-between align-items-center p-2">
+  <section
+    :id="id"
+    class="config-section"
+  >
+    <h3 :class="['d-flex justify-content-between align-items-center p-2', { 'show': show }]">
       <span>{{ name }}</span>
       <span
         class="text-muted more"
         @click="show = !show"
       >
-        <i class="fas fa-angle-double-right" />
-        Show more
+        <i
+          v-if="show"
+          class="fas fa-angle-double-left"
+        />
+        <i
+          v-else
+          class="fas fa-angle-double-right"
+        />
+        Show {{ ( show ) ? 'less' : 'more' }}
       </span>
     </h3>
-    <div v-show="show">
+    <div
+      v-show="show"
+      class="content"
+    >
       <slot />
     </div>
   </section>
@@ -31,7 +44,7 @@ export default {
   },
   data() {
     return {
-      show: true
+      show: false
     };
   }
 };
