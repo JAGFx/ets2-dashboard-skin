@@ -10,8 +10,10 @@ The following tab show you the tiles collection and the download link
 |---|---|---|---|
 |Base|Euro Truck Simulator 2|v1.41.1.0|[Download](https://ets2.jagfx.fr/ETS2_Map_1.41.1.0.7z)|
 |Base|American Truck Simulator|v1.41.1.0|[Download](https://ets2.jagfx.fr/ATS_map_1.41.1.0.7z)|
-|Promod|Euro Truck Simulator 2|v2.55|[Download](https://ets2.jagfx.fr/jagfx-map-promod.tar.gz)|
+|Promod|Euro Truck Simulator 2|v2.56|[Download](https://ets2.jagfx.fr/jagfx-map-promod.tar.gz)|
 |Promod Canada|American Truck Simulator|-|-|
+
+See the DLC compatibility on [this project](https://github.com/TwinDragon/SCS_Map_Tiles)
 
 On this section, you can retrieve the following information:
 
@@ -99,9 +101,3 @@ This project need the tiles for:
 ### Export the tiles
 
 Check the side project [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) to know how ;)
-
-### Send your export
-
-Thanks so much for your participation.
-
-Send a link of the archive at `hey@emmanuel-smith.me`. It's recommended to host your archive and send the link.

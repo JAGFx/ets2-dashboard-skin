@@ -45,28 +45,22 @@ It's work on desktop and mobile browser.
 
 ## Map
 
-The map feature need tiles collection. To do that, you need to generate it.
+### Support
 
 If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) project.
 
-The following tab show you the tiles collection and the download link
+More information on the [Map](./doc/MAP.md) readme
+
+### Offline
+
+The following tab show you the tiles collection and the download link for an offline usage
 
 |Map|Game|Version|Download|
 |---|---|---|---|
 |Base|Euro Truck Simulator 2|v1.41.1.0|[Download](https://ets2.jagfx.fr/ETS2_Map_1.41.1.0.7z)|
 |Base|American Truck Simulator|v1.41.1.0|[Download](https://ets2.jagfx.fr/ATS_map_1.41.1.0.7z)|
-|Promod|Euro Truck Simulator 2|v2.55|[Download](https://ets2.jagfx.fr/jagfx-map-promod.tar.gz)|
+|Promod|Euro Truck Simulator 2|v2.56|[Download](https://ets2.jagfx.fr/jagfx-map-promod.tar.gz)|
 |Promod Canada|American Truck Simulator|-|-|
-
-More information on the [Map](./doc/MAP.md) readme
-
-### Breaking change
-
-It's not be planned, but a major change was introduced and cause a breaking change.
-
-From `v1.6.X` and more, there will not be able to work with the old map tiles collection (under `v1.5.X`)
-
-Please download the latest map tiles collection before to use the Map skin.
 
 ## Requirements
 
@@ -117,6 +111,9 @@ And that's it :D
 
 > Tip: You can save a shortcut on your home screen to use it as an app like.
 
+## Breaking change
+
+See the [BREAKING_CHANGES.md](doc/BREAKING_CHANGES.md) readme
 
 ## Know issues
 
@@ -134,170 +131,9 @@ To know more about the skin integrated or how to add a new skin, see the [SKINS.
 
 To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
 
-## Installation
+## Contributing
 
-1. Install the prerequisite things
-2. Install the Windows-Build-Tools
-3. Clone this repository
-4. Build this project
-5. Run the `ets2-dashboard-skin_vX.X.X.exe` place on the `bundle` directory
-
-#### Windows-Build-Tools
-
-Install *[Windows-Build-Tools](https://github.com/felixrieseberg/windows-build-tools)*
-
-````bash
-$ npm install --global windows-build-tools
-````
-
-#### Clone this repository
-
-````bash
-$ git clone https://github.com/JAGFx/ets2-dashboard-skin.git
-$ cd ets2-dashboard-skin
-````
-
-#### Build resources
-
-````bash
-$ npm i && npm rb
-$ npm run server:install
-$ npm run build
-````
-
-## Development
-
-### Environment file
-
-This project use a `.env` file. If you wan to override one or more variable in the development, create a `.env.local` at
-the same place of the `.env` file
-
-#### Telemetry data
-
-If you want to use a fake file data instead of the data from the SCS API, set the `VUE_APP_USE_FAKE_DATA` to `true`
-
-```dotenv
-VUE_APP_USE_FAKE_DATA=true
-```
-
-### Resources
-
-I provide all resources what I'm use to develop this dashboard. Such as svg, AI file for svg or others element who can
-be need to contribute too.
-
-See the [RESOURCES.md](doc/RESOURCES.md) section to get more details
-
-## Commands
-
-### Dashboard
-
-#### Dev
-
-Launch the dashboard development app
-
-````bash
-$ npm run dashboard:dev
-````
-
-#### Build
-
-Build the dashboard dist files for the production 
-
-````bash
-$ npm run dashboard:build
-````
-
-#### Start
-
-Start the production version of dashboard
-
-````bash
-$ npm run dashboard:start
-````
-
-### Server
-
-#### Install
-
-Install server dependencies
-
-````bash
-$ npm run server:install
-````
-
-#### Build
-
-Build the server dist files for the production 
-
-````bash
-$ npm run server:build
-````
-
-#### Start
-
-Start the production version of the server
-
-````bash
-$ npm run server:start
-````
-OR
-````bash
-$ npm start
-````
-
-#### Dev
-
-Start a tiny version of server to get data through Socket
-
-````bash
-$ npm run server:dev
-````
-
-### Production
-
-#### Build
-
-Build the dist files for the dashboard, the server and font
-
-````bash
-$ npm run build
-````
-
-#### Bundle
-
-Generate a `*.tar.gz` archive with all production files of **Dashboard** and **Server**
-
-````bash
-$ npm run bundle
-````
-
-#### Build and Bundle
-
-Combine `Build` task and `Bundle` task
-
-````bash
-$ npm run bAndB
-````
-
-### Other
-
-#### Font build
-
-Create a font with all svg files from the resources directory
-
-To get more details, see [RESOURCES.md](doc/RESOURCES.md)
-
-````bash
-$ npm run font:build
-````
-
-#### ESLint
-
-Launch the lint inspector
-
-````bash
-$ npm run lint
-````
+If you want to contribute, see the [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
 Under the [MIT License](LICENSE)
