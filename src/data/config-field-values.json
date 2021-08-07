@@ -221,6 +221,16 @@
 			"value" : "1.40"
 		}
 	],
+	"maps_map_tilesRemotePath" :        [
+		{
+			"label" : "ets2.jagfx.fr",
+			"value" : "https://ets2.jagfx.fr"
+		},
+		{
+			"label" : "TwinDragon/SCS_Map_Tiles",
+			"value" : "https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/"
+		}
+	],
 	"maps_map_navigationRemaining" : [
 		{
 			"label" : "Due date",

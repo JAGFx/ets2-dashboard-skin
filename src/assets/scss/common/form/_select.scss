@@ -27,8 +27,8 @@
 			
 			&[disabled="disabled"] {
 				background: $cBlackTransparentHigh;
-				color: $cGray;
-				border-color: $cGray;
+				color: $cWhiteGray !important;
+				border-color: $cWhiteGray !important;
 				cursor: not-allowed;
 			}
 		}

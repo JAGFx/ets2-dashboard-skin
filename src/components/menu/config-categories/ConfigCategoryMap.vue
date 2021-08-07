@@ -79,19 +79,37 @@
           values: fieldValues( 'maps_map_type' )
         }"
       />
-      <ConfigFieldInput
+      <ConfigFieldChoice
         v-bind="{
           id: 'maps_map_tilesRemotePath',
           label: 'Remote tiles location',
+          disabled: configEnabled( 'maps_map_tilesRemoteUseCustom' ),
+          description: 'Set a remote location for the map tiles. It can be on your local machine',
+          values: fieldValues( 'maps_map_tilesRemotePath' )
+        }"
+      />
+      <ConfigFieldChoice
+        v-bind="{
+          id: 'maps_map_tilesRemoteUseCustom',
+          label: 'Custom tiles',
           disabled: false,
-          description: 'Set a remote location for the map tiles. It can be on your local machine'
+          description: 'Set to ON if you wan to use a custom tiles location',
+          values: fieldValues( 'on_off' )
+        }"
+      />
+      <ConfigFieldInput
+        v-bind="{
+          id: 'maps_map_tilesRemoteCustomPath',
+          label: 'Custom tiles location',
+          disabled: !configEnabled( 'maps_map_tilesRemoteUseCustom' ),
+          description: 'The host of your tiles location',
         }"
       />
       <ConfigFieldChoice
         v-bind="{
           id: 'maps_map_tilesVersion',
           label: 'Game version',
-          disabled: false,
+          disabled: configEnabled( 'maps_map_tilesRemoteUseCustom' ),
           description: 'The latest get the tiles for the latest version, else the specified version',
           values: fieldValues( 'maps_map_tilesVersion' )
         }"

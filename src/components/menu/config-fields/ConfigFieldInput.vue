@@ -6,7 +6,6 @@
     }"
   >
     <div
-      v-if="vals.length === 0"
       class="input d-flex justify-content-between align-items-stretch"
       :class="{ 'processing': appGetProcessing }"
     >
@@ -18,7 +17,19 @@
         :type="type"
         class="form-control input-zone"
         :disabled="disabled"
+        v-bind="listProp"
       >
+      <datalist
+        v-if="vals.length > 0"
+        :id="id + '_' + 'data-list'"
+      >
+        <option
+          v-for="value in vals"
+          :key="value.value"
+          :selected="current( id ) === value.value"
+          :value="value.value"
+        />
+      </datalist>
       <button
         class="input-zone valid"
         :disabled="disabled"
@@ -43,6 +54,13 @@ export default {
       type:     String,
       required: false,
       default:  'text'
+    }
+  },
+  computed:   {
+    listProp() {
+      return (this.vals.length > 0)
+          ? { list: this.id + '_' + 'data-list' }
+          : {};
     }
   }
 };

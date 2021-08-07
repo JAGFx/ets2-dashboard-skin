@@ -47,26 +47,36 @@ const ZOOM_DEFAULT = 8;
  * TODO: Add verification for the min map version and the min map version allowed by the dash
  */
 
-const initConfig = ( game ) => {
-	const type               = store.getters[ 'config/get' ]( 'maps_map_type' );
-	const tileRemoteLocation = store.getters[ 'config/get' ]( 'maps_map_tilesRemotePath' );
-	const tilesVersion       = store.getters[ 'config/get' ]( 'maps_map_tilesVersion' );
-	const activeMap          = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
-	const rotateWithPlayer          = store.getters[ 'config/get' ]( 'maps_elements_rotateWithPlayer' );
-	const map                = (type === 'vanilla')
+const basePath = ( game ) => {
+	const type                  = store.getters[ 'config/get' ]( 'maps_map_type' );
+	const activeMap             = store.getters[ 'config/get' ]( 'maps_map_activeMap' );
+	const tileRemoteLocation    = store.getters[ 'config/get' ]( 'maps_map_tilesRemotePath' );
+	const tilesVersion          = store.getters[ 'config/get' ]( 'maps_map_tilesVersion' );
+	const tilesRemoteUseCustom  = store.getters[ 'config/enabled' ]( 'maps_map_tilesRemoteUseCustom' );
+	const tilesRemoteCustomPath = store.getters[ 'config/get' ]( 'maps_map_tilesRemoteCustomPath' );
+	const map                   = (type === 'vanilla')
 		? game
 		: activeMap;
-	const basePath           = `${ tileRemoteLocation }/${ map }/${ tilesVersion }/`;
 	
-	Vue.prototype.$pushALog( `Base path: ${ basePath } | Type: ${ type } | Tile version: ${ tilesVersion }`,
+	const path = `${ map }/${ tilesVersion }/`;
+	const host = (tilesRemoteUseCustom)
+		? tilesRemoteCustomPath
+		: tileRemoteLocation;
+	
+	Vue.prototype.$pushALog( `Base path: ${ host }/${ path } | Type: ${ type } | Tile version: ${ tilesVersion }`,
 		history.HTY_ZONE.MAPS_INIT );
 	
-	d.paths.base = basePath;
+	return `${ host }/${ path }`;
+};
+
+const initConfig = ( game ) => {
+	const rotateWithPlayer   = store.getters[ 'config/get' ]( 'maps_elements_rotateWithPlayer' );
+	
+	d.paths.base = basePath( game );
 	
 	return axios
 		.get( d.paths.base + d.paths.config )
 		.then( response => {
-			//console.log( 'config', response.data );
 			d.config = response.data;
 			Vue.prototype.$pushALog( `Map config found`, history.HTY_ZONE.MAPS_INIT );
 			
@@ -76,7 +86,7 @@ const initConfig = ( game ) => {
 				.get( d.paths.base + tilesPath )
 				.then( () => {
 					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, history.HTY_ZONE.MAPS_INIT );
-					d.ready = true;
+					d.ready                     = true;
 					d.gBehaviorRotateWithPlayer = rotateWithPlayer;
 					
 				}, () => {
