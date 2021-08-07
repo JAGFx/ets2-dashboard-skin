@@ -28,7 +28,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "~5.15.1",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
