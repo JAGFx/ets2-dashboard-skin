@@ -16,8 +16,8 @@ const bodyParser = require( 'body-parser' );
 const cors       = require( 'cors' );
 
 
-const options        = { /* ... */ };
-const io             = socketio( options );
+//const options        = { /* ... */ };
+//const io             = socketio( options );
 const dateFilename   = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
 const port           = 3000;
 const configFilePath = path.resolve( process.cwd(), '../src/data/ets2-dashboard-skin.config.json' );
@@ -34,6 +34,7 @@ const interval       = () => {
 
 let app    = express();
 let server = http.createServer( app );
+const io        = socketio( server );
 
 app.use( bodyParser.json() );
 app.use( cors( {
