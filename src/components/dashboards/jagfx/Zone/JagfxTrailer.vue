@@ -69,7 +69,10 @@
 </template>
 
 <script>
-	export default {
-    name: 'JagfxTrailer'
+	import TelemetryMixin from '@/mixins/TelemetryMixin';
+
+  export default {
+    name: 'JagfxTrailer',
+    mixins: [ TelemetryMixin ]
   };
 </script>

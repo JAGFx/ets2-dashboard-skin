@@ -65,14 +65,22 @@ export default {
 					this[ key ] = value;
 				} );
 				
-				EventBus.$on( TMP_UPDATE, dataIn => {
-					this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
-					this.receivedData = true;
-				} );
+				EventBus.$on( TMP_UPDATE, this.listener );
+				//console.log( 'Telemetry created' );
+			},
+			beforeDestroy() {
+				EventBus.$off( TMP_UPDATE, this.listener );
+				//console.log( 'Telemetry destoryed' );
 			},
 			methods:  {
 				// ---------------------------------------
 				// --- Commons methods
+				
+				listener( dataIn ){
+					this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
+					this.receivedData = true;
+					//console.log( 'Telemetry listener' );
+				},
 				
 				config(name){ return this.$store.getters['config/get'](name) },
 				

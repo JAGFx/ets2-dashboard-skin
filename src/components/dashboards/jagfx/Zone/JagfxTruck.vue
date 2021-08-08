@@ -184,11 +184,12 @@
 <script>
 import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
 import Map               from '@/components/dashboards/shared/Map';
+import TelemetryMixin    from '@/mixins/TelemetryMixin';
 
 export default {
   name:       'JagfxTruck',
   components: { Map },
-  mixins:     [ JagfxConfigMixins ],
+  mixins:     [ JagfxConfigMixins, TelemetryMixin ],
   methods:    {
     indexEmptyElement: function () {
       const elementLength = this.$elementsLength( 'right' );

@@ -1,6 +1,6 @@
 <template>
   <main :class="`${telemetry.game ? telemetry.game.game.name : ''}`">
-    <LoadingOverlay />
+    <LoadingOverlay :display="gameConnected" />
     <HistoryOverlay />
     <Overlay v-if="gameConnected" />
     <TelemetryEventOverlay v-if="gameConnected" />
@@ -29,6 +29,7 @@ import HistoryOverlay         from '@/components/overlays/HistoryOverlay';
 import LoadingOverlay         from '@/components/overlays/LoadingOverlay';
 import Overlay                from '@/components/overlays/Overlay';
 import TelemetryEventOverlay  from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
+import TelemetryMixin         from '@/mixins/TelemetryMixin';
 import { history }            from '@/utils/utils';
 import { mapGetters }         from 'vuex';
 
@@ -51,6 +52,7 @@ export default {
     Header,
     LoadingOverlay
   },
+  mixins: [TelemetryMixin],
   computed: {
     ...mapGetters( {
       menuIsDisplayed: 'menu/isDisplayed',
@@ -110,10 +112,10 @@ export default {
   },
   sockets:    {
     disconnect() {
-      //console.log( 'disconnected' );
+      console.log( 'disconnected' );
     },
     connect() {
-      //console.log( 'connected' );
+      console.log( 'connected' );
       this.$store.commit( 'app/setLaunch', {
         icon:    '<i class="fas fa-truck"></i>',
         text:    'Connected to telemetry server',
@@ -131,7 +133,8 @@ export default {
       }, 5000 );
     },
     update( data ) {
-      this.$updateTelemetry( { ...data } );
+      console.log( 'update', data );
+      //this.$updateTelemetry( { ...data } );
     }
   }
 };

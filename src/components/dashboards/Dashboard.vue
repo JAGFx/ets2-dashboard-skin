@@ -5,10 +5,12 @@
 </template>
 
 <script>
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 import { mapGetters } from 'vuex';
 
 export default {
   name:     'Dashboard',
+  mixins: [ TelemetryMixin ],
   data() {
     return {
       currentScale: 1
