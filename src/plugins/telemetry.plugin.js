@@ -407,7 +407,7 @@ export default {
 				// --- Navigation
 				
 				$trukGear: function ( transmission, brand ) {
-					const hShiftLayout            = this.config[ 'general_h-shift-layout' ];
+					const hShiftLayout            = this.config( 'general_h-shift-layout') ;
 					const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
 					
 					let gear         = transmission.gear.displayed;
