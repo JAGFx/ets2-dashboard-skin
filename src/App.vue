@@ -111,11 +111,7 @@ export default {
     }
   },
   sockets:    {
-    disconnect() {
-      console.log( 'disconnected' );
-    },
     connect() {
-      console.log( 'connected' );
       this.$store.commit( 'app/setLaunch', {
         icon:    '<i class="fas fa-truck"></i>',
         text:    'Connected to telemetry server',
@@ -132,10 +128,6 @@ export default {
         this.$pushALog( 'Waiting game connection', history.HTY_ZONE.MAIN );
       }, 5000 );
     },
-    update( data ) {
-      console.log( 'update', data );
-      //this.$updateTelemetry( { ...data } );
-    }
   }
 };
 </script>

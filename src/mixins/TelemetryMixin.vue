@@ -1,6 +1,6 @@
 <script>
 import testData     from '@/data/scs_sdk_plugin_parsed_data.json';
-//import { EventBus } from '@/event-bus';
+import { EventBus } from '@/event-bus';
 import { app }      from '@/utils/utils';
 import {
   length as uc_length,
@@ -10,23 +10,19 @@ import {
   volume as uc_volume
 }                   from 'units-converter';
 
+const TMP_UPDATE = 'tmp-update';
+
 export default {
   name: 'TelemetryMixin',
   sockets: {
-    connect() {
-        console.log( 'connected' );
-    },
     update( data ) {
       const gameReady = data.game !== null &&
                         (typeof data.game === 'object' && Object.keys( data.game ).length > 0);
 
-      if ( gameReady ){
-        //this.$store.commit( 'telemetry/setGameConnected', true )
-        this.$store.commit( 'telemetry/setGameName', data.game.game.name )
-        this.telemetry = data;
-      }
-        //this.$store.commit( 'telemetry/set', false )
 
+      if ( gameReady ){
+        EventBus.$emit( TMP_UPDATE, data );
+      }
     }
   },
   filters: {
@@ -58,24 +54,18 @@ export default {
       const value = app.formatConstants[ key ];
       this[ key ] = value;
     } );
-    //
-    //EventBus.$on( TMP_UPDATE, this.listener );
-    console.log( 'Telemetry created' );
+
+    EventBus.$on( TMP_UPDATE, ( dataIn ) => {
+      this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
+      this.receivedData = true;
+    } );
   },
   beforeDestroy() {
-    //EventBus.$off( TMP_UPDATE, this.listener );
-    this.telemetry = null;
-    console.log( 'Telemetry destoryed' );
+    EventBus.$off( TMP_UPDATE );
   },
   methods:  {
     // ---------------------------------------
     // --- Commons methods
-
-    listener( dataIn ){
-      this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
-      this.receivedData = true;
-      //console.log( 'Telemetry listener' );
-    },
 
     config(name){ return this.$store.getters['config/get'](name) },
 

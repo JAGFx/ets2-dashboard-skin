@@ -168,11 +168,13 @@
 
 <script>
 import { EventBus }          from '@/event-bus';
+import TelemetryMixin        from '@/mixins/TelemetryMixin';
 import { app, history, map } from '@/utils/utils';
 import { mapGetters }        from 'vuex';
 
 export default {
   name:  'Map',
+  mixins: [ TelemetryMixin ],
   props: {
     showSpeedLimit:    {
       type:    Boolean,
