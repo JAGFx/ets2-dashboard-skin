@@ -38,6 +38,80 @@
       class="w-100 h-100"
     />
 
+    <div class="barControls">
+      <div class="barZone justify-content-end">
+        <div
+          class="barButton mr-auto h-100"
+          :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo }"
+          @click="displayNavigationInfo = !displayNavigationInfo"
+        >
+          <div class="round px-2 py-0">
+            <i class="fas fa-route" />
+          </div>
+        </div>
+        <div class="barButton disabled w-100 h-100" />
+        <div
+          class="barButton m-0 flex-row-reverse h-100 cruise-control"
+          :class="{
+            'green' : telemetry.truck.cruiseControl.enabled,
+            'disabled' : !telemetry.truck.cruiseControl.enabled
+          }"
+        >
+          <div class="round px-2 py-0">
+            <i class="icon-cruise_control" />
+          </div>
+          <span
+            v-if="!telemetry.truck.cruiseControl.enabled"
+            class="pl-2"
+          >OFF</span>
+          <span
+            v-else
+            class="pl-2"
+          >{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
+        </div>
+      </div>
+      <div class="barZone spacer" />
+      <div
+        id="speed-area"
+      >
+        <div class="d-flex justify-content-center align-items-center bottom button">
+          <div class="speed">
+            <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
+          </div>
+
+          <div
+            :class="telemetry.truck.transmission.shifterType"
+            class="truck-gear ml-2"
+          >
+            {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
+          </div>
+        </div>
+      </div>
+      <div class="barZone justify-content-start">
+        <div
+          class="barButton m-0 blue h-100 fuel"
+          :class="{
+            'orange': telemetry.truck.fuel.warning.enabled
+          }"
+        >
+          <div class="round px-2 py-0">
+            <i class="icon-fuel" />
+          </div>
+          <span class="pr-2">{{ unit_volume( telemetry.truck.fuel.value ) }}</span>
+        </div>
+        <div class="barButton disabled w-100 h-100" />
+        <div
+          class="barButton ml-auto h-100"
+          :class="{ disabled: !displayControls }"
+          @click="displayControls = !displayControls"
+        >
+          <div class="round px-2 py-0">
+            <i class="fas fa-cog" />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Speed limit -->
     <div
       v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && showSpeedLimit"
@@ -50,7 +124,7 @@
 
     <!-- Control map buttons -->
     <div
-      v-if="configEnabled('maps_elements_mapControls') && showControls"
+      v-show="displayControls"
       id="controls-wrapper"
       class="left h-100 flex-column justify-content-end"
     >
@@ -112,29 +186,11 @@
     <!-- ./Map info overlay -->
 
     <!-- Speed area-->
-    <div
-      v-if="configEnabled('maps_elements_speedAndGear') && showSpeed"
-      id="speed-area"
-      class="top button"
-    >
-      <div class="d-flex justify-content-center align-items-center bottom button">
-        <div class="speed">
-          <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
-        </div>
-
-        <div
-          :class="telemetry.truck.transmission.shifterType"
-          class="truck-gear ml-2"
-        >
-          {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
-        </div>
-      </div>
-    </div>
     <!-- ./Speed area -->
 
     <!-- Navigation ETA -->
     <div
-      v-if="$haveAnActiveNavigation() && configEnabled('maps_elements_eta') && showNavigationEta"
+      v-if="$haveAnActiveNavigation() && displayNavigationInfo"
       class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
       <span
@@ -197,6 +253,8 @@ export default {
   },
   data() {
     return {
+      displayControls: this.$store.getters['config/enabled']( 'maps_elements_mapControls' ),
+      displayNavigationInfo: this.$store.getters['config/enabled']( 'maps_elements_eta' ),
       displayMapInfo:   false,
       rotateWithPlayer: map.d.gBehaviorRotateWithPlayer,
       ready:            false,

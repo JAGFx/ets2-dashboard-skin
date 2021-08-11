@@ -88,15 +88,6 @@
     />
     <ConfigFieldChoice
       v-bind="{
-        id: 'events_job.finished',
-        label: 'Job finished',
-        disabled: false,
-        description: 'Show a pop-up when a job was finished',
-        values: fieldValues( 'on_off' )
-      }"
-    />
-    <ConfigFieldChoice
-      v-bind="{
         id: 'events_job.started',
         label: 'Job started',
         disabled: false,
