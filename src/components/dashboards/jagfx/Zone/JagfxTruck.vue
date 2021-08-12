@@ -43,9 +43,7 @@
 
     <Map
       v-if="config('jagfx_elements_right_map')"
-      :show-speed="false"
-      :show-speed-limit="false"
-      :show-navigation-eta="false"
+      :embedded="true"
       class="dash-element mx-3 my-2 theMap"
     />
     <ul

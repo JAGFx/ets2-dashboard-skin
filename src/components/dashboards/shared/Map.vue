@@ -39,10 +39,13 @@
     />
 
     <div class="barControls">
-      <div class="barZone justify-content-end">
+      <div
+        v-if="!embedded"
+        class="barZone justify-content-end"
+      >
         <div
           class="barButton mr-auto h-100"
-          :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo }"
+          :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
           @click="displayNavigationInfo = !displayNavigationInfo"
         >
           <div class="round px-2 py-0">
@@ -70,8 +73,12 @@
           >{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
         </div>
       </div>
-      <div class="barZone spacer" />
       <div
+        v-if="!embedded"
+        class="barZone spacer"
+      />
+      <div
+        v-if="!embedded"
         id="speed-area"
       >
         <div class="d-flex justify-content-center align-items-center bottom button">
@@ -81,7 +88,7 @@
 
           <div
             :class="telemetry.truck.transmission.shifterType"
-            class="truck-gear ml-2"
+            class="truck-gears ml-2"
           >
             {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
           </div>
@@ -89,6 +96,7 @@
       </div>
       <div class="barZone justify-content-start">
         <div
+          v-if="!embedded"
           class="barButton m-0 blue h-100 fuel"
           :class="{
             'orange': telemetry.truck.fuel.warning.enabled
@@ -102,7 +110,7 @@
         <div class="barButton disabled w-100 h-100" />
         <div
           class="barButton ml-auto h-100"
-          :class="{ disabled: !displayControls }"
+          :class="{ disabled: !displayControls, active: displayControls }"
           @click="displayControls = !displayControls"
         >
           <div class="round px-2 py-0">
@@ -114,7 +122,7 @@
 
     <!-- Speed limit -->
     <div
-      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && showSpeedLimit"
+      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && !embedded"
       id="speed-limit"
       class="justify-content-center align-items-center"
     >
@@ -154,7 +162,7 @@
 
     <!-- Map info overlay -->
     <div
-      v-if="displayMapInfo && showMapInfo"
+      v-if="displayMapInfo"
       id="mapInfoOverlay"
     >
       <h5>
@@ -185,12 +193,9 @@
     </div>
     <!-- ./Map info overlay -->
 
-    <!-- Speed area-->
-    <!-- ./Speed area -->
-
     <!-- Navigation ETA -->
     <div
-      v-if="$haveAnActiveNavigation() && displayNavigationInfo"
+      v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
       class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
       <span
@@ -230,35 +235,23 @@ import { mapGetters }        from 'vuex';
 export default {
   name:  'Map',
   props: {
-    showSpeedLimit:    {
-      type:    Boolean,
-      default: true
-    },
-    showControls:      {
-      type:    Boolean,
-      default: true
-    },
-    showMapInfo:       {
-      type:    Boolean,
-      default: true
-    },
-    showSpeed:         {
-      type:    Boolean,
-      default: true
-    },
-    showNavigationEta: {
-      type:    Boolean,
-      default: true
+    embedded: {
+      type:     Boolean,
+      required: false,
+      default() { return false; }
     }
   },
   data() {
     return {
-      displayControls: this.$store.getters['config/enabled']( 'maps_elements_mapControls' ),
-      displayNavigationInfo: this.$store.getters['config/enabled']( 'maps_elements_eta' ),
-      displayMapInfo:   false,
-      rotateWithPlayer: map.d.gBehaviorRotateWithPlayer,
-      ready:            false,
-      message:          {
+      displayControls:       (this.embedded)
+                                 ? false
+                                 :
+                                 this.$store.getters[ 'config/enabled' ]( 'maps_elements_mapControls' ),
+      displayNavigationInfo: this.$store.getters[ 'config/enabled' ]( 'maps_elements_eta' ),
+      displayMapInfo:        false,
+      rotateWithPlayer:      map.d.gBehaviorRotateWithPlayer,
+      ready:                 false,
+      message:               {
         icon:       '<i class="fas fa-map-marked-alt"></i>',
         text:       'Map initialiation',
         sub:        '',

@@ -37,7 +37,7 @@
 				align-items: center;
 				
 				&.spacer {
-					width: 27rem;
+					width: 36rem;
 					background: $cBlackTransparentHigh;
 				}
 				
@@ -54,6 +54,10 @@
 					min-width: auto !important;
 					
 					.round > i { padding-top: .3rem; display: block; }
+					
+					&.active{
+						background: $cBlack;
+					}
 					
 					&.blue {
 						color: $cBlue;
@@ -270,9 +274,9 @@
 				background: $cBlack;
 				border-top: 2px solid $cRed;
 				height:  auto;
-				width:   auto;
 				padding: .3rem;
 				z-index: 1;
+				width: 9.5rem;
 			}
 			
 			.speed {
@@ -284,16 +288,25 @@
 				}
 				
 				.unit { font-size: .7rem; }
+				
+				width: 5.5rem;
 			}
 			
-			.truck-gear {
+			.truck-gears {
 				line-height: 1.4rem;
 				background:  $cWhiteGray;
-				color:       $cBlack;
+				color:       $cRed;
 				padding:     .3rem;
 				height:      inherit;
 				font-weight: bold;
 				font-size:   1.5rem;
+				width: 3.3rem;
+				
+				&.hshifter {
+					&:first-letter{
+						color: $cBlack;
+					}
+				}
 			}
 			
 			&:before {
