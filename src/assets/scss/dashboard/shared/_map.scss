@@ -21,6 +21,75 @@
 			background: $cBlackTransparentMid;
 		}
 		
+		.barControls{
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			background: $cBlack;
+			
+			.barZone {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+				&.spacer {
+					width: 36rem;
+					background: $cBlackTransparentHigh;
+				}
+				
+				.barButton{
+					background: $cBlackTransparentHigh;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					outline: 0;
+					font-size: 1.1rem;
+					
+					border-bottom: 2px solid $cRed;
+					
+					min-width: auto !important;
+					
+					.round > i { padding-top: .3rem; display: block; }
+					
+					&.active{
+						background: $cBlack;
+					}
+					
+					&.blue {
+						color: $cBlue;
+						border-color: $cBlue;
+					}
+					
+					&.orange {
+						color: $cOrange;
+						border-color: $cOrange;
+					}
+					
+					&.green {
+						color: $cGreen;
+						border-color: $cGreen;
+					}
+					
+					&.default, &.white {
+						color: $cWhiteGray;
+						border-color: $cRed;
+					}
+					
+					&.disabled {
+						color: $cGray;
+						border-color: $cGray;
+					}
+					
+					&.fuel { min-width: 5rem !important; }
+					&.cruise-control { min-width: 8rem !important; }
+				}
+			}
+		}
+		
 		#controls-wrapper, .ol-zoom, .eta-wrapper, #speed-area {
 			display:         flex;
 			justify-content: center;
@@ -82,6 +151,7 @@
 			height:   auto;
 			width:    auto;
 			z-index:  2;
+			margin-bottom: 2rem;
 			
 			button, .button {
 				font-size:     1.4rem;
@@ -91,7 +161,6 @@
 			
 			.ol-zoom {
 				display: block;
-				//flex-direction: column;
 				height:  100%;
 				
 				.ol-zoom-in, .ol-zoom-out {
@@ -107,6 +176,7 @@
 			left:     0;
 			width:    auto;
 			bottom:   0;
+			margin-bottom: 2rem;
 			
 			.button {
 				width:         auto;
@@ -201,10 +271,12 @@
 			height:   auto;
 			
 			.button {
+				background: $cBlack;
+				border-top: 2px solid $cRed;
 				height:  auto;
-				width:   auto;
 				padding: .3rem;
 				z-index: 1;
+				width: 9.5rem;
 			}
 			
 			.speed {
@@ -216,28 +288,37 @@
 				}
 				
 				.unit { font-size: .7rem; }
+				
+				width: 5.5rem;
 			}
 			
-			.truck-gear {
+			.truck-gears {
 				line-height: 1.4rem;
 				background:  $cWhiteGray;
-				color:       $cBlack;
+				color:       $cRed;
 				padding:     .3rem;
 				height:      inherit;
 				font-weight: bold;
 				font-size:   1.5rem;
+				width: 3.3rem;
+				
+				&.hshifter {
+					&:first-letter{
+						color: $cBlack;
+					}
+				}
 			}
 			
 			&:before {
 				content:     " ";
 				position:    relative;
-				bottom:      -1px;
+				bottom:      0;
 				width:       2rem;
 				height:      3rem;
 				padding:     .3rem;
-				left:        -0.1rem;
-				background:  $cBlackTransparentMid;
-				border-left: 1px solid $cRed;
+				left:        0;
+				background:  $cBlack;
+				border-left: 2px solid $cRed;
 				border-top:  2px solid $cRed;
 				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
 				@include prefixer(transform, skew(-30deg, 0deg), ("webkit", "moz", "o"));
@@ -246,13 +327,13 @@
 			&:after {
 				content:      " ";
 				position:     relative;
-				bottom:       -1px;
+				bottom:       0;
 				width:        2rem;
 				height:       3rem;
 				padding:      .3rem;
-				right:        -0.1rem;
-				background:   $cBlackTransparentMid;
-				border-right: 1px solid $cRed;
+				right:        0;
+				background:   $cBlack;
+				border-right: 2px solid $cRed;
 				border-top:   2px solid $cRed;
 				@include prefixer(transform-origin, bottom left, ("webkit", "moz", "o"));
 				@include prefixer(transform, skew(30deg, 0deg), ("webkit", "moz", "o"));

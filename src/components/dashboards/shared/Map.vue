@@ -38,9 +38,91 @@
       class="w-100 h-100"
     />
 
+    <div class="barControls">
+      <div
+        v-if="!embedded"
+        class="barZone justify-content-end"
+      >
+        <div
+          class="barButton mr-auto h-100"
+          :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
+          @click="displayNavigationInfo = !displayNavigationInfo"
+        >
+          <div class="round px-2 py-0">
+            <i class="fas fa-route" />
+          </div>
+        </div>
+        <div class="barButton disabled w-100 h-100" />
+        <div
+          class="barButton m-0 flex-row-reverse h-100 cruise-control"
+          :class="{
+            'green' : telemetry.truck.cruiseControl.enabled,
+            'disabled' : !telemetry.truck.cruiseControl.enabled
+          }"
+        >
+          <div class="round px-2 py-0">
+            <i class="icon-cruise_control" />
+          </div>
+          <span
+            v-if="!telemetry.truck.cruiseControl.enabled"
+            class="pl-2"
+          >OFF</span>
+          <span
+            v-else
+            class="pl-2"
+          >{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
+        </div>
+      </div>
+      <div
+        v-if="!embedded"
+        class="barZone spacer"
+      />
+      <div
+        v-if="!embedded"
+        id="speed-area"
+      >
+        <div class="d-flex justify-content-center align-items-center bottom button">
+          <div class="speed">
+            <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
+          </div>
+
+          <div
+            :class="telemetry.truck.transmission.shifterType"
+            class="truck-gears ml-2"
+          >
+            {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
+          </div>
+        </div>
+      </div>
+      <div class="barZone justify-content-start">
+        <div
+          v-if="!embedded"
+          class="barButton m-0 blue h-100 fuel"
+          :class="{
+            'orange': telemetry.truck.fuel.warning.enabled
+          }"
+        >
+          <div class="round px-2 py-0">
+            <i class="icon-fuel" />
+          </div>
+          <span class="pr-2">{{ unit_volume( telemetry.truck.fuel.value ) }}</span>
+        </div>
+        <div class="barButton disabled w-100 h-100" />
+        <div
+          class="barButton ml-auto h-100"
+          :class="{ disabled: !displayControls, active: displayControls }"
+          @click="displayControls = !displayControls"
+        >
+          <div class="round px-2 py-0">
+            <i class="fas fa-cog" />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Speed limit -->
     <div
-      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && showSpeedLimit"
+      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && !embedded"
       id="speed-limit"
       class="justify-content-center align-items-center"
     >
@@ -50,7 +132,7 @@
 
     <!-- Control map buttons -->
     <div
-      v-if="configEnabled('maps_elements_mapControls') && showControls"
+      v-show="displayControls"
       id="controls-wrapper"
       class="left h-100 flex-column justify-content-end"
     >
@@ -80,7 +162,7 @@
 
     <!-- Map info overlay -->
     <div
-      v-if="displayMapInfo && showMapInfo"
+      v-if="displayMapInfo"
       id="mapInfoOverlay"
     >
       <h5>
@@ -111,30 +193,9 @@
     </div>
     <!-- ./Map info overlay -->
 
-    <!-- Speed area-->
-    <div
-      v-if="configEnabled('maps_elements_speedAndGear') && showSpeed"
-      id="speed-area"
-      class="top button"
-    >
-      <div class="d-flex justify-content-center align-items-center bottom button">
-        <div class="speed">
-          <span class="value d-block">{{ unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 ) }}</span>
-        </div>
-
-        <div
-          :class="telemetry.truck.transmission.shifterType"
-          class="truck-gear ml-2"
-        >
-          {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
-        </div>
-      </div>
-    </div>
-    <!-- ./Speed area -->
-
     <!-- Navigation ETA -->
     <div
-      v-if="$haveAnActiveNavigation() && configEnabled('maps_elements_eta') && showNavigationEta"
+      v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
       class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
       <span
@@ -176,33 +237,23 @@ export default {
   name:  'Map',
   mixins: [ TelemetryMixin ],
   props: {
-    showSpeedLimit:    {
-      type:    Boolean,
-      default: true
-    },
-    showControls:      {
-      type:    Boolean,
-      default: true
-    },
-    showMapInfo:       {
-      type:    Boolean,
-      default: true
-    },
-    showSpeed:         {
-      type:    Boolean,
-      default: true
-    },
-    showNavigationEta: {
-      type:    Boolean,
-      default: true
+    embedded: {
+      type:     Boolean,
+      required: false,
+      default() { return false; }
     }
   },
   data() {
     return {
-      displayMapInfo:   false,
-      rotateWithPlayer: map.d.gBehaviorRotateWithPlayer,
-      ready:            false,
-      message:          {
+      displayControls:       (this.embedded)
+                                 ? false
+                                 :
+                                 this.$store.getters[ 'config/enabled' ]( 'maps_elements_mapControls' ),
+      displayNavigationInfo: this.$store.getters[ 'config/enabled' ]( 'maps_elements_eta' ),
+      displayMapInfo:        false,
+      rotateWithPlayer:      map.d.gBehaviorRotateWithPlayer,
+      ready:                 false,
+      message:               {
         icon:       '<i class="fas fa-map-marked-alt"></i>',
         text:       'Map initialiation',
         sub:        '',

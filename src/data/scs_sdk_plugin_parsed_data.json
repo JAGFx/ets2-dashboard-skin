@@ -194,8 +194,8 @@
             }
          ],
          "gear": {
-            "selected": 0,
-            "displayed": 0
+            "selected": 14,
+            "displayed": 14
          },
          "gearRatiosForward": [
             13.260000228881836,
@@ -551,9 +551,9 @@
          "ratio": 3.9600000381469727
       },
       "speed": {
-         "value": 110,
-         "kph": 110,
-         "mph": 110
+         "value": 130,
+         "kph": 130,
+         "mph": 130
       },
       "cruiseControl": {
          "value": 110,
@@ -1140,9 +1140,9 @@
       "distance": 23.00341033935547,
       "time": 1337.4075889587402,
       "speedLimit": {
-         "value": 0,
-         "kph": 0,
-         "mph": 0
+         "value": 110,
+         "kph": 110,
+         "mph": 110
       }
    },
    "controls": {
