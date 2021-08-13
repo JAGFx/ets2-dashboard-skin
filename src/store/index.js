@@ -11,6 +11,7 @@ import app    from '@/store/modules/_app';
 import config from '@/store/modules/_config';
 import menu   from '@/store/modules/_menu';
 import skins  from '@/store/modules/_skins';
+import telemetry  from '@/store/modules/_telemetry';
 import Vue    from 'vue';
 import Vuex   from 'vuex';
 
@@ -23,7 +24,8 @@ export default new Vuex.Store( {
 		skins,
 		config,
 		menu,
-		app
+		app,
+		telemetry
 	},
 	strict:  debug
 } );

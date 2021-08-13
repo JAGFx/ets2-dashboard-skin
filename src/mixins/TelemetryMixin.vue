@@ -1,30 +1,16 @@
 <script>
-import testData     from '@/data/scs_sdk_plugin_parsed_data.json';
-import { EventBus } from '@/event-bus';
-import { app }      from '@/utils/utils';
+import { app }        from '@/utils/utils';
 import {
   length as uc_length,
   mass as uc_mass,
   pressure as uc_pressure,
   temperature as uc_temperature,
   volume as uc_volume
-}                   from 'units-converter';
-
-const TMP_UPDATE = 'tmp-update';
+}                     from 'units-converter';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'TelemetryMixin',
-  sockets: {
-    update( data ) {
-      const gameReady = data.game !== null &&
-                        (typeof data.game === 'object' && Object.keys( data.game ).length > 0);
-
-
-      if ( gameReady ){
-        EventBus.$emit( TMP_UPDATE, data );
-      }
-    }
-  },
   filters: {
     '$dateTimeLocalized': ( time, dFormat, tFormat ) => {
       return app.dateTimeLocalized( time, dFormat, tFormat );
@@ -33,16 +19,12 @@ export default {
       return value.toFixed( decimal );
     }
   },
-  data() {
-    return {
-      telemetry:    testData,
-      receivedData: false
-    };
-  },
   computed: {
-    gameConnected() {
-      return app.useFakeData || (this.receivedData && this.telemetry.game.sdkActive && this.$hasTruck());
-    },
+    ...mapGetters({
+      telemetry: 'telemetry/getTelemetry',
+      gameConnected: 'telemetry/getGameConnected',
+      receivedData: 'telemetry/getReceivedData',
+    }),
     jobDeliveryTime(){
       return ( this.telemetry.job.market.id === 'external_contracts' )
           ? this.telemetry.job.expectedDeliveryTimestamp.value
@@ -54,14 +36,6 @@ export default {
       const value = app.formatConstants[ key ];
       this[ key ] = value;
     } );
-
-    EventBus.$on( TMP_UPDATE, ( dataIn ) => {
-      this.telemetry    = Object.assign( {}, this.telemetry, dataIn );
-      this.receivedData = true;
-    } );
-  },
-  beforeDestroy() {
-    EventBus.$off( TMP_UPDATE );
   },
   methods:  {
     // ---------------------------------------
