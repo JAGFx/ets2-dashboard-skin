@@ -111,23 +111,23 @@ export default {
     }
   },
   sockets:    {
-    connect() {
-      this.$store.commit( 'app/setLaunch', {
-        icon:    '<i class="fas fa-truck"></i>',
-        text:    'Connected to telemetry server',
-        subText: 'Ready to delivering'
-      } );
-      this.$pushALog( 'Connected to telemetry server', history.HTY_ZONE.MAIN );
-
-      setTimeout( () => {
-        this.$store.commit( 'app/setLaunch', {
-          icon:    '<i class="fas fa-truck"></i>',
-          text:    'Waiting game connection',
-          subText: 'Run the game to start your job !'
-        } );
-        this.$pushALog( 'Waiting game connection', history.HTY_ZONE.MAIN );
-      }, 5000 );
-    },
+    //connect() {
+    //  this.$store.commit( 'app/setLaunch', {
+    //    icon:    '<i class="fas fa-truck"></i>',
+    //    text:    'Connected to telemetry server',
+    //    subText: 'Ready to delivering'
+    //  } );
+    //  this.$pushALog( 'Connected to telemetry server', history.HTY_ZONE.MAIN );
+    //
+    //  setTimeout( () => {
+    //    this.$store.commit( 'app/setLaunch', {
+    //      icon:    '<i class="fas fa-truck"></i>',
+    //      text:    'Waiting game connection',
+    //      subText: 'Run the game to start your job !'
+    //    } );
+    //    this.$pushALog( 'Waiting game connection', history.HTY_ZONE.MAIN );
+    //  }, 5000 );
+    //},
   }
 };
 </script>

@@ -8,6 +8,7 @@
 
 import testData from '@/data/scs_sdk_plugin_parsed_data.json';
 import { app }  from '@/utils/utils';
+import store from '@/store';
 
 // initial state
 const state = () => ({
@@ -40,6 +41,21 @@ const actions = {
 		
 		if ( gameConnected )
 			commit( 'setReceivedData', true );
+	},
+	socket_connect(){
+		store.commit( 'app/setLaunch', {
+			icon:    '<i class="fas fa-truck"></i>',
+			text:    'Connected to telemetry server',
+			subText: 'Ready to delivering'
+		} );
+		
+		setTimeout( () => {
+			store.commit( 'app/setLaunch', {
+				icon:    '<i class="fas fa-truck"></i>',
+				text:    'Waiting game connection',
+				subText: 'Run the game to start your job !'
+			} );
+		}, 5000 );
 	}
 };
 
