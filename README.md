@@ -51,7 +51,7 @@ If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map
 
 More information on the [Map](./doc/MAP.md) readme
 
-> Note: Many thinks to [TwinDragon](https://github.com/TwinDragon) for maintaining repository up to date with new each game version.
+> Many thanks to [TwinDragon](https://github.com/TwinDragon) for maintaining a map tiles collection up to date for each new game version
 
 ### Offline
 

@@ -108,7 +108,7 @@ I'm proud to introduce the Map (You can retrieve this map on the Ets2-Route-Advi
 
 Currently, I'm introduced the map with some navigation data only. Not the full route advisor.
 
-> Note: Many thinks to [TwinDragon](https://github.com/TwinDragon) for maintaining repository up to date with new each game version.
+> Many thanks to [TwinDragon](https://github.com/TwinDragon) for maintaining a map tiles collection up to date for each new game version
 
 #### Features
 

@@ -15,7 +15,7 @@ The following tab show you the tiles collection and the download link
 
 See the DLC compatibility on [this project](https://github.com/TwinDragon/SCS_Map_Tiles)
 
-> Note: Many thinks to [TwinDragon](https://github.com/TwinDragon) for maintaining repository up to date with new each game version.
+> Many thanks to [TwinDragon](https://github.com/TwinDragon) for maintaining a map tiles collection up to date for each new game version
 
 On this section, you can retrieve the following information:
 
