@@ -51,6 +51,8 @@ If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map
 
 More information on the [Map](./doc/MAP.md) readme
 
+> Note: Many thinks to [TwinDragon](https://github.com/TwinDragon) for maintaining repository up to date with new each game version.
+
 ### Offline
 
 The following tab show you the tiles collection and the download link for an offline usage
