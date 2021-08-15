@@ -2,7 +2,7 @@
 
 ## v1.6.3+
 
-The configuration field `maps_map_tilesLocation` will be deprecated.
+The configuration field `maps_map_tilesLocation` are be deprecated.
 
 Use the `maps_map_tilesRemoteCustomPath` instead.
 
