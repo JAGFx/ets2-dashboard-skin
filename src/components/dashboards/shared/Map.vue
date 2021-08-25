@@ -49,7 +49,7 @@
           @click="displayNavigationInfo = !displayNavigationInfo"
         >
           <div class="round px-2 py-0">
-            <i class="fas fa-route" />
+            <i class="icon-route" />
           </div>
         </div>
         <div class="barButton disabled w-100 h-100" />
@@ -114,7 +114,7 @@
           @click="displayControls = !displayControls"
         >
           <div class="round px-2 py-0">
-            <i class="fas fa-cog" />
+            <i class="icon-menu" />
           </div>
         </div>
       </div>
