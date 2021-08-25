@@ -8,6 +8,7 @@
 
 import { event, history } from '@/utils/utils';
 import store              from '@/store';
+import { io }             from 'socket.io-client';
 
 export default {
 	install( Vue ) {
@@ -37,5 +38,19 @@ export default {
 				} );
 			}
 		};
+		
+		
+		const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
+		telemetrySocket.on( 'connect', () => {
+			store.dispatch( 'telemetry/socket_connect' );
+		} );
+		telemetrySocket.on( 'update', data => {
+			store.dispatch( 'telemetry/socket_update', data );
+		} );
+		telemetrySocket.on( 'log', data => {
+			Vue.prototype.$updateEvent( data );
+		} );
+		
+		Vue.prototype.$telemetrySocket = telemetrySocket;
 	}
 };

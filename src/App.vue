@@ -109,11 +109,6 @@ export default {
 
       return currentSkin.id + 'Dashboard';
     }
-  },
-  sockets: {
-    log( log ) {
-      this.$updateEvent( log );
-    }
   }
 };
 </script>
