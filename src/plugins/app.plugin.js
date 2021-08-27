@@ -8,8 +8,10 @@
 
 import store              from '@/store';
 import { mutations }      from '@/store/telemetry.store';
-import { event, history } from '@/utils/utils';
+import { app, event, history } from '@/utils/utils';
 import { io }             from 'socket.io-client';
+import testData from '@/data/scs_sdk_plugin_parsed_data.json';
+
 
 export default {
 	install( Vue ) {
@@ -40,23 +42,7 @@ export default {
 			}
 		};
 		
-		const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
-		telemetrySocket.on( 'connect', () => {
-			store.commit( 'app/setLaunch', {
-				icon:    '<i class="fas fa-truck"></i>',
-				text:    'Connected to telemetry server',
-				subText: 'Ready to delivering'
-			} );
-			
-			setTimeout( () => {
-				store.commit( 'app/setLaunch', {
-					icon:    '<i class="fas fa-truck"></i>',
-					text:    'Waiting game connection',
-					subText: 'Run the game to start your job !'
-				} );
-			}, 5000 );
-		} );
-		telemetrySocket.on( 'update', payload => {
+		const updateTelemetry = payload => {
 			const data = { ...payload };
 			Object.freeze( data );
 			const gameConnected = data.game !== null &&
@@ -67,11 +53,36 @@ export default {
 			
 			if ( gameConnected )
 				mutations.setReceivedData( true );
-		} );
-		telemetrySocket.on( 'log', data => {
-			Vue.prototype.$updateEvent( data );
-		} );
+		}
 		
-		Vue.prototype.$telemetrySocket = telemetrySocket;
+		// --- Dev
+		if ( app.isOnDevEnvironment || app.useFakeData )
+			setTimeout( () => {
+				updateTelemetry( testData )
+			}, 1000 );
+		
+		else {
+			const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
+			telemetrySocket.on( 'connect', () => {
+				store.commit( 'app/setLaunch', {
+					icon:    '<i class="fas fa-truck"></i>',
+					text:    'Connected to telemetry server',
+					subText: 'Ready to delivering'
+				} );
+				
+				setTimeout( () => {
+					store.commit( 'app/setLaunch', {
+						icon:    '<i class="fas fa-truck"></i>',
+						text:    'Waiting game connection',
+						subText: 'Run the game to start your job !'
+					} );
+				}, 5000 );
+			} );
+			telemetrySocket.on( 'update', updateTelemetry);
+			telemetrySocket.on( 'log', data => {
+				Vue.prototype.$updateEvent( data );
+			} );
+		}
+		// --- ./Dev
 	}
 };

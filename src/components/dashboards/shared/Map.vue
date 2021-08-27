@@ -1,52 +1,52 @@
 <template>
   <div
-      id="map-element"
-      class="map-shared wrapper"
+    id="map-element"
+    class="map-shared wrapper"
   >
     <div
-        v-if="!ready"
-        class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center"
+      v-if="!ready"
+      class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center"
     >
       <transition
-          mode="out-in"
-          name="slide-fade"
+        mode="out-in"
+        name="slide-fade"
       >
         <div class="d-flex justify-content-center align-items-center flex-column">
           <h1>
             <span
-                class="mb-3"
-                v-html="message.icon"
+              class="mb-3"
+              v-html="message.icon"
             />
           </h1>
           <h1 class="text-center">
             {{ message.text }}
           </h1>
           <small
-              v-if="message.sub.length > 0"
-              class="mb-3"
+            v-if="message.sub.length > 0"
+            class="mb-3"
           >{{ message.sub }}</small>
           <b-spinner
-              v-show="message.processing"
-              label="Processing..."
-              type="grow"
+            v-show="message.processing"
+            label="Processing..."
+            type="grow"
           />
         </div>
       </transition>
     </div>
     <div
-        id="map"
-        class="w-100 h-100"
+      id="map"
+      class="w-100 h-100"
     />
 
     <div class="barControls">
       <div
-          v-if="!embedded"
-          class="barZone justify-content-end"
+        v-if="!embedded"
+        class="barZone justify-content-end"
       >
         <div
-            class="barButton mr-auto h-100"
-            :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
-            @click="displayNavigationInfo = !displayNavigationInfo"
+          class="barButton mr-auto h-100 menuRoute"
+          :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
+          @click="displayNavigationInfo = !displayNavigationInfo"
         >
           <div class="round px-2 py-0">
             <i class="icon-route" />
@@ -54,8 +54,8 @@
         </div>
         <div class="barButton disabled w-100 h-100" />
         <div
-            class="barButton m-0 flex-row-reverse h-100 cruise-control"
-            :class="{
+          class="barButton m-0 flex-row-reverse h-100 cruise-control"
+          :class="{
             'green' : telemetry.truck.cruiseControl.enabled,
             'disabled' : !telemetry.truck.cruiseControl.enabled
           }"
@@ -64,22 +64,22 @@
             <i class="icon-cruise_control" />
           </div>
           <span
-              v-if="!telemetry.truck.cruiseControl.enabled"
-              class="pl-2"
+            v-if="!telemetry.truck.cruiseControl.enabled"
+            class="pl-2"
           >OFF</span>
           <span
-              v-else
-              class="pl-2"
+            v-else
+            class="pl-2"
           >{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
         </div>
       </div>
       <div
-          v-if="!embedded"
-          class="barZone spacer"
+        v-if="!embedded"
+        class="barZone spacer"
       />
       <div
-          v-if="!embedded"
-          id="speed-area"
+        v-if="!embedded"
+        id="speed-area"
       >
         <div class="d-flex justify-content-center align-items-center bottom button">
           <div class="speed">
@@ -87,8 +87,8 @@
           </div>
 
           <div
-              :class="telemetry.truck.transmission.shifterType"
-              class="truck-gears ml-2"
+            :class="telemetry.truck.transmission.shifterType"
+            class="truck-gears ml-2"
           >
             {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
           </div>
@@ -96,9 +96,9 @@
       </div>
       <div class="barZone justify-content-start">
         <div
-            v-if="!embedded"
-            class="barButton m-0 blue h-100 fuel"
-            :class="{
+          v-if="!embedded"
+          class="barButton m-0 blue h-100 fuel"
+          :class="{
             'orange': telemetry.truck.fuel.warning.enabled
           }"
         >
@@ -109,9 +109,9 @@
         </div>
         <div class="barButton disabled w-100 h-100" />
         <div
-            class="barButton ml-auto h-100"
-            :class="{ disabled: !displayControls, active: displayControls }"
-            @click="displayControls = !displayControls"
+          class="barButton ml-auto h-100 menuControl"
+          :class="{ disabled: !displayControls, active: displayControls }"
+          @click="displayControls = !displayControls"
         >
           <div class="round px-2 py-0">
             <i class="icon-menu" />
@@ -122,9 +122,9 @@
 
     <!-- Speed limit -->
     <div
-        v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && !embedded"
-        id="speed-limit"
-        class="justify-content-center align-items-center"
+      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && !embedded"
+      id="speed-limit"
+      class="justify-content-center align-items-center"
     >
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
@@ -132,44 +132,54 @@
 
     <!-- Control map buttons -->
     <div
-        v-show="displayControls"
-        id="controls-wrapper"
-        class="left h-100 flex-column justify-content-end"
+      v-show="displayControls"
+      id="controls-wrapper"
+      class="left h-100 flex-column justify-content-end"
     >
-      <button
-          id="info-button"
-          :class="{ disabled: !displayMapInfo }"
-          @click="onClickMapInfo"
+      <div
+        class="button w-100"
+        :class="{ disabled: !displayMapInfo, active: displayMapInfo }"
+        @click="onClickMapInfo"
       >
-        <i class="fas fa-info" />
-      </button>
-      <button
-          id="rotate-button"
-          :class="{ disabled: !rotateWithPlayer }"
-          @click="onClickRotate"
+        <div
+          class="round px-2 py-0"
+        >
+          <i class="fa fa-info" />
+        </div>
+      </div>
+      <div
+        id="rotate-button"
+        class="button w-100"
+        :class="{ disabled: !rotateWithPlayer, active: rotateWithPlayer }"
+        @click="onClickRotate"
       >
-        <i class="icon-location_arrow" />
-      </button>
-      <button
-          id="center-button"
-          @click="onClickCenter"
+        <div class="round px-2 py-0">
+          <i class="icon-location_arrow" />
+        </div>
+      </div>
+      <div
+        id="center-button"
+        class="button w-100"
+        @click="onClickCenter"
       >
-        <i class="icon-target" />
-      </button>
+        <span class="round px-2 py-0">
+          <i class="icon-target" />
+        </span>
+      </div>
       <div id="ol-zoom-wrapper" />
     </div>
     <!-- ./Control map buttons -->
 
     <!-- Map info overlay -->
     <div
-        v-if="displayMapInfo"
-        id="mapInfoOverlay"
+      v-if="displayMapInfo"
+      id="mapInfoOverlay"
     >
       <h5>
         <span>Map Information</span>
         <i
-            class="fas fa-times"
-            @click="onClickMapInfo"
+          class="fas fa-times"
+          @click="onClickMapInfo"
         />
       </h5>
       <hr>
@@ -215,32 +225,32 @@
 
     <!-- Navigation ETA -->
     <div
-        v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
-        class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
+      v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
+      class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
-      <span
-          v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'"
-          class="button"
+      <div
+        v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'"
+        class="button px-2 py-0 w-100 active"
       >
-        <div class="round h-100">
+        <div class="round">
           <i class="icon-time" />
         </div>
-        <span class="w-100">{{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
-      </span>
-      <span
-          v-else
-          class="button"
+        <span class="pl-2 w-100">{{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+      </div>
+      <div
+        v-else
+        class="button px-2 py-0 w-100 active"
       >
-        <div class="round h-100">
+        <div class="round">
           <i class="icon-time" />
         </div>
-        <span class="w-100">{{ $etaRemaing() }}</span>
-      </span>
-      <span class="button">
-        <div class="round h-100">
+        <span class="pl-2 w-100">{{ $etaRemaing() }}</span>
+      </div>
+      <span class="button px-2 py-0 w-100 active">
+        <div class="round">
           <i class="icon-ruler" />
         </div>
-        <span class="w-100">{{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
+        <span class="pl-2 w-100">{{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
       </span>
     </div>
     <!-- ./Navigation ETA -->
