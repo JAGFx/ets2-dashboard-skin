@@ -12,7 +12,6 @@ import fs                from 'fs';
 import http              from 'http';
 import path              from 'path';
 import socketio          from 'socket.io';
-import cors              from 'cors';
 import truckSimTelemetry from 'trucksim-telemetry';
 import { logIt }         from './utils.helpers';
 
@@ -22,7 +21,12 @@ const configFilePath = path.resolve( process.cwd(), './config.ets2-dashboard-ski
 const init = () => {
 	app       = express();
 	server    = http.createServer( app );
-	io        = socketio( server );
+	io        = socketio( server, {
+		cors: {
+			origin:      /http:\/\/localhost:\d+/,
+			credentials: true
+		}
+	} );
 	telemetry = truckSimTelemetry();
 	port      = 3000;
 	interval  = () => {
@@ -37,10 +41,6 @@ const init = () => {
 	pathMap   = path.resolve( process.cwd(), './maps' );
 	
 	app.use( bodyParser.json() );
-	app.use( cors( {
-		origin:      /http:\/\/localhost:\d+/,
-		credentials: true
-	} ) );
 	app.use( express.static( pathDist ) );
 	
 	if ( fs.existsSync( pathMap ) )
@@ -63,7 +63,7 @@ const init = () => {
 	} );
 	
 	io.on( 'connection', socket => {
-		io.emit( 'update', telemetry.data );
+		socket.emit( 'update', telemetry.data );
 	} );
 	
 	server.listen( port, () => {

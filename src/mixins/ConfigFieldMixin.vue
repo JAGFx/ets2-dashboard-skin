@@ -39,7 +39,7 @@ export default {
       appGetProcessing: 'app/getProcessing'
     } )
   },
-  created() {
+  mounted() {
 
     if ( this.values !== null )
       this.values

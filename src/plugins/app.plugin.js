@@ -6,8 +6,9 @@
  * Time: 	19:43
  */
 
-import { event, history } from '@/utils/utils';
 import store              from '@/store';
+import { mutations }      from '@/store/telemetry.store';
+import { event, history } from '@/utils/utils';
 import { io }             from 'socket.io-client';
 
 export default {
@@ -39,13 +40,33 @@ export default {
 			}
 		};
 		
-		
 		const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
 		telemetrySocket.on( 'connect', () => {
-			store.dispatch( 'telemetry/socket_connect' );
+			store.commit( 'app/setLaunch', {
+				icon:    '<i class="fas fa-truck"></i>',
+				text:    'Connected to telemetry server',
+				subText: 'Ready to delivering'
+			} );
+			
+			setTimeout( () => {
+				store.commit( 'app/setLaunch', {
+					icon:    '<i class="fas fa-truck"></i>',
+					text:    'Waiting game connection',
+					subText: 'Run the game to start your job !'
+				} );
+			}, 5000 );
 		} );
-		telemetrySocket.on( 'update', data => {
-			store.dispatch( 'telemetry/socket_update', data );
+		telemetrySocket.on( 'update', payload => {
+			const data = { ...payload };
+			Object.freeze( data );
+			const gameConnected = data.game !== null &&
+								  (typeof data.game === 'object' && Object.keys( data.game ).length > 0);
+			
+			mutations.setTelemetry( data );
+			mutations.setGameConnected( gameConnected );
+			
+			if ( gameConnected )
+				mutations.setReceivedData( true );
 		} );
 		telemetrySocket.on( 'log', data => {
 			Vue.prototype.$updateEvent( data );

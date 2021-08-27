@@ -1,52 +1,52 @@
 <template>
   <div
-    id="map-element"
-    class="map-shared wrapper"
+      id="map-element"
+      class="map-shared wrapper"
   >
     <div
-      v-if="!ready"
-      class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center"
+        v-if="!ready"
+        class="loader w-100 h-100 d-flex justify-content-center flex-column align-items-center"
     >
       <transition
-        mode="out-in"
-        name="slide-fade"
+          mode="out-in"
+          name="slide-fade"
       >
         <div class="d-flex justify-content-center align-items-center flex-column">
           <h1>
             <span
-              class="mb-3"
-              v-html="message.icon"
+                class="mb-3"
+                v-html="message.icon"
             />
           </h1>
           <h1 class="text-center">
             {{ message.text }}
           </h1>
           <small
-            v-if="message.sub.length > 0"
-            class="mb-3"
+              v-if="message.sub.length > 0"
+              class="mb-3"
           >{{ message.sub }}</small>
           <b-spinner
-            v-show="message.processing"
-            label="Processing..."
-            type="grow"
+              v-show="message.processing"
+              label="Processing..."
+              type="grow"
           />
         </div>
       </transition>
     </div>
     <div
-      id="map"
-      class="w-100 h-100"
+        id="map"
+        class="w-100 h-100"
     />
 
     <div class="barControls">
       <div
-        v-if="!embedded"
-        class="barZone justify-content-end"
+          v-if="!embedded"
+          class="barZone justify-content-end"
       >
         <div
-          class="barButton mr-auto h-100"
-          :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
-          @click="displayNavigationInfo = !displayNavigationInfo"
+            class="barButton mr-auto h-100"
+            :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
+            @click="displayNavigationInfo = !displayNavigationInfo"
         >
           <div class="round px-2 py-0">
             <i class="icon-route" />
@@ -54,8 +54,8 @@
         </div>
         <div class="barButton disabled w-100 h-100" />
         <div
-          class="barButton m-0 flex-row-reverse h-100 cruise-control"
-          :class="{
+            class="barButton m-0 flex-row-reverse h-100 cruise-control"
+            :class="{
             'green' : telemetry.truck.cruiseControl.enabled,
             'disabled' : !telemetry.truck.cruiseControl.enabled
           }"
@@ -64,22 +64,22 @@
             <i class="icon-cruise_control" />
           </div>
           <span
-            v-if="!telemetry.truck.cruiseControl.enabled"
-            class="pl-2"
+              v-if="!telemetry.truck.cruiseControl.enabled"
+              class="pl-2"
           >OFF</span>
           <span
-            v-else
-            class="pl-2"
+              v-else
+              class="pl-2"
           >{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
         </div>
       </div>
       <div
-        v-if="!embedded"
-        class="barZone spacer"
+          v-if="!embedded"
+          class="barZone spacer"
       />
       <div
-        v-if="!embedded"
-        id="speed-area"
+          v-if="!embedded"
+          id="speed-area"
       >
         <div class="d-flex justify-content-center align-items-center bottom button">
           <div class="speed">
@@ -87,8 +87,8 @@
           </div>
 
           <div
-            :class="telemetry.truck.transmission.shifterType"
-            class="truck-gears ml-2"
+              :class="telemetry.truck.transmission.shifterType"
+              class="truck-gears ml-2"
           >
             {{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}
           </div>
@@ -96,9 +96,9 @@
       </div>
       <div class="barZone justify-content-start">
         <div
-          v-if="!embedded"
-          class="barButton m-0 blue h-100 fuel"
-          :class="{
+            v-if="!embedded"
+            class="barButton m-0 blue h-100 fuel"
+            :class="{
             'orange': telemetry.truck.fuel.warning.enabled
           }"
         >
@@ -109,9 +109,9 @@
         </div>
         <div class="barButton disabled w-100 h-100" />
         <div
-          class="barButton ml-auto h-100"
-          :class="{ disabled: !displayControls, active: displayControls }"
-          @click="displayControls = !displayControls"
+            class="barButton ml-auto h-100"
+            :class="{ disabled: !displayControls, active: displayControls }"
+            @click="displayControls = !displayControls"
         >
           <div class="round px-2 py-0">
             <i class="icon-menu" />
@@ -122,9 +122,9 @@
 
     <!-- Speed limit -->
     <div
-      v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && !embedded"
-      id="speed-limit"
-      class="justify-content-center align-items-center"
+        v-if="$haveAnActiveSpeedLimit() && configEnabled('maps_elements_speedLimit') && !embedded"
+        id="speed-limit"
+        class="justify-content-center align-items-center"
     >
       <span>{{ unit_speed( telemetry.navigation.speedLimit, true, false ) }}</span>
     </div>
@@ -132,27 +132,27 @@
 
     <!-- Control map buttons -->
     <div
-      v-show="displayControls"
-      id="controls-wrapper"
-      class="left h-100 flex-column justify-content-end"
+        v-show="displayControls"
+        id="controls-wrapper"
+        class="left h-100 flex-column justify-content-end"
     >
       <button
-        id="info-button"
-        :class="{ disabled: !displayMapInfo }"
-        @click="onClickMapInfo"
+          id="info-button"
+          :class="{ disabled: !displayMapInfo }"
+          @click="onClickMapInfo"
       >
         <i class="fas fa-info" />
       </button>
       <button
-        id="rotate-button"
-        :class="{ disabled: !rotateWithPlayer }"
-        @click="onClickRotate"
+          id="rotate-button"
+          :class="{ disabled: !rotateWithPlayer }"
+          @click="onClickRotate"
       >
         <i class="icon-location_arrow" />
       </button>
       <button
-        id="center-button"
-        @click="onClickCenter"
+          id="center-button"
+          @click="onClickCenter"
       >
         <i class="icon-target" />
       </button>
@@ -162,14 +162,14 @@
 
     <!-- Map info overlay -->
     <div
-      v-if="displayMapInfo"
-      id="mapInfoOverlay"
+        v-if="displayMapInfo"
+        id="mapInfoOverlay"
     >
       <h5>
         <span>Map Information</span>
         <i
-          class="fas fa-times"
-          @click="onClickMapInfo"
+            class="fas fa-times"
+            @click="onClickMapInfo"
         />
       </h5>
       <hr>
@@ -186,6 +186,26 @@
           <th>Date</th>
           <td>{{ mapInfo().game.generatedAt }}</td>
         </tr>
+        <tr>
+          <th>Pos</th>
+          <td>X: {{ telemetry.truck.position.X.toFixed( 3 ) }} | Y: {{ telemetry.truck.position.Y.toFixed( 3 ) }}</td>
+        </tr>
+        <tr>
+          <th>Ready</th>
+          <td>{{ ready }}</td>
+        </tr>
+        <tr>
+          <th>Last pos</th>
+          <td>{{ m.lastPos }}</td>
+        </tr>
+        <tr>
+          <th>Map ready</th>
+          <td>{{ m.ready }}</td>
+        </tr>
+        <tr>
+          <th>Tiles</th>
+          <td>{{ m.paths.base }}</td>
+        </tr>
       </table>
       <div v-else>
         No data available
@@ -195,12 +215,12 @@
 
     <!-- Navigation ETA -->
     <div
-      v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
-      class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
+        v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
+        class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
       <span
-        v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'"
-        class="button"
+          v-if="configEnabled('maps_map_navigationRemaining') === 'due_date'"
+          class="button"
       >
         <div class="round h-100">
           <i class="icon-time" />
@@ -208,8 +228,8 @@
         <span class="w-100">{{ $etaDueDate() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
       </span>
       <span
-        v-else
-        class="button"
+          v-else
+          class="button"
       >
         <div class="round h-100">
           <i class="icon-time" />
@@ -228,15 +248,14 @@
 </template>
 
 <script>
-import { EventBus }          from '@/event-bus';
-import TelemetryMixin        from '@/mixins/TelemetryMixin';
-import { app, history, map } from '@/utils/utils';
-import { mapGetters }        from 'vuex';
+import TelemetryMixin   from '@/mixins/TelemetryMixin';
+import { history, map } from '@/utils/utils';
+import { mapGetters }   from 'vuex';
 
 export default {
-  name:  'Map',
+  name:   'Map',
   mixins: [ TelemetryMixin ],
-  props: {
+  props:  {
     embedded: {
       type:     Boolean,
       required: false,
@@ -247,10 +266,9 @@ export default {
     return {
       displayControls:       (this.embedded)
                                  ? false
-                                 :
-                                 this.$store.getters[ 'config/enabled' ]( 'maps_elements_mapControls' ),
+                                 : this.$store.getters[ 'config/enabled' ]( 'maps_elements_mapControls' ),
       displayNavigationInfo: this.$store.getters[ 'config/enabled' ]( 'maps_elements_eta' ),
-      displayMapInfo:        false,
+      displayMapInfo:        true,
       rotateWithPlayer:      map.d.gBehaviorRotateWithPlayer,
       ready:                 false,
       message:               {
@@ -264,30 +282,23 @@ export default {
   computed: {
     ...mapGetters( {
       configEnabled: 'config/enabled'
-    } )
+    } ),
+    m: () => map.d
   },
-  created() {
+  watch:    {
+    telemetry( newTelemetry ) {
+      if ( this.ready ) {
+        map.updatePlayerPositionAndRotation(
+            newTelemetry.truck.position.X,
+            newTelemetry.truck.position.Z,
+            newTelemetry.truck.orientation.heading,
+            newTelemetry.truck.speed.kph );
+      }
+    }
+  },
+  mounted() {
     map.init( this.telemetry.game.game.name )
        .then( () => {
-         EventBus.$on( 'tmp-update', dataIn => {
-           map.updatePlayerPositionAndRotation(
-               dataIn.truck.position.X,
-               dataIn.truck.position.Z,
-               dataIn.truck.orientation.heading,
-               dataIn.truck.speed.kph );
-         } );
-
-         // --- Dev
-         if ( app.isOnDevEnvironment )
-           setTimeout( () => {
-             map.updatePlayerPositionAndRotation(
-                 this.telemetry.truck.position.X,
-                 this.telemetry.truck.position.Z,
-                 this.telemetry.truck.orientation.heading,
-                 this.telemetry.truck.speed.kph );
-           }, 1000 );
-         // --- ./Dev
-
          this.ready            = true;
          this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
        } )

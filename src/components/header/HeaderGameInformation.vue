@@ -156,7 +156,7 @@ export default {
       menuIsDisplayed: 'menu/isDisplayed'
     } )
   },
-  created() {
+  mounted() {
     axios.get( 'https://api.github.com/repos/JAGFx/ets2-dashboard-skin/releases/latest' )
          .then( ( data ) => {
            const latestReleaseVersion = data.data.tag_name;

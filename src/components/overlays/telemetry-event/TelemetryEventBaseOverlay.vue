@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      :class="eventName.replace('.', '-')"
-      class="item d-flex justify-content-center align-items-center"
+        :class="eventName.replace('.', '-')"
+        class="item d-flex justify-content-center align-items-center"
     >
       <span class="ico m-4 p-3 d-flex justify-content-center align-items-center">
         <i :class="eventsText()[ eventName ].icon" />
@@ -25,6 +25,15 @@ export default {
   mixins:  [ TelemetryEventOverlayMixin ],
   methods: {
     eventsText() {
+
+      if ( eventsText[ this.eventName ] === undefined ) {
+        return {
+          icon:     null,
+          title:    this.eventName,
+          subtitle: null
+        };
+      }
+
       return eventsText;
     }
   }

@@ -56,11 +56,5 @@ server.listen( port, () => {
 		port: port
 	};
 	
-	const eventName = 'server.listen';
-	io.emit( 'log', {
-		eventName: eventName,
-		rawData:   data
-	} );
-	
 	console.log( 'server.listen', data, `Euro Truck Simulator 2 dashboard is running at http://${ url }/` );
 } );

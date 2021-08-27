@@ -21,7 +21,7 @@ export default {
       currentSkin: 'skins/current'
     } )
   },
-  created() {
+  mounted() {
     this.updateScale();
     window.addEventListener( 'resize', this.updateScale );
   },

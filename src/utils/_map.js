@@ -36,6 +36,10 @@ let d = {
 		base:   '',
 		tiles:  'Tiles/{z}/{x}/{y}.png',
 		config: 'TileMapInfo.json'
+	},
+	lastPos: {
+		x: null,
+		y: null
 	}
 };
 
@@ -86,7 +90,6 @@ const initConfig = ( game ) => {
 				.get( d.paths.base + tilesPath )
 				.then( () => {
 					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, history.HTY_ZONE.MAPS_INIT );
-					d.ready                     = true;
 					d.gBehaviorRotateWithPlayer = rotateWithPlayer;
 					
 				}, () => {
@@ -166,7 +169,8 @@ const initMap = () => {
 
 const init = ( game ) => {
 	return initConfig( game )
-		.then( () => initMap() );
+		.then( () => initMap() )
+		.then( () => d.ready = true )
 };
 
 // ----
@@ -213,8 +217,21 @@ const getPlayerLayer = () => {
 
 const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 	
-	if ( d.ready === null )
+	if ( d.ready !== true )
 		return;
+	
+	lon = lon.toFixed(3);
+	lat = lat.toFixed(3);
+	rot = rot.toFixed(5);
+	speed = (speed).toFixed( 0 );
+	
+	if( d.lastPos.x === lon || d.lastPos.y === lat )
+		return;
+	
+	d.lastPos = {
+		x: lon,
+		y: lat
+	}
 	
 	let map_coords = gameCoordToPixels( lon, lat );
 	let rad        = rot * Math.PI * 2;
@@ -224,35 +241,23 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 	
 	d.gIgnoreViewChangeEvents = true;
 	if ( d.gBehaviorCenterOnPlayer ) {
-		
 		if ( d.gBehaviorRotateWithPlayer ) {
-			const height           = d.map.getSize()[ 1 ];
-			const max_ahead_amount = height / 3.0 * d.map.getView().getResolution();
-			const amount_ahead     = Math.max( -max_ahead_amount, Math.min( speed * 0.25, max_ahead_amount ) );
-			const ahead_coords     = [
-				map_coords[ 0 ] + Math.sin( -rad ) * amount_ahead,
-				map_coords[ 1 ] + Math.cos( -rad ) * amount_ahead
-			];
-			
-			speed = (speed).toFixed( 0 );
-			
 			//auto-zoom map by speed
 			if ( app.betweenFloat( speed, 15, 35 ) )
 				d.map.getView().setZoom( 9 );
-			
+
 			else if ( app.betweenFloat( speed, 51, 55 ) )
 				d.map.getView().setZoom( 8 );
-			
+
 			else if ( app.betweenFloat( speed, 61, 65 ) )
 				d.map.getView().setZoom( 7 );
-			
+
 			else if ( app.betweenFloat( speed, 81, 88 ) )
 				d.map.getView().setZoom( 6 );
-			
-			
-			d.map.getView().setCenter( ahead_coords );
+
+			d.map.getView().setCenter( map_coords );
 			d.map.getView().setRotation( rad );
-			
+
 		} else {
 			d.map.getView().setCenter( map_coords );
 			d.map.getView().setRotation( 0 );

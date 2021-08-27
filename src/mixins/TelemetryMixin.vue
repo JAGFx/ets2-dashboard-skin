@@ -6,8 +6,8 @@ import {
   pressure as uc_pressure,
   temperature as uc_temperature,
   volume as uc_volume
-}                     from 'units-converter';
-import { mapGetters } from 'vuex';
+}                from 'units-converter';
+import { store } from '@/store/telemetry.store';
 
 export default {
   name: 'TelemetryMixin',
@@ -20,11 +20,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      telemetry: 'telemetry/getTelemetry',
-      gameConnected: 'telemetry/getGameConnected',
-      receivedData: 'telemetry/getReceivedData',
-    }),
+      telemetry: ()=>store.telemetry,
+      gameConnected: ()=>app.useFakeData || (store.receivedData
+                                             && store.telemetry.game.sdkActive
+                                             && (store.telemetry.truck.brand.id.length !== 0)),
+      receivedData: ()=>store.receivedData,
     jobDeliveryTime(){
       return ( this.telemetry.job.market.id === 'external_contracts' )
           ? this.telemetry.job.expectedDeliveryTimestamp.value

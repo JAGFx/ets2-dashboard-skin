@@ -60,7 +60,7 @@ export default {
       getConfig:       'config/get'
     } )
   },
-  created() {
+  mounted() {
     this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
 
     this.$store
