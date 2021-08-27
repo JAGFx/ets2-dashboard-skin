@@ -39,11 +39,9 @@
     />
 
     <div class="barControls">
-      <div
-        v-if="!embedded"
-        class="barZone justify-content-end"
-      >
+      <div class="barZone justify-content-end">
         <div
+          v-if="!embedded"
           class="barButton mr-auto h-100 menuRoute"
           :class="{ disabled: !$haveAnActiveNavigation() || !displayNavigationInfo, active: $haveAnActiveNavigation() && displayNavigationInfo }"
           @click="displayNavigationInfo = !displayNavigationInfo"
@@ -52,7 +50,10 @@
             <i class="icon-route" />
           </div>
         </div>
-        <div class="barButton disabled w-100 h-100" />
+        <div
+          v-if="!embedded"
+          class="barButton disabled w-100 h-100"
+        />
         <div
           class="barButton m-0 flex-row-reverse h-100 cruise-control"
           :class="{
@@ -278,7 +279,7 @@ export default {
                                  ? false
                                  : this.$store.getters[ 'config/enabled' ]( 'maps_elements_mapControls' ),
       displayNavigationInfo: this.$store.getters[ 'config/enabled' ]( 'maps_elements_eta' ),
-      displayMapInfo:        true,
+      displayMapInfo:        false,
       rotateWithPlayer:      map.d.gBehaviorRotateWithPlayer,
       ready:                 false,
       message:               {
