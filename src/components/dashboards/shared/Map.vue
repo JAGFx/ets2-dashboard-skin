@@ -38,8 +38,14 @@
       class="w-100 h-100"
     />
 
-    <div class="barControls">
-      <div class="barZone justify-content-end">
+    <div
+      class="barControls"
+      :class="{'embedded': embedded }"
+    >
+      <div
+        class="barZone justify-content-end"
+        :class="{'embedded': embedded }"
+      >
         <div
           v-if="!embedded"
           class="barButton mr-auto h-100 menuRoute"
@@ -50,10 +56,7 @@
             <i class="icon-route" />
           </div>
         </div>
-        <div
-          v-if="!embedded"
-          class="barButton disabled w-100 h-100"
-        />
+        <div class="barButton disabled w-100 h-100" />
         <div
           class="barButton m-0 flex-row-reverse h-100 cruise-control"
           :class="{
@@ -197,23 +200,23 @@
           <th>Date</th>
           <td>{{ mapInfo().game.generatedAt }}</td>
         </tr>
-        <tr>
+        <tr v-if="configEnabled('maps_general_debug')">
           <th>Pos</th>
           <td>X: {{ telemetry.truck.position.X.toFixed( 3 ) }} | Y: {{ telemetry.truck.position.Y.toFixed( 3 ) }}</td>
         </tr>
-        <tr>
+        <tr v-if="configEnabled('maps_general_debug')">
           <th>Ready</th>
           <td>{{ ready }}</td>
         </tr>
-        <tr>
+        <tr v-if="configEnabled('maps_general_debug')">
           <th>Last pos</th>
           <td>{{ m.lastPos }}</td>
         </tr>
-        <tr>
+        <tr v-if="configEnabled('maps_general_debug')">
           <th>Map ready</th>
           <td>{{ m.ready }}</td>
         </tr>
-        <tr>
+        <tr v-if="configEnabled('maps_general_debug')">
           <th>Tiles</th>
           <td>{{ m.paths.base }}</td>
         </tr>

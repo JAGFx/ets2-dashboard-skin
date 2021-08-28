@@ -67,5 +67,6 @@
 	"general_damage_accurate" :       "damage-diagnostic",
 	"jagfx_elements_right_map" :      true,
 	"maps_map_tilesRemoteUseCustom": false,
-	"maps_map_tilesRemoteCustomPath": null
+	"maps_map_tilesRemoteCustomPath": null,
+	"maps_general_debug": false
 }

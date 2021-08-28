@@ -30,6 +30,14 @@
 			width: 100%;
 			background: $cBlack;
 			
+			&.embedded{
+				justify-content: flex-end;
+				.barZone{
+					width: auto;
+					&.embedded{ width: 100%; }
+				}
+			}
+			
 			.barZone {
 				width: 100%;
 				display: flex;
