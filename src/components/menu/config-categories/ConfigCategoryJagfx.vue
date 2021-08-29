@@ -93,13 +93,15 @@
           values: fieldValues( 'on_off' )
         }"
       />
-      <!--    <ConfigFieldChoice v-bind="{
-              id: 'jagfx_elements_right_map',
-              label: 'Display map',
-              disabled: false,
-              description: 'Enable or disable the map view',
-              values: fieldValues( 'on_off' )
-            }" />-->
+      <ConfigFieldChoice
+        v-bind="{
+          id: 'jagfx_elements_right_map',
+          label: 'Display map',
+          disabled: false,
+          description: 'Enable or disable the map view',
+          values: fieldValues( 'on_off' )
+        }"
+      />
     </div>
     <div class="fields mb-4">
       <h4>Middle - Top</h4>

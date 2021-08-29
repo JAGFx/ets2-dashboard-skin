@@ -142,8 +142,9 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import Cadran    from '@/components/dashboards/shared/Cadran';
+import Dashboard      from '@/components/dashboards/Dashboard';
+import Cadran         from '@/components/dashboards/shared/Cadran';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name:       'DafXFDashboard',
@@ -151,6 +152,7 @@ export default {
     Dashboard,
     Cadran
   },
+  mixins: [ TelemetryMixin ],
   methods:    {
     speed( truckSpeed, showValue = true, showSymbol = true ) {
       return this.$options.filters.unit_speed( truckSpeed, showValue, showSymbol );

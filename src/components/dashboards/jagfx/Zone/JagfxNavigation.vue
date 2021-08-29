@@ -111,11 +111,12 @@
 import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
 import JagfxSymbolArea   from '@/components/dashboards/jagfx/JagfxSymbolArea';
 import JagfxRPMBars      from '@/components/dashboards/jagfx/Zone/JagfxRPMBars';
+import TelemetryMixin    from '@/mixins/TelemetryMixin';
 
 export default {
   name:       'JagfxNavigation',
   components: { JagfxSymbolArea, JagfxRPMBars },
-  mixins:     [ JagfxConfigMixins ],
+  mixins:     [ JagfxConfigMixins, TelemetryMixin ],
   methods:    {
     getFuelByBar:     function () {
       return (this.telemetry.truck.fuel.capacity * this.telemetry.truck.fuel.warning.factor).toFixed( 0 );

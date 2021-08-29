@@ -5,10 +5,12 @@
 </template>
 
 <script>
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 import { mapGetters } from 'vuex';
 
 export default {
   name:     'Dashboard',
+  mixins: [ TelemetryMixin ],
   data() {
     return {
       currentScale: 1
@@ -19,7 +21,7 @@ export default {
       currentSkin: 'skins/current'
     } )
   },
-  created() {
+  mounted() {
     this.updateScale();
     window.addEventListener( 'resize', this.updateScale );
   },

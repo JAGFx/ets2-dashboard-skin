@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.97 128">
-	<defs>
-		<style>.cls-1{font-size:74px;font-family:MyriadPro-Regular, Myriad Pro;}</style>
-	</defs>
-	<title>parking_brakes</title>
-	<g id="parking_brakes">
-		<path
-			d="M63.55,21.89A42.11,42.11,0,1,1,21.44,64,42.22,42.22,0,0,1,63.55,21.89m0-7.06A49.17,49.17,0,1,0,112.72,64,49.2,49.2,0,0,0,63.55,14.83Z" />
-		<path
-			d="M115.69,102.29l-5.93-4.1a56.7,56.7,0,0,0-1.13-66L114.42,28A63.23,63.23,0,0,1,127,66,61.77,61.77,0,0,1,115.69,102.29Z" />
-		<path
-			d="M11.41,102.29A63.55,63.55,0,0,1,12.54,28l5.8,4.24A55.69,55.69,0,0,0,7.17,66a56.78,56.78,0,0,0,10,32.21Z" />
-		<text class="cls-1" transform="translate(43.97 85.39)">P</text>
-	</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.97 128"><defs><style>.cls-1{font-size:74px;font-family:MyriadPro-Regular, Myriad Pro;}</style></defs><title>parking_brakes</title><g id="parking_brakes"><path d="M63.55,21.89A42.11,42.11,0,1,1,21.44,64,42.22,42.22,0,0,1,63.55,21.89m0-7.06A49.17,49.17,0,1,0,112.72,64,49.2,49.2,0,0,0,63.55,14.83Z"/><path d="M115.69,102.29l-5.93-4.1a56.7,56.7,0,0,0-1.13-66L114.42,28A63.23,63.23,0,0,1,127,66,61.77,61.77,0,0,1,115.69,102.29Z"/><path d="M11.41,102.29A63.55,63.55,0,0,1,12.54,28l5.8,4.24A55.69,55.69,0,0,0,7.17,66a56.78,56.78,0,0,0,10,32.21Z"/><text class="cls-1" transform="translate(43.97 85.39)">P</text></g></svg>

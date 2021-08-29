@@ -8,12 +8,14 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
+import Dashboard      from '@/components/dashboards/Dashboard';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name:       'TestDashboard',
   components: {
     Dashboard
-  }
+  },
+  mixins: [ TelemetryMixin ]
 };
 </script>

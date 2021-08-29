@@ -99,7 +99,10 @@
 </template>
 
 <script>
-	export default {
-    name: 'JagfxJob'
+	import TelemetryMixin from '@/mixins/TelemetryMixin';
+
+  export default {
+    name: 'JagfxJob',
+    mixins: [TelemetryMixin]
   };
 </script>

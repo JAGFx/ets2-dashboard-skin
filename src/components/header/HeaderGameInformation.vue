@@ -135,12 +135,14 @@
 
 <script>
 import scsSDKData       from '@/data/scs_sdk_plugin_parsed_data.json';
+import TelemetryMixin   from '@/mixins/TelemetryMixin';
 import { app, history } from '@/utils/utils';
 import * as axios       from 'axios';
 import { mapGetters }   from 'vuex';
 
 export default {
   name: 'HeaderGameInformation',
+  mixins: [TelemetryMixin],
   data() {
     return {
       event:               '',
@@ -154,7 +156,7 @@ export default {
       menuIsDisplayed: 'menu/isDisplayed'
     } )
   },
-  created() {
+  mounted() {
     axios.get( 'https://api.github.com/repos/JAGFx/ets2-dashboard-skin/releases/latest' )
          .then( ( data ) => {
            const latestReleaseVersion = data.data.tag_name;

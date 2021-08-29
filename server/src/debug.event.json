@@ -1,200 +1,693 @@
-[
-  server.listen
-] Euro Truck Simulator 2 dashboard is running at http://localhost:3000/ {
-"url" : "localhost:3000",
-"port" : 3000
+[server.listen] Euro Truck Simulator 2 dashboard is running at http://localhost:3000/ {
+"url": "localhost:3000",
+"port": 3000
 }
-[ game.connected ] Game | Connected null
-[ game.pause ] Game | Unpaused {
-"paused" : false
+[truck.engine] Truck | Truck engine OFF {
+"enabled": false
 }
-[ truck.damage ] Truck | Truck damage increased 1% {
-"damages" : {
-"cabin" : 0.010830743238329887,
-"chassis" : 0.01353843230754137,
-"engine": 0.00692721689119935,
-"transmission" : 0.004219531547278166,
-"wheels" : 0.00361075927503407
+[truck.warning] Truck | Warning: Battery Voltage {
+"warning": "Battery Voltage",
+"enabled": true
 }
+[truck.warning] Truck | Battery Voltage warning disabled {
+"warning": "Battery Voltage",
+"enabled": false
 }
-[ truck.warning ] Truck | Warning : Oil Pressure {
-"warning" : "Oil Pressure",
-"enabled" : true
+[truck.engine] Truck | Truck engine ON {
+"enabled": true
 }
-[ truck.warning ] Truck | Warning : Battery Voltage {
-"warning" : "Battery Voltage",
-"enabled" : true
+[truck.engine] Truck | Truck engine OFF {
+"enabled": false
 }
-[ truck.park ] Truck | Parking brake ON {
-"enabled" : true
+[truck.warning] Truck | Warning: Battery Voltage {
+"warning": "Battery Voltage",
+"enabled": true
 }
-[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
-"id" : 0,
-"enabled" : true
+[truck.warning] Truck | Battery Voltage warning disabled {
+"warning": "Battery Voltage",
+"enabled": false
 }
-[ game.pause ] Game | Paused {
-"paused" : true
+[truck.engine] Truck | Truck engine ON {
+"enabled": true
 }
-[ game.pause ] Game | Unpaused {
-"paused" : false
-}
-[ game.pause ] Game | Paused {
-"paused" : true
-}
-[ game.pause ] Game | Unpaused {
-"paused" : false
-}
-[ game.pause ] Game | Paused {
-"paused" : true
-}
-[ game.pause ] Game | Unpaused {
-"paused" : false
-}
-[ truck.electric ] Truck | Truck electrical ON {
-"enabled" : true
-}
-[ truck.park ] Truck | Parking brake OFF {
-"enabled" : false
-}
-[ truck.warning ] Truck | Battery Voltage warning disabled {
-"warning" : "Battery Voltage",
-"enabled" : false
-}
-[ truck.warning ] Truck | Oil Pressure warning disabled {
-"warning" : "Oil Pressure",
-"enabled" : false
-}
-[ truck.engine ] Truck | Truck engine ON {
-"enabled" : true
-}
-[ navigation.speed-limit ] Navigation | Speed limit changed to 50kph / 31mph {
-"speed" : {
-"value" : 13.88888931274414,
-"kph" : 50,
-"mph" : 31
+[navigation.speed-limit] Navigation | Speed limit changed to 50kph / 31mph {
+"speed": {
+"value": 13.88888931274414,
+"kph": 50,
+"mph": 31
 }
 }
-[ game.fine ] Game | Red Signal, €360 fine {
-"fine" : {
-"offence" : {
-"id" : "red_signal",
-"name" : "Red Signal"
+[navigation.speed-limit] Navigation | Speed limit changed to 40kph / 25mph {
+"speed": {
+"value": 11.111111640930176,
+"kph": 40,
+"mph": 25
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 17.50437355041504,
+"kph": 63,
+"mph": 39
 },
-"amount" : 360,
-"active" : true
+"speedLimit": {
+"value": 11.111111640930176,
+"kph": 40,
+"mph": 25
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
 }
 }
-[ navigation.speed-limit ] Navigation | Speed limit changed to 0kph / 0mph {
-"speed" : {
-"value" : 0,
-"kph" : 0,
-"mph" : 0
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 63kph / 39mph {
+"cruiseControl": {
+"value": 17.50437355041504,
+"kph": 63,
+"mph": 39
 }
 }
-[ truck.park ] Truck | Parking brake ON {
-"enabled" : true
-}
-[ game.pause ] Game | Paused {
-"paused" : true
-}
-[ job.started ] Job | New job started {
-"job" : {
-"autoLoaded": false,
-"active" : true
+[navigation.speed-limit] Navigation | Speed limit changed to 80kph / 50mph {
+"speed": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
 }
 }
-[ game.pause ] Game | Unpaused {
-"paused" : false
-}
-[ truck.park ] Truck | Parking brake OFF {
-"enabled" : false
-}
-[ truck.park ] Truck | Parking brake ON {
-"enabled" : true
-}
-[ truck.warning ] Truck | Warning : Battery Voltage {
-"warning" : "Battery Voltage",
-"enabled" : true
-}
-[ truck.engine ] Truck | Truck engine OFF {
-"enabled" : false
-}
-[ truck.electric ] Truck | Truck electrical OFF {
-"enabled" : false
-}
-[ game.pause ] Game | Paused {
-"paused" : true
-}
-[ trailers.coupling ] Trailers | Trailer #1 coupling disconnected {
-"id" : 0,
-"enabled" : false
-}
-[ game.pause ] Game | Unpaused {
-"paused" : false
-}
-[ truck.warning ] Truck | Warning : Oil Pressure {
-"warning" : "Oil Pressure",
-"enabled" : true
-}
-[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
-"id" : 0,
-"enabled" : true
-}
-[ game.pause ] Game | Paused {
-"paused" : true
-}
-[ game.pause ] Game | Unpaused {
-"paused" : false
-}
-[ truck.electric ] Truck | Truck electrical ON {
-"enabled" : true
-}
-[ game.pause ] Game | Paused {
-"paused" : true
-}
-[ job.finished ] Job | Job finished { }
-[ job.cancelled ] Job | Job cancelled, Penalty : €12, 000 {
-"job" : {
-"penalty" : 12000,
-"active" : true,
-"startingTime" : 942845280000,
-"finishingTime" : 942849180000
+[navigation.speed-limit] Navigation | Speed limit changed to 60kph / 38mph {
+"speed": {
+"value": 16.666667938232422,
+"kph": 60,
+"mph": 38
 }
 }
-[ trailers.coupling ] Trailers | Trailer #1 coupling disconnected {
-"id" : 0,
-"enabled" : false
-}
-[ job.started ] Job | New job started {
-"job" : {
-"autoLoaded": false,
-"active" : true
+[navigation.speed-limit] Navigation | Speed limit changed to 40kph / 25mph {
+"speed": {
+"value": 11.111111640930176,
+"kph": 40,
+"mph": 25
 }
 }
-[ game.pause ] Game | Unpaused {
-"paused" : false
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 20.080293655395508,
+"kph": 72,
+"mph": 45
+},
+"speedLimit": {
+"value": 11.111111640930176,
+"kph": 40,
+"mph": 25
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
 }
-[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
-"id" : 0,
-"enabled" : true
 }
-[ game.pause ] Game | Paused {
-"paused" : true
 }
-[ game.pause ] Game | Unpaused {
-"paused" : false
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 72kph / 45mph {
+"cruiseControl": {
+"enabled": false,
+"value": 20.080293655395508,
+"kph": 72,
+"mph": 45
 }
-[ game.pause ] Game | Paused {
-"paused" : true
 }
-[ trailers.coupling ] Trailers | Trailer #1 coupling disconnected {
-"id" : 0,
-"enabled" : false
+[navigation.speed-limit] Navigation | Speed limit changed to 80kph / 50mph {
+"speed": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
 }
-[ game.pause ] Game | Unpaused {
-"paused" : false
 }
-[ trailers.coupling ] Trailers | Trailer #1 coupling connected {
-"id" : 0,
-"enabled" : true
+[truck.cruise-control-increase] Truck | Cruise control increased to 48kph / 30mph {
+"cruiseControl": {
+"value": 13.225542068481445,
+"kph": 48,
+"mph": 30
 }
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 13.186633110046387,
+"kph": 47,
+"mph": 30
+},
+"speedLimit": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 90kph / 56mph {
+"speed": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 15.0841064453125,
+"kph": 54,
+"mph": 34
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 54kph / 34mph {
+"cruiseControl": {
+"enabled": false,
+"value": 15.0841064453125,
+"kph": 54,
+"mph": 34
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 15.078608512878418,
+"kph": 54,
+"mph": 34
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 54kph / 34mph {
+"cruiseControl": {
+"value": 15.078608512878418,
+"kph": 54,
+"mph": 34
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 80kph / 50mph {
+"speed": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 19.34809112548828,
+"kph": 70,
+"mph": 44
+},
+"speedLimit": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 70kph / 44mph {
+"cruiseControl": {
+"enabled": false,
+"value": 19.34809112548828,
+"kph": 70,
+"mph": 44
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 60kph / 38mph {
+"speed": {
+"value": 16.666667938232422,
+"kph": 60,
+"mph": 38
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 40kph / 25mph {
+"speed": {
+"value": 11.111111640930176,
+"kph": 40,
+"mph": 25
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 70kph / 44mph {
+"speed": {
+"value": 19.44444465637207,
+"kph": 70,
+"mph": 44
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 80kph / 50mph {
+"speed": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 90kph / 56mph {
+"speed": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 9.9201021194458,
+"kph": 36,
+"mph": 22
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 36kph / 22mph {
+"cruiseControl": {
+"value": 9.9201021194458,
+"kph": 36,
+"mph": 22
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 15.331795692443848,
+"kph": 55,
+"mph": 34
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 55kph / 34mph {
+"cruiseControl": {
+"enabled": false,
+"value": 15.331795692443848,
+"kph": 55,
+"mph": 34
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 15.416316032409668,
+"kph": 55,
+"mph": 35
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 55kph / 35mph {
+"cruiseControl": {
+"value": 15.416316032409668,
+"kph": 55,
+"mph": 35
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 20.75963592529297,
+"kph": 75,
+"mph": 47
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 75kph / 47mph {
+"cruiseControl": {
+"enabled": false,
+"value": 20.75963592529297,
+"kph": 75,
+"mph": 47
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 21.54029655456543,
+"kph": 78,
+"mph": 48
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 78kph / 48mph {
+"cruiseControl": {
+"value": 21.54029655456543,
+"kph": 78,
+"mph": 48
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 24.63421630859375,
+"kph": 89,
+"mph": 55
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 89kph / 55mph {
+"cruiseControl": {
+"enabled": false,
+"value": 24.63421630859375,
+"kph": 89,
+"mph": 55
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 24.650428771972656,
+"kph": 89,
+"mph": 55
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 89kph / 55mph {
+"cruiseControl": {
+"value": 24.650428771972656,
+"kph": 89,
+"mph": 55
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 30.37454605102539,
+"kph": 109,
+"mph": 68
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 109kph / 68mph {
+"cruiseControl": {
+"enabled": false,
+"value": 30.37454605102539,
+"kph": 109,
+"mph": 68
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 80kph / 50mph {
+"speed": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 21.787811279296875,
+"kph": 78,
+"mph": 49
+},
+"speedLimit": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 78kph / 49mph {
+"cruiseControl": {
+"value": 21.787811279296875,
+"kph": 78,
+"mph": 49
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 23.739797592163086,
+"kph": 85,
+"mph": 53
+},
+"speedLimit": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 85kph / 53mph {
+"cruiseControl": {
+"enabled": false,
+"value": 23.739797592163086,
+"kph": 85,
+"mph": 53
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": true,
+"currentSpeed": {
+"value": 23.96941375732422,
+"kph": 86,
+"mph": 54
+},
+"speedLimit": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+},
+"cruiseControlSpeed": {
+"value": 30.555557250976562,
+"kph": 110,
+"mph": 69
+}
+}
+}
+[truck.cruise-control-increase] Truck | Cruise control increased to 86kph / 54mph {
+"cruiseControl": {
+"value": 23.96941375732422,
+"kph": 86,
+"mph": 54
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 90kph / 56mph {
+"speed": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+}
+}
+[trailers.damage] Trailers | Trailer #1 damage increased 1% {
+"id": 0,
+"data": {
+"cargo": 0.010280170477926731,
+"chassis": 0.01000206358730793,
+"wheels": 0.01000206358730793,
+"total": 0.01000206358730793
+}
+}
+[truck.damage] Truck | Truck damage increased 0% {
+"damages": {
+"cabin": 0.0004928286653012037,
+"chassis": 0.0006160357734188437,
+"engine": 0.00130002002697438,
+"transmission": 0.0011768128024414182,
+"wheels": 0.010012444108724594,
+"total": 0.010012444108724594
+}
+}
+[truck.cruise-control-decrease] Truck | Cruise control decreased to 110kph / 69mph {
+"cruiseControl": {
+"enabled": true,
+"value": 30.55525779724121,
+"kph": 110,
+"mph": 69
+}
+}
+[truck.cruise-control] Truck | Cruise control Enabled {
+"enabled": {
+"enabled": false,
+"currentSpeed": {
+"value": 30.549301147460938,
+"kph": 110,
+"mph": 69
+},
+"speedLimit": {
+"value": 25.000001907348633,
+"kph": 90,
+"mph": 56
+},
+"cruiseControlSpeed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 80kph / 50mph {
+"speed": {
+"value": 22.22222328186035,
+"kph": 80,
+"mph": 50
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 60kph / 38mph {
+"speed": {
+"value": 16.666667938232422,
+"kph": 60,
+"mph": 38
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 40kph / 25mph {
+"speed": {
+"value": 11.111111640930176,
+"kph": 40,
+"mph": 25
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 60kph / 38mph {
+"speed": {
+"value": 16.666667938232422,
+"kph": 60,
+"mph": 38
+}
+}
+[navigation.speed-limit] Navigation | Speed limit changed to 0kph / 0mph {
+"speed": {
+"value": 0,
+"kph": 0,
+"mph": 0
+}
+}
+[truck.park] Truck | Parking brake ON {
+"enabled": true
+}
+[game.pause] Game | Paused {
+"paused": true
+}
+[game.disconnected] Game | Disconnected null

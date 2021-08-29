@@ -154,14 +154,16 @@
 </template>
 
 <script>
-import Dashboard from './Dashboard';
-import Cadran    from './shared/Cadran';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
+import Dashboard      from './Dashboard';
+import Cadran         from './shared/Cadran';
 
 export default {
   name:       'ScaniaDashboard',
   components: {
     Dashboard,
     Cadran
-  }
+  },
+  mixins: [ TelemetryMixin ]
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <b-overlay
-    :show="!gameConnected"
+    :show="!display"
     :variant="'dark'"
     no-wrap
   >
@@ -40,6 +40,12 @@ import { mapGetters } from 'vuex';
 
 export default {
   name:     'LoadingOverlay',
+  props: {
+    display: {
+      type:Boolean,
+      required: true
+    }
+  },
   computed: {
     ...mapGetters( {
       launching: 'app/launch'

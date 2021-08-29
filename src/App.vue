@@ -1,6 +1,6 @@
 <template>
   <main :class="`${telemetry.game ? telemetry.game.game.name : ''}`">
-    <LoadingOverlay />
+    <LoadingOverlay :display="gameConnected" />
     <HistoryOverlay />
     <Overlay v-if="gameConnected" />
     <TelemetryEventOverlay v-if="gameConnected" />
@@ -29,6 +29,7 @@ import HistoryOverlay         from '@/components/overlays/HistoryOverlay';
 import LoadingOverlay         from '@/components/overlays/LoadingOverlay';
 import Overlay                from '@/components/overlays/Overlay';
 import TelemetryEventOverlay  from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
+import TelemetryMixin         from '@/mixins/TelemetryMixin';
 import { history }            from '@/utils/utils';
 import { mapGetters }         from 'vuex';
 
@@ -51,6 +52,7 @@ export default {
     Header,
     LoadingOverlay
   },
+  mixins: [TelemetryMixin],
   computed: {
     ...mapGetters( {
       menuIsDisplayed: 'menu/isDisplayed',
@@ -58,7 +60,7 @@ export default {
       getConfig:       'config/get'
     } )
   },
-  created() {
+  mounted() {
     this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
 
     this.$store
@@ -106,32 +108,6 @@ export default {
         return null;
 
       return currentSkin.id + 'Dashboard';
-    }
-  },
-  sockets:    {
-    disconnect() {
-      //console.log( 'disconnected' );
-    },
-    connect() {
-      //console.log( 'connected' );
-      this.$store.commit( 'app/setLaunch', {
-        icon:    '<i class="fas fa-truck"></i>',
-        text:    'Connected to telemetry server',
-        subText: 'Ready to delivering'
-      } );
-      this.$pushALog( 'Connected to telemetry server', history.HTY_ZONE.MAIN );
-
-      setTimeout( () => {
-        this.$store.commit( 'app/setLaunch', {
-          icon:    '<i class="fas fa-truck"></i>',
-          text:    'Waiting game connection',
-          subText: 'Run the game to start your job !'
-        } );
-        this.$pushALog( 'Waiting game connection', history.HTY_ZONE.MAIN );
-      }, 5000 );
-    },
-    update( data ) {
-      this.$updateTelemetry( { ...data } );
     }
   }
 };

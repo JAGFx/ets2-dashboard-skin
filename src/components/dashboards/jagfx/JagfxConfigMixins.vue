@@ -14,7 +14,7 @@ export default {
       }
     };
   },
-  created() {
+  mounted() {
     const config = this.$store.getters[ 'config/all' ];
     const keys   = Object.keys( config );
 

@@ -173,14 +173,16 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import Cadran    from '@/components/dashboards/shared/Cadran';
+import Dashboard      from '@/components/dashboards/Dashboard';
+import Cadran         from '@/components/dashboards/shared/Cadran';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name:       'DafXFDashboard',
   components: {
     Dashboard,
     Cadran
-  }
+  },
+  mixins: [ TelemetryMixin ]
 };
 </script>

@@ -17,11 +17,13 @@
 <script>
 import HeaderGameInformation from '@/components/header/HeaderGameInformation';
 import Menu                  from '@/components/menu/Menu';
+import TelemetryMixin        from '@/mixins/TelemetryMixin';
 import { mapGetters }        from 'vuex';
 
 export default {
   name:       'Header',
   components: { HeaderGameInformation, Menu },
+  mixins: [TelemetryMixin  ],
   computed:   {
     ...mapGetters( {
       menuIsDisplayed: 'menu/isDisplayed'
