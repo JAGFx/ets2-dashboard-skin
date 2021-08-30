@@ -156,7 +156,7 @@
           <tr>
             <th>Deadline in:</th>
             <td>
-              <span class="job-remainingTime">{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
+              <span class="job-remainingTime">{{ $jobRemainingTimeDelivery(telemetry.job.expectedDeliveryTimestamp.value ) }}</span>
               <span class="_jobIncome"> (<span class="job-income">{{ unit_currency( telemetry.job.income ) }}</span>)</span>
             </td>
           </tr>

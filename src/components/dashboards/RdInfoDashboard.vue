@@ -169,7 +169,7 @@
         <!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>-->
 				
         <div class="job-remainingTime wrapper-area">
-          <span v-if="$jobRemainingTimeToDueDate()">{{ telemetry.job.deliveryTime.unix | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
+          <span v-if="$jobRemainingTimeToDueDate()">{{ telemetry.job.expectedDeliveryTimestamp.value | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
           <span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
         </div>
         <div class="job-sourceCity wrapper-area">
