@@ -41,7 +41,10 @@ export const filterInputEvent = function ( event ) {
 		 || (eventName
 			 === 'truck.cruise-control-decrease'
 			 && !rawData[ 'cruise-control-decrease' ].cruiseControl.enabled)
-		 || (eventName === 'navigation.speed-limit' && rawData[ 'speed-limit' ].speed.value === 0)
+		 || (eventName === 'navigation.speed-limit' && (
+			 rawData[ 'speed-limit' ] === undefined
+			|| (rawData[ 'speed-limit' ] !== undefined && rawData[ 'speed-limit' ].speed.value === 0)
+		))
 	)
 		eventSkipped = true;
 	
