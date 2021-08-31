@@ -1,5 +1,5 @@
 <script>
-import { app }        from '@/utils/utils';
+import { app }   from '@/utils/utils';
 import {
   length as uc_length,
   mass as uc_mass,
@@ -10,26 +10,26 @@ import {
 import { store } from '@/store/telemetry.store';
 
 export default {
-  name: 'TelemetryMixin',
-  filters: {
+  name:     'TelemetryMixin',
+  filters:  {
     '$dateTimeLocalized': ( time, dFormat, tFormat ) => {
       return app.dateTimeLocalized( time, dFormat, tFormat );
     },
-    '$toFixed': ( value, decimal ) => {
+    '$toFixed':           ( value, decimal ) => {
       return value.toFixed( decimal );
     }
   },
   computed: {
-      telemetry: ()=>store.telemetry,
-      gameConnected: ()=>app.useFakeData || (store.receivedData
+    telemetry:     () => store.telemetry,
+    gameConnected: () => app.useFakeData || (store.receivedData
                                              && store.telemetry.game.sdkActive
                                              && (store.telemetry.truck.brand.id.length !== 0)),
-      receivedData: ()=>store.receivedData,
-    jobDeliveryTime(){
-      return ( this.telemetry.job.market.id === 'external_contracts' )
+    receivedData:  () => store.receivedData,
+    jobDeliveryTime() {
+      return (this.telemetry.job.market.id === 'external_contracts')
           ? this.telemetry.job.expectedDeliveryTimestamp.value
-          : this.telemetry.job.expectedDeliveryTimestamp.unix
-    },
+          : this.telemetry.job.expectedDeliveryTimestamp.unix;
+    }
   },
   created() {
     Object.keys( app.formatConstants ).forEach( ( key ) => {
@@ -37,11 +37,11 @@ export default {
       this[ key ] = value;
     } );
   },
-  methods:  {
+  methods: {
     // ---------------------------------------
     // --- Commons methods
 
-    config(name){ return this.$store.getters['config/get'](name) },
+    config( name ) { return this.$store.getters[ 'config/get' ]( name ); },
 
     // --- Filters
 
@@ -321,11 +321,11 @@ export default {
 
     // --- Truck
 
-    $hasTruck: function () {
+    $hasTruck:    function () {
       return (this.telemetry.truck.brand.id.length !== 0);
     },
     $truckDamage: function () {
-      return (this.config('general_damage_accurate') === 'damage-diagnostic')
+      return (this.config( 'general_damage_accurate' ) === 'damage-diagnostic')
           ? this.$averageDamage( this.telemetry.truck.damage )
           : Math.floor( 100 * this.telemetry.truck.damage.chassis );
     },
@@ -338,14 +338,14 @@ export default {
       return (this.telemetry.job.cargo.id.length !== 0);
     },
     $jobRemainingTimeDelivery( time ) {
-      const gameTime = this.telemetry.game.time.value;
+      const gameTime          = this.telemetry.game.time.value;
       const jobDeliveringTime = time;
-      let diff = (jobDeliveringTime - gameTime) ;
+      let diff                = (jobDeliveringTime - gameTime);
 
       return app.displayDuration( diff );
     },
     $jobRemainingTimeToDueDate() {
-      return this.config('general_job_remaining') === 'due_date';
+      return this.config( 'general_job_remaining' ) === 'due_date';
     },
     $nextRestStop( time ) {
       return app.diffDateTimeLocalized( 0, time, false );
@@ -363,7 +363,7 @@ export default {
       return this.telemetry.trailer.model.id.length !== 0 && this.telemetry.job.cargo.name.length !== 0;
     },
     $trailerDamage:    function () {
-      return (this.config('general_damage_accurate') === 'damage-diagnostic')
+      return (this.config( 'general_damage_accurate' ) === 'damage-diagnostic')
           ? this.$averageDamage( this.telemetry.trailer.damage )
           : Math.floor( 100 * this.telemetry.trailer.damage.chassis );
     },
@@ -374,7 +374,7 @@ export default {
     // --- Navigation
 
     $trukGear: function ( transmission, brand ) {
-      const hShiftLayout            = this.config('general_h-shift-layout' );
+      const hShiftLayout            = this.config( 'general_h-shift-layout' );
       const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
 
       let gear         = transmission.gear.displayed;
