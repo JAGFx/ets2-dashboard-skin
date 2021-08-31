@@ -20,12 +20,20 @@ In this app, you find all skin from the [Funbit / ets2-telemetry-server](https:/
 
 The goal of this project is to have the skin dashboard for this repository with the latest telemetry data.
 
+- JAGFx
+- Map
+- Base
+- Default
 - DAF XF
 - Man TGX
-- Mercedes Atego
-- RD Info
-- Scania
-- Volvo FH
+- Mercedes Benz Atego
+- RenaultDash-Info
+- Scania Dashboard
+- Volvo FH 2012 Dashboard
+
+On the **JAGFx** skin, you can display the map on the right side.
+
+To enable it, go to `Menu > Config > JAGFx > Display map` and set it to `On`
 
 ## Events overlay
 
@@ -96,7 +104,7 @@ To help me to debug when you have an issue, you can access to a log page.
 
 It keep the last 20 lines.
 
-To open it, tape 5 time on the left bottom corner.
+To open it, tape 5 time in the top left corner.
 
 Click on the copy button to coping this list in your clipboard.
 
@@ -118,6 +126,8 @@ Currently, I'm introduced the map with some navigation data only. Not the full r
 - Map controls (North lock, recenter, zoom in and zoom out)
 - Current speed
 - Current gear
+- Fuel level
+- Cruise control speed
 
 #### Map support
 

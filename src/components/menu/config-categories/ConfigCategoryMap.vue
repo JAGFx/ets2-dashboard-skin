@@ -6,9 +6,9 @@
         <ConfigFieldChoice
           v-bind="{
             id: 'maps_general_debug',
-            label: 'Enable debug information',
+            label: 'Debug information',
             disabled: false,
-            description: 'Display some debug information',
+            description: 'Display some debug information about the map',
             values: fieldValues( 'on_off' )
           }"
         />

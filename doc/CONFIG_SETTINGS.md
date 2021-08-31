@@ -664,6 +664,17 @@ You can find common elements, and skin config.
         </td>
         <td>false</td>
     </tr>
+    <tr>
+        <td>jagfx_elements_right_map</td>
+        <td>Display map</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>false</td>
+    </tr>
 
 </table>
 
@@ -806,6 +817,17 @@ You can find common elements, and skin config.
             </ul>
         </td>
         <td>remaining_date</td>
+    </tr>
+    <tr>
+        <td>maps_general_debug</td>
+        <td>Debug information</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>false</td>
     </tr>
 
 </table>

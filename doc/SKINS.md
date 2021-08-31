@@ -9,7 +9,10 @@ You can find the list of all skins integrated.
         <th>Author</th>
     </tr>
     <tr>
-        <td><img src="../screenshot.png" alt="JAGFX"></td>
+        <td>
+            <img src="../screenshot.png" alt="JAGFX">
+            <img src="../public/img/screenshots/jagfx-2.png" alt="JAGFX">
+        </td>
         <td>JAGFx</td>
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
