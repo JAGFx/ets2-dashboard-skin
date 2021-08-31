@@ -400,11 +400,11 @@ export default {
         strGear = gear - crawlingGear;
       }
 
+      if ( transmission.shifterType === 'automatic' )
+        strGear = 'A' + ( gear - crawlingGear );
+
       if ( gear <= crawlingGear )
         strGear = 'C' + Math.abs( gear );
-
-      if ( transmission.shifterType === 'automatic' )
-        strGear = 'D' + gear;
 
       if ( gear === 0 )
         strGear = 'N';
