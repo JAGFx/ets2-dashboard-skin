@@ -1,5 +1,5 @@
 <template>
-  <main :class="`${telemetry.game ? telemetry.game.game.name : ''}`">
+  <main :class="`${Object.hasOwnProperty.apply( 'game', telemetry.game ) ? telemetry.game.game.name : ''}`">
     <LoadingOverlay :display="gameConnected" />
     <HistoryOverlay />
     <Overlay v-if="gameConnected" />

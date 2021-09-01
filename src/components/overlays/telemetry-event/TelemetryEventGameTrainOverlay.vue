@@ -20,7 +20,6 @@
 
 <script>
 import TelemetryEventBaseOverlay  from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
-import eventsText                 from '@/data/events.json';
 import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
 
 export default {
@@ -28,11 +27,6 @@ export default {
   components: {
     TelemetryEventBaseOverlay
   },
-  mixins:     [ TelemetryEventOverlayMixin ],
-  methods:    {
-    eventsText() {
-      return eventsText;
-    }
-  }
+  mixins:     [ TelemetryEventOverlayMixin ]
 };
 </script>

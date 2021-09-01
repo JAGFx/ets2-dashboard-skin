@@ -16,20 +16,13 @@
 
 <script>
 import TelemetryEventBaseOverlay  from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
-import eventsText                 from '@/data/events.json';
 import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
-import TelemetryMixin             from '@/mixins/TelemetryMixin';
 
 export default {
   name:       'TelemetryEventTrailersDamageOverlay',
   components: {
     TelemetryEventBaseOverlay
   },
-  mixins:     [ TelemetryEventOverlayMixin, TelemetryMixin ],
-  methods:    {
-    eventsText() {
-      return eventsText;
-    }
-  }
+  mixins:     [ TelemetryEventOverlayMixin ]
 };
 </script>

@@ -56,7 +56,7 @@ export default {
 		}
 		
 		// --- Dev
-		if ( app.isOnDevEnvironment || app.useFakeData )
+		if ( app.useFakeData )
 			setTimeout( () => {
 				updateTelemetry( testData )
 			}, 1000 );

@@ -29,12 +29,17 @@
 		"title" :    "Refuel payed",
 		"subtitle" : null
 	},
-	"job.cancelled" : {
+	"game.disconnected" :             {
+		"icon" :     "fas fa-unlink",
+		"title" :    "Game connection lost",
+		"subtitle" : null
+	},
+	"job.cancelled" :                 {
 		"icon" :     "far fa-building",
 		"title" :    "Job canceled !",
 		"subtitle" : "You cancel this job"
 	},
-	"job.delivered" : {
+	"job.delivered" :                 {
 		"icon" :     "far fa-building",
 		"title" :    "Job delivered !",
 		"subtitle" : "Delivered !"
@@ -44,7 +49,7 @@
 		"title" :    "Job finished !",
 		"subtitle" : "You finish your job"
 	},
-	"job.started" :   {
+	"job.started" :                   {
 		"icon" :     "far fa-building",
 		"title" :    "Job started !",
 		"subtitle" : "You start this job"

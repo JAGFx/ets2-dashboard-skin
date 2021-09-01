@@ -5,11 +5,11 @@
       class="item d-flex justify-content-center align-items-center"
     >
       <span class="ico m-4 p-3 d-flex justify-content-center align-items-center">
-        <i :class="eventsText()[ eventName ].icon" />
+        <i :class="eventsText.icon" />
       </span>
       <div class="event d-flex justify-content-between align-items-start flex-column">
-        <span class="title">{{ eventsText()[ eventName ].title }}</span>
-        <small class="sub-title font-italic">{{ eventsText()[ eventName ].subtitle }}</small>
+        <span class="title">{{ eventsText.title }}</span>
+        <small class="sub-title font-italic">{{ eventsText.subtitle }}</small>
       </div>
     </div>
     <slot />
@@ -17,25 +17,10 @@
 </template>
 
 <script>
-import eventsText                 from '@/data/events.json';
 import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
 
 export default {
   name:    'TelemetryEventBaseOverlay',
   mixins:  [ TelemetryEventOverlayMixin ],
-  methods: {
-    eventsText() {
-
-      if ( eventsText[ this.eventName ] === undefined ) {
-        return {
-          icon:     null,
-          title:    this.eventName,
-          subtitle: null
-        };
-      }
-
-      return eventsText;
-    }
-  }
 };
 </script>
