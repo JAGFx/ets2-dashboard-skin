@@ -68,7 +68,7 @@ The following tab show you the tiles collection and the download link for an off
 
 - OS: Windows 64Bits
 - Game: Euro Truck Simulator 2
-- SCS SDK plugin: v1.10.6
+- SCS SDK plugin: v1.11
 - Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop dans Mobile), Edge ( Desktop and mobile )
 
 **Important: It dosen't work with all Internet Explorer browsers**
@@ -79,8 +79,8 @@ The following tab show you the tiles collection and the download link for an off
 
 Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
 
-- Download the supported version zip `v1.10.6` at
-  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.10.6/release_v_1_10_6.zip) page
+- Download the supported version zip `v1.11` at
+  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.11/release_v_1_11.zip) page
 - Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
 
 ### Installation
