@@ -400,7 +400,7 @@ export default {
         strGear = gear - crawlingGear;
       }
 
-      if ( transmission.shifterType === 'automatic' )
+      if ( transmission.shifterType === 'automatic' || transmission.shifterType === 'arcade' )
         strGear = 'A' + ( gear - crawlingGear );
 
       if ( gear <= crawlingGear )
