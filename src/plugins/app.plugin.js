@@ -28,17 +28,17 @@ export default {
 			
 			if ( theEvent !== false ) {
 				const configName = `events_${ theEvent.eventName }`;
-				const isActive   = store.getters[ 'config/get' ]( configName );
+				const isActive   = store.getters[ 'config/enabled' ]( configName );
 				
 				if ( isActive ) {
 					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( theEvent ), history.HTY_ZONE.MAIN );
-				}
 				
-				store.dispatch( 'event/displayEnEvent', {
-					eventProcessing: true,
-					eventName:       theEvent.eventName,
-					eventRawData:    theEvent.rawData
-				} );
+					store.dispatch( 'event/displayEnEvent', {
+						eventProcessing: true,
+						eventName:       theEvent.eventName,
+						eventRawData:    theEvent.rawData
+					} );
+				}
 			}
 		};
 		
