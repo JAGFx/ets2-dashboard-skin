@@ -4,14 +4,7 @@ The map feature need tiles collection. To do that, you need to generate it.
 
 If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) project.
 
-The following tab show you the tiles collection and the download link
-
-|Map|Game|Version|Download|
-|---|---|---|---|
-|Base|Euro Truck Simulator 2|v1.41.1.0|[Download](https://ets2.jagfx.fr/ETS2_Map_1.41.1.0.7z)|
-|Base|American Truck Simulator|v1.41.1.0|[Download](https://ets2.jagfx.fr/ATS_map_1.41.1.0.7z)|
-|Promod|Euro Truck Simulator 2|v2.56|[Download](https://ets2.jagfx.fr/jagfx-map-promod.tar.gz)|
-|Promod Canada|American Truck Simulator|-|-|
+See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported game, versions available and download links
 
 See the DLC compatibility on [this project](https://github.com/TwinDragon/SCS_Map_Tiles)
 
