@@ -13,6 +13,7 @@ import menu   from '@/store/modules/_menu';
 import skins  from '@/store/modules/_skins';
 import debug  from '@/store/modules/_debug';
 import event  from '@/store/modules/_event';
+import i18n from '@/store/modules/_i18n';
 import Vue    from 'vue';
 import Vuex   from 'vuex';
 
@@ -27,7 +28,8 @@ export default new Vuex.Store( {
 		menu,
 		app,
 		debug,
-		event
+		event,
+		i18n
 	},
 	strict:  env
 } );

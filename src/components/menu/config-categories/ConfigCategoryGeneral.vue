@@ -22,6 +22,15 @@
     />
     <ConfigFieldChoice
       v-bind="{
+        id: 'general_skin_locale',
+        label: 'Langue',
+        disabled: false,
+        description: 'Choose your locale used on this app',
+        values: fieldValues( 'general_skin_locale' )
+      }"
+    />
+    <ConfigFieldChoice
+      v-bind="{
         id: 'general_job_remaining',
         label: 'Job delivery time',
         disabled: false,

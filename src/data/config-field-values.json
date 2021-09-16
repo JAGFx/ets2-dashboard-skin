@@ -240,5 +240,15 @@
 			"label" : "Remaining date",
 			"value" : "remaining_date"
 		}
+	],
+	"general_skin_locale": [
+		{
+			"label" : "English",
+			"value" : "en-EN"
+		},
+		{
+			"label" : "Français",
+			"value" : "fr-FR"
+		}
 	]
 }

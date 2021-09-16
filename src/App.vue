@@ -29,8 +29,9 @@ import HistoryOverlay         from '@/components/overlays/HistoryOverlay';
 import LoadingOverlay         from '@/components/overlays/LoadingOverlay';
 import Overlay                from '@/components/overlays/Overlay';
 import TelemetryEventOverlay  from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import TelemetryMixin         from '@/mixins/TelemetryMixin';
-import { history }            from '@/utils/utils';
+import TelemetryMixin                   from '@/mixins/TelemetryMixin';
+import { changeLocale, fallbackLocale } from '@/utils/_i18n';
+import { history }                      from '@/utils/utils';
 import { mapGetters }         from 'vuex';
 
 export default {
@@ -78,6 +79,17 @@ export default {
                 history.HTY_ZONE.MAIN,
                 history.HTY_LEVEL.ERROR );
             this.$store.dispatch( 'skins/setFirstActive' );
+          }
+
+          const locale = this.config( 'general_skin_locale' );
+          try {
+            changeLocale( locale )
+
+          } catch ( e ) {
+            this.$pushALog( `Value set in "general_skin_locale" was not a valid skin: ${locale}. Revert to fallback locale: ${fallbackLocale}`,
+                history.HTY_ZONE.MAIN,
+                history.HTY_LEVEL.ERROR );
+            changeLocale( fallbackLocale )
           }
         } );
 

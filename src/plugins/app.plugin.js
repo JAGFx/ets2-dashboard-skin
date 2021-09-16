@@ -6,11 +6,12 @@
  * Time: 	19:43
  */
 
-import store              from '@/store';
-import { mutations }      from '@/store/telemetry.store';
+import store                   from '@/store';
+import { mutations }           from '@/store/telemetry.store';
+import { translate }           from '@/utils/_i18n';
 import { app, event, history } from '@/utils/utils';
-import { io }             from 'socket.io-client';
-import testData from '@/data/scs_sdk_plugin_parsed_data.json';
+import { io }                  from 'socket.io-client';
+import testData                from '@/data/scs_sdk_plugin_parsed_data.json';
 
 
 export default {
@@ -60,6 +61,7 @@ export default {
 			setTimeout( () => {
 				updateTelemetry( testData )
 			}, 1000 );
+		// --- ./Dev
 		
 		else {
 			const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
@@ -83,6 +85,9 @@ export default {
 				Vue.prototype.$updateEvent( data );
 			} );
 		}
-		// --- ./Dev
+		
+		// ---
+		
+		Vue.prototype.$t = translate;
 	}
 };

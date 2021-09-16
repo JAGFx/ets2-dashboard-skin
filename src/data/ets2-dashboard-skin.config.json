@@ -68,5 +68,6 @@
 	"jagfx_elements_right_map" :      false,
 	"maps_map_tilesRemoteUseCustom": false,
 	"maps_map_tilesRemoteCustomPath": null,
-	"maps_general_debug": false
+	"maps_general_debug": false,
+	"general_skin_locale": "fr-FR"
 }

@@ -18,6 +18,7 @@
     "dashboard:dev": "vue-cli-service serve",
     "dashboard:build": "vue-cli-service build",
     "dashboard:start": "http-server dist/",
+    "dashboard:i18n-extract": "vue-i18n-extract report --vueFiles './src/**/*.?(js|vue)' --languageFiles './src/translations/*.?(yml|yaml)' --add",
     "server:install": "cd server && npm i && npm rb",
     "server:build": "cd server && set NODE_ENV=production && npx gulp",
     "server:start": "cd server && npm run start",
@@ -51,7 +52,8 @@
     "vue-clipboard2": "^0.3.1",
     "vue-insomnia": "^0.1.0",
     "vue-progressbar": "^0.7.5",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "yaml-loader": "^0.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.8",
@@ -71,6 +73,7 @@
     "node-sass": "^6.0.1",
     "pkg": "^5.3.1",
     "sass-loader": "^10.0.5",
+    "vue-i18n-extract": "^2.0.4",
     "vue-template-compiler": "^2.6.14"
   },
   "bugs": {
