@@ -49,7 +49,7 @@
           ><i class="fas fa-paper-plane" /></a>
         </small>
         <p class="card-text mb-0">
-          {{ $t(skin.description)}}
+          {{ $t(skin.description) }}
         </p>
       </div>
       <div
