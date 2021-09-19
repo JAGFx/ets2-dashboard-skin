@@ -8,7 +8,7 @@
           :class="{ active: currentTab === tab }"
           @click="onClickSwitchTab( tab )"
         >
-          {{ tab }}
+          {{ $t( tab ) }}
         </li>
       </ul>
     </nav>

@@ -2,9 +2,9 @@
   <div class="pl-3 p-2 field d-flex justify-content-between align-items-center">
     <div>
       <h5 class="m-0">
-        {{ label }}
+        {{ $t(label) }}
       </h5>
-      <small class="font-italic text-muted">{{ description }}</small>
+      <small class="font-italic text-muted">{{ $t(description) }}</small>
     </div>
     <slot />
   </div>

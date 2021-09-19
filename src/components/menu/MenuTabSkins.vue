@@ -27,11 +27,11 @@
           <small
             v-show="$isActive(skin)"
             class="mx-1 badge badge-success"
-          >Active</small>
+          >{{ $t('Active') }}</small>
           <small
             v-show="$isDisabled(skin)"
             class="mx-1 badge badge-secondary"
-          >Disabled</small>
+          >{{ $t('Disabled') }}</small>
         </h5>
         <small class="text-muted font-italic mb-2 d-inline-block">
           {{ skin.author.name }}
@@ -59,7 +59,7 @@
         <a
           class="btn btn-sm btn-success"
           @click="$setActive(skin)"
-        >Activate</a>
+        >{{ $t('Activate') }}</a>
       </div>
     </div>
   </div>

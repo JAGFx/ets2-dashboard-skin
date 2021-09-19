@@ -17,7 +17,7 @@
         class="value w-100 m-0 text-center d-flex justify-content-center align-items-center"
         @click="set( value.value )"
       >
-        <span class="py-1 px-2">{{ value.label }}</span>
+        <span class="py-1 px-2">{{ $t(value.label) }}</span>
       </div>
     </div>
     <div
@@ -38,7 +38,7 @@
           :selected="current( id ) === value.value"
           :value="value.value"
         >
-          {{ value.label }}
+          {{ $t(value.label) }}
         </option>
       </select>
     </div>

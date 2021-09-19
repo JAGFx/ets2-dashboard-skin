@@ -1,6 +1,6 @@
 <template>
   <div class="fields mb-4">
-    <h4>General</h4>
+    <h4>{{ $t('General') }}</h4>
 
     <ConfigFieldChoice
       v-bind="{
@@ -41,7 +41,7 @@
     <ConfigFieldChoice
       v-bind="{
         id: 'general_h-shift-layout',
-        label: 'H-Shift layout',
+        label: 'H-Shifter layout',
         disabled: false,
         description: 'Show the current range of H-Shifter OR the automatic number',
         values: fieldValues( 'general_h-shift-layout' )

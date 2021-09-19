@@ -7,7 +7,7 @@
         @click="download"
       >
         <b-icon-file-earmark-arrow-down />
-        Download
+        {{ $t('Download') }}
       </button>
       <span>
         <button
@@ -15,7 +15,7 @@
           class="btn btn-sm btn-outline-ets mx-1"
           @click="showUpload = !showUpload"
         >
-          <b-icon-file-earmark-arrow-up /> Upload
+          <b-icon-file-earmark-arrow-up /> {{ $t('Upload') }}
         </button>
         <input
           v-show="showUpload"

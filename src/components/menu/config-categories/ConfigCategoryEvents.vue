@@ -1,6 +1,6 @@
 <template>
   <div class="fields mb-4">
-    <h4>Events</h4>
+    <h4>{{ $t('Events') }}</h4>
 
     <!-- <editor-folder> Game -->
     <ConfigFieldChoice
@@ -53,7 +53,7 @@
         id: 'events_game.refuel-payed',
         label: 'Refuel payed',
         disabled: false,
-        description: 'Show a pop-up when you refuel you truck tank',
+        description: 'Show a pop-up when you have been refueled your truck tank',
         values: fieldValues( 'on_off' )
       }"
     />
@@ -64,7 +64,7 @@
         id: 'events_job.cancelled',
         label: 'Job canceled',
         disabled: false,
-        description: 'Show a pop-up when a jab was canceled',
+        description: 'Show a pop-up when a job was canceled',
         values: fieldValues( 'on_off' )
       }"
     />
@@ -131,9 +131,9 @@
     <ConfigFieldChoice
       v-bind="{
         id: 'events_truck.cruise-control',
-        label: 'Cruise control set',
+        label: 'Cruise control enabled',
         disabled: false,
-        description: 'Show a pop-up when the trailer was coupled to the truck',
+        description: 'Show a pop-up when the cruise control is enabled',
         values: fieldValues( 'on_off' )
       }"
     />
@@ -151,32 +151,32 @@
         id: 'events_truck.cruise-control-decrease',
         label: 'Cruise control decrease',
         disabled: false,
-        description: 'Show a pop-up when the cruise control increase',
+        description: 'Show a pop-up when the cruise control decrease',
         values: fieldValues( 'on_off' )
       }"
     />
     <ConfigFieldChoice
       v-bind="{
-        id: 'events_truck.warning',
-        label: 'Truck warning',
+        id: 'events_truck.warning message',
+        label: 'Truck warning message',
         disabled: false,
-        description: 'Show a pop-up for all truck warning message',
+        description: 'Show a pop-up for all warning message of truck',
         values: fieldValues( 'on_off' )
       }"
     />
     <ConfigFieldChoice
       v-bind="{
-        id: 'events_truck.emergency',
-        label: 'Truck emergency',
+        id: 'events_truck.emergency message',
+        label: 'Truck emergency message',
         disabled: false,
-        description: 'Show a pop-up for all truck emergency message',
+        description: 'Show a pop-up for all emergency message of truck',
         values: fieldValues( 'on_off' )
       }"
     />
     <ConfigFieldChoice
       v-bind="{
         id: 'events_truck.electric',
-        label: 'Truck electric',
+        label: 'Truck electric message',
         disabled: false,
         description: 'Show a pop-up when the truck contact was on',
         values: fieldValues( 'on_off' )
@@ -185,16 +185,16 @@
     <ConfigFieldChoice
       v-bind="{
         id: 'events_truck.engine',
-        label: 'Truck engine',
+        label: 'Truck engine start',
         disabled: false,
-        description: 'Show a pop-up when the truck engine as started',
+        description: 'Show a pop-up when the truck engine start',
         values: fieldValues( 'on_off' )
       }"
     />
     <ConfigFieldChoice
       v-bind="{
         id: 'events_truck.park',
-        label: 'Truck park',
+        label: 'Truck parking brake',
         disabled: false,
         description: 'Show a pop-up when the truck parking brake are on',
         values: fieldValues( 'on_off' )
@@ -214,7 +214,7 @@
         id: 'events_truck.refuel',
         label: 'Truck refuel',
         disabled: false,
-        description: 'Show a pop-up when the truck refuel tank was finished',
+        description: 'Show a pop-up when the truck refuel tank was full',
         values: fieldValues( 'on_off' )
       }"
     />

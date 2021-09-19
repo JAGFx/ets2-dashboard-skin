@@ -1,6 +1,6 @@
 <template>
   <div class="fields mb-4">
-    <h4>Unit</h4>
+    <h4>{{ $t('Unit') }}</h4>
 
     <!-- <editor-folder> Game -->
     <ConfigFieldChoice
@@ -41,15 +41,6 @@
     />
     <ConfigFieldChoice
       v-bind="{
-        id: 'unit_degrees',
-        label: 'Degrees',
-        disabled: false,
-        description: 'Set degrees unit. Used for the temperature of water, oil and engine',
-        values: fieldValues( 'unit_degrees' )
-      }"
-    />
-    <ConfigFieldChoice
-      v-bind="{
         id: 'unit_volume',
         label: 'Volume',
         disabled: false,
@@ -64,15 +55,6 @@
         disabled: false,
         description: 'Set the pressure unit. Used for the Air pressure or oil pressure',
         values: fieldValues( 'unit_pressure' )
-      }"
-    />
-    <ConfigFieldChoice
-      v-bind="{
-        id: 'unit_volume',
-        label: 'Volume',
-        disabled: false,
-        description: 'Set the volume unit. Used for the fuel capacity',
-        values: fieldValues( 'unit_volume' )
       }"
     />
     <ConfigFieldChoice

@@ -15,7 +15,7 @@
             href="https://github.com/JAGFx/ets2-dashboard-skin/releases/latest"
             target="_blank"
           >
-            Get new ! <i class="ml-1 fas fa-cloud-download-alt" />
+            {{ $t('Get new !') }} <i class="ml-1 fas fa-cloud-download-alt" />
           </a>
         </span>
       </li>
@@ -30,87 +30,87 @@
             selected
             value=""
           >
-            Select one
+            {{ $t('Select one') }}
           </option>
-          <optgroup label="Game">
+          <optgroup :label="$t('Game')">
             <!--						<option value="game.connected">Connected</option>-->
             <!--						<option value="game.disconnected">Disconnected</option>-->
             <option value="game.pause">
-              Pause / Unpause
+              {{ $t('Pause / Unpause') }}
             </option>
             <option value="game.fine">
-              Fine
+              {{ $t('Fine') }}
             </option>
             <option value="game.tollgate">
-              Toll gate
+              {{ $t('Toll gate') }}
             </option>
             <option value="game.ferry">
-              Ferry
+              {{ $t('Ferry') }}
             </option>
             <option value="game.train">
-              Train
+              {{ $t('Train') }}
             </option>
             <option value="game.refuel-payed">
-              Refuel played
+              {{ $t('Refuel played') }}
             </option>
           </optgroup>
-          <optgroup label="Job">
+          <optgroup :label="$t('Job')">
             <option value="job.cancelled">
-              Cancelled
+              {{ $t('Cancelled') }}
             </option>
             <option value="job.delivered">
-              Delivered
+              {{ $t('Delivered') }}
             </option>
             <option value="job.finished">
-              Finished
+              {{ $t('Finished') }}
             </option>
             <option value="job.started">
-              Started
+              {{ $t('Started') }}
             </option>
           </optgroup>
-          <optgroup label="Navigation">
+          <optgroup :label="$t('Navigation')">
             <option value="navigation.speed-limit">
-              Speed limit change
+              {{ $t('Speed limit change') }}
             </option>
           </optgroup>
-          <optgroup label="Trailers">
+          <optgroup :label="$t('Trailers')">
             <option value="trailers.coupling">
-              Coupling
+              {{ $t('Coupling') }}
             </option>
             <option value="trailers.damage">
-              Damage
+              {{ $t('Damage') }}
             </option>
           </optgroup>
-          <optgroup label="Truck">
+          <optgroup :label="$t('Truck')">
             <option value="truck.cruise-control">
-              Cruise control ON / OFF
+              {{ $t('Cruise control ON / OFF') }}
             </option>
             <option value="truck.cruise-control-increase">
-              Cruise control increase
+              {{ $t('Cruise control increase') }}
             </option>
             <option value="truck.cruise-control-decrease">
-              Cruise control decrease
+              {{ $t('Cruise control decrease') }}
             </option>
             <option value="truck.warning">
-              Warning
+              {{ $t('Warning') }}
             </option>
             <option value="truck.emergency">
-              Emergency
+              {{ $t('Emergency') }}
             </option>
             <option value="truck.electric">
-              Electric
+              {{ $t('Électrique') }}
             </option>
             <option value="truck.engine">
-              Engine
+              {{ $t('Engine') }}
             </option>
             <option value="truck.park">
-              Park
+              {{ $t('Park') }}
             </option>
             <option value="truck.damage">
-              Damage
+              {{ $t('Damage') }}
             </option>
             <option value="truck.refuel">
-              Refuel
+              {{ $t('Refuel') }}
             </option>
           </optgroup>
         </select>
@@ -122,8 +122,8 @@
     </div>
     <ul class="w-100">
       <li @click="onClickGear()">
-        <span v-show="!menuIsDisplayed">Menu <i class="fas fa-bars" />️</span>
-        <span v-show="menuIsDisplayed">Close <i class="fas fa-times" />️</span>
+        <span v-show="!menuIsDisplayed">{{ $t('Menu') }} <i class="fas fa-bars" />️</span>
+        <span v-show="menuIsDisplayed">{{ $t('Close') }} <i class="fas fa-times" />️</span>
       </li>
       <li @click="onClickFullscreen()">
         <span v-show="!fullscreen"><i class="fas fa-expand" /></span>

@@ -58,7 +58,7 @@ You can find common elements, and skin config.
     </tr>
     <tr>
         <td>general_h-shift-layout</td>
-        <td>H-Shift layout</td>
+        <td>H-Shifter layout</td>
         <td>
             <ul>
                 <li>h-shifter</li>

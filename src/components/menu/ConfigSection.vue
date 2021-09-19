@@ -4,7 +4,7 @@
     class="config-section"
   >
     <h3 :class="['d-flex justify-content-between align-items-center p-2', { 'show': show }]">
-      <span>{{ name }}</span>
+      <span>{{ $t(name) }}</span>
       <span
         class="text-muted more"
         @click="show = !show"
@@ -17,7 +17,7 @@
           v-else
           class="fas fa-angle-double-right"
         />
-        Show {{ ( show ) ? 'less' : 'more' }}
+        {{ $t('Show') }} {{ $t( ( show ) ? 'less' : 'more' ) }}
       </span>
     </h3>
     <div
