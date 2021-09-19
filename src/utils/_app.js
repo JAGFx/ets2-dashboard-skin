@@ -6,9 +6,10 @@
  * Time: 	18:36
  */
 
+import store   from '@/store';
 import countryList from 'country-list';
 import emojiFlags  from 'emoji-flags';
-import moment      from 'moment-timezone';
+import momentjs    from 'moment-timezone';
 
 
 import packageJson from '../../package.json';
@@ -32,6 +33,11 @@ export const basePathHost       = 'http://' + window.location.host + '/';
 export const version            = packageJson.version;
 export const isOnDevEnvironment = process.env.NODE_ENV.startsWith( 'dev' );
 export const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
+
+export const moment = () => {
+	momentjs.locale( store.getters['config/get']('general_skin_locale') )
+	return momentjs;
+}
 
 export const flag = ( countryName, gameID ) => {
 	let flag = undefined;
@@ -64,7 +70,7 @@ export const jsonReadable = ( dataIn ) => {
 
 export const dateTimeLocalized = ( input, formatDate, formatTime ) => {
 	const format     = formatDate + ' ' + formatTime;
-	const momentData = moment( input, 'x' );
+	const momentData = moment()( input, 'x' );
 	
 	return momentData
 		.tz( 'Africa/Abidjan' )
@@ -72,14 +78,14 @@ export const dateTimeLocalized = ( input, formatDate, formatTime ) => {
 };
 
 export const diffDateTimeLocalized = ( dFrom, dTo, withDay = true ) => {
-	const momentFrom = moment( dFrom, 'x' );
-	const momentTo   = moment( dTo, 'x' );
+	const momentFrom = moment()( dFrom, 'x' );
+	const momentTo   = moment()( dTo, 'x' );
 	const diff       = momentTo.diff( momentFrom );
 	const format     = (withDay)
 		? 'DD[d] HH[h] mm[m]'
 		: 'HH[h] mm[m]';
 	
-	return moment( diff, 'x' )
+	return moment()( diff, 'x' )
 		.tz( 'Africa/Abidjan' )
 		.format( format );
 };

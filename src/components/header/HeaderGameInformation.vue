@@ -2,7 +2,7 @@
   <nav class="header-game-information-overlay">
     <ul class="w-100">
       <!--      <li><span>Game</span>{{ telemetry.game.game.name.toUpperCase() }}</li>-->
-      <li><span>API</span>v{{ telemetry.game.telemetryVersion }}</li>
+      <li><span>{{ $t('API') }}</span>v{{ telemetry.game.telemetryVersion }}</li>
       <li v-if="!isOnDevEnvironment() && !newReleaseAvailable">
         <span>&copy;</span>JAGFx - {{ getVersion() }}
       </li>
