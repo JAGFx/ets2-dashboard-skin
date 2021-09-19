@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="fields mb-4">
-      <h4>Right</h4>
+      <h4>{{ $t('Right') }}</h4>
 
       <ConfigFieldChoice
         v-bind="{
           id: 'jagfx_elements_right_oilTemperature',
           label: 'Oil temperature',
           disabled: false,
-          description: 'Display oil temperature value',
+          description: 'Display oil temperature',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -17,16 +17,7 @@
           id: 'jagfx_elements_right_brakesTemperature',
           label: 'Brakes temperature',
           disabled: false,
-          description: 'Display brakes temperature value',
-          values: fieldValues( 'on_off' )
-        }"
-      />
-      <ConfigFieldChoice
-        v-bind="{
-          id: 'jagfx_elements_right_brakesTemperature',
-          label: 'Brakes temperature',
-          disabled: false,
-          description: 'Display brakes temperature value',
+          description: 'Display brakes temperature',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -35,7 +26,7 @@
           id: 'jagfx_elements_right_brakesAirPressure',
           label: 'Brakes air pressure',
           disabled: false,
-          description: 'Display brakes air pressure value',
+          description: 'Display brakes air pressure',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -44,7 +35,7 @@
           id: 'jagfx_elements_right_fuel',
           label: 'Fuel',
           disabled: false,
-          description: 'Display the fuel level value',
+          description: 'Display the fuel level',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -53,7 +44,7 @@
           id: 'jagfx_elements_right_fuelConsumption',
           label: 'Fuel consumption',
           disabled: false,
-          description: 'Display the fuel average consumption value',
+          description: 'Display the fuel average consumption',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -71,7 +62,7 @@
           id: 'jagfx_elements_right_waterTemperature',
           label: 'Water temperature',
           disabled: false,
-          description: 'Display the water temperature value',
+          description: 'Display the water temperature',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -80,7 +71,7 @@
           id: 'jagfx_elements_right_batteryVoltage',
           label: 'Battery voltage',
           disabled: false,
-          description: 'Display the battery voltage value',
+          description: 'Display the battery voltage',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -89,7 +80,7 @@
           id: 'jagfx_elements_right_restStop',
           label: 'Next rest stop',
           disabled: false,
-          description: 'Display the time to go to the nex rest stop',
+          description: 'Display the time to go to the next rest stop',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -104,7 +95,7 @@
       />
     </div>
     <div class="fields mb-4">
-      <h4>Middle - Top</h4>
+      <h4>{{ $t('Middle - Top') }}</h4>
 
       <ConfigFieldChoice
         v-bind="{
@@ -153,14 +144,14 @@
       />
     </div>
     <div class="fields mb-4">
-      <h4>Middle - Bottom</h4>
+      <h4>{{ $t('Middle - Bottom') }}</h4>
 
       <ConfigFieldChoice
         v-bind="{
           id: 'jagfx_elements_mid_bottom_rpm',
           label: 'RPM',
           disabled: false,
-          description: 'Display the RPM value',
+          description: 'Display the RPM',
           values: fieldValues( 'on_off' )
         }"
       />
@@ -178,7 +169,7 @@
           id: 'jagfx_elements_mid_bottom_speedLimit',
           label: 'Speed limit',
           disabled: false,
-          description: 'Display the speed limit value',
+          description: 'Display the speed limit',
           values: fieldValues( 'on_off' )
         }"
       />

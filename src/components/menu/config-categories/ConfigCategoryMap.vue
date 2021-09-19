@@ -2,7 +2,7 @@
   <div>
     <div class="fields mb-4">
       <div class="mb-4">
-        <h4>General</h4>
+        <h4>{{ $t('General') }}</h4>
         <ConfigFieldChoice
           v-bind="{
             id: 'maps_general_debug',
@@ -15,7 +15,7 @@
       </div>
 
       <div class="mb-4">
-        <h4>Elements</h4>
+        <h4>{{ $t('Elements') }}</h4>
 
         <ConfigFieldChoice
           v-bind="{
@@ -74,7 +74,7 @@
       </div>
     </div>
     <div class="fields mb-4">
-      <h4>Tiles</h4>
+      <h4>{{ $t('Tiles') }}</h4>
 
       <ConfigFieldChoice
         v-bind="{
@@ -125,7 +125,7 @@
           id: 'maps_map_tilesVersion',
           label: 'Game version',
           disabled: configEnabled( 'maps_map_tilesRemoteUseCustom' ),
-          description: 'The latest get the tiles for the latest version, else the specified version',
+          description: 'Get tiles for the latest game version, or for the specified game version',
           values: fieldValues( 'maps_map_tilesVersion' )
         }"
       />

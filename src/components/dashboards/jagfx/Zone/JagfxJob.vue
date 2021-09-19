@@ -13,7 +13,7 @@
         <div class="round from">
           <i class="icon-startpoint" />
         </div>
-        <span v-if="!$hasJob()">N/A</span>
+        <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
         <span v-else>
           <span>{{ telemetry.job.source.city.name }}</span>
           <small class="text-muted text-italic text-size-1rem text-line-height-1rem">{{ telemetry.job.source.company.name }}</small>
@@ -26,7 +26,7 @@
         <div class="round to">
           <i class="icon-endpoint" />
         </div>
-        <span v-if="!$hasJob()">N/A</span>
+        <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
         <span v-else>
           <span>{{ telemetry.job.destination.city.name }}</span>
           <small class="text-muted text-italic text-size-1rem text-line-height-1rem">{{ telemetry.job.destination.company.name }}</small>
@@ -43,7 +43,7 @@
           jobDeliveryTime | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT )
         }}</span>
         <span v-else-if="$hasJob() && !$jobRemainingTimeToDueDate()">{{ $jobRemainingTimeDelivery( telemetry.job.expectedDeliveryTimestamp.value ) }}</span>
-        <span v-else>N/A</span>
+        <span v-else>{{ $t('N/A') }}</span>
       </li>
       <li
         :class="{ 'disabled': !$hasJob() }"
@@ -52,7 +52,7 @@
         <div class="round">
           <i class="icon-currency" />
         </div>
-        <span v-if="!$hasJob()">N/A</span>
+        <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
         <span v-else>{{ unit_currency( telemetry.job.income ) }}</span>
       </li>
       <li
@@ -62,7 +62,7 @@
         <div class="round">
           <i class="icon-ruler" />
         </div>
-        <span v-if="telemetry.navigation.distance === 0">N/A</span>
+        <span v-if="telemetry.navigation.distance === 0">{{ $('N/A') }}</span>
         <span v-else-if="telemetry.navigation.distance < 1000"> {{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
         <span v-else>{{ unit_length( telemetry.navigation.distance ) }}</span>
       </li>
@@ -73,7 +73,7 @@
         <div class="round">
           <i class="icon-weight" />
         </div>
-        <span v-if="!$hasJob()">N/A</span>
+        <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
         <span v-else>{{ unit_weight( telemetry.job.cargo.mass ) }}</span>
       </li>
     </ul>

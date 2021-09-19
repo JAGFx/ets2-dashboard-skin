@@ -8,8 +8,8 @@
         <i :class="eventsText.icon" />
       </span>
       <div class="event d-flex justify-content-between align-items-start flex-column">
-        <span class="title">{{ eventsText.title }}</span>
-        <small class="sub-title font-italic">{{ eventsText.subtitle }}</small>
+        <span class="title">{{ $t(eventsText.title) }}</span>
+        <small class="sub-title font-italic">{{ $t(eventsText.subtitle) }}</small>
       </div>
     </div>
     <slot />

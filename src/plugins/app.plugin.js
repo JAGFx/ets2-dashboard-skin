@@ -34,7 +34,7 @@ export default {
 				if ( isActive ) {
 					Vue.prototype.$pushALog( 'New event ' + JSON.stringify( theEvent ), history.HTY_ZONE.MAIN );
 				
-					store.dispatch( 'event/displayEnEvent', {
+					store.dispatch( 'event/displayAnEvent', {
 						eventProcessing: true,
 						eventName:       theEvent.eventName,
 						eventRawData:    theEvent.rawData

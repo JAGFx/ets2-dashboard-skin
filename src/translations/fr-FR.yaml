@@ -21,7 +21,7 @@ Choose your locale used on this app: Choisissez la langue utilisée dans cette a
 Job delivery time: Délai de livraison de la mission
 Display the due date or the remaining time for a job: Afficher la date d'échéance ou le temps restant pour la mission
 H-Shifter layout: Disposition du levier de vitesse en H
-Show the current range of H-Shifter OR the automatic number: Show the current range of H-Shifter OR the automatic number
+Show the current range of H-Shifter OR the automatic number: Afficher l'étage actuel de la boite en H OU le rapport engagé en boite automatique.
 Damage accurate: Précision des dommages
 Show the average with value of 'Damage diagnostic' or same as the 'Route advisor': Afficher la moyenne avec la valeur de "Diagnostic des dommages" ou la même que celle du "Route advisor".
 Get new !: Mettre à jour !
@@ -112,3 +112,179 @@ Speed: Vitesse
 Set the speed unit: Définir l'unité de vitesse
 Currency: Devise
 Set the currency unit: Définir l'unité monétaire
+Debug information: Informations de débogage
+Display some debug information about the map: Afficher des informations de débogage sur la carte
+ETA information: Temps estimé d’arrivée
+Display the remaining or ETA time and the current remaining distance to the destination: Afficher le temps restant ou le temps restant estimée et la distance restante actuelle jusqu’à la destination.
+Speed and gear: Vitesse et rapport
+Display the current speed and gear: Affichage de la vitesse et du rapport actuel
+Map controls: Contrôles de la carte
+Display map controls (Recenter, focus on user, zoom in and zoom out): Afficher les contrôles de la carte (Recentrer, centrer sur l'utilisateur, zoom avant et arrière)
+Display current speed limit: Afficher la limite de vitesse actuelle
+Map rotation: Rotation de la carte
+Enable or disable the map rotation on the first load: Activer ou désactiver la rotation de la carte lors du premier chargement.
+Navigation ETA: Navigation ETA
+Display the due date or the remaining time for the current route: Afficher la date de livraison attendue ou le temps restant pour l'itinéraire actuel.
+Active map: Carte active
+Change the active map: Modifier la carte active
+Kind of map: Type de carte
+Use the ETS2 or ATS map automatically or use the modded map: Utiliser la carte d'ETS2 ou d'ATS automatiquement ou utiliser la carte moddée
+Remote tiles location: Emplacement distant des tuiles
+Set a remote location for the map tiles. It can be on your local machine: Définissez un emplacement distant pour les tuiles de la carte. Il peut être sur votre machine locale
+Custom tiles: Tuiles personnalisées
+Set to ON if you wan to use a custom tiles location: Mettez sur ON si vous voulez utiliser un emplacement de tuiles personnalisé.
+Custom tiles location: Emplacement des tuiles personnalisées
+The host of your tiles location: L'hôte de l'emplacement de vos tuiles
+Game version: Version du jeu
+Get tiles for the latest game version, or for the specified game version: Obtenez les tuiles pour la dernière version du jeu, ou pour la version du jeu spécifiée.
+Tiles: Tuiles
+Elements: Éléments
+Map: Carte
+Right: Droit
+Middle - Top: Milieu - Haut
+Middle - Bottom: Milieu - Bas
+Oil temperature: Température de l'huile
+Display oil temperature: Affichage de la température de l'huile
+Brakes temperature: Température des freins
+Display brakes temperature: Affichage de la température des freins
+Brakes air pressure: Pression d'air des freins
+Display brakes air pressure: Affichage de la pression d'air des freins
+Fuel: Carburant
+Display the fuel level: Afficher le niveau de carburant
+Fuel consumption: Consommation de carburant
+Display the fuel average consumption: Affichage de la consommation moyenne de carburant
+Cruise control: Régulateur de vitesse
+Display the current speed set with the cruise control ON: Afficher la vitesse actuelle réglée avec le régulateur de vitesse actif
+Water temperature: Température de l'eau
+Display the water temperature: Afficher la température de l'eau
+Battery voltage: Tension de la batterie
+Display the battery voltage: Afficher la tension de la batterie
+Next rest stop: Prochain arrêt
+Display the time to go to the next rest stop: Afficher le temps nécessaire pour aller à la prochaine aire de repos
+Display map: Afficher la carte
+Enable or disable the map view: Activer ou désactiver l'affichage de la carte
+Retarder: Ralentisseur
+Display the retarder indicator: Afficher l'indicateur du ralentisseur
+Parking brake: Frein de stationnement
+Display the parking brake indicator: Afficher le témoin du frein de stationnement
+Beam high: Feux de route
+Display the high beam indicator: Affichage de l'indicateur de feux de route
+Beam low: Feux de croisement
+Display the low beam indicator: Affichage de l'indicateur de feux de croisement
+Beacon: Gyrophares
+Display the beacon indicator: Afficher l'indicateur des gyrophares
+RPM: RPM
+Display the RPM: Afficher le RPM
+Display the fuel level indicator: Afficher l'indicateur de niveau de carburant
+Display the speed limit: Afficher la limite de vitesse
+Turning indicator: Clignotants
+Display an indicator when the turn left or turn right blinker are ON: Affiche un indicateur lorsque le clignotant gauche ou le clignotant droit sont activés
+Quickly (100ms): Rapidement (100ms)
+Balanced (500ms): Équilibré (500ms)
+Slowly (1000ms): Lentement (1000ms)
+JAGFx dashboard: Tableau de bord de JAGFx
+Default: Défaut
+Due date: Date limite
+Remaining date: Temps restant
+H-Shifter: Boîte en H
+Automatic: Automatique
+Damage diagnostic: Diagnostic des dommages
+Route advisor: Conseiller d'itinéraire
+On: Actif
+Off: Inactif
+Kilogram: Kilogramme
+Pound & Long ton: Livres et tonnes longues
+Meters & Kilometers: Mètres & Kilomètres
+Foot & Miles: Pieds et milles
+Celsius: Celsius
+Fahrenheit: Fahrenheit
+L/100 km: L/100 km
+Mpg: Mpg
+Liters: Litres
+Gallons: Gallons
+PSI: PSI
+Bar: Bar
+Km/h: Km/h
+Mph: Mph
+€ EUR: € EUR
+£ GBP: £ GBP
+$ US: $ US
+Vanilla: Vanilla
+Mod: Mod
+Auto: Auto
+ETS2 base map (Full DLC): Carte de base ETS2 (DLC complet)
+ATS base map (Full DLC): Carte de base ATS (DLC complet)
+Promod (ETS): Promod (ETS)
+Promod Canada: Promod Canada
+Latest: Les plus récents
+English: Anglais
+French: Français
+Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2: Tableau de bord commun à Euro truck Simulator 2 et American Truck Simulator 2
+The map from the route advisor: La carte du conseiller d'itinéraire
+Base: Base
+Simple dashboard with speed: Un tableau de bord simple avec la vitesse
+Generic Dashboard: Tableau de bord générique
+DAF XF Dashboard: Tableau de bord DAF XF
+MAN TGX Dashboard: Tableau de bord du MAN TGX
+Mercedes Benz Atego MP4 Dashboard: Tableau de bord de Mercedes Benz Atego MP4
+Scania Dashboard: Tableau de bord Scania
+Volvo FH 2012 Dashboard: Tableau de bord Volvo FH 2012
+OFF: Inactif
+N/A: N/A
+No Job: Pas de mission
+No trailer: Pas de remorque
+Map Information: Informations sur la carte
+Version: Version
+Date: Date
+Pos: Pos.
+Ready: Prêt
+Last pos: Dernier pos.
+Map ready: Carte prête
+No data available: Aucune donnée disponible
+Time: Temps
+Source: Source
+Destination: Destination
+Deadline in: Date limite dans
+Truck wear: Dommages du camion
+API: API
+Copy: Copier
+Map initialiation: Initialisation de la carte
+Unable to load map: Impossible de charger la carte
+Connected to telemetry server: Connecté au serveur de télémétrie
+Ready to delivering: Prêt à livrer
+Waiting game connection: Attente de la connexion du jeu
+Run the game to start your job !: Lancez le jeu pour commencer votre mission !
+App ready !: Application prête !
+Starting delivering: Livraison de départ
+Processing: Traitement
+Your app is on processing. Please wait: Votre application est en cours de traitement. Veuillez patienter
+more details: plus de détails
+OK: OK
+You can: Vous pouvez
+create an issue: créer un bug
+and/or contact me at: et/ou me contacter à
+with the above details: avec les détails ci-dessus
+From: De
+To: À
+Cost: Cost
+Delivered time: Temps de livraison
+Earned XP: XP gagnés
+Revenue: Revenu
+Cargo: Cargaison
+Frame: Châssis
+Speed limit set: Limite de vitesse établie
+Game paused: Jeu en pause
+Game connection lost: Connexion au jeu perdue
+Job canceled !: Mission annulée !
+You've been cancel this job: Vous avez annulé cette mission
+Job delivered !: Cargaison livrée
+Delivered !: Livré !
+Job finished !: Mission terminée !
+You've been finish your job: Vous avez fini la mission
+Job started !: La mission a commencé !
+You've been start this job: Vous avez commencé cette mission
+Trailer coupled !: Remorque attelée !
+You are ready to go: Vous êtes prêt à partir
+Cant get tiles - Tiles NOT FOUND: Impossible d'obtenir des tuiles - Tuiles NON TROUVÉES
+Cant get config - Map config NOT FOUND: Impossible d'obtenir la configuration - Configuration de la carte NON TROUVÉE
+Author: Auteur

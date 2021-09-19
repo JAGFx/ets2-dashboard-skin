@@ -23,7 +23,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title mb-0 d-flex justify-content-sm-start align-items-center">
-          {{ skin.title }}
+          {{ $t(skin.title) }}
           <small
             v-show="$isActive(skin)"
             class="mx-1 badge badge-success"
@@ -49,7 +49,7 @@
           ><i class="fas fa-paper-plane" /></a>
         </small>
         <p class="card-text mb-0">
-          {{ skin.description }}
+          {{ $t(skin.description)}}
         </p>
       </div>
       <div

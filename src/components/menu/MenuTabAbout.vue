@@ -12,7 +12,7 @@
       >
       <div class="card-content">
         <h2>
-          <small class="m-0 mb-2 badge badge-success badge-author">Author</small>
+          <small class="m-0 mb-2 badge badge-success badge-author">{{ $t('Author') }}</small>
           <span class="d-block">{{ author.name }}</span>
           <small class="font-italic">{{ author.email }}</small>
         </h2>

@@ -12,7 +12,7 @@ import Vue         from 'vue';
 const defaultMessage = {
 	type:    'dark',
 	title:   'Processing',
-	message: 'Your app are on processing. Please wait'
+	message: 'Your app is on processing. Please wait'
 };
 
 const defaultDetails = {

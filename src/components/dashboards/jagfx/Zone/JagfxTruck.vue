@@ -58,7 +58,7 @@
           'disabled' : !telemetry.truck.cruiseControl.enabled
         }"
       >
-        <span v-show="!telemetry.truck.cruiseControl.enabled">OFF</span>
+        <span v-show="!telemetry.truck.cruiseControl.enabled">{{ $t('OFF') }}</span>
         <span v-show="telemetry.truck.cruiseControl.enabled">{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
         <div class="round">
           <i class="icon-cruise_control" />

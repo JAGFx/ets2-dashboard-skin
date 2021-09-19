@@ -137,7 +137,7 @@
           class="truck-parkBrakeOn"
         />
         <div class="truck-retarderBrake wrapper-area">
-          <span>{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</span>
+          <span>{{ $t( telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' ) }}</span>
         </div>
         <!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
         <!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->

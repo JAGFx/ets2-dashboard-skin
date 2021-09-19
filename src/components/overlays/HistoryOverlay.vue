@@ -16,7 +16,7 @@
             class="my-3 copy btn btn-sm btn-outline-ets d-flex justify-content-around align-items-center"
           >
             <i class="far fa-clipboard pr-1" />
-            Copy
+            {{ $t('Copy') }}
           </button>
           <div class="text-left w-100 pt-0 px-3 pb-3 log-list">
             <small

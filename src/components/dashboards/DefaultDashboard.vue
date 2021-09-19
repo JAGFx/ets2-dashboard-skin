@@ -130,13 +130,13 @@
         <!-- job information -->
         <table class="_job">
           <tr>
-            <th>Time:</th>
+            <th>{{ $t('Time') }}:</th>
             <td>
               <span class="game-time">{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
             </td>
           </tr>
           <tr>
-            <th>Source:</th>
+            <th>{{ $t('Source') }}:</th>
             <td>
               <span class="hasJob _jobSource">
                 <span class="job-sourceCity">{{ telemetry.job.source.city.name }}</span>
@@ -145,7 +145,7 @@
             </td>
           </tr>
           <tr>
-            <th>Destination:</th>
+            <th>{{ $t('Destination') }}:</th>
             <td>
               <span class="hasJob _jobDestionation">
                 <span class="job-destinationCity">{{ telemetry.job.destination.city.name }}</span>
@@ -154,18 +154,20 @@
             </td>
           </tr>
           <tr>
-            <th>Deadline in:</th>
+            <th>{{ $t('Deadline in') }}:</th>
             <td>
               <span class="job-remainingTime">{{ $jobRemainingTimeDelivery(telemetry.job.expectedDeliveryTimestamp.value ) }}</span>
               <span class="_jobIncome"> (<span class="job-income">{{ unit_currency( telemetry.job.income ) }}</span>)</span>
             </td>
           </tr>
         </table>
-        <div class="_truckWearInfo">
-          Truck <br>wear: <span class="truck-wearSum">{{ $averageDamage( telemetry.truck.damage ) }}%</span>
-        </div>
-        <div class="_trailerWearInfo">
-          Trailer <br>damage: <span class="trailer-wear">{{ telemetry.trailer.chassis.damage.toFixed(0) }}%</span>
+        <div class="d-flex">
+          <div class="_truckWearInfo">
+            {{ $t('Truck wear') }}:<br> <span class="truck-wearSum">{{ $averageDamage( telemetry.truck.damage ) }}%</span>
+          </div>
+          <div class="_trailerWearInfo">
+            {{ $t('Trailer damage') }}:<br> <span class="trailer-wear">{{ telemetry.trailer.chassis.damage.toFixed(0) }}%</span>
+          </div>
         </div>
       </div>
     </div>

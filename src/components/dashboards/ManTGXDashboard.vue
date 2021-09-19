@@ -146,7 +146,7 @@
           class="truck-airPressureWarningOn"
         />
         <div class="truck-retarderBrake">
-          {{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}
+          {{ $t( telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' ) }}
         </div>
         <div class="truck-oilTemperature">
           {{ unit_degrees( telemetry.truck.engine.oilTemperature.value ) }}

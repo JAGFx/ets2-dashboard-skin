@@ -14,13 +14,13 @@
           v-else-if="$hasTrailer()"
           class="job disabled"
         >
-          <i>-- No Job --</i>
+          <i>-- {{ $t('No Job') }} --</i>
         </div>
         <div
           v-else
           class="job disabled"
         >
-          <i>-- No trailer --</i>
+          <i>-- {{ $t('No trailer') }} --</i>
         </div>
       </div>
       <div class="job-data">
@@ -37,7 +37,7 @@
           <span
             v-else
             class="w-100 text-center"
-          >N/A</span>
+          >{{ $t('N/A') }}</span>
         </small>
         <div
           v-if="$hasTrailer()"
@@ -49,7 +49,7 @@
           v-else
           class="damage left"
         >
-          N/A
+          {{ $t('N/A') }}
         </div>
       </div>
       <!--<div class="trailer-wear text-center">

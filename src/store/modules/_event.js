@@ -36,7 +36,7 @@ const getters = {
 
 // actions
 const actions = {
-	displayEnEvent( { commit, getters }, dataIn ) {
+	displayAnEvent( { commit, getters }, dataIn ) {
 		if ( getters[ 'lastTimeOut' ] !== null )
 			clearTimeout( getters[ 'lastTimeOut' ] );
 		

@@ -43,7 +43,7 @@
 			"id" :          "Test",
 			"disabled" :    false,
 			"title" :       "Base",
-			"description" : "Simple dashbord with speed",
+			"description" : "Simple dashboard with speed",
 			"author" :      {
 				"name" :  "SMITH Emmanuel",
 				"email" : "hey@emmanuel-smith.me",
@@ -60,7 +60,7 @@
 			"id" :          "Default",
 			"disabled" :    false,
 			"title" :       "Default",
-			"description" : "Generic Dashboard / KMH",
+			"description" : "Generic Dashboard",
 			"author" :      {
 				"name" :  "Funbit",
 				"email" : null,

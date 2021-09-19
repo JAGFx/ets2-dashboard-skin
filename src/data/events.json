@@ -37,7 +37,7 @@
 	"job.cancelled" :                 {
 		"icon" :     "far fa-building",
 		"title" :    "Job canceled !",
-		"subtitle" : "You cancel this job"
+		"subtitle" : "You've been cancel this job"
 	},
 	"job.delivered" :                 {
 		"icon" :     "far fa-building",
@@ -47,12 +47,12 @@
 	"job.finished" :                  {
 		"icon" :     "far fa-building",
 		"title" :    "Job finished !",
-		"subtitle" : "You finish your job"
+		"subtitle" : "You've been finish your job"
 	},
 	"job.started" :                   {
 		"icon" :     "far fa-building",
 		"title" :    "Job started !",
-		"subtitle" : "You start this job"
+		"subtitle" : "You've been start this job"
 	},
 	"navigation.speed-limit" :        {
 		"icon" :     "fas fa-tachometer-alt",
@@ -72,7 +72,7 @@
 	"truck.cruise-control" :          {
 		"icon" :     "fas fa-tachometer-alt",
 		"title" :    "Cruise control set",
-		"subtitle" : "You finish your job"
+		"subtitle" : "You've been finish your job"
 	},
 	"truck.cruise-control-increase" : {
 		"icon" :     "fas fa-tachometer-alt",
