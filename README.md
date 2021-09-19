@@ -57,6 +57,15 @@ More information on the [Map](./doc/MAP.md) readme
 
 See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported game, versions available and download links
 
+## Internationalization
+
+Set your locale on the configuration tab
+
+Available locales: 
+
+- English (en_EN)
+- French (fr_FR)
+
 ## Requirements
 
 - OS: Windows 64Bits

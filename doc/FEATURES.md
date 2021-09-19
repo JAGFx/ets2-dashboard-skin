@@ -145,5 +145,30 @@ To know all available configurations, see the `CONFIG_SETTINGS.md`
 
 See the [Map](./MAP.md) section
 
+## Internationalization
+
+Since `v1.6.6`, you can set your locale. All texts will be displayed on the locale set.
+
+See the configuration  `Menu > General > Langue` and set your locale.
+
+Currently, these locales are available:
+
+- English (en_EN)
+- French (fr_FR)
+
+### Add a new language
+
+The translations files was stored on `src/translations/` folder.
+
+All translations files are in YAML format. The key are the English version and the value are your locale.
+
+If you want to contribute and add a new language: 
+
+- Get the base file `src/translations/fr-FR.yaml`
+- Translate all values
+- Rename your file with the locale code like `fr_FR.yaml` and place on the `src/translations/` folder
+- Create a pull request
+
+
 ---
 ↩️ [Home](../README.md)
