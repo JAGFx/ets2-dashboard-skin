@@ -60,7 +60,7 @@ export default {
 		if ( app.useFakeData )
 			setTimeout( () => {
 				updateTelemetry( testData )
-			}, 1000 );
+			}, 2000 );
 		// --- ./Dev
 		
 		else {

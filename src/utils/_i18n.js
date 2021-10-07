@@ -14,10 +14,11 @@ const locales = {
 }
 
 const availableLocale = [
-	locales.FR_FR
+	locales.FR_FR,
+	locales.EN_EN,
 ];
 
-const fallbackLocale = locales.FR_FR;
+const fallbackLocale = locales.EN_EN;
 
 const changeLocale = locale => {
 	if( availableLocale.indexOf( locale ) === -1 )
