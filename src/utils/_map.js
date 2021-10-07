@@ -11,15 +11,16 @@ import { app, history }                from '@/utils/utils';
 import axios                           from 'axios';
 import { Feature }                     from 'ol';
 import { defaults as defaultControls } from 'ol/control';
+import { GeoJSON }                     from 'ol/format';
 import Point                           from 'ol/geom/Point';
 import Tile                            from 'ol/layer/Tile';
 import VectorLayer                     from 'ol/layer/Vector';
 import Map                             from 'ol/Map';
 import Projection                      from 'ol/proj/Projection';
 import VectorSource                    from 'ol/source/Vector';
-import XYZ                             from 'ol/source/XYZ';
-import { Icon, Style }                 from 'ol/style';
-import View                            from 'ol/View';
+import XYZ                                 from 'ol/source/XYZ';
+import { Fill, Icon, Stroke, Style, Text } from 'ol/style';
+import View                                from 'ol/View';
 import Vue                             from 'vue';
 
 let d = {
@@ -32,10 +33,12 @@ let d = {
 	ready:                     false,
 	arrowRotate:               '',
 	config:                    null,
+	cities: [],
 	paths:                     {
 		base:   '',
 		tiles:  'Tiles/{z}/{x}/{y}.png',
-		config: 'TileMapInfo.json'
+		config: 'TileMapInfo.json',
+		cities: 'Cities.json'
 	},
 	lastPos: {
 		x: null,
@@ -91,6 +94,17 @@ const initConfig = ( game ) => {
 				.then( () => {
 					Vue.prototype.$pushALog( `Tiles OK: ${ d.paths.base + tilesPath }`, history.HTY_ZONE.MAPS_INIT );
 					d.gBehaviorRotateWithPlayer = rotateWithPlayer;
+					
+					return axios
+						.get( d.paths.base + d.paths.cities )
+						.then( response => {
+							Vue.prototype.$pushALog( `Cities OK: ${ d.paths.base + d.paths.cities }`, history.HTY_ZONE.MAPS_INIT );
+							d.cities = response.data;
+							
+						}, () => {
+							Vue.prototype.$pushALog( `Cities NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
+							throw new Error( 'Cant get cities file - Cities NOT FOUND' );
+						} );
 					
 				}, () => {
 					Vue.prototype.$pushALog( `Tiles NOT FOUND`, history.HTY_ZONE.MAPS_INIT, history.HTY_LEVEL.ERROR );
@@ -153,7 +167,8 @@ const initMap = () => {
 		} ),
 		layers:   [
 			getMapTilesLayer( projection ),
-			getPlayerLayer()
+			getPlayerLayer(),
+			getPoiLayers()
 		],
 		target:   'map',
 		view:     new View( {
@@ -222,6 +237,46 @@ const getPlayerLayer = () => {
 		source: featureSource
 	} );
 };
+
+const getPoiLayers = () => {
+	let data = {
+		type: 'FeatureCollection',
+		features: []
+	};
+	
+	d.cities.map( city => {
+		if( city.X !== 0 && city.Y !== 0 ) {
+			data.features.push(
+				{
+					type: 'Feature',
+					properties: {
+						name: city.Name
+					},
+					geometry: {
+						type: 'Point',
+						coordinates: gameCoordToPixels( city.X, city.Y )
+					}
+				}
+			)
+		}
+	} )
+	
+	const textLabel = ( feature ) => feature.get('name');
+	
+	return new VectorLayer({
+		source:  new VectorSource({
+			features: new GeoJSON().readFeatures(data),
+		}),
+		style: feature => new Style({
+			text: new Text({
+				text: textLabel( feature ),
+				font: 'normal bold 2rem/1 Arial',
+				fill: new Fill({color: '#fff'}),
+				stroke: new Stroke({color: '#000000', width: 2}),
+			}),
+		}),
+	})
+}
 
 // ----
 
