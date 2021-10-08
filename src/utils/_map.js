@@ -6,26 +6,25 @@
  * Time: 	21:38
  */
 
-import store                           from '@/store/index';
-import { app, history }                from '@/utils/utils';
-import axios                           from 'axios';
-import { Feature }                     from 'ol';
-import { defaults as defaultControls } from 'ol/control';
-import { GeoJSON }                     from 'ol/format';
-import Point                           from 'ol/geom/Point';
-import Tile                            from 'ol/layer/Tile';
-import VectorLayer                     from 'ol/layer/Vector';
-import Map                             from 'ol/Map';
-import Projection                      from 'ol/proj/Projection';
-import VectorSource                    from 'ol/source/Vector';
+import store                               from '@/store/index';
+import { app, history }                    from '@/utils/utils';
+import axios                               from 'axios';
+import { Feature }                         from 'ol';
+import { defaults as defaultControls }     from 'ol/control';
+import { GeoJSON }                         from 'ol/format';
+import { Point }                           from 'ol/geom';
+import Tile                                from 'ol/layer/Tile';
+import VectorLayer                         from 'ol/layer/Vector';
+import Map                                 from 'ol/Map';
+import Projection                          from 'ol/proj/Projection';
+import VectorSource                        from 'ol/source/Vector';
 import XYZ                                 from 'ol/source/XYZ';
 import { Fill, Icon, Stroke, Style, Text } from 'ol/style';
 import View                                from 'ol/View';
-import Vue                             from 'vue';
+import Vue                                 from 'vue';
 
 let d = {
 	map:                       null,
-	playerIcon:                null,
 	playerFeature:             null,
 	gBehaviorCenterOnPlayer:   true,
 	gBehaviorRotateWithPlayer: true,
@@ -168,7 +167,7 @@ const initMap = () => {
 		layers:   [
 			getMapTilesLayer( projection ),
 			getPlayerLayer(),
-			getPoiLayers()
+			getCitiesLayer()
 		],
 		target:   'map',
 		view:     new View( {
@@ -210,35 +209,25 @@ const getMapTilesLayer = ( projection ) => {
 };
 
 const getPlayerLayer = () => {
-	// Adding a marker for the player position/rotation.
-	d.playerIcon = new Icon( {
-		anchor:         [ 0.5, 39 ],
-		anchorXUnits:   'fraction',
-		anchorYUnits:   'pixels',
-		rotateWithView: true,
-		src:            'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/img/player_proportions.png'
+	d.playerFeature = new Feature( {
+		geometry: new Point( [ 0, 0 ] )
 	} );
+	d.playerFeature.setStyle( new Style( {
+		image: new Icon( {
+			rotateWithView: true,
+			src:            'https://github.com/meatlayer/ets2-mobile-route-advisor/raw/master/img/player_proportions.png'
+		} )
+	} ) );
 	
-	let playerIconStyle = new Style( {
-		image: d.playerIcon
-	} );
-	d.playerFeature     = new Feature( {
-		geometry: new Point( [ d.config.map.maxX / 2, d.config.map.maxY / 2 ] )
-	} );
-	// For some reason, we cannot pass the style in the constructor.
-	d.playerFeature.setStyle( playerIconStyle );
-	
-	// Adding a layer for features overlaid on the map.
-	let featureSource = new VectorSource( {
-		features: [ d.playerFeature ],
-		wrapX:    false
-	} );
 	return new VectorLayer( {
-		source: featureSource
+		source: new VectorSource( {
+			features: [ d.playerFeature ]
+			//wrapX:    false
+		} )
 	} );
 };
 
-const getPoiLayers = () => {
+const getCitiesLayer = () => {
 	let data = {
 		type: 'FeatureCollection',
 		features: []
@@ -302,7 +291,7 @@ const updatePlayerPositionAndRotation = ( lon, lat, rot, speed ) => {
 	let rad        = rot * Math.PI * 2;
 	
 	d.playerFeature.getGeometry().setCoordinates( map_coords );
-	d.playerIcon.setRotation( -rad );
+	d.playerFeature.getStyle().getImage().setRotation( -rad );
 	
 	d.gIgnoreViewChangeEvents = true;
 	if ( d.gBehaviorCenterOnPlayer ) {
