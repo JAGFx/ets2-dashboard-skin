@@ -11,7 +11,6 @@ import { mutations }           from '@/store/telemetry.store';
 import { translate }           from '@/utils/_i18n';
 import { app, event, history } from '@/utils/utils';
 import { io }                  from 'socket.io-client';
-import testData                from '@/data/scs_sdk_plugin_parsed_data.json';
 
 
 export default {
@@ -56,14 +55,9 @@ export default {
 				mutations.setReceivedData( true );
 		}
 		
-		// --- Dev
-		if ( app.useFakeData )
-			setTimeout( () => {
-				updateTelemetry( testData )
-			}, 2000 );
-		// --- ./Dev
+		Vue.prototype.$updateTelemetry = updateTelemetry;
 		
-		else {
+		if ( !app.useFakeData ) {
 			const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
 			telemetrySocket.on( 'connect', () => {
 				store.commit( 'app/setLaunch', {
