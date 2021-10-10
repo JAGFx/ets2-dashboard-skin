@@ -1,7 +1,7 @@
 {
 	"general_region" :                         "eu",
 	"general_refresh_rate" :                   100,
-	"general_skin_on_load" :                   "JAGFx",
+	"general_skin_on_load" :                   "Map",
 	"general_unit_auto" :                      false,
 	"general_h-shift-layout" :                 "h-shifter",
 	"unit_weight" :                            "kg",
@@ -66,8 +66,8 @@
 	"maps_map_tilesVersion" :         "latest",
 	"general_damage_accurate" :       "damage-diagnostic",
 	"jagfx_elements_right_map" :      false,
-	"maps_map_tilesRemoteUseCustom": false,
-	"maps_map_tilesRemoteCustomPath": null,
+	"maps_map_tilesRemoteUseCustom": true,
+	"maps_map_tilesRemoteCustomPath": "http://localhost:8081",
 	"maps_general_debug": false,
 	"general_skin_locale": "en-EN"
 }

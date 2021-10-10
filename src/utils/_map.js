@@ -22,6 +22,8 @@ import XYZ                                 from 'ol/source/XYZ';
 import { Fill, Icon, Stroke, Style, Text } from 'ol/style';
 import View                                from 'ol/View';
 import Vue                                 from 'vue';
+import MousePosition from 'ol/control/MousePosition';
+import {createStringXY} from 'ol/coordinate';
 
 let d = {
 	map:                       null,
@@ -154,6 +156,15 @@ const initMap = () => {
 	zoomOutLabel.classList.add( 'icon-zoom_out' );
 	zoomOutWrapper.append(zoomOutLabel);
 	
+	const mousePositionControl = new MousePosition({
+		coordinateFormat: createStringXY(4),
+		projection: projection,
+		// comment the following two lines to have the mouse position
+		// be placed within the map.
+		className: 'custom-mouse-position',
+		target: document.getElementById('mouse-position'),
+	});
+	
 	d.map = new Map( {
 		controls: defaultControls( {
 			zoom:        true,
@@ -162,8 +173,8 @@ const initMap = () => {
 				zoomOutLabel: zoomOutWrapper,
 				target:       'ol-zoom-wrapper'
 			},
-			rotate:      false
-		} ),
+			rotate:      false,
+		} ).extend([mousePositionControl]),
 		layers:   [
 			getMapTilesLayer( projection ),
 			getPlayerLayer(),

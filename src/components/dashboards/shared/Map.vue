@@ -220,6 +220,10 @@
           <th>{{ $t('Tiles') }}</th>
           <td>{{ m.paths.base }}</td>
         </tr>
+        <tr>
+          <th>Mouse pos</th>
+          <td><div id="mouse-position"></div></td>
+        </tr>
       </table>
       <div v-else>
         {{ $t('No data available') }}
