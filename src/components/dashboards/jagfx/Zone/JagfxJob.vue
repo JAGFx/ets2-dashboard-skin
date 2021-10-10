@@ -62,7 +62,7 @@
         <div class="round">
           <i class="icon-ruler" />
         </div>
-        <span v-if="telemetry.navigation.distance === 0">{{ $('N/A') }}</span>
+        <span v-if="telemetry.navigation.distance === 0">{{ $t('N/A') }}</span>
         <span v-else-if="telemetry.navigation.distance < 1000"> {{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
         <span v-else>{{ unit_length( telemetry.navigation.distance ) }}</span>
       </li>
