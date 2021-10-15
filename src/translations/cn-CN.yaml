@@ -1,0 +1,290 @@
+Skins: 皮肤
+Config: 配置
+About: 关于
+Activate: 激活
+Active: 活动
+Disabled: 无效
+Menu: 菜单
+Close: 关闭
+Download: 下载
+Upload: 上传
+Show: 显示
+less: 减少
+more: 更多
+General: 概述
+Refresh rate: 刷新率
+Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;): 设置数据的刷新率。数值越小，仪表板数据将更新的更快。更改后需要重新启动此应用；）
+Default skin loaded: 加载的默认皮肤
+Set the skin loaded when this app was started: 设置启动程序时加载的皮肤
+Langue: 语言
+Choose your locale used on this app: 选择程序上默认区域设置
+Job delivery time: 任务交付时间
+Display the due date or the remaining time for a job: 显示任务的到期日期或剩余时间
+H-Shifter layout: 手动档布局
+Show the current range of H-Shifter OR the automatic number: 显示手动档的当前范围或自动编号
+Damage accurate: 损坏程度
+Show the average with value of 'Damage diagnostic' or same as the 'Route advisor':  显示与“损坏诊断”的值或与“路由顾问”的值相同的平均值
+Get new !: 获得新的！
+Game: 游戏
+Select one: 选择一个
+Pause / Unpause: 暂停 / 取消暂停
+Fine: 罚金
+Toll gate: 收费站
+Ferry: 渡轮
+Train: 火车
+Refuel played: 加油完成
+Job: 任务
+Cancelled: 取消
+Delivered: 交付
+Finished: 完成
+Started: 开始
+Speed limit change: 限速变更
+Trailers: 拖车
+Coupling: 连接
+Damage: 损坏
+Truck: 卡车
+Cruise control ON / OFF: 定速巡航 开 / 关
+Cruise control increase: 定速巡航增加
+Cruise control decrease: 定速巡航减少
+Warning: 警告
+Emergency: 紧急情况
+Electric: 电源
+Engine: 发动机
+Park: 公园
+Refuel: 加油
+Events: 事件
+Game pause: 游戏暂停
+Show a pop-up when the game are on pause or unpause: 当游戏暂停或取消暂停时显示一个弹出窗口
+Road fine: 交通罚款
+Show a pop-up when you get a road fine: 当您收到交通罚款时显示弹出窗口
+Show a pop-up when you pass through a toll gate: 通过收费站时显示弹出窗口
+Ferry travel: 渡轮运输
+Show a pop-up when you use a ferry: 使用渡轮时显示弹出窗口
+Train travel: 火车运输
+Show a pop-up when you use a train: 使用火车时显示弹出窗口
+Refuel payed: 加油款已付
+Show a pop-up when you have been refueled your truck tank: 为卡车加油后显示弹出窗口
+Job canceled: 任务取消
+Show a pop-up when a job was canceled: 取消任务时显示弹出窗口
+Job delivered: 任务已交付
+Show a pop-up when a job was delivered: 交付任务时显示弹出窗口
+Job finished: 任务已完成
+Show a pop-up when a job was finished: 任务完成时显示弹出窗口
+Job started: 任务已开始
+Show a pop-up when a job was started: 任务开始时显示弹出窗口
+Speed limit: 限速
+Show a pop-up when the speed limit change: 当限速变更时显示一个弹出窗口
+Trailer coupled: 拖车已连接
+Show a pop-up when the trailer was coupled to the truck: 当拖车连接到卡车时显示一个弹出窗口
+Trailer damage: 拖车损坏
+Show a pop-up when the damage increase on the trailer: 当拖车上的损坏增加时显示一个弹出窗口
+Cruise control enabled: 定速巡航启用
+Show a pop-up when the cruise control is enabled: 启用定速巡航时显示弹出窗口
+Show a pop-up when the cruise control increase: 当定速巡航增加时显示一个弹出窗口
+Show a pop-up when the cruise control decrease: 当定速巡航减少时显示一个弹出窗口
+Truck warning message: 卡车警告信息
+Show a pop-up for all warning message of truck: 显示卡车所有警告消息的弹出窗口
+Truck emergency message: 卡车紧急信息
+Show a pop-up for all emergency message of truck: 显示卡车所有紧急消息的弹出窗口
+Truck electric message: 卡车短信
+Truck engine start: 卡车发动机启动
+Show a pop-up when the truck engine start: 卡车发动机启动时显示一个弹出窗口
+Truck parking brake: 卡车驻车制动
+Show a pop-up when the truck parking brake are on: 当卡车驻车制动打开时显示一个弹出窗口：
+Truck damage: 卡车损坏
+Show a pop-up when the truck damage increase: 当卡车损坏增加时显示一个弹出窗口
+Truck refuel: 给卡车加油
+Show a pop-up when the truck refuel tank was full: 当卡车油箱已满时显示弹出窗口
+Unit: 单位
+Weight: 重量
+Set the weight unit. Used for the weight of the cargo: 给货物设置重量单位
+Length: 长度
+Set the length unit. Used for the distance of travel (job or point on the map): 给运输距离设置长度单位（任务或地图上的位置）
+Degrees: 温度
+Set degrees unit. Used for the temperature of water, oil and engine: 给水、油和发动机的温度设置温度单位
+Consumption: 消耗量
+Set the consumption unit: 设置消耗量单位
+Volume: 容量
+Set the volume unit. Used for the fuel capacity: 给燃料设置容量单位
+Pressure: 压力
+Set the pressure unit. Used for the Air pressure or oil pressure: 给气压或油压设置压力单位
+Speed: 速度
+Set the speed unit: 设置速度单位
+Currency: 货币
+Set the currency unit: 设置货币单位
+Debug information: 调试信息
+Display some debug information about the map: 显示一些关于地图的调试信息
+ETA information: 预计到达时间
+Display the remaining or ETA time and the current remaining distance to the destination: 显示剩余或游戏时间和当前到目的地的剩余距离
+Speed and gear: 速度和档位
+Display the current speed and gear: 显示当前速度和档位
+Map controls: 地图组件
+Display map controls (Recenter, focus on user, zoom in and zoom out): 显示地图组件（重新居中、聚焦用户、放大和缩小）
+Display current speed limit: 显示当前限速
+Map rotation: 地图转换
+Enable or disable the map rotation on the first load: 在第一次加载时启用或禁用地图转换
+Navigation ETA: 导航预计到达时间
+Display the due date or the remaining time for the current route: 显示当前路线的截止日期或剩余时间
+Active map: 活动地图
+Change the active map: 更改活动地图
+Kind of map: 地图种类
+Use the ETS2 or ATS map automatically or use the modded map: 自动使用 ETS2 或 ATS 地图或使用修改后的地图
+Remote tiles location: 远程地图文件地址
+Set a remote location for the map tiles. It can be on your local machine: 在本地设置地图文件的远程地址
+Custom tiles: 自定义地图文件
+Set to ON if you wan to use a custom tiles location: 如果您想使用自定义地图文件地址，请设置为 开
+Custom tiles location: 自定义地图块地址
+The host of your tiles location: 您的地图块位置的主机地址
+Game version: 游戏版本
+Get tiles for the latest game version, or for the specified game version: 获取最新游戏版本或指定游戏版本的地图文件
+Tiles: 文件
+Elements: 元素
+Map: 地图
+Right: 右
+Middle - Top: 中 - 顶部
+Middle - Bottom: 中 - 底部
+Oil temperature: 油温
+Display oil temperature: 显示油温
+Brakes temperature: 制动器温度
+Display brakes temperature: 显示制动器温度
+Brakes air pressure: 刹车气压
+Display brakes air pressure: 显示刹车气压
+Fuel: 燃油
+Display the fuel level: 显示燃油油位
+Fuel consumption: 燃油消耗
+Display the fuel average consumption: 显示燃油平均消耗量
+Cruise control: 定速巡航
+Display the current speed set with the cruise control ON: 显示定速巡航开启时设置的速度
+Water temperature: 水温
+Display the water temperature: 显示水温
+Battery voltage: 电池电压
+Display the battery voltage: 显示电池电压 
+Next rest stop: 下一个休息站
+Display the time to go to the next rest stop: 显示前往下一个休息站的时间
+Display map: 显示地图
+Enable or disable the map view: 启用或禁用地图视图
+Retarder: 缓速器
+Display the retarder indicator: 显示缓速器指示灯
+Parking brake: 驻车制动
+Display the parking brake indicator: 显示驻车制动指示灯
+Beam high: 远光灯
+Display the high beam indicator: 显示远光灯指示灯
+Beam low: 近光灯
+Display the low beam indicator: 显示近光灯指示灯
+Beacon: 警示灯
+Display the beacon indicator: 显示警示灯指示灯
+RPM: RPM
+Display the RPM: 显示RPM
+Display the fuel level indicator: 显示燃油油位指示器
+Display the speed limit: 显示限速
+Turning indicator: 转向指示灯
+Display an indicator when the turn left or turn right blinker are ON: 当左转或右转灯打开时显示指示灯
+Quickly (100ms): 快速（100ms）
+Balanced (500ms): 平衡（500ms）
+Slowly (1000ms): 慢速（1000ms）
+JAGFx dashboard: JAGFx 仪表板
+Default: 默认
+Due date: 到期日期
+Remaining date: 剩余日期
+H-Shifter: 手动挡
+Automatic: 自动档
+Damage diagnostic: 损坏诊断
+Route advisor: 路线顾问
+On: 开
+Off: 关
+Kilogram: 公斤
+Pound & Long ton: 磅 & 英吨
+Meters & Kilometers: 米 & 公里
+Foot & Miles: 英尺 & 英里
+Celsius: 摄氏度
+Fahrenheit: 华氏度
+L/100 km: L/100 km
+Mpg: Mpg
+Liters: 升
+Gallons: 加仑
+PSI: PSI
+Bar: Bar
+Km/h: Km/h
+Mph: Mph
+€ EUR: € EUR
+£ GBP: £ GBP
+$ US: $ US
+Vanilla: 简单
+Mod: 模组
+Auto: 自动
+ETS2 base map (Full DLC): ETS2基本地图（完整 DLC）
+ATS base map (Full DLC): ATS基本地图（完整 DLC）
+Promod (ETS): 地图扩展模组（ETS）
+Promod Canada: 加拿大地图扩展模组
+Latest: 最新的
+English: 英语
+French: 法语
+Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2: ETS2和ATS的通用仪表板：
+The map from the route advisor: 路线顾问地图
+Base: 根据
+Simple dashboard with speed: 简单的仪表板速度
+Generic Dashboard: 通用仪表板
+DAF XF Dashboard: DAF XF 仪表板
+MAN TGX Dashboard: MAN TGX 仪表板
+Mercedes Benz Atego MP4 Dashboard: 梅赛德斯奔驰 Atego MP4 仪表板
+Scania Dashboard: 斯堪尼亚仪表板
+Volvo FH 2012 Dashboard: 沃尔沃 FH 2012 仪表板
+OFF: 关
+N/A: N/A
+No Job: 没有任务
+No trailer: 没有拖车
+Map Information: 地图信息
+Version: 版本
+Date: 日期 
+Pos: 位置
+Ready: 已准备好
+Last pos: 最后的位置
+Map ready: 地图已准备好
+No data available: 没有可用数据
+Time: 时间
+Source: 起始地
+Destination: 目的地
+Deadline in: 截止日期
+Truck wear: 卡车损坏
+API: API
+Copy: 复制
+Map initialiation: 地图初始化
+Unable to load map: 无法加载地图
+Connected to telemetry server: 连接到遥测服务器
+Ready to delivering: 准备交付
+Waiting game connection: 等待游戏连接
+Run the game to start your job !: 运行游戏开始你的任务！
+App ready !: 程序已准备好！
+Starting delivering: 开始交付
+Processing: 处理
+Your app is on processing. Please wait: 您的应用正在处理中，请稍等~~~
+more details: 更多细节
+OK: OK
+You can: 你可以
+create an issue: 创建一个问题
+and/or contact me at: 和/或着联系我
+with the above details: 与上述细节
+From: 从
+To: 到
+Cost: 成本
+Delivered time: 送达时间
+Earned XP: 获得的经验值
+Revenue: 收入
+Cargo: 货物
+Frame: 框架
+Speed limit set: 限速设置
+Game paused: 游戏暂停
+Game connection lost: 游戏连接丢失
+Job canceled !: 任务取消！
+You've been cancel this job: 您已取消此作业
+Job delivered !: 工作交付！
+Delivered !: 已交付！
+Job finished !: 作业完成！
+You've been finish your job: 你已经完成了你的工作
+Job started !: 工作开始了！
+You've been start this job: 你已经开始了这项工作
+Trailer coupled !: 拖车连接！
+You are ready to go: 你准备好出发了
+Cant get tiles - Tiles NOT FOUND: 无法获得文件 - 找不到文件
+Cant get config - Map config NOT FOUND: 无法获取配置 - 找不到地图配置
+Author: 作者
