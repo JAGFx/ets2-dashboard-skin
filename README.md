@@ -93,7 +93,7 @@ You can use this dashboard without build anything.
 You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 page.
 
-Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it !
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it ! 
 
 > Note: You need to start the game to see the dashboard
 
