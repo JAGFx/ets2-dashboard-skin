@@ -1,9 +1,9 @@
-import defaultData from '@/data/ets2-dashboard-skin.config.json';
-import { config }  from '@/utils/utils';
-import Vue         from 'vue';
+import { emptyData }        from '@/utils/_config';
+import { config }           from '@/utils/utils';
+import Vue                  from 'vue';
 
 // initial state
-const state = () => (defaultData);
+const state = () => (emptyData());
 
 // getters
 const getters = {

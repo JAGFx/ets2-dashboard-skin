@@ -21,9 +21,10 @@ export default {
   },
   computed: {
     telemetry:     () => store.telemetry,
-    gameConnected: () => app.useFakeData || (store.receivedData
-                                             && store.telemetry.game.sdkActive
-                                             && (store.telemetry.truck.brand.id.length !== 0)),
+    gameConnected: () => (app.useFakeData
+       || (store.receivedData && store.telemetry.game.sdkActive
+            && (store.telemetry.truck.brand.id.length !== 0)))
+        && this.config('unit_weight'),
     receivedData:  () => store.receivedData,
     jobDeliveryTime() {
       return (this.telemetry.job.market.id === 'external_contracts')

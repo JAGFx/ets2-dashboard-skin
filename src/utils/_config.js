@@ -7,7 +7,8 @@
  */
 
 import fieldValues from '@/data/config-field-values.json';
-import defaultData from '@/data/ets2-dashboard-skin.config.json';
+import defaultGeneralConfig from '@/data/config/config.json';
+//import defaultEts2Config from '@/data/config/config.ets2.json';
 import store       from '@/store';
 import axios       from 'axios';
 import FileSaver   from 'file-saver';
@@ -33,7 +34,7 @@ export const generateEmptyData = ( config, configSkins ) => {
 };
 
 export const emptyData = () => {
-	return defaultData;
+	return {...defaultGeneralConfig, ...null};
 };
 
 export const save = async data => {
@@ -95,7 +96,7 @@ export const load = () => {
 	return axios.get( '/config' )
 				.then( response => {
 					store.dispatch( 'app/endProcessing' );
-					return response.data;
+					return { ...response.data.app, ...response.data.game };
 				}, error => {
 					store.dispatch( 'app/setError', {
 						message: {
@@ -162,7 +163,7 @@ const uploadChecker = input => {
 		state: true
 	};
 	
-	Object.entries( defaultData ).forEach( entry => {
+	Object.entries( emptyData() ).forEach( entry => {
 		const key = entry[ 0 ];
 		
 		if ( !Object.hasOwnProperty.call( input, key ) )

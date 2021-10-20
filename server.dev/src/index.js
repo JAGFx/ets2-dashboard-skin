@@ -10,21 +10,13 @@ const path     = require( 'path' );
 const fs       = require( 'fs' );
 const socketio = require( 'socket.io' );
 
-const express    = require( 'express' );
-const http       = require( 'http' );
-const bodyParser = require( 'body-parser' );
-const dateFilename   = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
-const port           = 3000;
-const configFilePath = path.resolve( process.cwd(), '../src/data/ets2-dashboard-skin.config.json' );
-const interval       = () => {
-	const config    = JSON.parse( fs.readFileSync( configFilePath, 'UTF-8' ) );
-	const rateFound = config.hasOwnProperty( 'general_refresh_rate' );
-	
-	return (rateFound)
-		? Math.min( parseInt( config.general_refresh_rate ), 100 )
-		: 100;
-}; // Milisecond
-
+const express               = require( 'express' );
+const http                  = require( 'http' );
+const bodyParser            = require( 'body-parser' );
+const { telemetryInterval } = require( './services/telemetry.service' );
+const { initConfig }        = require( './services/config.service' );
+const dateFilename          = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
+const port                  = 3000;
 // ---
 
 let app    = express();
@@ -40,13 +32,14 @@ app.use( bodyParser.json() );
 app.use( '/maps', express.static( path.resolve( __dirname, '../../maps' ) ) );
 
 // ---
+initConfig( app, __dirname );
 
 io.on( 'connection', socket => {
 	const data = fs.readFileSync( dateFilename );
 	console.log( 'Connection: ' + socket.id );
 	setInterval( () => {
 		socket.emit( 'update', JSON.parse( data.toString() ))
-	}, interval() );
+	}, telemetryInterval() );
 } );
 
 server.listen( port, () => {
@@ -56,5 +49,5 @@ server.listen( port, () => {
 		port: port
 	};
 	
-	console.log( 'server.listen', data, `Euro Truck Simulator 2 dashboard is running at http://${ url }/` );
+	console.log( 'server.listen', data, `Euro Truck Simulator 2 dashboard is running at http://${ url }:${port}/` );
 } );

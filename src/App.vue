@@ -58,7 +58,8 @@ export default {
     ...mapGetters( {
       menuIsDisplayed: 'menu/isDisplayed',
       currentSkin:     'skins/current',
-      getConfig:       'config/get'
+      getConfig:       'config/get',
+      configExist: 'config/exist'
     } )
   },
   mounted() {
