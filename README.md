@@ -63,6 +63,7 @@ Set your locale on the configuration tab
 
 Available locales: 
 
+- Chinese (cn_CN) - Thanks to [dreamstar-2020](https://github.com/dreamstar-2020)
 - English (en_EN)
 - French (fr_FR)
 
