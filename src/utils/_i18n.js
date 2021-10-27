@@ -7,18 +7,15 @@
  */
 import store from '@/store';
 import fr_fr     from '@/translations/fr-FR.yaml';
-
-const locales = {
-	EN_EN: 'en-EN',
-	FR_FR: 'fr-FR',
-}
+import cn_cn     from '@/translations/cn-CN.yaml';
 
 const availableLocale = [
-	locales.FR_FR,
-	locales.EN_EN,
+	'fr-FR',
+	'en-EN',
+	'cn-CN',
 ];
 
-const fallbackLocale = locales.EN_EN;
+const fallbackLocale = 'en-EN';
 
 const changeLocale = locale => {
 	if( availableLocale.indexOf( locale ) === -1 )
@@ -31,7 +28,8 @@ const currentLocaleTranslations = () => {
 	const currentLocaleName = store.getters['i18n/locale'];
 	
 	switch ( currentLocaleName ) {
-		case locales.FR_FR:return fr_fr;
+		case 'fr-FR':return fr_fr;
+		case 'cn-CN':return cn_cn;
 		default: return {}
 	}
 };
@@ -45,8 +43,6 @@ const translate = target => {
 
 export {
 	fallbackLocale,
-	locales,
-	availableLocale,
 	translate,
 	currentLocaleTranslations,
 	changeLocale
