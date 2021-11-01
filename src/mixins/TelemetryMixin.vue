@@ -7,7 +7,8 @@ import {
   temperature as uc_temperature,
   volume as uc_volume
 }                from 'units-converter';
-import { store } from '@/store/telemetry.store';
+import { store as telemetryStore } from '@/store/telemetry.store';
+import store from '@/store';
 
 export default {
   name:     'TelemetryMixin',
@@ -20,12 +21,13 @@ export default {
     }
   },
   computed: {
-    telemetry:     () => store.telemetry,
-    gameConnected: () => (app.useFakeData
-       || (store.receivedData && store.telemetry.game.sdkActive
-            && (store.telemetry.truck.brand.id.length !== 0)))
-        && this.config('unit_weight'),
-    receivedData:  () => store.receivedData,
+    telemetry:     () => telemetryStore.telemetry,
+    appReady: () => telemetryStore.receivedData
+        && telemetryStore.telemetry.game.sdkActive
+        && telemetryStore.telemetry.truck.brand.id.length !== 0
+        && store.getters['app/isLaunched']
+        && store.getters['config/gameConfigLoaded'],
+    receivedData:  () => telemetryStore.receivedData,
     jobDeliveryTime() {
       return (this.telemetry.job.market.id === 'external_contracts')
           ? this.telemetry.job.expectedDeliveryTimestamp.value

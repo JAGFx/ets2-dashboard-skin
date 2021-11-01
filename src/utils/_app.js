@@ -6,7 +6,8 @@
  * Time: 	18:36
  */
 
-import store   from '@/store';
+import store       from '@/store';
+import { history } from '@/utils/utils';
 import countryList from 'country-list';
 import emojiFlags  from 'emoji-flags';
 import momentjs    from 'moment-timezone';
@@ -114,6 +115,14 @@ export const gameIsETS2 = gameID => gameID === GAME_ID_ETS2;
 
 export const betweenFloat = ( data, a, b ) => {
 	return parseFloat( data ) >= a && parseFloat( data ) <= b;
+};
+
+export const pushLog = ( message, zone, level = history.HTY_LEVEL.INFO ) => {
+	store.dispatch( 'debug/addLog', {
+		message,
+		zone,
+		level
+	} );
 };
 
 export const formatConstants = {

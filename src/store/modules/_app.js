@@ -10,7 +10,7 @@ import { history } from '@/utils/utils';
 import Vue         from 'vue';
 
 const defaultMessage = {
-	type:    'dark',
+	icon: null,
 	title:   'Processing',
 	message: 'Your app is on processing. Please wait'
 };
@@ -20,34 +20,29 @@ const defaultDetails = {
 	code:    null
 };
 
-const defaultLaunchObject = {
-	icon:    '<i class="fas fa-box"></i>',
-	text:    'App ready !',
-	subText: 'Starting delivering'
-};
-
 const state = () => ({
+	launched: false,
 	processing: false,
 	message:    defaultMessage,
 	details:    defaultDetails,
-	launch:     defaultLaunchObject
 });
 
 // getters
 const getters = {
+	isLaunched: state => state.launched,
 	isOnProcessing: state => state.processing,
 	message:        state => state.message,
 	details:        state => state.details,
-	launch:         state => state.launch,
-	getProcessing:  ( state ) => {
-		return state.processing;
-	}
 };
 
 // actions
 const actions = {
 	startProcessing( { commit } ) {
 		commit( 'setProcessing', true );
+	},
+	showMessage( { commit }, payload ) {
+		commit( 'setProcessing', true );
+		commit( 'setMessage', payload );
 	},
 	endProcessing( { commit } ) {
 		commit( 'setProcessing', false );
@@ -65,6 +60,9 @@ const actions = {
 
 // mutations
 const mutations = {
+	setLaunched( state, value ) {
+		state.launched = value;
+	},
 	setProcessing( state, value ) {
 		state.processing = value;
 	},
@@ -73,9 +71,6 @@ const mutations = {
 	},
 	setDetails( state, details ) {
 		state.details = details;
-	},
-	setLaunch( state, launch ) {
-		state.launch = launch;
 	}
 };
 

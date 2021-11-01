@@ -1,13 +1,13 @@
 <template>
   <main :class="`${Object.hasOwnProperty.apply( 'game', telemetry.game ) ? telemetry.game.game.name : ''}`">
-    <LoadingOverlay :display="gameConnected" />
+    <!--    <LoadingOverlay :display="!appReady || !gameConfigLoaded" />-->
     <HistoryOverlay />
-    <Overlay v-if="gameConnected" />
-    <TelemetryEventOverlay v-if="gameConnected" />
-    <Header />
+    <Overlay />
+    <TelemetryEventOverlay v-if="appReady" />
+    <Header v-if="appReady" />
     <component
       :is="currentSkinComponent()"
-      v-if="gameConnected"
+      v-if="appReady"
       v-show="!menuIsDisplayed"
     />
   </main>
@@ -20,19 +20,24 @@ import JAGFxDashboard         from '@/components/dashboards/JAGFxDashboard';
 import ManTGXDashboard        from '@/components/dashboards/ManTGXDashboard';
 import MapDashboard           from '@/components/dashboards/MapDashboard';
 import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
-import RdInfoDashboard        from '@/components/dashboards/RdInfoDashboard';
-import ScaniaDashboard        from '@/components/dashboards/ScaniaDashboard';
-import TestDashboard          from '@/components/dashboards/TestDashboard';
-import VolvoFHDashboard       from '@/components/dashboards/VolvoFHDashboard';
-import Header                 from '@/components/header/Header';
-import HistoryOverlay         from '@/components/overlays/HistoryOverlay';
-import LoadingOverlay         from '@/components/overlays/LoadingOverlay';
-import Overlay                from '@/components/overlays/Overlay';
-import TelemetryEventOverlay  from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import TelemetryMixin                   from '@/mixins/TelemetryMixin';
-import { changeLocale, fallbackLocale } from '@/utils/_i18n';
-import { history }                      from '@/utils/utils';
-import { mapGetters }         from 'vuex';
+import RdInfoDashboard                  from '@/components/dashboards/RdInfoDashboard';
+import ScaniaDashboard                  from '@/components/dashboards/ScaniaDashboard';
+import TestDashboard                    from '@/components/dashboards/TestDashboard';
+import VolvoFHDashboard                 from '@/components/dashboards/VolvoFHDashboard';
+import Header                           from '@/components/header/Header';
+import HistoryOverlay                   from '@/components/overlays/HistoryOverlay';
+import Overlay                          from '@/components/overlays/Overlay';
+import TelemetryEventOverlay            from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
+import {
+  loadAppConfig,
+  loadGameConfig,
+  setConfigActive,
+  setLocale,
+  startTelemetryConnection
+}                     from '@/utils/_splashScreen';
+import { history }    from '@/utils/utils';
+import { mapGetters }                   from 'vuex';
 
 export default {
   name:       'App',
@@ -51,7 +56,6 @@ export default {
     Overlay,
     HistoryOverlay,
     Header,
-    LoadingOverlay
   },
   mixins: [TelemetryMixin],
   computed: {
@@ -59,40 +63,39 @@ export default {
       menuIsDisplayed: 'menu/isDisplayed',
       currentSkin:     'skins/current',
       getConfig:       'config/get',
-      configExist: 'config/exist'
+      configExist: 'config/exist',
+      gameConfigLoaded: 'config/gameConfigLoaded',
+      isLaunched: 'app/isLaunched'
     } )
   },
   mounted() {
-    this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
-
-    this.$store
-        .dispatch( 'config/load' )
-        .then( () => {
-          this.$pushALog( 'Config loaded', history.HTY_ZONE.MAIN );
-
-          const skinToLoad = this.config( 'general_skin_on_load' );
-
-          try {
-            this.$store.commit( 'skins/setConfigActive', skinToLoad );
-
-          } catch ( e ) {
-            this.$pushALog( 'Value set in "general_skin_on_load" was not a valid skin: ' + skinToLoad,
-                history.HTY_ZONE.MAIN,
-                history.HTY_LEVEL.ERROR );
-            this.$store.dispatch( 'skins/setFirstActive' );
-          }
-
-          const locale = this.config( 'general_skin_locale' );
-          try {
-            changeLocale( locale )
-
-          } catch ( e ) {
-            this.$pushALog( `Value set in "general_skin_locale" was not a valid skin: ${locale}. Revert to fallback locale: ${fallbackLocale}`,
-                history.HTY_ZONE.MAIN,
-                history.HTY_LEVEL.ERROR );
-            changeLocale( fallbackLocale )
-          }
-        } );
+    this.$store.dispatch('app/showMessage', {
+      icon: null,
+      title: 'Launching'
+    } )
+    loadAppConfig()
+    .then( setConfigActive )
+    .then( setLocale )
+    .then( startTelemetryConnection )
+    .then( loadGameConfig )
+    .then(() => {
+      //this.$store.commit('app/setLaunched', true)
+      this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
+      //console.log( 'Launched' );
+    })
+    .catch( e => {
+      this.$store.dispatch( 'app/setError', {
+        message: {
+          icon: null,
+          title: 'Unable to launch',
+          message: 'An error occurred during the launching',
+        },
+        details: {
+          message: e.message,
+          code: 'APP_LAUNCH'
+        }
+      } )
+    } )
 
     /*// HeaderGameInformation connected
      setTimeout(()=> {

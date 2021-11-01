@@ -8,7 +8,7 @@
 
 import fieldValues from '@/data/config-field-values.json';
 import defaultGeneralConfig from '@/data/config/config.json';
-//import defaultEts2Config from '@/data/config/config.ets2.json';
+import defaultEts2Config from '@/data/config/config.ets2.json';
 import store       from '@/store';
 import axios       from 'axios';
 import FileSaver   from 'file-saver';
@@ -33,8 +33,11 @@ export const generateEmptyData = ( config, configSkins ) => {
 	return emptyData;
 };
 
-export const emptyData = () => {
-	return {...defaultGeneralConfig, ...null};
+export const emptyData = (withGame = false) => {
+	return {
+		app: defaultGeneralConfig,
+		game: withGame ? defaultEts2Config : null
+	};
 };
 
 export const save = async data => {
@@ -83,20 +86,16 @@ export const download = () => {
 };
 
 export const load = () => {
-	store.dispatch( 'app/startProcessing' );
-	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
 			setTimeout( () => {
-				store.dispatch( 'app/endProcessing' );
-				resolve( emptyData() );
+				resolve( emptyData().app );
 			}, 1000 );
 		} );
 	
 	return axios.get( '/config' )
 				.then( response => {
-					store.dispatch( 'app/endProcessing' );
-					return { ...response.data.app, ...response.data.game };
+					return response.data.app;
 				}, error => {
 					store.dispatch( 'app/setError', {
 						message: {
@@ -109,9 +108,36 @@ export const load = () => {
 							code:  'CONFIG_LOAD_FAILED'
 						}
 					} );
-					return emptyData();
+					return emptyData().app;
 				} );
 };
+
+export const loadGameConfig = () => {
+	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
+		return new Promise( resolve => {
+			setTimeout( () => {
+				resolve( emptyData(true).game );
+			}, 1000 );
+		} );
+	
+	return axios.get( '/config' )
+				.then( response => {
+					return response.data.game;
+				}, error => {
+					store.dispatch( 'app/setError', {
+						message: {
+							type:    'dark',
+							title:   error.name,
+							message: error.message
+						},
+						details: {
+							error: error,
+							code:  'CONFIG_LOAD_FAILED'
+						}
+					} );
+					return emptyData(true).game;
+				} );
+}
 
 export const upload = file => {
 	return new Promise( ( resolve, reject ) => {
@@ -154,7 +180,6 @@ export const getFieldValues = fieldId => {
 	if ( Object.hasOwnProperty.call( fieldValues, fieldId ) )
 		return new Promise( resolve => resolve( fieldValues[ fieldId ] ) );
 	
-	// TODO Use async
 	else return new Promise( resolve => resolve( [] ) );
 };
 

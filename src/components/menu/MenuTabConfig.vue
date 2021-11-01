@@ -98,6 +98,7 @@ export default {
             this.$pushALog( 'Config upload done', history.HTY_ZONE.MENU_CONFIG );
 
             //console.log( data );
+            // TODO: Change it
             this.$store.commit( 'config/setElms', data );
 
           }, e => {

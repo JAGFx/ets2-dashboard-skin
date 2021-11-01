@@ -1,6 +1,6 @@
 <template>
   <b-overlay
-    :show="!display"
+    :show="display"
     :variant="'dark'"
     no-wrap
   >
@@ -24,10 +24,10 @@
               {{ $t(launching.text) }}
             </h1>
             <small class="mb-3">{{ $t(launching.subText) }}</small>
-            <b-spinner
-              :label="$t('Processing')"
-              type="grow"
-            />
+            <!--            <b-spinner-->
+            <!--              :label="$t('Processing')"-->
+            <!--              type="grow"-->
+            <!--            />-->
           </div>
         </transition>
       </div>

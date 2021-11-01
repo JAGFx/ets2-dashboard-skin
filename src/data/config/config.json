@@ -5,5 +5,5 @@
 	"general_unit_auto" :      false,
 	"general_h-shift-layout" : "h-shifter",
 	"general_skin_locale" :    "en-EN",
-	"general_job_remaining" :                  "due_date"
+	"general_job_remaining" :  "due_date"
 }

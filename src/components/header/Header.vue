@@ -1,11 +1,11 @@
 <template>
   <div id="header">
     <HeaderGameInformation
-      v-if="gameConnected"
+      v-if="appReady"
       id="game"
     />
     <div
-      v-if="gameConnected"
+      v-if="appReady"
       v-show="menuIsDisplayed"
       class="wrapper menu h-100"
     >

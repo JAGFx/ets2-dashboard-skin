@@ -36,7 +36,7 @@ export default {
   computed: {
     ...mapGetters( {
       current:          'config/get',
-      appGetProcessing: 'app/getProcessing'
+      appGetProcessing: 'app/isOnProcessing'
     } )
   },
   mounted() {

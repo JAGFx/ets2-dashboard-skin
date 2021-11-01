@@ -6,22 +6,16 @@
  * Time: 	19:43
  */
 
-import store                   from '@/store';
-import { mutations }           from '@/store/telemetry.store';
-import { translate }           from '@/utils/_i18n';
-import { app, event, history } from '@/utils/utils';
-import { io }                  from 'socket.io-client';
+import store              from '@/store';
+import { mutations }      from '@/store/telemetry.store';
+import { pushLog }        from '@/utils/_app';
+import { translate }      from '@/utils/_i18n';
+import { event, history } from '@/utils/utils';
 
 
 export default {
 	install( Vue ) {
-		Vue.prototype.$pushALog = ( message, zone, level = history.HTY_LEVEL.INFO ) => {
-			store.dispatch( 'debug/addLog', {
-				message,
-				zone,
-				level
-			} );
-		};
+		Vue.prototype.$pushALog = pushLog;
 		
 		Vue.prototype.$updateEvent = data => {
 			const theEvent = event.filterInputEvent( data );
@@ -57,28 +51,28 @@ export default {
 		
 		Vue.prototype.$updateTelemetry = updateTelemetry;
 		
-		if ( !app.useFakeData ) {
-			const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
-			telemetrySocket.on( 'connect', () => {
-				store.commit( 'app/setLaunch', {
-					icon:    '<i class="fas fa-truck"></i>',
-					text:    'Connected to telemetry server',
-					subText: 'Ready to delivering'
-				} );
-				
-				setTimeout( () => {
-					store.commit( 'app/setLaunch', {
-						icon:    '<i class="fas fa-truck"></i>',
-						text:    'Waiting game connection',
-						subText: 'Run the game to start your job !'
-					} );
-				}, 5000 );
-			} );
-			telemetrySocket.on( 'update', updateTelemetry);
-			telemetrySocket.on( 'log', data => {
-				Vue.prototype.$updateEvent( data );
-			} );
-		}
+		//if ( !app.useFakeData ) {
+		//	const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
+		//	telemetrySocket.on( 'connect', () => {
+		//		store.dispatch( 'app/showMessage', {
+		//			icon:    '<i class="fas fa-truck"></i>',
+		//			title:    'Connected to telemetry server',
+		//			message: 'Ready to delivering'
+		//		} );
+		//
+		//		setTimeout( () => {
+		//			store.dispatch( 'app/showMessage', {
+		//				icon:    '<i class="fas fa-truck"></i>',
+		//				title:    'Waiting game connection',
+		//				message: 'Run the game to start your job !'
+		//			} );
+		//		}, 5000 );
+		//	} );
+		//	telemetrySocket.on( 'update', updateTelemetry);
+		//	telemetrySocket.on( 'log', data => {
+		//		Vue.prototype.$updateEvent( data );
+		//	} );
+		//}
 		
 		// ---
 		

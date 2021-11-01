@@ -262,10 +262,9 @@
 </template>
 
 <script>
-import testData              from '@/data/scs_sdk_plugin_parsed_data.json';
-import TelemetryMixin        from '@/mixins/TelemetryMixin';
-import { app, history, map } from '@/utils/utils';
-import { mapGetters }        from 'vuex';
+import TelemetryMixin   from '@/mixins/TelemetryMixin';
+import { history, map } from '@/utils/utils';
+import { mapGetters }   from 'vuex';
 
 export default {
   name:   'Map',
@@ -318,10 +317,10 @@ export default {
          this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
 
          // --- Dev
-         if ( app.useFakeData )
-           setTimeout( () => {
-             this.$updateTelemetry( testData )
-           }, 1000 );
+         //if ( app.useFakeData )
+         //  setTimeout( () => {
+         //    this.$updateTelemetry( testData )
+         //  }, 1000 );
          // --- ./Dev
        } )
        .catch( e => {
