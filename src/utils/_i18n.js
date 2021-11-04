@@ -8,11 +8,13 @@
 import store from '@/store';
 import fr_fr     from '@/translations/fr-FR.yaml';
 import cn_cn     from '@/translations/cn-CN.yaml';
+import ru_ru     from '@/translations/ru-RU.yaml';
 
 const availableLocale = [
 	'fr-FR',
 	'en-EN',
 	'cn-CN',
+	'ru-RU',
 ];
 
 const fallbackLocale = 'en-EN';
@@ -30,6 +32,7 @@ const currentLocaleTranslations = () => {
 	switch ( currentLocaleName ) {
 		case 'fr-FR':return fr_fr;
 		case 'cn-CN':return cn_cn;
+		case 'ru-RU':return ru_ru;
 		default: return {}
 	}
 };
