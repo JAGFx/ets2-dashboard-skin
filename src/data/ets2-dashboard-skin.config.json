@@ -1,8 +1,6 @@
 {
-	"general_region" :                         "eu",
 	"general_refresh_rate" :                   100,
 	"general_skin_on_load" :                   "JAGFx",
-	"general_unit_auto" :                      false,
 	"general_h-shift-layout" :                 "h-shifter",
 	"unit_weight" :                            "kg",
 	"unit_length" :                            "m",
@@ -69,5 +67,6 @@
 	"maps_map_tilesRemoteUseCustom": false,
 	"maps_map_tilesRemoteCustomPath": null,
 	"maps_general_debug": false,
-	"general_skin_locale": "ru-RU"
+	"general_skin_locale": "en-EN",
+	"general_port": 3000
 }

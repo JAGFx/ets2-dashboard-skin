@@ -1,8 +1,6 @@
 {
-	"general_region" :                         "eu",
 	"general_refresh_rate" :                   100,
 	"general_skin_on_load" :                   "JAGFx",
-	"general_unit_auto" :                      false,
 	"general_h-shift-layout" :                 "h-shifter",
 	"unit_weight" :                            "kg",
 	"unit_length" :                            "m",
@@ -58,11 +56,17 @@
 	"maps_elements_speedAndGear" :    true,
 	"maps_elements_mapControls" :     true,
 	"maps_elements_speedLimit" :      true,
+	"maps_elements_rotateWithPlayer" :      true,
 	"maps_map_type" :                 "vanilla",
 	"maps_map_tilesRemotePath" :      "https://ets2.jagfx.fr",
 	"maps_map_activeMap" :            null,
 	"maps_map_navigationRemaining" :  "remaining_date",
 	"maps_map_tilesVersion" :         "latest",
 	"general_damage_accurate" :       "damage-diagnostic",
-	"jagfx_elements_right_map" :      "false"
+	"jagfx_elements_right_map" :      false,
+	"maps_map_tilesRemoteUseCustom": false,
+	"maps_map_tilesRemoteCustomPath": null,
+	"maps_general_debug": false,
+	"general_skin_locale": "en-EN",
+	"general_port": 3000
 }

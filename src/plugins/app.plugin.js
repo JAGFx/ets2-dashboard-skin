@@ -58,7 +58,8 @@ export default {
 		Vue.prototype.$updateTelemetry = updateTelemetry;
 		
 		if ( !app.useFakeData ) {
-			const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
+			const port = store.getters['config/get']('general_port');
+			const telemetrySocket = io( `http://${window.location.hostname}:${port}` );
 			telemetrySocket.on( 'connect', () => {
 				store.commit( 'app/setLaunch', {
 					icon:    '<i class="fas fa-truck"></i>',
