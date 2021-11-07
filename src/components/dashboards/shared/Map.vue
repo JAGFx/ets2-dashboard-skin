@@ -27,7 +27,7 @@
           >{{ message.sub }}</small>
           <b-spinner
             v-show="message.processing"
-            label="Processing..."
+            :label="$t('Processing')"
             type="grow"
           />
         </div>

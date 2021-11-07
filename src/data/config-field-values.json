@@ -243,12 +243,20 @@
 	],
 	"general_skin_locale": [
 		{
+			"label" : "Chinese",
+			"value" : "cn-CN"
+		},
+		{
 			"label" : "English",
 			"value" : "en-EN"
 		},
 		{
 			"label" : "French",
 			"value" : "fr-FR"
+		},
+		{
+			"label" : "Russian",
+			"value" : "ru-RU"
 		}
 	]
 }

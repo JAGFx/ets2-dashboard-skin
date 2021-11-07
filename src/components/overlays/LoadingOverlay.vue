@@ -25,7 +25,7 @@
             </h1>
             <small class="mb-3">{{ $t(launching.subText) }}</small>
             <b-spinner
-              label="Processing..."
+              :label="$t('Processing')"
               type="grow"
             />
           </div>

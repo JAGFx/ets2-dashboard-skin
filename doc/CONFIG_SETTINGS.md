@@ -27,6 +27,14 @@ You can find common elements, and skin config.
         <td>15</td>
     </tr>
     <tr>
+        <td>general_port</td>
+        <td>Port</td>
+        <td>
+            N/A
+        </td>
+        <td>3000</td>
+    </tr>
+    <tr>
         <td>general_skin_on_load</td>
         <td>Default skin loaded</td>
         <td>
@@ -667,6 +675,17 @@ You can find common elements, and skin config.
     <tr>
         <td>jagfx_elements_mid_bottom_blinker_turn</td>
         <td>Turning indicator</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td>jagfx_elements_right_map</td>
+        <td>Display map</td>
         <td>
             <ul>
                 <li>true</li>

@@ -71,8 +71,8 @@
 	},
 	"truck.cruise-control" :          {
 		"icon" :     "fas fa-tachometer-alt",
-		"title" :    "Cruise control set",
-		"subtitle" : "You've been finish your job"
+		"title" :    "Cruise control ON / OFF",
+		"subtitle" : null
 	},
 	"truck.cruise-control-increase" : {
 		"icon" :     "fas fa-tachometer-alt",
@@ -86,27 +86,27 @@
 	},
 	"truck.warning" :                 {
 		"icon" :     "fas fa-truck-moving",
-		"title" :    "Truck warning",
+		"title" :    "Truck warning message",
 		"subtitle" : null
 	},
 	"truck.emergency" :               {
 		"icon" :     "fas fa-truck-moving",
-		"title" :    "Truck emergency",
+		"title" :    "Truck emergency message",
 		"subtitle" : null
 	},
 	"truck.electric" :                {
 		"icon" :     "fas fa-power-off",
-		"title" :    "Truck electric",
+		"title" :    "Truck electric message",
 		"subtitle" : null
 	},
 	"truck.engine" :                  {
 		"icon" :     "fas fa-truck-moving",
-		"title" :    "Truck engine",
+		"title" :    "Truck engine start",
 		"subtitle" : null
 	},
 	"truck.park" :                    {
 		"icon" :     "fas fa-parking",
-		"title" :    "Truck park",
+		"title" :    "Truck parking brake",
 		"subtitle" : null
 	},
 	"truck.damage" :                  {
