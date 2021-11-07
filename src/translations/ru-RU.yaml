@@ -290,3 +290,5 @@ You are ready to go: Вы готовы ехать
 Cant get tiles - Tiles NOT FOUND: Невозможно получить плитки - Плитки НЕ НАЙДЕНЫ
 Cant get config - Map config NOT FOUND: Невозможно загрузить настройки - Настройки карты НЕ НАЙДЕНЫ
 Author: Автор
+Port: Порт
+Port used by the server: Порт, используемый сервером
