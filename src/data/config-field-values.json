@@ -253,6 +253,10 @@
 		{
 			"label" : "French",
 			"value" : "fr-FR"
+		},
+		{
+			"label" : "Russian",
+			"value" : "ru-RU"
 		}
 	]
 }

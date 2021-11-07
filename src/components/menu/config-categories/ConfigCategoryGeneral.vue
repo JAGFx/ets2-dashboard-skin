@@ -11,6 +11,14 @@
         values: fieldValues( 'general_refresh_rate' )
       }"
     />
+    <ConfigFieldInput
+      v-bind="{
+        id: 'general_port',
+        label: 'Port',
+        disabled: false,
+        description: 'Port used by the server',
+      }"
+    />
     <ConfigFieldChoice
       v-bind="{
         id: 'general_skin_on_load',

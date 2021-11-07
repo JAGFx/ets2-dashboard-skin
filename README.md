@@ -116,6 +116,8 @@ And that's it :D
 
 > Tip: You can save a shortcut on your home screen to use it as an app like.
 
+If you want to use another port, change it on the configuration file.
+
 ## Breaking change
 
 See the [BREAKING_CHANGES.md](doc/BREAKING_CHANGES.md) readme
