@@ -123,6 +123,10 @@ If you want to use another port, change it on the configuration file.
 
 See the [BREAKING_CHANGES.md](doc/BREAKING_CHANGES.md) readme
 
+## Translation change
+
+See the [TRANSLATION_CHANGES.md](doc/TRANSLATION_CHANGES.md) readme
+
 ## Know issues
 
 If you found an issue, please see the [KNOW_ISSUES.md](doc/KNOW_ISSUES.md). Your issue may be already known.
