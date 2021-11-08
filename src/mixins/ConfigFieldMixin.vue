@@ -25,6 +25,10 @@ export default {
     id:          {
       type:     String,
       required: true
+    },
+    target: {
+      type: String,
+      required: true
     }
   },
   data() {
@@ -61,7 +65,8 @@ export default {
 
       this.$store.commit( 'config/setElm', {
         id:    this.id,
-        value: value
+        value: value,
+        target: this.target
       } );
     }
   }

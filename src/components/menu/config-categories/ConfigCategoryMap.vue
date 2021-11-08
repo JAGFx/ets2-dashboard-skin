@@ -9,7 +9,8 @@
             label: 'Debug information',
             disabled: false,
             description: 'Display some debug information about the map',
-            values: fieldValues( 'on_off' )
+            values: fieldValues( 'on_off' ),
+            target: 'game'
           }"
         />
       </div>
@@ -23,7 +24,8 @@
             label: 'ETA information',
             disabled: false,
             description: 'Display the remaining or ETA time and the current remaining distance to the destination',
-            values: fieldValues( 'on_off' )
+            values: fieldValues( 'on_off' ),
+            target: 'game'
           }"
         />
         <ConfigFieldChoice
@@ -32,7 +34,8 @@
             label: 'Speed and gear',
             disabled: false,
             description: 'Display the current speed and gear',
-            values: fieldValues( 'on_off' )
+            values: fieldValues( 'on_off' ),
+            target: 'game'
           }"
         />
         <ConfigFieldChoice
@@ -41,7 +44,8 @@
             label: 'Map controls',
             disabled: false,
             description: 'Display map controls (Recenter, focus on user, zoom in and zoom out)',
-            values: fieldValues( 'on_off' )
+            values: fieldValues( 'on_off' ),
+            target: 'game'
           }"
         />
         <ConfigFieldChoice
@@ -50,7 +54,8 @@
             label: 'Speed limit',
             disabled: false,
             description: 'Display current speed limit',
-            values: fieldValues( 'on_off' )
+            values: fieldValues( 'on_off' ),
+            target: 'game'
           }"
         />
         <ConfigFieldChoice
@@ -59,7 +64,8 @@
             label: 'Map rotation',
             disabled: !configEnabled( 'maps_elements_mapControls' ),
             description: 'Enable or disable the map rotation on the first load',
-            values: fieldValues( 'on_off' )
+            values: fieldValues( 'on_off' ),
+            target: 'game'
           }"
         />
         <ConfigFieldChoice
@@ -68,7 +74,8 @@
             label: 'Navigation ETA',
             disabled: !configEnabled( 'maps_elements_eta' ),
             description: 'Display the due date or the remaining time for the current route',
-            values: fieldValues( 'maps_map_navigationRemaining' )
+            values: fieldValues( 'maps_map_navigationRemaining' ),
+            target: 'game'
           }"
         />
       </div>
@@ -82,7 +89,8 @@
           label: 'Active map',
           disabled: false,
           description: 'Change the active map',
-          values: fieldValues( 'maps_map_activeMap' )
+          values: fieldValues( 'maps_map_activeMap' ),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -91,7 +99,8 @@
           label: 'Kind of map',
           disabled: false,
           description: 'Use the ETS2 or ATS map automatically or use the modded map',
-          values: fieldValues( 'maps_map_type' )
+          values: fieldValues( 'maps_map_type' ),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -100,7 +109,8 @@
           label: 'Remote tiles location',
           disabled: configEnabled( 'maps_map_tilesRemoteUseCustom' ),
           description: 'Set a remote location for the map tiles. It can be on your local machine',
-          values: fieldValues( 'maps_map_tilesRemotePath' )
+          values: fieldValues( 'maps_map_tilesRemotePath' ),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -109,7 +119,8 @@
           label: 'Custom tiles',
           disabled: false,
           description: 'Set to ON if you wan to use a custom tiles location',
-          values: fieldValues( 'on_off' )
+          values: fieldValues( 'on_off' ),
+          target: 'game'
         }"
       />
       <ConfigFieldInput
@@ -118,6 +129,7 @@
           label: 'Custom tiles location',
           disabled: !configEnabled( 'maps_map_tilesRemoteUseCustom' ),
           description: 'The host of your tiles location',
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -126,7 +138,8 @@
           label: 'Game version',
           disabled: configEnabled( 'maps_map_tilesRemoteUseCustom' ),
           description: 'Get tiles for the latest game version, or for the specified game version',
-          values: fieldValues( 'maps_map_tilesVersion' )
+          values: fieldValues( 'maps_map_tilesVersion' ),
+          target: 'game'
         }"
       />
     </div>

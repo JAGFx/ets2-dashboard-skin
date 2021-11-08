@@ -40,7 +40,7 @@ export const emptyData = (withGame = false) => {
 	};
 };
 
-export const save = async data => {
+export const save = async (data, target, gameId) => {
 	store.dispatch( 'app/startProcessing' );
 	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
@@ -52,7 +52,10 @@ export const save = async data => {
 		} );
 	
 	return await axios
-		.post( '/config', data )
+		.post( `/config/${target}`, {
+			data,
+			gameId
+		} )
 		.then( response => {
 			store.dispatch( 'app/endProcessing' );
 			return response.data;
@@ -72,12 +75,15 @@ export const save = async data => {
 		} );
 };
 
-export const download = () => {
-	return load()
+export const download = (target, gameId) => {
+	return load( target, gameId )
 		.then( data => {
+			const fileName = ( target === 'app' )
+			? 'config.json'
+				: `config.${gameId}.json`
 			const file = new File(
 				[ JSON.stringify( data, null, 2 ) ],
-				'ets2-dashboard-skin.config.json',
+				fileName,
 				{ type: 'application/json;charset=utf-8' }
 			);
 			
@@ -85,15 +91,15 @@ export const download = () => {
 		} );
 };
 
-export const load = () => {
+export const load = (target, gameId)  => {
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
 			setTimeout( () => {
-				resolve( emptyData().app );
+				resolve( store.getters[`config/${target}`] ?? emptyData().app );
 			}, 1000 );
 		} );
 	
-	return axios.get( '/config' )
+	return axios.get( `/config/${gameId}` )
 				.then( response => {
 					return response.data.app;
 				}, error => {
@@ -108,7 +114,7 @@ export const load = () => {
 							code:  'CONFIG_LOAD_FAILED'
 						}
 					} );
-					return emptyData().app;
+					return emptyData()[ target ];
 				} );
 };
 
@@ -157,9 +163,10 @@ export const upload = file => {
 					if ( !checkResult.state )
 						throw 'An entry required was not found: ' + checkResult.value;
 					
-					save( data )
-						.then( data => resolve( data ),
-							error => reject( error ) );
+					resolve(data);
+					//save( data )
+					//	.then( data => resolve( data ),
+					//		error => reject( error ) );
 					
 				} catch ( e ) {
 					reject( e );

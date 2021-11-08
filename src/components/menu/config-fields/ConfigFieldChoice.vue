@@ -2,7 +2,7 @@
   <ConfigField
     v-bind="{
       label,
-      description
+      description,
     }"
   >
     <div

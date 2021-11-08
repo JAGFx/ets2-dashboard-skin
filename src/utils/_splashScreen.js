@@ -22,7 +22,7 @@ export const loadAppConfig = () => {
 	} )
 	
 	return config
-		.load()
+		.load('app')
 		.then( data => {
 			pushLog( 'Config loaded', history.HTY_ZONE.MAIN );
 			store.commit( 'config/setApp', data )
@@ -90,6 +90,8 @@ export const loadGameConfig = () => {
 		.then( data => {
 			pushLog( 'Game config loaded', history.HTY_ZONE.MAIN );
 			store.commit( 'config/setGame', data )
+			store.dispatch('app/endProcessing');
+			store.commit('app/setLaunched', true)
 		} );
 };
 

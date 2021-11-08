@@ -28,6 +28,8 @@ const getters = {
 	all:     state => {
 		return {...state.app, ...state.game};
 	},
+	app: state => state.app,
+	game: state => state.game,
 	gameConfigLoaded: state => state.game !== null
 };
 
@@ -43,9 +45,9 @@ const mutations = {
 	setGame( state, config ) {
 		state.game = config;
 	},
-	setElm( state, elm ) {
-		Vue.set( state, elm.id, elm.value );
-		config.save( state );
+	setElm( state, payload ) {
+		Vue.set( state, payload.id, payload.value );
+		config.save( state, payload.target );
 	}
 };
 

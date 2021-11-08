@@ -1,6 +1,5 @@
 <template>
   <main :class="`${Object.hasOwnProperty.apply( 'game', telemetry.game ) ? telemetry.game.game.name : ''}`">
-    <!--    <LoadingOverlay :display="!appReady || !gameConfigLoaded" />-->
     <HistoryOverlay />
     <Overlay />
     <TelemetryEventOverlay v-if="appReady" />
@@ -20,24 +19,23 @@ import JAGFxDashboard         from '@/components/dashboards/JAGFxDashboard';
 import ManTGXDashboard        from '@/components/dashboards/ManTGXDashboard';
 import MapDashboard           from '@/components/dashboards/MapDashboard';
 import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
-import RdInfoDashboard                  from '@/components/dashboards/RdInfoDashboard';
-import ScaniaDashboard                  from '@/components/dashboards/ScaniaDashboard';
-import TestDashboard                    from '@/components/dashboards/TestDashboard';
-import VolvoFHDashboard                 from '@/components/dashboards/VolvoFHDashboard';
-import Header                           from '@/components/header/Header';
-import HistoryOverlay                   from '@/components/overlays/HistoryOverlay';
-import Overlay                          from '@/components/overlays/Overlay';
-import TelemetryEventOverlay            from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import RdInfoDashboard        from '@/components/dashboards/RdInfoDashboard';
+import ScaniaDashboard        from '@/components/dashboards/ScaniaDashboard';
+import TestDashboard          from '@/components/dashboards/TestDashboard';
+import VolvoFHDashboard       from '@/components/dashboards/VolvoFHDashboard';
+import Header                 from '@/components/header/Header';
+import HistoryOverlay         from '@/components/overlays/HistoryOverlay';
+import Overlay                from '@/components/overlays/Overlay';
+import TelemetryEventOverlay  from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
+import TelemetryMixin         from '@/mixins/TelemetryMixin';
 import {
   loadAppConfig,
   loadGameConfig,
   setConfigActive,
   setLocale,
   startTelemetryConnection
-}                     from '@/utils/_splashScreen';
-import { history }    from '@/utils/utils';
-import { mapGetters }                   from 'vuex';
+}                             from '@/utils/_splashScreen';
+import { mapGetters }         from 'vuex';
 
 export default {
   name:       'App',
@@ -78,11 +76,6 @@ export default {
     .then( setLocale )
     .then( startTelemetryConnection )
     .then( loadGameConfig )
-    .then(() => {
-      //this.$store.commit('app/setLaunched', true)
-      this.$pushALog( 'App launched', history.HTY_ZONE.MAIN );
-      //console.log( 'Launched' );
-    })
     .catch( e => {
       this.$store.dispatch( 'app/setError', {
         message: {
@@ -96,24 +89,6 @@ export default {
         }
       } )
     } )
-
-    /*// HeaderGameInformation connected
-     setTimeout(()=> {
-     this.launching = {
-     icon: '<i class="fas fa-truck-loading"></i>',
-     text: 'HeaderGameInformation connected',
-     subText: 'Delivering'
-     }
-     }, 6000);
-
-     // After game connected + 3s
-     setTimeout(()=> {
-     this.launching = {
-     icon: '<i class="fas fa-box-open"></i>',
-     text: 'Finished',
-     subText: 'Delivered'
-     }
-     }, 9000);*/
   },
 
   methods:  {
