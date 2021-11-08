@@ -22,6 +22,7 @@ let app, server, io, telemetry, port, pathDist, pathMap;
 //const configFilePath = path.resolve( process.cwd(), './config.ets2-dashboard-skin.json' );
 
 const init = () => {
+	const config    = JSON.parse( fs.readFileSync( configFilePath, 'UTF-8' ) );
 	app       = express();
 	server    = http.createServer( app );
 	io        = socketio( server, {
@@ -31,8 +32,16 @@ const init = () => {
 		}
 	} );
 	telemetry = truckSimTelemetry();
-	port      = 3000;
-	
+	port      = (config.hasOwnProperty( 'general_refresh_rate' ))
+		? parseInt( config.general_port )
+		: 3000;
+	interval  = () => {
+		const rateFound = config.hasOwnProperty( 'general_refresh_rate' );
+		
+		return (rateFound)
+			? Math.min( parseInt( config.general_refresh_rate ), 100 )
+			: 100;
+	};
 	pathDist  = path.resolve( __dirname, '../../../dist' );
 	pathMap   = path.resolve( process.cwd(), './maps' );
 	

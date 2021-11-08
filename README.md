@@ -3,7 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/badge)](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/overview)
 [![GitHub Version](https://img.shields.io/github/v/release/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![GitHub Milestone](https://img.shields.io/github/milestones/progress/JAGFx/ets2-dashboard-skin/8?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.6)
-[![GitHub Commit since](https://img.shields.io/github/commits-since/JAGFx/ets2-dashboard-skin/v1.6.6?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
+[![GitHub Commit since](https://img.shields.io/github/commits-since/JAGFx/ets2-dashboard-skin/v1.6.7?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
 [![GitHub Release Download](https://img.shields.io/github/downloads/JAGFx/ets2-dashboard-skin/total?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![Github Licence](https://img.shields.io/github/license/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/README.md)
 [![GitHub Release Date](https://img.shields.io/github/release-date/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
@@ -66,6 +66,7 @@ Available locales:
 - Chinese (cn_CN) - Thanks to [dreamstar-2020](https://github.com/dreamstar-2020)
 - English (en_EN)
 - French (fr_FR)
+- Russian (ru_RU) - Thanks to [Jonny_Bro](https://github.com/JonnyBro)
 
 ## Requirements
 
@@ -116,9 +117,15 @@ And that's it :D
 
 > Tip: You can save a shortcut on your home screen to use it as an app like.
 
+If you want to use another port, change it on the configuration file.
+
 ## Breaking change
 
 See the [BREAKING_CHANGES.md](doc/BREAKING_CHANGES.md) readme
+
+## Translation change
+
+See the [TRANSLATION_CHANGES.md](doc/TRANSLATION_CHANGES.md) readme
 
 ## Know issues
 

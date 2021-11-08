@@ -16,9 +16,11 @@ const bodyParser            = require( 'body-parser' );
 const { telemetryInterval } = require( './services/telemetry.service' );
 const { initConfig }        = require( './services/config.service' );
 const dateFilename          = path.resolve( process.cwd(), '../src/data/scs_sdk_plugin_parsed_data.json' );
-const port                  = 3000;
+const configFilePath = path.resolve( process.cwd(), '../src/data/ets2-dashboard-skin.config.json' );
+const config    = JSON.parse( fs.readFileSync( configFilePath, 'UTF-8' ) );
 // ---
 
+const port = (config.hasOwnProperty('general_port')) ? parseInt(config.general_port) : 3000;
 let app    = express();
 let server = http.createServer( app );
 const io        = socketio( server, {

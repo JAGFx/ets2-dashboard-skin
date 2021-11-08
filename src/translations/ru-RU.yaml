@@ -1,0 +1,295 @@
+Skins: Скины
+Config: Настройки
+About: Информация
+Activate: Активировать
+Active: Активно
+Disabled: Неактивно
+Menu: Меню
+Close: Закрыть
+Download: Скачать
+Upload: Загрузить
+Show: Показать
+less: меньше
+more: больше
+General: Основное
+Refresh rate: Частота обновления
+Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;): Установить частоту обновления данных. Чем меньше число, тем быстрее будут обновляться данные на экране. Необходимо перезапустить приложение после изменения ;)
+Default skin loaded: Стандартный скин
+Set the skin loaded when this app was started: Установить стандартный скин после запуска приложения
+Langue: Язык
+Choose your locale used on this app: Выберите язык приложения. Обновите страницу после изменения
+Job delivery time: Время окончания работы
+Display the due date or the remaining time for a job: Отображение даты или оставшегося времени до окончания работы
+H-Shifter layout: Конфигурация КПП
+Show the current range of H-Shifter OR the automatic number: Отображение текущего положения КПП или значение автоматической передачи
+Damage accurate: Точность повреждений
+Show the average with value of 'Damage diagnostic' or same as the 'Route advisor': Показывать значения из 'Диагностики повреждений' или из 'Route Advisor'
+Get new !: Купите новый !
+Game: Игра
+Select one: Выберите...
+Pause / Unpause: Пауза активна / неактивна
+Fine: Штраф
+Toll gate: Платные ворота
+Ferry: Паром
+Train: Поезд
+Refuel played: Заправка оплачена
+Job: Работа
+Cancelled: Отменено
+Delivered: Доставлено
+Finished: Закончено
+Started: Начато
+Speed limit change: Изменение ограничения скорости
+Trailers: Трейлеры
+Coupling: Соединение
+Damage: Повреждение
+Truck: Грузовик
+Cruise control ON / OFF: Круиз контроль ВКЛ / ВЫКЛ
+Cruise control increase: Скорость круиз контроля увеличена
+Cruise control decrease: Скорость круиз контроля уменьшена
+Warning: Предупреждение
+Emergency: Экстренное
+Electric: Электрика
+Engine: Двигатель
+Park: Парковка
+Refuel: Заправка
+Events: События
+Game pause: Пауза
+Show a pop-up when the game are on pause or unpause: Показывать уведомление когда игра поставлена или снята с паузы
+Road fine: Штраф
+Show a pop-up when you get a road fine: Показывать уведомление когда Вы получаете штраф
+Show a pop-up when you pass through a toll gate: Показывать уведомление когда проезжаете через платные ворота
+Ferry travel: Путешествие на корабле
+Show a pop-up when you use a ferry: Показывать уведомление когда Вы путешествуете на корабле
+Train travel: Путешествие на поезде
+Show a pop-up when you use a train: Показывать уведомление когда Вы путешествуете на поезде
+Refuel payed: Оплачена заправка
+Show a pop-up when you have been refueled your truck tank: Показывать уведомление когда вы заправили свой грузовик
+Job canceled: Работа отменена
+Show a pop-up when a job was canceled: Показывать уведомление после отмены работы
+Job delivered: Груз доставлен
+Show a pop-up when a job was delivered: Показывать уведомление после доставки груза
+Job finished: Работа выполнена
+Show a pop-up when a job was finished: Показывать уведомление после выполнения работы
+Job started: Работа начата
+Show a pop-up when a job was started: Показывать уведомление после начала работы
+Speed limit: Скоростное ограничение
+Show a pop-up when the speed limit change: Показывать уведомление когда меняется скоростное ограничение
+Trailer coupled: Трейлер присоединён
+Show a pop-up when the trailer was coupled to the truck: Показывать уведомление когда трейлер был соединён с грузовиком
+Trailer damage: Повреждения трейлера
+Show a pop-up when the damage increase on the trailer: Показывать уведомление когда трейлер получил повреждения
+Cruise control enabled: Круиз контроль включён
+Show a pop-up when the cruise control is enabled: Показывать уведомление после включения круиз контроля
+Show a pop-up when the cruise control increase: Показывать уведомление когда скорость круиз контроля увеличилась
+Show a pop-up when the cruise control decrease: Показывать уведомление когда скорость круиз контроля уменьшилась
+Truck warning message: Предупреждение грузовика
+Show a pop-up for all warning message of truck: Показывать уведомления для всех предупреждений грузовика
+Truck emergency message: Экстренные сообщения грузовика
+Show a pop-up for all emergency message of truck: Показывать уведомление для всех экстренных сообщений грузовика
+Truck electric message: Сообщения электрики грузовика
+Show a pop-up when the truck contact was on: Показывать уведомления когда загорелся индикатор
+Truck engine start: Запуск двигателя
+Show a pop-up when the truck engine start: Показывать уведомление после запуска двигателя грузовика
+Truck parking brake: Пароковочный тормоз грузовика
+Show a pop-up when the truck parking brake are on: Показывать уведомление когда включён парковочный тормоз
+Truck damage: Урон грузовика
+Show a pop-up when the truck damage increase: Показывать уведомление когда грузовик получил урон
+Truck refuel: Заправка грузовика
+Show a pop-up when the truck refuel tank was full: Показывать уведомление когда топливный бак грузовика полон
+Unit: Единицы измерения
+Weight: Масса
+Set the weight unit. Used for the weight of the cargo: Выбрать единицы измерения массы груза
+Length: Длина
+Set the length unit. Used for the distance of travel (job or point on the map): Выбрать единицы измерения расстояния до работы / точки на карте
+Degrees: Температура
+Set degrees unit. Used for the temperature of water, oil and engine: Выбрать единицы измерения температуры воды, масла и двигателя
+Consumption: Потребление
+Set the consumption unit: Выбрать единицы измерения потребления топлива
+Volume: Объём
+Set the volume unit. Used for the fuel capacity: Выбрать единицы измерения объёма топливного бака
+Pressure: Давление
+Set the pressure unit. Used for the Air pressure or oil pressure: Выбрать единицы измерения давления воздуха или масла
+Speed: Скорость
+Set the speed unit: Выбрать единицы измерения скорости
+Currency: Валюта
+Set the currency unit: Выбрать валюту
+Debug information: Отладочная информация
+Display some debug information about the map: Отображение отладочной информации на карте
+ETA information: Приблизительное время прибытия
+Display the remaining or ETA time and the current remaining distance to the destination: Отображение приблизительного времени прибытия и оставшееся расстояние до цели
+Speed and gear: Скорость и передача
+Display the current speed and gear: Отображение текущей скорости и передачи
+Map controls: Управление картой
+Display map controls (Recenter, focus on user, zoom in and zoom out): Отображение управления картой (Отцентрировать, фокус на пользователе, приближение и отдаление)
+Display current speed limit: Отображение текущего скоростного лимита
+Map rotation: Вращение карты
+Enable or disable the map rotation on the first load: Переключение вращения карты при первой загрузке
+Navigation ETA: Приблизительное время прибытия по маршруту
+Display the due date or the remaining time for the current route: Отображение срока выполнения или оставшегося времени для текущего маршрута
+Active map: Активная карта
+Change the active map: Изменить активную карту
+Kind of map: Тип карты
+Use the ETS2 or ATS map automatically or use the modded map: Использовать стандартную карту ETS2/ATS или модифицированную
+Remote tiles location: Адрес удалённых плиток
+Set a remote location for the map tiles. It can be on your local machine: Установить удалённый адрес плиток. Может быть на том же устройстве, где запущено приложение
+Custom tiles: Пользовательские плитки
+Set to ON if you wan to use a custom tiles location: Установите на ВКЛ, если хотите использовать пользовательскую карту
+Custom tiles location: Адрес пользовательских плиток
+The host of your tiles location: Провайдер пользовательских плиток
+Game version: Версия игры
+Get tiles for the latest game version, or for the specified game version: Использовать плитки последней или определённой версиии игры
+Tiles: Плитки
+Elements: Элементы
+Map: Карта
+Right: Справа
+Middle - Top: Середина - Сверху
+Middle - Bottom: Середина - Снизу
+Oil temperature: Температура масла
+Display oil temperature: Отображение температуры масла
+Brakes temperature: Температура тормозов
+Display brakes temperature: Отображение температуры тормозов
+Brakes air pressure: Давление воздуха в тормозах
+Display brakes air pressure: Отображение давления воздуха в тормозах
+Fuel: Топливо
+Display the fuel level: Отображения уровня топлива
+Fuel consumption: Расход топлива
+Display the fuel average consumption: Отображение расхода топлива
+Cruise control: Круиз контроль
+Display the current speed set with the cruise control ON: Отображение текущей скорости круиз контроля (если он включён)
+Water temperature: Температура воды
+Display the water temperature: Отображение температуры воды
+Battery voltage: Напряжение аккумулятора
+Display the battery voltage: Отображение напряжения аккумулятора
+Next rest stop: След. точка отдыха
+Display the time to go to the next rest stop: Отображение оставшегося времени до прибытия к точке отдыха
+Display map: Карта
+Enable or disable the map view: Переключить отображение карты
+Retarder: Ретардер
+Display the retarder indicator: Отображение индикатора ретардера
+Parking brake: Парковочный тормоз
+Display the parking brake indicator: Отображение индикатора парковочного тормоза
+Beam high: Дальний свет
+Display the high beam indicator: Отображение индикатора дальнего света
+Beam low: Ближний свет
+Display the low beam indicator: Отображение индикатора ближнего света
+Beacon: Проблесковый маяк
+Display the beacon indicator: Отображение индикатора проблескового маяка
+RPM: Обороты двигателя
+Display the RPM: Отображение оборотов двигателя
+Display the fuel level indicator: Отображение индикатора уровня топлива
+Display the speed limit: Отображение скоростного лимита
+Turning indicator: Указатели поворота
+Display an indicator when the turn left or turn right blinker are ON: Отображение указателей поворота
+Quickly (100ms): Быстро (100ms)
+Balanced (500ms): Средне (500ms)
+Slowly (1000ms): Медленно (1000ms)
+JAGFx dashboard: Панель JAGFx
+Default: По умолчанию
+Due date: Срок доставки
+Remaining date: Оставшееся время
+H-Shifter: H-образная КПП
+Automatic: Автоматическая
+Damage diagnostic: Диагностика повреждений
+Route advisor: Route Advisor
+On: Вкл
+Off: Выкл
+Kilogram: Килограмм
+Pound & Long ton: Фунт и длинная тонна
+Meters & Kilometers: Метры и километры
+Foot & Miles: Футы и мили
+Celsius: Цельсия
+Fahrenheit: Фаренгейты
+L/100 km: Л/100км
+Mpg: миль/галлон
+Liters: Литры
+Gallons: Галлоны
+PSI: PSI
+Bar: Бар
+Km/h: Км/ч
+Mph: Миль/ч
+€ EUR: € Евро
+£ GBP: £ Фунт стерлингов
+$ US: $ Доллар
+Vanilla: Оригинал
+Mod: Мод
+Auto: Авто
+ETS2 base map (Full DLC): Базовая карта ETS2 (Со всеми DLC)
+ATS base map (Full DLC): Базовая карта ATS (Со всеми DLC)
+Promod (ETS): Promod (ETS)
+Promod Canada: Promod Canada
+Latest: Последняя
+English: Английский
+French: Французский
+Russian: Русский
+Chinese: Китайский
+Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2: Приборная панель для ETS2 и ATS
+The map from the route advisor: Карта из Route Advisor
+Base: Базовая
+Simple dashboard with speed: Простая приборная панель со скоростью
+Generic Dashboard: Обычная приборная панель
+DAF XF Dashboard: Приборная панель DAF XF
+MAN TGX Dashboard: Приборная панель MAN TGX
+Mercedes Benz Atego MP4 Dashboard: Приборная панель Mercedes Benz Atego MP4
+Scania Dashboard: Приборная панель Scania
+Volvo FH 2012 Dashboard: Приборная панель Volvo FH 2012
+OFF: Выкл
+N/A: N/A
+No Job: Свободен как ветер
+No trailer: Нет прицепа
+Map Information: Информация о карте
+Version: Версия
+Date: Дата
+Pos: Позиция
+Ready: Готов
+Last pos: Последняя позиция
+Map ready: Карта готова
+No data available: Нет доступных данных
+Time: Время
+Source: Точка отправления
+Destination: Точка назначения
+Deadline in: Крайний срок
+Truck wear: Износ грузовика
+API: API
+Copy: Копировать
+Map initialiation: Инициализация карты
+Unable to load map: Невозможно загрузить карту
+Connected to telemetry server: Подключён к серверу телеметрии
+Ready to delivering: Готов к доставке
+Waiting game connection: Ожидение подключения к игре
+Run the game to start your job !: Запустите игру, чтобы начать!
+App ready !: Приложение готово!
+Starting delivering: Начало доставки
+Processing: Обработка
+Your app is on processing. Please wait: Ваше приложение в обработке. Пожалуйста подождите
+more details: больше деталей
+OK: ОК
+You can: Вы можете
+create an issue: сообщить о проблеме
+and/or contact me at: и/или связаться со мной
+with the above details: через данный сверху
+From: От
+To: К
+Cost: Цена
+Delivered time: Время доставки
+Earned XP: Получено опыта
+Revenue: Доход
+Cargo: Груз
+Frame: Рама
+Speed limit set: Ограничение скорости установлено
+Game paused: Игра на паузе
+Game connection lost: Потеряно соединение с игрой
+Job canceled !: Работа отменена !
+You've been cancel this job: Вы отказались от работы
+Job delivered !: Груз доставлен
+Delivered !: Доставлено !
+Job finished !: Работа выполнена !
+You've been finish your job: Вы выполнили свою работу
+Job started !: Работа началась !
+You've been start this job: Вы начали работу
+Trailer coupled !: Прицеп сцеплен !
+You are ready to go: Вы готовы ехать
+Cant get tiles - Tiles NOT FOUND: Невозможно получить плитки - Плитки НЕ НАЙДЕНЫ
+Cant get config - Map config NOT FOUND: Невозможно загрузить настройки - Настройки карты НЕ НАЙДЕНЫ
+Author: Автор
+Port: Порт
+Port used by the server: Порт, используемый сервером

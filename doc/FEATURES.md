@@ -158,12 +158,13 @@ Currently, these locales are available:
 
 ### Add a new language
 
-The translations files was stored on `src/translations/` folder.
+The translations files was stored in `src/translations/` folder.
 
-All translations files are in YAML format. The key are the English version and the value are your locale.
+All translations files are in YAML format. The key is the English version and the value is your locale.
 
 If you want to contribute and add a new language: 
 
+- Check changes in [TRANSLATION_CHANGES.md](TRANSLATION_CHANGES.md)
 - Get the base file `src/translations/fr-FR.yaml`
 - Translate all values
 - Rename your file with the locale code like `fr_FR.yaml` and place on the `src/translations/` folder
