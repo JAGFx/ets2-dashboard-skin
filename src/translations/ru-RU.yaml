@@ -17,11 +17,11 @@ Set your refresh rate of the data. Less than rate are, more the dashboard data w
 Default skin loaded: Стандартный скин
 Set the skin loaded when this app was started: Установить стандартный скин после запуска приложения
 Langue: Язык
-Choose your locale used on this app: Выберите язык приложения
+Choose your locale used on this app: Выберите язык приложения. Обновите страницу после изменения
 Job delivery time: Время окончания работы
-Display the due date or the remaining time for a job: Отображение точного или оставшегося времени до окончания работы
+Display the due date or the remaining time for a job: Отображение даты или оставшегося времени до окончания работы
 H-Shifter layout: Конфигурация КПП
-Show the current range of H-Shifter OR the automatic number: Отображение текущего положения КПП или число автоматической передачи
+Show the current range of H-Shifter OR the automatic number: Отображение текущего положения КПП или значение автоматической передачи
 Damage accurate: Точность повреждений
 Show the average with value of 'Damage diagnostic' or same as the 'Route advisor': Показывать значения из 'Диагностики повреждений' или из 'Route Advisor'
 Get new !: Купите новый !
@@ -53,7 +53,7 @@ Engine: Двигатель
 Park: Парковка
 Refuel: Заправка
 Events: События
-Game pause: Пауза игры
+Game pause: Пауза
 Show a pop-up when the game are on pause or unpause: Показывать уведомление когда игра поставлена или снята с паузы
 Road fine: Штраф
 Show a pop-up when you get a road fine: Показывать уведомление когда Вы получаете штраф
@@ -87,6 +87,7 @@ Show a pop-up for all warning message of truck: Показывать уведо�
 Truck emergency message: Экстренные сообщения грузовика
 Show a pop-up for all emergency message of truck: Показывать уведомление для всех экстренных сообщений грузовика
 Truck electric message: Сообщения электрики грузовика
+Show a pop-up when the truck contact was on: Показывать уведомления когда загорелся индикатор
 Truck engine start: Запуск двигателя
 Show a pop-up when the truck engine start: Показывать уведомление после запуска двигателя грузовика
 Truck parking brake: Пароковочный тормоз грузовика
@@ -223,7 +224,7 @@ Russian: Русский
 Chinese: Китайский
 Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2: Приборная панель для ETS2 и ATS
 The map from the route advisor: Карта из Route Advisor
-Base: Базовое
+Base: Базовая
 Simple dashboard with speed: Простая приборная панель со скоростью
 Generic Dashboard: Обычная приборная панель
 DAF XF Dashboard: Приборная панель DAF XF
@@ -231,7 +232,7 @@ MAN TGX Dashboard: Приборная панель MAN TGX
 Mercedes Benz Atego MP4 Dashboard: Приборная панель Mercedes Benz Atego MP4
 Scania Dashboard: Приборная панель Scania
 Volvo FH 2012 Dashboard: Приборная панель Volvo FH 2012
-OFF: ВЫКЛ
+OFF: Выкл
 N/A: N/A
 No Job: Свободен как ветер
 No trailer: Нет прицепа
