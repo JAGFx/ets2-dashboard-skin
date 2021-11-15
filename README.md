@@ -147,6 +147,12 @@ To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SE
 
 If you want to contribute, see the [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## Credits
+
+Many thanks to
+
+[![JetBrains Black Box Logo logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.svg)](https://www.jetbrains.com/?from=EurotruckSimulator2Dashboardskin)
+
 ## License
 Under the [MIT License](LICENSE)
 
