@@ -22,7 +22,7 @@
     "server:install": "cd server && npm i && npm rb",
     "server:build": "cd server && set NODE_ENV=production && npx gulp",
     "server:start": "cd server && npm run start",
-    "server:dev": "cd server.dev && npm run start",
+    "server:dev": "cd servers/dev && node index.js",
     "tiles:serv": "http-server ./maps -p 8081 --cors -s",
     "font:build": "npx gulp build:font",
     "commitSince": "git log --pretty=\"%h - %s (%an)\" v1.4.0-beta.0..HEAD"

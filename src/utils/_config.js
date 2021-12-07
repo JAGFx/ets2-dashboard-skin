@@ -99,7 +99,11 @@ export const load = (target, gameId)  => {
 			}, 1000 );
 		} );
 	
-	return axios.get( `/config/${gameId}` )
+	const path = (gameId !== undefined)
+		? `/config/${ gameId }`
+		: `/config`;
+	
+	return axios.get( path )
 				.then( response => {
 					return response.data.app;
 				}, error => {
