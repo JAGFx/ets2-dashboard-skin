@@ -9,8 +9,10 @@
 import fieldValues from '@/data/config-field-values.json';
 import defaultGeneralConfig from '@/data/config/config.json';
 import defaultEts2Config from '@/data/config/config.ets2.json';
-import store       from '@/store';
-import axios       from 'axios';
+import defaultAtsConfig from '@/data/config/config.ats.json';
+import store          from '@/store';
+import { store as telemetryStore } from '@/store/telemetry.store';
+import axios          from 'axios';
 import FileSaver   from 'file-saver';
 
 export const generateEmptyData = ( config, configSkins ) => {
@@ -33,10 +35,16 @@ export const generateEmptyData = ( config, configSkins ) => {
 	return emptyData;
 };
 
-export const emptyData = (withGame = false) => {
+export const emptyData = (withGame = false, gameId) => {
+	let gameConfig = null;
+	
+	if( withGame ){
+		gameConfig = ( gameId === 'ets2' ) ? defaultEts2Config : defaultAtsConfig;
+	}
+	
 	return {
 		app: defaultGeneralConfig,
-		game: withGame ? defaultEts2Config : null
+		game: gameConfig
 	};
 };
 
@@ -126,7 +134,7 @@ export const loadGameConfig = () => {
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
 			setTimeout( () => {
-				resolve( emptyData(true).game );
+				resolve( emptyData(true, telemetryStore.telemetry.game.game.name).game );
 			}, 1000 );
 		} );
 	
