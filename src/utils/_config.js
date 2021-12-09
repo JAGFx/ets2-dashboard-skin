@@ -6,14 +6,15 @@
  * Time: 	17:50
  */
 
-import fieldValues from '@/data/config-field-values.json';
-import defaultGeneralConfig from '@/data/config/config.json';
-import defaultEts2Config from '@/data/config/config.ets2.json';
-import defaultAtsConfig from '@/data/config/config.ats.json';
-import store          from '@/store';
+import fieldValues                 from '@/data/config-field-values.json';
+import defaultGeneralConfig        from '@/data/config/config.json';
+import defaultEts2Config           from '@/data/config/config.ets2.json';
+import defaultAtsConfig            from '@/data/config/config.ats.json';
+import store                       from '@/store';
 import { store as telemetryStore } from '@/store/telemetry.store';
-import axios          from 'axios';
-import FileSaver   from 'file-saver';
+import { basePathHost }            from '@/utils/_app';
+import axios                       from 'axios';
+import FileSaver                   from 'file-saver';
 
 export const generateEmptyData = ( config, configSkins ) => {
 	let emptyData = {};
@@ -60,7 +61,7 @@ export const save = async (data, target, gameId) => {
 		} );
 	
 	return await axios
-		.post( `/config/${target}`, {
+		.post( basePathHost() + `/config/${target}`, {
 			data,
 			gameId
 		} )
@@ -111,7 +112,7 @@ export const load = (target, gameId)  => {
 		? `/config/${ gameId }`
 		: `/config`;
 	
-	return axios.get( path )
+	return axios.get( basePathHost() + path )
 				.then( response => {
 					return response.data.app;
 				}, error => {
@@ -138,7 +139,7 @@ export const loadGameConfig = () => {
 			}, 1000 );
 		} );
 	
-	return axios.get( '/config' )
+	return axios.get( basePathHost() + '/config' )
 				.then( response => {
 					return response.data.game;
 				}, error => {

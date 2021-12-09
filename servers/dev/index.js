@@ -16,3 +16,5 @@ initApp();
 initConfig( dirname );
 initSocket();
 initServer();
+
+// TODO: Add a timeout to send telemetry data for dev serveur

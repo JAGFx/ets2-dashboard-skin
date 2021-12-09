@@ -30,11 +30,11 @@ const GAME_ID_ATS  = 2;
 
 // --- Methods
 
-export const basePathHost       = 'http://' + window.location.host + '/';
 export const version            = packageJson.version;
 export const isOnDevEnvironment = process.env.NODE_ENV.startsWith( 'dev' );
 export const useFakeData        = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
+export const basePathHost       = () => `http://localhost:${store.getters['config/app'].general_port}`;
 export const moment = () => {
 	momentjs.locale( store.getters['config/get']('general_skin_locale') )
 	return momentjs;
