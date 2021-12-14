@@ -15,33 +15,31 @@
 ## About
 
 The idea with this repository is to update a collection of dashboard from
-the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK.
+the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK, as well as clean up the look and feel for a modern update to an already great app.
 
-And then, use a best way to maintain the different dashboard.
-
-The first to be rework are my own dashboard. In the future, all dashboard in the *Funbit repository* will be include
+The first skins to be reworked are my own dashboards. In the future, all dashboards in the *Funbit repository* will be included
 
 This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniffen/TruckSim-Telemetry-Demo)
 
 ![Screenshot](doc/screens/demo.gif)
 
-You can check also a review and installation guide made
+You can watch a tutorial on installing and a review
 by [Neranjana Wijesinghe](https://www.youtube.com/playlist?list=PLJONr1a8YX5Tyw-i49yk2jYTAFJJ5h7fw)
 
-## What's it ?
+## What is it?
 
-This is an web app who you can choose over dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes,
-Renault, Scania or Volvo))
+This is an web app which you can use to choose a dashboard skin (Custom or from other truck brand (DAF, Man, Mercedes,
+Renault, Scania or Volvo)) for your device to use as a second, independent dashboard
 . [See screenshots here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/SKINS.md)
 
-I'm also introduce the possibility to change the unit of measurement as you
+I've also introduced the possibility to change the unit of measurement to what you
 prefer. [See the full list here](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/CONFIG_SETTINGS.md)
 
-A event overlay can also be configured !
+A event overlay can also be configured!
 
-Now, you've got a map integration !
+And now, a map integration!
 
-It's work on desktop and mobile browser.
+It works on both desktop and mobile browsers.
 
 ## Map
 
@@ -70,14 +68,14 @@ Available locales:
 
 ## Requirements
 
-- OS: Windows 64Bits
-- Game: Euro Truck Simulator 2
+- OS: Windows 64-bit
+- Game: Euro Truck Simulator 2 or American Truck Simulator
 - SCS SDK plugin: v1.11
-- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop dans Mobile), Edge ( Desktop and mobile )
+- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop and Mobile), Edge (Desktop and Mobile), Safari (Desktop and Mobile
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
-## How to use ?
+## Usage instructions
 
 ### Prerequisite
 
