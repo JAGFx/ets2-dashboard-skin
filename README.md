@@ -113,7 +113,7 @@ And that's it :D
 
 > Note: Your mobile device AND your PC need to be on the same network
 
-> Tip: On an iOS device, you can add the webpage to your home screen like an app! When on the page, tap the Share button, navigate to "Add to home screen," wait ~2 seconds for it to verify, and confirm it. It will go to your home screen and show your neat dashboard shortcut!
+> Tip: On an iOS device, you can add the webpage to your home screen like an app! When on the page, tap the Share button, navigate to "Add to home screen," wait ~2 seconds for it to verify, and confirm it. It will go to your home screen and show your neat dashboard shortcut! On Android, you can do the same by tapping the three dot on the top right part of the screen, and tapping "Add to home screen."
 
 If you want to use another port, you can change it in the configuration file.
 
