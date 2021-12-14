@@ -49,11 +49,11 @@ If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map
 
 More information on the [Map](./doc/MAP.md) readme
 
-> Many thanks to [TwinDragon](https://github.com/TwinDragon) for maintaining a map tiles collection up to date for each new game version
+> Many thanks to [TwinDragon](https://github.com/TwinDragon) for maintaining an up to date map tile collection with each new version
 
 ### Offline
 
-See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported game, versions available and download links
+See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported games, versions available and download links
 
 ## Internationalization
 
@@ -83,16 +83,16 @@ Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenClo
 
 - Download the supported version zip `v1.11` at
   the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.11/release_v_1_11.zip) page
-- Extract the DLL file into your game folder like `C:\you-game-path\bin\win_x64\plugins\`
-
+- Extract the DLL file into your game folder like `C:\your-game-path\bin\win_x64\plugins\`
+-- Note: If you own the Steam version, you can quickly access the game folder by right-clicking the game in your Steam library, hovering above 'Manage,' and clicking 'Browse local files.' You can proceed to navigate to bin > win_x64 > plugins.
 ### Installation
 
-You can use this dashboard without build anything.
+You can use this dashboard without building anything.
 
 You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 page.
 
-Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it ! 
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it! 
 
 > Note: You need to start the game to see the dashboard
 
@@ -109,37 +109,37 @@ And that's it :D
    how [here](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address))
 2. Open a web browser on your mobile device
 3. Access to the dashboard on your mobile: `http://<YOUR_LOCAL_IP>:3000` (e.g. `http://192.168.1.42:3000`)
-4. And voilà ! You can enable / disable the fullscreen on tap on the dashboard
+4. And voilà! You can enable / disable the fullscreen on tap on the dashboard
 
 > Note: Your mobile device AND your PC need to be on the same network
 
-> Tip: You can save a shortcut on your home screen to use it as an app like.
+> Tip: On an iOS device, you can add the webpage to your home screen like an app! When on the page, tap the Share button, navigate to "Add to home screen," wait ~2 seconds for it to verify, and confirm it. It will go to your home screen and show your neat dashboard shortcut!
 
-If you want to use another port, change it on the configuration file.
+If you want to use another port, you can change it in the configuration file.
 
-## Breaking change
+## Breaking changelog
 
 See the [BREAKING_CHANGES.md](doc/BREAKING_CHANGES.md) readme
 
-## Translation change
+## Translation changelog
 
 See the [TRANSLATION_CHANGES.md](doc/TRANSLATION_CHANGES.md) readme
 
-## Know issues
+## Known issues
 
 If you found an issue, please see the [KNOW_ISSUES.md](doc/KNOW_ISSUES.md). Your issue may be already known.
 
 ## Features
 
-To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md).
+To see all features used into the dashboard, see the [FEATURES.md](doc/FEATURES.md) readme.
 
 ## Skins
 
-To know more about the skin integrated or how to add a new skin, see the [SKINS.md](doc/SKINS.md)
+To learn more about the skins integrated or how to add a new skin, see the [SKINS.md](doc/SKINS.md)
 
 ## Configuration
 
-To know more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
+To learn more about the configuration, see the [CONFIG_SETTINGS.md](doc/CONFIG_SETTINGS.md)
 
 ## Contributing
 
