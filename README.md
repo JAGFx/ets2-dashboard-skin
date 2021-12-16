@@ -68,10 +68,10 @@ Available locales:
 
 ## Requirements
 
-- OS: Windows 64-bit
+- OS: Windows 8/8.1/10/11 64-bit
 - Game: Euro Truck Simulator 2 or American Truck Simulator
 - SCS SDK plugin: v1.11
-- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop and Mobile), Edge (Desktop and Mobile), Safari (Desktop and Mobile
+- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop and Mobile), Edge (Desktop and Mobile), Safari (Desktop and Mobile)
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
