@@ -76,6 +76,10 @@ export default {
     .then( setLocale )
     .then( startTelemetryConnection )
     .then( loadGameConfig )
+    .then( () => {
+      this.$store.commit('app/setLaunched', true)
+      this.$store.dispatch('app/endProcessing');
+    } )
     .catch( e => {
       this.$store.dispatch( 'app/setError', {
         message: {

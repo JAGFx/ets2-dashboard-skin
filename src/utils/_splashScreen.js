@@ -8,7 +8,7 @@
 
 import testData                         from '@/data/scs_sdk_plugin_parsed_data.json';
 import store                            from '@/store';
-import { pushLog }                      from '@/utils/_app';
+import { basePathHost, pushLog }        from '@/utils/_app';
 import { changeLocale, fallbackLocale } from '@/utils/_i18n';
 import { app, history, config }                 from '@/utils/utils';
 import { io }                           from 'socket.io-client';
@@ -90,44 +90,46 @@ export const loadGameConfig = () => {
 		.then( data => {
 			pushLog( 'Game config loaded', history.HTY_ZONE.MAIN );
 			store.commit( 'config/setGame', data )
-			store.dispatch('app/endProcessing');
-			store.commit('app/setLaunched', true)
 		} );
 };
 
 export const startTelemetryConnection = () => {
-	store.dispatch('app/showMessage', {
-		icon: null,
-		title: 'Launching',
-		message: 'Start '
-	} )
-	
-	if ( !app.useFakeData ) {
-		const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
-		telemetrySocket.on( 'connect', () => {
-			store.dispatch( 'app/showMessage', {
-				icon:    '<i class="fas fa-truck"></i>',
-				title:    'Connected to telemetry server',
-				message: 'Ready to delivering'
-			} );
-			
-			setTimeout( () => {
+	return new Promise((resolve) => {
+		store.dispatch('app/showMessage', {
+			icon: null,
+			title: 'Launching',
+			message: 'Start '
+		} )
+		
+		if ( !app.useFakeData ) {
+			const telemetrySocket = io( basePathHost() );
+			telemetrySocket.on( 'connect', () => {
 				store.dispatch( 'app/showMessage', {
 					icon:    '<i class="fas fa-truck"></i>',
-					title:    'Waiting game connection',
-					message: 'Run the game to start your job !'
+					title:    'Connected to telemetry server',
+					message: 'Ready to delivering'
 				} );
-			}, 5000 );
-		} );
-		telemetrySocket.on( 'update', data => {
-			Vue.prototype.$updateEvent( data );
-		});
-		telemetrySocket.on( 'log', data => {
-			Vue.prototype.$updateEvent( data );
-		} );
-	} else {
-		setTimeout( () => {
-			Vue.prototype.$updateTelemetry( testData )
-		}, 1000 );
-	}
+				
+				setTimeout( () => {
+					store.dispatch( 'app/showMessage', {
+						icon:    '<i class="fas fa-truck"></i>',
+						title:    'Waiting game connection',
+						message: 'Run the game to start your job !'
+					} );
+					resolve()
+				}, 500 );
+			} );
+			telemetrySocket.on( 'update', data => {
+				Vue.prototype.$updateTelemetry( data );
+			});
+			telemetrySocket.on( 'log', data => {
+				Vue.prototype.$updateEvent( data );
+			} );
+		} else {
+			setTimeout( () => {
+				Vue.prototype.$updateTelemetry( testData )
+				resolve()
+			}, 1000 );
+		}
+	})
 }

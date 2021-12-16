@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "cors": "^2.8.5",
     "data-store": "^4.0.3",
     "socket.io": "^4.4.0"
   }

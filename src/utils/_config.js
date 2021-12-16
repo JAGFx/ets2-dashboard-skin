@@ -40,7 +40,9 @@ export const emptyData = (withGame = false, gameId) => {
 	let gameConfig = null;
 	
 	if( withGame ){
-		gameConfig = ( gameId === 'ets2' ) ? defaultEts2Config : defaultAtsConfig;
+		gameConfig = ( gameId === 'ets2' )
+			? defaultEts2Config
+			: defaultAtsConfig;
 	}
 	
 	return {
@@ -80,7 +82,7 @@ export const save = async (data, target, gameId) => {
 					code:  'CONFIG_SAVE_FAILED'
 				}
 			} );
-			return error;
+			throw error;
 		} );
 };
 
@@ -127,19 +129,21 @@ export const load = (target, gameId)  => {
 							code:  'CONFIG_LOAD_FAILED'
 						}
 					} );
-					return emptyData()[ target ];
+					throw error;
 				} );
 };
 
 export const loadGameConfig = () => {
+	const gameName = telemetryStore.telemetry.game.game.name;
+	
 	if ( process.env.VUE_APP_USE_FAKE_DATA === 'true' )
 		return new Promise( resolve => {
 			setTimeout( () => {
-				resolve( emptyData(true, telemetryStore.telemetry.game.game.name).game );
+				resolve( emptyData(true, gameName).game );
 			}, 1000 );
 		} );
 	
-	return axios.get( basePathHost() + '/config' )
+	return axios.get( basePathHost() + `/config` )
 				.then( response => {
 					return response.data.game;
 				}, error => {
@@ -154,7 +158,7 @@ export const loadGameConfig = () => {
 							code:  'CONFIG_LOAD_FAILED'
 						}
 					} );
-					return emptyData(true).game;
+					throw error;
 				} );
 }
 

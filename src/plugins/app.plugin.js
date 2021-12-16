@@ -35,8 +35,8 @@ export default {
 				}
 			}
 		};
-		
-		const updateTelemetry = payload => {
+
+		Vue.prototype.$updateTelemetry = payload => {
 			const data = { ...payload };
 			Object.freeze( data );
 			const gameConnected = data.game !== null &&
@@ -47,32 +47,7 @@ export default {
 			
 			if ( gameConnected )
 				mutations.setReceivedData( true );
-		}
-		
-		Vue.prototype.$updateTelemetry = updateTelemetry;
-		
-		//if ( !app.useFakeData ) {
-		//	const telemetrySocket = io( 'http://' + window.location.hostname + ':3000' );
-		//	telemetrySocket.on( 'connect', () => {
-		//		store.dispatch( 'app/showMessage', {
-		//			icon:    '<i class="fas fa-truck"></i>',
-		//			title:    'Connected to telemetry server',
-		//			message: 'Ready to delivering'
-		//		} );
-		//
-		//		setTimeout( () => {
-		//			store.dispatch( 'app/showMessage', {
-		//				icon:    '<i class="fas fa-truck"></i>',
-		//				title:    'Waiting game connection',
-		//				message: 'Run the game to start your job !'
-		//			} );
-		//		}, 5000 );
-		//	} );
-		//	telemetrySocket.on( 'update', updateTelemetry);
-		//	telemetrySocket.on( 'log', data => {
-		//		Vue.prototype.$updateEvent( data );
-		//	} );
-		//}
+		};
 		
 		// ---
 		

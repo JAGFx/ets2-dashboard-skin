@@ -8,10 +8,11 @@
 
 
 import { initApp, initConfig, initServer, initSocket } from 'ets2-dashboard-lib/server.js';
-import path     from 'path';
+import path                                            from 'path';
 
 const dirname = path.resolve();
 
+process.env.NODE_ENV = 'development';
 initApp();
 initConfig( dirname );
 initSocket();
