@@ -1,4 +1,4 @@
-# Know issues
+# Known issues
 
 Retrieve here the list of know issues
 
@@ -19,12 +19,15 @@ Retrieve here the list of know issues
 - App freeze sometime (Mobile device only)
   - Cause: Unknown
   - Solution: Top on screen to reactivate it #41
-- Job Information Disappears when using Eurotunnel #47
+- ~~Job Information Disappears when using Eurotunnel #47~~
   - Cause: It's seem be an SCS SDK issue
-  - Solution: Pending correction from RenCloud
+  - Solution: Fixed
 - Next rest time and reamining time bad #46
   - Cause: See [here](https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001)
   - Solution: No solution yet
+- App may crash at launch #89
+  - Cause: Unknown
+  - Solution: Start the app as an **Administrator**
 
 ---
 ↩️ [Home](../README.md)
