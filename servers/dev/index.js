@@ -13,9 +13,13 @@ import path                                            from 'path';
 const dirname = path.resolve();
 
 process.env.NODE_ENV = 'development';
-initApp();
-initConfig( dirname );
-initSocket();
-initServer();
-
-// TODO: Add a timeout to send telemetry data for dev serveur
+initApp()
+	.then( () => initConfig( dirname ) )
+	.then( initSocket )
+	.then( initServer )
+	.then( () => {
+		console.log( 'Initialized' );
+	} )
+	.catch( error => {
+		console.error( error.message || error );
+	} )
