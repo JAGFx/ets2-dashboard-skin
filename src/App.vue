@@ -33,7 +33,7 @@ import {
   loadGameConfig,
   setConfigActive,
   setLocale,
-  startTelemetryConnection
+  connectToTelemetryServer
 }                             from '@/utils/_splashScreen';
 import { mapGetters }         from 'vuex';
 
@@ -69,12 +69,14 @@ export default {
   mounted() {
     this.$store.dispatch('app/showMessage', {
       icon: null,
-      title: 'Launching'
+      title: 'Launching',
+      message: 'Set startup skin'
     } )
+
     loadAppConfig()
     .then( setConfigActive )
     .then( setLocale )
-    .then( startTelemetryConnection )
+    .then( connectToTelemetryServer )
     .then( loadGameConfig )
     .then( () => {
       this.$store.commit('app/setLaunched', true)

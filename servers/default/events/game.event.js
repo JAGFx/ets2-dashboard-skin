@@ -1,20 +1,11 @@
-/**
- * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
- * project:	customDefault
- * file: 	game.events.js
- * Date: 	26-Apr-20
- * Time: 	17:12
- */
-
-import { telemetry }       from '../helpers/server.helpers';
-import { currency, logIt } from '../helpers/utils.helpers';
+import { currency, logIt } from 'ets2-dashboard-lib/utils.js';
 
 const log = ( eventName, rawData, text ) => {
 	text = 'Game | ' + text;
 	logIt( 'game.' + eventName, rawData, text );
 };
 
-export default () => {
+export default (telemetry) => {
 	const eventNames = {
 		connected:    'connected',
 		disconnected: 'disconnected',

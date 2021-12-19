@@ -1,8 +1,0 @@
-{
-	"general_refresh_rate" :   100,
-	"general_skin_on_load" :   "JAGFx",
-	"general_h-shift-layout" : "h-shifter",
-	"general_skin_locale" :    "en-EN",
-	"general_job_remaining" :  "due_date",
-	"general_port": 3000
-}

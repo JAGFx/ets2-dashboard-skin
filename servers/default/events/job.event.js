@@ -1,13 +1,4 @@
-/**
- * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
- * project:	customDefault
- * file: 	job.events.mjs
- * Date: 	26-Apr-20
- * Time: 	17:16
- */
-
-import { telemetry }       from '../helpers/server.helpers';
-import { currency, logIt } from '../helpers/utils.helpers';
+import { currency, logIt } from 'ets2-dashboard-lib/utils.js';
 
 const log = ( eventName, rawData, text ) => {
 	text = 'Job | ' + text;
@@ -21,7 +12,7 @@ const eventNames = {
 	started:   'started'
 };
 
-export default () => {
+export default (telemetry) => {
 	telemetry.job.on( eventNames.cancelled,
 		( job ) => {
 			const text = `Job cancelled, Penalty: ${ currency() }${ job.penalty.toLocaleString() }`;

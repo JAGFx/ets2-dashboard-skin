@@ -10,9 +10,11 @@ import testData                         from '@/data/scs_sdk_plugin_parsed_data.
 import store                            from '@/store';
 import { basePathHost, pushLog }        from '@/utils/_app';
 import { changeLocale, fallbackLocale } from '@/utils/_i18n';
-import { app, history, config }                 from '@/utils/utils';
+import { app, config, history }         from '@/utils/utils';
 import { io }                           from 'socket.io-client';
 import Vue                              from 'vue';
+import { store as telemetryStore } from '@/store/telemetry.store';
+
 
 export const loadAppConfig = () => {
 	store.dispatch('app/showMessage', {
@@ -93,7 +95,7 @@ export const loadGameConfig = () => {
 		} );
 };
 
-export const startTelemetryConnection = () => {
+export const connectToTelemetryServer = () => {
 	return new Promise((resolve) => {
 		store.dispatch('app/showMessage', {
 			icon: null,
@@ -109,18 +111,9 @@ export const startTelemetryConnection = () => {
 					title:    'Connected to telemetry server',
 					message: 'Ready to delivering'
 				} );
-				
-				setTimeout( () => {
-					store.dispatch( 'app/showMessage', {
-						icon:    '<i class="fas fa-truck"></i>',
-						title:    'Waiting game connection',
-						message: 'Run the game to start your job !'
-					} );
-					resolve()
-				}, 500 );
 			} );
 			telemetrySocket.on( 'update', data => {
-				Vue.prototype.$updateTelemetry( data );
+				Vue.prototype.$updateTelemetry( data )
 			});
 			telemetrySocket.on( 'log', data => {
 				Vue.prototype.$updateEvent( data );
@@ -128,8 +121,20 @@ export const startTelemetryConnection = () => {
 		} else {
 			setTimeout( () => {
 				Vue.prototype.$updateTelemetry( testData )
-				resolve()
 			}, 1000 );
 		}
+		
+		const waitingInterval = setInterval( () => {
+			store.dispatch( 'app/showMessage', {
+				icon:    '<i class="fas fa-truck"></i>',
+				title:    'Waiting game connection',
+				message: 'Run the game to start your job !'
+			} );
+			
+			if( telemetryStore.gameConnected ){
+				clearInterval( waitingInterval )
+				resolve()
+			}
+		}, 500 )
 	})
 }

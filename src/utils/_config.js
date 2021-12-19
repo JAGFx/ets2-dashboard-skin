@@ -7,9 +7,9 @@
  */
 
 import fieldValues                 from '@/data/config-field-values.json';
-import defaultGeneralConfig        from '@/data/config/config.json';
-import defaultEts2Config           from '@/data/config/config.ets2.json';
-import defaultAtsConfig            from '@/data/config/config.ats.json';
+import defaultGeneralConfig        from 'ets2-dashboard-lib/config/config.json';
+import defaultEts2Config           from 'ets2-dashboard-lib/config/config.ets2.json';
+import defaultAtsConfig            from 'ets2-dashboard-lib/config/config.ats.json';
 import store                       from '@/store';
 import { store as telemetryStore } from '@/store/telemetry.store';
 import { basePathHost }            from '@/utils/_app';

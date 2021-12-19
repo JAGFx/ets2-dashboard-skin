@@ -1,13 +1,4 @@
-/**
- * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
- * project:	customDefault
- * file: 	trailers.events.mjs
- * Date: 	26-Apr-20
- * Time: 	17:17
- */
-
-import { telemetry } from '../helpers/server.helpers';
-import { logIt }     from '../helpers/utils.helpers';
+import { logIt }     from 'ets2-dashboard-lib/utils.js';
 
 const log = ( eventName, rawData, text ) => {
 	text = 'Trailers | ' + text;
@@ -19,7 +10,7 @@ const eventNames = {
 	damage:   'damage'
 };
 
-export default () => {
+export default (telemetry) => {
 	telemetry.trailers.on( 'coupling',
 		( id, enabled ) => {
 			const text = `Trailer #${ id + 1 } coupling ${ enabled ? 'connected' : 'disconnected' }`;

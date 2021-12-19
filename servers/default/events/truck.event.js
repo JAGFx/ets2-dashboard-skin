@@ -1,13 +1,4 @@
-/**
- * @author:	Emmanuel SMITH <emmanuel.smith@live-session.fr>
- * project:	customDefault
- * file: 	truck.events.mjs
- * Date: 	26-Apr-20
- * Time: 	17:16
- */
-
-import { telemetry } from '../helpers/server.helpers';
-import { logIt }     from '../helpers/utils.helpers';
+import { logIt }     from 'ets2-dashboard-lib/utils.js';
 
 const log = ( eventName, rawData, text ) => {
 	text = 'Truck | ' + text;
@@ -28,7 +19,7 @@ const eventNames = {
 };
 
 
-export default () => {
+export default (telemetry) => {
 	telemetry.truck.on( eventNames.cruiseControl,
 		( enabled ) => {
 			const text = `Cruise control ${ enabled ? 'Enabled' : 'Disabled' }`;
