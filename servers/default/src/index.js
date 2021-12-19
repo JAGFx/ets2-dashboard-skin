@@ -5,9 +5,10 @@ import {
   initServer,
   initSocket
 } from 'ets2-dashboard-lib/server.js';
-import { socket } from 'ets2-dashboard-lib/store.js';
+import store, { app, isDevelopment, socket } from 'ets2-dashboard-lib/store.js';
 import { telemetryWatch } from 'ets2-dashboard-lib/telemetry.js';
 import { catchError } from 'ets2-dashboard-lib/utils.js';
+import express from 'express';
 import path from 'path';
 import truckSimTelemetry from 'trucksim-telemetry';
 import gameEvent from './events/game.event.js';
@@ -16,14 +17,16 @@ import navigationEvent from './events/navigation.event.js';
 import trailersEvent from './events/trailers.event.js';
 
 const libPath = path.resolve('../../lib');
+const distAppFolder = path.resolve('../../dist');
 const telemetry = truckSimTelemetry();
 
-//process.env.NODE_ENV = 'development';
+store.set('libPath', libPath);
+
 initApp()
-  .then(() => initConfig(libPath))
+  .then(initConfig)
   .then(initSocket)
   .then(initServer)
-  .then(() => initMap(libPath))
+  .then(initMap)
   .then(() => {
     telemetryWatch(socket, telemetry);
   })
@@ -34,6 +37,8 @@ initApp()
     trailersEvent(telemetry);
   })
   .then(() => {
-    console.log('Initialized');
+    app.use(express.static(distAppFolder));
+    const environment = isDevelopment() ? 'Development' : 'Production';
+    console.log(`Ready as ${environment}`);
   })
   .catch(catchError);

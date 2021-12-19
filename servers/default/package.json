@@ -1,16 +1,32 @@
 {
-  "name": "default",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ets2-dashboard-lib": "file:../../lib",
-    "trucksim-telemetry": "^0.16.0"
-  }
+	"name" :            "my-webpack-project",
+	"version" :         "1.0.0",
+	"description" :     "My webpack project",
+	"main" :            "dist/index.js",
+	"type" :            "module",
+	"scripts" :         {
+		"start" : "node src/index.js",
+		"build" : "set NODE_ENV=production && npx webpack-cli b"
+	},
+	"author" :          "",
+	"license" :         "ISC",
+	"dependencies" :    {
+		"ets2-dashboard-lib" : "file:../../lib",
+		"trucksim-telemetry" : "^0.16.0"
+	},
+	"bin" :             {
+		"ets2-dashboard-skin-server" : "dist/index.js"
+	},
+	"pkg" :             {
+		"assets" :  [
+			"../../dist/"
+		],
+		"targets" : [
+			"node16"
+		]
+	},
+	"devDependencies" : {
+		"webpack-cli" :            "^4.9.1",
+		"webpack-node-externals" : "^3.0.0"
+	}
 }
