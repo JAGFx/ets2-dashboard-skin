@@ -6,10 +6,10 @@
  * Time: 	08:34
  */
 
-export * as app     from '@/utils/_app';
-export * as config  from '@/utils/_config';
-export * as event   from '@/utils/_event';
+export * as app from '@/utils/_app';
+export * as config from '@/utils/_config';
+export * as event from '@/utils/_event';
 export * as history from '@/utils/_history';
-export * as map     from '@/utils/_map';
+export * as map from '@/utils/_map';
 
 export default {};

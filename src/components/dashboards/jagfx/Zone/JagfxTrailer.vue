@@ -4,51 +4,35 @@
       <div class="trailer-data">
         <!--<span>{{bodyType}}</span>
 				<small>{{chainType}}</small>-->
-        <div
-          v-if="$hasTrailerAndJob()"
-          class="job"
-        >
+        <div v-if="$hasTrailerAndJob()" class="job">
           {{ telemetry.job.cargo.name }}
         </div>
-        <div
-          v-else-if="$hasTrailer()"
-          class="job disabled"
-        >
+        <div v-else-if="$hasTrailer()" class="job disabled">
           <i>-- {{ $t('No Job') }} --</i>
         </div>
-        <div
-          v-else
-          class="job disabled"
-        >
+        <div v-else class="job disabled">
           <i>-- {{ $t('No trailer') }} --</i>
         </div>
       </div>
       <div class="job-data">
         <small class="licencePlate left">
           <span class="flag">
-            {{ $flag( telemetry.trailer.licensePlate.country.id, telemetry.game.game.id ) }}
+            {{
+              $flag(
+                telemetry.trailer.licensePlate.country.id,
+                telemetry.game.game.id
+              )
+            }}
           </span>
-          <span
-            v-if="$hasTrailer()"
-            class="w-100 text-center"
-          >
+          <span v-if="$hasTrailer()" class="w-100 text-center">
             <span>{{ telemetry.trailer.licensePlate.value }}</span>
           </span>
-          <span
-            v-else
-            class="w-100 text-center"
-          >{{ $t('N/A') }}</span>
+          <span v-else class="w-100 text-center">{{ $t('N/A') }}</span>
         </small>
-        <div
-          v-if="$hasTrailer()"
-          class="damage left"
-        >
+        <div v-if="$hasTrailer()" class="damage left">
           {{ $trailerDamage() }} %
         </div>
-        <div
-          v-else
-          class="damage left"
-        >
+        <div v-else class="damage left">
           {{ $t('N/A') }}
         </div>
       </div>
@@ -69,10 +53,10 @@
 </template>
 
 <script>
-	import TelemetryMixin from '@/mixins/TelemetryMixin';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 
-  export default {
-    name: 'JagfxTrailer',
-    mixins: [ TelemetryMixin ]
-  };
+export default {
+  name: 'JagfxTrailer',
+  mixins: [TelemetryMixin]
+};
 </script>

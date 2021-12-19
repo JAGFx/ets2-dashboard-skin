@@ -6,7 +6,7 @@
 import TelemetryEventBaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
 
 export default {
-  name:       'TelemetryEventDefaultOverlay',
+  name: 'TelemetryEventDefaultOverlay',
   components: {
     TelemetryEventBaseOverlay
   }

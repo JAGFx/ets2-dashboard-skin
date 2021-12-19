@@ -9,7 +9,7 @@
         label: 'Weight',
         disabled: false,
         description: 'Set the weight unit. Used for the weight of the cargo',
-        values: fieldValues( 'unit_weight' ),
+        values: fieldValues('unit_weight'),
         target: 'game'
       }"
     />
@@ -18,8 +18,9 @@
         id: 'unit_length',
         label: 'Length',
         disabled: false,
-        description: 'Set the length unit. Used for the distance of travel (job or point on the map)',
-        values: fieldValues( 'unit_length' ),
+        description:
+          'Set the length unit. Used for the distance of travel (job or point on the map)',
+        values: fieldValues('unit_length'),
         target: 'game'
       }"
     />
@@ -28,8 +29,9 @@
         id: 'unit_degrees',
         label: 'Degrees',
         disabled: false,
-        description: 'Set degrees unit. Used for the temperature of water, oil and engine',
-        values: fieldValues( 'unit_degrees' ),
+        description:
+          'Set degrees unit. Used for the temperature of water, oil and engine',
+        values: fieldValues('unit_degrees'),
         target: 'game'
       }"
     />
@@ -39,7 +41,7 @@
         label: 'Consumption',
         disabled: false,
         description: 'Set the consumption unit',
-        values: fieldValues( 'unit_consumption' ),
+        values: fieldValues('unit_consumption'),
         target: 'game'
       }"
     />
@@ -49,7 +51,7 @@
         label: 'Volume',
         disabled: false,
         description: 'Set the volume unit. Used for the fuel capacity',
-        values: fieldValues( 'unit_volume' ),
+        values: fieldValues('unit_volume'),
         target: 'game'
       }"
     />
@@ -58,8 +60,9 @@
         id: 'unit_pressure',
         label: 'Pressure',
         disabled: false,
-        description: 'Set the pressure unit. Used for the Air pressure or oil pressure',
-        values: fieldValues( 'unit_pressure' ),
+        description:
+          'Set the pressure unit. Used for the Air pressure or oil pressure',
+        values: fieldValues('unit_pressure'),
         target: 'game'
       }"
     />
@@ -69,7 +72,7 @@
         label: 'Speed',
         disabled: false,
         description: 'Set the speed unit',
-        values: fieldValues( 'unit_speed' ),
+        values: fieldValues('unit_speed'),
         target: 'game'
       }"
     />
@@ -79,7 +82,7 @@
         label: 'Currency',
         disabled: false,
         description: 'Set the currency unit',
-        values: fieldValues( 'unit_currency' ),
+        values: fieldValues('unit_currency'),
         target: 'game'
       }"
     />
@@ -91,7 +94,7 @@
 import ConfigCategoryMixin from '@/mixins/ConfigCategoryMixin';
 
 export default {
-  name:   'ConfigCategoryUnits',
-  mixins: [ ConfigCategoryMixin ]
+  name: 'ConfigCategoryUnits',
+  mixins: [ConfigCategoryMixin]
 };
 </script>

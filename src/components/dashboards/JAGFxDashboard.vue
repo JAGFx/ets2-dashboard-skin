@@ -1,14 +1,12 @@
 <template>
-  <Dashboard
-    v-slot="dashProps"
-    class="jagfx wrapper"
-  >
+  <Dashboard v-slot="dashProps" class="jagfx wrapper">
     <div
       class="dashboard"
       :style="{
-        transform: 'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
+        transform:
+          'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
         width: dashProps.skinData.size.width + 'px',
-        height: dashProps.skinData.size.height + 'px',
+        height: dashProps.skinData.size.height + 'px'
       }"
     >
       <div class="zone-wrapper w-100">
@@ -17,10 +15,7 @@
           <JagfxJob id="job" />
         </div>
       </div>
-      <JagfxNavigation
-        id="navigation"
-        class="w-100"
-      />
+      <JagfxNavigation id="navigation" class="w-100" />
       <div class="zone-wrapper w-100 h-100 justify-content-start">
         <JagfxTruck id="truck" />
       </div>
@@ -29,14 +24,14 @@
 </template>
 
 <script>
-import Dashboard       from '@/components/dashboards/Dashboard';
-import JagfxJob        from '@/components/dashboards/jagfx/Zone/JagfxJob';
+import Dashboard from '@/components/dashboards/Dashboard';
+import JagfxJob from '@/components/dashboards/jagfx/Zone/JagfxJob';
 import JagfxNavigation from '@/components/dashboards/jagfx/Zone/JagfxNavigation';
-import JagfxTrailer    from '@/components/dashboards/jagfx/Zone/JagfxTrailer';
-import JagfxTruck      from '@/components/dashboards/jagfx/Zone/JagfxTruck';
+import JagfxTrailer from '@/components/dashboards/jagfx/Zone/JagfxTrailer';
+import JagfxTruck from '@/components/dashboards/jagfx/Zone/JagfxTruck';
 
 export default {
-  name:       'JAGFxDashboard',
+  name: 'JAGFxDashboard',
   components: {
     Dashboard,
     JagfxNavigation,

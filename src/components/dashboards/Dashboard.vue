@@ -9,31 +9,31 @@ import TelemetryMixin from '@/mixins/TelemetryMixin';
 import { mapGetters } from 'vuex';
 
 export default {
-  name:     'Dashboard',
-  mixins: [ TelemetryMixin ],
+  name: 'Dashboard',
+  mixins: [TelemetryMixin],
   data() {
     return {
       currentScale: 1
     };
   },
   computed: {
-    ...mapGetters( {
+    ...mapGetters({
       currentSkin: 'skins/current'
-    } )
+    })
   },
   mounted() {
     this.updateScale();
-    window.addEventListener( 'resize', this.updateScale );
+    window.addEventListener('resize', this.updateScale);
   },
   destroyed() {
-    window.removeEventListener( 'resize', this.updateScale );
+    window.removeEventListener('resize', this.updateScale);
   },
-  methods:  {
+  methods: {
     skinData() {
       return this.currentSkin;
     },
     updateScale() {
-      this.currentScale = this.$scale( this.currentSkin );
+      this.currentScale = this.$scale(this.currentSkin);
     }
   }
 };

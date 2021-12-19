@@ -7,77 +7,81 @@
  */
 
 import { history } from '@/utils/utils';
-import Vue         from 'vue';
+import Vue from 'vue';
 
 const defaultMessage = {
-	icon: null,
-	title:   'Processing',
-	message: 'Your app is on processing. Please wait'
+  icon: null,
+  title: 'Processing',
+  message: 'Your app is on processing. Please wait'
 };
 
 const defaultDetails = {
-	message: null,
-	code:    null
+  message: null,
+  code: null
 };
 
 const state = () => ({
-	launched: false,
-	processing: false,
-	message:    defaultMessage,
-	details:    defaultDetails,
+  launched: false,
+  processing: false,
+  message: defaultMessage,
+  details: defaultDetails
 });
 
 // getters
 const getters = {
-	isLaunched: state => state.launched,
-	isOnProcessing: state => state.processing,
-	message:        state => state.message,
-	details:        state => state.details,
+  isLaunched: (state) => state.launched,
+  isOnProcessing: (state) => state.processing,
+  message: (state) => state.message,
+  details: (state) => state.details
 };
 
 // actions
 const actions = {
-	startProcessing( { commit } ) {
-		commit( 'setProcessing', true );
-	},
-	showMessage( { commit }, payload ) {
-		commit( 'setProcessing', true );
-		commit( 'setMessage', payload );
-	},
-	endProcessing( { commit } ) {
-		commit( 'setProcessing', false );
-		commit( 'setMessage', defaultMessage );
-		commit( 'setDetails', defaultDetails );
-	},
-	setError( { commit }, payload ) {
-		Vue.prototype.$pushALog( 'Error thrown', JSON.stringify( payload ), history.HTY_ZONE.ERROR );
-		
-		commit( 'setProcessing', true );
-		commit( 'setMessage', payload.message );
-		commit( 'setDetails', payload.details );
-	}
+  startProcessing({ commit }) {
+    commit('setProcessing', true);
+  },
+  showMessage({ commit }, payload) {
+    commit('setProcessing', true);
+    commit('setMessage', payload);
+  },
+  endProcessing({ commit }) {
+    commit('setProcessing', false);
+    commit('setMessage', defaultMessage);
+    commit('setDetails', defaultDetails);
+  },
+  setError({ commit }, payload) {
+    Vue.prototype.$pushALog(
+      'Error thrown',
+      JSON.stringify(payload),
+      history.HTY_ZONE.ERROR
+    );
+
+    commit('setProcessing', true);
+    commit('setMessage', payload.message);
+    commit('setDetails', payload.details);
+  }
 };
 
 // mutations
 const mutations = {
-	setLaunched( state, value ) {
-		state.launched = value;
-	},
-	setProcessing( state, value ) {
-		state.processing = value;
-	},
-	setMessage( state, message ) {
-		state.message = message;
-	},
-	setDetails( state, details ) {
-		state.details = details;
-	}
+  setLaunched(state, value) {
+    state.launched = value;
+  },
+  setProcessing(state, value) {
+    state.processing = value;
+  },
+  setMessage(state, message) {
+    state.message = message;
+  },
+  setDetails(state, details) {
+    state.details = details;
+  }
 };
 
 export default {
-	namespaced: true,
-	state,
-	getters,
-	actions,
-	mutations
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 };

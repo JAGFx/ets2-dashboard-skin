@@ -1,17 +1,21 @@
 module.exports = {
-	env:           {
+	env:     {
 		node: true
 	},
-	extends:     [
+	extends: [
 		'eslint:recommended',
 		'plugin:vue/essential',
-		"plugin:vue/strongly-recommended",
-		"plugin:vue/recommended",
+		'plugin:vue/strongly-recommended',
+		'plugin:vue/recommended',
+		'prettier'
 	],
-	rules:         {
-		'no-console':               2,
-		'no-debugger':              2,
-		'no-mixed-spaces-and-tabs': [ 2, 'smart-tabs' ],
-		'vue/no-v-html': 'off'
+	plugins: [ 'prettier' ],
+	rules:   {
+		'no-console':                     1,
+		'no-debugger':                    2,
+		'no-mixed-spaces-and-tabs':       [ 2, 'smart-tabs' ],
+		'vue/no-v-html':                  'off',
+		'vue/multi-word-component-names': 'off',
+		'prettier/prettier':              2
 	}
 };
