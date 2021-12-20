@@ -1,12 +1,17 @@
 # Configuration settings
 
-## Skin config
- 
-You can find common elements, and skin config.
+The configuration files are divided into two files:
+
+- The minimal configuration of the application `config.json`
+- The configuration of the game `config.ets2.json` or `config.ats.json`
+
+All configuration files are placed in a `config` folder.
+
+## Minimal application configuration
+
+All application configuration are placed into a `config.json` 
 
 ### General
-
-#### General 
 <table>
     <tr>
         <th>Key</th>
@@ -99,7 +104,16 @@ You can find common elements, and skin config.
     </tr>
 </table>
 
-#### Event
+## Game configuration
+
+Each game (Eurotruck simulator 2 or Americantruck Simulator) has its own configuration file:
+
+- `config.ets2.json` for Eurotruck Simulator 2
+- `config.ats.json` for Americantruck Simulator
+
+But, all game configuration have same entries.
+
+### Event
 
 <table>
     <tr>
@@ -365,7 +379,7 @@ You can find common elements, and skin config.
 
 </table>
 
-#### Unit
+### Unit
 
 <table>
     <tr>
@@ -465,7 +479,10 @@ You can find common elements, and skin config.
     </tr>
 </table>
 
-### JAGFx
+
+### Skin configuration
+
+#### JAGFx
 
 <table>
     <tr>
@@ -699,7 +716,7 @@ You can find common elements, and skin config.
 
 > Note: We can displayed 7 element max in the right side and 4 in the middle side. Place your element on the top.
 
-### Maps
+#### Maps
 
 <table>
     <tr>
