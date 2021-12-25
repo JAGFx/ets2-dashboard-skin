@@ -1,3 +1,4 @@
+import { initLogger } from 'ets2-dashboard-lib/logger.js';
 import {
   initApp,
   initConfig,
@@ -5,7 +6,12 @@ import {
   initServer,
   initSocket
 } from 'ets2-dashboard-lib/server.js';
-import store, { app, isDevelopment, socket } from 'ets2-dashboard-lib/store.js';
+import store, {
+  app,
+  isDevelopment,
+  logger,
+  socket
+} from 'ets2-dashboard-lib/store.js';
 import { telemetryWatch } from 'ets2-dashboard-lib/telemetry.js';
 import { catchError } from 'ets2-dashboard-lib/utils.js';
 import express from 'express';
@@ -23,6 +29,7 @@ const telemetry = truckSimTelemetry();
 store.set('libPath', libPath);
 
 initApp()
+  .then(initLogger)
   .then(initConfig)
   .then(initSocket)
   .then(initServer)
@@ -39,6 +46,6 @@ initApp()
   .then(() => {
     app.use(express.static(distAppFolder));
     const environment = isDevelopment() ? 'Development' : 'Production';
-    console.log(`Ready as ${environment}`);
+    logger.info(`Ready as ${environment}`);
   })
   .catch(catchError);
