@@ -90,6 +90,7 @@ export const save = async (data, target, gameId) => {
 export const download = (target, gameId) => {
   return load(target, gameId).then((data) => {
     const fileName = target === 'app' ? 'config.json' : `config.${gameId}.json`;
+
     const file = new File([JSON.stringify(data, null, 2)], fileName, {
       type: 'application/json;charset=utf-8'
     });
@@ -98,7 +99,7 @@ export const download = (target, gameId) => {
   });
 };
 
-export const load = (target, gameId) => {
+export const load = (target) => {
   if (process.env.VUE_APP_USE_FAKE_DATA === 'true')
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -106,11 +107,9 @@ export const load = (target, gameId) => {
       }, 1000);
     });
 
-  const path = gameId !== undefined ? `/config/${gameId}` : `/config`;
-
-  return axios.get(basePathHost() + path).then(
+  return axios.get(basePathHost() + '/config').then(
     (response) => {
-      return response.data.app;
+      return response.data[target];
     },
     (error) => {
       store.dispatch('app/setError', {
@@ -177,10 +176,12 @@ export const upload = (file) => {
           if (!checkResult.state)
             throw 'An entry required was not found: ' + checkResult.value;
 
+          // TODO Continue here: Add return data when is on development mode
           resolve(data);
-          //save( data )
-          //	.then( data => resolve( data ),
-          //		error => reject( error ) );
+          //save(data).then(
+          //  (data) => resolve(data),
+          //  (error) => reject(error)
+          //);
         } catch (e) {
           reject(e);
         }

@@ -100,7 +100,6 @@ import ConfigCategoryUnits from '@/components/menu/config-categories/ConfigCateg
 import ConfigSection from '@/components/menu/ConfigSection';
 import { config as uConfig, history } from '@/utils/utils';
 import { mapGetters } from 'vuex';
-import { store as telemetryStore } from '@/store/telemetry.store';
 
 export default {
   name: 'MenuTabConfig',
@@ -131,7 +130,7 @@ export default {
         history.HTY_LEVEL.DEBUG
       );
 
-      uConfig.download(target, telemetryStore.telemetry.game.game.name);
+      uConfig.download(target);
     },
     upload(input) {
       this.$pushALog('Start config upload', history.HTY_ZONE.MENU_CONFIG);
