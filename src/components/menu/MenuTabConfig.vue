@@ -136,7 +136,7 @@ export default {
       this.$pushALog('Start config upload', history.HTY_ZONE.MENU_CONFIG);
 
       uConfig
-        .upload(input.target.files[0])
+        .upload(input.target.files[0], this.targetUpload)
         .then(
           (data) => {
             this.$pushALog('Config upload done', history.HTY_ZONE.MENU_CONFIG);

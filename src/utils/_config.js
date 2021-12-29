@@ -7,13 +7,13 @@
  */
 
 import fieldValues from '@/data/config-field-values.json';
-import defaultGeneralConfig from 'ets2-dashboard-lib/config/config.json';
-import defaultEts2Config from 'ets2-dashboard-lib/config/config.ets2.json';
-import defaultAtsConfig from 'ets2-dashboard-lib/config/config.ats.json';
 import store from '@/store';
 import { store as telemetryStore } from '@/store/telemetry.store';
-import { basePathHost } from '@/utils/_app';
+import { basePathHost, useFakeData } from '@/utils/_app';
 import axios from 'axios';
+import defaultAtsConfig from 'ets2-dashboard-lib/config/config.ats.json';
+import defaultEts2Config from 'ets2-dashboard-lib/config/config.ets2.json';
+import defaultGeneralConfig from 'ets2-dashboard-lib/config/config.json';
 import FileSaver from 'file-saver';
 
 export const generateEmptyData = (config, configSkins) => {
@@ -52,7 +52,7 @@ export const emptyData = (withGame = false, gameId) => {
 export const save = async (data, target, gameId) => {
   store.dispatch('app/startProcessing');
 
-  if (process.env.VUE_APP_USE_FAKE_DATA === 'true')
+  if (useFakeData)
     return new Promise((resolve) => {
       setTimeout(() => {
         store.dispatch('app/endProcessing');
@@ -100,7 +100,7 @@ export const download = (target, gameId) => {
 };
 
 export const load = (target) => {
-  if (process.env.VUE_APP_USE_FAKE_DATA === 'true')
+  if (useFakeData)
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(store.getters[`config/${target}`] ?? emptyData().app);
@@ -131,7 +131,7 @@ export const load = (target) => {
 export const loadGameConfig = () => {
   const gameName = telemetryStore.telemetry.game.game.name;
 
-  if (process.env.VUE_APP_USE_FAKE_DATA === 'true')
+  if (useFakeData)
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(emptyData(true, gameName).game);
@@ -159,7 +159,7 @@ export const loadGameConfig = () => {
   );
 };
 
-export const upload = (file) => {
+export const upload = (file, target) => {
   return new Promise((resolve, reject) => {
     try {
       if (file.type !== 'application/json') throw 'Invalid file type';
@@ -171,17 +171,14 @@ export const upload = (file) => {
         try {
           const data = JSON.parse(evt.target.result);
           const checkResult = uploadChecker(data);
-          //console.log( 'a', data );
 
           if (!checkResult.state)
             throw 'An entry required was not found: ' + checkResult.value;
 
-          // TODO Continue here: Add return data when is on development mode
-          resolve(data);
-          //save(data).then(
-          //  (data) => resolve(data),
-          //  (error) => reject(error)
-          //);
+          save(data, target, telemetryStore.telemetry.game.game.name).then(
+            (data) => resolve(data),
+            (error) => reject(error)
+          );
         } catch (e) {
           reject(e);
         }
@@ -206,15 +203,15 @@ const uploadChecker = (input) => {
     state: true
   };
 
-  Object.entries(emptyData()).forEach((entry) => {
-    const key = entry[0];
-
-    if (!Object.hasOwnProperty.call(input, key))
-      result = {
-        state: false,
-        value: key
-      };
-  });
+  //Object.entries(emptyData()).forEach((entry) => {
+  //  const key = entry[0];
+  //
+  //  if (!Object.hasOwnProperty.call(input, key))
+  //    result = {
+  //      state: false,
+  //      value: key
+  //    };
+  //});
 
   return result;
 };
