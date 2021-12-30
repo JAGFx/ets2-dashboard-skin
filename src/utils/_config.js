@@ -170,7 +170,7 @@ export const upload = (file, target) => {
       reader.onload = (evt) => {
         try {
           const data = JSON.parse(evt.target.result);
-          const checkResult = uploadChecker(data);
+          const checkResult = uploadChecker(data, target);
 
           if (!checkResult.state)
             throw 'An entry required was not found: ' + checkResult.value;
@@ -198,20 +198,20 @@ export const getFieldValues = (fieldId) => {
   else return new Promise((resolve) => resolve([]));
 };
 
-const uploadChecker = (input) => {
+const uploadChecker = (input, target) => {
   let result = {
     state: true
   };
 
-  //Object.entries(emptyData()).forEach((entry) => {
-  //  const key = entry[0];
-  //
-  //  if (!Object.hasOwnProperty.call(input, key))
-  //    result = {
-  //      state: false,
-  //      value: key
-  //    };
-  //});
+  Object.entries(emptyData()[target]).forEach((entry) => {
+    const key = entry[0];
+
+    if (!Object.hasOwnProperty.call(input, key))
+      result = {
+        state: false,
+        value: key
+      };
+  });
 
   return result;
 };
