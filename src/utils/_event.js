@@ -6,11 +6,9 @@
  * Time: 	11:17
  */
 
-import scsSDKData from '@/data/scs_sdk_plugin_parsed_data.json';
+import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
 import app from '@/utils/utils';
 import registeredEvents from '@/data/events.json';
-
-export const EVT_UPDATE = 'evt-update';
 
 export const eventNameToComponent = function (eventName) {
   const splitedEvent = eventName.split(/\.|-/);

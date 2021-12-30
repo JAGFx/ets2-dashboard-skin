@@ -6,7 +6,7 @@
  * Time: 	21:41
  */
 
-import testData from '@/data/scs_sdk_plugin_parsed_data.json';
+import testData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
 import store from '@/store';
 import { basePathHost, pushLog } from '@/utils/_app';
 import { changeLocale, fallbackLocale } from '@/utils/_i18n';

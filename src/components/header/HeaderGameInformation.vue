@@ -135,7 +135,7 @@
 </template>
 
 <script>
-import scsSDKData from '@/data/scs_sdk_plugin_parsed_data.json';
+import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 import { app, history } from '@/utils/utils';
 import * as axios from 'axios';
