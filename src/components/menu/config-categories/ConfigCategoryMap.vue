@@ -112,8 +112,7 @@
           id: 'maps_map_tilesRemotePath',
           label: 'Remote tiles location',
           disabled: configEnabled('maps_map_tilesRemoteUseCustom'),
-          description:
-            'Set a remote location for the map tiles. It can be on your local machine',
+          description: 'Set a remote location for the map tiles.',
           values: fieldValues('maps_map_tilesRemotePath'),
           target: 'game'
         }"

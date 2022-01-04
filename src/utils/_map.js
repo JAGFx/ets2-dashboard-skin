@@ -64,19 +64,21 @@ const basePath = (game) => {
   const tilesRemoteCustomPath = store.getters['config/get'](
     'maps_map_tilesRemoteCustomPath'
   );
-  const map = type === 'vanilla' ? game : activeMap;
+  let path;
 
-  const path = `${map}/${tilesVersion}/`;
-  const host = tilesRemoteUseCustom
-    ? tilesRemoteCustomPath
-    : tileRemoteLocation;
+  if (tilesRemoteUseCustom) {
+    path = `${tilesRemoteCustomPath}/`;
+  } else {
+    const map = type === 'vanilla' ? game : activeMap;
+    path = `${tileRemoteLocation}/${map}/${tilesVersion}/`;
+  }
 
   Vue.prototype.$pushALog(
-    `Base path: ${host}/${path} | Type: ${type} | Tile version: ${tilesVersion}`,
+    `Base path: ${path} | Type: ${type} | Tile version: ${tilesVersion} | Custom tiles host: ${tilesRemoteUseCustom}`,
     history.HTY_ZONE.MAPS_INIT
   );
 
-  return `${host}/${path}`;
+  return `${path}`;
 };
 
 const initConfig = (game) => {

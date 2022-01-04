@@ -130,7 +130,7 @@ Change the active map: 更改活动地图
 Kind of map: 地图种类
 Use the ETS2 or ATS map automatically or use the modded map: 自动使用 ETS2 或 ATS 地图或使用修改后的地图
 Remote tiles location: 远程地图文件地址
-Set a remote location for the map tiles. It can be on your local machine: 在本地设置地图文件的远程地址
+Set a remote location for the map tiles.: 在本地设置地图文件的远程地址
 Custom tiles: 自定义地图文件
 Set to ON if you wan to use a custom tiles location: 如果您想使用自定义地图文件地址，请设置为 开
 Custom tiles location: 自定义地图块地址
