@@ -43,7 +43,7 @@ const mutations = {
     state.game = config;
   },
   setElm(state, payload) {
-    Vue.set(state, payload.id, payload.value);
+    state[payload.target][payload.id] = payload.value;
     config.save(state, payload.target);
   }
 };

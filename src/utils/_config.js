@@ -49,8 +49,10 @@ export const emptyData = (withGame = false, gameId) => {
   };
 };
 
-export const save = async (data, target, gameId) => {
+export const save = async (data, target) => {
   store.dispatch('app/startProcessing');
+
+  const gameId = telemetryStore.telemetry.game.game.name;
 
   if (useFakeData)
     return new Promise((resolve) => {
@@ -62,7 +64,7 @@ export const save = async (data, target, gameId) => {
 
   return await axios
     .post(basePathHost() + `/config/${target}`, {
-      data,
+      data: data[target],
       gameId
     })
     .then(
@@ -175,7 +177,7 @@ export const upload = (file, target) => {
           if (!checkResult.state)
             throw 'An entry required was not found: ' + checkResult.value;
 
-          save(data, target, telemetryStore.telemetry.game.game.name).then(
+          save(data, target).then(
             (data) => resolve(data),
             (error) => reject(error)
           );
