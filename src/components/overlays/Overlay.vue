@@ -15,11 +15,6 @@
             <small v-if="message.message !== null" class="mb-3">{{
               $t(message.message)
             }}</small>
-            <!--          <b-spinner-->
-            <!--            v-if="!hasError"-->
-            <!--            :label="$t('Processing')"-->
-            <!--            type="grow"-->
-            <!--          />-->
             <button
               v-if="hasError"
               class="btn btn-sm btn-outline-ets"

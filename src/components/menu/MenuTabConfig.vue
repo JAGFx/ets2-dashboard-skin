@@ -18,14 +18,6 @@
           <a class="dropdown-item" @click="download('game')">Game</a>
         </div>
       </div>
-      <!--      <button-->
-      <!--        :disabled="isOnProcessing"-->
-      <!--        class="btn btn-sm btn-outline-ets mx-1"-->
-      <!--        @click="download"-->
-      <!--      >-->
-      <!--        <b-icon-file-earmark-arrow-down />-->
-      <!--        {{ $t('Download') }}-->
-      <!--      </button>-->
       <span>
         <div class="dropdown">
           <button
@@ -57,13 +49,6 @@
             >
           </div>
         </div>
-        <!--        <button-->
-        <!--          :disabled="isOnProcessing"-->
-        <!--          class="btn btn-sm btn-outline-ets mx-1"-->
-        <!--          @click="showUpload = !showUpload"-->
-        <!--        >-->
-        <!--        <b-icon-file-earmark-arrow-up /> {{ $t('Upload') }}-->
-        <!--        </button>-->
         <input
           v-if="showUpload"
           ref="uploadFile"
