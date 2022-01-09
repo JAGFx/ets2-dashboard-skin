@@ -2,6 +2,10 @@
 
 ## From 1.7.0
 
+### Added
+
+- ets2.jagfx.fr (Deprecated)
+
 ### Changed
 
 - Set a remote location for the map tiles. ~~It can be on your local machine~~
