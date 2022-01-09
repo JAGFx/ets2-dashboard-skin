@@ -11,13 +11,14 @@
 [![devDependencies Status](https://david-dm.org/JAGFx/ets2-dashboard-skin/dev-status.svg)](https://david-dm.org/JAGFx/ets2-dashboard-skin?type=dev)
 [![Discord](https://img.shields.io/discord/764915323693826059.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/8abqrEeFxF)
 
-
 ## About
 
 The idea with this repository is to update a collection of dashboard from
-the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK, as well as clean up the look and feel for a modern update to an already great app.
+the [Funbit repository](https://github.com/Funbit/ets2-telemetry-server) with the newest SCS SDK, as well as clean up
+the look and feel for a modern update to an already great app.
 
-The first skins to be reworked are my own dashboards. In the future, all dashboards in the *Funbit repository* will be included
+The first skins to be reworked are my own dashboards. In the future, all dashboards in the *Funbit repository* will be
+included
 
 This project was based on the [TruckSim-Telemetry-Demo](https://github.com/kniffen/TruckSim-Telemetry-Demo)
 
@@ -49,17 +50,20 @@ If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map
 
 More information on the [Map](./doc/MAP.md) readme
 
+The host `ets2.jagfx.fr` was deprecated and will be removed in the future.
+
 > Many thanks to [TwinDragon](https://github.com/TwinDragon) for maintaining an up to date map tile collection with each new version
 
 ### Offline
 
-See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported games, versions available and download links
+See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported games,
+versions available and download links
 
 ## Internationalization
 
 Set your locale on the configuration tab
 
-Available locales: 
+Available locales:
 
 - Chinese (cn_CN) - Thanks to [dreamstar-2020](https://github.com/dreamstar-2020)
 - English (en_EN)
@@ -71,7 +75,8 @@ Available locales:
 - OS: Windows 8/8.1/10/11 64-bit
 - Game: Euro Truck Simulator 2 or American Truck Simulator
 - SCS SDK plugin: v1.11
-- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop and Mobile), Edge (Desktop and Mobile), Safari (Desktop and Mobile)
+- Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop and Mobile), Edge (Desktop and Mobile), Safari (Desktop and
+  Mobile)
 
 **Important: It dosen't work with all Internet Explorer browsers**
 
@@ -84,7 +89,10 @@ Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenClo
 - Download the supported version zip `v1.11` at
   the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.11/release_v_1_11.zip) page
 - Extract the DLL file into your game folder like `C:\your-game-path\bin\win_x64\plugins\`
--- Note: If you own the Steam version, you can quickly access the game folder by right-clicking the game in your Steam library, hovering above 'Manage,' and clicking 'Browse local files.' You can proceed to navigate to bin > win_x64 > plugins.
+  -- Note: If you own the Steam version, you can quickly access the game folder by right-clicking the game in your Steam
+  library, hovering above 'Manage,' and clicking 'Browse local files.' You can proceed to navigate to bin > win_x64 >
+  plugins.
+
 ### Installation
 
 You can use this dashboard without building anything.
@@ -92,7 +100,7 @@ You can use this dashboard without building anything.
 You can download the `*.tar.gz` archive from the [release](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 page.
 
-Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it! 
+Extract this archive and run the `ets2-dashboard-skin_vX.X.X.exe`. That's it!
 
 > Note: You need to start the game to see the dashboard
 
@@ -152,6 +160,7 @@ Many thanks to
 [![JetBrains Black Box Logo logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.svg)](https://www.jetbrains.com/?from=EurotruckSimulator2Dashboardskin)
 
 ## License
+
 Under the [MIT License](LICENSE)
 
 © JAGFx - hey@emmanuel-smith.me

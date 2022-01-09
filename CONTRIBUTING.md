@@ -20,6 +20,30 @@ If you want to contribute in this project, you can:
 
 For the last point, please read in full this contribution guide.
 
+## Identify a problem
+
+If you encounter a problem with this application, please check all the suggestions:
+
+- [x] The application launches without errors.
+- [x] The device is connected on the same network as the application.
+- [x] The game is launched and you are on the road (If you don't make the spawn once on the road, the connection will
+  not be made).
+- [x] Check if a known problem [has been listed](doc/KNOW_ISSUES.md)
+- [x] Run the application as an administrator
+
+If you still have a problem, you
+can [open a bug on Github](https://github.com/JAGFx/ets2-dashboard-skin/issues/new?assignees=&labels=bug%2C+feature%2Ftodo&template=bug_report.md&title=)
+
+Please give all mentioned information about the problem. Without this, I am not able to reproduce the problem and solve
+it.
+
+- [x] Give the device used (PC, Tablette or Mobile)
+- [x] Give the device details (OS, browser used)
+- [x] Give the application version used
+- [x] Give the SCS telemetry version used
+- [x] Give the skin name if necessary
+- [x] Give the log file
+
 ## Contributing
 
 Many thanks if you want to contribute on this project.
@@ -41,7 +65,6 @@ All point on the pull request description must be checked and completed (if appl
 This project use NodeJs. Please be sure the NodeJs v14+ is installed before.
 
 This project can be developed on **Linux** or **Windows**
-
 
 ### Installation
 
@@ -152,18 +175,18 @@ Example of the `maps_map_tilesVersion` entry after editing:
 
 ````json
 {
-    "id" :          "maps_map_tilesVersion",
-    "label" :       "Game version",
-    "description" : "The latest get the tiles for the latest version, else the specified version",
-    "values" :      [
-        {
-            "label" : "Latest",
-            "value" : "latest"
-        },
-        {
-            "label" : "1.40",
-            "value" : "1.40"
-        }
-    ]
+	"id" :          "maps_map_tilesVersion",
+	"label" :       "Game version",
+	"description" : "The latest get the tiles for the latest version, else the specified version",
+	"values" :      [
+		{
+			"label" : "Latest",
+			"value" : "latest"
+		},
+		{
+			"label" : "1.40",
+			"value" : "1.40"
+		}
+	]
 }
 ````
