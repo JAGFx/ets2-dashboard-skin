@@ -1,6 +1,5 @@
 import { emptyData } from '@/utils/_config';
 import { config } from '@/utils/utils';
-import Vue from 'vue';
 
 // initial state
 const state = () => emptyData();
