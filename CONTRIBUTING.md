@@ -34,6 +34,8 @@ If you encounter a problem with this application, please check all the suggestio
 If you still have a problem, you
 can [open a bug on Github](https://github.com/JAGFx/ets2-dashboard-skin/issues/new?assignees=&labels=bug%2C+feature%2Ftodo&template=bug_report.md&title=)
 
+> Note: If the application crashes and closes immediately, you can open a terminal and type `ets2-dashboard-skin.exe`.With this, the application will not crash anymore and the error will be displayed.
+
 Please give all mentioned information about the problem. Without this, I am not able to reproduce the problem and solve
 it.
 
