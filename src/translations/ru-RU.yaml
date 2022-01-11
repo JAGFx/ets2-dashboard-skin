@@ -24,7 +24,7 @@ H-Shifter layout: Конфигурация КПП
 Show the current range of H-Shifter OR the automatic number: Отображение текущего положения КПП или значение автоматической передачи
 Damage accurate: Точность повреждений
 Show the average with value of 'Damage diagnostic' or same as the 'Route advisor': Показывать значения из 'Диагностики повреждений' или из 'Route Advisor'
-Get new !: Купите новый !
+Get new !: Купите новый!
 Game: Игра
 Select one: Выберите...
 Pause / Unpause: Пауза активна / неактивна
@@ -253,7 +253,7 @@ API: API
 Copy: Копировать
 Map initialiation: Инициализация карты
 Unable to load map: Невозможно загрузить карту
-Connected to telemetry server: Подключён к серверу телеметрии
+Connected to telemetry server: Подключение к серверу телеметрии выполнено
 Ready to delivering: Готов к доставке
 Waiting game connection: Ожидение подключения к игре
 Run the game to start your job !: Запустите игру, чтобы начать!
@@ -278,18 +278,19 @@ Frame: Рама
 Speed limit set: Ограничение скорости установлено
 Game paused: Игра на паузе
 Game connection lost: Потеряно соединение с игрой
-Job canceled !: Работа отменена !
+Job canceled !: Работа отменена!
 You've been cancel this job: Вы отказались от работы
-Job delivered !: Груз доставлен
-Delivered !: Доставлено !
-Job finished !: Работа выполнена !
+Job delivered !: Груз доставлен!
+Delivered !: Доставлено!
+Job finished !: Работа выполнена!
 You've been finish your job: Вы выполнили свою работу
-Job started !: Работа началась !
+Job started !: Работа началась!
 You've been start this job: Вы начали работу
-Trailer coupled !: Прицеп сцеплен !
+Trailer coupled !: Прицеп сцеплен!
 You are ready to go: Вы готовы ехать
 Cant get tiles - Tiles NOT FOUND: Невозможно получить плитки - Плитки НЕ НАЙДЕНЫ
 Cant get config - Map config NOT FOUND: Невозможно загрузить настройки - Настройки карты НЕ НАЙДЕНЫ
 Author: Автор
 Port: Порт
 Port used by the server: Порт, используемый сервером
+ets2.jagfx.fr (Deprecated): ets2.jagfx.fr (Устарело)
