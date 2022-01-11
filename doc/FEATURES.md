@@ -76,16 +76,24 @@ Go to `Menu > Config` to change with your preference.
 
 ### How to
 
-The config file will store on the release archive.
-It's name `config.ets2-dashboard-skin.json`.
+The configuration files are stored in the version archive.
 
-This JSON file store your preference. I'm recommend you to change data from the app instead of this file
+The configuration files are divided into two files:
+
+- The minimal configuration of the application `config.json`
+- The configuration of the game `config.ets2.json` or `config.ats.json`
+
+The old config file `config.ets2-dashboard-skin.json` is deprecated and is not used anymore.
+
+This JSON file store your preference. I'm recommend you to change data from the app instead from file
 
 #### Save my config
 
 To save your config, two-way:
 - Click on "Download" button to save config on your device
 - Copy & past the config file from the release folder 
+
+Note: All configuration displayed on tab are for the current game.
 
 #### Update my config after release update
 

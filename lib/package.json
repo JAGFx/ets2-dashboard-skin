@@ -1,0 +1,13 @@
+{
+  "name": "ets2-dashboard-lib",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "data-store": "^4.0.3",
+    "socket.io": "^4.4.0",
+    "winston": "^3.3.3"
+  }
+}

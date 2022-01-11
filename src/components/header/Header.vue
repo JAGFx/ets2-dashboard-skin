@@ -1,14 +1,7 @@
 <template>
   <div id="header">
-    <HeaderGameInformation
-      v-if="gameConnected"
-      id="game"
-    />
-    <div
-      v-if="gameConnected"
-      v-show="menuIsDisplayed"
-      class="wrapper menu h-100"
-    >
+    <HeaderGameInformation v-if="appReady" id="game" />
+    <div v-if="appReady" v-show="menuIsDisplayed" class="wrapper menu h-100">
       <Menu />
     </div>
   </div>
@@ -16,18 +9,18 @@
 
 <script>
 import HeaderGameInformation from '@/components/header/HeaderGameInformation';
-import Menu                  from '@/components/menu/Menu';
-import TelemetryMixin        from '@/mixins/TelemetryMixin';
-import { mapGetters }        from 'vuex';
+import Menu from '@/components/menu/Menu';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
+import { mapGetters } from 'vuex';
 
 export default {
-  name:       'Header',
+  name: 'Header',
   components: { HeaderGameInformation, Menu },
-  mixins: [TelemetryMixin  ],
-  computed:   {
-    ...mapGetters( {
+  mixins: [TelemetryMixin],
+  computed: {
+    ...mapGetters({
       menuIsDisplayed: 'menu/isDisplayed'
-    } )
+    })
   }
 };
 </script>

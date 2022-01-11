@@ -1,29 +1,22 @@
 <template>
   <div class="history-overlay">
-    <div
-      class="area"
-      @click="onClickArea()"
-    />
-    <b-overlay
-      :show="counter === 5"
-      :variant="'dark'"
-      no-wrap
-    >
+    <div class="area" @click="onClickArea()" />
+    <b-overlay :show="counter === 5" :variant="'dark'" no-wrap>
       <template #overlay>
-        <div class="d-flex justify-content-start flex-column align-items-center history-overlay-wrapper">
+        <div
+          class="d-flex justify-content-start flex-column align-items-center history-overlay-wrapper"
+        >
           <button
-            v-clipboard:copy="JSON.stringify( histories, null, 2 )"
+            v-clipboard:copy="JSON.stringify(histories, null, 2)"
             class="my-3 copy btn btn-sm btn-outline-ets d-flex justify-content-around align-items-center"
           >
             <i class="far fa-clipboard pr-1" />
             {{ $t('Copy') }}
           </button>
           <div class="text-left w-100 pt-0 px-3 pb-3 log-list">
-            <small
-              v-for="line in histories"
-              :key="line"
-              class="line d-block"
-            >{{ line }}</small>
+            <small v-for="line in histories" :key="line" class="line d-block">{{
+              line
+            }}</small>
           </div>
         </div>
       </template>
@@ -48,8 +41,7 @@ export default {
   },
   methods: {
     onClickArea() {
-      if ( this.counter++ === 5 )
-        this.counter = 0;
+      if (this.counter++ === 5) this.counter = 0;
     }
   }
 };

@@ -1,62 +1,56 @@
-import defaultData from '@/data/ets2-dashboard-skin.config.json';
-import { config }  from '@/utils/utils';
-import Vue         from 'vue';
+import { emptyData } from '@/utils/_config';
+import { config } from '@/utils/utils';
 
 // initial state
-const state = () => (defaultData);
+const state = () => emptyData();
 
 // getters
 const getters = {
-	get:     state => elm => {
-		let value = state[ elm ];
-		
-		if ( value === 'true' )
-			value = true;
-		else if ( value === 'false' )
-			value = false;
-		
-		return value ?? null;
-	},
-	enabled: ( state, getters ) => elm => {
-		//console.log( elm, getters.exist( elm ), getters.get( elm ) );
-		
-		return getters.exist( elm ) && getters.get( elm ) === true;
-	},
-	exist:   state => elm => {
-		return Object.hasOwnProperty.call( state, elm );
-	},
-	all:     state => {
-		return state;
-	}
+  get: (state) => (elm) => {
+    let value = { ...state.app, ...state.game }[elm];
+
+    if (value === 'true') value = true;
+    else if (value === 'false') value = false;
+
+    return value ?? null;
+  },
+  enabled: (state, getters) => (elm) => {
+    //console.log( elm, getters.exist( elm ), getters.get( elm ) );
+
+    return getters.exist(elm) && getters.get(elm) === true;
+  },
+  exist: (state) => (elm) => {
+    return Object.hasOwnProperty.call({ ...state.app, ...state.game }, elm);
+  },
+  all: (state) => {
+    return { ...state.app, ...state.game };
+  },
+  app: (state) => state.app,
+  game: (state) => state.game,
+  gameConfigLoaded: (state) => state.game !== null
 };
 
 // actions
-const actions = {
-	load( { commit } ) {
-		return config
-			.load()
-			.then( data => commit( 'setElms', data ) );
-	}
-};
+const actions = {};
 
 // mutations
 const mutations = {
-	setElms( state, configs ) {
-		Object.keys( configs ).forEach( ( key ) => {
-			const value = configs[ key ];
-			Vue.set( state, key, value );
-		} );
-	},
-	setElm( state, elm ) {
-		Vue.set( state, elm.id, elm.value );
-		config.save( state );
-	}
+  setApp(state, config) {
+    state.app = config;
+  },
+  setGame(state, config) {
+    state.game = config;
+  },
+  setElm(state, payload) {
+    state[payload.target][payload.id] = payload.value;
+    config.save(state, payload.target);
+  }
 };
 
 export default {
-	namespaced: true,
-	state,
-	getters,
-	actions,
-	mutations
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 };

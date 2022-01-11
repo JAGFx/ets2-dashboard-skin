@@ -4,77 +4,75 @@
 			<div class="name">{{telemetry.job.cargo.name}}</div>
 		</div>-->
     <!--<div class="wear">{{Math.floor(100 * telemetry.job.cargo.damage)}}%</div>-->
-		
-    <ul class="dash-element left ">
-      <li
-        :class="{ 'disabled': !$hasJob() }"
-        class="multiline default"
-      >
+
+    <ul class="dash-element left">
+      <li :class="{ disabled: !$hasJob() }" class="multiline default">
         <div class="round from">
           <i class="icon-startpoint" />
         </div>
         <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
         <span v-else>
           <span>{{ telemetry.job.source.city.name }}</span>
-          <small class="text-muted text-italic text-size-1rem text-line-height-1rem">{{ telemetry.job.source.company.name }}</small>
+          <small
+            class="text-muted text-italic text-size-1rem text-line-height-1rem"
+            >{{ telemetry.job.source.company.name }}</small
+          >
         </span>
       </li>
-      <li
-        :class="{ 'disabled': !$hasJob() }"
-        class="multiline default"
-      >
+      <li :class="{ disabled: !$hasJob() }" class="multiline default">
         <div class="round to">
           <i class="icon-endpoint" />
         </div>
         <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
         <span v-else>
           <span>{{ telemetry.job.destination.city.name }}</span>
-          <small class="text-muted text-italic text-size-1rem text-line-height-1rem">{{ telemetry.job.destination.company.name }}</small>
+          <small
+            class="text-muted text-italic text-size-1rem text-line-height-1rem"
+            >{{ telemetry.job.destination.company.name }}</small
+          >
         </span>
       </li>
-      <li
-        :class="{ 'disabled': !$hasJob() }"
-        class="default"
-      >
+      <li :class="{ disabled: !$hasJob() }" class="default">
         <div class="round">
           <i class="icon-time" />
         </div>
         <span v-if="$hasJob() && $jobRemainingTimeToDueDate()">{{
-          jobDeliveryTime | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT )
+          jobDeliveryTime
+            | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
         }}</span>
-        <span v-else-if="$hasJob() && !$jobRemainingTimeToDueDate()">{{ $jobRemainingTimeDelivery( telemetry.job.expectedDeliveryTimestamp.value ) }}</span>
+        <span v-else-if="$hasJob() && !$jobRemainingTimeToDueDate()">{{
+          $jobRemainingTimeDelivery(
+            telemetry.job.expectedDeliveryTimestamp.value
+          )
+        }}</span>
         <span v-else>{{ $t('N/A') }}</span>
       </li>
-      <li
-        :class="{ 'disabled': !$hasJob() }"
-        class="default"
-      >
+      <li :class="{ disabled: !$hasJob() }" class="default">
         <div class="round">
           <i class="icon-currency" />
         </div>
         <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
-        <span v-else>{{ unit_currency( telemetry.job.income ) }}</span>
+        <span v-else>{{ unit_currency(telemetry.job.income) }}</span>
       </li>
       <li
-        :class="{ 'disabled': telemetry.navigation.distance === 0 }"
+        :class="{ disabled: telemetry.navigation.distance === 0 }"
         class="default"
       >
         <div class="round">
           <i class="icon-ruler" />
         </div>
         <span v-if="telemetry.navigation.distance === 0">{{ $t('N/A') }}</span>
-        <span v-else-if="telemetry.navigation.distance < 1000"> {{ unit_length( telemetry.navigation.distance, 'm' ) }}</span>
-        <span v-else>{{ unit_length( telemetry.navigation.distance ) }}</span>
+        <span v-else-if="telemetry.navigation.distance < 1000">
+          {{ unit_length(telemetry.navigation.distance, 'm') }}</span
+        >
+        <span v-else>{{ unit_length(telemetry.navigation.distance) }}</span>
       </li>
-      <li
-        :class="{ 'disabled': !$hasJob() }"
-        class="default"
-      >
+      <li :class="{ disabled: !$hasJob() }" class="default">
         <div class="round">
           <i class="icon-weight" />
         </div>
         <span v-if="!$hasJob()">{{ $t('N/A') }}</span>
-        <span v-else>{{ unit_weight( telemetry.job.cargo.mass ) }}</span>
+        <span v-else>{{ unit_weight(telemetry.job.cargo.mass) }}</span>
       </li>
     </ul>
 
@@ -99,10 +97,10 @@
 </template>
 
 <script>
-	import TelemetryMixin from '@/mixins/TelemetryMixin';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 
-  export default {
-    name: 'JagfxJob',
-    mixins: [TelemetryMixin]
-  };
+export default {
+  name: 'JagfxJob',
+  mixins: [TelemetryMixin]
+};
 </script>

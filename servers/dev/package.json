@@ -1,0 +1,21 @@
+{
+	"name" :            "dev",
+	"version" :         "1.0.0",
+	"description" :     "",
+	"main" :            "index.js",
+	"type" :            "module",
+	"scripts" :         {
+		"start" : "npx nodemon --experimental-json-modules index.js -e js --watch ../../lib"
+	},
+	"author" :          "",
+	"license" :         "ISC",
+	"dependencies" :    {
+		"ets2-dashboard-lib" : "file:../../lib",
+		"express" :            "^4.17.1",
+		"http" :               "0.0.1-security",
+		"socket.io" :          "^4.1.3"
+	},
+	"devDependencies" : {
+		"nodemon" : "^2.0.15"
+	}
+}

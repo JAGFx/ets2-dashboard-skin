@@ -9,7 +9,8 @@
           label: 'Oil temperature',
           disabled: false,
           description: 'Display oil temperature',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -18,7 +19,8 @@
           label: 'Brakes temperature',
           disabled: false,
           description: 'Display brakes temperature',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -27,7 +29,8 @@
           label: 'Brakes air pressure',
           disabled: false,
           description: 'Display brakes air pressure',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -36,7 +39,8 @@
           label: 'Fuel',
           disabled: false,
           description: 'Display the fuel level',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -45,7 +49,8 @@
           label: 'Fuel consumption',
           disabled: false,
           description: 'Display the fuel average consumption',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -53,8 +58,10 @@
           id: 'jagfx_elements_right_cruiseControl',
           label: 'Cruise control',
           disabled: false,
-          description: 'Display the current speed set with the cruise control ON',
-          values: fieldValues( 'on_off' )
+          description:
+            'Display the current speed set with the cruise control ON',
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -63,7 +70,8 @@
           label: 'Water temperature',
           disabled: false,
           description: 'Display the water temperature',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -72,7 +80,8 @@
           label: 'Battery voltage',
           disabled: false,
           description: 'Display the battery voltage',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -81,7 +90,8 @@
           label: 'Next rest stop',
           disabled: false,
           description: 'Display the time to go to the next rest stop',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -90,7 +100,8 @@
           label: 'Display map',
           disabled: false,
           description: 'Enable or disable the map view',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
     </div>
@@ -103,7 +114,8 @@
           label: 'Retarder',
           disabled: false,
           description: 'Display the retarder indicator',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -112,7 +124,8 @@
           label: 'Parking brake',
           disabled: false,
           description: 'Display the parking brake indicator',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -121,7 +134,8 @@
           label: 'Beam high',
           disabled: false,
           description: 'Display the high beam indicator',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -130,7 +144,8 @@
           label: 'Beam low',
           disabled: false,
           description: 'Display the low beam indicator',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -139,7 +154,8 @@
           label: 'Beacon',
           disabled: false,
           description: 'Display the beacon indicator',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
     </div>
@@ -152,7 +168,8 @@
           label: 'RPM',
           disabled: false,
           description: 'Display the RPM',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -161,7 +178,8 @@
           label: 'Fuel',
           disabled: false,
           description: 'Display the fuel level indicator',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -170,7 +188,8 @@
           label: 'Speed limit',
           disabled: false,
           description: 'Display the speed limit',
-          values: fieldValues( 'on_off' )
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
       <ConfigFieldChoice
@@ -178,8 +197,10 @@
           id: 'jagfx_elements_mid_bottom_blinker_turn',
           label: 'Turning indicator',
           disabled: false,
-          description: 'Display an indicator when the turn left or turn right blinker are ON',
-          values: fieldValues( 'on_off' )
+          description:
+            'Display an indicator when the turn left or turn right blinker are ON',
+          values: fieldValues('on_off'),
+          target: 'game'
         }"
       />
     </div>
@@ -190,7 +211,7 @@
 import ConfigCategoryMixin from '@/mixins/ConfigCategoryMixin';
 
 export default {
-  name:   'ConfigCategoryJagfx',
-  mixins: [ ConfigCategoryMixin ]
+  name: 'ConfigCategoryJagfx',
+  mixins: [ConfigCategoryMixin]
 };
 </script>

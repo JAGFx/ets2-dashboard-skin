@@ -7,59 +7,58 @@
  */
 
 import skins from '@/data/skins.json';
-import _     from 'lodash';
+import _ from 'lodash';
 
 // initial state
 const state = () => ({
-	currentSkin: null,
-	all:         skins.skins
+  currentSkin: null,
+  all: skins.skins
 });
 
 // getters
 const getters = {
-	current:     state => {
-		return state.currentSkin;
-	},
-	active:      state => {
-		return state.all.filter( skin => !skin.disabled );
-	},
-	firstActive: ( state, getters ) => {
-		//console.log( 'plop', getters.active );
-		return _.first( getters.active );
-	},
-	all:         ( state ) => {
-		return state.all;
-	}
+  current: (state) => {
+    return state.currentSkin;
+  },
+  active: (state) => {
+    return state.all.filter((skin) => !skin.disabled);
+  },
+  firstActive: (state, getters) => {
+    //console.log( 'plop', getters.active );
+    return _.first(getters.active);
+  },
+  all: (state) => {
+    return state.all;
+  }
 };
 
 // actions
 const actions = {
-	setFirstActive( { commit, getters } ) {
-		const active = getters.firstActive;
-		commit( 'setCurrent', active );
-	}
+  setFirstActive({ commit, getters }) {
+    const active = getters.firstActive;
+    commit('setCurrent', active);
+  }
 };
 
 // mutations
 const mutations = {
-	setCurrent( state, skin ) {
-		state.currentSkin = skin;
-	},
-	setConfigActive( state, name ) {
-		let skin = state.all.filter( skin => skin.id === name );
-		
-		if ( skin.length === 0 )
-			throw 'NoSkinFound';
-		
-		skin = _.first( skin );
-		state.currentSkin = skin;
-	}
+  setCurrent(state, skin) {
+    state.currentSkin = skin;
+  },
+  setConfigActive(state, name) {
+    let skin = state.all.filter((skin) => skin.id === name);
+
+    if (skin.length === 0) throw 'NoSkinFound';
+
+    skin = _.first(skin);
+    state.currentSkin = skin;
+  }
 };
 
 export default {
-	namespaced: true,
-	state,
-	getters,
-	actions,
-	mutations
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 };

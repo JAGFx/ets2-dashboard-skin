@@ -7,10 +7,6 @@ build
 bundle
 
 public/icons/*
-maps/*
-!maps/.gitkeep
-!maps/createZip
-!maps/extractZip
 
 # local env files
 .env.local
@@ -29,3 +25,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+logs/

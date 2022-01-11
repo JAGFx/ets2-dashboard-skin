@@ -1,20 +1,15 @@
 <template>
-  <Dashboard
-    v-slot="dashProps"
-    class="scania-dash wrapper"
-  >
+  <Dashboard v-slot="dashProps" class="scania-dash wrapper">
     <div
       class="dashboard game-connected yes"
       :style="{
-        transform: 'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
+        transform:
+          'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
         width: dashProps.skinData.size.width + 'px',
-        height: dashProps.skinData.size.height + 'px',
+        height: dashProps.skinData.size.height + 'px'
       }"
     >
-      <div
-        :class="{'yes': telemetry.job.cargo.id}"
-        class="hasJob"
-      >
+      <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">
         <!-- meters -->
         <!--
           Attributes:
@@ -25,125 +20,131 @@
           -->
         <Cadran
           v-bind="{
-            'classCSS': 'truck-speed',
-            'type': 'meter',
-            'value': telemetry.truck.speed.mph,
-            'min': 10,
-            'max': 130,
-            'minAngle' : -122,
-            'maxAngle': 123,
+            classCSS: 'truck-speed',
+            type: 'meter',
+            value: telemetry.truck.speed.mph,
+            min: 10,
+            max: 130,
+            minAngle: -122,
+            maxAngle: 123
           }"
         />
         <div class="truck-speedRounded wrapper-area">
           <span>{{
-            unit_speed( telemetry.truck.speed,
-                        true,
-                        false ) | $toFixed( 0 )
+            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
           }}</span>
         </div>
         <Cadran
           v-bind="{
-            'classCSS': 'truck-engineRpm',
-            'type': 'meter',
-            'value': telemetry.truck.engine.rpm.value / 100,
-            'min': 3,
-            'max': 27,
-            'minAngle' : -122,
-            'maxAngle': 122,
+            classCSS: 'truck-engineRpm',
+            type: 'meter',
+            value: telemetry.truck.engine.rpm.value / 100,
+            min: 3,
+            max: 27,
+            minAngle: -122,
+            maxAngle: 122
           }"
         />
         <Cadran
           v-bind="{
-            'classCSS': 'truck-fuel',
-            'type': 'meter',
-            'value': telemetry.truck.fuel.value,
-            'min': 0,
-            'max': telemetry.truck.fuel.capacity,
-            'minAngle' : -53,
-            'maxAngle': 53,
+            classCSS: 'truck-fuel',
+            type: 'meter',
+            value: telemetry.truck.fuel.value,
+            min: 0,
+            max: telemetry.truck.fuel.capacity,
+            minAngle: -53,
+            maxAngle: 53
           }"
         />
         <Cadran
           v-bind="{
-            'classCSS': 'truck-waterTemperature',
-            'type': 'meter',
-            'value': telemetry.truck.engine.waterTemperature.value,
-            'min': 40,
-            'max': 100,
-            'minAngle' : -55,
-            'maxAngle': 40,
+            classCSS: 'truck-waterTemperature',
+            type: 'meter',
+            value: telemetry.truck.engine.waterTemperature.value,
+            min: 40,
+            max: 100,
+            minAngle: -55,
+            maxAngle: 40
           }"
         />
         <Cadran
           v-bind="{
-            'classCSS': 'truck-oilPressure',
-            'type': 'meter',
-            'value': $pressureToBar(telemetry.truck.engine.oilPressure.value),
-            'min': 0,
-            'max': 8,
-            'minAngle' : -53,
-            'maxAngle': 53,
+            classCSS: 'truck-oilPressure',
+            type: 'meter',
+            value: $pressureToBar(telemetry.truck.engine.oilPressure.value),
+            min: 0,
+            max: 8,
+            minAngle: -53,
+            maxAngle: 53
           }"
         />
         <div class="truck-odometer wrapper-area">
           <span>{{
-            unit_length( telemetry.truck.odometer,
-                         'km',
-                         true,
-                         false ) | $toFixed( 0 )
+            unit_length(telemetry.truck.odometer, 'km', true, false)
+              | $toFixed(0)
           }}</span>
         </div>
         <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-gear wrapper-area">
-          <span>{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
+          <span>{{
+            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
+          }}</span>
         </div>
         <!-- indicators -->
         <div
-          :class="{ 'yes': telemetry.truck.lights.blinker.left.active}"
+          :class="{ yes: telemetry.truck.lights.blinker.left.active }"
           class="truck-blinkerLeftOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.blinker.right.active }"
+          :class="{ yes: telemetry.truck.lights.blinker.right.active }"
           class="truck-blinkerRightOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.cruiseControl.enabled }"
+          :class="{ yes: telemetry.truck.cruiseControl.enabled }"
           class="truck-cruiseControlOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.beamHigh.enabled }"
+          :class="{ yes: telemetry.truck.lights.beamHigh.enabled }"
           class="truck-lightsBeamHighOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.beamLow.enabled }"
+          :class="{ yes: telemetry.truck.lights.beamLow.enabled }"
           class="truck-lightsBeamLowOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.parking.enabled }"
+          :class="{ yes: telemetry.truck.lights.parking.enabled }"
           class="truck-lightsParkingOn"
         />
         <!--				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>-->
         <div
-          :class="{ 'yes': telemetry.truck.brakes.parking.enabled }"
+          :class="{ yes: telemetry.truck.brakes.parking.enabled }"
           class="truck-parkBrakeOn"
         />
         <div class="trailer-mass wrapper-area">
-          <span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span>
+          <span
+            >{{
+              unit_weight(telemetry.job.cargo.mass, true, false) | $toFixed(1)
+            }}<span class="ton">{{
+              unit_weight(telemetry.job.cargo.mass, false)
+            }}</span></span
+          >
         </div>
         <!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
         <div class="game-time wrapper-area">
-          <span>{{ $gameTime() | $dateTimeLocalized( DATE_FORMAT_SHORT, TIME_FORMAT_SHORT ) }}</span>
+          <span>{{
+            $gameTime()
+              | $dateTimeLocalized(DATE_FORMAT_SHORT, TIME_FORMAT_SHORT)
+          }}</span>
         </div>
         <div
-          :class="{ 'yes': telemetry.truck.brakes.airPressure.emergency.enabled }"
+          :class="{ yes: telemetry.truck.brakes.airPressure.emergency.enabled }"
           class="truck-airPressureEmergencyOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.fuel.warning.enabled }"
+          :class="{ yes: telemetry.truck.fuel.warning.enabled }"
           class="truck-fuelWarningOn"
         />
-				
-				
+
         <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->
         <!--				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>-->
         <!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
@@ -155,15 +156,15 @@
 
 <script>
 import TelemetryMixin from '@/mixins/TelemetryMixin';
-import Dashboard      from './Dashboard';
-import Cadran         from './shared/Cadran';
+import Dashboard from './Dashboard';
+import Cadran from './shared/Cadran';
 
 export default {
-  name:       'ScaniaDashboard',
+  name: 'ScaniaDashboard',
   components: {
     Dashboard,
     Cadran
   },
-  mixins: [ TelemetryMixin ]
+  mixins: [TelemetryMixin]
 };
 </script>

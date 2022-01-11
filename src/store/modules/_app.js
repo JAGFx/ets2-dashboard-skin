@@ -7,82 +7,81 @@
  */
 
 import { history } from '@/utils/utils';
-import Vue         from 'vue';
+import Vue from 'vue';
 
 const defaultMessage = {
-	type:    'dark',
-	title:   'Processing',
-	message: 'Your app is on processing. Please wait'
+  icon: null,
+  title: 'Processing',
+  message: 'Your app is on processing. Please wait'
 };
 
 const defaultDetails = {
-	message: null,
-	code:    null
-};
-
-const defaultLaunchObject = {
-	icon:    '<i class="fas fa-box"></i>',
-	text:    'App ready !',
-	subText: 'Starting delivering'
+  message: null,
+  code: null
 };
 
 const state = () => ({
-	processing: false,
-	message:    defaultMessage,
-	details:    defaultDetails,
-	launch:     defaultLaunchObject
+  launched: false,
+  processing: false,
+  message: defaultMessage,
+  details: defaultDetails
 });
 
 // getters
 const getters = {
-	isOnProcessing: state => state.processing,
-	message:        state => state.message,
-	details:        state => state.details,
-	launch:         state => state.launch,
-	getProcessing:  ( state ) => {
-		return state.processing;
-	}
+  isLaunched: (state) => state.launched,
+  isOnProcessing: (state) => state.processing,
+  message: (state) => state.message,
+  details: (state) => state.details
 };
 
 // actions
 const actions = {
-	startProcessing( { commit } ) {
-		commit( 'setProcessing', true );
-	},
-	endProcessing( { commit } ) {
-		commit( 'setProcessing', false );
-		commit( 'setMessage', defaultMessage );
-		commit( 'setDetails', defaultDetails );
-	},
-	setError( { commit }, payload ) {
-		Vue.prototype.$pushALog( 'Error thrown', JSON.stringify( payload ), history.HTY_ZONE.ERROR );
-		
-		commit( 'setProcessing', true );
-		commit( 'setMessage', payload.message );
-		commit( 'setDetails', payload.details );
-	}
+  startProcessing({ commit }) {
+    commit('setProcessing', true);
+  },
+  showMessage({ commit }, payload) {
+    commit('setProcessing', true);
+    commit('setMessage', payload);
+  },
+  endProcessing({ commit }) {
+    commit('setProcessing', false);
+    commit('setMessage', defaultMessage);
+    commit('setDetails', defaultDetails);
+  },
+  setError({ commit }, payload) {
+    Vue.prototype.$pushALog(
+      'Error thrown',
+      JSON.stringify(payload),
+      history.HTY_ZONE.ERROR
+    );
+
+    commit('setProcessing', true);
+    commit('setMessage', payload.message);
+    commit('setDetails', payload.details);
+  }
 };
 
 // mutations
 const mutations = {
-	setProcessing( state, value ) {
-		state.processing = value;
-	},
-	setMessage( state, message ) {
-		state.message = message;
-	},
-	setDetails( state, details ) {
-		state.details = details;
-	},
-	setLaunch( state, launch ) {
-		state.launch = launch;
-	}
+  setLaunched(state, value) {
+    state.launched = value;
+  },
+  setProcessing(state, value) {
+    state.processing = value;
+  },
+  setMessage(state, message) {
+    state.message = message;
+  },
+  setDetails(state, details) {
+    state.details = details;
+  }
 };
 
 export default {
-	namespaced: true,
-	state,
-	getters,
-	actions,
-	mutations
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 };

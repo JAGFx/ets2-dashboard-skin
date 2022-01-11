@@ -9,7 +9,8 @@
         label: 'Game pause',
         disabled: false,
         description: 'Show a pop-up when the game are on pause or unpause',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -18,7 +19,8 @@
         label: 'Road fine',
         disabled: false,
         description: 'Show a pop-up when you get a road fine',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -27,7 +29,8 @@
         label: 'Toll gate',
         disabled: false,
         description: 'Show a pop-up when you pass through a toll gate',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -36,7 +39,8 @@
         label: 'Ferry travel',
         disabled: false,
         description: 'Show a pop-up when you use a ferry',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -45,7 +49,8 @@
         label: 'Train travel',
         disabled: false,
         description: 'Show a pop-up when you use a train',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -53,8 +58,10 @@
         id: 'events_game.refuel-payed',
         label: 'Refuel payed',
         disabled: false,
-        description: 'Show a pop-up when you have been refueled your truck tank',
-        values: fieldValues( 'on_off' )
+        description:
+          'Show a pop-up when you have been refueled your truck tank',
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <!-- </editor-folder> -->
@@ -65,7 +72,8 @@
         label: 'Job canceled',
         disabled: false,
         description: 'Show a pop-up when a job was canceled',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -74,7 +82,8 @@
         label: 'Job delivered',
         disabled: false,
         description: 'Show a pop-up when a job was delivered',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -83,7 +92,8 @@
         label: 'Job finished',
         disabled: false,
         description: 'Show a pop-up when a job was finished',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -92,7 +102,8 @@
         label: 'Job started',
         disabled: false,
         description: 'Show a pop-up when a job was started',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <!-- </editor-folder> -->
@@ -103,7 +114,8 @@
         label: 'Speed limit',
         disabled: false,
         description: 'Show a pop-up when the speed limit change',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <!-- </editor-folder> -->
@@ -114,7 +126,8 @@
         label: 'Trailer coupled',
         disabled: false,
         description: 'Show a pop-up when the trailer was coupled to the truck',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -123,7 +136,8 @@
         label: 'Trailer damage',
         disabled: false,
         description: 'Show a pop-up when the damage increase on the trailer',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <!-- </editor-folder> -->
@@ -134,7 +148,8 @@
         label: 'Cruise control enabled',
         disabled: false,
         description: 'Show a pop-up when the cruise control is enabled',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -143,7 +158,8 @@
         label: 'Cruise control increase',
         disabled: false,
         description: 'Show a pop-up when the cruise control increase',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -152,7 +168,8 @@
         label: 'Cruise control decrease',
         disabled: false,
         description: 'Show a pop-up when the cruise control decrease',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -161,7 +178,8 @@
         label: 'Truck warning message',
         disabled: false,
         description: 'Show a pop-up for all warning message of truck',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -170,7 +188,8 @@
         label: 'Truck emergency message',
         disabled: false,
         description: 'Show a pop-up for all emergency message of truck',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -179,7 +198,8 @@
         label: 'Truck electric message',
         disabled: false,
         description: 'Show a pop-up when the truck contact was on',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -188,7 +208,8 @@
         label: 'Truck engine start',
         disabled: false,
         description: 'Show a pop-up when the truck engine start',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -197,7 +218,8 @@
         label: 'Truck parking brake',
         disabled: false,
         description: 'Show a pop-up when the truck parking brake are on',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -206,7 +228,8 @@
         label: 'Truck damage',
         disabled: false,
         description: 'Show a pop-up when the truck damage increase',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <ConfigFieldChoice
@@ -215,7 +238,8 @@
         label: 'Truck refuel',
         disabled: false,
         description: 'Show a pop-up when the truck refuel tank was full',
-        values: fieldValues( 'on_off' )
+        values: fieldValues('on_off'),
+        target: 'game'
       }"
     />
     <!-- </editor-folder> -->
@@ -226,7 +250,7 @@
 import ConfigCategoryMixin from '@/mixins/ConfigCategoryMixin';
 
 export default {
-  name:   'ConfigCategoryEvents',
-  mixins: [ ConfigCategoryMixin ]
+  name: 'ConfigCategoryEvents',
+  mixins: [ConfigCategoryMixin]
 };
 </script>

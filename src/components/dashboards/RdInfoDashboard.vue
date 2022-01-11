@@ -1,20 +1,15 @@
 <template>
-  <Dashboard
-    v-slot="dashProps"
-    class="rd-info-dash wrapper"
-  >
+  <Dashboard v-slot="dashProps" class="rd-info-dash wrapper">
     <div
       class="dashboard game-connected yes"
       :style="{
-        transform: 'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
+        transform:
+          'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
         width: dashProps.skinData.size.width + 'px',
-        height: dashProps.skinData.size.height + 'px',
+        height: dashProps.skinData.size.height + 'px'
       }"
     >
-      <div
-        :class="{'yes': telemetry.job.cargo.id}"
-        class="hasJob"
-      >
+      <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">
         <!-- meters -->
         <!--
           Attributes:
@@ -71,19 +66,21 @@
         }"></Cadran>-->
 
         <div class="truck-wearEngine wrapper-area">
-          <span>{{ ( telemetry.truck.damage.engine * 100).toFixed(0) }}%</span>
+          <span>{{ (telemetry.truck.damage.engine * 100).toFixed(0) }}%</span>
         </div>
         <div class="truck-wearTransmission wrapper-area">
-          <span>{{ ( telemetry.truck.damage.transmission * 100).toFixed(0) }}%</span>
+          <span
+            >{{ (telemetry.truck.damage.transmission * 100).toFixed(0) }}%</span
+          >
         </div>
         <div class="truck-wearCabin wrapper-area">
-          <span>{{ ( telemetry.truck.damage.cabin * 100).toFixed(0) }}%</span>
+          <span>{{ (telemetry.truck.damage.cabin * 100).toFixed(0) }}%</span>
         </div>
         <div class="truck-wearWheels wrapper-area">
-          <span>{{ ( telemetry.truck.damage.wheels * 100).toFixed(0) }}%</span>
+          <span>{{ (telemetry.truck.damage.wheels * 100).toFixed(0) }}%</span>
         </div>
         <div class="truck-wearChassis wrapper-area">
-          <span>{{ ( telemetry.truck.damage.chassis * 100).toFixed(0) }}%</span>
+          <span>{{ (telemetry.truck.damage.chassis * 100).toFixed(0) }}%</span>
         </div>
         <div class="trailer-wear wrapper-area">
           <span>{{ (telemetry.trailer.cargo.damage * 100).toFixed(0) }} %</span>
@@ -92,85 +89,104 @@
           <span>{{ telemetry.truck.brand.name }}</span>
         </div>
         <div
-          :class="{ 'yes': telemetry.truck.lights.beamHigh.enabled }"
+          :class="{ yes: telemetry.truck.lights.beamHigh.enabled }"
           class="truck-lightsBeamHighOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.beamLow.enabled }"
+          :class="{ yes: telemetry.truck.lights.beamLow.enabled }"
           class="truck-lightsBeamLowOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.parking.enabled }"
+          :class="{ yes: telemetry.truck.lights.parking.enabled }"
           class="truck-lightsParkingOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.cruiseControl.enabled }"
+          :class="{ yes: telemetry.truck.cruiseControl.enabled }"
           class="truck-cruiseControlOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.brakes.parking.enabled }"
+          :class="{ yes: telemetry.truck.brakes.parking.enabled }"
           class="truck-parkBrakeOn"
         />
         <div
-          :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }"
+          :class="{ yes: telemetry.truck.brakes.airPressure.warning.enabled }"
           class="_airPressureOn"
         />
         <div class="truck-fuel">
-          {{ unit_volume( telemetry.truck.fuel.value ) }}
+          {{ unit_volume(telemetry.truck.fuel.value) }}
         </div>
         <div class="truck-fuelAverageConsumption">
-          {{ unit_consumption( telemetry.truck.fuel.avgConsumption, true, false ) | $toFixed( 1 )
+          {{
+            unit_consumption(telemetry.truck.fuel.avgConsumption, true, false)
+              | $toFixed(1)
           }}
         </div>
         <div class="_fuelAvg">
-          {{ unit_consumption( telemetry.truck.fuel.avgConsumption, false ) }}
+          {{ unit_consumption(telemetry.truck.fuel.avgConsumption, false) }}
         </div>
         <div
-          :style="{ width: ( telemetry.controls.game.brake * 606) + 'px' }"
+          :style="{ width: telemetry.controls.game.brake * 606 + 'px' }"
           class="_gameBrakeBar"
         />
         <div
-          :style="{ width: ( telemetry.controls.input.brake * 606) + 'px'}"
+          :style="{ width: telemetry.controls.input.brake * 606 + 'px' }"
           class="_userBrakeBar"
         />
         <div
-          :style="{ width: ( telemetry.controls.game.throttle * 606) + 'px' }"
+          :style="{ width: telemetry.controls.game.throttle * 606 + 'px' }"
           class="_gameThrottleBar"
         />
         <div
-          :style="{ width: ( telemetry.controls.input.throttle * 606) + 'px' }"
+          :style="{ width: telemetry.controls.input.throttle * 606 + 'px' }"
           class="_userThrottleBar"
         />
         <!--				<div :class="{ 'yes': telemetry.truck.lights.beacon.enabled }" class="truck-lightsBeaconOn"></div>-->
         <div
-          :class="{ 'yes': ( telemetry.truck.lights.blinker.left.active || telemetry.truck.lights.blinker.right.active ) }"
+          :class="{
+            yes:
+              telemetry.truck.lights.blinker.left.active ||
+              telemetry.truck.lights.blinker.right.active
+          }"
           class="_dangerWarning"
         />
         <div
-          :class="{ 'yes': telemetry.truck.lights.parking.enabled }"
+          :class="{ yes: telemetry.truck.lights.parking.enabled }"
           class="_auxLights"
         />
         <div
-          :class="{ 'yes': ( telemetry.truck.lights.auxFront.value !== 0 || telemetry.truck.lights.auxRoof.value !== 0 ) }"
+          :class="{
+            yes:
+              telemetry.truck.lights.auxFront.value !== 0 ||
+              telemetry.truck.lights.auxRoof.value !== 0
+          }"
           class="truck-lightsParkingOn"
         />
         <div class="navigation-speedLimit">
-          {{ unit_speed( telemetry.navigation.speedLimit, true, false ) |
-            $toFixed( 0 ) }}
+          {{
+            unit_speed(telemetry.navigation.speedLimit, true, false)
+              | $toFixed(0)
+          }}
         </div>
-				
+
         <!--				<div class="truck-odometer wrapper-area"><span>{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span></div>-->
         <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-displayedGear wrapper-area">
-          <span>{{ $trukGear( telemetry.truck.transmission, telemetry.truck.brand ) }}</span>
+          <span>{{
+            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
+          }}</span>
         </div>
         <!-- indicators -->
         <!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>-->
         <!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>-->
-				
+
         <div class="job-remainingTime wrapper-area">
-          <span v-if="$jobRemainingTimeToDueDate()">{{ telemetry.job.expectedDeliveryTimestamp.value | $dateTimeLocalized( DATE_FORMAT_LONG, TIME_FORMAT_SHORT ) }}</span>
-          <span v-else>{{ $jobRemainingTimeDelivery( telemetry.job.deliveryTime.unix ) }}</span>
+          <span v-if="$jobRemainingTimeToDueDate()">{{
+            telemetry.job.expectedDeliveryTimestamp.value
+              | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+          }}</span>
+          <span v-else>{{
+            $jobRemainingTimeDelivery(telemetry.job.deliveryTime.unix)
+          }}</span>
         </div>
         <div class="job-sourceCity wrapper-area">
           <span>{{ telemetry.job.source.city.name }}</span>
@@ -179,19 +195,23 @@
           <span>{{ telemetry.job.destination.city.name }}</span>
         </div>
         <div class="_jobIncome wrapper-area">
-          <span><span class="job-income">{{ unit_currency( telemetry.job.income ) }}</span></span>
+          <span
+            ><span class="job-income">{{
+              unit_currency(telemetry.job.income)
+            }}</span></span
+          >
         </div>
         <div class="trailer-name wrapper-area">
           <span>{{ telemetry.trailer.model.name }}</span>
         </div>
-				
+
         <!--				<div :class="{'yes': telemetry.trailer.attached}" class="trailer-attached"></div>-->
         <!--				<div class="trailer-mass wrapper-area">-->
         <!--					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
         <!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
         <!--				<div :class="{ 'yes': telemetry.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>-->
         <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->
-				
+
         <!--				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>-->
         <!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
         <!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
@@ -203,14 +223,14 @@
 </template>
 
 <script>
-import Dashboard      from '@/components/dashboards/Dashboard';
+import Dashboard from '@/components/dashboards/Dashboard';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
-  name:       'RdInfoDashboard',
+  name: 'RdInfoDashboard',
   components: {
     Dashboard
   },
-  mixins: [ TelemetryMixin ]
+  mixins: [TelemetryMixin]
 };
 </script>

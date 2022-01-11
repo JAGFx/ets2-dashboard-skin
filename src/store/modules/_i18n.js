@@ -9,12 +9,12 @@ import { fallbackLocale } from '@/utils/_i18n';
 
 // initial state
 const state = () => ({
-	locale: fallbackLocale
+  locale: fallbackLocale
 });
 
 // getters
 const getters = {
-	locale: state => state.locale
+  locale: (state) => state.locale
 };
 
 // actions
@@ -22,15 +22,15 @@ const actions = {};
 
 // mutations
 const mutations = {
-	setLocale( state, payload ) {
-		state.locale = payload;
-	}
+  setLocale(state, payload) {
+    state.locale = payload;
+  }
 };
 
 export default {
-	namespaced: true,
-	state,
-	getters,
-	actions,
-	mutations
+  namespaced: true,
+  state,
+  getters,
+  actions,
+  mutations
 };

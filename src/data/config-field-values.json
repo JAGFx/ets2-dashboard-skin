@@ -221,14 +221,14 @@
 			"value" : "1.40"
 		}
 	],
-	"maps_map_tilesRemotePath" :        [
-		{
-			"label" : "ets2.jagfx.fr",
-			"value" : "https://ets2.jagfx.fr"
-		},
+	"maps_map_tilesRemotePath" :     [
 		{
 			"label" : "TwinDragon/SCS_Map_Tiles",
 			"value" : "https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/"
+		},
+		{
+			"label" : "ets2.jagfx.fr (Deprecated)",
+			"value" : "https://ets2.jagfx.fr"
 		}
 	],
 	"maps_map_navigationRemaining" : [
@@ -241,7 +241,7 @@
 			"value" : "remaining_date"
 		}
 	],
-	"general_skin_locale": [
+	"general_skin_locale" :          [
 		{
 			"label" : "Chinese",
 			"value" : "cn-CN"

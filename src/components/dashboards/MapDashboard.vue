@@ -6,10 +6,10 @@
 
 <script>
 import Dashboard from '@/components/dashboards/Dashboard';
-import Map       from '@/components/dashboards/shared/Map';
+import Map from '@/components/dashboards/shared/Map';
 
 export default {
-  name:       'MapDashboard',
+  name: 'MapDashboard',
   components: {
     Dashboard,
     Map

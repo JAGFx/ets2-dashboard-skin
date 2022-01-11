@@ -11,16 +11,15 @@
 </template>
 
 <script>
-
 export default {
-  name:  'ConfigField',
+  name: 'ConfigField',
   props: {
-    label:       {
-      type:     String,
+    label: {
+      type: String,
       required: true
     },
     description: {
-      type:     String,
+      type: String,
       required: true
     }
   }

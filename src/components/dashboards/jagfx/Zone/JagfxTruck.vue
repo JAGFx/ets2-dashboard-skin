@@ -20,7 +20,12 @@
           <span>
             <span class="licencePlate right">
               <span class="flag">
-                {{ $flag( telemetry.truck.licensePlate.country.id, telemetry.game.game.id ) }}
+                {{
+                  $flag(
+                    telemetry.truck.licensePlate.country.id,
+                    telemetry.game.game.id
+                  )
+                }}
               </span>
               <span class="w-100 text-center">
                 <span>{{ telemetry.truck.licensePlate.value }}</span>
@@ -46,20 +51,21 @@
       :embedded="true"
       class="dash-element mx-3 my-2 theMap"
     />
-    <ul
-      v-else
-      class="dash-element right"
-    >
+    <ul v-else class="dash-element right">
       <!-- Cruise control -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_cruiseControl' )"
+        v-if="elementIsEnabled('jagfx_elements_right_cruiseControl')"
         :class="{
-          'green' : telemetry.truck.cruiseControl.enabled,
-          'disabled' : !telemetry.truck.cruiseControl.enabled
+          green: telemetry.truck.cruiseControl.enabled,
+          disabled: !telemetry.truck.cruiseControl.enabled
         }"
       >
-        <span v-show="!telemetry.truck.cruiseControl.enabled">{{ $t('OFF') }}</span>
-        <span v-show="telemetry.truck.cruiseControl.enabled">{{ unit_speed( telemetry.truck.cruiseControl ) }}</span>
+        <span v-show="!telemetry.truck.cruiseControl.enabled">{{
+          $t('OFF')
+        }}</span>
+        <span v-show="telemetry.truck.cruiseControl.enabled">{{
+          unit_speed(telemetry.truck.cruiseControl)
+        }}</span>
         <div class="round">
           <i class="icon-cruise_control" />
         </div>
@@ -67,13 +73,13 @@
 
       <!-- Fuel -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_fuel' )"
+        v-if="elementIsEnabled('jagfx_elements_right_fuel')"
         class="blue"
         :class="{
-          'orange': telemetry.truck.fuel.warning.enabled
+          orange: telemetry.truck.fuel.warning.enabled
         }"
       >
-        <span>{{ unit_volume( telemetry.truck.fuel.value ) }}</span>
+        <span>{{ unit_volume(telemetry.truck.fuel.value) }}</span>
         <div class="round">
           <i class="icon-fuel" />
         </div>
@@ -81,10 +87,10 @@
 
       <!-- Fuel consumption -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_fuelConsumption' )"
+        v-if="elementIsEnabled('jagfx_elements_right_fuelConsumption')"
         class="white"
       >
-        <span>{{ unit_consumption( telemetry.truck.fuel.avgConsumption ) }}</span>
+        <span>{{ unit_consumption(telemetry.truck.fuel.avgConsumption) }}</span>
         <div class="round">
           <i class="icon-fuel_consumption" />
         </div>
@@ -92,10 +98,10 @@
 
       <!-- Next rest stop -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_restStop' )"
+        v-if="elementIsEnabled('jagfx_elements_right_restStop')"
         class="default"
       >
-        <span>in {{ $nextRestStop( telemetry.navigation.nextRestStop ) }}</span>
+        <span>in {{ $nextRestStop(telemetry.navigation.nextRestStop) }}</span>
         <div class="round">
           <i class="icon-rest_stop" />
         </div>
@@ -103,14 +109,16 @@
 
       <!-- Air pressure -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_brakesAirPressure' )"
+        v-if="elementIsEnabled('jagfx_elements_right_brakesAirPressure')"
         class="blue"
         :class="{
-          'orange': telemetry.truck.brakes.airPressure.warning.enabled,
-          'red': telemetry.truck.brakes.airPressure.emergency.enabled
+          orange: telemetry.truck.brakes.airPressure.warning.enabled,
+          red: telemetry.truck.brakes.airPressure.emergency.enabled
         }"
       >
-        <span>{{ unit_pressure( telemetry.truck.brakes.airPressure.value ) }}</span>
+        <span>{{
+          unit_pressure(telemetry.truck.brakes.airPressure.value)
+        }}</span>
         <div class="round">
           <i class="icon-air_pressure" />
         </div>
@@ -118,10 +126,12 @@
 
       <!-- Oil temperature -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_oilTemperature' )"
+        v-if="elementIsEnabled('jagfx_elements_right_oilTemperature')"
         class="default"
       >
-        <span>{{ unit_degrees( telemetry.truck.engine.oilTemperature.value ) }}</span>
+        <span>{{
+          unit_degrees(telemetry.truck.engine.oilTemperature.value)
+        }}</span>
         <div class="round">
           <i class="icon-oil" />
         </div>
@@ -129,10 +139,12 @@
 
       <!-- Brakes temparature -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_brakesTemperature' )"
+        v-if="elementIsEnabled('jagfx_elements_right_brakesTemperature')"
         class="white"
       >
-        <span>{{ unit_degrees( telemetry.truck.brakes.temperature.value ) }}</span>
+        <span>{{
+          unit_degrees(telemetry.truck.brakes.temperature.value)
+        }}</span>
         <div class="round">
           <i class="icon-brakes_temperature" />
         </div>
@@ -140,13 +152,15 @@
 
       <!-- Water temperature -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_waterTemperature' )"
+        v-if="elementIsEnabled('jagfx_elements_right_waterTemperature')"
         class="blue"
         :class="{
-          'orange': telemetry.truck.engine.waterTemperature.warning.enabled
+          orange: telemetry.truck.engine.waterTemperature.warning.enabled
         }"
       >
-        <span>{{ unit_degrees( telemetry.truck.engine.waterTemperature.value ) }}</span>
+        <span>{{
+          unit_degrees(telemetry.truck.engine.waterTemperature.value)
+        }}</span>
         <div class="round">
           <i class="icon-water_temperature" />
         </div>
@@ -154,24 +168,22 @@
 
       <!-- Battery -->
       <li
-        v-if="elementIsEnabled( 'jagfx_elements_right_batteryVoltage' )"
+        v-if="elementIsEnabled('jagfx_elements_right_batteryVoltage')"
         class="blue"
         :class="{
-          'orange': telemetry.truck.engine.batteryVoltage.warning.enabled
+          orange: telemetry.truck.engine.batteryVoltage.warning.enabled
         }"
       >
-        <span>{{ Math.round( telemetry.truck.engine.batteryVoltage.value ) }} V</span>
+        <span
+          >{{ Math.round(telemetry.truck.engine.batteryVoltage.value) }} V</span
+        >
         <div class="round">
           <i class="icon-battery" />
         </div>
       </li>
 
       <!-- Empty -->
-      <li
-        v-for="i in indexEmptyElement()"
-        :key="i"
-        class="disabled"
-      >
+      <li v-for="i in indexEmptyElement()" :key="i" class="disabled">
         <span />
         <div class="round" />
       </li>
@@ -181,25 +193,23 @@
 
 <script>
 import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
-import Map               from '@/components/dashboards/shared/Map';
-import TelemetryMixin    from '@/mixins/TelemetryMixin';
+import Map from '@/components/dashboards/shared/Map';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
-  name:       'JagfxTruck',
+  name: 'JagfxTruck',
   components: { Map },
-  mixins:     [ JagfxConfigMixins, TelemetryMixin ],
-  methods:    {
+  mixins: [JagfxConfigMixins, TelemetryMixin],
+  methods: {
     indexEmptyElement: function () {
-      const elementLength = this.$elementsLength( 'right' );
-      const maxElement    = this.maxElements[ 'right' ];
-      const diff          = maxElement - elementLength;
+      const elementLength = this.$elementsLength('right');
+      const maxElement = this.maxElements['right'];
+      const diff = maxElement - elementLength;
 
-      return (diff <= 0)
-          ? 0
-          : diff;
+      return diff <= 0 ? 0 : diff;
     },
-    elementIsEnabled:  function ( element ) {
-      return this.$elementIsEnabled( 'right', element );
+    elementIsEnabled: function (element) {
+      return this.$elementIsEnabled('right', element);
     }
   }
 };

@@ -1,33 +1,74 @@
 # Known issues
 
-Retrieve here the list of know issues
+## Not yet fixed
 
-- Changing settings on config tab may not be take in considaration on skin
-    - Current solution: Relaunch app
-- ~~Wrong timestamp for job delivery time (and remaining delivery time) on World of Trucks~~
-    - Cause: The timestamp provider by the API was wrong. And then, the estimated remaining delivery time was wrong too
-    - Solution: Check [here](https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001) for an explaination. A correction will be added for WOT job soon.
-- ~~App crash or the updating of data was not fluent~~
-    - Cause: Memory leak on telemetry data update
-    - Solution: Fixed on #35
-- ~~Desyncing data on dashboard (All data may be updated with a delay)~~
-  - Cause: If CPU was over used, this delay may be more fat
-  - Solution: No more problem now. #41
-- May dosen't work with some Apple mobile device
-  - Cause: Unknown
-  - Solution: No solution yet
-- App freeze sometime (Mobile device only)
-  - Cause: Unknown
-  - Solution: Top on screen to reactivate it #41
-- ~~Job Information Disappears when using Eurotunnel #47~~
-  - Cause: It's seem be an SCS SDK issue
-  - Solution: Fixed
-- Next rest time and reamining time bad #46
-  - Cause: See [here](https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001)
-  - Solution: No solution yet
-- App may crash at launch #89
-  - Cause: Unknown
-  - Solution: Start the app as an **Administrator**
+<table>
+  <tr>
+    <th>Issue</th>
+    <th>Cause</th>
+  </tr>
+  <tr>
+    <td>Changing settings in the Configuration tab may not be reflected in the application</td>
+    <td>Relaunch app</td>
+  </tr>
+  <tr>
+    <td>May not work with some Apple mobile devices.</td>
+    <td>No solution yet</td>
+  </tr>
+  <tr>
+    <td>Wrong next rest time and remaining time #46</td>
+    <td>See <a href="https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001">here</a></td>
+  </tr>
+</table>
+
+
+## Fixed
+
+<table>
+  <tr>
+    <th>Issue</th>
+    <th>Cause</th>
+    <th>Solution</th>
+  </tr>
+  <tr>
+    <td>Wrong time stamp of the job delivery time (and remaining delivery time) on World of Trucks</td>
+    <td>The time stamp provided by the API was wrong. And then the estimated remaining delivery time was also wrong.</td>
+    <td>Check <a href="https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001">here</a></td>
+  </tr>
+  <tr>
+    <td>Application crashed or data update was not smooth</td>
+    <td>Memory leak when updating telemetry data</td>
+    <td>Fixed on #35</td>
+  </tr>
+  <tr>
+    <td>Data desynchronization on the dashboard (all data can be updated with a delay).</td>
+    <td>Unknown</td>
+    <td>Stop and restart the application</td>
+  </tr>
+  <tr>
+    <td>Application freeze at a given time (mobile device only)</td>
+    <td>Unknown</td>
+    <td>Tap on screen to reactivate it #41</td>
+  </tr>
+  <tr>
+    <td>Job information disappears when using Eurotunnel #47</td>
+    <td>It seems to be a problem with the SCS SDK.</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>The application may crash at launch #89</td>
+    <td>Unknown</td>
+    <td>Start the app as an <b>Administrator</b></td>
+  </tr>
+  <tr>
+    <td>The application crashes instantly with a message like
+        <pre><code>The specified module could not be found.
+C:\Users\username\AppData\Local\Temp\pkg\2dc6a4427817a28e139e51be221a2d61d2eb9d2c31f7f10d96645ccd576bd68a\trucksim-telemetry\build\Release\scsSDKTelemetry.node</code></pre>
+    </td>
+    <td>Unknown</td>
+    <td>Delete folder at <code>C:\Users\username\AppData\Local\Temp\pkg</code> and relaunch</td>
+  </tr>
+</table>
 
 ---
 ↩️ [Home](../README.md)
