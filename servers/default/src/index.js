@@ -25,12 +25,7 @@ import trailersEvent from './events/trailers.event.js';
 const libPath = path.resolve('../../lib');
 const telemetry = truckSimTelemetry();
 
-let distAppFolder;
-if (isDevelopment()) {
-  distAppFolder = path.resolve('../../dist');
-} else {
-  distAppFolder = path.resolve(__dirname, '../../../dist');
-}
+const distAppFolder = path.resolve(__dirname, '../../../dist');
 
 store.set('libPath', libPath);
 
