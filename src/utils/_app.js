@@ -33,7 +33,7 @@ export const isOnDevEnvironment = process.env.NODE_ENV.startsWith('dev');
 export const useFakeData = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
 export const basePathHost = () =>
-  `http://localhost:${store.getters['config/app'].general_port}`;
+  `http://${window.location.hostname}:${store.getters['config/app'].general_port}`;
 export const moment = () => {
   momentjs.locale(store.getters['config/get']('general_skin_locale'));
   return momentjs;

@@ -1,6 +1,9 @@
 ---
-name: Bug report about: Create a report to help us improve title: ''
-labels: bug, feature/todo assignees: ''
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: type/bug, work/todo
+assignees: ''
 
 ---
 
@@ -20,6 +23,8 @@ A clear and concise description of what the bug is.
 - Skin name:
 
 **Logs**
+
+> [Read this](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/CONTRIBUTING.md#logs) to know how found logs
 
 __**REQUIRED**__ Please copy and past your log OR provide a link to it.
 

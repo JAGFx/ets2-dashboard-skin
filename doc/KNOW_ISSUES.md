@@ -61,9 +61,9 @@
     <td>Start the app as an <b>Administrator</b></td>
   </tr>
   <tr>
-    <td>The application crashes instantly with a message like
-        <pre><code>The specified module could not be found.
-C:\Users\username\AppData\Local\Temp\pkg\2dc6a4427817a28e139e51be221a2d61d2eb9d2c31f7f10d96645ccd576bd68a\trucksim-telemetry\build\Release\scsSDKTelemetry.node</code></pre>
+    <td>The application crashes instantly with a message like<br>
+        <code>The specified module could not be found.
+C:\Users\username\AppData\Local\Temp\pkg\<token>\trucksim-telemetry\build\Release\scsSDKTelemetry.node</code>
     </td>
     <td>Unknown</td>
     <td>Delete folder at <code>C:\Users\username\AppData\Local\Temp\pkg</code> and relaunch</td>
