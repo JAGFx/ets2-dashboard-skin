@@ -9,7 +9,7 @@ The configuration files are divided into two files:
 - The minimal configuration of the application `config.json`
 - The configuration of the game `config.ets2.json` or `config.ats.json`
 
-The old config file `config.ets2-dashboard-skin.json` is deprecated and is not used anymore.
+The old config file `config.ets2-dashboard-skin.json` is removed and is not used anymore.
 
 If you have changes for the following entries, edit `config.json`:
 

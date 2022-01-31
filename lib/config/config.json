@@ -4,5 +4,6 @@
 	"general_h-shift-layout" : "h-shifter",
 	"general_skin_locale" :    "en-EN",
 	"general_job_remaining" :  "due_date",
-	"general_port": 3000
+	"general_port": 3000,
+	"general_damage_accurate": "damage-diagnostic"
 }

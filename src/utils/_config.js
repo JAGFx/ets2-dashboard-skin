@@ -89,8 +89,9 @@ export const save = async (data, target) => {
     );
 };
 
-export const download = (target, gameId) => {
-  return load(target, gameId).then((data) => {
+export const download = (target) => {
+  return load(target).then((data) => {
+    const gameId = telemetryStore.telemetry.game.game.name;
     const fileName = target === 'app' ? 'config.json' : `config.${gameId}.json`;
 
     const file = new File([JSON.stringify(data, null, 2)], fileName, {
@@ -105,7 +106,7 @@ export const load = (target) => {
   if (useFakeData)
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(store.getters[`config/${target}`] ?? emptyData().app);
+        resolve(store.getters[`config/${target}`] ?? emptyData()[target]);
       }, 1000);
     });
 
