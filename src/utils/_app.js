@@ -15,11 +15,11 @@ import momentjs from 'moment-timezone';
 import packageJson from '../../package.json';
 
 // --- Variables
-const DATE_FORMAT_NONE = null;
+const DATE_FORMAT_NONE = '';
 const DATE_FORMAT_SHORT = 'MM/DD';
 const DATE_FORMAT_LONG = 'ddd';
 const DATE_FORMAT_FULL = 'dddd';
-const TIME_FORMAT_NONE = null;
+const TIME_FORMAT_NONE = '';
 const TIME_FORMAT_SHORT = 'LT';
 const TIME_FORMAT_FULL = 'LTS';
 

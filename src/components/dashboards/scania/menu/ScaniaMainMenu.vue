@@ -3,11 +3,33 @@
     <!-- Dashboard Menu -->
     <!--      :class="{ on: display }"-->
     <div v-if="!display" class="displayMenuOff" @click="display = true"></div>
-    <div v-if="display" class="displayMenuOn">
-      <div v-if="subMenu === null" class="dashMenuOff" @click="display = false">
-        <div class="dashMenu01On" @click="subMenu = '01'"></div>
-        <div class="dashMenu02On" @click="subMenu = '02'"></div>
-        <div class="dashMenu03On" @click="subMenu = '03'"></div>
+    <div
+      v-if="display"
+      class="displayMenuOn d-flex flex-column justify-content-center align-items-center"
+    >
+      <div v-if="subMenu === null">
+        <div class="dashMenu01On menuSelectorItem" @click="subMenu = '01'">
+          <i class="icon-scania-menu-driving-info" />
+        </div>
+      </div>
+      <div
+        v-if="subMenu === null"
+        class="w-100 d-flex justify-content-around align-items-center"
+      >
+        <div class="dashMenu03On menuSelectorItem" @click="subMenu = '03'">
+          <i class="icon-scania-menu-vehicle-info" />
+        </div>
+        <div class="dashMenuOff menuSelectorItem" @click="display = false">
+          <i class="icon-scania-menu-arrow" />
+        </div>
+        <div class="dashMenu02On menuSelectorItem" @click="subMenu = '02'">
+          <i class="icon-scania-menu-instantaneous-data" />
+        </div>
+      </div>
+      <div v-if="subMenu === null">
+        <div class="dashMenu04 menuSelectorItem">
+          <i class="icon-scania-menu-settings" />
+        </div>
       </div>
 
       <!-- Aide à la conduite -->
@@ -28,6 +50,7 @@
       </div>
       <!-- Vehicle information -->
       <div v-if="subMenu === '03'" class="displayMenu03">
+        <i class="icon-scania-menu-weight-truck background" />
         <div class="totalmass flex-area">
           <span>3</span>
         </div>
@@ -37,6 +60,9 @@
           </div>
           <div class="rearAxleLoad flex-area">
             <span>5</span>
+          </div>
+          <div class="trailerAxleLoad flex-area">
+            <span>-.-</span>
           </div>
         </div>
         <div class="dashMenu03Off" @click="subMenu = null"></div>
@@ -91,32 +117,6 @@
     <!--          {{ unit_length(telemetry.navigation.distance, 'm') }}</span-->
     <!--        >-->
     <!--        <span v-else>{{ unit_length(telemetry.navigation.distance) }}</span>-->
-    <!--    </div>-->
-    <!--    <div class="navigation-estimatedDistance"></div>-->
-    <!--    <div class="truck-fuelAverageConsumption"></div>-->
-    <!--    <div class="digfuelConsumption"></div>-->
-
-    <!--    <div class="dashMenu02On" @click="menu02On"></div>-->
-    <!--    <div class="dashMenu02Off" @click="menu02Off"></div>-->
-    <!--    <div class="displayMenu02"></div>-->
-    <!--    <div class="oilPressure"></div>-->
-    <!--    <div class="_oilPressureBar"></div>-->
-    <!--    <div class="batteryVoltage"></div>-->
-    <!--    <div class="_voltageBar"></div>-->
-    <!--    <div class="adblue"></div>-->
-    <!--    <div class="_adblueBar"></div>-->
-
-    <!--    <div class="dashMenu03On" @click="menu03On"></div>-->
-    <!--    <div class="dashMenu03Off" @click="menu03Off"></div>-->
-    <!--    <div class="displayMenu03"></div>-->
-    <!--    <div class="cargoWeight"></div>-->
-    <!--    <div class="cargo-cargoLoaded"></div>-->
-    <!--    <div class="totalmass"></div>-->
-    <!--    <div class="trailer-attached">-->
-    <!--      <div class="frontAxleLoad"></div>-->
-    <!--      <div class="rearAxleLoad"></div>-->
-    <!--      <div class="trailerAxleLoad"></div>-->
-    <!--      <div class="cargo-mass"></div>-->
     <!--    </div>-->
   </div>
 </template>

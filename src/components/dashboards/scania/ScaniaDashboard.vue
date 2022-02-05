@@ -164,7 +164,12 @@
           class="truck-motorBrakeOn"
           :class="{ yes: telemetry.truck.brakes.motor.enabled }"
         ></div>
-        <div class="datetime">ds</div>
+        <div class="datetime">
+          {{
+            $gameTime()
+              | $dateTimeLocalized(DATE_FORMAT_NONE, TIME_FORMAT_SHORT)
+          }}
+        </div>
         <div
           class="truck-airPressureEmergencyOn"
           :class="{ yes: telemetry.truck.brakes.airPressure.emergency.enabled }"
