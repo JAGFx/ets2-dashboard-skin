@@ -154,7 +154,7 @@
 			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/scania",
 			"screenshot" :  "img/screenshots/scania.png",
 			"size" :        {
-				"width" :  2030,
+				"width" :  1850,
 				"height" : 1035
 			}
 		},

@@ -49,6 +49,21 @@ export default {
       return this.$store.getters['config/get'](name);
     },
 
+    gearInfo(transmission, brand) {
+      let gear = transmission.gear.displayed;
+      let crawlingGear = 0;
+
+      switch (brand.name) {
+        case 'Volvo':
+        case 'Scania':
+        case 'Kenworth':
+          crawlingGear = 2;
+          break;
+      }
+
+      return { gear, crawlingGear };
+    },
+
     // --- Filters
 
     unit_speed(value, showValue = true, showSymbol = true) {
@@ -354,21 +369,12 @@ export default {
 
     // --- Navigation
 
-    $trukGear: function (transmission, brand) {
+    $trukGear: function (transmission, brand, withShifterType = true) {
+      const gear = this.gearInfo(transmission, brand).gear;
+      const crawlingGear = this.gearInfo(transmission, brand).crawlingGear;
       const hShiftLayout = this.config('general_h-shift-layout');
       const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
-
-      let gear = transmission.gear.displayed;
       let strGear = gear;
-      let crawlingGear = 0;
-
-      switch (brand.name) {
-        case 'Volvo':
-        case 'Scania':
-        case 'Kenworth':
-          crawlingGear = 2;
-          break;
-      }
 
       if (transmission.shifterType === 'hshifter' && rangeAndSplitterEnabled) {
         let realGearCount = gear - crawlingGear;
@@ -379,21 +385,42 @@ export default {
         strGear = gear - crawlingGear;
       }
 
-      if (
-        transmission.shifterType === 'automatic' ||
-        transmission.shifterType === 'arcade'
-      )
-        strGear = 'A' + (gear - crawlingGear);
+      if (withShifterType) {
+        if (
+          transmission.shifterType === 'automatic' ||
+          transmission.shifterType === 'arcade'
+        )
+          strGear = 'A' + (gear - crawlingGear);
 
-      if (gear <= crawlingGear) strGear = 'C' + Math.abs(gear);
+        if (gear <= crawlingGear) strGear = 'C' + Math.abs(gear);
 
-      if (gear === 0) strGear = 'N';
+        if (gear === 0) strGear = 'N';
 
-      if (gear < 0) strGear = 'R' + Math.abs(transmission.gear.displayed);
+        if (gear < 0) strGear = 'R' + Math.abs(transmission.gear.displayed);
+      }
 
       return strGear;
     },
 
+    $trukShifterTypeLetter: function (transmission, brand) {
+      const gear = this.gearInfo(transmission, brand).gear;
+      const crawlingGear = this.gearInfo(transmission, brand).crawlingGear;
+      let shifterType = 'D';
+
+      if (
+        transmission.shifterType === 'automatic' ||
+        transmission.shifterType === 'arcade'
+      )
+        shifterType = 'A';
+
+      if (gear <= crawlingGear) shifterType = 'C';
+
+      if (gear === 0) shifterType = 'N';
+
+      if (gear < 0) shifterType = 'R';
+
+      return shifterType;
+    },
     $etaDueDate: function () {
       const currentGameTime = this.$gameTime();
       let etaTime = this.telemetry.navigation.time + currentGameTime;

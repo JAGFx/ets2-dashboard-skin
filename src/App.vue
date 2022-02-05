@@ -26,7 +26,7 @@ import ManTGXDashboard from '@/components/dashboards/ManTGXDashboard';
 import MapDashboard from '@/components/dashboards/MapDashboard';
 import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
 import RdInfoDashboard from '@/components/dashboards/RdInfoDashboard';
-import ScaniaDashboard from '@/components/dashboards/ScaniaDashboard';
+import ScaniaDashboard from '@/components/dashboards/scania/ScaniaDashboard';
 import TestDashboard from '@/components/dashboards/TestDashboard';
 import VolvoFHDashboard from '@/components/dashboards/VolvoFHDashboard';
 import Header from '@/components/header/Header';
