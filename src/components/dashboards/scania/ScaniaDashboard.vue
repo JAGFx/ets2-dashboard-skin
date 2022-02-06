@@ -19,14 +19,21 @@
         :class="{ yes: telemetry.truck.electric.enabled }"
       ></div>
       <!-- Liftable Axles -->
-      <div class="game-maxTrailerCount"></div>
-      <div class="_liftrailer"></div>
-      <div class="trailer-wheels"></div>
-      <div class="trailer-present"></div>
-      <div class="trailer-attached"></div>
-      <div class="truck-wheelCount"></div>
-      <div class="_liftruck"></div>
-      <div class="truck-wheels"></div>
+      <div class="tractor-tag-axle-raised flex-area symbol">
+        <i class="icon-scania-tractor-tag-axle-raised_yellow" />
+      </div>
+      <div class="trailer-tag-axle-raised flex-area symbol">
+        <i class="icon-scania-trailer-tag-axle-raised_yellow" />
+      </div>
+      <div
+        v-if="telemetry.truck.lights.beacon.enabled"
+        class="rotating-light flex-area symbol"
+      >
+        <i class="icon-scania-rotating-beacon_blue" />
+      </div>
+      <div class="driver-safty-belt flex-area symbol">
+        <i class="icon-scania-driver-safty-belt_red" />
+      </div>
 
       <!--GAUGES -->
       <div
@@ -79,8 +86,10 @@
       ></div>
 
       <!-- indicators -->
-      <div class="truck-odometer">
-        {{ unit_length(telemetry.truck.odometer, 'km') }}
+      <div class="truck-odometer flex-area justify-content-start">
+        <span class="pl-3">{{
+          unit_length(telemetry.truck.odometer, 'km')
+        }}</span>
       </div>
       <div class="truck-gear">
         {{
@@ -101,11 +110,6 @@
       <div class="truck-cruiseControlSpeedUnit">
         {{ unit_speed(telemetry.truck.cruiseControl, false, true) }}
       </div>
-      <div
-        class="truck-cruiseControlOn"
-        :class="{ yes: telemetry.truck.cruiseControl.enabled }"
-      ></div>
-      <div class="truck-digfuelConsumption"></div>
       <div class="startIcons"></div>
 
       <!-- infodash -->
@@ -114,56 +118,54 @@
         :class="{ yes: telemetry.truck.electric.enabled }"
       >
         <div
-          class="truck-differentialLock"
-          :class="{ yes: telemetry.truck.differential.lock.enabled }"
-        ></div>
-        <div
-          class="truck-lightsParkingOn"
-          :class="{ yes: telemetry.truck.brakes.parking.enabled }"
-        ></div>
+          v-if="telemetry.truck.differential.lock.enabled"
+          class="truck-differentialLock flex-area symbol"
+        >
+          <i class="icon-scania-differential-lock_yellow" />
+        </div>
         <div
           class="startIcons"
           :class="{ yes: telemetry.truck.electric.enabled }"
         ></div>
         <div
-          class="engineStart"
-          :class="{ yes: telemetry.truck.engine.enabled }"
-        ></div>
+          v-if="telemetry.truck.engine.enabled"
+          class="engine-failure flex-area symbol"
+        >
+          <i class="icon-scania-engine-failure_yellow" />
+        </div>
         <div
-          class="truck-blinkerLeftOn"
-          :class="{ yes: telemetry.truck.lights.blinker.left.active }"
-        ></div>
+          v-if="telemetry.truck.lights.blinker.left.active"
+          class="truck-blinkerLeft flex-area"
+        >
+          <i class="icon-scania-direction-indicator-left_green" />
+        </div>
         <div
-          class="truck-blinkerRightOn"
-          :class="{ yes: telemetry.truck.lights.blinker.right.active }"
-        ></div>
+          v-if="telemetry.truck.lights.blinker.right.active"
+          class="truck-blinkerRight flex-area"
+        >
+          <i class="icon-scania-direction-indicator-right_green" />
+        </div>
         <div
-          class="truck-lightsBeamHighOn"
-          :class="{ yes: telemetry.truck.lights.beamHigh.enabled }"
-        ></div>
+          v-if="telemetry.truck.lights.beamHigh.enabled"
+          class="truck-lightsBeamHigh flex-area symbol"
+        >
+          <i class="icon-scania-main-beam_blue" />
+        </div>
+        <!--        <div class="_airPressureBar1"></div>-->
+        <!--        <div class="truck-airGauge1"></div>-->
+        <!--        <div class="truck-airPressureWarningOn1"></div>-->
+        <!--        <div class="_airPressureBar2"></div>-->
+        <!--        <div class="truck-airGauge2"></div>-->
+        <!--        <div class="truck-airPressureWarningOn2"></div>-->
+        <div class="truck-brake-pressure flex-area symbol">
+          <i class="icon-scania-break-pressure_red_yellow" />
+        </div>
         <div
-          class="truck-lightsBeamLowOn"
-          :class="{ yes: telemetry.truck.lights.beamLow.enabled }"
-        ></div>
-        <div class="_airPressureBar1"></div>
-        <div class="truck-airGauge1"></div>
-        <div class="truck-airPressureWarningOn1"></div>
-        <div class="_airPressureBar2"></div>
-        <div class="truck-airGauge2"></div>
-        <div class="truck-airPressureWarningOn2"></div>
-        <div class="truck-airSym"></div>
-        <div
-          class="truck-parkBrakeOn"
-          :class="{ yes: telemetry.truck.lights.parking.enabled }"
-        ></div>
-        <div
-          class="truck-retarderBrake"
-          :class="{ yes: telemetry.truck.brakes.retarder.level > 0 }"
-        ></div>
-        <div
-          class="truck-motorBrakeOn"
-          :class="{ yes: telemetry.truck.brakes.motor.enabled }"
-        ></div>
+          v-if="telemetry.truck.lights.parking.enabled"
+          class="truck-parkBrake flex-area symbol"
+        >
+          <i class="icon-scania-parking-break_red" />
+        </div>
         <div class="datetime">
           {{
             $gameTime()
@@ -174,16 +176,25 @@
           class="truck-airPressureEmergencyOn"
           :class="{ yes: telemetry.truck.brakes.airPressure.emergency.enabled }"
         ></div>
+        <!--        <div-->
+        <!--          class="truck-fuelWarningOn"-->
+        <!--          :class="{ yes: telemetry.truck.fuel.warning.enabled }"-->
+        <!--        ></div>-->
         <div
-          class="truck-fuelWarningOn"
-          :class="{ yes: telemetry.truck.fuel.warning.enabled }"
-        ></div>
-        <div class="retarderSym"></div>
-        <div class="temperature"></div>
-        <div class="truck-stopWarning"></div>
-        <div class="stopWarning"></div>
-        <div class="truck-checkWarning"></div>
-        <div class="checkWarning"></div>
+          v-if="telemetry.truck.brakes.retarder.level > 0"
+          class="retarder flex-area symbol"
+        >
+          <i class="icon-scania-retarder_green" />
+        </div>
+        <div class="temperature flex-area justify-content-end">
+          <span class="pr-3">--°C</span>
+        </div>
+        <div class="truck-stopWarning flex-area symbol">
+          <i class="icon-scania-warning_red" />
+        </div>
+        <div class="truck-checkWarning flex-area symbol">
+          <i class="icon-scania-warning_yellow" />
+        </div>
       </div>
 
       <ScaniaMainMenu />

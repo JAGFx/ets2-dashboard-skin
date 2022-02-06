@@ -8,8 +8,11 @@
 
 .scania-dash {
 	
-	$cGreen: #4CFF00;
-	$cGrey:  #1C1D21;
+	$cGreen:  #4CFF00;
+	$cYellow: #FDC200;
+	$cGrey:   #1C1D21;
+	$cBlue:   #0302ED;
+	$cRed:    #ED0F02;
 	
 	.flex-area {
 		display:         flex;
@@ -141,26 +144,6 @@
 				}
 			}
 			
-			.truck-parkBrakeOn {
-				&.yes {
-					opacity:        1;
-					-webkit-filter: grayscale(0%);
-				}
-			}
-			
-			.truck-motorBrakeOn {
-				&.yes {
-					opacity:        1;
-					-webkit-filter: grayscale(0%);
-				}
-			}
-			
-			.retarderSym {
-				&.yes {
-					opacity:        1;
-					-webkit-filter: grayscale(0%);
-				}
-			}
 			
 			._airPressureBar1 {
 				background-image: url("/img/dashboard/scania/airbar1.png");
@@ -392,13 +375,12 @@
 		color:       white;
 		font-family: Arial;
 		font-weight: normal;
-		font-size:   41px;
 		position:    fixed;
+		font-size:   40px;
+		top:         875px;
+		height:      58px;
 		left:        710px;
-		line-height: 4.5rem;
-		top:         874px;
-		width:       250px;
-		height:      60px;
+		width:       300px;
 		text-align:  right;
 		text-indent: 0%;
 		z-index:     3;
@@ -409,14 +391,12 @@
 		color:       white;
 		font-family: Arial;
 		font-weight: normal;
-		font-size:   42px;
+		font-size:   40px;
 		position:    fixed;
-		left:        835px;
-		top:         885px;
-		width:       300px;
-		height:      40px;
-		text-align:  right;
-		text-indent: 0%;
+		left:        1005px;
+		top:         875px;
+		width:       140px;
+		height:      58px;
 		z-index:     3;
 	}
 	
@@ -449,129 +429,59 @@
 		background:  #141615;
 	}
 	
-	.truck-blinkerLeftOn {
-		background-image: url("/img/dashboard/scania/blinker-left-on.png");
-		position:         fixed;
-		left:             500px;
-		top:              134px;
-		width:            140px;
-		height:           83px;
-		opacity:          0.04;
-		
-		&.yes {
-			opacity: 1.0;
-		}
+	.truck-blinkerLeft {
+		position:    fixed;
+		left:        500px;
+		top:         134px;
+		width:       140px;
+		height:      83px;
+		color:       $cGreen;
+		font-size:   6.8rem;
+		line-height: 0;
 	}
 	
-	.truck-blinkerRightOn {
-		background-image: url("/img/dashboard/scania/blinker-right-on.png");
-		position:         fixed;
-		left:             1211px;
-		top:              132px;
-		width:            140px;
-		height:           83px;
-		opacity:          0.04;
-		
-		&.yes {
-			opacity: 1.0;
-		}
+	.truck-blinkerRight {
+		position:    fixed;
+		left:        1211px;
+		top:         134px;
+		width:       140px;
+		height:      83px;
+		color:       $cGreen;
+		font-size:   6.8rem;
+		line-height: 0;
 	}
 	
-	.truck-lightsBeamHighOn {
-		background-image: url("/img/dashboard/scania/highbeam-on.png");
-		position:         fixed;
-		left:             544px;
-		top:              195px;
-		width:            99px;
-		height:           71px;
-		opacity:          0.04;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			opacity:        1;
-			-webkit-filter: grayscale(0%);
-		}
+	.truck-lightsBeamHigh {
+		left:      564px;
+		top:       201px;
+		color:     $cBlue;
+		font-size: 4.3rem !important;
+		width:     60px !important;
+		height:    60px !important;
 	}
 	
-	.truck-lightsBeamLowOn {
-		background-image: url("/img/dashboard/scania/lowbeam.png");
-		position:         fixed;
-		left:             1762px;
-		top:              820px;
-		width:            78px;
-		height:           60px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
+	.truck-parkBrake {
+		left:  1223px;
+		top:   735px;
+		color: $cRed;
 	}
 	
-	.truck-parkBrakeOn {
-		z-index:          4;
-		background-image: url("/img/dashboard/scania/parkingbrake.png");
-		position:         fixed;
-		left:             1223px;
-		top:              745px;
-		width:            78px;
-		height:           63px;
-		opacity:          0.1;
-		-webkit-filter:   grayscale(100%);
-	}
-	
-	.truck-motorBrakeOn {
-		z-index:          4;
-		background-image: url("/img/dashboard/scania/engineBrake.png");
-		position:         fixed;
-		left:             1762px;
-		top:              746px;
-		width:            78px;
-		height:           60px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
-	}
-	
-	.retarderSym {
-		z-index:          4;
-		background-image: url("/img/dashboard/scania/retarder.png");
-		position:         fixed;
-		left:             1674px;
-		top:              745px;
-		width:            78px;
-		height:           63px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
+	.retarder {
+		left:  1683px;
+		top:   735px;
+		color: $cGreen;
 	}
 	
 	.truck-stopWarning {
-		background-image: url("/img/dashboard/scania/damage-warning1.png");
-		position:         absolute;
-		left:             551px;
-		top:              676px;
-		width:            78px;
-		height:           55px;
-		z-index:          4;
-		opacity:          0.05;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			visibility: visible;
-			animation:  blinker1 1.2s infinite;
-		}
+		left:  551px;
+		top:   664px;
+		color: $cRed;
 	}
 	
 	.truck-checkWarning {
-		background-image: url("/img/dashboard/scania/damage-warning.png");
-		position:         absolute;
-		left:             1223px;
-		top:              676px;
-		width:            78px;
-		height:           55px;
-		z-index:          4;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			visibility: visible;
-			animation:  blinker1 1.2s infinite;
-		}
+		left:  1223px;
+		top:   664px;
+		color: $cYellow;
 	}
 	
 	.truck-fuelWarningOn {
@@ -581,86 +491,59 @@
 		top:              887px;
 		width:            41px;
 		height:           46px;
-		
-		&.yes {
-			background-image: url("/img/dashboard/scania/fuel-warning.png");
-		}
 	}
 	
-	.engineStart {
-		background-image: url("/img/dashboard/scania/engineoff.png");
-		position:         fixed;
-		left:             1223px;
-		top:              824px;
-		width:            78px;
-		height:           51px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			opacity:        1;
-			-webkit-filter: grayscale(0%);
-		}
+	.engine-failure {
+		left:  1223px;
+		top:   808px;
+		color: $cYellow;
+	}
+	
+	.driver-safty-belt {
+		left:      1223px;
+		top:       881px;
+		font-size: 4rem !important;
+		color:     $cRed;
+	}
+	
+	.symbol {
+		position:    fixed;
+		width:       79px;
+		height:      79px;
+		font-size:   5rem;
+		line-height: 0;
 	}
 	
 	.truck-differentialLock {
-		background-image: url("/img/dashboard/scania/diffLock.png");
-		position:         fixed;
-		left:             1587px;
-		top:              826px;
-		width:            78px;
-		height:           47px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			opacity:        1;
-			-webkit-filter: grayscale(0%);
-		}
+		left:  1683px;
+		top:   808px;
+		color: $cYellow;
 	}
 	
-	.truck-airSym {
-		z-index:          4;
-		background-image: url("/img/dashboard/scania/airwarning.png");
-		position:         fixed;
-		left:             551px;
-		top:              745px;
-		width:            78px;
-		height:           63px;
-		opacity:          0.1;
-		-webkit-filter:   grayscale(100%);
+	.truck-brake-pressure {
+		left:  551px;
+		top:   735px;
+		color: $cRed;
 	}
 	
-	._liftrailer {
-		background-image: url("/img/dashboard/scania/trailerAxleLift.png");
-		position:         absolute;
-		left:             1674px;
-		top:              891px;
-		width:            78px;
-		height:           63px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			opacity:        1;
-			-webkit-filter: grayscale(0%);
-		}
+	.tractor-tag-axle-raised {
+		left:  1586px;
+		top:   881px;
+		color: $cYellow;
 	}
 	
-	._liftruck {
-		background-image: url("/img/dashboard/scania/truckAxleLift.png");
-		position:         absolute;
-		left:             1586px;
-		top:              891px;
-		width:            78px;
-		height:           63px;
-		opacity:          0.02;
-		-webkit-filter:   grayscale(100%);
-		
-		&.yes {
-			opacity:        1;
-			-webkit-filter: grayscale(0%);
-		}
+	.trailer-tag-axle-raised {
+		left:  1683px;
+		top:   881px;
+		color: $cYellow;
+	}
+	
+	.rotating-light {
+		left:      97px;
+		top:       747px;
+		height:    61px !important;
+		font-size: 3rem;
+		color:     $cBlue;
 	}
 	
 	.dashMenuOn {

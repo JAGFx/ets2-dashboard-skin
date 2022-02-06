@@ -488,7 +488,7 @@
 				"enabled" : true
 			},
 			"beacon" :             {
-				"enabled" : false
+				"enabled" : true
 			},
 			"brake" :              {
 				"enabled" : false
