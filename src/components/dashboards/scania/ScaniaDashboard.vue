@@ -36,54 +36,82 @@
       </div>
 
       <!--GAUGES -->
-      <div
-        class="truck-speed gauges"
-        data-type="meter"
-        data-min="10"
-        data-max="120"
-        data-min-angle="-120"
-        data-max-angle="100"
-      ></div>
-      <div
-        class="truck-engineRpm gauges"
-        data-type="meter"
-        data-min="3"
-        data-max="25"
-        data-min-angle="-120.5"
-        data-max-angle="100"
-      ></div>
-      <div
-        class="truck-fuel gauges"
-        data-type="meter"
-        data-min="0"
-        data-max="truck.fuelCapacity"
-        data-min-angle="-55"
-        data-max-angle="56"
-      ></div>
-      <div
-        class="truck-waterTemperature gauges"
-        data-type="meter"
-        data-min="40"
-        data-max="100"
-        data-min-angle="-55"
-        data-max-angle="56"
-      ></div>
-      <div
-        class="truck-oilPressure gauges"
-        data-type="meter"
-        data-min="0"
-        data-max="80"
-        data-min-angle="-57"
-        data-max-angle="57"
-      ></div>
-      <div
-        class="truck-fuelAverageConsumption gauges"
-        data-type="meter"
-        data-min="0"
-        data-max="120"
-        data-min-angle="-56"
-        data-max-angle="57"
-      ></div>
+      <Cadran
+        v-bind="{
+          classCSS: 'truck-speed',
+          type: 'meter',
+          value: telemetry.truck.speed.kph,
+          min: 10,
+          max: 130,
+          minAngle: -122,
+          maxAngle: 123
+        }"
+      />
+      <Cadran
+        v-bind="{
+          classCSS: 'truck-engineRpm',
+          type: 'meter',
+          value: telemetry.truck.engine.rpm.value / 100,
+          min: 3,
+          max: 27,
+          minAngle: -122,
+          maxAngle: 122
+        }"
+      />
+      <Cadran
+        v-bind="{
+          classCSS: 'truck-fuel',
+          type: 'meter',
+          value: telemetry.truck.fuel.value,
+          min: 0,
+          max: telemetry.truck.fuel.capacity,
+          minAngle: -53,
+          maxAngle: 53
+        }"
+      />
+      <Cadran
+        v-bind="{
+          classCSS: 'truck-waterTemperature',
+          type: 'meter',
+          value: telemetry.truck.engine.waterTemperature.value,
+          min: 40,
+          max: 100,
+          minAngle: -55,
+          maxAngle: 40
+        }"
+      />
+      <Cadran
+        v-bind="{
+          classCSS: 'truck-oilPressure',
+          type: 'meter',
+          value: $pressureToBar(telemetry.truck.engine.oilPressure.value),
+          min: 0,
+          max: 8,
+          minAngle: -53,
+          maxAngle: 53
+        }"
+      />
+      <Cadran
+        v-bind="{
+          classCSS: 'truck-fuelAverageConsumption',
+          type: 'meter',
+          value: unit_consumption(
+            telemetry.truck.fuel.avgConsumption,
+            true,
+            false
+          ),
+          min: 0,
+          max: 120,
+          minAngle: -56,
+          maxAngle: 57
+        }"
+      />
+
+      <div class="icons-bar d-flex justify-content-start align-items-center">
+        <div class="truck-fuelWarning flex-area">
+          <i class="icon-scania-fuel_yellow" />
+        </div>
+      </div>
 
       <!-- indicators -->
       <div class="truck-odometer flex-area justify-content-start">
@@ -91,18 +119,24 @@
           unit_length(telemetry.truck.odometer, 'km')
         }}</span>
       </div>
-      <div class="truck-gear">
-        {{
-          $trukGear(telemetry.truck.transmission, telemetry.truck.brand, false)
-        }}
+      <div class="truck-gear flex-area">
+        <span>
+          {{
+            $trukGear(
+              telemetry.truck.transmission,
+              telemetry.truck.brand,
+              false
+            )
+          }}
+        </span>
       </div>
-      <div class="truck-shifterType">
-        {{
+      <div class="truck-shifterType flex-area">
+        <span>{{
           $trukShifterTypeLetter(
             telemetry.truck.transmission,
             telemetry.truck.brand
           )
-        }}
+        }}</span>
       </div>
       <div class="truck-cruiseControlSpeed">
         {{ unit_speed(telemetry.truck.cruiseControl, true, false) }}
@@ -166,11 +200,13 @@
         >
           <i class="icon-scania-parking-break_red" />
         </div>
-        <div class="datetime">
-          {{
-            $gameTime()
-              | $dateTimeLocalized(DATE_FORMAT_NONE, TIME_FORMAT_SHORT)
-          }}
+        <div class="datetime flex-area">
+          <span>
+            {{
+              $gameTime()
+                | $dateTimeLocalized(DATE_FORMAT_NONE, TIME_FORMAT_TINY)
+            }}
+          </span>
         </div>
         <div
           class="truck-airPressureEmergencyOn"
@@ -207,66 +243,7 @@
           data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
           data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
           -->
-      <!--        <Cadran-->
-      <!--          v-bind="{-->
-      <!--            classCSS: 'truck-speed',-->
-      <!--            type: 'meter',-->
-      <!--            value: telemetry.truck.speed.mph,-->
-      <!--            min: 10,-->
-      <!--            max: 130,-->
-      <!--            minAngle: -122,-->
-      <!--            maxAngle: 123-->
-      <!--          }"-->
-      <!--        />-->
-      <!--        <div class="truck-speedRounded wrapper-area">-->
-      <!--          <span>{{-->
-      <!--            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)-->
-      <!--          }}</span>-->
-      <!--        </div>-->
-      <!--        <Cadran-->
-      <!--          v-bind="{-->
-      <!--            classCSS: 'truck-engineRpm',-->
-      <!--            type: 'meter',-->
-      <!--            value: telemetry.truck.engine.rpm.value / 100,-->
-      <!--            min: 3,-->
-      <!--            max: 27,-->
-      <!--            minAngle: -122,-->
-      <!--            maxAngle: 122-->
-      <!--          }"-->
-      <!--        />-->
-      <!--        <Cadran-->
-      <!--          v-bind="{-->
-      <!--            classCSS: 'truck-fuel',-->
-      <!--            type: 'meter',-->
-      <!--            value: telemetry.truck.fuel.value,-->
-      <!--            min: 0,-->
-      <!--            max: telemetry.truck.fuel.capacity,-->
-      <!--            minAngle: -53,-->
-      <!--            maxAngle: 53-->
-      <!--          }"-->
-      <!--        />-->
-      <!--        <Cadran-->
-      <!--          v-bind="{-->
-      <!--            classCSS: 'truck-waterTemperature',-->
-      <!--            type: 'meter',-->
-      <!--            value: telemetry.truck.engine.waterTemperature.value,-->
-      <!--            min: 40,-->
-      <!--            max: 100,-->
-      <!--            minAngle: -55,-->
-      <!--            maxAngle: 40-->
-      <!--          }"-->
-      <!--        />-->
-      <!--        <Cadran-->
-      <!--          v-bind="{-->
-      <!--            classCSS: 'truck-oilPressure',-->
-      <!--            type: 'meter',-->
-      <!--            value: $pressureToBar(telemetry.truck.engine.oilPressure.value),-->
-      <!--            min: 0,-->
-      <!--            max: 8,-->
-      <!--            minAngle: -53,-->
-      <!--            maxAngle: 53-->
-      <!--          }"-->
-      <!--        />-->
+
       <!--        <div class="truck-odometer wrapper-area">-->
       <!--          <span>{{-->
       <!--            unit_length(telemetry.truck.odometer, 'km', true, false)-->
@@ -346,14 +323,15 @@
 <script>
 import ScaniaMainMenu from '@/components/dashboards/scania/menu/ScaniaMainMenu';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
-import Dashboard from '../Dashboard';
-//import Cadran         from '../shared/Cadran';
+import Dashboard from '@/components/dashboards/Dashboard';
+import Cadran from '@/components/dashboards/shared/Cadran';
 
 export default {
   name: 'ScaniaDashboard',
   components: {
     Dashboard,
-    ScaniaMainMenu
+    ScaniaMainMenu,
+    Cadran
   },
   mixins: [TelemetryMixin]
 };

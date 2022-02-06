@@ -20,6 +20,7 @@ const DATE_FORMAT_SHORT = 'MM/DD';
 const DATE_FORMAT_LONG = 'ddd';
 const DATE_FORMAT_FULL = 'dddd';
 const TIME_FORMAT_NONE = '';
+const TIME_FORMAT_TINY = 'hh:mm';
 const TIME_FORMAT_SHORT = 'LT';
 const TIME_FORMAT_FULL = 'LTS';
 
@@ -119,6 +120,7 @@ export const formatConstants = {
   DATE_FORMAT_LONG,
   DATE_FORMAT_FULL,
   TIME_FORMAT_NONE,
+  TIME_FORMAT_TINY,
   TIME_FORMAT_SHORT,
   TIME_FORMAT_FULL,
   GAME_ID_ATS,

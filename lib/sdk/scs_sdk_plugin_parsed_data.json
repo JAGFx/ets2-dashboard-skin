@@ -507,7 +507,7 @@
 				"enabled" : true
 			},
 			"value" :          821.89013671875,
-			"avgConsumption" : 0,
+			"avgConsumption" : 0.5,
 			"range" :          2568.40673828125
 		},
 		"adBlue" :        {
@@ -524,14 +524,14 @@
 					"factor" :  10.149999618530273,
 					"enabled" : true
 				},
-				"value" :   0
+				"value" :   50
 			},
 			"waterTemperature" : {
 				"warning" : {
 					"factor" :  105,
-					"enabled" : false
+					"enabled" : true
 				},
-				"value" :   16.795082092285156
+				"value" :   90.795082092285156
 			},
 			"batteryVoltage" :   {
 				"warning" : {
@@ -542,7 +542,7 @@
 			},
 			"rpm" :              {
 				"max" :   2500,
-				"value" : 0
+				"value" : 1500
 			},
 			"oilTemperature" :   {
 				"value" : 16.817760467529297
@@ -558,8 +558,8 @@
 		},
 		"speed" :         {
 			"value" : 0.0009727554861456156,
-			"kph" :   0,
-			"mph" :   0
+			"kph" :   50,
+			"mph" :   50
 		},
 		"cruiseControl" : {
 			"value" :   0,

@@ -11,7 +11,7 @@
 	$cGreen:  #4CFF00;
 	$cYellow: #FDC200;
 	$cGrey:   #1C1D21;
-	$cBlue:   #0302ED;
+	$cBlue:   #004dff;
 	$cRed:    #ED0F02;
 	
 	.flex-area {
@@ -128,12 +128,10 @@
 				font-size:   40px;
 				font-weight: normal;
 				position:    fixed;
-				left:        1010px;
-				top:         158px;
-				width:       134px;
-				height:      61px;
-				text-align:  center;
-				text-indent: 0%;
+				left: 1023px;
+				width: 123px;
+				top: 148px;
+				height: 62px;
 				z-index:     3;
 			}
 			
@@ -345,15 +343,12 @@
 		font-family: Arial;
 		font-weight: bold;
 		font-size:   50px;
-		line-height: 3.8rem;
 		position:    fixed;
 		left:        708px;
-		top:         149px;
+		top:         148px;
 		width:       82px;
-		height:      61px;
-		text-indent: 0%;
+		height:      62px;
 		z-index:     3;
-		text-align:  center;
 	}
 	
 	.truck-gear {
@@ -362,12 +357,10 @@
 		font-weight: bold;
 		font-size:   40px;
 		position:    fixed;
-		left:        812px;
-		top:         152px;
-		width:       62px;
-		height:      58px;
-		text-align:  center;
-		text-indent: 0%;
+		left: 796px;
+		width: 92px;
+		top: 148px;
+		height: 62px;
 		z-index:     3;
 	}
 	
@@ -484,13 +477,22 @@
 		color: $cYellow;
 	}
 	
-	.truck-fuelWarningOn {
-		background-image: none;
-		position:         fixed;
-		left:             1328px;
-		top:              887px;
-		width:            41px;
-		height:           46px;
+	.truck-fuelWarning {
+		width: 4.5rem;
+		height: 4.5rem;
+		line-height: 0;
+		font-size: 3rem;
+		color: $cYellow;
+	}
+	
+	.icons-bar {
+		position: fixed;
+		width: 27.6rem;
+		height: 4.5rem;
+		left: 705px;
+		top: 654px;
+		z-index: 2;
+		
 	}
 	
 	.engine-failure {
