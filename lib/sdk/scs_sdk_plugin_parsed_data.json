@@ -562,10 +562,10 @@
 			"mph" :   50
 		},
 		"cruiseControl" : {
-			"value" :   0,
+			"value" :   90,
 			"enabled" : true,
-			"kph" :     0,
-			"mph" :     0
+			"kph" :     90,
+			"mph" :     90
 		},
 		"cabin" :         {
 			"damage" :       0.0007348754443228245,

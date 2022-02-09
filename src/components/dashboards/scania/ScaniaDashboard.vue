@@ -107,42 +107,11 @@
         }"
       />
 
-      <div class="icons-bar d-flex justify-content-start align-items-center">
-        <div class="truck-fuelWarning flex-area">
-          <i class="icon-scania-fuel_yellow" />
-        </div>
-      </div>
-
       <!-- indicators -->
       <div class="truck-odometer flex-area justify-content-start">
         <span class="pl-3">{{
           unit_length(telemetry.truck.odometer, 'km')
         }}</span>
-      </div>
-      <div class="truck-gear flex-area">
-        <span>
-          {{
-            $trukGear(
-              telemetry.truck.transmission,
-              telemetry.truck.brand,
-              false
-            )
-          }}
-        </span>
-      </div>
-      <div class="truck-shifterType flex-area">
-        <span>{{
-          $trukShifterTypeLetter(
-            telemetry.truck.transmission,
-            telemetry.truck.brand
-          )
-        }}</span>
-      </div>
-      <div class="truck-cruiseControlSpeed">
-        {{ unit_speed(telemetry.truck.cruiseControl, true, false) }}
-      </div>
-      <div class="truck-cruiseControlSpeedUnit">
-        {{ unit_speed(telemetry.truck.cruiseControl, false, true) }}
       </div>
       <div class="startIcons"></div>
 
@@ -200,22 +169,10 @@
         >
           <i class="icon-scania-parking-break_red" />
         </div>
-        <div class="datetime flex-area">
-          <span>
-            {{
-              $gameTime()
-                | $dateTimeLocalized(DATE_FORMAT_NONE, TIME_FORMAT_TINY)
-            }}
-          </span>
-        </div>
         <div
           class="truck-airPressureEmergencyOn"
           :class="{ yes: telemetry.truck.brakes.airPressure.emergency.enabled }"
         ></div>
-        <!--        <div-->
-        <!--          class="truck-fuelWarningOn"-->
-        <!--          :class="{ yes: telemetry.truck.fuel.warning.enabled }"-->
-        <!--        ></div>-->
         <div
           v-if="telemetry.truck.brakes.retarder.level > 0"
           class="retarder flex-area symbol"
@@ -232,96 +189,13 @@
           <i class="icon-scania-warning_yellow" />
         </div>
       </div>
-
-      <ScaniaMainMenu />
-      <!--      <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">-->
-      <!-- meters -->
-      <!--
-          Attributes:
-          data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
-          data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
-          data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          -->
-
-      <!--        <div class="truck-odometer wrapper-area">-->
-      <!--          <span>{{-->
-      <!--            unit_length(telemetry.truck.odometer, 'km', true, false)-->
-      <!--              | $toFixed(0)-->
-      <!--          }}</span>-->
-      <!--        </div>-->
-      <!--        &lt;!&ndash;				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>&ndash;&gt;-->
-      <!--        <div class="truck-gear wrapper-area">-->
-      <!--          <span>{{-->
-      <!--            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)-->
-      <!--          }}</span>-->
-      <!--        </div>-->
-      <!--        &lt;!&ndash; indicators &ndash;&gt;-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.lights.blinker.left.active }"-->
-      <!--          class="truck-blinkerLeftOn"-->
-      <!--        />-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.lights.blinker.right.active }"-->
-      <!--          class="truck-blinkerRightOn"-->
-      <!--        />-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.cruiseControl.enabled }"-->
-      <!--          class="truck-cruiseControlOn"-->
-      <!--        />-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.lights.beamHigh.enabled }"-->
-      <!--          class="truck-lightsBeamHighOn"-->
-      <!--        />-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.lights.beamLow.enabled }"-->
-      <!--          class="truck-lightsBeamLowOn"-->
-      <!--        />-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.lights.parking.enabled }"-->
-      <!--          class="truck-lightsParkingOn"-->
-      <!--        />-->
-      <!--        &lt;!&ndash;				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>&ndash;&gt;-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.brakes.parking.enabled }"-->
-      <!--          class="truck-parkBrakeOn"-->
-      <!--        />-->
-      <!--        <div class="trailer-mass wrapper-area">-->
-      <!--          <span-->
-      <!--            >{{-->
-      <!--              unit_weight(telemetry.job.cargo.mass, true, false) | $toFixed(1)-->
-      <!--            }}<span class="ton">{{-->
-      <!--              unit_weight(telemetry.job.cargo.mass, false)-->
-      <!--            }}</span></span-->
-      <!--          >-->
-      <!--        </div>-->
-      <!--        &lt;!&ndash;				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>&ndash;&gt;-->
-      <!--        <div class="game-time wrapper-area">-->
-      <!--          <span>{{-->
-      <!--            $gameTime()-->
-      <!--              | $dateTimeLocalized(DATE_FORMAT_SHORT, TIME_FORMAT_SHORT)-->
-      <!--          }}</span>-->
-      <!--        </div>-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.brakes.airPressure.emergency.enabled }"-->
-      <!--          class="truck-airPressureEmergencyOn"-->
-      <!--        />-->
-      <!--        <div-->
-      <!--          :class="{ yes: telemetry.truck.fuel.warning.enabled }"-->
-      <!--          class="truck-fuelWarningOn"-->
-      <!--        />-->
-
-      <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->
-      <!--				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>-->
-      <!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
-      <!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
-      <!--      </div>-->
+      <ScaniaDisplay />
     </div>
   </Dashboard>
 </template>
 
 <script>
-import ScaniaMainMenu from '@/components/dashboards/scania/menu/ScaniaMainMenu';
+import ScaniaDisplay from '@/components/dashboards/scania/display/ScaniaDisplay';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 import Dashboard from '@/components/dashboards/Dashboard';
 import Cadran from '@/components/dashboards/shared/Cadran';
@@ -330,7 +204,7 @@ export default {
   name: 'ScaniaDashboard',
   components: {
     Dashboard,
-    ScaniaMainMenu,
+    ScaniaDisplay,
     Cadran
   },
   mixins: [TelemetryMixin]

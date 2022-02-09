@@ -1,0 +1,118 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_display.scss
+ * Date: 	07/02/2022
+ * Time: 	19:10
+ */
+
+@import "variable";
+
+.display {
+	position: fixed;
+	top: 149px;
+	left: 709px;
+	
+	.gearbox-info{
+		background: $cGrey;
+		width: 27.1rem;
+		height: 4rem;
+		border-bottom: 3px solid $cGreyLight;
+		
+		.gearbox-wrapper{
+			border-left: 2px solid #000;
+			
+			.truck-shifterType {
+				color:       white;
+				font-family: Arial;
+				font-weight: bold;
+				font-size:   50px;
+				width:       82px;
+				height:      62px;
+				z-index:     3;
+			}
+			
+			.truck-gear {
+				background: url("/img/dashboard/scania/gear.png") no-repeat center center;
+				color:       black;
+				font-family: Arial;
+				font-weight: bold;
+				font-size:   40px;
+				width: 92px;
+				height: 62px;
+				z-index:     3;
+			}
+		}
+		
+		.datetime {
+			color:       white;
+			font-family: Arial, Tahoma;
+			font-size:   40px;
+			font-weight: normal;
+			width: 123px;
+			height: 62px;
+			z-index:     3;
+			border-left: 2px solid $cGreyLight;
+			padding: 0 1rem;
+		}
+	}
+	
+	.programmable-field-1 {
+		background: $cGreyDark;
+		height: 5.8rem;
+		border-bottom: 3px solid $cGreyLight;
+		
+		.item{
+			.icon {
+				font-size: 3rem;
+				
+				> i { line-height: 0; }
+			}
+			
+			.value{ font-size: 2rem;  line-height: 2rem; font-weight: bold;}
+			.unit{ font-size: 1.5rem; line-height: 1.5rem;}
+		}
+	}
+	
+	.displayMenuOff {
+		background-color: $cGreyDark;
+		background-image: url("/img/dashboard/scania/menuOff.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor:           pointer;
+		opacity:          1;
+		z-index:          35;
+		height: 346px;
+		border-bottom: 3px solid $cGreyLight;
+	}
+	
+	.box-warning-symbol {
+		background-color: $cGreyDark;
+		height: 5rem;
+		z-index: 2;
+		border-bottom: 3px solid $cGreyLight;
+		
+		.truck-fuelWarning {
+			width: 4.5rem;
+			height: 4.5rem;
+			line-height: 0;
+			font-size: 3rem;
+			color: $cYellow;
+		}
+	}
+	
+	.programmable-field-2 {
+		background: $cGrey;
+		height: 8.8rem;
+		border-bottom: 3px solid $cGreyLight;
+		position: relative;
+		
+		.programmable-field-2-unit{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 4rem;
+			text-align: center;
+		}
+	}
+}
