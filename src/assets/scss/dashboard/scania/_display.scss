@@ -70,6 +70,7 @@
 			}
 			
 			.value{ font-size: 2rem;  line-height: 2rem; font-weight: bold;}
+			.value { color: $cGreen; }
 			.unit{ font-size: 1.5rem; line-height: 1.5rem;}
 		}
 	}
@@ -107,12 +108,45 @@
 		border-bottom: 3px solid $cGreyLight;
 		position: relative;
 		
-		.programmable-field-2-unit{
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			width: 4rem;
-			text-align: center;
+		.item{
+			padding: .5rem 1rem;
+			
+			.icon {
+				font-size: 3.5rem;
+				line-height: 0;
+			}
+			
+			.value-wrapper {
+				.value {
+					color: $cGreen;
+					margin-right: 1rem;
+					font-size: 2.5rem;
+				}
+				
+				.unit {
+					font-size: 1.6rem;
+					margin-top: .5rem;
+				}
+			}
+		}
+	}
+	
+	.mileage{
+		background: $cGrey;
+		.truck-odometer {
+			color:       white;
+			font-family: Arial;
+			font-weight: normal;
+			font-size:   40px;
+			z-index:     3;
+		}
+		
+		.temperature {
+			color:       white;
+			font-family: Arial;
+			font-weight: normal;
+			font-size:   40px;
+			z-index:     3;
 		}
 	}
 }

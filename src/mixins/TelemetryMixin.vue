@@ -306,6 +306,12 @@ export default {
 
       return pressure;
     },
+    $psiToCurrentPressureUnit(psi) {
+      return this.unit_pressure(psi, true, false);
+    },
+    $kpmToCurrentSpeedUnit(kph) {
+      return this.unit_pressure(kph, true, false);
+    },
     $gameTime() {
       const currentGameTime = this.telemetry.game.time.unix;
 
@@ -342,8 +348,8 @@ export default {
     $jobRemainingTimeToDueDate() {
       return this.config('general_job_remaining') === 'due_date';
     },
-    $nextRestStop(time) {
-      return app.diffDateTimeLocalized(0, time, false);
+    $nextRestStop(time, customFormat) {
+      return app.diffDateTimeLocalized(0, time, false, customFormat);
     },
 
     // --- ./Job

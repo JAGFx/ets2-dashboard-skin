@@ -65,4 +65,8 @@
 			line-height: 1.2rem;
 		}
 	}
+	
+	&.disabled, &.disabled .raw .value {
+		color: transparentize( #fff, .5 ) !important;
+	}
 }

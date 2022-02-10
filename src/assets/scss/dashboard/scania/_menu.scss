@@ -11,6 +11,8 @@
 .mainMenu {
 	background: $cGrey;
 	cursor:     pointer;
+	width:            437px;
+	max-width: 437px;
 	height: 346px;
 	border-bottom: 3px solid $cGreyLight;
 	opacity:    1;
@@ -44,17 +46,23 @@
 	}
 	
 	.drivingAssistanceMenu {
-		background-image: url("/img/dashboard/scania/dashMenu1.png");
-		width:            437px;
-		height:           338px;
+		background-color: $cGrey;
+		//background-image: url("/img/dashboard/scania/dashMenu1.png");
 		opacity:          1;
 		z-index:          19;
+		padding-right: 1.5rem;
+		
+		.drivingAssistanceMenu-unit{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 4rem;
+			text-align: center;
+		}
 	}
 	
 	.vehicleInformationsMenu {
 		background-image: url("/img/dashboard/scania/dashMenu.png");
-		width:            437px;
-		height:           338px;
 		opacity:          1;
 		z-index:          19;
 		position:         relative;
@@ -68,10 +76,8 @@
 	}
 	
 	.instantaneousData {
-		background: $cGrey;
+		background-color: $cGrey;
 		//background-image: url("/img/dashboard/scania/dashMenu2.png");
-		width:            437px;
-		height:           338px;
 		opacity:          1;
 		z-index:          19;
 		

@@ -35,28 +35,56 @@
     <!-- <editor-folder> Driving assistance -->
     <div
       v-if="subMenu === '01'"
-      class="drivingAssistanceMenu"
+      class="drivingAssistanceMenu w-100 h-100 d-flex justify-content-center align-items-start flex-column"
       @click="subMenu = null"
     >
-      <div class="estimatedDistance menu1Line">
-        <div class="value">33</div>
-        <div class="unit">km</div>
-      </div>
-      <div class="digfuelConsumption menu1Line">
-        <span class="value">66</span>
-        <span class="unit">km/l</span>
-      </div>
-      <div class="navigation-timeToDestination menu1Line">
-        <span class="value">55</span>
-        <span class="unit">h</span>
-      </div>
+      <ScaniaBar
+        class="my-2"
+        v-bind="{
+          min: 0,
+          max: $psiToCurrentPressureUnit(175),
+          value: 0,
+          unit: config('unit_pressure'),
+          disabled: true
+        }"
+      >
+        <i class="icon icon-scania-retarder_green" />
+      </ScaniaBar>
+      <ScaniaBar
+        class="my-2"
+        v-bind="{
+          min: 0,
+          max: $psiToCurrentPressureUnit(175),
+          value: 0,
+          unit: config('unit_pressure'),
+          disabled: true
+        }"
+      >
+        <i class="icon icon-scania-retarder_green" />
+      </ScaniaBar>
+      <ScaniaBar
+        class="my-2"
+        v-bind="{
+          min: 0,
+          max: $psiToCurrentPressureUnit(175),
+          value: unit_pressure(
+            telemetry.truck.brakes.airPressure.value,
+            true,
+            false
+          ),
+          unit: config('unit_pressure')
+        }"
+      >
+        <i class="icon icon-scania-parking-break_red" />
+      </ScaniaBar>
+      <!--      <span class="drivingAssistanceMenu-unit">[bar]</span>-->
     </div>
     <!-- </editor-folder> Driving assistance -->
 
     <!-- <editor-folder> Vehicle information -->
     <div
       v-if="subMenu === '03'"
-      class="vehicleInformationsMenu"
+      class="vehicleInformationsMenu w-100 h-100"
       @click="subMenu = null"
     >
       <i class="icon-scania-menu-weight-truck background" />
@@ -80,10 +108,9 @@
     <!-- <editor-folder> Instantaneous data -->
     <div
       v-if="subMenu === '02'"
-      class="instantaneousData d-flex justify-content-center align-items-center flex-column"
+      class="instantaneousData d-flex justify-content-center align-items-start flex-column w-100 h-100"
       @click="subMenu = null"
     >
-      <!-- Battery, Turbo, AdBlue -->
       <ScaniaBar
         class="my-2"
         v-bind="{
@@ -100,9 +127,13 @@
         class="my-2"
         v-bind="{
           min: 0,
-          max: 7,
-          value: $pressureToBar(telemetry.truck.engine.oilPressure.value),
-          unit: 'bar'
+          max: $psiToCurrentPressureUnit(102),
+          value: unit_pressure(
+            telemetry.truck.engine.oilPressure.value,
+            true,
+            false
+          ),
+          unit: config('unit_pressure')
         }"
       >
         <i class="icon icon-scania-oil-pressure_red_yellow" />

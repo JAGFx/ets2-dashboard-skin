@@ -565,7 +565,7 @@
 			"value" :   90,
 			"enabled" : true,
 			"kph" :     90,
-			"mph" :     90
+			"mph" :     12
 		},
 		"cabin" :         {
 			"damage" :       0.0007348754443228245,

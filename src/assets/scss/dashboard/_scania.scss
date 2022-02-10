@@ -12,6 +12,7 @@
 	@import "scania/display";
 	@import "scania/menu";
 	@import "scania/scania-bar";
+	@import "scania/symbols";
 	
 	.flex-area {
 		display:         flex;
@@ -79,19 +80,6 @@
 			&.dashboard {
 				opacity: 1;
 				filter:  grayscale(0%);
-			}
-			
-			.dashLights {
-				background-image: none;
-				position:         absolute;
-				left:             0px;
-				top:              0px;
-				height:           1035px;
-				width:            1850px;
-				
-				&.yes {
-					background-image: url("/img/dashboard/scania/dashLights.png");
-				}
 			}
 		}
 	}
@@ -326,34 +314,6 @@
 		-webkit-filter: brightness(150%);
 	}
 	
-	.truck-odometer {
-		color:       white;
-		font-family: Arial;
-		font-weight: normal;
-		position:    fixed;
-		font-size:   40px;
-		top:         875px;
-		height:      58px;
-		left:        710px;
-		width:       300px;
-		text-align:  right;
-		text-indent: 0%;
-		z-index:     3;
-		background:  #1F2227;
-	}
-	
-	.temperature {
-		color:       white;
-		font-family: Arial;
-		font-weight: normal;
-		font-size:   40px;
-		position:    fixed;
-		left:        1005px;
-		top:         875px;
-		width:       140px;
-		height:      58px;
-		z-index:     3;
-	}
 	
 	.truck-cruiseControlSpeed {
 		color:       white;
@@ -384,112 +344,12 @@
 		background:  #141615;
 	}
 	
-	.truck-blinkerLeft {
-		position:    fixed;
-		left:        500px;
-		top:         134px;
-		width:       140px;
-		height:      83px;
-		color:       $cGreen;
-		font-size:   6.8rem;
-		line-height: 0;
-	}
-	
-	.truck-blinkerRight {
-		position:    fixed;
-		left:        1211px;
-		top:         134px;
-		width:       140px;
-		height:      83px;
-		color:       $cGreen;
-		font-size:   6.8rem;
-		line-height: 0;
-	}
-	
-	.truck-lightsBeamHigh {
-		left:      564px;
-		top:       201px;
-		color:     $cBlue;
-		font-size: 4.3rem !important;
-		width:     60px !important;
-		height:    60px !important;
-	}
-	
-	.truck-parkBrake {
-		left:  1223px;
-		top:   735px;
-		color: $cRed;
-	}
-	
-	.retarder {
-		left:  1683px;
-		top:   735px;
-		color: $cGreen;
-	}
-	
-	.truck-stopWarning {
-		left:  551px;
-		top:   664px;
-		color: $cRed;
-	}
-	
-	.truck-checkWarning {
-		left:  1223px;
-		top:   664px;
-		color: $cYellow;
-	}
-	
-	.engine-failure {
-		left:  1223px;
-		top:   808px;
-		color: $cYellow;
-	}
-	
-	.driver-safty-belt {
-		left:      1223px;
-		top:       881px;
-		font-size: 4rem !important;
-		color:     $cRed;
-	}
-	
 	.symbol {
 		position:    fixed;
 		width:       79px;
 		height:      79px;
 		font-size:   5rem;
 		line-height: 0;
-	}
-	
-	.truck-differentialLock {
-		left:  1683px;
-		top:   808px;
-		color: $cYellow;
-	}
-	
-	.truck-brake-pressure {
-		left:  551px;
-		top:   735px;
-		color: $cRed;
-	}
-	
-	.tractor-tag-axle-raised {
-		left:  1586px;
-		top:   881px;
-		color: $cYellow;
-	}
-	
-	.trailer-tag-axle-raised {
-		left:  1683px;
-		top:   881px;
-		color: $cYellow;
-	}
-	
-	.rotating-light {
-		left:      97px;
-		top:       747px;
-		height:    61px !important;
-		font-size: 3rem;
-		color:     $cBlue;
 	}
 	
 	.menu1Line {

@@ -20,7 +20,7 @@ const DATE_FORMAT_SHORT = 'MM/DD';
 const DATE_FORMAT_LONG = 'ddd';
 const DATE_FORMAT_FULL = 'dddd';
 const TIME_FORMAT_NONE = '';
-const TIME_FORMAT_TINY = 'hh:mm';
+const TIME_FORMAT_TINY = 'HH:mm';
 const TIME_FORMAT_SHORT = 'LT';
 const TIME_FORMAT_FULL = 'LTS';
 
@@ -73,13 +73,20 @@ export const dateTimeLocalized = (input, formatDate, formatTime) => {
   return momentData.tz('Africa/Abidjan').format(format);
 };
 
-export const diffDateTimeLocalized = (dFrom, dTo, withDay = true) => {
+export const diffDateTimeLocalized = (
+  dFrom,
+  dTo,
+  withDay = true,
+  customFormat = null
+) => {
   const momentFrom = moment()(dFrom, 'x');
   const momentTo = moment()(dTo, 'x');
   const diff = momentTo.diff(momentFrom);
   const format = withDay ? 'DD[d] HH[h] mm[m]' : 'HH[h] mm[m]';
 
-  return moment()(diff, 'x').tz('Africa/Abidjan').format(format);
+  return moment()(diff, 'x')
+    .tz('Africa/Abidjan')
+    .format(customFormat !== null ? customFormat : format);
 };
 
 export const displayDuration = (duration, withDay = true) => {

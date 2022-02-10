@@ -88,53 +88,54 @@
         <i class="icon-scania-fuel_yellow" />
       </div>
     </div>
-    <!-- <editor-folder> Box warning symbol -->
+    <!-- </editor-folder> Box warning symbol -->
 
     <!-- <editor-folder> Programmable field 2 -->
     <div
-      class="programmable-field-2 d-flex justify-content-start align-items-center w-100 flex-column py-2"
+      class="programmable-field-2 d-flex justify-content-center align-items-center w-100 flex-column py-2"
     >
-      <!--        value: $pressureToBar(telemetry.truck.brakes.airPressure.value),-->
-      <ScaniaBar
-        v-bind="{
-          min: 0,
-          max: 12,
-          value: $pressureToBar(telemetry.truck.brakes.airPressure.value),
-          unit: 'bar',
-          displayValuePosition: 'right'
-        }"
-      >
-        <i class="icon icon-scania-retarder_green" />
-      </ScaniaBar>
-      <ScaniaBar
-        class="mt-1"
-        v-bind="{
-          min: 0,
-          max: 12,
-          value: $pressureToBar(telemetry.truck.brakes.airPressure.value),
-          unit: 'bar',
-          displayValuePosition: 'right'
-        }"
-      >
-        <i class="icon icon-scania-retarder_green" />
-      </ScaniaBar>
-      <span class="programmable-field-2-unit">[bar]</span>
+      <div class="item d-flex justify-content-between align-items-center w-100">
+        <div class="icon">
+          <i class="icon-scania-ad-blue-low_yellow" />
+          <i class="icon-scania-ad-blue-low_yellow" />
+        </div>
+        <div
+          class="value-wrapper d-flex justify-content-between align-items-center"
+        >
+          <!-- Rest time -->
+          <div class="value">
+            {{ $nextRestStop(telemetry.navigation.nextRestStop, 'HH:mm') }}
+          </div>
+          <div class="unit">h</div>
+        </div>
+      </div>
     </div>
-    <!-- </>editor-folder> Programmable field 2 -->
+    <!-- </editor-folder> Programmable field 2 -->
 
     <!-- <editor-folder> Mileage -->
-    <!-- </>editor-folder> Mileage -->
+    <div
+      class="mileage d-flex justify-content-between align-items-center w-100"
+    >
+      <div class="truck-odometer flex-area justify-content-start">
+        <span class="pl-3">{{
+          unit_length(telemetry.truck.odometer, 'km')
+        }}</span>
+      </div>
+      <div class="temperature flex-area justify-content-end">
+        <span class="pr-3">-°{{ config('unit_degrees') }}</span>
+      </div>
+    </div>
+    <!-- </editor-folder> Mileage -->
   </div>
 </template>
 
 <script>
 import ScaniaMainMenu from '@/components/dashboards/scania/display/ScaniaMainMenu';
-import ScaniaBar from '@/components/dashboards/scania/ScaniaBar';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name: 'ScaniaDisplay',
-  components: { ScaniaMainMenu, ScaniaBar },
+  components: { ScaniaMainMenu },
   mixins: [TelemetryMixin],
   data() {
     return {

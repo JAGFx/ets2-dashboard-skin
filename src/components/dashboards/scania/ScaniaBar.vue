@@ -1,5 +1,5 @@
 <template>
-  <div class="scania-bar d-flex">
+  <div class="scania-bar d-flex" :class="{ disabled }">
     <slot v-if="displayIcon" />
     <div
       class="d-flex justify-content-between align-items-start flex-column w-100"
@@ -21,7 +21,7 @@
         v-if="displayValue && displayValuePosition === 'bottom'"
         class="raw d-flex justify-content-center align-items-center w-100"
       >
-        <span class="value">{{ value.toFixed(1) }}</span>
+        <span class="value">{{ getValue() }}</span>
         <span class="unit">{{ unit }}</span>
       </div>
     </div>
@@ -29,7 +29,7 @@
       v-if="displayValue && displayValuePosition === 'right'"
       class="raw d-flex justify-content-center align-items-center mr-2"
     >
-      <span class="value">{{ value.toFixed(1) }}</span>
+      <span class="value">{{ getValue() }}</span>
     </div>
   </div>
 </template>
@@ -74,6 +74,11 @@ export default {
       type: String,
       required: false,
       default: '--'
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   methods: {
@@ -86,7 +91,7 @@ export default {
         return 8;
       }
 
-      return this.displayIcon ? 10 : 12;
+      return this.displayIcon ? 8 : 10;
     },
     percentage() {
       return (this.value * this.maxWidth()) / this.max;
@@ -100,7 +105,12 @@ export default {
         return 89.5;
       }
 
-      return this.displayIcon ? 91.5 : 92.6;
+      return this.displayIcon ? 90.5 : 92.2;
+    },
+    getValue() {
+      if (this.disabled) return '-';
+
+      return this.value.toFixed(1);
     }
   }
 };
