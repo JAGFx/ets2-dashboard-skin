@@ -96,8 +96,8 @@
     >
       <div class="item d-flex justify-content-between align-items-center w-100">
         <div class="icon">
-          <i class="icon-scania-ad-blue-low_yellow" />
-          <i class="icon-scania-ad-blue-low_yellow" />
+          <i class="icon-scania-driver-card-tachograph_white" />
+          <i class="ml-3 icon-scania-accrued-rest-time-tachograph_white" />
         </div>
         <div
           class="value-wrapper d-flex justify-content-between align-items-center"

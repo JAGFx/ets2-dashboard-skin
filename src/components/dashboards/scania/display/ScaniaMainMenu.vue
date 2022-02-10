@@ -38,46 +38,56 @@
       class="drivingAssistanceMenu w-100 h-100 d-flex justify-content-center align-items-start flex-column"
       @click="subMenu = null"
     >
-      <ScaniaBar
-        class="my-2"
-        v-bind="{
-          min: 0,
-          max: $psiToCurrentPressureUnit(175),
-          value: 0,
-          unit: config('unit_pressure'),
-          disabled: true
-        }"
+      <div
+        class="item d-flex justify-content-between align-items-center w-100 py-2"
       >
-        <i class="icon icon-scania-retarder_green" />
-      </ScaniaBar>
-      <ScaniaBar
-        class="my-2"
-        v-bind="{
-          min: 0,
-          max: $psiToCurrentPressureUnit(175),
-          value: 0,
-          unit: config('unit_pressure'),
-          disabled: true
-        }"
+        <div class="icon flex-area">
+          <i class="icon-scania-total-distance-driven_white" />
+          <small class="text-uppercase">tot</small>
+        </div>
+        <div class="flex-area">
+          <div class="value">-</div>
+          <div class="unit">{{ unit_length(1, 'km', false, true) }}</div>
+        </div>
+      </div>
+
+      <div
+        class="item d-flex justify-content-between align-items-center w-100 py-2"
       >
-        <i class="icon icon-scania-retarder_green" />
-      </ScaniaBar>
-      <ScaniaBar
-        class="my-2"
-        v-bind="{
-          min: 0,
-          max: $psiToCurrentPressureUnit(175),
-          value: unit_pressure(
-            telemetry.truck.brakes.airPressure.value,
-            true,
-            false
-          ),
-          unit: config('unit_pressure')
-        }"
+        <div class="icon flex-area">
+          <i class="icon-scania-average-vehicle-speed_white" />
+          <small class="text-uppercase">ave</small>
+        </div>
+        <div class="flex-area">
+          <div class="value">-</div>
+          <div class="unit">{{ unit_speed(100, false, true) }}</div>
+        </div>
+      </div>
+
+      <div
+        class="item d-flex justify-content-between align-items-center w-100 py-2"
       >
-        <i class="icon icon-scania-parking-break_red" />
-      </ScaniaBar>
-      <!--      <span class="drivingAssistanceMenu-unit">[bar]</span>-->
+        <div class="icon flex-area">
+          <i class="icon-scania-fuel_yellow" />
+          <small class="text-uppercase">ave</small>
+        </div>
+        <div class="flex-area">
+          <div class="value">
+            {{
+              unit_consumption(
+                telemetry.truck.fuel.avgConsumption,
+                true,
+                false
+              ).toFixed(1)
+            }}
+          </div>
+          <div class="unit">
+            {{
+              unit_consumption(telemetry.truck.fuel.avgConsumption, false, true)
+            }}
+          </div>
+        </div>
+      </div>
     </div>
     <!-- </editor-folder> Driving assistance -->
 
@@ -127,16 +137,16 @@
         class="my-2"
         v-bind="{
           min: 0,
-          max: $psiToCurrentPressureUnit(102),
+          max: $psiToCurrentPressureUnit(175),
           value: unit_pressure(
-            telemetry.truck.engine.oilPressure.value,
+            telemetry.truck.brakes.airPressure.value,
             true,
             false
           ),
           unit: config('unit_pressure')
         }"
       >
-        <i class="icon icon-scania-oil-pressure_red_yellow" />
+        <i class="icon icon-scania-parking-break_red" />
       </ScaniaBar>
       <ScaniaBar
         class="my-2"
