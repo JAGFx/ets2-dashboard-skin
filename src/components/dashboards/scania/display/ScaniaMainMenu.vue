@@ -4,7 +4,10 @@
   >
     <!-- <editor-folder> Sub menu selector -->
     <div v-if="subMenu === null">
-      <div class="menuSelectorItem flex-area" @click="subMenu = '01'">
+      <div
+        class="menuSelectorItem flex-area"
+        @click="subMenu = 'ScaniaDrivingAssistanceMenu'"
+      >
         <i class="icon-scania-menu-driving-info" />
       </div>
     </div>
@@ -12,7 +15,10 @@
       v-if="subMenu === null"
       class="w-100 d-flex justify-content-around align-items-center"
     >
-      <div class="menuSelectorItem flex-area" @click="subMenu = '03'">
+      <div
+        class="menuSelectorItem flex-area"
+        @click="subMenu = 'ScaniaVehicleInformationsMenu'"
+      >
         <i class="icon-scania-menu-vehicle-info" />
       </div>
       <div
@@ -21,7 +27,10 @@
       >
         <i class="icon-scania-menu-arrow" />
       </div>
-      <div class="menuSelectorItem flex-area" @click="subMenu = '02'">
+      <div
+        class="menuSelectorItem flex-area"
+        @click="subMenu = 'ScaniaInstantaneousDataMenu'"
+      >
         <i class="icon-scania-menu-instantaneous-data" />
       </div>
     </div>
@@ -32,147 +41,31 @@
     </div>
     <!-- </editor-folder> Sub menu selector -->
 
-    <!-- <editor-folder> Driving assistance -->
-    <div
-      v-if="subMenu === '01'"
-      class="drivingAssistanceMenu w-100 h-100 d-flex justify-content-center align-items-start flex-column"
-      @click="subMenu = null"
-    >
-      <div
-        class="item d-flex justify-content-between align-items-center w-100 py-2"
-      >
-        <div class="icon flex-area">
-          <i class="icon-scania-total-distance-driven_white" />
-          <small class="text-uppercase">tot</small>
-        </div>
-        <div class="flex-area">
-          <div class="value">-</div>
-          <div class="unit">{{ unit_length(1, 'km', false, true) }}</div>
-        </div>
-      </div>
-
-      <div
-        class="item d-flex justify-content-between align-items-center w-100 py-2"
-      >
-        <div class="icon flex-area">
-          <i class="icon-scania-average-vehicle-speed_white" />
-          <small class="text-uppercase">ave</small>
-        </div>
-        <div class="flex-area">
-          <div class="value">-</div>
-          <div class="unit">{{ unit_speed(100, false, true) }}</div>
-        </div>
-      </div>
-
-      <div
-        class="item d-flex justify-content-between align-items-center w-100 py-2"
-      >
-        <div class="icon flex-area">
-          <i class="icon-scania-fuel_yellow" />
-          <small class="text-uppercase">ave</small>
-        </div>
-        <div class="flex-area">
-          <div class="value">
-            {{
-              unit_consumption(
-                telemetry.truck.fuel.avgConsumption,
-                true,
-                false
-              ).toFixed(1)
-            }}
-          </div>
-          <div class="unit">
-            {{
-              unit_consumption(telemetry.truck.fuel.avgConsumption, false, true)
-            }}
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- </editor-folder> Driving assistance -->
-
-    <!-- <editor-folder> Vehicle information -->
-    <div
-      v-if="subMenu === '03'"
-      class="vehicleInformationsMenu w-100 h-100"
-      @click="subMenu = null"
-    >
-      <i class="icon-scania-menu-weight-truck background" />
-      <div class="totalmass flex-area">
-        <span>3</span>
-      </div>
-      <div class="trailer-attached">
-        <div class="frontAxleLoad flex-area">
-          <span>4</span>
-        </div>
-        <div class="rearAxleLoad flex-area">
-          <span>5</span>
-        </div>
-        <div class="trailerAxleLoad flex-area">
-          <span>-.-</span>
-        </div>
-      </div>
-    </div>
-    <!-- </editor-folder> Vehicle information -->
-
-    <!-- <editor-folder> Instantaneous data -->
-    <div
-      v-if="subMenu === '02'"
-      class="instantaneousData d-flex justify-content-center align-items-start flex-column w-100 h-100"
-      @click="subMenu = null"
-    >
-      <ScaniaBar
-        class="my-2"
-        v-bind="{
-          min: 20,
-          max: 36,
-          value: telemetry.truck.engine.batteryVoltage.value,
-          unit: 'V',
-          displayMidLabel: false
-        }"
-      >
-        <i class="icon icon-scania-battery_red" />
-      </ScaniaBar>
-      <ScaniaBar
-        class="my-2"
-        v-bind="{
-          min: 0,
-          max: $psiToCurrentPressureUnit(175),
-          value: unit_pressure(
-            telemetry.truck.brakes.airPressure.value,
-            true,
-            false
-          ),
-          unit: config('unit_pressure')
-        }"
-      >
-        <i class="icon icon-scania-parking-break_red" />
-      </ScaniaBar>
-      <ScaniaBar
-        class="my-2"
-        v-bind="{
-          min: 0,
-          max: 100,
-          value:
-            (telemetry.truck.adBlue.value * 100) /
-            telemetry.truck.adBlue.capacity,
-          unit: '%'
-        }"
-      >
-        <i class="icon icon-scania-ad-blue-low_yellow" />
-      </ScaniaBar>
-    </div>
-    <!-- </editor-folder> Instantaneous data -->
+    <component
+      :is="subMenu"
+      v-if="subMenu !== null"
+      @click.native="subMenu = null"
+    />
   </div>
 </template>
 
 <script>
+import ScaniaDrivingAssistanceMenu from '@/components/dashboards/scania/display/menu/ScaniaDrivingAssistanceMenu';
+import ScaniaInstantaneousDataMenu from '@/components/dashboards/scania/display/menu/ScaniaInstantaneousDataMenu';
+import ScaniaVehicleInformationsMenu from '@/components/dashboards/scania/display/menu/ScaniaVehicleInformationsMenu';
+import ScaniaDisplayMessage from '@/components/dashboards/scania/display/ScaniaDisplayMessage';
 import ScaniaBar from '@/components/dashboards/scania/ScaniaBar';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name: 'ScaniaMainMenu',
-  components: { ScaniaBar },
+  components: {
+    ScaniaBar,
+    ScaniaDrivingAssistanceMenu,
+    ScaniaVehicleInformationsMenu,
+    ScaniaInstantaneousDataMenu,
+    ScaniaDisplayMessage
+  },
   mixins: [TelemetryMixin],
   data() {
     return {

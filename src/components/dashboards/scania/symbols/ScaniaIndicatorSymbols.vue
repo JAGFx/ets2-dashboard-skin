@@ -9,7 +9,13 @@
     </div>
 
     <!-- Line 2 -->
-    <div class="truck-brake-pressure flex-area symbol r2 c1 red">
+    <div
+      v-if="
+        telemetry.truck.brakes.airPressure.warning.enabled ||
+        telemetry.truck.brakes.airPressure.emergency.enabled
+      "
+      class="truck-brake-pressure flex-area symbol r2 c1 red"
+    >
       <i class="icon-scania-break-pressure_red_yellow" />
     </div>
     <div
@@ -43,10 +49,16 @@
     <div class="driver-safty-belt flex-area symbol r4 c2 red">
       <i class="icon-scania-driver-safty-belt_red" />
     </div>
-    <div class="tractor-tag-axle-raised flex-area symbol r4 c3 yellow">
+    <div
+      v-if="telemetry.truck.liftAxle.enabled"
+      class="tractor-tag-axle-raised flex-area symbol r4 c3 yellow"
+    >
       <i class="icon-scania-tractor-tag-axle-raised_yellow" />
     </div>
-    <div class="trailer-tag-axle-raised flex-area symbol r4 c4 yellow">
+    <div
+      v-if="telemetry.trailer.liftAxle.enabled"
+      class="trailer-tag-axle-raised flex-area symbol r4 c4 yellow"
+    >
       <i class="icon-scania-trailer-tag-axle-raised_yellow" />
     </div>
   </div>

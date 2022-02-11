@@ -610,7 +610,7 @@
 			"enabled" : false
 		},
 		"liftAxle" :      {
-			"enabled" :   false,
+			"enabled" :   true,
 			"indicator" : {
 				"enabled" : false
 			}
@@ -1049,7 +1049,7 @@
 			"total" :   0.04498915374279022
 		},
 		"liftAxle" :     {
-			"enabled" :   false,
+			"enabled" :   true,
 			"indicator" : {
 				"enabled" : false
 			}

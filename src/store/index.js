@@ -13,6 +13,7 @@ import skins from '@/store/modules/_skins';
 import debug from '@/store/modules/_debug';
 import event from '@/store/modules/_event';
 import i18n from '@/store/modules/_i18n';
+import dashboard from '@/store/modules/_dashboard';
 import Vue from 'vue';
 import Vuex from 'vuex';
 
@@ -28,7 +29,8 @@ export default new Vuex.Store({
     app,
     debug,
     event,
-    i18n
+    i18n,
+    dashboard
   },
   strict: env
 });

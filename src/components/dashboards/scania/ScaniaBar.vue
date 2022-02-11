@@ -27,9 +27,9 @@
     </div>
     <div
       v-if="displayValue && displayValuePosition === 'right'"
-      class="raw d-flex justify-content-center align-items-center mr-2"
+      class="raw d-flex justify-content-center align-items-center"
     >
-      <span class="value">{{ getValue() }}</span>
+      <span class="unit">{{ unit }}</span>
     </div>
   </div>
 </template>
@@ -91,7 +91,7 @@ export default {
         return 8;
       }
 
-      return this.displayIcon ? 8 : 10;
+      return this.displayIcon ? 6 : 8;
     },
     percentage() {
       return (this.value * this.maxWidth()) / this.max;

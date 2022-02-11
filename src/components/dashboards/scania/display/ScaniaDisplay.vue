@@ -73,19 +73,34 @@
 
     <!-- <editor-folder> Menu -->
     <div
-      v-if="!menuDisplay"
+      v-if="!menuDisplay && !hasAWarningMessage"
       class="displayMenuOff w-100"
       @click="menuDisplay = true"
     ></div>
-    <ScaniaMainMenu v-if="menuDisplay" @quit-menu="menuDisplay = false" />
+    <ScaniaMainMenu
+      v-if="menuDisplay && !hasAWarningMessage"
+      @quit-menu="menuDisplay = false"
+    />
+    <ScaniaDisplayMessage v-if="hasAWarningMessage" />
     <!-- </editor-folder> Menu -->
 
     <!-- <editor-folder> Box warning symbol -->
     <div
       class="box-warning-symbol d-flex justify-content-start align-items-center w-100"
     >
-      <div class="truck-fuelWarning flex-area">
+      <div
+        v-if="telemetry.truck.fuel.warning.enabled"
+        class="truck-fuelWarning flex-area item"
+      >
         <i class="icon-scania-fuel_yellow" />
+      </div>
+      <div
+        v-for="warningMessage in warningMessages"
+        :key="warningMessage.id"
+        class="flex-area item message"
+        :class="warningMessage.type"
+      >
+        <i :class="warningMessage.icon" />
       </div>
     </div>
     <!-- </editor-folder> Box warning symbol -->
@@ -130,17 +145,25 @@
 </template>
 
 <script>
+import ScaniaDisplayMessage from '@/components/dashboards/scania/display/ScaniaDisplayMessage';
 import ScaniaMainMenu from '@/components/dashboards/scania/display/ScaniaMainMenu';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ScaniaDisplay',
-  components: { ScaniaMainMenu },
+  components: { ScaniaMainMenu, ScaniaDisplayMessage },
   mixins: [TelemetryMixin],
   data() {
     return {
       menuDisplay: false
     };
+  },
+  computed: {
+    ...mapGetters({
+      warningMessages: 'dashboard/getScaniaMessages',
+      hasAWarningMessage: 'dashboard/hasScaniaMessage'
+    })
   }
 };
 </script>

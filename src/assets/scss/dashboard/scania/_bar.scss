@@ -9,10 +9,12 @@
 @import "variable";
 
 .scania-bar {
+	margin: 1rem 0;
+	
 	.icon {
 		font-size: 3.5rem;
 		line-height: 0;
-		margin-left: 1rem;
+		margin: 0 .5rem;
 	}
 	
 	.line {
@@ -28,8 +30,8 @@
 		.square {
 			background: #fff;
 			color: transparent;
-			height: .7rem;
-			width: 1.8rem;
+			height: 1rem;
+			width: 1.85rem;
 			margin: .15rem;
 			
 			&:first-child { margin-left: 0 }
@@ -39,7 +41,7 @@
 	
 	.labels {
 		.start, .middle, .end {
-			font-size: 1.3rem;
+			font-size: 1.5rem;
 			background: $cGrey;
 			width: 3rem;
 			text-align: center;
@@ -60,7 +62,7 @@
 		}
 		
 		.value, .unit{
-			font-size: 1.6rem;
+			font-size: 2rem;
 			height: 1.5rem;
 			line-height: 1.2rem;
 		}

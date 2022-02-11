@@ -12,6 +12,9 @@
 	position: fixed;
 	top: 149px;
 	left: 709px;
+	width: 27.2rem;
+	
+	@import "display-message";
 	
 	.gearbox-info{
 		background: $cGrey;
@@ -82,7 +85,6 @@
 		background-position: center;
 		cursor:           pointer;
 		opacity:          1;
-		z-index:          35;
 		height: 346px;
 		border-bottom: 3px solid $cGreyLight;
 	}
@@ -93,12 +95,48 @@
 		z-index: 2;
 		border-bottom: 3px solid $cGreyLight;
 		
-		.truck-fuelWarning {
+		.item {
 			width: 4.5rem;
 			height: 4.5rem;
 			line-height: 0;
 			font-size: 3rem;
+		}
+		
+		.truck-fuelWarning {
 			color: $cYellow;
+		}
+		
+		.message {
+			position: relative;
+			z-index: 40;
+			border-radius: 0 0 1rem 0;
+			font-size: 3.5rem;
+			color: $cGrey;
+			
+			&:before{
+				position: absolute;
+				content: "";
+				background: $cYellow;
+				height: 0.5rem;
+				top: -0.4rem;
+				width: 100%;
+			}
+			
+			&.warning {
+				background: $cYellow;
+				
+				&:before{
+					background: $cYellow;
+				}
+			}
+			
+			&.error {
+				background: $cRed;
+				
+				&:before{
+					background: $cRed;
+				}
+			}
 		}
 	}
 	

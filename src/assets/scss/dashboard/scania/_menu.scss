@@ -15,8 +15,6 @@
 	max-width:     437px;
 	height:        346px;
 	border-bottom: 3px solid $cGreyLight;
-	opacity:       1;
-	z-index:       30;
 	
 	.menuSelectorItem {
 		i {
@@ -47,10 +45,8 @@
 	
 	.drivingAssistanceMenu {
 		background-color: $cGrey;
-		opacity:          1;
 		z-index:          19;
 		position:         relative;
-		
 		
 		.item {
 			font-size: 2.5rem;
@@ -74,7 +70,6 @@
 	
 	.vehicleInformationsMenu {
 		background-image: url("/img/dashboard/scania/dashMenu.png");
-		opacity:          1;
 		z-index:          19;
 		position:         relative;
 		
@@ -89,7 +84,6 @@
 	.instantaneousData {
 		background-color: $cGrey;
 		//background-image: url("/img/dashboard/scania/dashMenu2.png");
-		opacity:          1;
 		z-index:          19;
 		
 		.unit {
