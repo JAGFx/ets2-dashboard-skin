@@ -2,7 +2,7 @@
   <Dashboard v-slot="dashProps" class="scania-dash wrapper">
     <div
       class="dashboard game-connected"
-      :class="{ yes: telemetry.truck.electric.enabled }"
+      :class="{ yes: truckElectricOn }"
       :style="{
         transform:
           'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',

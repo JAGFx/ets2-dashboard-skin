@@ -33,6 +33,22 @@ export default {
       return this.telemetry.job.market.id === 'external_contracts'
         ? this.telemetry.job.expectedDeliveryTimestamp.value
         : this.telemetry.job.expectedDeliveryTimestamp.unix;
+    },
+    truckElectricOn() {
+      return this.telemetry.truck.electric.enabled;
+    },
+    haveWarnings() {
+      return (
+        this.telemetry.truck.brakes.airPressure.warning.enabled ||
+        this.telemetry.truck.fuel.warning.enabled ||
+        this.telemetry.truck.adBlue.warning.enabled ||
+        this.telemetry.truck.engine.oilPressure.warning.enabled ||
+        this.telemetry.truck.engine.waterTemperature.warning.enabled ||
+        this.telemetry.truck.engine.batteryVoltage.warning.enabled
+      );
+    },
+    haveErrors() {
+      return this.telemetry.truck.brakes.airPressure.emergency.enabled;
     }
   },
   created() {
