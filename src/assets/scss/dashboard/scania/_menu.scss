@@ -18,34 +18,26 @@
 	
 	.menuSelectorItem {
 		i {
-			z-index:     18;
 			font-size:   6.5rem;
-			color:       #FFF;
+			color:       $cWhite;
 			line-height: 0;
 		}
 		
-		z-index: 26;
 		cursor:  pointer;
 		display: block;
 	}
 	
 	.quitMenu {
-		z-index: 26;
 		cursor:  pointer;
 		display: block;
 		
 		i {
 			color: $cGreen !important;
 		}
-		
-		&.on {
-			z-index: 35;
-		}
 	}
 	
 	.drivingAssistanceMenu {
 		background-color: $cGrey;
-		z-index:          19;
 		position:         relative;
 		
 		.item {
@@ -70,24 +62,22 @@
 	
 	.vehicleInformationsMenu {
 		background-image: url("/img/dashboard/scania/dashMenu.png");
-		z-index:          19;
 		position:         relative;
 		
 		.background {
 			position:  fixed;
 			font-size: 27.4rem;
 			top:       9.5rem;
-			color:     #666;
+			color:     $cGreyLight;
 		}
 	}
 	
 	.instantaneousData {
 		background-color: $cGrey;
 		//background-image: url("/img/dashboard/scania/dashMenu2.png");
-		z-index:          19;
 		
 		.unit {
-			color: #FFF;
+			color: $cWhite;
 		}
 	}
 }

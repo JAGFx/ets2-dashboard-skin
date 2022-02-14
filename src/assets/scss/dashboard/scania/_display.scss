@@ -23,38 +23,35 @@
 		border-bottom: 3px solid $cGreyLight;
 		
 		.gearbox-wrapper{
-			border-left: 2px solid #000;
+			border-left: 2px solid $cBlack;
 			
 			.truck-shifterType {
-				color:       white;
+				color:       $cWhite;
 				font-family: Arial;
 				font-weight: bold;
 				font-size:   50px;
 				width:       82px;
 				height:      62px;
-				z-index:     3;
 			}
 			
 			.truck-gear {
 				background: url("/img/dashboard/scania/gear.png") no-repeat center center;
-				color:       black;
+				color:       $cBlack;
 				font-family: Arial;
 				font-weight: bold;
 				font-size:   40px;
 				width: 92px;
 				height: 62px;
-				z-index:     3;
 			}
 		}
 		
 		.datetime {
-			color:       white;
+			color:       $cWhite;
 			font-family: Arial, Tahoma;
 			font-size:   40px;
 			font-weight: normal;
 			width: 123px;
 			height: 62px;
-			z-index:     3;
 			border-left: 2px solid $cGreyLight;
 			padding: 0 1rem;
 		}
@@ -80,11 +77,11 @@
 	
 	.displayMenuOff {
 		background-color: $cGreyDark;
-		background-image: url("/img/dashboard/scania/menuOff.png");
+		background-image: url("/img/dashboard/scania/6482891_619566292.png");
 		background-repeat: no-repeat;
 		background-position: center;
+		background-size: contain;
 		cursor:           pointer;
-		opacity:          1;
 		height: 346px;
 		border-bottom: 3px solid $cGreyLight;
 	}
@@ -92,7 +89,6 @@
 	.box-warning-symbol {
 		background-color: $cGreyDark;
 		height: 5rem;
-		z-index: 2;
 		border-bottom: 3px solid $cGreyLight;
 		
 		.item {
@@ -108,7 +104,6 @@
 		
 		.message {
 			position: relative;
-			z-index: 40;
 			border-radius: 0 0 1rem 0;
 			font-size: 3.5rem;
 			color: $cGrey;
@@ -172,7 +167,7 @@
 	.mileage{
 		background: $cGrey;
 		.truck-odometer {
-			color:       white;
+			color:       $cWhite;
 			font-family: Arial;
 			font-weight: normal;
 			font-size:   40px;
@@ -180,7 +175,7 @@
 		}
 		
 		.temperature {
-			color:       white;
+			color:       $cWhite;
 			font-family: Arial;
 			font-weight: normal;
 			font-size:   40px;

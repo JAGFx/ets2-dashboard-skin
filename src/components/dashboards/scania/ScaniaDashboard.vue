@@ -10,11 +10,6 @@
         height: dashProps.skinData.size.height + 'px'
       }"
     >
-      <div
-        class="dash"
-        :class="{ yes: telemetry.truck.electric.enabled }"
-      ></div>
-
       <!--GAUGES -->
       <ScaniaGauges />
       <!-- indicators -->
@@ -24,17 +19,6 @@
         <ScaniaIndicatorSymbols />
       </div>
 
-      <div class="startIcons"></div>
-
-      <div
-        class="truck-electricOn"
-        :class="{ yes: telemetry.truck.electric.enabled }"
-      >
-        <div
-          class="startIcons"
-          :class="{ yes: telemetry.truck.electric.enabled }"
-        ></div>
-      </div>
       <ScaniaDisplay />
     </div>
   </Dashboard>

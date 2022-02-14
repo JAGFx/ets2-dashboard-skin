@@ -77,7 +77,7 @@ export default {
     mainMenuImage() {
       return this.display
         ? '/img/dashboard/scania/menuOn.png'
-        : '/img/dashboard/scania/menuOff.png';
+        : '/img/dashboard/scania/6482891_619566292.png';
     }
   }
 };

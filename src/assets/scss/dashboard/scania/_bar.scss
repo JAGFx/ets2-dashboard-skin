@@ -28,7 +28,7 @@
 		margin: 0 1rem;
 		
 		.square {
-			background: #fff;
+			background: $cWhite;
 			color: transparent;
 			height: 1rem;
 			width: 1.85rem;
@@ -69,6 +69,6 @@
 	}
 	
 	&.disabled, &.disabled .raw .value {
-		color: transparentize( #fff, .5 ) !important;
+		color: transparentize( $cWhite, .5 ) !important;
 	}
 }
