@@ -4,6 +4,7 @@
 			"id" :              "JAGFx",
 			"title" :           "JAGFx dashboard",
 			"disabled" :        false,
+			"manual" :        false,
 			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
 			"config_template" : "true",
 			"author" :          {
@@ -144,6 +145,7 @@
 		{
 			"id" :          "Scania",
 			"disabled" :    false,
+			"manual" :        true,
 			"title" :       "Scania",
 			"description" : "Scania Dashboard",
 			"author" :      {

@@ -91,7 +91,7 @@ export default {
         return 8;
       }
 
-      return this.displayIcon ? 6 : 8;
+      return this.displayIcon ? 8 : 10;
     },
     percentage() {
       return (this.value * this.maxWidth()) / this.max;

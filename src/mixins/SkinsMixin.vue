@@ -31,6 +31,11 @@ export default {
 
       return skin.disabled;
     },
+    $hasManual(skin) {
+      if (skin === undefined || skin === null) return false;
+
+      return skin.manual === true;
+    },
     $setActive(skin) {
       this.$pushALog(
         'Set skin active ' + JSON.stringify(skin),

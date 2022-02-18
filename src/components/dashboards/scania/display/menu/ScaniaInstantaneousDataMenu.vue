@@ -8,8 +8,7 @@
         max: 36,
         value: telemetry.truck.engine.batteryVoltage.value,
         unit: 'V',
-        displayMidLabel: false,
-        displayValuePosition: 'right'
+        displayMidLabel: false
       }"
     >
       <i class="icon icon-scania-battery_red" />
@@ -23,8 +22,7 @@
           true,
           false
         ),
-        unit: unit_pressure(1, false, true),
-        displayValuePosition: 'right'
+        unit: unit_pressure(1, false, true)
       }"
     >
       <i class="icon icon-scania-parking-break_red" />
@@ -36,8 +34,7 @@
         value:
           (telemetry.truck.adBlue.value * 100) /
           telemetry.truck.adBlue.capacity,
-        unit: '%',
-        displayValuePosition: 'right'
+        unit: '%'
       }"
     >
       <i class="icon icon-scania-ad-blue-low_yellow" />

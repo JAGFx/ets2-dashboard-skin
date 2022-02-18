@@ -15,10 +15,8 @@
       v-if="subMenu === null"
       class="w-100 d-flex justify-content-around align-items-center"
     >
-      <div
-        class="menuSelectorItem flex-area"
-        @click="subMenu = 'ScaniaVehicleInformationsMenu'"
-      >
+      <div class="menuSelectorItem flex-area">
+        <!--        @click="subMenu = 'ScaniaVehicleInformationsMenu'"-->
         <i class="icon-scania-menu-vehicle-info" />
       </div>
       <div
