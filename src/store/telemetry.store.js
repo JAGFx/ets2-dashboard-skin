@@ -30,8 +30,8 @@ export const getters = {
     );
   },
   jobDeliveryTime() {
-    return store.job.market.id === 'external_contracts'
-      ? store.job.expectedDeliveryTimestamp.value
-      : store.job.expectedDeliveryTimestamp.unix;
+    return store.telemetry.job.market.id === 'external_contracts'
+      ? store.telemetry.job.expectedDeliveryTimestamp.value
+      : store.telemetry.job.expectedDeliveryTimestamp.unix;
   }
 };
