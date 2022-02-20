@@ -268,6 +268,9 @@ export default {
 
       return Math.min(scaleX, scaleY);
     },
+    /**
+     * @deprecated
+     */
     $pressureToBar: function (inPressure, unit = 'bar') {
       let pressure;
 

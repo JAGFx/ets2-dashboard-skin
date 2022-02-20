@@ -122,28 +122,26 @@ export default {
 
       uConfig
         .upload(input.target.files[0], this.targetUpload)
-        .then(
-          (data) => {
-            this.$pushALog('Config upload done', history.HTY_ZONE.MENU_CONFIG);
+        .then((data) => {
+          this.$pushALog('Config upload done', history.HTY_ZONE.MENU_CONFIG);
 
-            const commitName =
-              this.targetUpload === 'game' ? 'config/setGame' : 'config/setApp';
-            this.$store.commit(commitName, data);
-          },
-          (e) => {
-            this.$store.dispatch('app/setError', {
-              message: {
-                type: 'dark',
-                title: 'Upload failed',
-                message: e
-              },
-              details: {
-                message: e,
-                code: '#CONFIG_UPLOAD_FAILED'
-              }
-            });
-          }
-        )
+          const commitName =
+            this.targetUpload === 'game' ? 'config/setGame' : 'config/setApp';
+          this.$store.commit(commitName, data);
+        })
+        .catch((e) => {
+          this.$store.dispatch('app/setError', {
+            message: {
+              type: 'dark',
+              title: 'Upload failed',
+              message: e
+            },
+            details: {
+              message: e,
+              code: '#CONFIG_UPLOAD_FAILED'
+            }
+          });
+        })
         .finally(() => {
           this.$refs.uploadFile.value = null;
           this.showUpload = false;
