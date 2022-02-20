@@ -39,9 +39,7 @@ const filesToZip = {
   './screenshot.png': './screenshot.png',
   './lib/config/config.json': './config/config.json',
   './lib/config/config.ats.json': './config/config.ats.json',
-  './lib/config/config.ets2.json': './config/config.ets2.json',
-  './lib/config/config.ets2-dashboard-skin.json':
-    './config/config.ets2-dashboard-skin.json'
+  './lib/config/config.ets2.json': './config/config.ets2.json'
 };
 const sdkTelemetryName = 'scsSDKTelemetry';
 const binPath = './bin/';

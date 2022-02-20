@@ -4,6 +4,7 @@
 
 ### Added
 
+- Last waiting time to drive
 - ets2.jagfx.fr (Deprecated)
 
 ### Changed

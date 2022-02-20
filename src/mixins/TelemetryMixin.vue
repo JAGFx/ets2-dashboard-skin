@@ -1,4 +1,8 @@
 <script>
+import {
+  getters as telemetryGetters,
+  store as telemetryStore
+} from '@/store/telemetry.store';
 import { app } from '@/utils/utils';
 import {
   length as uc_length,
@@ -7,8 +11,6 @@ import {
   temperature as uc_temperature,
   volume as uc_volume
 } from 'units-converter';
-import { store as telemetryStore } from '@/store/telemetry.store';
-import store from '@/store';
 
 export default {
   name: 'TelemetryMixin',
@@ -22,18 +24,8 @@ export default {
   },
   computed: {
     telemetry: () => telemetryStore.telemetry,
-    appReady: () =>
-      telemetryStore.receivedData &&
-      telemetryStore.telemetry.game.sdkActive &&
-      telemetryStore.telemetry.truck.brand.id.length !== 0 &&
-      store.getters['app/isLaunched'] &&
-      store.getters['config/gameConfigLoaded'],
-    receivedData: () => telemetryStore.receivedData,
-    jobDeliveryTime() {
-      return this.telemetry.job.market.id === 'external_contracts'
-        ? this.telemetry.job.expectedDeliveryTimestamp.value
-        : this.telemetry.job.expectedDeliveryTimestamp.unix;
-    }
+    appReady: () => telemetryGetters.telemetryDataIsEnough(),
+    jobDeliveryTime: () => telemetryGetters.jobDeliveryTime()
   },
   created() {
     Object.keys(app.formatConstants).forEach((key) => {
