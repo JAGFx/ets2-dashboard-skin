@@ -1,4 +1,8 @@
 <script>
+import {
+  getters as telemetryGetters,
+  store as telemetryStore
+} from '@/store/telemetry.store';
 import { app } from '@/utils/utils';
 import {
   length as uc_length,
@@ -7,8 +11,6 @@ import {
   temperature as uc_temperature,
   volume as uc_volume
 } from 'units-converter';
-import { store as telemetryStore } from '@/store/telemetry.store';
-import store from '@/store';
 
 export default {
   name: 'TelemetryMixin',
@@ -22,29 +24,20 @@ export default {
   },
   computed: {
     telemetry: () => telemetryStore.telemetry,
-    appReady: () =>
-      telemetryStore.receivedData &&
-      telemetryStore.telemetry.game.sdkActive &&
-      telemetryStore.telemetry.truck.brand.id.length !== 0 &&
-      store.getters['app/isLaunched'] &&
-      store.getters['config/gameConfigLoaded'],
+    appReady: () => telemetryGetters.telemetryDataIsEnough(),
     receivedData: () => telemetryStore.receivedData,
-    jobDeliveryTime() {
-      return this.telemetry.job.market.id === 'external_contracts'
-        ? this.telemetry.job.expectedDeliveryTimestamp.value
-        : this.telemetry.job.expectedDeliveryTimestamp.unix;
-    },
+    jobDeliveryTime: () => telemetryGetters.jobDeliveryTime(),
     truckElectricOn() {
       return this.telemetry.truck.electric.enabled;
     },
     haveWarnings() {
       return (
-        this.telemetry.truck.brakes.airPressure.warning.enabled ||
-        this.telemetry.truck.fuel.warning.enabled ||
-        this.telemetry.truck.adBlue.warning.enabled ||
-        this.telemetry.truck.engine.oilPressure.warning.enabled ||
-        this.telemetry.truck.engine.waterTemperature.warning.enabled ||
-        this.telemetry.truck.engine.batteryVoltage.warning.enabled
+          this.telemetry.truck.brakes.airPressure.warning.enabled ||
+          this.telemetry.truck.fuel.warning.enabled ||
+          this.telemetry.truck.adBlue.warning.enabled ||
+          this.telemetry.truck.engine.oilPressure.warning.enabled ||
+          this.telemetry.truck.engine.waterTemperature.warning.enabled ||
+          this.telemetry.truck.engine.batteryVoltage.warning.enabled
       );
     },
     haveErrors() {
@@ -307,6 +300,9 @@ export default {
 
       return Math.min(scaleX, scaleY);
     },
+    /**
+     * @deprecated
+     */
     $pressureToBar: function (inPressure, unit = 'bar') {
       let pressure;
 
