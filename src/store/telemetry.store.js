@@ -1,6 +1,5 @@
 import testData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
 import Vue from 'vue';
-import vueStore from '@/store';
 
 export const store = Vue.observable({
   telemetry: testData,

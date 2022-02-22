@@ -14,10 +14,7 @@ import { changeLocale, fallbackLocale } from '@/utils/_i18n';
 import { app, config, history } from '@/utils/utils';
 import { io } from 'socket.io-client';
 import Vue from 'vue';
-import {
-  store as telemetryStore,
-  getters as telemetryGetters
-} from '@/store/telemetry.store';
+import { store as telemetryStore } from '@/store/telemetry.store';
 
 export const loadAppConfig = () => {
   store.dispatch('app/showMessage', {
