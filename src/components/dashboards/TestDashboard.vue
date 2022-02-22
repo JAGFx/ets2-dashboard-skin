@@ -2,7 +2,7 @@
   <Dashboard class="test wrapper">
     <div class="speed">
       <span class="value">{{
-        unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
+        $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
       }}</span>
       <small class="unit">{{ unit_speed(telemetry.truck.speed, false) }}</small>
     </div>

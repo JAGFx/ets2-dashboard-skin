@@ -26,7 +26,7 @@
       <div class="datetime flex-area">
         <span>
           {{
-            $gameTime() | $dateTimeLocalized(DATE_FORMAT_NONE, TIME_FORMAT_TINY)
+            $dateTimeLocalized($gameTime(), DATE_FORMAT_NONE, TIME_FORMAT_TINY)
           }}
         </span>
       </div>

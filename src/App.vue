@@ -8,11 +8,11 @@
   >
     <HistoryOverlay />
     <Overlay />
-    <TelemetryEventOverlay v-if="appReady" />
-    <Header v-if="appReady" />
+    <TelemetryEventOverlay v-if="$telemetryDataIsEnough()" />
+    <Header v-if="$telemetryDataIsEnough()" />
     <component
       :is="currentSkinComponent()"
-      v-if="appReady"
+      v-if="$telemetryDataIsEnough()"
       v-show="!menuIsDisplayed"
     />
   </main>

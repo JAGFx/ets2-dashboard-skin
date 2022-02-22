@@ -31,7 +31,7 @@
         />
         <div class="truck-speedRounded wrapper-area">
           <span>{{
-            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
+            $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
           }}</span>
         </div>
         <div class="truck-speedRounded-unit wrapper-area">
@@ -72,8 +72,10 @@
         />
         <div class="truck-odometer wrapper-area">
           <span>{{
-            unit_length(telemetry.truck.odometer, 'km', true, false)
-              | $toFixed(0)
+            $toFixed(
+              unit_length(telemetry.truck.odometer, 'km', true, false),
+              0
+            )
           }}</span>
         </div>
         <div class="truck-cruiseControlSpeedRounded wrapper-area">
@@ -114,7 +116,7 @@
           class="trailer-attached"
         />
         <div class="trailer-mass">
-          {{ unit_weight(telemetry.job.cargo.mass, true, false) | $toFixed(1)
+          {{ $toFixed(unit_weight(telemetry.job.cargo.mass, true, false), 1)
           }}<span class="ton">{{
             unit_weight(telemetry.job.cargo.mass, false)
           }}</span>
@@ -128,8 +130,11 @@
             <th>{{ $t('Time') }}:</th>
             <td>
               <span class="game-time">{{
-                $gameTime()
-                  | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+                $dateTimeLocalized(
+                  $gameTime(),
+                  DATE_FORMAT_LONG,
+                  TIME_FORMAT_SHORT
+                )
               }}</span>
             </td>
           </tr>

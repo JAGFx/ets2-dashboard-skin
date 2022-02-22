@@ -7,7 +7,7 @@
       >
         <span class="title">Cabin</span>
         <span class="data"
-          >{{ (eventRawData.damages.cabin * 100) | $toFixed(2) }} %</span
+          >{{ $toFixed(eventRawData.damages.cabin * 100, 2) }} %</span
         >
       </div>
       <div
@@ -15,7 +15,7 @@
       >
         <span class="title">Chassis</span>
         <span class="data"
-          >{{ (eventRawData.damages.chassis * 100) | $toFixed(2) }} %</span
+          >{{ $toFixed(eventRawData.damages.chassis * 100, 2) }} %</span
         >
       </div>
       <div
@@ -23,7 +23,7 @@
       >
         <span class="title">Engine</span>
         <span class="data"
-          >{{ (eventRawData.damages.engine * 100) | $toFixed(2) }} %</span
+          >{{ $toFixed(eventRawData.damages.engine * 100, 2) }} %</span
         >
       </div>
       <div
@@ -31,7 +31,7 @@
       >
         <span class="title">Transmission</span>
         <span class="data"
-          >{{ (eventRawData.damages.transmission * 100) | $toFixed(2) }} %</span
+          >{{ $toFixed(eventRawData.damages.transmission * 100, 2) }} %</span
         >
       </div>
       <div
@@ -39,7 +39,7 @@
       >
         <span class="title">Wheels</span>
         <span class="data"
-          >{{ (eventRawData.damages.wheels * 100) | $toFixed(2) }} %</span
+          >{{ $toFixed(eventRawData.damages.wheels * 100, 2) }} %</span
         >
       </div>
     </div>

@@ -31,7 +31,7 @@
         />
         <div class="truck-speedRounded wrapper-area">
           <span>{{
-            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
+            $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
           }}</span>
         </div>
         <Cadran
@@ -69,8 +69,10 @@
         />
         <div class="truck-odometer wrapper-area">
           <span>{{
-            unit_length(telemetry.truck.odometer, 'km', true, false)
-              | $toFixed(0)
+            $toFixed(
+              unit_length(telemetry.truck.odometer, 'km', true, false),
+              0
+            )
           }}</span>
         </div>
         <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
@@ -111,7 +113,7 @@
         <div class="trailer-mass wrapper-area">
           <span>
             {{
-              unit_weight(telemetry.job.cargo.mass, true, false) | $toFixed(1)
+              $toFixed(unit_weight(telemetry.job.cargo.mass, true, false), 1)
             }}
             <span class="ton">{{
               unit_weight(telemetry.job.cargo.mass, false)
@@ -132,8 +134,11 @@
         />
         <div class="game-time wrapper-area">
           <span>{{
-            $gameTime()
-              | $dateTimeLocalized(DATE_FORMAT_SHORT, TIME_FORMAT_SHORT)
+            $dateTimeLocalized(
+              $gameTime(),
+              DATE_FORMAT_SHORT,
+              TIME_FORMAT_SHORT
+            )
           }}</span>
         </div>
       </div>

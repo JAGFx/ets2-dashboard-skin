@@ -114,7 +114,7 @@
     </ul>
     <div class="game-time">
       <span>{{
-        $gameTime() | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+        $dateTimeLocalized($gameTime(), DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
       }}</span>
     </div>
     <ul class="w-100">

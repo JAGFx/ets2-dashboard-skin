@@ -27,7 +27,7 @@
           'minAngle' : -111,
           'maxAngle': 110,
         }"></Cadran>-->
-        <!--				<div class="truck-speedRounded wrapper-area"><span>{{ telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false ) | $toFixed( 0 )  }}</span></div>-->
+        <!--				<div class="truck-speedRounded wrapper-area"><span>{{ $toFixed(telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false ),  0 )  }}</span></div>-->
         <!--<Cadran v-bind="{
           'classCSS': 'truck-engineRpm',
           'type': 'meter',
@@ -117,8 +117,14 @@
         </div>
         <div class="truck-fuelAverageConsumption">
           {{
-            unit_consumption(telemetry.truck.fuel.avgConsumption, true, false)
-              | $toFixed(1)
+            $toFixed(
+              unit_consumption(
+                telemetry.truck.fuel.avgConsumption,
+                true,
+                false
+              ),
+              1
+            )
           }}
         </div>
         <div class="_fuelAvg">
@@ -163,12 +169,14 @@
         />
         <div class="navigation-speedLimit">
           {{
-            unit_speed(telemetry.navigation.speedLimit, true, false)
-              | $toFixed(0)
+            $toFixed(
+              unit_speed(telemetry.navigation.speedLimit, true, false),
+              0
+            )
           }}
         </div>
 
-        <!--				<div class="truck-odometer wrapper-area"><span>{{ unit_length( telemetry.truck.odometer, 'km', true, false ) | $toFixed( 0 ) }}</span></div>-->
+        <!--				<div class="truck-odometer wrapper-area"><span>{{ $toFixed(unit_length( telemetry.truck.odometer, 'km', true, false ),  0 ) }}</span></div>-->
         <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-displayedGear wrapper-area">
           <span>{{
@@ -181,8 +189,11 @@
 
         <div class="job-remainingTime wrapper-area">
           <span v-if="$jobRemainingTimeToDueDate()">{{
-            telemetry.job.expectedDeliveryTimestamp.value
-              | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+            $dateTimeLocalized(
+              telemetry.job.expectedDeliveryTimestamp.value,
+              DATE_FORMAT_LONG,
+              TIME_FORMAT_SHORT
+            )
           }}</span>
           <span v-else>{{
             $jobRemainingTimeDelivery(telemetry.job.deliveryTime.unix)
@@ -207,7 +218,7 @@
 
         <!--				<div :class="{'yes': telemetry.trailer.attached}" class="trailer-attached"></div>-->
         <!--				<div class="trailer-mass wrapper-area">-->
-        <!--					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
+        <!--					<span>{{ $toFixed(unit_weight( telemetry.job.cargo.mass, true, false ),  1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
         <!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
         <!--				<div :class="{ 'yes': telemetry.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>-->
         <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->

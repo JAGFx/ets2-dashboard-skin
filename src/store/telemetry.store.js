@@ -19,19 +19,3 @@ export const mutations = {
     store.gameConnected = payload;
   }
 };
-
-export const getters = {
-  telemetryDataIsEnough() {
-    return (
-      store.receivedData &&
-      store.telemetry.game.sdkActive &&
-      store.telemetry.truck.brand.id.length !== 0 &&
-      vueStore.getters['config/gameConfigLoaded']
-    );
-  },
-  jobDeliveryTime() {
-    return store.telemetry.job.market.id === 'external_contracts'
-      ? store.telemetry.job.expectedDeliveryTimestamp.value
-      : store.telemetry.job.expectedDeliveryTimestamp.unix;
-  }
-};

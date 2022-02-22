@@ -2,13 +2,13 @@
   <div>
     <!-- Line 1 -->
     <div
-      v-if="haveErrors || truckElectricOn"
+      v-if="$hasErrors || $truckElectricOn"
       class="truck-stopWarning flex-area symbol r1 c1 red"
     >
       <i class="icon-scania-warning_red" />
     </div>
     <div
-      v-if="haveWarnings || truckElectricOn"
+      v-if="$hasWarnings || $truckElectricOn"
       class="truck-checkWarning flex-area symbol r1 c2 yellow"
     >
       <i class="icon-scania-warning_yellow" />
@@ -19,20 +19,20 @@
       v-if="
         telemetry.truck.brakes.airPressure.warning.enabled ||
         telemetry.truck.brakes.airPressure.emergency.enabled ||
-        truckElectricOn
+        $truckElectricOn
       "
       class="truck-brake-pressure flex-area symbol r2 c1 red"
     >
       <i class="icon-scania-break-pressure_red_yellow" />
     </div>
     <div
-      v-if="telemetry.truck.lights.parking.enabled || truckElectricOn"
+      v-if="telemetry.truck.lights.parking.enabled || $truckElectricOn"
       class="truck-parkBrake flex-area symbol r2 c2 red"
     >
       <i class="icon-scania-parking-break_red" />
     </div>
     <div
-      v-if="telemetry.truck.brakes.retarder.level > 0 || truckElectricOn"
+      v-if="telemetry.truck.brakes.retarder.level > 0 || $truckElectricOn"
       class="retarder flex-area symbol r2 c4 green"
     >
       <i class="icon-scania-retarder_green" />
@@ -40,13 +40,13 @@
 
     <!-- Line 3 -->
     <div
-      v-if="telemetry.truck.engine.enabled || truckElectricOn"
+      v-if="telemetry.truck.engine.enabled || $truckElectricOn"
       class="engine-failure flex-area symbol r3 c2 yellow"
     >
       <i class="icon-scania-engine-failure_yellow" />
     </div>
     <div
-      v-if="telemetry.truck.differential.lock.enabled || truckElectricOn"
+      v-if="telemetry.truck.differential.lock.enabled || $truckElectricOn"
       class="truck-differentialLock flex-area symbol r3 c4 yellow"
     >
       <i class="icon-scania-differential-lock_yellow" />
@@ -54,19 +54,19 @@
 
     <!-- Line 4 -->
     <div
-      v-if="truckElectricOn"
+      v-if="$truckElectricOn"
       class="driver-safty-belt flex-area symbol r4 c2 red"
     >
       <i class="icon-scania-driver-safty-belt_red" />
     </div>
     <div
-      v-if="telemetry.truck.liftAxle.enabled || truckElectricOn"
+      v-if="telemetry.truck.liftAxle.enabled || $truckElectricOn"
       class="tractor-tag-axle-raised flex-area symbol r4 c3 yellow"
     >
       <i class="icon-scania-tractor-tag-axle-raised_yellow" />
     </div>
     <div
-      v-if="telemetry.trailer.liftAxle.enabled || truckElectricOn"
+      v-if="telemetry.trailer.liftAxle.enabled || $truckElectricOn"
       class="trailer-tag-axle-raised flex-area symbol r4 c4 yellow"
     >
       <i class="icon-scania-trailer-tag-axle-raised_yellow" />
