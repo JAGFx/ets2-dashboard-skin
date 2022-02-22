@@ -39,7 +39,8 @@ import {
   loadGameConfig,
   setConfigActive,
   setLocale,
-  connectToTelemetryServer
+  connectToTelemetryServer,
+  waitingTruckSpawn
 } from '@/utils/_splashScreen';
 import { mapGetters } from 'vuex';
 
@@ -84,6 +85,7 @@ export default {
       .then(setLocale)
       .then(connectToTelemetryServer)
       .then(loadGameConfig)
+      .then(waitingTruckSpawn)
       .then(() => {
         this.$store.commit('app/setLaunched', true);
         this.$store.dispatch('app/endProcessing');

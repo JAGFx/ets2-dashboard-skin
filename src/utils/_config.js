@@ -65,32 +65,32 @@ export const save = async (data, target) => {
   return await axios
     .post(basePathHost() + `/config/${target}`, {
       data: data[target],
+      target,
       gameId
     })
-    .then(
-      (response) => {
-        store.dispatch('app/endProcessing');
-        return response.data;
-      },
-      (error) => {
-        store.dispatch('app/setError', {
-          message: {
-            type: 'dark',
-            title: error.name,
-            message: error.message
-          },
-          details: {
-            error: error,
-            code: 'CONFIG_SAVE_FAILED'
-          }
-        });
-        throw error;
-      }
-    );
+    .then((response) => {
+      store.dispatch('app/endProcessing');
+      return response.data.data;
+    })
+    .catch((error) => {
+      store.dispatch('app/setError', {
+        message: {
+          type: 'dark',
+          title: error.name,
+          message: error.message
+        },
+        details: {
+          error: error,
+          code: 'CONFIG_SAVE_FAILED'
+        }
+      });
+      throw error;
+    });
 };
 
-export const download = (target, gameId) => {
-  return load(target, gameId).then((data) => {
+export const download = (target) => {
+  return load(target).then((data) => {
+    const gameId = telemetryStore.telemetry.game.game.name;
     const fileName = target === 'app' ? 'config.json' : `config.${gameId}.json`;
 
     const file = new File([JSON.stringify(data, null, 2)], fileName, {
@@ -105,15 +105,16 @@ export const load = (target) => {
   if (useFakeData)
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(store.getters[`config/${target}`] ?? emptyData().app);
+        resolve(store.getters[`config/${target}`] ?? emptyData()[target]);
       }, 1000);
     });
 
-  return axios.get(basePathHost() + '/config').then(
-    (response) => {
+  return axios
+    .get(basePathHost() + '/config')
+    .then((response) => {
       return response.data[target];
-    },
-    (error) => {
+    })
+    .catch((error) => {
       store.dispatch('app/setError', {
         message: {
           type: 'dark',
@@ -126,8 +127,7 @@ export const load = (target) => {
         }
       });
       throw error;
-    }
-  );
+    });
 };
 
 export const loadGameConfig = () => {
@@ -140,11 +140,12 @@ export const loadGameConfig = () => {
       }, 1000);
     });
 
-  return axios.get(basePathHost() + `/config`).then(
-    (response) => {
+  return axios
+    .get(basePathHost() + `/config`)
+    .then((response) => {
       return response.data.game;
-    },
-    (error) => {
+    })
+    .catch((error) => {
       store.dispatch('app/setError', {
         message: {
           type: 'dark',
@@ -157,8 +158,7 @@ export const loadGameConfig = () => {
         }
       });
       throw error;
-    }
-  );
+    });
 };
 
 export const upload = (file, target) => {
@@ -177,7 +177,10 @@ export const upload = (file, target) => {
           if (!checkResult.state)
             throw 'An entry required was not found: ' + checkResult.value;
 
-          save(data, target).then(
+          let configData = {};
+          configData[target] = data;
+
+          save(configData, target).then(
             (data) => resolve(data),
             (error) => reject(error)
           );
@@ -205,7 +208,7 @@ const uploadChecker = (input, target) => {
     state: true
   };
 
-  Object.entries(emptyData()[target]).forEach((entry) => {
+  Object.entries(emptyData(true)[target]).forEach((entry) => {
     const key = entry[0];
 
     if (!Object.hasOwnProperty.call(input, key))

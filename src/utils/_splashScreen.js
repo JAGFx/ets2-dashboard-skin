@@ -13,7 +13,10 @@ import { changeLocale, fallbackLocale } from '@/utils/_i18n';
 import { app, config, history } from '@/utils/utils';
 import { io } from 'socket.io-client';
 import Vue from 'vue';
-import { store as telemetryStore } from '@/store/telemetry.store';
+import {
+  store as telemetryStore,
+  getters as telemetryGetters
+} from '@/store/telemetry.store';
 
 export const loadAppConfig = () => {
   store.dispatch('app/showMessage', {
@@ -78,19 +81,6 @@ export const setLocale = () => {
   });
 };
 
-export const loadGameConfig = () => {
-  store.dispatch('app/showMessage', {
-    icon: null,
-    title: 'Launching',
-    message: 'Load configuration game'
-  });
-
-  return config.loadGameConfig().then((data) => {
-    pushLog('Game config loaded', history.HTY_ZONE.MAIN);
-    store.commit('config/setGame', data);
-  });
-};
-
 export const connectToTelemetryServer = () => {
   return new Promise((resolve) => {
     store.dispatch('app/showMessage', {
@@ -128,6 +118,36 @@ export const connectToTelemetryServer = () => {
       });
 
       if (telemetryStore.gameConnected) {
+        clearInterval(waitingInterval);
+        resolve();
+      }
+    }, 500);
+  });
+};
+
+export const loadGameConfig = () => {
+  store.dispatch('app/showMessage', {
+    icon: null,
+    title: 'Launching',
+    message: 'Load configuration game'
+  });
+
+  return config.loadGameConfig().then((data) => {
+    pushLog('Game config loaded', history.HTY_ZONE.MAIN);
+    store.commit('config/setGame', data);
+  });
+};
+
+export const waitingTruckSpawn = () => {
+  return new Promise((resolve) => {
+    const waitingInterval = setInterval(() => {
+      store.dispatch('app/showMessage', {
+        icon: null,
+        title: 'Launching',
+        message: 'Last waiting time to drive'
+      });
+
+      if (telemetryGetters.telemetryDataIsEnough()) {
         clearInterval(waitingInterval);
         resolve();
       }
