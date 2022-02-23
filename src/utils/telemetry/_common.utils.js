@@ -29,7 +29,6 @@ export const $scale = (currentSkin) => {
 
   return Math.min(scaleX, scaleY);
 };
-export const $gameTime = () => telemetryStore.telemetry.game.time.unix;
 
 export const $hasWarnings = () => {
   return (

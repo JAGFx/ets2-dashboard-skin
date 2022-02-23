@@ -10,21 +10,26 @@ module.exports = {
     '<rootDir>/lib',
     '<rootDir>/servers'
   ],
-  clearMocks: true,
+  //clearMocks: true,
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
     'src/**/*.vue',
     'src/**/*.js',
+    '!src/translations/*.yaml',
     '!src/main.js',
     'lib/**/*.js',
     '!lib/sdk/',
     '!lib/config/',
-    'servers/**/*.js',
-    '!node_modules/'
+    'servers/**/*.js'
   ],
-  moduleFileExtensions: ['js', 'json', 'vue'],
+  moduleNameMapper: {
+    '@/(.*)$': '<rootDir>/src/$1'
+  },
+  moduleFileExtensions: ['js', 'json', 'node', 'yaml'],
+  transformIgnorePatterns: ['/node_modules/(?!ol)'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
-    '^.+\\.vue$': '@vue/vue2-jest'
-  }
+    '^.+\\.(js)$': 'babel-jest',
+    '\\.yaml$': 'jest-transform-yaml'
+  },
+  testEnvironment: 'jsdom'
 };

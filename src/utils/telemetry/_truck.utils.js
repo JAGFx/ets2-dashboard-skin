@@ -10,7 +10,3 @@ export const $truckDamage = () => {
     ? $averageDamage(telemetryStore.telemetry.truck.damage)
     : Math.floor(100 * telemetryStore.telemetry.truck.damage.chassis);
 };
-
-export const $truckElectricOn = () => {
-  return telemetryStore.telemetry.truck.electric.enabled;
-};
