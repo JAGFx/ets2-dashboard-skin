@@ -3,11 +3,17 @@ export const changeTelemetryData = (obj, path, value) =>
 
 export const deepChangeObjectValue = (obj, path, value) => {
   let i;
+  const splitPath = path.split('.');
 
-  path = path.split('.');
-  for (i = 0; i < path.length - 1; i++) obj = obj[path[i]];
+  for (i = 0; i < splitPath.length - 1; i++) {
+    if (!Object.hasOwnProperty.call(obj, splitPath[i]))
+      throw new Error(
+        `The path "${path}" was not found on the original object`
+      );
+    obj = obj[splitPath[i]];
+  }
 
-  obj[path[i]] = value;
+  obj[splitPath[i]] = value;
 
   return obj;
 };

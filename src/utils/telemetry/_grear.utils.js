@@ -48,7 +48,7 @@ export const $trukGear = (transmission, brand, withShifterType = true) => {
   return strGear;
 };
 
-export const $trukShifterTypeLetter = (transmission, brand) => {
+export const $truckShifterTypeLetter = (transmission, brand) => {
   const gear = $gearInfo(transmission, brand).gear;
   const crawlingGear = $gearInfo(transmission, brand).crawlingGear;
   let shifterType = 'D';

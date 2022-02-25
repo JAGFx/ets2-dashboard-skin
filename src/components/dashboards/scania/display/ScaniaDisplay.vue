@@ -5,7 +5,7 @@
       <div class="flex-area justify-content-start w-100 gearbox-wrapper">
         <div class="truck-shifterType flex-area">
           <span>{{
-            $trukShifterTypeLetter(
+            $truckShifterTypeLetter(
               telemetry.truck.transmission,
               telemetry.truck.brand
             )
