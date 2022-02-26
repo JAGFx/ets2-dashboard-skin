@@ -6,6 +6,7 @@
 
 <script>
 import TelemetryMixin from '@/mixins/TelemetryMixin';
+import { scale } from '@/utils/telemetry/_common.utils';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -33,7 +34,7 @@ export default {
       return this.currentSkin;
     },
     updateScale() {
-      this.currentScale = this.$scale(this.currentSkin);
+      this.currentScale = scale(this.currentSkin);
     }
   }
 };

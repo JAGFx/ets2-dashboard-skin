@@ -4,10 +4,13 @@
       <div class="trailer-data">
         <!--<span>{{bodyType}}</span>
 				<small>{{chainType}}</small>-->
-        <div v-if="$hasTrailerAndJob()" class="job">
-          {{ telemetry.job.cargo.name }}
+        <div
+          v-if="telemetry2.job.hasAnActiveJob && telemetry2.trailer.hasATrailer"
+          class="job"
+        >
+          {{ telemetry2.job.cargoName }}
         </div>
-        <div v-else-if="$hasTrailer()" class="job disabled">
+        <div v-else-if="telemetry2.trailer.hasATrailer" class="job disabled">
           <i>-- {{ $t('No Job') }} --</i>
         </div>
         <div v-else class="job disabled">
@@ -17,19 +20,14 @@
       <div class="job-data">
         <small class="licencePlate left">
           <span class="flag">
-            {{
-              $flag(
-                telemetry.trailer.licensePlate.country.id,
-                telemetry.game.game.id
-              )
-            }}
+            {{ telemetry2.trailer.countryFlagOfLicensePlate }}
           </span>
-          <span v-if="$hasTrailer()" class="w-100 text-center">
-            <span>{{ telemetry.trailer.licensePlate.value }}</span>
+          <span v-if="telemetry2.trailer.hasATrailer" class="w-100 text-center">
+            <span>{{ telemetry2.trailer.licensePlate }}</span>
           </span>
           <span v-else class="w-100 text-center">{{ $t('N/A') }}</span>
         </small>
-        <div v-if="$hasTrailer()" class="damage left">
+        <div v-if="telemetry2.trailer.hasATrailer" class="damage left">
           {{ $trailerDamage() }} %
         </div>
         <div v-else class="damage left">

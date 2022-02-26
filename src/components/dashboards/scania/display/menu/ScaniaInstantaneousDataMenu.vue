@@ -6,7 +6,7 @@
       v-bind="{
         min: 20,
         max: 36,
-        value: telemetry.truck.engine.batteryVoltage.value,
+        value: telemetry2.truck.batteryVoltage,
         unit: 'V',
         displayMidLabel: false
       }"
@@ -16,13 +16,9 @@
     <ScaniaBar
       v-bind="{
         min: 0,
-        max: $pressureUnitReadable(175),
-        value: unit_pressure(
-          telemetry.truck.brakes.airPressure.value,
-          true,
-          false
-        ),
-        unit: unit_pressure(1, false, true)
+        max: 175,
+        value: telemetry2.truck.brakeAirPressure,
+        unit: $unitReadable('unit_pressure')
       }"
     >
       <i class="icon icon-scania-parking-break_red" />
@@ -32,8 +28,8 @@
         min: 0,
         max: 100,
         value:
-          (telemetry.truck.adBlue.value * 100) /
-          telemetry.truck.adBlue.capacity,
+          (telemetry2.truck.adBlueLevel * 100) /
+          telemetry2.truck.adBlueCapacity,
         unit: '%'
       }"
     >

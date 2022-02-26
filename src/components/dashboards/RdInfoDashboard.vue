@@ -117,14 +117,11 @@
         </div>
         <div class="truck-fuelAverageConsumption">
           {{
-            $toFixed(
-              unit_consumption(
-                telemetry.truck.fuel.avgConsumption,
-                true,
-                false
-              ),
-              1
-            )
+            unit_consumption(
+              telemetry.truck.fuel.avgConsumption,
+              true,
+              false
+            ).toFixed(1)
           }}
         </div>
         <div class="_fuelAvg">
@@ -169,19 +166,14 @@
         />
         <div class="navigation-speedLimit">
           {{
-            $toFixed(
-              unit_speed(telemetry.navigation.speedLimit, true, false),
-              0
-            )
+            unit_speed(telemetry.navigation.speedLimit, true, false).toFixed(0)
           }}
         </div>
 
         <!--				<div class="truck-odometer wrapper-area"><span>{{ $toFixed(unit_length( telemetry.truck.odometer, 'km', true, false ),  0 ) }}</span></div>-->
         <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-displayedGear wrapper-area">
-          <span>{{
-            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
-          }}</span>
+          <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
         <!-- indicators -->
         <!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>-->

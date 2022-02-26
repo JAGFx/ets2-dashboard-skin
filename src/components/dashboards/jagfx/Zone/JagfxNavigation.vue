@@ -5,13 +5,8 @@
         <!-- Left elements -->
         <JagfxSymbolArea side="left" />
 
-        <div
-          :class="telemetry.truck.transmission.shifterType"
-          class="truck-gear"
-        >
-          <span class="value">{{
-            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
-          }}</span>
+        <div :class="telemetry2.truck.shifterType" class="truck-gear">
+          <span class="value">{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
 
         <!-- Right elements -->
@@ -30,20 +25,17 @@
           >
             <JagfxRPMBars
               v-bind="{
-                engine: telemetry.truck.engine,
-                brand: telemetry.truck.brand,
-                model: telemetry.truck.model
+                engineRpm: telemetry2.truck.rpm,
+                engineMaxRpm: telemetry2.truck.maxRpm,
+                brandId: telemetry2.truck.brandId,
+                modelId: telemetry2.truck.modelId
               }"
             />
           </div>
           <div class="middle">
             <div class="speed">
-              <span class="value">{{
-                $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
-              }}</span>
-              <small class="unit">{{
-                unit_speed(telemetry.truck.speed, false)
-              }}</small>
+              <span class="value">{{ telemetry2.truck.speed.toFixed(0) }}</span>
+              <small class="unit">{{ $unitReadable('unit_speed') }}</small>
             </div>
 
             <div
@@ -74,9 +66,10 @@
           >
             <JagfxRPMBars
               v-bind="{
-                engine: telemetry.truck.engine,
-                brand: telemetry.truck.brand,
-                model: telemetry.truck.model
+                engineRpm: telemetry2.truck.rpm,
+                engineMaxRpm: telemetry2.truck.maxRpm,
+                brandId: telemetry2.truck.brandId,
+                modelId: telemetry2.truck.modelId
               }"
             />
           </div>
@@ -84,12 +77,8 @@
       </div>
 
       <div class="odometer">
-        <span class="value">{{
-          $toFixed(unit_length(telemetry.truck.odometer, 'km', true, false), 0)
-        }}</span>
-        <small class="unit">{{
-          unit_length(telemetry.truck.odometer, 'km', false)
-        }}</small>
+        <span class="value">{{ telemetry2.truck.odometer.toFixed(0) }}</span>
+        <small class="unit">{{ $unitReadable('unit_length', 'km') }}</small>
       </div>
 
       <!-- Speed limit -->
@@ -101,7 +90,7 @@
               'jagfx_elements_mid_bottom_blinker_turn'
             )
           "
-          :class="{ active: telemetry.truck.lights.blinker.left.active }"
+          :class="{ active: telemetry2.symbols.leftDirectionIsActive }"
           class="blinkers"
         >
           <i class="icon-blinker_left" />
@@ -113,10 +102,10 @@
               'jagfx_elements_mid_bottom_speedLimit'
             )
           "
-          :class="{ hidden: telemetry.navigation.speedLimit.value === 0 }"
+          :class="{ hidden: !telemetry2.navigation.hasAnActiveSpeedLimit }"
           class="speedLimitKPH"
         >
-          {{ unit_speed(telemetry.navigation.speedLimit, true, false) }}
+          {{ telemetry2.navigation.speedLimitValue.toFixed(0) }}
         </div>
         <div
           v-if="
@@ -125,7 +114,7 @@
               'jagfx_elements_mid_bottom_blinker_turn'
             )
           "
-          :class="{ active: telemetry.truck.lights.blinker.right.active }"
+          :class="{ active: telemetry2.symbols.rightDirectionIsActive }"
           class="blinkers"
         >
           <i class="icon-blinker_right" />
@@ -148,13 +137,12 @@ export default {
   methods: {
     getFuelByBar: function () {
       return (
-        this.telemetry.truck.fuel.capacity *
-        this.telemetry.truck.fuel.warning.factor
+        this.telemetry2.truck.fuelCapacity * this.telemetry2.truck.fuelFactor
       ).toFixed(0);
     },
     getFuelBarCount: function () {
       return Math.ceil(
-        this.telemetry.truck.fuel.capacity / this.getFuelByBar()
+        this.telemetry2.truck.fuelCapacity / this.getFuelByBar()
       );
     },
     getFuelBarActive: function (i) {
@@ -162,10 +150,10 @@ export default {
       const iLow = i - 1;
       const fuelBarFrom = iLow * fuelByBar;
 
-      return this.telemetry.truck.fuel.value >= fuelBarFrom;
+      return this.telemetry2.truck.fuelLevel >= fuelBarFrom;
     },
     onWarningLevel: function () {
-      return this.telemetry.truck.fuel.value < this.getFuelByBar();
+      return this.telemetry2.truck.fuelLevel < this.getFuelByBar();
     }
   }
 };

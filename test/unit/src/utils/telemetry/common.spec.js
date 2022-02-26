@@ -1,9 +1,9 @@
 import { store as telemetryStore } from '@/store/telemetry.store';
 import {
-  $averageDamage,
+  averageDamage,
   $hasErrors,
   $hasWarnings,
-  $scale
+  scale
 } from '@/utils/telemetry/_common.utils';
 import { jest } from '@jest/globals';
 import { applyChangesOnTelemetryFromDataProvider } from '../../../test.helper';
@@ -27,7 +27,7 @@ describe('Telemetry common utils', () => {
       { size: { width: windowWidth, height: windowHeight } },
       { size: { width: 0, height: 0 } }
     ])('The skin should be reduced', (currentSkin) => {
-      expect($scale(currentSkin)).toBeLessThan(1);
+      expect(scale(currentSkin)).toBeLessThan(1);
     });
 
     test.each([
@@ -39,7 +39,7 @@ describe('Telemetry common utils', () => {
       { size: { width: windowWidth, height: windowHeight } },
       { size: { width: 0, height: 0 } }
     ])('The skin should be enlarged', (currentSkin) => {
-      expect($scale(currentSkin)).toBeGreaterThanOrEqual(1);
+      expect(scale(currentSkin)).toBeGreaterThanOrEqual(1);
     });
   });
 
@@ -54,7 +54,7 @@ describe('Telemetry common utils', () => {
         total: 0
       }
     ])('The average damage should be correct', (arrayDamage) => {
-      expect($averageDamage(arrayDamage)).toBe(30);
+      expect(averageDamage(arrayDamage)).toBe(30);
     });
   });
 

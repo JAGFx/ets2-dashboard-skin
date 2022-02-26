@@ -1,19 +1,19 @@
 <template>
   <div>
     <div
-      v-if="telemetry.truck.lights.blinker.left.active"
+      v-if="telemetry2.symbols.leftDirectionIsActive"
       class="truck-blinkerLeft flex-area"
     >
       <i class="icon-scania-direction-indicator-left_green" />
     </div>
     <div
-      v-if="telemetry.truck.lights.blinker.right.active"
+      v-if="telemetry2.symbols.rightDirectionIsActive"
       class="truck-blinkerRight flex-area"
     >
       <i class="icon-scania-direction-indicator-right_green" />
     </div>
     <div
-      v-if="telemetry.truck.lights.beamHigh.enabled"
+      v-if="telemetry2.symbols.mainBeamIsEnabled"
       class="truck-lightsBeamHigh flex-area symbol"
     >
       <i class="icon-scania-main-beam_blue" />

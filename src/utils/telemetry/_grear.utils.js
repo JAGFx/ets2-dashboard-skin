@@ -1,10 +1,9 @@
 import { config } from '@/utils/telemetry/_common.utils';
 
-export const $gearInfo = (transmission, brand) => {
-  let gear = transmission.gear.displayed;
+export const crawlingGearCount = (brandName) => {
   let crawlingGear = 0;
 
-  switch (brand.name) {
+  switch (brandName) {
     case 'Volvo':
     case 'Scania':
     case 'Kenworth':
@@ -12,28 +11,31 @@ export const $gearInfo = (transmission, brand) => {
       break;
   }
 
-  return { gear, crawlingGear };
+  return crawlingGear;
 };
 
-export const $trukGear = (transmission, brand, withShifterType = true) => {
-  const gear = $gearInfo(transmission, brand).gear;
-  const crawlingGear = $gearInfo(transmission, brand).crawlingGear;
+export const truckGear = (
+  gear,
+  shifterType,
+  brandName,
+  withShifterType = true
+) => {
+  const crawlingGear = crawlingGearCount(brandName);
   const hShiftLayout = config('general_h-shift-layout');
   const rangeAndSplitterEnabled = hShiftLayout === 'h-shifter';
   let strGear = gear;
 
-  if (transmission.shifterType === 'hshifter' && rangeAndSplitterEnabled) {
+  if (shifterType === 'hshifter' && rangeAndSplitterEnabled) {
     let realGearCount = gear - crawlingGear;
-    let spliter = realGearCount % 2 ? 'L' : 'H';
+    let splitter = realGearCount % 2 ? 'L' : 'H';
     let realGear = Math.ceil(realGearCount / 2);
-    strGear = realGear + spliter;
+    strGear = realGear + splitter;
   } else {
     strGear = gear - crawlingGear;
   }
 
   if (
-    (transmission.shifterType === 'automatic' ||
-      transmission.shifterType === 'arcade') &&
+    (shifterType === 'automatic' || shifterType === 'arcade') &&
     withShifterType
   )
     strGear = 'A' + (gear - crawlingGear);
@@ -42,16 +44,12 @@ export const $trukGear = (transmission, brand, withShifterType = true) => {
 
   if (gear === 0) strGear = 'N';
 
-  if (gear < 0) strGear = 'R' + Math.abs(transmission.gear.displayed);
+  if (gear < 0) strGear = 'R' + Math.abs(gear);
 
   return strGear;
 };
 
-export const $truckShifterTypeLetter = (transmission) => {
-  if (
-    transmission.shifterType === 'automatic' ||
-    transmission.shifterType === 'arcade'
-  )
-    return 'A';
+export const truckShifterTypeLetter = (shifterType) => {
+  if (shifterType === 'automatic' || shifterType === 'arcade') return 'A';
   else return 'M';
 };

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="telemetry.truck.lights.beacon.enabled"
+      v-if="telemetry2.symbols.beaconIsEnabled"
       class="rotating-light flex-area symbol"
     >
       <i class="icon-scania-rotating-beacon_blue" />

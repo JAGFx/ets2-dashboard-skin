@@ -4,26 +4,22 @@
     <div class="gearbox-info d-flex justify-content-between align-items-center">
       <div class="flex-area justify-content-start w-100 gearbox-wrapper">
         <div class="truck-shifterType flex-area">
-          <span>{{
-            $truckShifterTypeLetter(telemetry.truck.transmission)
-          }}</span>
+          <span>{{ telemetry2.truck.shifterTypeLetter }}</span>
         </div>
         <div class="truck-gear flex-area">
           <span>
-            {{
-              $trukGear(
-                telemetry.truck.transmission,
-                telemetry.truck.brand,
-                false
-              )
-            }}
+            {{ telemetry2.truck.gearDisplayedWithoutShifterType }}
           </span>
         </div>
       </div>
       <div class="datetime flex-area">
         <span>
           {{
-            $dateTimeLocalized($gameTime(), DATE_FORMAT_NONE, TIME_FORMAT_TINY)
+            $dateTimeLocalized(
+              telemetry2.gameTime,
+              DATE_FORMAT_NONE,
+              TIME_FORMAT_TINY
+            )
           }}
         </span>
       </div>
@@ -42,14 +38,12 @@
           class="d-flex justify-content-center align-items-center flex-column px-3"
         >
           <span
-            v-if="telemetry.truck.cruiseControl.enabled"
+            v-if="telemetry2.truck.cruiseControlIsEnabled"
             class="value pb-2"
-            >{{ unit_speed(telemetry.truck.cruiseControl, true, false) }}</span
+            >{{ telemetry2.truck.cruiseControlSpeed }}</span
           >
           <span v-else class="value pb-2">-</span>
-          <span class="unit">{{
-            unit_speed(telemetry.truck.cruiseControl, false, true)
-          }}</span>
+          <span class="unit">{{ $unitReadable('unit_speed') }}</span>
         </div>
       </div>
       <div class="item d-flex justify-content-center align-items-center">
@@ -60,9 +54,7 @@
           class="d-flex justify-content-center align-items-center flex-column px-3"
         >
           <span class="value pb-2">-</span>
-          <span class="unit">{{
-            unit_speed(telemetry.truck.cruiseControl, false, true)
-          }}</span>
+          <span class="unit">{{ $unitReadable('unit_speed') }}</span>
         </div>
       </div>
     </div>
@@ -86,7 +78,7 @@
       class="box-warning-symbol d-flex justify-content-start align-items-center w-100"
     >
       <div
-        v-if="telemetry.truck.fuel.warning.enabled"
+        v-if="telemetry2.symbols.fuelLevelIsLow"
         class="truck-fuelWarning flex-area item"
       >
         <i class="icon-scania-fuel_yellow" />
@@ -116,7 +108,7 @@
         >
           <!-- Rest time -->
           <div class="value">
-            {{ $nextRestStop(telemetry.navigation.nextRestStop, 'HH:mm') }}
+            {{ $nextRestStop(telemetry2.navigation.nextRestStopTime, 'HH:mm') }}
           </div>
           <div class="unit">h</div>
         </div>
@@ -129,12 +121,13 @@
       class="mileage d-flex justify-content-between align-items-center w-100"
     >
       <div class="truck-odometer flex-area justify-content-start">
-        <span class="pl-3">{{
-          unit_length(telemetry.truck.odometer, 'km')
-        }}</span>
+        <span class="pl-3">
+          {{ telemetry2.truck.odometer.toFixed(1) }}
+          {{ $unitReadable('unit_length', 'km') }}
+        </span>
       </div>
       <div class="temperature flex-area justify-content-end">
-        <span class="pr-3">-°{{ config('unit_degrees') }}</span>
+        <span class="pr-3">-{{ $unitReadable('unit_degrees') }}</span>
       </div>
     </div>
     <!-- </editor-folder> Mileage -->

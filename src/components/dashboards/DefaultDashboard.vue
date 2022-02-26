@@ -31,7 +31,7 @@
         />
         <div class="truck-speedRounded wrapper-area">
           <span>{{
-            $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
+            unit_speed(telemetry.truck.speed, true, false).toFixed(0)
           }}</span>
         </div>
         <div class="truck-speedRounded-unit wrapper-area">
@@ -72,19 +72,14 @@
         />
         <div class="truck-odometer wrapper-area">
           <span>{{
-            $toFixed(
-              unit_length(telemetry.truck.odometer, 'km', true, false),
-              0
-            )
+            unit_length(telemetry.truck.odometer, 'km', true, false).toFixed(0)
           }}</span>
         </div>
         <div class="truck-cruiseControlSpeedRounded wrapper-area">
           <span>{{ telemetry.truck.cruiseControl.kph }}</span>
         </div>
         <div class="truck-gear wrapper-area">
-          <span>{{
-            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
-          }}</span>
+          <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
         <!-- indicators -->
         <div
@@ -116,7 +111,7 @@
           class="trailer-attached"
         />
         <div class="trailer-mass">
-          {{ $toFixed(unit_weight(telemetry.job.cargo.mass, true, false), 1)
+          {{ unit_weight(telemetry.job.cargo.mass, true, false).toFixed(1)
           }}<span class="ton">{{
             unit_weight(telemetry.job.cargo.mass, false)
           }}</span>
@@ -131,7 +126,7 @@
             <td>
               <span class="game-time">{{
                 $dateTimeLocalized(
-                  $gameTime(),
+                  telemetry2.gameTime,
                   DATE_FORMAT_LONG,
                   TIME_FORMAT_SHORT
                 )
@@ -170,9 +165,7 @@
             <th>{{ $t('Deadline in') }}:</th>
             <td>
               <span class="job-remainingTime">{{
-                $jobRemainingTimeDelivery(
-                  telemetry.job.expectedDeliveryTimestamp.value
-                )
+                telemetry2.job.remainingDeliveryTime
               }}</span>
               <span class="_jobIncome">
                 (<span class="job-income">{{

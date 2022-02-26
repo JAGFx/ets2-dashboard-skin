@@ -4,14 +4,15 @@ import {
   mass as uc_mass,
   pressure as uc_pressure,
   temperature as uc_temperature,
-  volume as uc_volume
+  volume as uc_volume,
+  speed as uc_speed
 } from 'units-converter';
 
 export const unit_speed = (value, showValue = true, showSymbol = true) => {
   const speed = config('unit_speed');
   let unit = '';
 
-  value = value[speed];
+  //value = value[speed];
 
   switch (speed) {
     case 'kph':
@@ -21,6 +22,8 @@ export const unit_speed = (value, showValue = true, showSymbol = true) => {
       unit = 'm/h';
       break;
   }
+  const conversion = uc_speed(value).from('m/s').to(unit);
+  value = conversion.value;
 
   if (showValue && !showSymbol) return value;
 
@@ -226,6 +229,22 @@ export const $pressureToBar = (inPressure, unit = 'bar') => {
 
   return pressure;
 };
-export const $pressureUnitReadable = (pressure) =>
-  unit_pressure(pressure, true, false);
-export const $speedUnitReadable = (speed) => unit_speed(speed, true, false);
+
+export const $unitReadable = (unit, from = null, value = 1) => {
+  switch (unit) {
+    case 'unit_speed':
+      return unit_speed(value, false, true);
+    case 'unit_degrees':
+      return unit_degrees(value, false, true);
+    case 'unit_length':
+      return unit_length(value, from, false, true);
+    case 'unit_consumption':
+      return unit_consumption(value, false, true);
+    case 'unit_pressure':
+      return unit_pressure(value, false, true);
+    case 'unit_currency':
+      return unit_currency(value, false, true);
+    case 'unit_volume':
+      return unit_volume(value, false, true);
+  }
+};

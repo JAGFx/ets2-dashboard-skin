@@ -1,38 +1,29 @@
 <script>
 import { store as telemetryStore } from '@/store/telemetry.store';
-import { dateTimeLocalized, formatConstants } from '@/utils/_app';
-import * as telemetryCommon from '@/utils/telemetry/_common.utils';
-import * as telemetryGear from '@/utils/telemetry/_grear.utils';
-import * as telemetryHelper from '@/utils/telemetry/_helper.utils';
-import * as telemetryJob from '@/utils/telemetry/_job.utils';
-import * as telemetryNavigation from '@/utils/telemetry/_navigation.utils';
-import * as telemetryTrailer from '@/utils/telemetry/_trailer.utils';
-import * as telemetryTruck from '@/utils/telemetry/_truck.utils';
+import {
+  dateTimeLocalized,
+  diffDateTimeLocalized,
+  formatConstants
+} from '@/utils/_app';
+import { config, telemetryDataIsEnough } from '@/utils/telemetry/_common.utils';
 import * as telemetryUnitConverter from '@/utils/telemetry/_unit-converter.utils';
 
 export default {
   name: 'TelemetryMixin',
-  filters: {
-    $dateTimeLocalized: (time, dFormat, tFormat) => {
-      return dateTimeLocalized(time, dFormat, tFormat);
-    },
-    $toFixed: (value, decimal) => {
-      return value.toFixed(decimal);
-    }
-  },
   data() {
     return {
       truckElectricOnValue: false,
-      truckElectricOnTimer: null
+      truckElectricOnTimer: null,
+      telemetry2: telemetryStore.model
     };
   },
   computed: {
+    /** @deprecated **/
     telemetry: () => telemetryStore.telemetry,
     receivedData: () => telemetryStore.receivedData,
     $truckElectricOn() {
       return this.truckElectricOnValue;
     }
-    //...telemetryGear,
   },
   watch: {
     'telemetry.truck.electric.enabled': function (newValue) {
@@ -54,13 +45,27 @@ export default {
     });
   },
   methods: {
-    ...telemetryCommon,
-    ...telemetryGear,
-    ...telemetryHelper,
-    ...telemetryJob,
-    ...telemetryNavigation,
-    ...telemetryTrailer,
-    ...telemetryTruck,
+    config: (name) => config(name),
+    $dateTimeLocalized: (time, dFormat, tFormat) => {
+      return dateTimeLocalized(time, dFormat, tFormat);
+    },
+    $nextRestStop: (time, customFormat) => {
+      return diffDateTimeLocalized(0, time, false, customFormat);
+    },
+    $telemetryDataIsEnough: () => telemetryDataIsEnough(),
+    $jobRemainingTimeToDueDate: () => {
+      return config('general_job_remaining') === 'due_date';
+    },
+    $trailerDamage: () => {
+      return config('general_damage_accurate') === 'damage-diagnostic'
+        ? telemetryStore.model.trailer.averageDamage
+        : Math.floor(telemetryStore.model.trailer.chassisDamage);
+    },
+    $truckDamage: () => {
+      return config('general_damage_accurate') === 'damage-diagnostic'
+        ? telemetryStore.model.truck.averageDamage
+        : Math.floor(telemetryStore.model.truck.chassisDamage);
+    },
     ...telemetryUnitConverter
   }
 };

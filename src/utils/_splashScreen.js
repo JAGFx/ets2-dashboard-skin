@@ -6,7 +6,7 @@
  * Time: 	21:41
  */
 
-import { $telemetryDataIsEnough } from '@/utils/telemetry/_job.utils';
+import { telemetryDataIsEnough } from '@/utils/telemetry/_common.utils';
 import testData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
 import store from '@/store';
 import { basePathHost, pushLog } from '@/utils/_app';
@@ -145,7 +145,7 @@ export const waitingTruckSpawn = () => {
         message: 'Last waiting time to drive'
       });
 
-      if ($telemetryDataIsEnough()) {
+      if (telemetryDataIsEnough()) {
         clearInterval(waitingInterval);
         resolve();
       }

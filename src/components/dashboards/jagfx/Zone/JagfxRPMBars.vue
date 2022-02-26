@@ -21,16 +21,20 @@ import jq from 'json-query';
 export default {
   name: 'JagfxRPMBars',
   props: {
-    brand: {
-      type: Object,
+    brandId: {
+      type: String,
       required: true
     },
-    engine: {
-      type: Object,
+    engineRpm: {
+      type: Number,
       required: true
     },
-    model: {
-      type: Object,
+    engineMaxRpm: {
+      type: Number,
+      required: true
+    },
+    modelId: {
+      type: String,
       required: true
     }
   },
@@ -41,21 +45,19 @@ export default {
     };
   },
   mounted() {
-    if (this.brand !== undefined || this.model !== undefined) {
-      const ter = JSON.parse(JSON.stringify(truck_engine_rpm));
-      this.ter = jq(
-        `trucks[brandId=${this.brand.id}].models[modelId=${this.model.id}]`,
-        { data: ter }
-      ).value;
+    const ter = JSON.parse(JSON.stringify(truck_engine_rpm));
+    this.ter = jq(
+      `trucks[brandId=${this.brandId.id}].models[modelId=${this.modelId.id}]`,
+      { data: ter }
+    ).value;
 
-      if (this.ter === null) {
-        this.ter = {
-          max: 2500,
-          low: null,
-          mid: null,
-          high: null
-        };
-      }
+    if (this.ter === null) {
+      this.ter = {
+        max: 2500,
+        low: null,
+        mid: null,
+        high: null
+      };
     }
   },
   methods: {
@@ -64,13 +66,13 @@ export default {
 
       const rpmBarFrom = this.getCurrentRpmBar(i);
 
-      return this.engine.rpm.value >= rpmBarFrom && this.engine.rpm.value !== 0;
+      return this.engineRpm >= rpmBarFrom && this.engineRpm !== 0;
     },
     getCurrentRpmBar: function (i) {
       if (this.ter === null) return 0;
 
       const maxBar = this.maxBarRpm;
-      const rpmByBar = this.engine.rpm.max / maxBar;
+      const rpmByBar = this.engineMaxRpm / maxBar;
       const iLow = maxBar - i;
 
       return iLow * rpmByBar;

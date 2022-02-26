@@ -11,7 +11,7 @@
       </div>
       <div class="flex-area">
         <div class="value">-</div>
-        <div class="unit">{{ unit_length(1, 'km', false, true) }}</div>
+        <div class="unit">{{ $unitReadable('unit_length', 'km') }}</div>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
       </div>
       <div class="flex-area">
         <div class="value">-</div>
-        <div class="unit">{{ unit_speed(100, false, true) }}</div>
+        <div class="unit">{{ $unitReadable('unit_speed') }}</div>
       </div>
     </div>
 
@@ -37,18 +37,10 @@
       </div>
       <div class="flex-area">
         <div class="value">
-          {{
-            unit_consumption(
-              telemetry.truck.fuel.avgConsumption,
-              true,
-              false
-            ).toFixed(1)
-          }}
+          {{ telemetry2.truck.fuelAverageConsumption.toFixed(1) }}
         </div>
         <div class="unit">
-          {{
-            unit_consumption(telemetry.truck.fuel.avgConsumption, false, true)
-          }}
+          {{ $unitReadable('unit_consumption') }}
         </div>
       </div>
     </div>

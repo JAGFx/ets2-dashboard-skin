@@ -33,8 +33,12 @@
           v-if="!embedded"
           class="barButton mr-auto h-100 menuRoute"
           :class="{
-            disabled: !$haveAnActiveNavigation() || !displayNavigationInfo,
-            active: $haveAnActiveNavigation() && displayNavigationInfo
+            disabled:
+              !telemetry2.navigation.hasAnActiveNavigation ||
+              !displayNavigationInfo,
+            active:
+              telemetry2.navigation.hasAnActiveNavigation &&
+              displayNavigationInfo
           }"
           @click="displayNavigationInfo = !displayNavigationInfo"
         >
@@ -68,7 +72,7 @@
         >
           <div class="speed">
             <span class="value d-block">{{
-              $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
+              unit_speed(telemetry.truck.speed, true, false).toFixed(0)
             }}</span>
           </div>
 
@@ -76,7 +80,7 @@
             :class="telemetry.truck.transmission.shifterType"
             class="truck-gears ml-2"
           >
-            {{ $trukGear(telemetry.truck.transmission, telemetry.truck.brand) }}
+            telemetry2.truck.gearDisplayed
           </div>
         </div>
       </div>
@@ -111,7 +115,7 @@
     <!-- Speed limit -->
     <div
       v-if="
-        $haveAnActiveSpeedLimit() &&
+        telemetry2.navigation.hasAnActiveSpeedLimit &&
         configEnabled('maps_elements_speedLimit') &&
         !embedded
       "
@@ -210,7 +214,11 @@
 
     <!-- Navigation ETA -->
     <div
-      v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
+      v-if="
+        telemetry2.navigation.hasAnActiveNavigation &&
+        displayNavigationInfo &&
+        !embedded
+      "
       class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
       <div
@@ -221,14 +229,20 @@
           <i class="icon-time" />
         </div>
         <span class="pl-2 w-100">{{
-          $dateTimeLocalized($etaDueDate(), DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+          $dateTimeLocalized(
+            telemetry2.navigation.etaDueDate,
+            DATE_FORMAT_LONG,
+            TIME_FORMAT_SHORT
+          )
         }}</span>
       </div>
       <div v-else class="button px-2 py-0 w-100 active">
         <div class="round">
           <i class="icon-time" />
         </div>
-        <span class="pl-2 w-100">{{ $etaRemaing() }}</span>
+        <span class="pl-2 w-100">{{
+          telemetry2.navigation.etaRemainingTime
+        }}</span>
       </div>
       <span class="button px-2 py-0 w-100 active">
         <div class="round">
