@@ -2,13 +2,13 @@
   <div>
     <!-- Line 1 -->
     <div
-      v-if="$hasErrors || $truckElectricOn"
+      v-if="$hasErrors() || $truckElectricOn"
       class="truck-stopWarning flex-area symbol r1 c1 red"
     >
       <i class="icon-scania-warning_red" />
     </div>
     <div
-      v-if="$hasWarnings || $truckElectricOn"
+      v-if="$hasWarnings() || $truckElectricOn"
       class="truck-checkWarning flex-area symbol r1 c2 yellow"
     >
       <i class="icon-scania-warning_yellow" />
@@ -44,7 +44,7 @@
 
     <!-- Line 3 -->
     <div
-      v-if="hasEngineWarning || $truckElectricOn"
+      v-if="$hasEngineWarning() || $truckElectricOn"
       class="engine-failure flex-area symbol r3 c2 yellow"
     >
       <i class="icon-scania-engine-failure_yellow" />

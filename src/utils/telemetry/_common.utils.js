@@ -32,17 +32,25 @@ export const $scale = (currentSkin) => {
 
 export const $hasWarnings = () => {
   return (
-    telemetryStore.telemetry.truck.brakes.airPressure.warning.enabled ||
-    telemetryStore.telemetry.truck.fuel.warning.enabled ||
-    telemetryStore.telemetry.truck.adBlue.warning.enabled ||
-    telemetryStore.telemetry.truck.engine.oilPressure.warning.enabled ||
-    telemetryStore.telemetry.truck.engine.waterTemperature.warning.enabled ||
-    telemetryStore.telemetry.truck.engine.batteryVoltage.warning.enabled
+    (telemetryStore.telemetry.truck.brakes.airPressure.warning.enabled ||
+      telemetryStore.telemetry.truck.fuel.warning.enabled ||
+      telemetryStore.telemetry.truck.adBlue.warning.enabled ||
+      telemetryStore.telemetry.truck.engine.oilPressure.warning.enabled ||
+      telemetryStore.telemetry.truck.engine.waterTemperature.warning.enabled ||
+      telemetryStore.telemetry.truck.engine.batteryVoltage.warning.enabled) &&
+    telemetryStore.telemetry.truck.electric.enabled
   );
 };
 
 export const $hasErrors = () => {
-  return telemetryStore.telemetry.truck.brakes.airPressure.emergency.enabled;
+  return (
+    telemetryStore.telemetry.truck.brakes.airPressure.emergency.enabled &&
+    telemetryStore.telemetry.truck.electric.enabled
+  );
+};
+
+export const $hasEngineWarning = () => {
+  return telemetryStore.telemetry.truck.engine.damage >= 0.5; // >= 50%
 };
 
 export const $dateTimeLocalized = (time, dFormat, tFormat) => {

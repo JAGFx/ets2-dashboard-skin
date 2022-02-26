@@ -41,16 +41,12 @@ export default {
   },
   methods: {
     angle() {
-      const minValue = this.min;
-      const maxValue = this.max;
-      const minAngle = this.minAngle;
-      const maxAngle = this.maxAngle;
       let value = this.value;
-      value = Math.min(value, maxValue);
-      value = Math.max(value, minValue);
-      const offset = (value - minValue) / (maxValue - minValue);
+      value = Math.min(value, this.max);
+      value = Math.max(value, this.min);
+      const offset = (value - this.min) / (this.max - this.min);
 
-      return (maxAngle - minAngle) * offset + minAngle;
+      return (this.maxAngle - this.minAngle) * offset + this.minAngle;
     }
   }
 };

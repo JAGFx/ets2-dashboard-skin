@@ -10,8 +10,8 @@
   },
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "npx eslint src lib servers --ext .js,.vue --fix",
-    "lint:prettier": "npx prettier --config .prettierrc src/**/*.{js,vue} lib/**/*.js servers/**/*.js --write",
+    "lint:eslint": "npx eslint src lib servers test --ext .js,.vue --fix",
+    "lint:prettier": "npx prettier --config .prettierrc src/**/*.{js,vue} lib/**/*.js servers/**/*.js test/**/*.js  --write",
     "test": "npm run test:unit",
     "test:unit": "npx jest",
     "test:coverage": "npx jest --coverage",

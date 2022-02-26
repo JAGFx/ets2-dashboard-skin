@@ -2,10 +2,8 @@
   <Dashboard v-slot="dashProps" class="scania-dash wrapper">
     <div
       class="dashboard game-connected"
-      :class="{ yes: $truckElectricOn }"
       :style="{
-        transform:
-          'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
+        transform: `scale(${dashProps.currentScale}) translate(-50%, -50%)`,
         width: dashProps.skinData.size.width + 'px',
         height: dashProps.skinData.size.height + 'px'
       }"

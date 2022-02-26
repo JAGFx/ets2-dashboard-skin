@@ -1,6 +1,6 @@
 import { store as telemetryStore } from '@/store/telemetry.store';
 import { diffDateTimeLocalized } from '@/utils/_app';
-import { $gameTime } from '@/utils/telemetry/_common.utils';
+import { $gameTime } from '@/utils/telemetry/_helper.utils';
 
 export const $etaDueDate = () => {
   const currentGameTime = $gameTime();

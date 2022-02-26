@@ -31,39 +31,27 @@ export const $trukGear = (transmission, brand, withShifterType = true) => {
     strGear = gear - crawlingGear;
   }
 
-  if (withShifterType) {
-    if (
-      transmission.shifterType === 'automatic' ||
-      transmission.shifterType === 'arcade'
-    )
-      strGear = 'A' + (gear - crawlingGear);
+  if (
+    (transmission.shifterType === 'automatic' ||
+      transmission.shifterType === 'arcade') &&
+    withShifterType
+  )
+    strGear = 'A' + (gear - crawlingGear);
 
-    if (gear <= crawlingGear) strGear = 'C' + Math.abs(gear);
+  if (gear <= crawlingGear) strGear = 'C' + Math.abs(gear);
 
-    if (gear === 0) strGear = 'N';
+  if (gear === 0) strGear = 'N';
 
-    if (gear < 0) strGear = 'R' + Math.abs(transmission.gear.displayed);
-  }
+  if (gear < 0) strGear = 'R' + Math.abs(transmission.gear.displayed);
 
   return strGear;
 };
 
-export const $truckShifterTypeLetter = (transmission, brand) => {
-  const gear = $gearInfo(transmission, brand).gear;
-  const crawlingGear = $gearInfo(transmission, brand).crawlingGear;
-  let shifterType = 'D';
-
+export const $truckShifterTypeLetter = (transmission) => {
   if (
     transmission.shifterType === 'automatic' ||
     transmission.shifterType === 'arcade'
   )
-    shifterType = 'A';
-
-  if (gear <= crawlingGear) shifterType = 'C';
-
-  if (gear === 0) shifterType = 'N';
-
-  if (gear < 0) shifterType = 'R';
-
-  return shifterType;
+    return 'A';
+  else return 'M';
 };
