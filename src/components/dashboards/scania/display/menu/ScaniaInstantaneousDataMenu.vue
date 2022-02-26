@@ -16,7 +16,7 @@
     <ScaniaBar
       v-bind="{
         min: 0,
-        max: $psiToCurrentPressureUnit(175),
+        max: $pressureUnitReadable(175),
         value: unit_pressure(
           telemetry.truck.brakes.airPressure.value,
           true,

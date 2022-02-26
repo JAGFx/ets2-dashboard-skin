@@ -68,7 +68,7 @@
         >
           <div class="speed">
             <span class="value d-block">{{
-              unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
+              $toFixed(unit_speed(telemetry.truck.speed, true, false), 0)
             }}</span>
           </div>
 
@@ -221,8 +221,7 @@
           <i class="icon-time" />
         </div>
         <span class="pl-2 w-100">{{
-          $etaDueDate()
-            | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+          $dateTimeLocalized($etaDueDate(), DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
         }}</span>
       </div>
       <div v-else class="button px-2 py-0 w-100 active">

@@ -5,7 +5,7 @@
       <div class="flex-area justify-content-start w-100 gearbox-wrapper">
         <div class="truck-shifterType flex-area">
           <span>{{
-            $trukShifterTypeLetter(
+            $truckShifterTypeLetter(
               telemetry.truck.transmission,
               telemetry.truck.brand
             )
@@ -26,7 +26,7 @@
       <div class="datetime flex-area">
         <span>
           {{
-            $gameTime() | $dateTimeLocalized(DATE_FORMAT_NONE, TIME_FORMAT_TINY)
+            $dateTimeLocalized($gameTime(), DATE_FORMAT_NONE, TIME_FORMAT_TINY)
           }}
         </span>
       </div>

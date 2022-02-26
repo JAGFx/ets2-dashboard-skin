@@ -37,8 +37,11 @@
           <i class="icon-time" />
         </div>
         <span v-if="$hasJob() && $jobRemainingTimeToDueDate()">{{
-          jobDeliveryTime
-            | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+          $dateTimeLocalized(
+            $jobDeliveryTime(),
+            DATE_FORMAT_LONG,
+            TIME_FORMAT_SHORT
+          )
         }}</span>
         <span v-else-if="$hasJob() && !$jobRemainingTimeToDueDate()">{{
           $jobRemainingTimeDelivery(

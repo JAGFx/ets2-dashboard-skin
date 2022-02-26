@@ -7,8 +7,11 @@
       >
         <span class="title">{{ $t('Delivered time') }}</span>
         <span class="data">{{
-          eventRawData.job.deliveryTime
-            | $dateTimeLocalized(DATE_FORMAT_SHORT, TIME_FORMAT_SHORT)
+          $dateTimeLocalized(
+            eventRawData.job.deliveryTime,
+            DATE_FORMAT_SHORT,
+            TIME_FORMAT_SHORT
+          )
         }}</span>
       </div>
       <div

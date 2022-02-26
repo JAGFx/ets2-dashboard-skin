@@ -6,6 +6,7 @@
  * Time: 	21:41
  */
 
+import { $telemetryDataIsEnough } from '@/utils/telemetry/_job.utils';
 import testData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
 import store from '@/store';
 import { basePathHost, pushLog } from '@/utils/_app';
@@ -13,10 +14,7 @@ import { changeLocale, fallbackLocale } from '@/utils/_i18n';
 import { app, config, history } from '@/utils/utils';
 import { io } from 'socket.io-client';
 import Vue from 'vue';
-import {
-  store as telemetryStore,
-  getters as telemetryGetters
-} from '@/store/telemetry.store';
+import { store as telemetryStore } from '@/store/telemetry.store';
 
 export const loadAppConfig = () => {
   store.dispatch('app/showMessage', {
@@ -147,7 +145,7 @@ export const waitingTruckSpawn = () => {
         message: 'Last waiting time to drive'
       });
 
-      if (telemetryGetters.telemetryDataIsEnough()) {
+      if ($telemetryDataIsEnough()) {
         clearInterval(waitingInterval);
         resolve();
       }

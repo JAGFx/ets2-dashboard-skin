@@ -5,8 +5,8 @@
         classCSS: 'truck-speed',
         type: 'meter',
         value: unit_speed(telemetry.truck.speed, true, false),
-        min: $kpmToCurrentSpeedUnit(10),
-        max: $kpmToCurrentSpeedUnit(130),
+        min: $speedUnitReadable({ kph: 10, mph: 10 }),
+        max: $speedUnitReadable({ kph: 130, mph: 130 }),
         minAngle: -122,
         maxAngle: 123
       }"
@@ -54,7 +54,7 @@
           false
         ),
         min: 0,
-        max: $psiToCurrentPressureUnit(116),
+        max: $pressureUnitReadable(116),
         minAngle: -53,
         maxAngle: 53
       }"
