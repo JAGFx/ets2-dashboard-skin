@@ -22,26 +22,52 @@ export default {
       return value.toFixed(decimal);
     }
   },
+  data() {
+    return {
+      truckElectricOnValue: false,
+      truckElectricOnTimer: null
+    };
+  },
   computed: {
     telemetry: () => telemetryStore.telemetry,
     appReady: () => telemetryGetters.telemetryDataIsEnough(),
     receivedData: () => telemetryStore.receivedData,
     jobDeliveryTime: () => telemetryGetters.jobDeliveryTime(),
     truckElectricOn() {
-      return this.telemetry.truck.electric.enabled;
+      return this.truckElectricOnValue;
     },
     haveWarnings() {
       return (
-          this.telemetry.truck.brakes.airPressure.warning.enabled ||
+        (this.telemetry.truck.brakes.airPressure.warning.enabled ||
           this.telemetry.truck.fuel.warning.enabled ||
           this.telemetry.truck.adBlue.warning.enabled ||
           this.telemetry.truck.engine.oilPressure.warning.enabled ||
           this.telemetry.truck.engine.waterTemperature.warning.enabled ||
-          this.telemetry.truck.engine.batteryVoltage.warning.enabled
+          this.telemetry.truck.engine.batteryVoltage.warning.enabled) &&
+        this.telemetry.truck.electric.enabled
       );
     },
     haveErrors() {
-      return this.telemetry.truck.brakes.airPressure.emergency.enabled;
+      return (
+        this.telemetry.truck.brakes.airPressure.emergency.enabled &&
+        this.telemetry.truck.electric.enabled
+      );
+    },
+    hasEngineWarning() {
+      return this.telemetry.truck.engine.damage >= 0.5; // >= 50%
+    }
+  },
+  watch: {
+    'telemetry.truck.electric.enabled': function (newValue) {
+      if (newValue && !this.telemetry.truck.engine.enabled) {
+        this.truckElectricOnValue = true;
+        this.truckElectricOnTimer = setTimeout(() => {
+          this.truckElectricOnValue = false;
+        }, 1000);
+      } else {
+        this.truckElectricOnValue = false;
+        this.truckElectricOnTimer = null;
+      }
     }
   },
   created() {

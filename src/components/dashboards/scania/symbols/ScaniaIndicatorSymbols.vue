@@ -26,7 +26,11 @@
       <i class="icon-scania-break-pressure_red_yellow" />
     </div>
     <div
-      v-if="telemetry.truck.lights.parking.enabled || truckElectricOn"
+      v-if="
+        (telemetry.truck.brakes.parking.enabled &&
+          telemetry.truck.electric.enabled) ||
+        truckElectricOn
+      "
       class="truck-parkBrake flex-area symbol r2 c2 red"
     >
       <i class="icon-scania-parking-break_red" />
@@ -40,7 +44,7 @@
 
     <!-- Line 3 -->
     <div
-      v-if="telemetry.truck.engine.enabled || truckElectricOn"
+      v-if="hasEngineWarning || truckElectricOn"
       class="engine-failure flex-area symbol r3 c2 yellow"
     >
       <i class="icon-scania-engine-failure_yellow" />
