@@ -248,3 +248,22 @@ export const $unitReadable = (unit, from = null, value = 1) => {
       return unit_volume(value, false, true);
   }
 };
+
+export const $convertToUnit = (value, unit, from = null) => {
+  switch (unit) {
+    case 'unit_speed':
+      return unit_speed(value, true, false);
+    case 'unit_degrees':
+      return unit_degrees(value, true, false);
+    case 'unit_length':
+      return unit_length(value, from, true, false);
+    case 'unit_consumption':
+      return unit_consumption(value, true, false);
+    case 'unit_pressure':
+      return unit_pressure(value, true, false);
+    case 'unit_currency':
+      return unit_currency(value, true, false);
+    case 'unit_volume':
+      return unit_volume(value, true, false);
+  }
+};

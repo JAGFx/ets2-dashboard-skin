@@ -3,7 +3,6 @@ import eventsText from '@/data/events.json';
 import { mapGetters } from 'vuex';
 
 export default {
-  //mixins: [TelemetryMixin],
   computed: {
     ...mapGetters({
       eventProcessing: 'event/eventProcessing',

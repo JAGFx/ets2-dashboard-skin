@@ -108,7 +108,12 @@
         >
           <!-- Rest time -->
           <div class="value">
-            {{ $nextRestStop(telemetry2.navigation.nextRestStopTime, 'HH:mm') }}
+            {{
+              $nextRestStopFormater(
+                telemetry2.navigation.nextRestStopTime,
+                'HH:mm'
+              )
+            }}
           </div>
           <div class="unit">h</div>
         </div>

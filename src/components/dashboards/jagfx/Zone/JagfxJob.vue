@@ -44,7 +44,10 @@
           <i class="icon-time" />
         </div>
         <span
-          v-if="telemetry2.job.hasAnActiveJob && $jobRemainingTimeToDueDate()"
+          v-if="
+            telemetry2.job.hasAnActiveJob &&
+            telemetry2.job.deliveryTimeIsSetToDuDate
+          "
           >{{
             $dateTimeLocalized(
               telemetry2.job.expectedDeliveryTime,
@@ -55,7 +58,8 @@
         >
         <span
           v-else-if="
-            telemetry2.job.hasAnActiveJob && !$jobRemainingTimeToDueDate()
+            telemetry2.job.hasAnActiveJob &&
+            !telemetry2.job.deliveryTimeIsSetToDuDate
           "
           >{{ telemetry2.job.remainingDeliveryTime }}</span
         >

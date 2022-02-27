@@ -17,7 +17,7 @@
         <ScaniaIndicatorSymbols />
       </div>
 
-      <ScaniaDisplay />
+      <ScaniaDisplay v-if="telemetry2.truck.ignitionIsTurnedOn" />
     </div>
   </Dashboard>
 </template>

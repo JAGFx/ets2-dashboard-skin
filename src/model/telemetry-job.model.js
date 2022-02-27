@@ -1,5 +1,6 @@
 import { store as telemetryStore } from '@/store/telemetry.store';
 import { displayDuration } from '@/utils/_app';
+import { config } from '@/utils/telemetry/_common.utils';
 import {
   unit_currency,
   unit_weight
@@ -11,11 +12,14 @@ export default class TelemetryJob {
       ? telemetryStore.telemetry.job.expectedDeliveryTimestamp.value
       : telemetryStore.telemetry.job.expectedDeliveryTimestamp.unix;
   }
-  get remainingDeliveryTime() {
+  get remainingTimeForDeliveryTime() {
     const gameTime = telemetryStore.model.gameTime;
     let diff = this.expectedDeliveryTime - gameTime;
 
     return displayDuration(diff);
+  }
+  get deliveryTimeIsSetToDuDate() {
+    return config('general_job_remaining') === 'due_date';
   }
   get hasAnActiveJob() {
     return telemetryStore.telemetry.job.cargo.id.length !== 0;

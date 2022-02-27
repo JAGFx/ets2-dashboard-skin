@@ -45,6 +45,7 @@
     "ets2-dashboard-lib": "file:lib",
     "file-saver": "~2.0.2",
     "file-server": "^2.1.0",
+    "gsap": "^3.9.1",
     "http-server": "^13.0.2",
     "jquery": "^3.6.0",
     "json-query": "^2.2.2",

@@ -10,6 +10,9 @@ module.exports = {
     'plugin:jest/recommended',
     'prettier'
   ],
+  parserOptions: {
+    ecmaVersion: 13
+  },
   plugins: ['vue', 'html', 'prettier', 'jest'],
   rules: {
     'no-console': 1,

@@ -4,18 +4,13 @@
       <div class="theTruk">
         <div class="truck-data">
           <span />
-          <!--					<img alt="" class="brand" v-bind:src="`img/Truck/brands/${brand.id}.svg`">-->
-          <!--<img src="../assets/Truck/brands/volvo.svg" class="brand" alt="">-->
           <small>
             <span>{{ telemetry2.truck.modelName }}</span>
           </small>
-          <!--<span>
-            {{unit_consumption( telemetry.truck.fuel.avgConsumption )}} l/100
-          </span>-->
         </div>
         <div class="truck-stats">
           <div class="damage right">
-            <span>{{ $truckDamage() }} %</span>
+            <span>{{ telemetry2.truck.damage }} %</span>
           </div>
           <span>
             <span class="licencePlate right">
@@ -30,16 +25,6 @@
         </div>
       </div>
     </div>
-
-    <!--<div class="truck-wear text-center capitalized">
-      &lt;!&ndash;<div class="telemetry.truck.damage" v-for="key in Object.keys(telemetry.truck.damage)">
-        <b>{{key}}</b>
-        <span>{{Math.round(100 * telemetry.truck.damage[key])}}%</span>
-      </div>&ndash;&gt;
-      <div class="telemetry.truck.damage">
-        <span>{{Math.floor(100 * chassis.telemetry.truck.damage)}}%</span>
-      </div>
-    </div>-->
 
     <Map
       v-if="config('jagfx_elements_right_map')"
@@ -104,7 +89,7 @@
         class="default"
       >
         <span>
-          in {{ $nextRestStop(telemetry2.navigation.nextRestStopTime) }}
+          in {{ $nextRestStopFormater(telemetry2.navigation.nextRestStopTime) }}
         </span>
         <div class="round">
           <i class="icon-rest_stop" />

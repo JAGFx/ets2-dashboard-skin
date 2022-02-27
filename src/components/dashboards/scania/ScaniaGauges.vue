@@ -5,21 +5,21 @@
         classCSS: 'truck-speed',
         type: 'meter',
         value: telemetry2.truck.speed,
-        min: 2.77778,
-        max: 36.1111,
-        minAngle: -122,
-        maxAngle: 123
+        min: $convertToUnit(2.77778, 'unit_speed'),
+        max: $convertToUnit(36.1111, 'unit_speed'),
+        minAngle: -118,
+        maxAngle: 118
       }"
     />
     <Cadran
       v-bind="{
         classCSS: 'truck-engineRpm',
         type: 'meter',
-        value: telemetry2.truck.rpm / 100,
-        min: 3,
-        max: 27,
-        minAngle: -122,
-        maxAngle: 122
+        value: telemetry2.truck.rpm,
+        min: 300,
+        max: 2700,
+        minAngle: -118,
+        maxAngle: 118
       }"
     />
     <Cadran
@@ -38,10 +38,10 @@
         classCSS: 'truck-waterTemperature',
         type: 'meter',
         value: telemetry2.truck.engineWaterTemperature,
-        min: 40,
-        max: 100,
+        min: $convertToUnit(40, 'unit_degrees'),
+        max: $convertToUnit(100, 'unit_degrees'),
         minAngle: -55,
-        maxAngle: 40
+        maxAngle: 55
       }"
     />
     <Cadran
@@ -50,7 +50,7 @@
         type: 'meter',
         value: telemetry2.truck.oilPressure,
         min: 0,
-        max: 116,
+        max: $convertToUnit(116, 'unit_pressure'),
         minAngle: -53,
         maxAngle: 53
       }"
@@ -61,7 +61,7 @@
         type: 'meter',
         value: telemetry2.truck.fuelAverageConsumption,
         min: 0,
-        max: 120,
+        max: $convertToUnit(120, 'unit_consumption'),
         minAngle: -56,
         maxAngle: 57
       }"

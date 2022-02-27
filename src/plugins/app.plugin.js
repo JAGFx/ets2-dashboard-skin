@@ -11,6 +11,7 @@ import { mutations } from '@/store/telemetry.store';
 import { pushLog } from '@/utils/_app';
 import { translate } from '@/utils/_i18n';
 import { event, history } from '@/utils/utils';
+import additionalWatcher from '@/utils/telemetry/_additional-watcher.utils';
 
 export default {
   install(Vue) {
@@ -52,6 +53,7 @@ export default {
       if (gameConnected) mutations.setReceivedData(true);
     };
 
+    additionalWatcher(Vue);
     // ---
 
     Vue.prototype.$t = translate;

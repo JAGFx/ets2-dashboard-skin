@@ -170,17 +170,13 @@
           }}
         </div>
 
-        <!--				<div class="truck-odometer wrapper-area"><span>{{ $toFixed(unit_length( telemetry.truck.odometer, 'km', true, false ),  0 ) }}</span></div>-->
-        <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-displayedGear wrapper-area">
           <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
         <!-- indicators -->
-        <!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.left.active}" class="truck-blinkerLeftOn"></div>-->
-        <!--				<div :class="{ 'yes': telemetry.truck.lights.blinker.right.active }" class="truck-blinkerRightOn"></div>-->
 
         <div class="job-remainingTime wrapper-area">
-          <span v-if="$jobRemainingTimeToDueDate()">{{
+          <span v-if="telemetry2.job.deliveryTimeIsSetToDuDate">{{
             $dateTimeLocalized(
               telemetry.job.expectedDeliveryTimestamp.value,
               DATE_FORMAT_LONG,
@@ -207,19 +203,6 @@
         <div class="trailer-name wrapper-area">
           <span>{{ telemetry.trailer.model.name }}</span>
         </div>
-
-        <!--				<div :class="{'yes': telemetry.trailer.attached}" class="trailer-attached"></div>-->
-        <!--				<div class="trailer-mass wrapper-area">-->
-        <!--					<span>{{ $toFixed(unit_weight( telemetry.job.cargo.mass, true, false ),  1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
-        <!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
-        <!--				<div :class="{ 'yes': telemetry.truck.fuel.warning.enabled }" class="truck-fuelWarningOn"></div>-->
-        <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.warning.enabled }" class="truck-airPressureWarningOn"></div>-->
-
-        <!--				<div class="truck-retarderBrake">{{ telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off' }}</div>-->
-        <!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
-        <!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
-        <!--				<div class="game-time wrapper-area"><span>{{ $formatDate( $telemetryData().game.time.unix ) }}</span></div>-->
-        <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
       </div>
     </div>
   </Dashboard>

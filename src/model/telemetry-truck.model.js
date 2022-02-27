@@ -1,9 +1,9 @@
 import { store as telemetryStore } from '@/store/telemetry.store';
 import { flag } from '@/utils/_app';
-import { averageDamage } from '@/utils/telemetry/_common.utils';
+import { averageDamage, config } from '@/utils/telemetry/_common.utils';
 import {
-  truckShifterTypeLetter,
-  truckGear
+  truckGear,
+  truckShifterTypeLetter
 } from '@/utils/telemetry/_grear.utils';
 import {
   unit_consumption,
@@ -57,11 +57,27 @@ export default class TelemetryTruck {
   get chassisDamage() {
     return telemetryStore.telemetry.truck.damage.chassis * 100;
   }
+  get damage() {
+    return config('general_damage_accurate') === 'damage-diagnostic'
+      ? this.averageDamage
+      : Math.floor(this.chassisDamage);
+  }
+  get engineIsStarted() {
+    return telemetryStore.telemetry.truck.engine.enabled;
+  }
+  get ignitionIsTurnedOn() {
+    return telemetryStore.telemetry.truck.electric.enabled;
+  }
+  get ignitionStart() {
+    return telemetryStore.telemetry.truck.electric.start;
+  }
   // </editor-folder> Common
 
   // <editor-folder> Fuel
   get fuelLevel() {
-    return unit_volume(telemetryStore.telemetry.truck.fuel.value, true, false);
+    return this.ignitionIsTurnedOn
+      ? unit_volume(telemetryStore.telemetry.truck.fuel.value, true, false)
+      : 0;
   }
   get fuelCapacity() {
     return unit_volume(
@@ -101,66 +117,80 @@ export default class TelemetryTruck {
 
   // <editor-folder> Pressures
   get oilPressure() {
-    return unit_pressure(
-      telemetryStore.telemetry.truck.engine.oilPressure.value,
-      true,
-      false
-    );
+    return this.ignitionIsTurnedOn
+      ? unit_pressure(
+          telemetryStore.telemetry.truck.engine.oilPressure.value,
+          true,
+          false
+        )
+      : 0;
   }
   get brakeAirPressure() {
-    return unit_pressure(
-      telemetryStore.telemetry.truck.brakes.airPressure.value,
-      true,
-      false
-    );
+    return this.ignitionIsTurnedOn
+      ? unit_pressure(
+          telemetryStore.telemetry.truck.brakes.airPressure.value,
+          true,
+          false
+        )
+      : 0;
   }
   // </editor-folder> Pressures
 
   // <editor-folder> Temperature
   get engineWaterTemperature() {
-    return unit_degrees(
-      telemetryStore.telemetry.truck.engine.waterTemperature.value,
-      true,
-      false
-    );
+    return this.ignitionIsTurnedOn
+      ? unit_degrees(
+          telemetryStore.telemetry.truck.engine.waterTemperature.value,
+          true,
+          false
+        )
+      : 0;
   }
   get engineOilTemperature() {
-    return unit_degrees(
-      telemetryStore.telemetry.truck.engine.oilTemperature.value,
-      true,
-      false
-    );
+    return this.ignitionIsTurnedOn
+      ? unit_degrees(
+          telemetryStore.telemetry.truck.engine.oilTemperature.value,
+          true,
+          false
+        )
+      : 0;
   }
   get brakeTemperature() {
-    return unit_degrees(
-      telemetryStore.telemetry.truck.brakes.temperature.value,
-      true,
-      false
-    );
+    return this.ignitionIsTurnedOn
+      ? unit_degrees(
+          telemetryStore.telemetry.truck.brakes.temperature.value,
+          true,
+          false
+        )
+      : 0;
   }
   // </editor-folder> Temperature
 
   // <editor-folder> Informations
   get hasWarnings() {
     return (
-      (telemetryStore.telemetry.truck.brakes.airPressure.warning.enabled ||
+      ((telemetryStore.telemetry.truck.brakes.airPressure.warning.enabled ||
         telemetryStore.telemetry.truck.fuel.warning.enabled ||
         telemetryStore.telemetry.truck.adBlue.warning.enabled ||
         telemetryStore.telemetry.truck.engine.oilPressure.warning.enabled ||
         telemetryStore.telemetry.truck.engine.waterTemperature.warning
           .enabled ||
         telemetryStore.telemetry.truck.engine.batteryVoltage.warning.enabled) &&
-      telemetryStore.telemetry.truck.electric.enabled
+        telemetryStore.telemetry.truck.electric.enabled) ||
+      this.ignitionStart
     );
   }
   get hasErrors() {
     return (
-      telemetryStore.telemetry.truck.brakes.airPressure.emergency.enabled &&
-      telemetryStore.telemetry.truck.electric.enabled
+      (telemetryStore.telemetry.truck.brakes.airPressure.emergency.enabled &&
+        telemetryStore.telemetry.truck.electric.enabled) ||
+      this.ignitionStart
     );
   }
   get hasEngineWarning() {
-    return telemetryStore.telemetry.truck.engine.damage >= 0.5;
+    return (
+      telemetryStore.telemetry.truck.engine.damage >= 0.5 || this.ignitionStart
+    );
   }
   // </editor-folder> Informations
 
