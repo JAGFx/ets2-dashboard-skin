@@ -93,7 +93,7 @@ export default {
   mixins: [SkinsMixin],
   data() {
     return {
-      manual: 'SkinManualScania'
+      manual: null
     };
   },
   methods: {
