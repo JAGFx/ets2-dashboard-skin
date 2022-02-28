@@ -1,5 +1,15 @@
 # Translation changes
 
+## From 1.7.1
+
+### Added
+
+- Portuguese
+
+### Changed
+
+- Common dashboard for Euro truck Simulator 2 and American Truck Simulator ~~2~~
+
 ## From 1.7.0
 
 ### Added
