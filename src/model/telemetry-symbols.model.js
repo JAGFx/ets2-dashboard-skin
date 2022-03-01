@@ -4,19 +4,19 @@ export default class TelemetrySymbols {
   get beaconIsEnabled() {
     return (
       telemetryStore.telemetry.truck.lights.beacon.enabled ||
-      telemetryStore.model.truck.ignitionStart
+      telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get leftDirectionIsActive() {
     return (
       telemetryStore.telemetry.truck.lights.blinker.left.active ||
-      telemetryStore.model.truck.ignitionStart
+      telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get rightDirectionIsActive() {
     return (
       telemetryStore.telemetry.truck.lights.blinker.right.active ||
-      telemetryStore.model.truck.ignitionStart
+      telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get mainBeamIsEnabled() {
@@ -24,14 +24,14 @@ export default class TelemetrySymbols {
       (telemetryStore.telemetry.truck.lights.beamHigh.enabled &&
         telemetryStore.telemetry.truck.lights.beamLow.enabled &&
         telemetryStore.telemetry.truck.engine.enabled) ||
-      telemetryStore.model.truck.ignitionStart
+      telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get lowBeamIsEnabled() {
     return (
       (telemetryStore.telemetry.truck.lights.beamLow.enabled &&
         telemetryStore.telemetry.truck.engine.enabled) ||
-      telemetryStore.model.truck.ignitionStart
+      telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get brakePressureIsActive() {

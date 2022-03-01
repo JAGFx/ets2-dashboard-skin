@@ -20,6 +20,9 @@ export default class Telemetry {
   get gameId() {
     return telemetryStore.telemetry.game.game.id;
   }
+  get gameName() {
+    return telemetryStore.telemetry.game.game.name;
+  }
   get gameSdkIsActive() {
     return telemetryStore.telemetry.game.sdkActive;
   }

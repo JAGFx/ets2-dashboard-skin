@@ -7,7 +7,8 @@
  */
 
 import store from '@/store/index';
-import { app, history } from '@/utils/utils';
+import { store as telemetryStore } from '@/store/telemetry.store';
+import { app, history, map } from '@/utils/utils';
 import axios from 'axios';
 import { Feature } from 'ol';
 import { defaults as defaultControls } from 'ol/control';
@@ -196,7 +197,15 @@ const initMap = () => {
 const init = (game) => {
   return initConfig(game)
     .then(() => initMap())
-    .then(() => (d.ready = true));
+    .then(() => (d.ready = true))
+    .then(() => {
+      map.updatePlayerPositionAndRotation(
+        telemetryStore.telemetry.truck.position.X,
+        telemetryStore.telemetry.truck.position.Z,
+        telemetryStore.telemetry.truck.orientation.heading,
+        telemetryStore.telemetry.truck.speed.kph
+      );
+    });
 };
 
 // ----

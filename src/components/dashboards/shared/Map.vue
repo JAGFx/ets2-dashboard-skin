@@ -50,19 +50,20 @@
         <div
           class="barButton m-0 flex-row-reverse h-100 cruise-control"
           :class="{
-            green: telemetry.truck.cruiseControl.enabled,
-            disabled: !telemetry.truck.cruiseControl.enabled
+            green: telemetry2.truck.cruiseControlIsEnabled,
+            disabled: !telemetry2.truck.cruiseControlIsEnabled
           }"
         >
           <div class="round px-2 py-0">
             <i class="icon-cruise_control" />
           </div>
-          <span v-if="!telemetry.truck.cruiseControl.enabled" class="pl-2">{{
+          <span v-if="!telemetry2.truck.cruiseControlIsEnabled" class="pl-2">{{
             $t('OFF')
           }}</span>
-          <span v-else class="pl-2">{{
-            unit_speed(telemetry.truck.cruiseControl)
-          }}</span>
+          <span v-else class="pl-2">
+            {{ telemetry2.truck.speed.toFixed(0) }}
+            {{ $unitReadable('unit_speed') }}
+          </span>
         </div>
       </div>
       <div v-if="!embedded" class="barZone spacer" />
@@ -72,15 +73,12 @@
         >
           <div class="speed">
             <span class="value d-block">{{
-              unit_speed(telemetry.truck.speed, true, false).toFixed(0)
+              telemetry2.truck.speed.toFixed(0)
             }}</span>
           </div>
 
-          <div
-            :class="telemetry.truck.transmission.shifterType"
-            class="truck-gears ml-2"
-          >
-            telemetry2.truck.gearDisplayed
+          <div :class="telemetry2.truck.shifterType" class="truck-gears ml-2">
+            {{ telemetry2.truck.gearDisplayed }}
           </div>
         </div>
       </div>
@@ -89,15 +87,16 @@
           v-if="!embedded"
           class="barButton m-0 blue h-100 fuel"
           :class="{
-            orange: telemetry.truck.fuel.warning.enabled
+            orange: telemetry2.symbols.fuelLevelIsLow
           }"
         >
           <div class="round px-2 py-0">
             <i class="icon-fuel" />
           </div>
-          <span class="pr-2">{{
-            unit_volume(telemetry.truck.fuel.value)
-          }}</span>
+          <span class="pr-2">
+            {{ telemetry2.truck.fuelLevel.toFixed(0) }}
+            {{ $unitReadable('unit_volume') }}
+          </span>
         </div>
         <div class="barButton disabled w-100 h-100" />
         <div
@@ -122,9 +121,7 @@
       id="speed-limit"
       class="justify-content-center align-items-center"
     >
-      <span>{{
-        unit_speed(telemetry.navigation.speedLimit, true, false)
-      }}</span>
+      <span>{{ telemetry2.navigation.speedLimitValue.toFixed(0) }}</span>
     </div>
     <!-- ./Speed limit -->
 
@@ -185,8 +182,8 @@
         <tr v-if="configEnabled('maps_general_debug')">
           <th>{{ $t('Pos') }}</th>
           <td>
-            X: {{ telemetry.truck.position.X.toFixed(3) }} | Y:
-            {{ telemetry.truck.position.Y.toFixed(3) }}
+            X: {{ telemetry2.truck.positionX.toFixed(3) }} | Y:
+            {{ telemetry2.truck.positionY.toFixed(3) }}
           </td>
         </tr>
         <tr v-if="configEnabled('maps_general_debug')">
@@ -249,7 +246,7 @@
           <i class="icon-ruler" />
         </div>
         <span class="pl-2 w-100">{{
-          unit_length(telemetry.navigation.distance, 'm')
+          telemetry2.navigation.distanceToTargetString
         }}</span>
       </span>
     </div>
@@ -259,6 +256,7 @@
 
 <script>
 import TelemetryMixin from '@/mixins/TelemetryMixin';
+import { store as telemetryStore } from '@/store/telemetry.store';
 import { history, map } from '@/utils/utils';
 import { mapGetters } from 'vuex';
 
@@ -310,19 +308,12 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     map
-      .init(this.telemetry.game.game.name)
+      .init(telemetryStore.model.gameName)
       .then(() => {
         this.ready = true;
         this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
-
-        // --- Dev
-        //if ( app.useFakeData )
-        //  setTimeout( () => {
-        //    this.$updateTelemetry( testData )
-        //  }, 1000 );
-        // --- ./Dev
       })
       .catch((e) => {
         this.message.icon = '<i class="fas fa-times"></i>';

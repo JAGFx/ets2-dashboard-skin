@@ -239,4 +239,12 @@ export default class TelemetryTruck {
     return telemetryStore.telemetry.truck.model.id;
   }
   // </editor-folder> Brand
+
+  get positionX() {
+    return telemetryStore.telemetry.truck.position.X;
+  }
+
+  get positionY() {
+    return telemetryStore.telemetry.truck.position.Y;
+  }
 }
