@@ -62,7 +62,7 @@
 					
 					min-width: auto !important;
 					
-					.round > i { padding-top: .3rem; display: block; }
+					.round > i { display: block; }
 					
 					&.active{
 						background: $cBlack;
@@ -114,7 +114,7 @@
 			justify-content: center;
 			align-items:     flex-end;
 			text-align:      center;
-			height:          2rem;
+			height:          2.2rem;
 			
 			button, .button{
 				background: $cBlackTransparentHigh;
@@ -128,7 +128,7 @@
 				
 				min-width: auto !important;
 				
-				.round > i { padding-top: .3rem; display: block; }
+				.round > i { display: block; }
 				&:last-child { margin-right: 0; }
 				
 				&.active{
@@ -150,7 +150,7 @@
 			height:   auto;
 			width:    auto;
 			z-index:  2;
-			margin-bottom: 2rem;
+			margin-bottom: 2.2rem;
 			
 			#ol-zoom-wrapper {
 				width: 100%;
@@ -174,7 +174,7 @@
 						
 						min-width: auto !important;
 						
-						.round > i { padding-top: .3rem; display: block; }
+						.round > i { display: block; }
 					}
 				}
 			}
@@ -187,7 +187,7 @@
 			left:     0;
 			width:    auto;
 			bottom:   0;
-			margin-bottom: 2rem;
+			margin-bottom: 2.2rem;
 			
 			.button{
 				border-left: 2px solid $cRed;

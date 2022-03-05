@@ -42,7 +42,7 @@
           }"
           @click="displayNavigationInfo = !displayNavigationInfo"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-route" />
           </div>
         </div>
@@ -54,7 +54,7 @@
             disabled: !telemetry2.truck.cruiseControlIsEnabled
           }"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-cruise_control" />
           </div>
           <span v-if="!telemetry2.truck.cruiseControlIsEnabled" class="pl-2">{{
@@ -90,7 +90,7 @@
             orange: telemetry2.symbols.fuelLevelIsLow
           }"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-fuel" />
           </div>
           <span class="pr-2">
@@ -104,7 +104,7 @@
           :class="{ disabled: !displayControls, active: displayControls }"
           @click="displayControls = !displayControls"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-menu" />
           </div>
         </div>
@@ -136,7 +136,7 @@
         :class="{ disabled: !displayMapInfo, active: displayMapInfo }"
         @click="onClickMapInfo"
       >
-        <div class="round px-2 py-0">
+        <div class="round p-2">
           <i class="fa fa-info" />
         </div>
       </div>
@@ -146,12 +146,12 @@
         :class="{ disabled: !rotateWithPlayer, active: rotateWithPlayer }"
         @click="onClickRotate"
       >
-        <div class="round px-2 py-0">
+        <div class="round p-2">
           <i class="icon-location_arrow" />
         </div>
       </div>
       <div id="center-button" class="button w-100" @click="onClickCenter">
-        <span class="round px-2 py-0">
+        <span class="round p-2">
           <i class="icon-target" />
         </span>
       </div>

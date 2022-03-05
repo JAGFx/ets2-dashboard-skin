@@ -148,16 +148,14 @@ const initMap = () => {
   // Creating the map.
   let zoomInWrapper = document.createElement('div');
   zoomInWrapper.classList.add('round');
-  zoomInWrapper.classList.add('px-2');
-  zoomInWrapper.classList.add('py-0');
+  zoomInWrapper.classList.add('p-2');
   let zoomInLabel = document.createElement('i');
   zoomInLabel.classList.add('icon-zoom_in');
   zoomInWrapper.append(zoomInLabel);
 
   let zoomOutWrapper = document.createElement('div');
   zoomOutWrapper.classList.add('round');
-  zoomOutWrapper.classList.add('px-2');
-  zoomOutWrapper.classList.add('py-0');
+  zoomOutWrapper.classList.add('p-2');
   let zoomOutLabel = document.createElement('i');
   zoomOutLabel.classList.add('icon-zoom_out');
   zoomOutWrapper.append(zoomOutLabel);
