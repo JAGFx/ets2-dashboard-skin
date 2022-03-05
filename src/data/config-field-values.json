@@ -51,6 +51,10 @@
 			"value" : "Scania"
 		},
 		{
+			"label" : "Scania Next Gen",
+			"value" : "ScaniaNextGen"
+		},
+		{
 			"label" : "Volvo FH",
 			"value" : "VolvoFH"
 		}

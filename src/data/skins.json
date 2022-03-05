@@ -149,11 +149,29 @@
 			"title" :       "Scania",
 			"description" : "Scania Dashboard",
 			"author" :      {
-				"name" :  "Klauzzy",
-				"email" : null,
-				"url" :   null
+				"name" :  "SMITH Emmanuel",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
 			},
-			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/scania",
+			"repository" :      null,
+			"screenshot" :  "img/screenshots/scania.gif",
+			"size" :        {
+				"width" :  1850,
+				"height" : 1035
+			}
+		},
+		{
+			"id" :          "ScaniaNextGen",
+			"disabled" :    false,
+			"manual" :        false,
+			"title" :       "Scania Next Gen",
+			"description" : "Scania Next Gen Dashboard",
+			"author" :      {
+				"name" :  "SMITH Emmanuel",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
+			},
+			"repository" :      null,
 			"screenshot" :  "img/screenshots/scania.gif",
 			"size" :        {
 				"width" :  1850,

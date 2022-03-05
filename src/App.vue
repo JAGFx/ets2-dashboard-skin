@@ -21,11 +21,12 @@
 <script>
 import DafXFDashboard from '@/components/dashboards/DafXFDashboard';
 import DefaultDashboard from '@/components/dashboards/DefaultDashboard';
-import JAGFxDashboard from '@/components/dashboards/JAGFxDashboard';
+import JAGFxDashboard from '@/components/dashboards/jagfx/JAGFxDashboard';
 import ManTGXDashboard from '@/components/dashboards/ManTGXDashboard';
 import MapDashboard from '@/components/dashboards/MapDashboard';
 import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
 import RdInfoDashboard from '@/components/dashboards/RdInfoDashboard';
+import ScaniaNextGenDashboard from '@/components/dashboards/scania-next-gen/ScaniaNextGenDashboard';
 import ScaniaDashboard from '@/components/dashboards/scania/ScaniaDashboard';
 import TestDashboard from '@/components/dashboards/TestDashboard';
 import VolvoFHDashboard from '@/components/dashboards/VolvoFHDashboard';
@@ -56,6 +57,7 @@ export default {
     MercedesAtegoDashboard,
     RdInfoDashboard,
     ScaniaDashboard,
+    ScaniaNextGenDashboard,
     VolvoFHDashboard,
     MapDashboard,
     Overlay,

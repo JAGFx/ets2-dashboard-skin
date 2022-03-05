@@ -1,0 +1,12 @@
+.scania-next-gen {
+	&.wrapper {
+	
+	}
+	
+	.dashboard {
+		position:         absolute;
+		transform-origin: top left;
+		left:             50%;
+		top:              50%;
+	}
+}
