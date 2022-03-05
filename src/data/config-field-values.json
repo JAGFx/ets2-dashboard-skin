@@ -255,6 +255,10 @@
 			"value" : "fr-FR"
 		},
 		{
+			"label" : "Portuguese",
+			"value" : "pt-PT"
+		},
+		{
 			"label" : "Russian",
 			"value" : "ru-RU"
 		}
