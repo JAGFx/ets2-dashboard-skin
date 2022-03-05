@@ -6,6 +6,9 @@ export default class TelemetryTrailer {
   get hasATrailer() {
     return telemetryStore.telemetry.trailer.model.id.length !== 0;
   }
+  get isAttached() {
+    return telemetryStore.telemetry.trailer.attached;
+  }
   get countryIdOfLicensePlate() {
     return telemetryStore.telemetry.trailer.licensePlate.country.id;
   }

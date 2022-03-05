@@ -50,16 +50,18 @@
         <div
           class="barButton m-0 flex-row-reverse h-100 cruise-control"
           :class="{
-            green: telemetry2.truck.cruiseControlIsEnabled,
-            disabled: !telemetry2.truck.cruiseControlIsEnabled
+            green: telemetry2.symbols.cruiseControlIsEnabled,
+            disabled: !telemetry2.symbols.cruiseControlIsEnabled
           }"
         >
           <div class="round p-2">
             <i class="icon-cruise_control" />
           </div>
-          <span v-if="!telemetry2.truck.cruiseControlIsEnabled" class="pl-2">{{
-            $t('OFF')
-          }}</span>
+          <span
+            v-if="!telemetry2.symbols.cruiseControlIsEnabled"
+            class="pl-2"
+            >{{ $t('OFF') }}</span
+          >
           <span v-else class="pl-2">
             {{ telemetry2.truck.speed.toFixed(0) }}
             {{ $unitReadable('unit_speed') }}

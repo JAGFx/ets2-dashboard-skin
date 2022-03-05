@@ -36,14 +36,14 @@
       <li
         v-if="elementIsEnabled('jagfx_elements_right_cruiseControl')"
         :class="{
-          green: telemetry2.truck.cruiseControlIsEnabled,
-          disabled: !telemetry2.truck.cruiseControlIsEnabled
+          green: telemetry2.symbols.cruiseControlIsEnabled,
+          disabled: !telemetry2.symbols.cruiseControlIsEnabled
         }"
       >
-        <span v-show="!telemetry2.truck.cruiseControlIsEnabled">{{
+        <span v-show="!telemetry2.symbols.cruiseControlIsEnabled">{{
           $t('OFF')
         }}</span>
-        <span v-show="telemetry2.truck.cruiseControlIsEnabled">
+        <span v-show="telemetry2.symbols.cruiseControlIsEnabled">
           {{ telemetry2.truck.cruiseControlSpeed }}
           {{ $unitReadable('unit_speed') }}
         </span>
@@ -57,13 +57,15 @@
         v-if="elementIsEnabled('jagfx_elements_right_fuel')"
         class="blue"
         :class="{
-          orange: telemetry2.symbols.fuelLevelIsLow
+          orange: telemetry2.symbols.fuelLevelIsLow,
+          disabled: !telemetry2.truck.ignitionIsTurnedOn
         }"
       >
-        <span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           {{ telemetry2.truck.fuelLevel.toFixed(0) }}
           {{ $unitReadable('unit_volume') }}
         </span>
+        <span v-else> -- {{ $unitReadable('unit_volume') }} </span>
         <div class="round">
           <i class="icon-fuel" />
         </div>
@@ -73,11 +75,13 @@
       <li
         v-if="elementIsEnabled('jagfx_elements_right_fuelConsumption')"
         class="white"
+        :class="{ disabled: !telemetry2.truck.ignitionIsTurnedOn }"
       >
-        <span>
-          {{ telemetry2.truck.fuelAverageConsumption }}
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
+          {{ telemetry2.truck.fuelAverageConsumption.toFixed(1) }}
           {{ $unitReadable('unit_consumption') }}
         </span>
+        <span v-else> -- {{ $unitReadable('unit_consumption') }} </span>
         <div class="round">
           <i class="icon-fuel_consumption" />
         </div>
@@ -87,10 +91,12 @@
       <li
         v-if="elementIsEnabled('jagfx_elements_right_restStop')"
         class="default"
+        :class="{ disabled: !telemetry2.truck.ignitionIsTurnedOn }"
       >
-        <span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           in {{ $nextRestStopFormater(telemetry2.navigation.nextRestStopTime) }}
         </span>
+        <span v-else> -- </span>
         <div class="round">
           <i class="icon-rest_stop" />
         </div>
@@ -102,13 +108,15 @@
         class="blue"
         :class="{
           orange: telemetry2.symbols.brakePressureIsLow,
-          red: telemetry2.symbols.brakePressureIsCriticalLow
+          red: telemetry2.symbols.brakePressureIsCriticalLow,
+          disabled: !telemetry2.truck.ignitionIsTurnedOn
         }"
       >
-        <span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           {{ telemetry2.truck.brakeAirPressure.toFixed(0) }}
           {{ $unitReadable('unit_pressure') }}
         </span>
+        <span v-else> -- {{ $unitReadable('unit_pressure') }} </span>
         <div class="round">
           <i class="icon-air_pressure" />
         </div>
@@ -118,11 +126,13 @@
       <li
         v-if="elementIsEnabled('jagfx_elements_right_oilTemperature')"
         class="default"
+        :class="{ disabled: !telemetry2.truck.ignitionIsTurnedOn }"
       >
-        <span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           {{ telemetry2.truck.engineOilTemperature.toFixed(1) }}
           {{ $unitReadable('unit_degrees') }}
         </span>
+        <span v-else> -- {{ $unitReadable('unit_degrees') }} </span>
         <div class="round">
           <i class="icon-oil" />
         </div>
@@ -132,11 +142,13 @@
       <li
         v-if="elementIsEnabled('jagfx_elements_right_brakesTemperature')"
         class="white"
+        :class="{ disabled: !telemetry2.truck.ignitionIsTurnedOn }"
       >
-        <span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           {{ telemetry2.truck.brakeTemperature.toFixed(1) }}
           {{ $unitReadable('unit_degrees') }}
         </span>
+        <span v-else> -- {{ $unitReadable('unit_degrees') }} </span>
         <div class="round">
           <i class="icon-brakes_temperature" />
         </div>
@@ -147,13 +159,15 @@
         v-if="elementIsEnabled('jagfx_elements_right_waterTemperature')"
         class="blue"
         :class="{
-          orange: telemetry2.symbols.engineWaterTemperatureIsHot
+          orange: telemetry2.symbols.engineWaterTemperatureIsHot,
+          disabled: !telemetry2.truck.ignitionIsTurnedOn
         }"
       >
-        <span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           {{ telemetry2.truck.engineWaterTemperature.toFixed(1) }}
           {{ $unitReadable('unit_degrees') }}
         </span>
+        <span v-else> -- {{ $unitReadable('unit_degrees') }} </span>
         <div class="round">
           <i class="icon-water_temperature" />
         </div>
@@ -164,10 +178,14 @@
         v-if="elementIsEnabled('jagfx_elements_right_batteryVoltage')"
         class="blue"
         :class="{
-          orange: telemetry2.symbols.batteryVoltageIdLow
+          orange: telemetry2.symbols.batteryVoltageIdLow,
+          disabled: !telemetry2.truck.ignitionIsTurnedOn
         }"
       >
-        <span>{{ Math.round(telemetry2.truck.batteryVoltage) }} V</span>
+        <span v-if="telemetry2.truck.ignitionIsTurnedOn"
+          >{{ Math.round(telemetry2.truck.batteryVoltage) }} V</span
+        >
+        <span v-else> -- V</span>
         <div class="round">
           <i class="icon-battery" />
         </div>

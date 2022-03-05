@@ -49,6 +49,18 @@ export const truckGear = (
   return strGear;
 };
 
+export const truckGearSelector = (gear, brandName) => {
+  const crawlingGear = crawlingGearCount(brandName);
+
+  if (gear <= crawlingGear) return 'C';
+
+  if (gear === 0) return 'N';
+
+  if (gear < 0) return 'R' + Math.abs(gear);
+
+  return 'D';
+};
+
 export const truckShifterTypeLetter = (shifterType) => {
   if (shifterType === 'automatic' || shifterType === 'arcade') return 'A';
   else return 'M';

@@ -1,10 +1,5 @@
 <template>
   <div class="job">
-    <!--<div class="header">
-			<div class="name">{{telemetry.job.cargo.name}}</div>
-		</div>-->
-    <!--<div class="wear">{{Math.floor(100 * telemetry.job.cargo.damage)}}%</div>-->
-
     <ul class="dash-element left">
       <li
         :class="{ disabled: !telemetry2.job.hasAnActiveJob }"
@@ -81,9 +76,10 @@
         <div class="round">
           <i class="icon-ruler" />
         </div>
-        <span v-if="telemetry2.navigation.hasAnActiveNavigation">{{
-          $t('N/A')
-        }}</span>
+
+        <span v-if="!telemetry2.navigation.hasAnActiveNavigation">
+          {{ $t('N/A') }}
+        </span>
         <span v-else> {{ telemetry2.navigation.distanceToTargetString }}</span>
       </li>
       <li :class="{ disabled: !telemetry2.job.hasAnActiveJob }" class="default">

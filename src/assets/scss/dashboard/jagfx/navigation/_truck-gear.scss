@@ -19,6 +19,10 @@
 		width: 5rem;
 		line-height: 2rem;
 		color: $cWhiteGray;
+		
+		&.off {
+			color: $cGray !important;
+		}
 	}
 	
 	&.hshifter > .value {

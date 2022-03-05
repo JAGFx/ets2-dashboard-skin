@@ -4,7 +4,7 @@
       color: #000;
       font-size: 2rem;
       background: #fff;
-      position: absolute;
+      position: fixed;
       z-index: 100000;
     "
   >

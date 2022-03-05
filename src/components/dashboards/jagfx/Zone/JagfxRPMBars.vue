@@ -16,6 +16,8 @@
 
 <script>
 import truck_engine_rpm from '@/data/truck-engine-rpm.json';
+import { store as telemetryStore } from '@/store/telemetry.store';
+import gsap from 'gsap';
 import jq from 'json-query';
 
 export default {
@@ -38,11 +40,67 @@ export default {
       required: true
     }
   },
-  data: function () {
+  data() {
     return {
       ter: null,
-      maxBarRpm: 25
+      maxBarRpm: 25,
+      last: 0,
+      animationIsActive: false,
+      valueOnIgnitionAnimation: 0
     };
+  },
+  computed: {
+    ignitionIsOn: () => telemetryStore.model.truck.ignitionIsTurnedOn,
+    rpmValue() {
+      if (this.animationIsActive) return this.valueOnIgnitionAnimation;
+
+      return this.ignitionIsOn ? this.engineRpm : 0;
+    }
+  },
+  watch: {
+    rpmValue(newValue, oldValue) {
+      this.last = oldValue;
+    },
+    ignitionIsOn(value) {
+      const animationDuration = 0.8;
+      if (value) {
+        this.animationIsActive = true;
+        this.valueOnIgnitionAnimation = 0;
+
+        gsap
+          .to(this.$data, {
+            duration: animationDuration,
+            valueOnIgnitionAnimation: this.engineMaxRpm
+          })
+          .then(() => {
+            return gsap.to(this.$data, {
+              duration: animationDuration,
+              valueOnIgnitionAnimation: 0
+            });
+          })
+          .then(() => {
+            return gsap.to(this.$data, {
+              duration: animationDuration,
+              valueOnIgnitionAnimation: this.rpmValue
+            });
+          })
+          .then(() => {
+            this.animationIsActive = false;
+          });
+      } else {
+        this.animationIsActive = true;
+        this.valueOnIgnitionAnimation = this.last;
+
+        gsap
+          .to(this.$data, {
+            duration: animationDuration,
+            valueOnIgnitionAnimation: 0
+          })
+          .then(() => {
+            this.animationIsActive = false;
+          });
+      }
+    }
   },
   mounted() {
     const ter = JSON.parse(JSON.stringify(truck_engine_rpm));
@@ -61,14 +119,14 @@ export default {
     }
   },
   methods: {
-    getRPMBarActive: function (i) {
+    getRPMBarActive(i) {
       if (this.ter === undefined || this.ter === null) return false;
 
       const rpmBarFrom = this.getCurrentRpmBar(i);
 
-      return this.engineRpm >= rpmBarFrom && this.engineRpm !== 0;
+      return this.rpmValue >= rpmBarFrom && this.rpmValue !== 0;
     },
-    getCurrentRpmBar: function (i) {
+    getCurrentRpmBar(i) {
       if (this.ter === null) return 0;
 
       const maxBar = this.maxBarRpm;
@@ -77,7 +135,7 @@ export default {
 
       return iLow * rpmByBar;
     },
-    isAGreenBar: function (i) {
+    isAGreenBar(i) {
       if (this.ter === null) return false;
 
       const rpmBarFrom = this.getCurrentRpmBar(i);
@@ -88,7 +146,7 @@ export default {
         rpmBarFrom <= this.ter.low.to
       );
     },
-    isABlueBar: function (i) {
+    isABlueBar(i) {
       if (this.ter === null) return false;
 
       const rpmBarFrom = this.getCurrentRpmBar(i);
@@ -99,7 +157,7 @@ export default {
         rpmBarFrom <= this.ter.mid.to
       );
     },
-    isARedBar: function (i) {
+    isARedBar(i) {
       if (this.ter === null) return false;
 
       const rpmBarFrom = this.getCurrentRpmBar(i);

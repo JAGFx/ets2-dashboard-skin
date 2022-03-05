@@ -3,6 +3,7 @@ import { flag } from '@/utils/_app';
 import { averageDamage, config } from '@/utils/telemetry/_common.utils';
 import {
   truckGear,
+  truckGearSelector,
   truckShifterTypeLetter
 } from '@/utils/telemetry/_grear.utils';
 import {
@@ -207,15 +208,15 @@ export default class TelemetryTruck {
   get gearDisplayed() {
     return truckGear(this.gear, this.shifterType, this.brandName);
   }
+  get gearSelector() {
+    return truckGearSelector(this.gear, this.brandName);
+  }
   get gearDisplayedWithoutShifterType() {
     return truckGear(this.gear, this.shifterType, this.brandName, false);
   }
   // </editor-folder> Transmission
 
   // <editor-folder> Cruise control
-  get cruiseControlIsEnabled() {
-    return telemetryStore.telemetry.truck.cruiseControl.enabled;
-  }
   get cruiseControlSpeed() {
     return unit_speed(
       telemetryStore.telemetry.truck.cruiseControl.value,

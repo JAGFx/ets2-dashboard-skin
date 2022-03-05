@@ -38,7 +38,7 @@
           class="d-flex justify-content-center align-items-center flex-column px-3"
         >
           <span
-            v-if="telemetry2.truck.cruiseControlIsEnabled"
+            v-if="telemetry2.symbols.cruiseControlIsEnabled"
             class="value pb-2"
             >{{ telemetry2.truck.cruiseControlSpeed }}</span
           >

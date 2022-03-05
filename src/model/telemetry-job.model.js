@@ -8,11 +8,15 @@ import {
 
 export default class TelemetryJob {
   get expectedDeliveryTime() {
+    if (!this.hasAnActiveJob) return null;
+
     return telemetryStore.telemetry.job.market.id === 'external_contracts'
       ? telemetryStore.telemetry.job.expectedDeliveryTimestamp.value
       : telemetryStore.telemetry.job.expectedDeliveryTimestamp.unix;
   }
   get remainingTimeForDeliveryTime() {
+    if (!this.hasAnActiveJob) return null;
+
     const gameTime = telemetryStore.model.gameTime;
     let diff = this.expectedDeliveryTime - gameTime;
 
@@ -35,25 +39,35 @@ export default class TelemetryJob {
       : null;
   }
   get arrivalCityName() {
-    return telemetryStore.telemetry.job.destination.city.name;
+    return this.hasAnActiveJob
+      ? telemetryStore.telemetry.job.destination.city.name
+      : null;
   }
   get arrivalCompanyName() {
-    return telemetryStore.telemetry.job.destination.company.name;
+    return this.hasAnActiveJob
+      ? telemetryStore.telemetry.job.destination.company.name
+      : null;
   }
   get income() {
-    return unit_currency(
-      this.hasAnActiveJob ? telemetryStore.telemetry.job.income : 0,
-      true,
-      false
-    );
+    return this.hasAnActiveJob
+      ? unit_currency(
+          this.hasAnActiveJob ? telemetryStore.telemetry.job.income : 0,
+          true,
+          false
+        )
+      : 0;
   }
   get cargoWeight() {
-    return unit_weight(telemetryStore.telemetry.job.cargo.mass, true, false);
+    return this.hasAnActiveJob
+      ? unit_weight(telemetryStore.telemetry.job.cargo.mass, true, false)
+      : 0;
   }
   get cargoWeightString() {
-    return unit_weight(telemetryStore.telemetry.job.cargo.mass);
+    return this.hasAnActiveJob
+      ? unit_weight(telemetryStore.telemetry.job.cargo.mass)
+      : null;
   }
   get cargoName() {
-    return telemetryStore.telemetry.job.cargo.name;
+    return this.hasAnActiveJob ? telemetryStore.telemetry.job.cargo.name : null;
   }
 }

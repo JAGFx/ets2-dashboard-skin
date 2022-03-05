@@ -42,6 +42,6 @@ export default class TelemetryNavigation {
           true,
           false
         )
-      : null;
+      : 0;
   }
 }

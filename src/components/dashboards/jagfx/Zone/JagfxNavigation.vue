@@ -6,7 +6,10 @@
         <JagfxSymbolArea side="left" />
 
         <div :class="telemetry2.truck.shifterType" class="truck-gear">
-          <span class="value">{{ telemetry2.truck.gearDisplayed }}</span>
+          <span v-if="telemetry2.truck.ignitionIsTurnedOn" class="value">{{
+            telemetry2.truck.gearDisplayed
+          }}</span>
+          <span v-else class="value off">&nbsp;</span>
         </div>
 
         <!-- Right elements -->
@@ -33,8 +36,14 @@
             />
           </div>
           <div class="middle">
-            <div class="speed">
-              <span class="value">{{ telemetry2.truck.speed.toFixed(0) }}</span>
+            <div
+              class="speed"
+              :class="{ off: !telemetry2.truck.ignitionIsTurnedOn }"
+            >
+              <span v-if="telemetry2.truck.ignitionIsTurnedOn" class="value">{{
+                telemetry2.truck.speed.toFixed(0)
+              }}</span>
+              <span v-else class="value">&nbsp;</span>
               <small class="unit">{{ $unitReadable('unit_speed') }}</small>
             </div>
 
@@ -45,7 +54,13 @@
               class="fuel-level"
             >
               <span class="fuel-icon-wrapper">
-                <i :class="{ warning: onWarningLevel() }" class="icon-fuel" />
+                <i
+                  :class="{
+                    warning: onWarningLevel(),
+                    disabled: !telemetry2.truck.ignitionIsTurnedOn
+                  }"
+                  class="icon-fuel"
+                />
               </span>
 
               <div class="bars">
@@ -150,10 +165,16 @@ export default {
       const iLow = i - 1;
       const fuelBarFrom = iLow * fuelByBar;
 
-      return this.telemetry2.truck.fuelLevel >= fuelBarFrom;
+      return (
+        this.telemetry2.truck.fuelLevel >= fuelBarFrom &&
+        this.telemetry2.truck.ignitionIsTurnedOn
+      );
     },
     onWarningLevel: function () {
-      return this.telemetry2.truck.fuelLevel < this.getFuelByBar();
+      return (
+        this.telemetry2.truck.fuelLevel < this.getFuelByBar() &&
+        this.telemetry2.truck.ignitionIsTurnedOn
+      );
     }
   }
 };

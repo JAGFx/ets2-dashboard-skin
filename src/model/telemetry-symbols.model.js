@@ -3,34 +3,42 @@ import { store as telemetryStore } from '@/store/telemetry.store';
 export default class TelemetrySymbols {
   get beaconIsEnabled() {
     return (
-      telemetryStore.telemetry.truck.lights.beacon.enabled ||
+      telemetryStore.telemetry.truck.lights.beacon.enabled &&
       telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get leftDirectionIsActive() {
     return (
-      telemetryStore.telemetry.truck.lights.blinker.left.active ||
-      telemetryStore.model.truck.ignitionIsTurnedOn
+      (telemetryStore.telemetry.truck.lights.blinker.left.active &&
+        telemetryStore.model.truck.ignitionIsTurnedOn) ||
+      this.warningIsActivated
     );
   }
   get rightDirectionIsActive() {
     return (
-      telemetryStore.telemetry.truck.lights.blinker.right.active ||
-      telemetryStore.model.truck.ignitionIsTurnedOn
+      (telemetryStore.telemetry.truck.lights.blinker.right.active &&
+        telemetryStore.model.truck.ignitionIsTurnedOn) ||
+      this.warningIsActivated
+    );
+  }
+  get warningIsActivated() {
+    return (
+      telemetryStore.telemetry.truck.lights.blinker.left.active &&
+      telemetryStore.telemetry.truck.lights.blinker.right.active
     );
   }
   get mainBeamIsEnabled() {
     return (
-      (telemetryStore.telemetry.truck.lights.beamHigh.enabled &&
-        telemetryStore.telemetry.truck.lights.beamLow.enabled &&
-        telemetryStore.telemetry.truck.engine.enabled) ||
+      telemetryStore.telemetry.truck.lights.beamHigh.enabled &&
+      telemetryStore.telemetry.truck.lights.beamLow.enabled &&
+      telemetryStore.telemetry.truck.engine.enabled &&
       telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
   get lowBeamIsEnabled() {
     return (
-      (telemetryStore.telemetry.truck.lights.beamLow.enabled &&
-        telemetryStore.telemetry.truck.engine.enabled) ||
+      telemetryStore.telemetry.truck.lights.beamLow.enabled &&
+      telemetryStore.telemetry.truck.engine.enabled &&
       telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
@@ -94,6 +102,12 @@ export default class TelemetrySymbols {
     return (
       telemetryStore.telemetry.truck.engine.batteryVoltage.warning.enabled ||
       telemetryStore.model.truck.ignitionStart
+    );
+  }
+  get cruiseControlIsEnabled() {
+    return (
+      telemetryStore.telemetry.truck.cruiseControl.enabled &&
+      telemetryStore.model.truck.ignitionIsTurnedOn
     );
   }
 }
