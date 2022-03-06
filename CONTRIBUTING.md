@@ -296,6 +296,9 @@ case 'de-DE':
 ````  
 
 - 9 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on **New Pull Request**
+
+- If you are having issues or don't know how to edit any file, you can ask for help or just edit the sample [fr-FR.yaml](src/translations/fr-FR.yaml) file and send your translation via [Discord](https://discord.gg/qYsFaMUR67). Some members may be able to help filling in the rest of the requirements.
+
 - More information about how to do a pull request can be found here [Github - Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
 
