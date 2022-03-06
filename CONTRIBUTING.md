@@ -208,7 +208,12 @@ Example of the `maps_map_tilesVersion` entry after editing:
 You can help translating the application by following these steps.
 
 
-- 1 Translate all keys, by changing the values to the desired language.  
+- 1 Create a file at `src/translations` and name it to the disired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.  
+Example for `de-DE` (German Germany): `de-DE.yaml`  
+
+- 2 Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.  
+
+- 3 Translate all keys, by changing the values to the desired language.  
 
 Example:  
 `Key : Value`    
@@ -216,15 +221,15 @@ Example:
 Delivered !: Geliefert !   
 Config : Konfigurationen 
 ````
-- 1.1 Add a new line at the end of the file with the language translated.
+- 3.1 Add a new line at the end of the file with the language translated.
 Example:
 `German : Deutsch`  
 
 > Note: *Do not leave trailing spaces` `  and try to respect punctuation marks*.  
 
-- 3 Save your file with the name containing the [locale code](https://www.techonthenet.com/js/language_tags.php) and `.yaml` file extension. Example: `de-DE.yaml`, being 'de-DE' the locale code for German, and place the file inside the `src/translations/` folder.
+- 4 Save your file and place the file inside the `src/translations/` folder.
 
-- 4 Open your local copy of [doc\TRANSLATION_CHANGESmd](TRANSLATION_CHANGES.md).
+- 5 Open your local copy of [doc\TRANSLATION_CHANGESmd](TRANSLATION_CHANGES.md).
 At the top, after `# Translation changes`, you will find the version number, like `## From 1.7.1`.  
 Add a new line below `### Added` containing the name of the new language.
 Example: 
@@ -234,7 +239,7 @@ Example:
 - German
 ````
 
-- 5 Edit the file [src/data/config-field-values.json](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/data/config-field-values.json) and scroll down or find the section `"general_skin_locale"`.  
+- 6 Edit the file [src/data/config-field-values.json](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/data/config-field-values.json) and scroll down or find the section `"general_skin_locale"`.  
 
 Append the `label` and `value` sub-section, given that **label** is the language name and **value** is the BCP 47 Code.  
 It should look like this, at the end of the section:  
@@ -253,9 +258,9 @@ It should look like this, at the end of the section:
 	]
 ````  
 
-- 6 Edit the file [src/utils/_i18n.js](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/utils/_i18n.js)  
+- 7 Edit the file [src/utils/_i18n.js](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/utils/_i18n.js)  
 
-- 6.1 Insert in a new line
+- 7.1 Insert in a new line
 ````js
 import de_de from '@/translations/de-DE.yaml';
 ````  
@@ -266,13 +271,13 @@ import cn_cn from '@/translations/cn-CN.yaml';
 import ru_ru from '@/translations/ru-RU.yaml';
 ```` 
 
-- 6.2 Edit the values at `const availableLocale =` and add the new values to the array.
+- 7.2 Edit the values at `const availableLocale =` and add the new values to the array.
 As such:
 ````js
 const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT', 'de-DE'];
 ````  
 
-- 6.3 Insert a new case at `const currentLocaleTranslations =` before the `default:` line.
+- 7.3 Insert a new case at `const currentLocaleTranslations =` before the `default:` line.
 ````js
 case 'pt-PT':
     return pt_pt;
@@ -282,7 +287,7 @@ case 'de-DE':
       return {};
 ````  
 
-- 7 Save every change and test the translation by launching the dashboard development server with  
+- 8 Save every change and test the translation by launching the dashboard development server with  
 `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)  
 - Open your browser and navigate to one of the url's provided by the server.
 ````
@@ -290,8 +295,8 @@ case 'de-DE':
   - Network: http://192.168.1.65:8080/
 ````  
 
-- 8 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on **New Pull Request**
-- More information about how to do a pull request can be found here [Github Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+- 9 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on **New Pull Request**
+- More information about how to do a pull request can be found here [Github - Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
 
 
