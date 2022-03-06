@@ -205,6 +205,87 @@ Example of the `maps_map_tilesVersion` entry after editing:
 ````
 ### Translations  
 
-You can help translating the application by following the steps in [Features.md](doc/FEATURES.md#Add-a-new-language).  
+You can help translating the application by following these steps.
+
+
+- 1 Translate all keys, by changing the values to the desired language.  
+
+Example:  
+`Key : Value`    
+````
+Delivered !: Geliefert !   
+Config : Konfigurationen 
+````
+- 1.1 Add a new line at the end of the file with the language translated.
+Example:
+`German : Deutsch`  
+
+> Note: *Do not leave trailing spaces` `  and try to respect punctuation marks*.  
+
+- 3 Save your file with the name containing the [locale code](https://www.techonthenet.com/js/language_tags.php) and `.yaml` file extension. Example: `de-DE.yaml`, being 'de-DE' the locale code for German, and place the file inside the `src/translations/` folder.
+
+- 4 Open your local copy of [doc\TRANSLATION_CHANGESmd](TRANSLATION_CHANGES.md).
+At the top, after `# Translation changes`, you will find the version number, like `## From 1.7.1`.  
+Add a new line below `### Added` containing the name of the new language.
+Example: 
+````
+### Added
+
+- German
+````
+
+- 5 Edit the file [src/data/config-field-values.json](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/data/config-field-values.json) and scroll down or find the section `"general_skin_locale"`.  
+
+Append the `label` and `value` sub-section, given that **label** is the language name and **value** is the BCP 47 Code.  
+It should look like this, at the end of the section:  
+
+````json
+"general_skin_locale" :          [
+		
+		{
+			"label" : "Russian",
+			"value" : "ru-RU"
+		},
+		{
+			"label" : "German",
+			"value" : "de-DE"
+		}
+	]
+````  
+
+- 6 Edit the file [src/utils/_i18n.js](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/utils/_i18n.js)  
+
+- 6.1 Insert in a new line
+````js
+import de_de from '@/translations/de-DE.yaml';
+````  
+after the lines  
+````js
+import fr_fr from '@/translations/fr-FR.yaml';
+import cn_cn from '@/translations/cn-CN.yaml';
+import ru_ru from '@/translations/ru-RU.yaml';
+```` 
+
+- 6.2 Edit the values at `const availableLocale =` and add the new values to the array.
+As such:
+````js
+const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT', 'de-DE'];
+````  
+
+- 6.3 Insert a new case at `const currentLocaleTranslations =` before the `default:` line.
+````js
+case 'pt-PT':
+    return pt_pt;
+case 'de-DE':
+	return de_de;
+ default:
+      return {};
+````  
+
+- 7 Save every change and launch the dashboard development app with `$ npm run dashboard:dev`, as described above in **Useful commands**
+
+- Create a pull request  
+
+
 
 
