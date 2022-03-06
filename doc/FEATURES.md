@@ -179,7 +179,7 @@ If you want to contribute and add a new language:
 - 1 Translate all keys, by changing the values to the desired language.  
 
 Example:  
-| Key in English : Value in German |  
+`Key : Value`    
 ````
 Delivered !: Geliefert !   
 Config : Konfigurationen 
