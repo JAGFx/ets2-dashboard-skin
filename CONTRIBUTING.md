@@ -214,17 +214,67 @@ Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`
 - 3 Inside the file, change the text after `:` to the translated text.  
 
 Example:  
-`fr-FR.yaml`  
+From `fr-FR.yaml`  
 ````
 Delivered !: Livré !  
 Config: Paramètres
 ````  
 
-`de-DE.yaml`  
+To `de-DE.yaml`  
 ````
 Delivered: Geliefert !
 Config: Konfigurationen
 ````  
+- Save your changes after you're done.
 
-> Note: *Do not leave trailing spaces ` ` and try to respect punctuation marks*.  
+> Note: *Do not leave trailing spaces` `  and try to respect punctuation marks*.  
 
+- 4 Edit the file [src/data/config-field-values.json](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/data/config-field-values.json) and scroll down or find the section `"general_skin_locale"`.  
+
+Append the `label` and `value` sub-section, given that **label** is the language name and **value** is the BCP 47 Code.  
+It should look like this, at the end of the section:  
+
+````json
+"general_skin_locale" :          [
+		
+		{
+			"label" : "Russian",
+			"value" : "ru-RU"
+		},
+		{
+			"label" : "German",
+			"value" : "de-DE"
+		}
+	]
+````  
+
+- 5 Edit the file [src/utils/_i18n.js](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/utils/_i18n.js)  
+
+- 5.1 Insert in a new line
+````js
+import de_de from '@/translations/de-DE.yaml';
+````  
+after the lines  
+````js
+import fr_fr from '@/translations/fr-FR.yaml';
+import cn_cn from '@/translations/cn-CN.yaml';
+import ru_ru from '@/translations/ru-RU.yaml';
+```` 
+
+- 5.2 Edit the values at `const availableLocale =` and add the new values to the array.
+As such:
+````js
+const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT', 'de-DE'];
+````  
+
+- 5.3 Insert a new case at `const currentLocaleTranslations =` before the `default:` line.
+````js
+case 'pt-PT':
+    return pt_pt;
+case 'de-DE':
+	return de_de;
+ default:
+      return {};
+````  
+
+- 6 Save every change and launch the dashboard development app with `$ npm run dashboard:dev`, as described above in **Useful commandds**
