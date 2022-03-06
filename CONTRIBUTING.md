@@ -213,18 +213,18 @@ Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`
 
 - 3 Inside the file, change the text after `:` to the translated text.  
 
-Example:
-`fr-FR.yaml`
-`
+Example:  
+`fr-FR.yaml`  
+````
 Delivered !: Livré !  
 Config: Paramètres
-`  
+````  
 
-`de-DE.yaml`
-`
+`de-DE.yaml`  
+````
 Delivered: Geliefert !
 Config: Konfigurationen
-`  
+````  
 
 > Note: *Do not leave trailing spaces ` ` and try to respect punctuation marks*.  
 
