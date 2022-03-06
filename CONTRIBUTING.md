@@ -282,9 +282,12 @@ case 'de-DE':
       return {};
 ````  
 
-- 7 Save every change and launch the dashboard development app with `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)
+- 7 Save every change and test the translation by launching the dashboard development server with  
+`$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)
 
-- Create a pull request  
+- 8 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls)  
+- More information about how to do a pull request can be found here [Github Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+
 
 
 
