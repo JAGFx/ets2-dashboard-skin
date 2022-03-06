@@ -261,6 +261,10 @@
 		{
 			"label" : "Russian",
 			"value" : "ru-RU"
+		},
+		{
+			"label" : "Portuguese",
+			"value" : "pt-PT"
 		}
 	]
 }
