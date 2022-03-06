@@ -1,0 +1,50 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_ad-blue-bar.scss
+ * Date: 	06/03/2022
+ * Time: 	16:21
+ */
+
+@import "variable";
+
+.adblue{
+	.adblue-bars	{
+		.labels { font-size: 1.2rem ; line-height: 1.3rem;}
+		
+		.bar-wrapper {
+			border-bottom: 2px solid $cWhite;
+			padding-bottom: .25rem;
+			position: relative;
+			
+			&:before, &:after {
+				content: ' ';
+				position: absolute;
+				z-index: 1;
+				width: 1.2rem;
+				height: 1rem;
+				background: #0f0f0f;
+				border: 2px solid $cWhite;
+				border-color: transparent transparent $cWhite transparent;
+			}
+			
+			&:before {
+				top: 0.2rem;
+				left: -0.4rem;
+				transform: rotate(220deg);
+			}
+			
+			&:after {
+				top: 0.2rem;
+				right: -0.4rem;
+				transform: rotate(135deg);
+			}
+			
+			.bar {
+				width: 100%;
+				height: .4rem;
+				background: $cWhite;
+			}
+		}
+	}
+}

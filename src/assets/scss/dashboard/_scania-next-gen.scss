@@ -1,12 +1,42 @@
+@import "scania-next-gen/variable";
+@import "scania-next-gen/font-face";
+
 .scania-next-gen {
+	@import "scania-next-gen/gauge-display";
+	@import "scania-next-gen/ad-blue-bar";
+	@import "scania-next-gen/fuel-gauge";
+	
 	&.wrapper {
 	
 	}
 	
 	.dashboard {
+		background:       url("/img/dashboard/scania-next-gen/background.jpg") top left no-repeat;
 		position:         absolute;
 		transform-origin: top left;
 		left:             50%;
 		top:              50%;
+	}
+	
+	.truck-speed {
+		position:         fixed;
+		background-image: url("/img/dashboard/scania-next-gen/arrow.png");
+		transform: rotate(-116.3deg);
+		transform-origin: 50% 236px;
+		left: 274px;
+		top: 142px;
+		width: 40px;
+		height: 263px;
+	}
+	
+	.truck-engineRpm {
+		position:         fixed;
+		background-image: url("/img/dashboard/scania-next-gen/arrow.png");
+		left: 1411px;
+		top: 145px;
+		width: 40px;
+		height: 263px;
+		transform: rotate(-117.7deg);
+		transform-origin: 50% 231px;
 	}
 }
