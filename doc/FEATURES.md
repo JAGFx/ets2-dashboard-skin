@@ -174,7 +174,7 @@ If you want to contribute and add a new language:
 
 - Check changes in [TRANSLATION_CHANGES.md](TRANSLATION_CHANGES.md)
 - Get the base file `src/translations/fr-FR.yaml`  
-- Follow the instruction provided in [CONTRIBUTING.md](../CONTRIBUTING.md)
+- Follow the instruction provided in [CONTRIBUTING.md](../CONTRIBUTING.md#translations)
 
 
 ---
