@@ -179,10 +179,10 @@ If you want to contribute and add a new language:
 - 1 Translate all keys, by changing the values to the desired language.  
 
 Example:  
-| Key in English | Value in German |   
-| ---- | ---- |
-| Delivered: Geliefert !|  
-| Config: Konfigurationen |
+| Key in English : Value in German |   
+| -------- |
+| Delivered !: Geliefert !|  
+| Config : Konfigurationen |
   
 - 2 Rename your file with the desired [locale Code](https://www.techonthenet.com/js/language_tags.php) like `de-DE.yaml`, being 'de-DE' the locale code for German, and place on the `src/translations/` folder
 
