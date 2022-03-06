@@ -282,7 +282,7 @@ case 'de-DE':
       return {};
 ````  
 
-- 7 Save every change and launch the dashboard development app with `$ npm run dashboard:dev`, as described above in **Useful commands**
+- 7 Save every change and launch the dashboard development app with `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)
 
 - Create a pull request  
 
