@@ -211,20 +211,20 @@ Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`
 
 - 2 Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.  
 
-- 3 Inside the file, change the text after `:` to the translated text.
+- 3 Inside the file, change the text after `:` to the translated text.  
+
 Example:
 `fr-FR.yaml`
-````json
+`
 Delivered !: Livré !  
 Config: Paramètres
-````  
-
+`  
 
 `de-DE.yaml`
-````json
+`
 Delivered: Geliefert !
 Config: Konfigurationen
-````  
+`  
 
-Note: Do not leave trailing spaces ` ` and try to respect punctuation marks.  
+> Note: *Do not leave trailing spaces ` ` and try to respect punctuation marks*.  
 
