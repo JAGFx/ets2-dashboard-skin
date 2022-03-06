@@ -294,6 +294,7 @@ case 'de-DE':
   - Local:   http://localhost:8080/
   - Network: http://192.168.1.65:8080/
 ````  
+- If you get a message saying `Unable to Launch`, create a `.env.local` file as described [here](#environment-file)
 
 - 9 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on **New Pull Request**
 
