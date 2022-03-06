@@ -173,22 +173,17 @@ The format for the file contents is: `key : value`, being `key` in English and `
 If you want to contribute and add a new language: 
 
 - Check changes in [TRANSLATION_CHANGES.md](TRANSLATION_CHANGES.md)
-- Get the base file `src/translations/fr-FR.yaml`
+- Get the base file `src/translations/fr-FR.yaml`  
+
+
 - 1 Translate all keys, by changing the values to the desired language.  
 
 Example:  
-| From French | To German |   
+| Key in English | Value in German |   
 | ---- | ---- |
-| Delivered !: Livré ! | Delivered: Geliefert !|  
-| Config: Paramètres | Config: Konfigurationen |
-| ---- | ---- |
-````  
-
-To German  
-````
-
-
-````  
+| Delivered: Geliefert !|  
+| Config: Konfigurationen |
+  
 - 2 Rename your file with the desired [locale Code](https://www.techonthenet.com/js/language_tags.php) like `de-DE.yaml`, being 'de-DE' the locale code for German, and place on the `src/translations/` folder
 
 
