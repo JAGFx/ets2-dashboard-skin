@@ -213,9 +213,10 @@ Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`
 
 - 3 Inside the file, change the text after `:` to the translated text.
 Example:
-| French | German |
-| ------ | ------ |
-| ````json About:Paramètres 1:2  ````   | ```` json About: Über 1:2  ```` |
-|---------------------------------------|---------------------------------|
-|                                       |                                 |
-
+[fr-FR.yaml]
+````json
+...
+About: À propos 
+Config: Paramètres
+...
+````
