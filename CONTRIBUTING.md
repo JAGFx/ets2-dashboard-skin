@@ -205,18 +205,26 @@ Example of the `maps_map_tilesVersion` entry after editing:
 ````
 ### Translations
 
-- 1 Create a file at `src/translations` and name it to the disired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.
+- 1 Create a file at `src/translations` and name it to the disired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.  
 
-Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`
+Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`  
 
-- 2 Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.
+- 2 Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.  
 
 - 3 Inside the file, change the text after `:` to the translated text.
 Example:
-[fr-FR.yaml]
+`fr-FR.yaml`
 ````json
-...
-About: À propos 
+Delivered !: Livré !  
 Config: Paramètres
-...
-````
+````  
+
+
+`de-DE.yaml`
+````json
+Delivered: Geliefert !
+Config: Konfigurationen
+````  
+
+Note: Do not leave trailing spaces ` ` and try to respect punctuation marks.  
+
