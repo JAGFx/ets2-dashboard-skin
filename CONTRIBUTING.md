@@ -205,7 +205,7 @@ Example of the `maps_map_tilesVersion` entry after editing:
 ````
 ### Translations
 
-- 1 Create a file at `src/translations` and name it to the disired BCP 47 Code, appended with the `.yaml` extension.
+- 1 Create a file at `src/translations` and name it to the disired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.
 
 Example for `de-DE` (German Germany): `src/translations/de-DE.yaml`
 
@@ -216,8 +216,8 @@ Example:
 |French|German|
 |````json
 Config: Paramètres
-About: À propos
-````|````json
+About: À propos````|
+````json
 Config: Konfigurationen
 About: Über
 ````| 
