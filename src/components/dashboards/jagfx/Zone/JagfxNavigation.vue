@@ -62,15 +62,12 @@
                   class="icon-fuel"
                 />
               </span>
-
-              <div class="bars">
-                <div
-                  v-for="i in getFuelBarCount()"
-                  :key="i"
-                  :class="{ active: getFuelBarActive(i) }"
-                  class="bar"
-                />
-              </div>
+              <Bars
+                class="fuel-gauge"
+                :level="telemetry2.truck.fuelLevel"
+                :capacity="telemetry2.truck.fuelCapacity"
+                :factor="7"
+              />
             </div>
           </div>
           <div
@@ -143,11 +140,12 @@
 import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
 import JagfxSymbolArea from '@/components/dashboards/jagfx/JagfxSymbolArea';
 import JagfxRPMBars from '@/components/dashboards/jagfx/Zone/JagfxRPMBars';
+import Bars from '@/components/dashboards/shared/Bars';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name: 'JagfxNavigation',
-  components: { JagfxSymbolArea, JagfxRPMBars },
+  components: { JagfxSymbolArea, JagfxRPMBars, Bars },
   mixins: [JagfxConfigMixins, TelemetryMixin],
   methods: {
     getFuelByBar: function () {

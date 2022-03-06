@@ -1,21 +1,19 @@
 /**
  * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
  * project:	ets2-dashboard-skin
- * file: 	_fuel-gauge.scss
+ * file: 	_water-temperature.scss
  * Date: 	06/03/2022
- * Time: 	17:21
+ * Time: 	19:39
  */
 
-@import "variable";
-
-.fuel-gauge {
+.water-temperature-gauge {
 	position: absolute;
-	top: 35.8rem;
-	left: 11.4rem;
-	width: 13.5rem;
+	top:      35.8rem;
+	right:     10.9rem;
+	width:    13.5rem;
 	
 	&.bars .bar {
-		width: 1.1rem;
+		width:  1.1rem;
 		height: .3rem;
 		background: $cGreyLight;
 		
@@ -23,7 +21,7 @@
 			background: $cWhite;
 		}
 		
-		&.red, &:first-child {
+		&.red.active, &:last-child.active {
 			background: $cRed;
 		}
 	}

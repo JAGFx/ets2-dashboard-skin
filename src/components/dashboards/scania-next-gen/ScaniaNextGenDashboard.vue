@@ -43,17 +43,29 @@
         </div>
         <ScaniaNextGenAdBlueBar />
       </ScaniaNextGenGaugeDisplay>
-      <ScaniaNextGenFuelGauge />
+      <Bars
+        class="fuel-gauge"
+        :level="telemetry2.truck.fuelLevel"
+        :capacity="telemetry2.truck.fuelCapacity"
+        :factor="8"
+      />
+      <Bars
+        class="water-temperature-gauge"
+        :level="telemetry2.truck.engineWaterTemperature"
+        :capacity="120"
+        :factor="8"
+        mode="bar"
+      />
     </div>
   </Dashboard>
 </template>
 
 <script>
 import Dashboard from '@/components/dashboards/Dashboard';
-import ScaniaNextGenFuelGauge from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenFuelGauge';
-import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar';
 import ScaniaNextGenGaugeDisplay from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGaugeLeftDisplay';
 import ScaniaNextGenGauges from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGauges';
+import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar';
+import Bars from '@/components/dashboards/shared/Bars';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
@@ -63,7 +75,7 @@ export default {
     ScaniaNextGenGauges,
     ScaniaNextGenGaugeDisplay,
     ScaniaNextGenAdBlueBar,
-    ScaniaNextGenFuelGauge
+    Bars
   },
   mixins: [TelemetryMixin]
 };
