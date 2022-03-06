@@ -205,6 +205,6 @@ Example of the `maps_map_tilesVersion` entry after editing:
 ````
 ### Translations  
 
-You can help translating the application by following the steps in [Features.md](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/doc/FEATURES.md#Add-a-new-language).  
+You can help translating the application by following the steps in [Features.md](doc/FEATURES.md#Add-a-new-language).  
 
 
