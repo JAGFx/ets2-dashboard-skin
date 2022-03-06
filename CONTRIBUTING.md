@@ -290,7 +290,10 @@ case 'de-DE':
   - Network: http://192.168.1.65:8080/
 ````  
 
-- 8 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls)  
+- 8 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on <a href="/JAGFx/ets2-dashboard-skin/compare" class="btn btn-primary" data-hotkey="c" tabindex="0" data-ga-click="Repository, go to compare view, location:pull request list; text:New pull request">
+            <span class="d-none d-md-block">New pull request</span>
+            <span class="d-block d-md-none">New</span>
+          </a>  
 - More information about how to do a pull request can be found here [Github Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
 
