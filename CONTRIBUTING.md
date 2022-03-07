@@ -287,14 +287,17 @@ case 'de-DE':
       return {};
 ````  
 
-- 8 Save every change and test the translation by launching the dashboard development server with  
-`$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)  
-- Open your browser and navigate to one of the url's provided by the server.
+- 8 Save every change and test the translation by editing the file `lib/config/config.json` and replacing the values in  
+`"general_skin_locale" :    "en-EN",` to the desired locale code.  
+Example: `"general_skin_locale" :    "de-DE",`  
+
+- 8.1 Launch the dashboard development server with `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)  
+- 8.2 Open your browser and navigate to one of the url's provided by the server.
 ````
   - Local:   http://localhost:8080/
   - Network: http://192.168.1.65:8080/
 ````  
-- If you get a message saying `Unable to Launch`, create a `.env.local` file as described [here](#environment-file)
+> If you get a message saying `Unable to Launch`, create a `.env.local` file as described [here](#environment-file). This will let you launch the app without the game running, for testing purposes.
 
 - 9 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on **New Pull Request**
 
