@@ -9,8 +9,9 @@ import store from '@/store';
 import fr_fr from '@/translations/fr-FR.yaml';
 import cn_cn from '@/translations/cn-CN.yaml';
 import ru_ru from '@/translations/ru-RU.yaml';
+import pt_pt from '@/translations/pt-PT.yaml';
 
-const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU'];
+const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT'];
 
 const fallbackLocale = 'en-EN';
 
@@ -31,6 +32,8 @@ const currentLocaleTranslations = () => {
       return cn_cn;
     case 'ru-RU':
       return ru_ru;
+    case 'pt-PT':
+      return pt_pt;
     default:
       return {};
   }
