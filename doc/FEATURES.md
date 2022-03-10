@@ -166,17 +166,15 @@ Currently, these locales are available:
 
 ### Add a new language
 
-The translations files was stored in `src/translations/` folder.
+The translations files are stored inside the `src/translations/` folder.
 
-All translations files are in YAML format. The key is the English version and the value is your locale.
-
+All translations files are in YAML format. The key is the English version and the value is your locale.  
+The format for the file contents is: `key : value`, being `key` in English and `value` the translated equivalent.
 If you want to contribute and add a new language: 
 
 - Check changes in [TRANSLATION_CHANGES.md](TRANSLATION_CHANGES.md)
-- Get the base file `src/translations/fr-FR.yaml`
-- Translate all values
-- Rename your file with the locale code like `fr_FR.yaml` and place on the `src/translations/` folder
-- Create a pull request
+- Get the base file `src/translations/fr-FR.yaml`  
+- Follow the instruction provided in [CONTRIBUTING.md](../CONTRIBUTING.md#translations)
 
 
 ---
