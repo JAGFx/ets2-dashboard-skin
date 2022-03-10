@@ -1,6 +1,6 @@
 # Translation changes
 
-## From 1.7.1
+## Next release
 
 ### Added
 

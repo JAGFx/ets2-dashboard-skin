@@ -203,3 +203,122 @@ Example of the `maps_map_tilesVersion` entry after editing:
 	]
 }
 ````
+### Translations  
+
+You can help to translate the application by following these steps.
+
+The translations files are stored inside the `src/translations/` folder.
+
+All translations files are in YAML format. The key is the English version and the value is your locale.
+
+The format for the file contents is: `key : value`, being `key` in English and `value` the translated equivalent.
+
+#### Translate file in your locale
+
+1. Create a file at `src/translations` and name it to the desired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.  
+Example for `de-DE` (German Germany): `de-DE.yaml`  
+
+2. Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.  
+
+3. Translate all keys, by changing the values to the desired language.  
+
+Example:
+````yaml
+Delivered !: Geliefert !   
+Config: Konfigurationen 
+````
+
+4. Add a new line at the end of the file with the language translated.
+
+Example:
+````yaml
+German: Deutsch
+```` 
+
+> Note: *Do not leave trailing spaces` `  and try to respect punctuation marks*.  
+
+
+#### Update the translations changes
+
+As mentioned, when you create a new translation file, you need to indicate a new entry to others contributor. 
+
+1. Open the [doc\TRANSLATION_CHANGESmd](TRANSLATION_CHANGES.md) readme.
+At the top, after `# Next release`, add a new line below `### Added` containing the name of the new language.
+
+Example: 
+````markdown
+### Added
+
+- German
+````
+
+#### Enable your language
+
+1. Edit the file [src/data/config-field-values.json](src/data/config-field-values.json) and find the entry `"general_skin_locale"`.
+Append the `label` and `value` sub-section, given that **label** is the language name and **value** is the BCP 47 Code.  
+ 
+Example:
+````json
+"general_skin_locale": [
+    ...
+    {
+        "label" : "German",
+        "value" : "de-DE"
+    }
+]
+````  
+
+2. Edit the file [src/utils/_i18n.js](src/utils/_i18n.js), and insert the importation line for your language
+
+````js
+import fr_fr from '@/translations/fr-FR.yaml';
+import cn_cn from '@/translations/cn-CN.yaml';
+import ru_ru from '@/translations/ru-RU.yaml';
+// Here >>
+import de_de from '@/translations/de-DE.yaml';
+```` 
+
+3. Add your language code at the end of `availableLocale` variable.
+````js
+const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT', 'de-DE'];
+````  
+
+4. Insert a new case at `currentLocaleTranslations` before the `default` case.
+````js
+...
+// Here >
+case 'de-DE':
+    return de_de;
+default:
+    return {};
+````  
+
+#### Test your language
+
+Now, you can test your translation ! Save every change.
+
+
+1. Edit the file `lib/config/config.json` and replacing the value for the entry`general_skin_locale` by your desired locale code.
+
+Example:
+````json
+"general_skin_locale": "de-DE"
+````
+
+2. Launch the dashboard development server with `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)
+
+3. Open your browser and navigate to one of the url's provided by the server.
+````
+  - Local:   http://localhost:8080/
+  - Network: http://192.168.1.65:8080/
+````  
+
+4. Create a `.env.local` file as described [here](#environment-file). This will let you launch the app without the game running, for testing purposes.
+
+#### Publish your changes
+
+1. Create a [pull request](https://github.com/JAGFx/ets2-dashboard-skin/issues/new?assignees=&labels=&template=feature_request.md&title=) by following.
+
+If you are having issues or don't know how to edit any file, you can ask for help or just edit the sample [fr-FR.yaml](src/translations/fr-FR.yaml) file and send your translation via [Discord](https://discord.gg/8abqrEeFxF). Some members may be able to help filling in the rest of the requirements.
+
+More information about how to do a pull request can be found here [Github - Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
