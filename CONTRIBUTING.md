@@ -205,106 +205,120 @@ Example of the `maps_map_tilesVersion` entry after editing:
 ````
 ### Translations  
 
-You can help translating the application by following these steps.
+You can help to translate the application by following these steps.
 
+The translations files are stored inside the `src/translations/` folder.
 
-- 1 Create a file at `src/translations` and name it to the disired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.  
+All translations files are in YAML format. The key is the English version and the value is your locale.
+
+The format for the file contents is: `key : value`, being `key` in English and `value` the translated equivalent.
+
+#### Translate file in your locale
+
+1. Create a file at `src/translations` and name it to the desired [BCP 47 Code](https://www.techonthenet.com/js/language_tags.php), appended with the `.yaml` extension.  
 Example for `de-DE` (German Germany): `de-DE.yaml`  
 
-- 2 Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.  
+2. Open the new file with a text editor and copy the contents of another translation file into your new file, using [fr-FR.yaml](src/translations/fr-FR.yaml) located at `src/translations/fr-FR.yaml` for example.  
 
-- 3 Translate all keys, by changing the values to the desired language.  
+3. Translate all keys, by changing the values to the desired language.  
 
-Example:  
-`Key : Value`    
-````
-Delivered !: Geliefert !   
-Config : Konfigurationen 
-````
-- 3.1 Add a new line at the end of the file with the language translated.
 Example:
-`German : Deutsch`  
+````yaml
+Delivered !: Geliefert !   
+Config: Konfigurationen 
+````
+
+4. Add a new line at the end of the file with the language translated.
+
+Example:
+````yaml
+German: Deutsch
+```` 
 
 > Note: *Do not leave trailing spaces` `  and try to respect punctuation marks*.  
 
-- 4 Save your file and place the file inside the `src/translations/` folder.
 
-- 5 Open your local copy of [doc\TRANSLATION_CHANGESmd](TRANSLATION_CHANGES.md).
-At the top, after `# Translation changes`, you will find the version number, like `## From 1.7.1`.  
-Add a new line below `### Added` containing the name of the new language.
+#### Update the translations changes
+
+As mentioned, when you create a new translation file, you need to indicate a new entry to others contributor. 
+
+1. Open the [doc\TRANSLATION_CHANGESmd](TRANSLATION_CHANGES.md) readme.
+At the top, after `# Next release`, add a new line below `### Added` containing the name of the new language.
+
 Example: 
-````
+````markdown
 ### Added
 
 - German
 ````
 
-- 6 Edit the file [src/data/config-field-values.json](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/data/config-field-values.json) and scroll down or find the section `"general_skin_locale"`.  
+#### Enable your language
 
+1. Edit the file [src/data/config-field-values.json](src/data/config-field-values.json) and find the entry `"general_skin_locale"`.
 Append the `label` and `value` sub-section, given that **label** is the language name and **value** is the BCP 47 Code.  
-It should look like this, at the end of the section:  
-
+ 
+Example:
 ````json
-"general_skin_locale" :          [
-		
-		{
-			"label" : "Russian",
-			"value" : "ru-RU"
-		},
-		{
-			"label" : "German",
-			"value" : "de-DE"
-		}
-	]
+"general_skin_locale": [
+    ...
+    {
+        "label" : "German",
+        "value" : "de-DE"
+    }
+]
 ````  
 
-- 7 Edit the file [src/utils/_i18n.js](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/src/utils/_i18n.js)  
+2. Edit the file [src/utils/_i18n.js](src/utils/_i18n.js), and insert the importation line for your language
 
-- 7.1 Insert in a new line
-````js
-import de_de from '@/translations/de-DE.yaml';
-````  
-after the lines  
 ````js
 import fr_fr from '@/translations/fr-FR.yaml';
 import cn_cn from '@/translations/cn-CN.yaml';
 import ru_ru from '@/translations/ru-RU.yaml';
+// Here >>
+import de_de from '@/translations/de-DE.yaml';
 ```` 
 
-- 7.2 Edit the values at `const availableLocale =` and add the new values to the array.
-As such:
+3. Add your language code at the end of `availableLocale` variable.
 ````js
 const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT', 'de-DE'];
 ````  
 
-- 7.3 Insert a new case at `const currentLocaleTranslations =` before the `default:` line.
+4. Insert a new case at `currentLocaleTranslations` before the `default` case.
 ````js
-case 'pt-PT':
-    return pt_pt;
+...
+// Here >
 case 'de-DE':
-	return de_de;
- default:
-      return {};
+    return de_de;
+default:
+    return {};
 ````  
 
-- 8 Save every change and test the translation by editing the file `lib/config/config.json` and replacing the values in  
-`"general_skin_locale" :    "en-EN",` to the desired locale code.  
-Example: `"general_skin_locale" :    "de-DE",`  
+#### Test your language
 
-- 8.1 Launch the dashboard development server with `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)  
-- 8.2 Open your browser and navigate to one of the url's provided by the server.
+Now, you can test your translation ! Save every change.
+
+
+1. Edit the file `lib/config/config.json` and replacing the value for the entry`general_skin_locale` by your desired locale code.
+
+Example:
+````json
+"general_skin_locale": "de-DE"
+````
+
+2. Launch the dashboard development server with `$ npm run dashboard:dev`, as described above in [Useful commands](#useful-commands)
+
+3. Open your browser and navigate to one of the url's provided by the server.
 ````
   - Local:   http://localhost:8080/
   - Network: http://192.168.1.65:8080/
 ````  
-> If you get a message saying `Unable to Launch`, create a `.env.local` file as described [here](#environment-file). This will let you launch the app without the game running, for testing purposes.
 
-- 9 Create a pull request by following this link: [JAGFx ETS2 Pulls](https://github.com/JAGFx/ets2-dashboard-skin/pulls) and click on **New Pull Request**
+4. Create a `.env.local` file as described [here](#environment-file). This will let you launch the app without the game running, for testing purposes.
 
-- If you are having issues or don't know how to edit any file, you can ask for help or just edit the sample [fr-FR.yaml](src/translations/fr-FR.yaml) file and send your translation via [Discord](https://discord.gg/qYsFaMUR67). Some members may be able to help filling in the rest of the requirements.
+#### Publish your changes
 
-- More information about how to do a pull request can be found here [Github - Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+1. Create a [pull request](https://github.com/JAGFx/ets2-dashboard-skin/issues/new?assignees=&labels=&template=feature_request.md&title=) by following.
 
+If you are having issues or don't know how to edit any file, you can ask for help or just edit the sample [fr-FR.yaml](src/translations/fr-FR.yaml) file and send your translation via [Discord](https://discord.gg/8abqrEeFxF). Some members may be able to help filling in the rest of the requirements.
 
-### Next release
-
+More information about how to do a pull request can be found here [Github - Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
