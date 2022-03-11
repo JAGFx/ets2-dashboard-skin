@@ -68,7 +68,7 @@ export default {
   data() {
     return {
       display: false,
-      subMenu: null
+      subMenu: this.subMenuComponent()
     };
   },
   computed: {
@@ -76,6 +76,14 @@ export default {
       return this.display
         ? '/img/dashboard/scania/menuOn.png'
         : '/img/dashboard/scania/6482891_619566292.png';
+    }
+  },
+  methods: {
+    subMenuComponent() {
+      const configValue = this.config('scania_default_menu');
+      if (configValue === null) return null;
+
+      return `Scania${configValue}Menu`;
     }
   }
 };

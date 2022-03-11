@@ -151,7 +151,7 @@ export default {
   mixins: [TelemetryMixin],
   data() {
     return {
-      menuDisplay: false
+      menuDisplay: this.hasSubMenuActive()
     };
   },
   computed: {
@@ -159,6 +159,12 @@ export default {
       warningMessages: 'dashboard/getScaniaMessages',
       hasAWarningMessage: 'dashboard/hasScaniaMessage'
     })
+  },
+  methods: {
+    hasSubMenuActive() {
+      const configValue = this.config('scania_default_menu');
+      return configValue !== null;
+    }
   }
 };
 </script>

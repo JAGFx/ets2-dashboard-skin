@@ -73,6 +73,10 @@
     <ConfigSection id="jagfx" name="JAGFx">
       <ConfigCategoryJagfx />
     </ConfigSection>
+
+    <ConfigSection id="scania" name="Scania">
+      <ConfigCategoryScania />
+    </ConfigSection>
   </div>
 </template>
 
@@ -81,6 +85,7 @@ import ConfigCategoryEvents from '@/components/menu/config-categories/ConfigCate
 import ConfigCategoryGeneral from '@/components/menu/config-categories/ConfigCategoryGeneral';
 import ConfigCategoryJagfx from '@/components/menu/config-categories/ConfigCategoryJagfx';
 import ConfigCategoryMap from '@/components/menu/config-categories/ConfigCategoryMap';
+import ConfigCategoryScania from '@/components/menu/config-categories/ConfigCategoryScania';
 import ConfigCategoryUnits from '@/components/menu/config-categories/ConfigCategoryUnits';
 import ConfigSection from '@/components/menu/ConfigSection';
 import { config as uConfig, history } from '@/utils/utils';
@@ -94,7 +99,8 @@ export default {
     ConfigCategoryEvents,
     ConfigCategoryUnits,
     ConfigCategoryMap,
-    ConfigCategoryJagfx
+    ConfigCategoryJagfx,
+    ConfigCategoryScania
   },
   data() {
     return {

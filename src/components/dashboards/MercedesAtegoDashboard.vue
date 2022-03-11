@@ -30,9 +30,7 @@
           }"
         />
         <div class="truck-speedRounded wrapper-area">
-          <span>{{
-            unit_speed(telemetry.truck.speed, true, false).toFixed(0)
-          }}</span>
+          <span>{{ telemetry2.truck.speed.toFixed(0) }}</span>
         </div>
         <Cadran
           v-bind="{

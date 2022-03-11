@@ -165,9 +165,7 @@
           class="truck-lightsParkingOn"
         />
         <div class="navigation-speedLimit">
-          {{
-            unit_speed(telemetry.navigation.speedLimit, true, false).toFixed(0)
-          }}
+          {{ telemetry2.navigation.speedLimitValue.toFixed(0) }}
         </div>
 
         <div class="truck-displayedGear wrapper-area">

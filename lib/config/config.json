@@ -1,6 +1,6 @@
 {
 	"general_refresh_rate" :   100,
-	"general_skin_on_load" :   "ScaniaNextGen",
+	"general_skin_on_load" :   "Scania",
 	"general_h-shift-layout" : "h-shifter",
 	"general_skin_locale" :    "en-EN",
 	"general_job_remaining" :  "due_date",

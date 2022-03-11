@@ -266,5 +266,19 @@
 			"label" : "Russian",
 			"value" : "ru-RU"
 		}
+	],
+	"scania_default_menu" : [
+		{
+			"label" : "Nothing",
+			"value" : null
+		},
+		{
+			"label" : "Cruise control, trip computer and driving time information",
+			"value" : "DrivingAssistance"
+		},
+		{
+			"label" : "Instantaneous data",
+			"value" : "InstantaneousData"
+		}
 	]
 }
