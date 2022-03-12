@@ -219,7 +219,7 @@ Promod Canada: Promod Canada
 Latest: Les plus récents
 English: Anglais
 French: Français
-Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2: Tableau de bord commun à Euro truck Simulator 2 et American Truck Simulator 2
+Common dashboard for Euro truck Simulator 2 and American Truck Simulator: Tableau de bord commun à Euro truck Simulator 2 et American Truck Simulator 2
 The map from the route advisor: La carte du conseiller d'itinéraire
 Base: Base
 Simple dashboard with speed: Un tableau de bord simple avec la vitesse
@@ -295,3 +295,48 @@ Port used by the server: Port utilisé par le serveur
 ets2.jagfx.fr (Deprecated): ets2.jagfx.fr (Déprécié)
 Last waiting time to drive: Dernier temps d'attente pour conduire
 Portuguese: Portugais
+Launching: Lancement
+Load configuration game: Chargement de la configuration du jeu
+Load app configuration file: Chargement du fichier de configuration de l'application
+Start: Démarrage
+Manual: Manuel
+Symbol: Symbole
+Label: Étiquette
+General warning symbols: Symboles d'avertissement généraux
+Left direction indicator: Indicateur de direction gauche
+Right direction indicator: Indicateur de direction à droite
+Main beam is on: Les feux de route sont allumés
+Menu symbols: Symboles du menu
+The fuel level is low: Le niveau de carburant est bas
+Downhill speed control: Contrôle de la vitesse en descente
+Not yet implemented: Pas encore implémenté
+Accrued rest time: Temps de repos accumulé
+Ad Blue: Ad Blue
+Battery: Batterie
+Cruise control, trip computer and driving time information: Régulateur de vitesse, ordinateur de bord et informations sur le temps de conduite
+Here, you can set and read off the trip computer; see current operating information and read driving time information from the digital tachograph.: Ici, vous pouvez régler et lire l'ordinateur de bord, voir les informations de fonctionnement actuelles et lire les informations de temps de conduite du tachygraphe numérique
+Instantaneous data: Données instantanées
+Here you can view information about current consumption and current levels.: Vous pouvez consulter ici les informations sur la consommation de courant et les niveaux de courant.
+Settings: Réglages
+Vehicle information: Informations sur le véhicule
+The vehicle information menu can be used to view cargo weights, status of the differential locks and tyre pressures. Which functions are shown depends on the vehicle’s equipment.: Le menu Informations sur le véhicule permet de consulter le poids de la cargaison, l'état des blocages de différentiel et la pression des pneus. Les fonctions affichées dépendent de l'équipement du véhicule.
+Others symbols: Autres symboles
+A fault occurred: Un défaut s'est produit
+The parking brake is applied: Le frein de stationnement est serré
+Vehicle EBS fault: Défaut EBS du véhicule
+The driver’s safety belt is not fastened: La ceinture de sécurité du conducteur n'est pas bouclée
+A warning occurred: Un avertissement s'est produit
+Engine failure: Panne de moteur
+Risk that the level of contaminants in the exhaust gases emitted by the vehicle will be too high. In some cases the engine output is limited and in some cases the vehicle speed is also limited.: Risque que le niveau de contaminants dans les gaz d'échappement émis par le véhicule soit trop élevé. Dans certains cas, la puissance du moteur est limitée et dans d'autres cas, la vitesse du véhicule est également limitée
+Differential lock is engaged: Le blocage du différentiel est engagé
+The tag axle on the tractor is raised: L'essieu directeur du tracteur est relevé
+The tag axle on the trailer is raised: L'essieu suiveur de la remorque est relevé
+The retarder is activated: Le ralentisseur est activé
+Bodybuilder symbols: Les symboles du carrossier
+The rotating beacon is activated: Le gyrophare est activé
+Low brake pressure in parking and trailer brake circuit.: Faible pression de freinage dans le circuit de freinage de stationnement et de remorque
+App: Application
+Default menu: Menu par défaut
+Set the default menu for the Scania dashboard skin. It is displayed when you use this dashboard.: Définissez le menu par défaut de l'habillage du tableau de bord Scania. Il s'affiche lorsque vous utilisez ce tableau de bord
+Nothing: Rien
+Navigation: Navigation

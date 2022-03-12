@@ -1,7 +1,7 @@
 <template>
   <div class="tab-skins">
     <div
-      v-for="skin in $skins()"
+      v-for="skin in $actives()"
       :key="skin.id"
       :class="{
         active: $isActive(skin),
@@ -72,7 +72,7 @@
           class="btn btn-sm btn-primary"
           @click="setManualComponent(skin)"
         >
-          Manual
+          {{ $t('Manual') }}
         </button>
       </div>
     </div>

@@ -711,7 +711,29 @@ But, all game configuration have same entries.
         </td>
         <td>false</td>
     </tr>
+</table>
 
+#### Scania
+
+<table>
+    <tr>
+        <th>Key</th>
+        <th>Name</th>
+        <th>Values</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>scania_default_menu</td>
+        <td>Default menu</td>
+        <td>
+            <ul>
+                <li>null</li>
+                <li>DrivingAssistance</li>
+                <li>InstantaneousData</li>
+            </ul>
+        </td>
+        <td>null</td>
+    </tr>
 </table>
 
 > Note: We can displayed 7 element max in the right side and 4 in the middle side. Place your element on the top.

@@ -15,7 +15,8 @@ export default {
   computed: {
     ...mapGetters({
       currentSkin: 'skins/current',
-      allSkin: 'skins/all'
+      allSkin: 'skins/all',
+      active: 'skins/active'
     })
   },
   methods: {
@@ -47,6 +48,9 @@ export default {
     },
     $skins() {
       return this.allSkin;
+    },
+    $actives() {
+      return this.active;
     }
   }
 };

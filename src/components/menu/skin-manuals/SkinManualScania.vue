@@ -6,13 +6,15 @@
           <div class="manual-wrapper">
             <table class="table table-striped table-dark symbols">
               <thead>
-                <th>Symbol</th>
-                <th>Label</th>
+                <th>{{ $t('Symbol') }}</th>
+                <th>{{ $t('Label') }}</th>
               </thead>
               <tbody>
                 <!-- <editor-folder> General warning symbols  -->
                 <tr>
-                  <td colspan="2" class="category">General warning symbols</td>
+                  <td colspan="2" class="category">
+                    {{ $t('General warning symbols') }}
+                  </td>
                 </tr>
                 <SkinManualLine
                   color="green"
@@ -33,7 +35,7 @@
 
                 <!-- <editor-folder> Menu symbols  -->
                 <tr>
-                  <td colspan="2" class="category">Menu symbols</td>
+                  <td colspan="2" class="category">{{ $t('Menu symbols') }}</td>
                 </tr>
                 <SkinManualLine
                   color="yellow"
@@ -89,7 +91,9 @@
 
                 <!-- <editor-folder> Others symbols  -->
                 <tr>
-                  <td colspan="2" class="category">Others symbols</td>
+                  <td colspan="2" class="category">
+                    {{ $t('Others symbols') }}
+                  </td>
                 </tr>
                 <SkinManualLine
                   color="red"
@@ -148,7 +152,9 @@
 
                 <!-- <editor-folder> Bodybuilder symbols  -->
                 <tr>
-                  <td colspan="2" class="category">Bodybuilder symbols</td>
+                  <td colspan="2" class="category">
+                    {{ $t('Bodybuilder symbols') }}
+                  </td>
                 </tr>
                 <SkinManualLine
                   color="blue"

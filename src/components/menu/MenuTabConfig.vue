@@ -14,8 +14,10 @@
           {{ $t('Download') }}
         </button>
         <div class="dropdown-menu" aria-labelledby="downloadConfigDropdown">
-          <a class="dropdown-item" @click="download('app')">App</a>
-          <a class="dropdown-item" @click="download('game')">Game</a>
+          <a class="dropdown-item" @click="download('app')">{{ $t('App') }}</a>
+          <a class="dropdown-item" @click="download('game')">{{
+            $t('Game')
+          }}</a>
         </div>
       </div>
       <span>
@@ -37,7 +39,7 @@
                 showUpload = !showUpload;
                 targetUpload = 'app';
               "
-              >App</a
+              >{{ $t('App') }}</a
             >
             <a
               class="dropdown-item"
@@ -45,7 +47,7 @@
                 showUpload = !showUpload;
                 targetUpload = 'game';
               "
-              >Game</a
+              >{{ $t('Game') }}</a
             >
           </div>
         </div>

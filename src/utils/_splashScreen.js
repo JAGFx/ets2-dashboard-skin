@@ -84,7 +84,7 @@ export const connectToTelemetryServer = () => {
     store.dispatch('app/showMessage', {
       icon: null,
       title: 'Launching',
-      message: 'Start '
+      message: 'Start'
     });
 
     if (!app.useFakeData) {

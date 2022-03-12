@@ -5,7 +5,7 @@
 			"title" :           "JAGFx dashboard",
 			"disabled" :        false,
 			"manual" :        false,
-			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
+			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator",
 			"config_template" : "true",
 			"author" :          {
 				"name" :  "SMITH Emmanuel",
@@ -162,7 +162,7 @@
 		},
 		{
 			"id" :          "ScaniaNextGen",
-			"disabled" :    false,
+			"disabled" :    true,
 			"manual" :        false,
 			"title" :       "Scania Next Gen",
 			"description" : "Scania Next Gen Dashboard",
