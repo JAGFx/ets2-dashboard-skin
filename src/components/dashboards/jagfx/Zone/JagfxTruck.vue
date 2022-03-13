@@ -40,13 +40,23 @@
           disabled: !telemetry2.symbols.cruiseControlIsEnabled
         }"
       >
-        <span v-show="!telemetry2.symbols.cruiseControlIsEnabled">{{
-          $t('OFF')
-        }}</span>
-        <span v-show="telemetry2.symbols.cruiseControlIsEnabled">
+        <span
+          v-if="
+            !telemetry2.symbols.cruiseControlIsEnabled &&
+            telemetry2.truck.ignitionIsTurnedOn
+          "
+          >{{ $t('OFF') }}</span
+        >
+        <span
+          v-else-if="
+            telemetry2.symbols.cruiseControlIsEnabled &&
+            telemetry2.truck.ignitionIsTurnedOn
+          "
+        >
           {{ telemetry2.truck.cruiseControlSpeed }}
           {{ $unitReadable('unit_speed') }}
         </span>
+        <span v-else />
         <div class="round">
           <i class="icon-cruise_control" />
         </div>
@@ -65,7 +75,7 @@
           {{ telemetry2.truck.fuelLevel.toFixed(0) }}
           {{ $unitReadable('unit_volume') }}
         </span>
-        <span v-else> -- {{ $unitReadable('unit_volume') }} </span>
+        <span v-else />
         <div class="round">
           <i class="icon-fuel" />
         </div>
@@ -81,7 +91,7 @@
           {{ telemetry2.truck.fuelAverageConsumption.toFixed(1) }}
           {{ $unitReadable('unit_consumption') }}
         </span>
-        <span v-else> -- {{ $unitReadable('unit_consumption') }} </span>
+        <span v-else />
         <div class="round">
           <i class="icon-fuel_consumption" />
         </div>
@@ -96,7 +106,7 @@
         <span v-if="telemetry2.truck.ignitionIsTurnedOn">
           in {{ $nextRestStopFormater(telemetry2.navigation.nextRestStopTime) }}
         </span>
-        <span v-else> -- </span>
+        <span v-else />
         <div class="round">
           <i class="icon-rest_stop" />
         </div>
@@ -116,7 +126,7 @@
           {{ telemetry2.truck.brakeAirPressure.toFixed(0) }}
           {{ $unitReadable('unit_pressure') }}
         </span>
-        <span v-else> -- {{ $unitReadable('unit_pressure') }} </span>
+        <span v-else />
         <div class="round">
           <i class="icon-air_pressure" />
         </div>
@@ -132,7 +142,7 @@
           {{ telemetry2.truck.engineOilTemperature.toFixed(1) }}
           {{ $unitReadable('unit_degrees') }}
         </span>
-        <span v-else> -- {{ $unitReadable('unit_degrees') }} </span>
+        <span v-else />
         <div class="round">
           <i class="icon-oil" />
         </div>
@@ -148,7 +158,7 @@
           {{ telemetry2.truck.brakeTemperature.toFixed(1) }}
           {{ $unitReadable('unit_degrees') }}
         </span>
-        <span v-else> -- {{ $unitReadable('unit_degrees') }} </span>
+        <span v-else />
         <div class="round">
           <i class="icon-brakes_temperature" />
         </div>
@@ -167,7 +177,7 @@
           {{ telemetry2.truck.engineWaterTemperature.toFixed(1) }}
           {{ $unitReadable('unit_degrees') }}
         </span>
-        <span v-else> -- {{ $unitReadable('unit_degrees') }} </span>
+        <span v-else />
         <div class="round">
           <i class="icon-water_temperature" />
         </div>
@@ -185,7 +195,7 @@
         <span v-if="telemetry2.truck.ignitionIsTurnedOn"
           >{{ Math.round(telemetry2.truck.batteryVoltage) }} V</span
         >
-        <span v-else> -- V</span>
+        <span v-else />
         <div class="round">
           <i class="icon-battery" />
         </div>

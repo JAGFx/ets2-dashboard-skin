@@ -246,6 +246,10 @@ export default class TelemetryTruck {
   }
 
   get positionY() {
-    return telemetryStore.telemetry.truck.position.Y;
+    return telemetryStore.telemetry.truck.position.Z;
+  }
+
+  get orientation() {
+    return telemetryStore.telemetry.truck.orientation.heading;
   }
 }

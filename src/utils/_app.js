@@ -110,7 +110,15 @@ export const gameIsATS = (gameID) => gameID === GAME_ID_ATS;
 export const gameIsETS2 = (gameID) => gameID === GAME_ID_ETS2;
 
 export const betweenFloat = (data, a, b) => {
-  return parseFloat(data) >= a && parseFloat(data) <= b;
+  return greaterOrEqualThanFloat(data, a) && lessOrEqualThanFloat(data, b);
+};
+
+export const greaterOrEqualThanFloat = (data, a) => {
+  return parseFloat(data) >= a;
+};
+
+export const lessOrEqualThanFloat = (data, a) => {
+  return parseFloat(data) <= a;
 };
 
 export const pushLog = (message, zone, level = history.HTY_LEVEL.INFO) => {

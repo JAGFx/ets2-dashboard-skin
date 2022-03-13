@@ -8,7 +8,8 @@
         <div class="round from">
           <i class="icon-startpoint" />
         </div>
-        <span v-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
+        <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
+        <span v-else-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
         <span v-else>
           <span>{{ telemetry2.job.departureCityName }}</span>
           <small
@@ -24,7 +25,8 @@
         <div class="round to">
           <i class="icon-endpoint" />
         </div>
-        <span v-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
+        <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
+        <span v-else-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
         <span v-else>
           <span>{{ telemetry2.job.arrivalCityName }}</span>
           <small
@@ -38,8 +40,9 @@
         <div class="round">
           <i class="icon-time" />
         </div>
+        <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
         <span
-          v-if="
+          v-else-if="
             telemetry2.job.hasAnActiveJob &&
             telemetry2.job.deliveryTimeIsSetToDuDate
           "
@@ -64,7 +67,8 @@
         <div class="round">
           <i class="icon-currency" />
         </div>
-        <span v-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
+        <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
+        <span v-else-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
         <span v-else>
           {{ telemetry2.job.income }} {{ $unitReadable('unit_currency') }}
         </span>
@@ -77,7 +81,8 @@
           <i class="icon-ruler" />
         </div>
 
-        <span v-if="!telemetry2.navigation.hasAnActiveNavigation">
+        <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
+        <span v-else-if="!telemetry2.navigation.hasAnActiveNavigation">
           {{ $t('N/A') }}
         </span>
         <span v-else> {{ telemetry2.navigation.distanceToTargetString }}</span>
@@ -86,7 +91,8 @@
         <div class="round">
           <i class="icon-weight" />
         </div>
-        <span v-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
+        <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
+        <span v-else-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
         <span v-else>{{ telemetry2.job.cargoWeightString }} </span>
       </li>
     </ul>

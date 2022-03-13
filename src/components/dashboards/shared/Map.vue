@@ -258,8 +258,8 @@
 
 <script>
 import TelemetryMixin from '@/mixins/TelemetryMixin';
-import { store as telemetryStore } from '@/store/telemetry.store';
-import { history, map } from '@/utils/utils';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
+import * as map from '@/utils/_map';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -296,23 +296,30 @@ export default {
     ...mapGetters({
       configEnabled: 'config/enabled'
     }),
-    m: () => map.d
+    m: () => map.d,
+    mapData() {
+      return {
+        x: this.telemetry2.truck.positionX,
+        z: this.telemetry2.truck.positionY,
+        orientation: this.telemetry2.truck.orientation,
+        speed: this.telemetry2.truck.speed
+      };
+    }
   },
   watch: {
-    telemetry(newTelemetry) {
-      if (this.ready) {
-        map.updatePlayerPositionAndRotation(
-          newTelemetry.truck.position.X,
-          newTelemetry.truck.position.Z,
-          newTelemetry.truck.orientation.heading,
-          newTelemetry.truck.speed.kph
-        );
+    mapData: {
+      deep: true,
+      immediate: true,
+      handler() {
+        if (this.ready) {
+          map.triggerMapUpdate();
+        }
       }
     }
   },
-  created() {
+  mounted() {
     map
-      .init(telemetryStore.model.gameName)
+      .init(this.telemetry2.gameName)
       .then(() => {
         this.ready = true;
         this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
@@ -327,8 +334,8 @@ export default {
 
         this.$pushALog(
           `Unknown error: ${errorMessage}`,
-          history.HTY_ZONE.MAPS_INIT,
-          history.HTY_LEVEL.ERROR
+          HTY_ZONE.MAPS_INIT,
+          HTY_LEVEL.ERROR
         );
       });
   },

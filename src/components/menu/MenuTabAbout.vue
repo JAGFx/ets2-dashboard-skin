@@ -4,7 +4,7 @@
       <img
         alt=""
         class="background"
-        src="https://www.emmanuel-smith.me/build/images/bg.home4.7af46a47.jpg"
+        src="https://github.com/JAGFx/JAGFx/raw/master/banner-github-profile-readme.jpg"
       />
       <img
         class="profile img-fluid"

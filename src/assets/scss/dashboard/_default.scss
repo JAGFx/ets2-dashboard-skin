@@ -332,35 +332,21 @@
 	//	color: coral;
 	//}
 	
-	._truckWearInfo {
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 26px;
+	.wears {
 		position: absolute;
-		left: 1600px;
-		top: 1066px;
-		width: 330px;
-		height: 30px;
-		text-align: left;
-		color: #aaa;
-		line-height: 90%;
-	}
-	
-	._trailerWearInfo {
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 26px;
-		position: absolute;
-		left: 1600px;
-		top: 1066px;
-		width: 330px;
-		height: 30px;
-		text-align: left;
-		color: #aaa;
-		line-height: 90%;
-		left: 1810px;
-	}
-	
-	.truck-wearSum, .trailer-wear {
-		font-size: 44px;
-		color: orangered;
+		right: 0;
+		bottom: 0;
+		width: 43rem;
+		
+		.info {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 26px;
+			color: #aaa;
+		}
+		
+		.wear {
+			font-size: 2.3rem;
+			color: orangered;
+		}
 	}
 }

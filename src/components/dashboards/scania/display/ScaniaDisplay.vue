@@ -31,7 +31,9 @@
       class="programmable-field-1 w-100 d-flex justify-content-around align-items-center"
     >
       <div class="item d-flex justify-content-center align-items-center">
-        <div class="icon py-3 d-flex justify-content-center align-items-center">
+        <div
+          class="icon py-3 d-flex justify-content-center align-items-center mr-2"
+        >
           <i class="icon-scania-cruise_control_white" />
         </div>
         <div
@@ -47,7 +49,9 @@
         </div>
       </div>
       <div class="item d-flex justify-content-center align-items-center">
-        <div class="icon py-3 d-flex justify-content-center align-items-center">
+        <div
+          class="icon py-3 d-flex justify-content-center align-items-center mr-2"
+        >
           <i class="icon-scania-downhill-spee-control_yellow_white" />
         </div>
         <div

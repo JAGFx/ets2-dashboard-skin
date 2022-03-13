@@ -186,18 +186,16 @@
             </td>
           </tr>
         </table>
-        <div class="d-flex">
-          <div class="_truckWearInfo">
-            {{ $t('Truck wear') }}:<br />
-            <span class="truck-wearSum"
-              >{{ telemetry.truck.averageDamage }}%</span
-            >
+        <div class="d-flex wears flex-column">
+          <div class="info w-100 d-flex justify-content-around">
+            <span>{{ $t('Truck wear') }}:</span>
+            <span class="wear">{{ telemetry2.truck.averageDamage }}%</span>
           </div>
-          <div class="_trailerWearInfo">
-            {{ $t('Trailer damage') }}:<br />
-            <span class="trailer-wear"
-              >{{ telemetry2.trailer.chassisDamage.toFixed(0) }}%</span
-            >
+          <div class="info w-100 d-flex justify-content-around">
+            <span>{{ $t('Trailer damage') }}:</span>
+            <span class="wear">
+              {{ telemetry2.trailer.chassisDamage.toFixed(0) }}%
+            </span>
           </div>
         </div>
       </div>
