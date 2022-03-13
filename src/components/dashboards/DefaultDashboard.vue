@@ -120,9 +120,6 @@
         />
         <div class="trailer-mass">
           {{ telemetry2.job.cargoWeightString }}
-          <!--          <span class="ton">{{-->
-          <!--            //unit_weight(telemetry.job.cargo.mass, false)-->
-          <!--          }}</span>-->
         </div>
         <div class="trailer-name">
           {{ telemetry2.job.cargoName }}

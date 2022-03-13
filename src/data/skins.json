@@ -149,7 +149,7 @@
 			"title" :       "Scania",
 			"description" : "Scania Dashboard",
 			"author" :      {
-				"name" :  "SMITH Emmanuel",
+				"name" :  "SMITH Emmanuel, Klauzzy",
 				"email" : "hey@emmanuel-smith.me",
 				"url" :   "https://emmanuel-smith.me"
 			},
@@ -164,7 +164,7 @@
 			"id" :          "ScaniaNextGen",
 			"disabled" :    true,
 			"manual" :        false,
-			"title" :       "Scania Next Gen",
+			"title" :       "Scania Next Gen, Klauzzy",
 			"description" : "Scania Next Gen Dashboard",
 			"author" :      {
 				"name" :  "SMITH Emmanuel",

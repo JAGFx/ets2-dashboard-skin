@@ -2,8 +2,6 @@
   <div class="trailer capitalized">
     <div class="t-info">
       <div class="trailer-data">
-        <!--<span>{{bodyType}}</span>
-				<small>{{chainType}}</small>-->
         <div
           v-if="telemetry2.job.hasAnActiveJob && telemetry2.trailer.hasATrailer"
           class="job"

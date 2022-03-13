@@ -10,7 +10,6 @@ module.exports = {
     '<rootDir>/lib',
     '<rootDir>/servers'
   ],
-  //clearMocks: true,
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
     'src/**/*.vue',

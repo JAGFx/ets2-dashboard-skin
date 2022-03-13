@@ -11,60 +11,6 @@
     >
       <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">
         <!-- meters -->
-        <!--
-          Attributes:
-          data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
-          data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
-          data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          -->
-        <!--<Cadran v-bind="{
-          'classCSS': 'truck-speed',
-          'type': 'meter',
-          'value': telemetry.truck.speed.kph,
-          'min': 0,
-          'max': 120,
-          'minAngle' : -111,
-          'maxAngle': 110,
-        }"></Cadran>-->
-        <!--				<div class="truck-speedRounded wrapper-area"><span>{{ $toFixed(telemetry.truck.speed unit_speed( telemetry.truck.speed, true, false ),  0 )  }}</span></div>-->
-        <!--<Cadran v-bind="{
-          'classCSS': 'truck-engineRpm',
-          'type': 'meter',
-          'value': telemetry.truck.engine.rpm.value / 100,
-          'min': 0,
-          'max': 30,
-          'minAngle' : -111,
-          'maxAngle': 112,
-        }"></Cadran>
-        <Cadran v-bind="{
-          'classCSS': 'truck-fuel',
-          'type': 'meter',
-          'value': telemetry.truck.fuel.value,
-          'min': 0,
-          'max': telemetry.truck.fuel.capacity,
-          'minAngle' : -103,
-          'maxAngle': 103,
-        }"></Cadran>-->
-        <!--<Cadran v-bind="{
-          'classCSS': 'truck-waterTemperature',
-          'type': 'meter',
-          'value': telemetry.truck.engine.waterTemperature.value,
-          'min': -48,
-          'max': 100,
-          'minAngle' : -48,
-          'maxAngle': 13,
-        }"></Cadran>-->
-        <!--<Cadran v-bind="{
-          'classCSS': 'truck-airPressure',
-          'type': 'meter',
-          'value': telemetry.truck.engine.waterTemperature.value,
-          'min': 0,
-          'max': 200,
-          'minAngle' : -103,
-          'maxAngle': 111,
-        }"></Cadran>-->
-
         <div class="truck-wearEngine wrapper-area">
           <span>{{ (telemetry.truck.damage.engine * 100).toFixed(0) }}%</span>
         </div>
@@ -143,7 +89,6 @@
           :style="{ width: telemetry.controls.input.throttle * 606 + 'px' }"
           class="_userThrottleBar"
         />
-        <!--				<div :class="{ 'yes': telemetry.truck.lights.beacon.enabled }" class="truck-lightsBeaconOn"></div>-->
         <div
           :class="{
             yes:

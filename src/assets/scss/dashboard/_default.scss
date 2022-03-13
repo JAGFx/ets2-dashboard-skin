@@ -140,7 +140,6 @@
 	}
 	
 	.truck-blinkerLeftOn {
-		//background-image: url("/img/dashboard/default/blinker-left-off.png");
 		position:         absolute;
 		left:             98px;
 		top:              4rem;
@@ -151,12 +150,10 @@
 		
 		&.yes {
 			color: #00E070;
-			//background-image: url("/img/dashboard/default/blinker-left-on.png");
 		}
 	}
 	
 	.truck-blinkerRightOn {
-		//background-image: url("/img/dashboard/default/blinker-right-off.png");
 		position:         absolute;
 		left:             950px;
 		top:              4rem;
@@ -167,7 +164,6 @@
 		
 		&.yes {
 			color: #00E070;
-			//background-image: url("/img/dashboard/default/blinker-right-on.png");
 		}
 	}
 	
@@ -327,10 +323,6 @@
 	._jobSource, ._jobDestionation {
 		color: #efbd3a;
 	}
-	
-	//.statusMessage {
-	//	color: coral;
-	//}
 	
 	.wears {
 		position: absolute;

@@ -11,13 +11,6 @@
     >
       <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">
         <!-- meters -->
-        <!--
-          Attributes:
-          data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
-          data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
-          data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          -->
         <Cadran
           v-bind="{
             classCSS: 'truck-speed',
@@ -43,39 +36,11 @@
             maxAngle: 58
           }"
         />
-        <!--<Cadran v-bind="{
-          'classCSS': 'truck-fuel',
-          'type': 'meter',
-          'value': 700,//telemetry.truck.fuel.value,
-          'min': 0,
-          'max': telemetry.truck.fuel.capacity,
-          'minAngle' : -53,
-          'maxAngle': 53,
-        }"></Cadran>
-        <Cadran v-bind="{
-          'classCSS': 'truck-waterTemperature',
-          'type': 'meter',
-          'value': telemetry.truck.engine.waterTemperature.value,
-          'min': 40,
-          'max': 100,
-          'minAngle' : -55,
-          'maxAngle': 40,
-        }"></Cadran>
-        <Cadran v-bind="{
-          'classCSS': 'truck-oilPressure',
-          'type': 'meter',
-          'value': $pressureToBar(telemetry.truck.engine.oilPressure.value),
-          'min': 0,
-          'max': 8,
-          'minAngle' : -53,
-          'maxAngle': 53,
-        }"></Cadran>-->
         <div class="truck-odometer wrapper-area">
           <span>{{
             unit_length(telemetry.truck.odometer, 'km', true, false).toFixed(0)
           }}</span>
         </div>
-        <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-gear wrapper-area">
           <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
@@ -148,7 +113,6 @@
         <div class="truck-batteryVoltage">
           {{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}
         </div>
-        <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
         <div
           :class="{ yes: telemetry.truck.fuel.warning.enabled }"
           class="truck-fuelWarningOn"
