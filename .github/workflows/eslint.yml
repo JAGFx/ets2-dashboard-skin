@@ -28,4 +28,4 @@ jobs:
                 run: npm i
 
             -   name: Run linter
-                run: npm run ci
+                run: npm run lint
