@@ -51,6 +51,7 @@
     "moment-timezone": "^0.5.33",
     "ol": "^6.5.0",
     "socket.io-client": "^4.2.0",
+    "trucksim-telemetry": "^0.16.1",
     "units-converter": "^1.0.3",
     "vue": "^2.6.14",
     "vue-clipboard2": "^0.3.1",

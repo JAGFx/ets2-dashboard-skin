@@ -17,7 +17,7 @@
             type: 'meter',
             value: telemetry2.truck.speed,
             min: $convertToUnit(2.77778, 'unit_speed'),
-            max: $convertToUnit(33, 33333, 'unit_speed'),
+            max: $convertToUnit(33.33333, 'unit_speed'),
             minAngle: -111,
             maxAngle: 110
           }"
