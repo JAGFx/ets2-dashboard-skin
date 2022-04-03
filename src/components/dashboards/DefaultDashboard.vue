@@ -172,7 +172,13 @@
             <th>{{ $t('Deadline in') }}:</th>
             <td>
               <span class="job-remainingTime">
-                {{ telemetry2.job.remainingTimeForDeliveryTime }}
+                {{
+                  $dateTimeLocalized(
+                    telemetry2.navigation.etaDueDate,
+                    DATE_FORMAT_LONG,
+                    TIME_FORMAT_SHORT
+                  )
+                }}
               </span>
               <span class="_jobIncome">
                 (<span class="job-income">

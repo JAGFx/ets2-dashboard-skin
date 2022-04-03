@@ -42,7 +42,7 @@
           <span
             v-if="telemetry2.symbols.cruiseControlIsEnabled"
             class="value pb-2"
-            >{{ telemetry2.truck.cruiseControlSpeed }}</span
+            >{{ telemetry2.truck.cruiseControlSpeed.toFixed(0) }}</span
           >
           <span v-else class="value pb-2">-</span>
           <span class="unit">{{ $unitReadable('unit_speed') }}</span>

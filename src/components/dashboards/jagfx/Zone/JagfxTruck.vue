@@ -53,7 +53,7 @@
             telemetry2.truck.ignitionIsTurnedOn
           "
         >
-          {{ telemetry2.truck.cruiseControlSpeed }}
+          {{ telemetry2.truck.cruiseControlSpeed.toFixed(0) }}
           {{ $unitReadable('unit_speed') }}
         </span>
         <span v-else />

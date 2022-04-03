@@ -63,7 +63,7 @@
             >{{ $t('OFF') }}</span
           >
           <span v-else class="pl-2">
-            {{ telemetry2.truck.speed.toFixed(0) }}
+            {{ telemetry2.truck.cruiseControlSpeed.toFixed(0) }}
             {{ $unitReadable('unit_speed') }}
           </span>
         </div>
