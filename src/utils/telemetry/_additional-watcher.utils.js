@@ -11,7 +11,7 @@ export default (Vue) => {
       raw: () => telemetryStore.telemetry
     },
     watch: {
-      'raw.truck.electric.enabled': function (newValue) {
+      'raw.truck.electric.enabled'(newValue) {
         if (newValue && !telemetryStore.model.truck.engineIsStarted) {
           telemetryStore.telemetry.truck.electric.start = true;
 

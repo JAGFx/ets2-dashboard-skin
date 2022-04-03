@@ -15,9 +15,9 @@
           v-bind="{
             classCSS: 'truck-speed',
             type: 'meter',
-            value: telemetry.truck.speed.kph,
-            min: 20,
-            max: 120,
+            value: telemetry2.truck.speed,
+            min: $convertToUnit(2.77778, 'unit_speed'),
+            max: $convertToUnit(33.33333, 'unit_speed'),
             minAngle: -97,
             maxAngle: 97
           }"
