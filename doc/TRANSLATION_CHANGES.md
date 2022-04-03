@@ -2,6 +2,8 @@
 
 ## Next release
 
+## From v1.7.1
+
 ### Added
 
 - Portuguese
