@@ -1,7 +1,11 @@
 <template>
   <Dashboard v-slot="dashProps" class="default wrapper">
     <div
-      class="dashboard game-connected yes"
+      class="dashboard"
+      :class="{
+        'game-connected': telemetry2.truck.ignitionIsTurnedOn,
+        yes: telemetry2.truck.ignitionIsTurnedOn
+      }"
       :style="{
         transform:
           'scale(' + dashProps.currentScale + ') translate(-50%, -50%)',
@@ -9,41 +13,37 @@
         height: dashProps.skinData.size.height + 'px'
       }"
     >
-      <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">
+      <div
+        :class="{
+          yes: telemetry2.job.hasAnActiveJob,
+          hasJob: telemetry2.job.hasAnActiveJob
+        }"
+      >
         <!-- meters -->
-        <!--
-          Attributes:
-          data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
-          data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
-          data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          -->
         <Cadran
           v-bind="{
             classCSS: 'truck-speed',
             type: 'meter',
-            value: telemetry.truck.speed.kph,
-            min: 0,
-            max: 140,
+            value: telemetry2.truck.speed,
+            min: $convertToUnit(2.77778, 'unit_speed'),
+            max: $convertToUnit(38.8889, 'unit_speed'),
             minAngle: -114,
             maxAngle: 114
           }"
         />
         <div class="truck-speedRounded wrapper-area">
-          <span>{{
-            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
-          }}</span>
+          <span>{{ telemetry2.truck.speed.toFixed(0) }}</span>
         </div>
         <div class="truck-speedRounded-unit wrapper-area">
-          <span>{{ unit_speed(telemetry.truck.speed, false) }}</span>
+          <span>{{ $unitReadable('unit_speed') }}</span>
         </div>
         <Cadran
           v-bind="{
             classCSS: 'truck-engineRpm',
             type: 'meter',
-            value: telemetry.truck.engine.rpm.value / 100,
+            value: telemetry2.truck.rpm,
             min: 0,
-            max: 24,
+            max: 2400,
             minAngle: -97,
             maxAngle: 97
           }"
@@ -52,9 +52,9 @@
           v-bind="{
             classCSS: 'truck-fuel',
             type: 'meter',
-            value: telemetry.truck.fuel.value,
+            value: telemetry2.truck.fuelLevel,
             min: 0,
-            max: telemetry.truck.fuel.capacity,
+            max: telemetry2.truck.fuelCapacity,
             minAngle: -96,
             maxAngle: 0
           }"
@@ -63,64 +63,66 @@
           v-bind="{
             classCSS: 'truck-waterTemperature',
             type: 'meter',
-            value: telemetry.truck.engine.waterTemperature.value,
+            value: telemetry2.truck.engineWaterTemperature,
             min: 0,
-            max: 100,
+            max: $convertToUnit(100, 'unit_degrees'),
             minAngle: -96,
             maxAngle: 0
           }"
         />
         <div class="truck-odometer wrapper-area">
-          <span>{{
-            unit_length(telemetry.truck.odometer, 'km', true, false)
-              | $toFixed(0)
-          }}</span>
+          <span>{{ telemetry2.truck.odometer.toFixed(0) }}</span>
         </div>
-        <div class="truck-cruiseControlSpeedRounded wrapper-area">
-          <span>{{ telemetry.truck.cruiseControl.kph }}</span>
+        <div
+          class="truck-cruiseControlSpeedRounded wrapper-area"
+          :data-value="telemetry2.truck.cruiseControlSpeed"
+        >
+          <span>{{ telemetry2.truck.cruiseControlSpeed.toFixed(0) }}</span>
         </div>
-        <div class="truck-gear wrapper-area">
-          <span>{{
-            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
-          }}</span>
+        <div
+          class="truck-gear wrapper-area"
+          :data-value="telemetry2.truck.gearSelector"
+        >
+          <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
         <!-- indicators -->
         <div
-          :class="{ yes: telemetry.truck.lights.blinker.left.active }"
+          :class="{ yes: telemetry2.symbols.leftDirectionIsActive }"
           class="truck-blinkerLeftOn"
-        />
+        >
+          <i class="icon-blinker_left" />
+        </div>
         <div
-          :class="{ yes: telemetry.truck.lights.blinker.right.active }"
+          :class="{ yes: telemetry2.symbols.rightDirectionIsActive }"
           class="truck-blinkerRightOn"
-        />
+        >
+          <i class="icon-blinker_right" />
+        </div>
         <div
-          :class="{ yes: telemetry.truck.cruiseControl.enabled }"
+          :class="{ yes: telemetry2.symbols.cruiseControlIsEnabled }"
           class="truck-cruiseControlOn"
         />
         <div
-          :class="{ yes: telemetry.truck.lights.beamHigh.enabled }"
+          :class="{ yes: telemetry2.symbols.mainBeamIsEnabled }"
           class="truck-lightsBeamHighOn"
         />
         <div
-          :class="{ yes: telemetry.truck.lights.beamLow.enabled }"
+          :class="{ yes: telemetry2.symbols.lowBeamIsEnabled }"
           class="truck-lightsBeamLowOn"
         />
         <div
-          :class="{ yes: telemetry.truck.lights.parking.enabled }"
+          :class="{ yes: telemetry2.symbols.parkingBrakeIsEnabled }"
           class="truck-lightsParkingOn"
         />
         <div
-          :class="{ yes: telemetry.trailer.attached }"
+          :class="{ yes: telemetry2.trailer.isAttached }"
           class="trailer-attached"
         />
         <div class="trailer-mass">
-          {{ unit_weight(telemetry.job.cargo.mass, true, false) | $toFixed(1)
-          }}<span class="ton">{{
-            unit_weight(telemetry.job.cargo.mass, false)
-          }}</span>
+          {{ telemetry2.job.cargoWeightString }}
         </div>
         <div class="trailer-name">
-          {{ telemetry.job.cargo.name }}
+          {{ telemetry2.job.cargoName }}
         </div>
         <!-- job information -->
         <table class="_job">
@@ -128,8 +130,11 @@
             <th>{{ $t('Time') }}:</th>
             <td>
               <span class="game-time">{{
-                $gameTime()
-                  | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+                $dateTimeLocalized(
+                  telemetry2.gameTime,
+                  DATE_FORMAT_LONG,
+                  TIME_FORMAT_SHORT
+                )
               }}</span>
             </td>
           </tr>
@@ -137,59 +142,57 @@
             <th>{{ $t('Source') }}:</th>
             <td>
               <span class="hasJob _jobSource">
-                <span class="job-sourceCity">{{
-                  telemetry.job.source.city.name
-                }}</span>
-                (<span class="job-sourceCompany">{{
-                  telemetry.job.source.company.name
-                }}</span
-                >)
+                <span class="job-sourceCity">
+                  {{ telemetry2.job.departureCityName }}
+                </span>
+                (
+                <span class="job-sourceCompany">
+                  {{ telemetry2.job.departureCompanyName }}
+                </span>
+                )
               </span>
             </td>
           </tr>
           <tr>
             <th>{{ $t('Destination') }}:</th>
             <td>
-              <span class="hasJob _jobDestionation">
-                <span class="job-destinationCity">{{
-                  telemetry.job.destination.city.name
-                }}</span>
-                (<span class="job-destinationCompany">{{
-                  telemetry.job.destination.company.name
-                }}</span
-                >)
+              <span class="_jobDestionation">
+                <span class="job-destinationCity">
+                  {{ telemetry2.job.arrivalCityName }}
+                </span>
+                (
+                <span class="job-destinationCompany">
+                  {{ telemetry2.job.arrivalCompanyName }}
+                </span>
+                )
               </span>
             </td>
           </tr>
           <tr>
             <th>{{ $t('Deadline in') }}:</th>
             <td>
-              <span class="job-remainingTime">{{
-                $jobRemainingTimeDelivery(
-                  telemetry.job.expectedDeliveryTimestamp.value
-                )
-              }}</span>
+              <span class="job-remainingTime">
+                {{ telemetry2.job.remainingTimeForDeliveryTime }}
+              </span>
               <span class="_jobIncome">
-                (<span class="job-income">{{
-                  unit_currency(telemetry.job.income)
-                }}</span
+                (<span class="job-income">
+                  {{ telemetry2.job.income }}
+                  {{ $unitReadable('unit_currency') }} </span
                 >)</span
               >
             </td>
           </tr>
         </table>
-        <div class="d-flex">
-          <div class="_truckWearInfo">
-            {{ $t('Truck wear') }}:<br />
-            <span class="truck-wearSum"
-              >{{ $averageDamage(telemetry.truck.damage) }}%</span
-            >
+        <div class="d-flex wears flex-column">
+          <div class="info w-100 d-flex justify-content-around">
+            <span>{{ $t('Truck wear') }}:</span>
+            <span class="wear">{{ telemetry2.truck.averageDamage }}%</span>
           </div>
-          <div class="_trailerWearInfo">
-            {{ $t('Trailer damage') }}:<br />
-            <span class="trailer-wear"
-              >{{ telemetry.trailer.chassis.damage.toFixed(0) }}%</span
-            >
+          <div class="info w-100 d-flex justify-content-around">
+            <span>{{ $t('Trailer damage') }}:</span>
+            <span class="wear">
+              {{ telemetry2.trailer.chassisDamage.toFixed(0) }}%
+            </span>
           </div>
         </div>
       </div>

@@ -7,7 +7,13 @@
  */
 
 import store from '@/store/index';
-import { app, history } from '@/utils/utils';
+import { store as telemetryStore } from '@/store/telemetry.store';
+import {
+  betweenFloat,
+  greaterOrEqualThanFloat,
+  lessOrEqualThanFloat
+} from '@/utils/_app';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 import axios from 'axios';
 import { Feature } from 'ol';
 import { defaults as defaultControls } from 'ol/control';
@@ -75,7 +81,7 @@ const basePath = (game) => {
 
   Vue.prototype.$pushALog(
     `Base path: ${path} | Type: ${type} | Tile version: ${tilesVersion} | Custom tiles host: ${tilesRemoteUseCustom}`,
-    history.HTY_ZONE.MAPS_INIT
+    HTY_ZONE.MAPS_INIT
   );
 
   return `${path}`;
@@ -91,7 +97,7 @@ const initConfig = (game) => {
   return axios.get(d.paths.base + d.paths.config).then(
     (response) => {
       d.config = response.data;
-      Vue.prototype.$pushALog(`Map config found`, history.HTY_ZONE.MAPS_INIT);
+      Vue.prototype.$pushALog(`Map config found`, HTY_ZONE.MAPS_INIT);
 
       const tilesPath = d.paths.tiles.replace(/{[xyz]}/g, 0);
 
@@ -99,15 +105,15 @@ const initConfig = (game) => {
         () => {
           Vue.prototype.$pushALog(
             `Tiles OK: ${d.paths.base + tilesPath}`,
-            history.HTY_ZONE.MAPS_INIT
+            HTY_ZONE.MAPS_INIT
           );
           d.gBehaviorRotateWithPlayer = rotateWithPlayer;
         },
         () => {
           Vue.prototype.$pushALog(
             `Tiles NOT FOUND`,
-            history.HTY_ZONE.MAPS_INIT,
-            history.HTY_LEVEL.ERROR
+            HTY_ZONE.MAPS_INIT,
+            HTY_LEVEL.ERROR
           );
           throw new Error('Cant get tiles - Tiles NOT FOUND');
         }
@@ -116,8 +122,8 @@ const initConfig = (game) => {
     () => {
       Vue.prototype.$pushALog(
         `Map config NOT FOUND`,
-        history.HTY_ZONE.MAPS_INIT,
-        history.HTY_LEVEL.ERROR
+        HTY_ZONE.MAPS_INIT,
+        HTY_LEVEL.ERROR
       );
       throw new Error('Cant get config - Map config NOT FOUND');
     }
@@ -147,16 +153,14 @@ const initMap = () => {
   // Creating the map.
   let zoomInWrapper = document.createElement('div');
   zoomInWrapper.classList.add('round');
-  zoomInWrapper.classList.add('px-2');
-  zoomInWrapper.classList.add('py-0');
+  zoomInWrapper.classList.add('p-2');
   let zoomInLabel = document.createElement('i');
   zoomInLabel.classList.add('icon-zoom_in');
   zoomInWrapper.append(zoomInLabel);
 
   let zoomOutWrapper = document.createElement('div');
   zoomOutWrapper.classList.add('round');
-  zoomOutWrapper.classList.add('px-2');
-  zoomOutWrapper.classList.add('py-0');
+  zoomOutWrapper.classList.add('p-2');
   let zoomOutLabel = document.createElement('i');
   zoomOutLabel.classList.add('icon-zoom_out');
   zoomOutWrapper.append(zoomOutLabel);
@@ -193,13 +197,23 @@ const initMap = () => {
   });
 };
 
-const init = (game) => {
-  return initConfig(game)
+const init = () => {
+  return initConfig(telemetryStore.model.gameName)
     .then(() => initMap())
-    .then(() => (d.ready = true));
+    .then(() => (d.ready = true))
+    .then(triggerMapUpdate);
 };
 
 // ----
+
+const triggerMapUpdate = () => {
+  updatePlayerPositionAndRotation(
+    telemetryStore.model.truck.positionX,
+    telemetryStore.model.truck.positionY,
+    telemetryStore.model.truck.orientation,
+    telemetryStore.model.truck.speed
+  );
+};
 
 const getMapTilesLayer = (projection) => {
   return new Tile({
@@ -266,10 +280,10 @@ const updatePlayerPositionAndRotation = (lon, lat, rot, speed) => {
   if (d.gBehaviorCenterOnPlayer) {
     if (d.gBehaviorRotateWithPlayer) {
       //auto-zoom map by speed
-      if (app.betweenFloat(speed, 15, 35)) d.map.getView().setZoom(9);
-      else if (app.betweenFloat(speed, 51, 55)) d.map.getView().setZoom(8);
-      else if (app.betweenFloat(speed, 61, 65)) d.map.getView().setZoom(7);
-      else if (app.betweenFloat(speed, 81, 88)) d.map.getView().setZoom(6);
+      if (lessOrEqualThanFloat(speed, 30)) d.map.getView().setZoom(15);
+      else if (betweenFloat(speed, 30, 50)) d.map.getView().setZoom(9);
+      else if (betweenFloat(speed, 51, 89)) d.map.getView().setZoom(8);
+      else if (greaterOrEqualThanFloat(speed, 90)) d.map.getView().setZoom(7);
 
       d.map.getView().setCenter(map_coords);
       d.map.getView().setRotation(rad);
@@ -287,4 +301,10 @@ const gameCoordToPixels = (x, y) => {
   return [x, -y];
 };
 
-export { d, init, updatePlayerPositionAndRotation, gameCoordToPixels };
+export {
+  d,
+  init,
+  updatePlayerPositionAndRotation,
+  gameCoordToPixels,
+  triggerMapUpdate
+};

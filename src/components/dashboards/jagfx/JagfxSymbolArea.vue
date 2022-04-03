@@ -4,7 +4,7 @@
     <div
       v-if="elementIsEnabled('jagfx_elements_mid_top_parkingBrake')"
       :class="{
-        red: $parent.telemetry.truck.brakes.parking.enabled,
+        red: $parent.telemetry2.symbols.parkingBrakeIsEnabled,
         left: sideLeft(),
         right: sideRight()
       }"
@@ -19,7 +19,7 @@
     <div
       v-if="elementIsEnabled('jagfx_elements_mid_top_retarder')"
       :class="{
-        green: $parent.telemetry.truck.brakes.retarder.level > 0,
+        green: $parent.telemetry2.symbols.retarderIsActive,
         left: sideLeft(),
         right: sideRight()
       }"
@@ -34,7 +34,7 @@
     <div
       v-if="elementIsEnabled('jagfx_elements_mid_top_beacon')"
       :class="{
-        green: $parent.telemetry.truck.lights.beacon.enabled,
+        green: $parent.telemetry2.symbols.beaconIsEnabled,
         left: sideLeft(),
         right: sideRight()
       }"
@@ -49,10 +49,7 @@
     <div
       v-if="elementIsEnabled('jagfx_elements_mid_top_beamHigh')"
       :class="{
-        blue:
-          $parent.telemetry.truck.lights.beamHigh.enabled &&
-          $parent.telemetry.truck.lights.beamLow.enabled &&
-          $parent.telemetry.truck.engine.enabled,
+        blue: $parent.telemetry2.symbols.mainBeamIsEnabled,
         left: sideLeft(),
         right: sideRight()
       }"
@@ -67,9 +64,7 @@
     <div
       v-if="elementIsEnabled('jagfx_elements_mid_top_beamLow')"
       :class="{
-        green:
-          $parent.telemetry.truck.lights.beamLow.enabled &&
-          $parent.telemetry.truck.engine.enabled,
+        green: $parent.telemetry2.symbols.lowBeamIsEnabled,
         left: sideLeft(),
         right: sideRight()
       }"

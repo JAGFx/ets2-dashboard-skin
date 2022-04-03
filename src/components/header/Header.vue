@@ -1,7 +1,11 @@
 <template>
   <div id="header">
-    <HeaderGameInformation v-if="appReady" id="game" />
-    <div v-if="appReady" v-show="menuIsDisplayed" class="wrapper menu h-100">
+    <HeaderGameInformation v-if="$telemetryDataIsEnough" id="game" />
+    <div
+      v-if="$telemetryDataIsEnough"
+      v-show="menuIsDisplayed"
+      class="wrapper menu h-100"
+    >
       <Menu />
     </div>
   </div>

@@ -243,7 +243,7 @@
 		"brakes" :        {
 			"retarder" :    {
 				"steps" : 5,
-				"level" : 0
+				"level" : 1
 			},
 			"airPressure" : {
 				"warning" :   {
@@ -252,7 +252,7 @@
 				},
 				"emergency" : {
 					"factor" :  34.79999923706055,
-					"enabled" : false
+					"enabled" : true
 				},
 				"value" :     144.99745178222656
 			},
@@ -263,7 +263,7 @@
 				"enabled" : true
 			},
 			"motor" :       {
-				"enabled" : false
+				"enabled" : true
 			}
 		},
 		"wheels" :        [
@@ -482,13 +482,13 @@
 				"enabled" : true
 			},
 			"beamLow" :            {
-				"enabled" : false
+				"enabled" : true
 			},
 			"beamHigh" :           {
-				"enabled" : false
+				"enabled" : true
 			},
 			"beacon" :             {
-				"enabled" : false
+				"enabled" : true
 			},
 			"brake" :              {
 				"enabled" : false
@@ -504,10 +504,10 @@
 			"capacity" :       1000,
 			"warning" :        {
 				"factor" :  0.15000000596046448,
-				"enabled" : false
+				"enabled" : true
 			},
 			"value" :          821.89013671875,
-			"avgConsumption" : 0,
+			"avgConsumption" : 0.5,
 			"range" :          2568.40673828125
 		},
 		"adBlue" :        {
@@ -524,14 +524,14 @@
 					"factor" :  10.149999618530273,
 					"enabled" : true
 				},
-				"value" :   0
+				"value" :   50
 			},
 			"waterTemperature" : {
 				"warning" : {
 					"factor" :  105,
-					"enabled" : false
+					"enabled" : true
 				},
-				"value" :   16.795082092285156
+				"value" :   90.795082092285156
 			},
 			"batteryVoltage" :   {
 				"warning" : {
@@ -542,30 +542,30 @@
 			},
 			"rpm" :              {
 				"max" :   2500,
-				"value" : 0
+				"value" : 1500
 			},
 			"oilTemperature" :   {
 				"value" : 16.817760467529297
 			},
 			"damage" :           0.00489132571965456,
-			"enabled" :          false
+			"enabled" :          true
 		},
 		"differential" :  {
 			"ratio" : 3.9600000381469727,
 			"lock" :  {
-				"enabled" : false
+				"enabled" : true
 			}
 		},
 		"speed" :         {
-			"value" : 0.0009727554861456156,
-			"kph" :   0,
-			"mph" :   0
+			"value" : 36.1111,
+			"kph" :   50,
+			"mph" :   50
 		},
 		"cruiseControl" : {
-			"value" :   0,
-			"enabled" : false,
-			"kph" :     0,
-			"mph" :     0
+			"value" :   25,
+			"enabled" : true,
+			"kph" :     90,
+			"mph" :     12
 		},
 		"cabin" :         {
 			"damage" :       0.0007348754443228245,
@@ -604,13 +604,13 @@
 		},
 		"odometer" :      108482.9609375,
 		"electric" :      {
-			"enabled" : false
+			"enabled" : true
 		},
 		"wipers" :        {
 			"enabled" : false
 		},
 		"liftAxle" :      {
-			"enabled" :   false,
+			"enabled" :   true,
 			"indicator" : {
 				"enabled" : false
 			}
@@ -664,12 +664,12 @@
 			}
 		},
 		"position" :      {
-			"X" : -6274.059234619141,
-			"Y" : 37.788394927978516,
-			"Z" : 9571.511840820312
+			"X": 52850.890144348145,
+			"Y": 5.716939926147461,
+			"Z": -31324.724784851074
 		},
 		"orientation" :   {
-			"heading" : 0.13367897272109985,
+			"heading": 0.4390052556991577,
 			"pitch" :   0.0005585197359323502,
 			"roll" :    7.589098771632052e-8
 		},
@@ -1049,7 +1049,7 @@
 			"total" :   0.04498915374279022
 		},
 		"liftAxle" :     {
-			"enabled" :   false,
+			"enabled" :   true,
 			"indicator" : {
 				"enabled" : false
 			}
@@ -1158,7 +1158,7 @@
 		"distance" :     780480.9375,
 		"time" :         39707175.78125,
 		"speedLimit" :   {
-			"value" : 110,
+			"value" : 30.5556,
 			"kph" :   110,
 			"mph" :   110
 		}

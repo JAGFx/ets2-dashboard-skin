@@ -1,0 +1,81 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_symbols.scss
+ * Date: 	10/02/2022
+ * Time: 	13:48
+ */
+
+@import "variable";
+
+.symbols {
+	
+	.r1 { top: 664px; }
+	
+	.r2 { top: 735px }
+	
+	.r3 { top: 808px; }
+	
+	.r4 { top: 881px; }
+	
+	.c1 { left: 551px; }
+	
+	.c2 { left: 1223px; }
+	
+	.c3 { left: 1586px; }
+	
+	.c4 { left: 1683px; }
+	
+	.red { color: $cRed; }
+	.yellow { color: $cYellow; }
+	.green { color: $cGreen; }
+	
+	/* <editor-folder> General warning */
+	.truck-blinkerLeft {
+		position:    fixed;
+		left:        500px;
+		top:         134px;
+		width:       140px;
+		height:      83px;
+		color:       $cGreen;
+		font-size:   6.8rem;
+		line-height: 0;
+	}
+	
+	.truck-blinkerRight {
+		position:    fixed;
+		left:        1211px;
+		top:         134px;
+		width:       140px;
+		height:      83px;
+		color:       $cGreen;
+		font-size:   6.8rem;
+		line-height: 0;
+	}
+	
+	.truck-lightsBeamHigh {
+		left:      564px;
+		top:       201px;
+		color:     $cBlue;
+		font-size: 4.3rem !important;
+		width:     60px !important;
+		height:    60px !important;
+	}
+	/* </editor-folder> General warning */
+	
+	/* <editor-folder> Bodybuilder */
+	.rotating-light {
+		left:      97px;
+		top:       747px;
+		height:    61px !important;
+		font-size: 3rem;
+		color:     $cBlue;
+	}
+	/* </editor-folder> Bodybuilder */
+	
+	/* <editor-folder> Indicators */
+	.driver-safty-belt {
+		font-size: 4rem !important;
+	}
+	/* <editor-folder> Indicators */
+}

@@ -80,7 +80,7 @@
 	
 	.truck-speedRounded, .truck-cruiseControlSpeedRounded {
 		color: #2491b9;
-		font-family: Courier New, Courier, monospace;
+		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
@@ -93,8 +93,8 @@
 	
 	.truck-speedRounded-unit {
 		color: #ffffff;
-		background: #1d1d1d;
-		font-family: Courier New, Courier, monospace;
+		background: #141414;
+		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 		font-size: 40px;
 		position: absolute;
@@ -107,7 +107,7 @@
 	
 	.truck-gear {
 		color: #35b32e;
-		font-family: Courier New, Courier, monospace;
+		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
@@ -128,7 +128,7 @@
 	
 	.truck-odometer {
 		color: #1a6783;
-		font-family: Courier New, Courier, monospace;
+		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 		font-size: 70px;
 		position: absolute;
@@ -140,28 +140,30 @@
 	}
 	
 	.truck-blinkerLeftOn {
-		background-image: url("/img/dashboard/default/blinker-left-off.png");
 		position:         absolute;
 		left:             98px;
-		top:              78px;
+		top:              4rem;
+		font-size: 6rem;
 		width:            102px;
 		height:           92px;
+		color: transparent;
 		
 		&.yes {
-			background-image: url("/img/dashboard/default/blinker-left-on.png");
+			color: #00E070;
 		}
 	}
 	
 	.truck-blinkerRightOn {
-		background-image: url("/img/dashboard/default/blinker-right-off.png");
 		position:         absolute;
 		left:             950px;
-		top:              78px;
+		top:              4rem;
+		font-size: 6rem;
 		width:            102px;
 		height:           92px;
+		color: transparent;
 		
 		&.yes {
-			background-image: url("/img/dashboard/default/blinker-right-on.png");
+			color: #00E070;
 		}
 	}
 	
@@ -237,7 +239,7 @@
 	
 	.trailer-mass {
 		color: #3e3b60;
-		font-family: Courier New, Courier, monospace;
+		font-family: Arial, Helvetica, sans-serif;
 		font-weight: bold;
 		font-size: 40px;
 		position: absolute;
@@ -250,7 +252,7 @@
 	
 	.trailer-name {
 		color: #222;
-		font-family: Arial, Tahoma;
+		font-family: Arial, Helvetica, sans-serif;
 		font-size: 28px;
 		font-weight: bold;
 		position: absolute;
@@ -274,13 +276,19 @@
 		color: #5dd954;
 	}
 	
-	.truck-gear, .truck-blinkerLeftOn, .truck-blinkerRightOn, .truck-cruiseControlOn, .truck-lightsBeamHighOn, .truck-lightsBeamLowOn, .truck-lightsParkingOn, .truck-odometer, .truck-speedRounded, .truck-cruiseControlSpeedRounded[data-value="0"], .trailer-mass, .trailer-name, ._truckWearInfo, ._trailerWearInfo, .job-remainingTime, ._jobIncome, ._jobSource, ._jobDestionation {
+	.truck-gear, .truck-cruiseControlOn, .truck-lightsBeamHighOn, .truck-lightsBeamLowOn, .truck-lightsParkingOn, .truck-odometer, .truck-speedRounded, .truck-cruiseControlSpeedRounded[data-value="0"], .trailer-mass, .trailer-name, ._truckWearInfo, ._trailerWearInfo, .job-remainingTime, ._jobIncome, ._jobSource, ._jobDestionation {
 		visibility: hidden;
 	}
 	
+	
+	
 	.dashboard.game-connected.yes {
-		.truck-blinkerLeftOn, .truck-blinkerRightOn, .truck-cruiseControlOn, .truck-lightsBeamHighOn, .truck-lightsBeamLowOn, .truck-lightsParkingOn, .truck-gear, ._truckWearInfo, ._trailerWearInfo, .truck-odometer, .truck-speedRounded, .truck-cruiseControlSpeedRounded:not([data-value="0"]) {
+		.truck-cruiseControlOn, .truck-lightsBeamHighOn, .truck-lightsBeamLowOn, .truck-lightsParkingOn, .truck-gear, ._truckWearInfo, ._trailerWearInfo, .truck-odometer, .truck-speedRounded, .truck-cruiseControlSpeedRounded:not([data-value="0"]) {
 			visibility: visible;
+		}
+		
+		.truck-speedRounded-unit{
+			background: #1d1d1d;
 		}
 	}
 	
@@ -292,7 +300,7 @@
 	
 	table._job {
 		border-collapse: collapse;
-		font-family: Courier New, Courier, monospace;
+		font-family: Arial, Helvetica, sans-serif;
 		font-size: 40px;
 		position: absolute;
 		left: 40px;
@@ -316,39 +324,21 @@
 		color: #efbd3a;
 	}
 	
-	.statusMessage {
-		color: coral;
-	}
-	
-	._truckWearInfo {
-		font-family: Courier New, Courier, monospace;
-		font-size: 26px;
+	.wears {
 		position: absolute;
-		left: 1600px;
-		top: 1066px;
-		width: 330px;
-		height: 30px;
-		text-align: left;
-		color: #aaa;
-		line-height: 90%;
-	}
-	
-	._trailerWearInfo {
-		font-family: Courier New, Courier, monospace;
-		font-size: 26px;
-		position: absolute;
-		left: 1600px;
-		top: 1066px;
-		width: 330px;
-		height: 30px;
-		text-align: left;
-		color: #aaa;
-		line-height: 90%;
-		left: 1810px;
-	}
-	
-	.truck-wearSum, .trailer-wear {
-		font-size: 44px;
-		color: orangered;
+		right: 0;
+		bottom: 0;
+		width: 43rem;
+		
+		.info {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 26px;
+			color: #aaa;
+		}
+		
+		.wear {
+			font-size: 2.3rem;
+			color: orangered;
+		}
 	}
 }

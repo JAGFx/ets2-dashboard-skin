@@ -44,6 +44,12 @@
 				> .unit {
 					font-size: 1rem;
 				}
+				
+				&.off{
+					.value, .unit {
+						color: $cGray !important;
+					}
+				}
 			}
 		}
 	}
@@ -67,6 +73,10 @@
 				
 				&.warning {
 					background: $cRed;
+				}
+				
+				&.disabled {
+					color: $cGray !important;
 				}
 			}
 		}

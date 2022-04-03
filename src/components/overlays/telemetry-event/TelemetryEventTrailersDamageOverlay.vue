@@ -7,7 +7,7 @@
       >
         <span class="title">{{ $t('Cargo') }}</span>
         <span class="data"
-          >{{ (eventRawData.data.cargo * 100) | $toFixed(2) }} %</span
+          >{{ (eventRawData.data.cargo * 100).toFixed(2) }} %</span
         >
       </div>
       <div
@@ -15,7 +15,7 @@
       >
         <span class="title">{{ $t('Frame') }}</span>
         <span class="data"
-          >{{ (eventRawData.data.chassis * 100) | $toFixed(2) }} %</span
+          >{{ (eventRawData.data.chassis * 100).toFixed(2) }} %</span
         >
       </div>
     </div>

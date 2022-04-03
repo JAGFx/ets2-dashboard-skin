@@ -1,0 +1,21 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_display-message.scss
+ * Date: 	11/02/2022
+ * Time: 	21:28
+ */
+
+@import "variable";
+
+.display-message {
+	color: $cGrey;
+	font-size: 2.5rem;
+	width:         437px;
+	max-width:     437px;
+	height:        346px;
+	border-bottom: 3px solid $cGreyLight;
+	
+	&.warning { background: $cYellow; }
+	&.error { background: $cRed }
+}

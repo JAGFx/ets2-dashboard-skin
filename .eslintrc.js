@@ -7,9 +7,13 @@ module.exports = {
     'plugin:vue/essential',
     'plugin:vue/strongly-recommended',
     'plugin:vue/recommended',
+    'plugin:jest/recommended',
     'prettier'
   ],
-  plugins: ['prettier'],
+  parserOptions: {
+    ecmaVersion: 13
+  },
+  plugins: ['vue', 'html', 'prettier', 'jest'],
   rules: {
     'no-console': 1,
     'no-debugger': 2,

@@ -1,0 +1,70 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_menu-tab-skins.scss
+ * Date: 	17/02/2022
+ * Time: 	19:27
+ */
+
+@import "../variables";
+
+.manual {
+	.manual-wrapper {
+		width: 90vw;
+		height: 85vh;
+		overflow: auto;
+		
+		table.symbols {
+			th:first-child{
+				width: 11rem;
+				text-align: center;
+			}
+			
+			td, th{ vertical-align: middle; }
+
+			th {
+				background: $cBlack2;
+				border-color: $cRed;
+				border-top: 0;
+				border-bottom-width: 1px;
+			}
+			
+			td.symbol-td { padding: 0 }
+			
+			.category {
+				background: $cBlack;
+				padding: 0.2rem 1rem;
+				font-weight: bold;
+				border-color: $cBlackTransparentMid;
+			}
+			
+			.symbol {
+				border-radius: 0.5rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: $cBlack;
+				font-size: 2rem;
+				margin: .5rem;
+				
+				&.red { color: $cRed; }
+				&.green { color: $cGreen; }
+				&.yellow { color: $cYellow; }
+				&.blue { color: $cBlue; }
+				
+				&.multiple i:last-child{ margin-left: 0 }
+				
+				i {
+					line-height: 0;
+					margin: 1rem;
+				}
+			}
+			
+			.description {
+				color: $cGray2;
+				font-style: italic;
+				text-align: justify;
+			}
+		}
+	}
+}

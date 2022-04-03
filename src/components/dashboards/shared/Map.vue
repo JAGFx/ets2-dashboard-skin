@@ -33,12 +33,16 @@
           v-if="!embedded"
           class="barButton mr-auto h-100 menuRoute"
           :class="{
-            disabled: !$haveAnActiveNavigation() || !displayNavigationInfo,
-            active: $haveAnActiveNavigation() && displayNavigationInfo
+            disabled:
+              !telemetry2.navigation.hasAnActiveNavigation ||
+              !displayNavigationInfo,
+            active:
+              telemetry2.navigation.hasAnActiveNavigation &&
+              displayNavigationInfo
           }"
           @click="displayNavigationInfo = !displayNavigationInfo"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-route" />
           </div>
         </div>
@@ -46,19 +50,22 @@
         <div
           class="barButton m-0 flex-row-reverse h-100 cruise-control"
           :class="{
-            green: telemetry.truck.cruiseControl.enabled,
-            disabled: !telemetry.truck.cruiseControl.enabled
+            green: telemetry2.symbols.cruiseControlIsEnabled,
+            disabled: !telemetry2.symbols.cruiseControlIsEnabled
           }"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-cruise_control" />
           </div>
-          <span v-if="!telemetry.truck.cruiseControl.enabled" class="pl-2">{{
-            $t('OFF')
-          }}</span>
-          <span v-else class="pl-2">{{
-            unit_speed(telemetry.truck.cruiseControl)
-          }}</span>
+          <span
+            v-if="!telemetry2.symbols.cruiseControlIsEnabled"
+            class="pl-2"
+            >{{ $t('OFF') }}</span
+          >
+          <span v-else class="pl-2">
+            {{ telemetry2.truck.speed.toFixed(0) }}
+            {{ $unitReadable('unit_speed') }}
+          </span>
         </div>
       </div>
       <div v-if="!embedded" class="barZone spacer" />
@@ -68,15 +75,12 @@
         >
           <div class="speed">
             <span class="value d-block">{{
-              unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
+              telemetry2.truck.speed.toFixed(0)
             }}</span>
           </div>
 
-          <div
-            :class="telemetry.truck.transmission.shifterType"
-            class="truck-gears ml-2"
-          >
-            {{ $trukGear(telemetry.truck.transmission, telemetry.truck.brand) }}
+          <div :class="telemetry2.truck.shifterType" class="truck-gears ml-2">
+            {{ telemetry2.truck.gearDisplayed }}
           </div>
         </div>
       </div>
@@ -85,15 +89,16 @@
           v-if="!embedded"
           class="barButton m-0 blue h-100 fuel"
           :class="{
-            orange: telemetry.truck.fuel.warning.enabled
+            orange: telemetry2.symbols.fuelLevelIsLow
           }"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-fuel" />
           </div>
-          <span class="pr-2">{{
-            unit_volume(telemetry.truck.fuel.value)
-          }}</span>
+          <span class="pr-2">
+            {{ telemetry2.truck.fuelLevel.toFixed(0) }}
+            {{ $unitReadable('unit_volume') }}
+          </span>
         </div>
         <div class="barButton disabled w-100 h-100" />
         <div
@@ -101,7 +106,7 @@
           :class="{ disabled: !displayControls, active: displayControls }"
           @click="displayControls = !displayControls"
         >
-          <div class="round px-2 py-0">
+          <div class="round p-2">
             <i class="icon-menu" />
           </div>
         </div>
@@ -111,16 +116,14 @@
     <!-- Speed limit -->
     <div
       v-if="
-        $haveAnActiveSpeedLimit() &&
+        telemetry2.navigation.hasAnActiveSpeedLimit &&
         configEnabled('maps_elements_speedLimit') &&
         !embedded
       "
       id="speed-limit"
       class="justify-content-center align-items-center"
     >
-      <span>{{
-        unit_speed(telemetry.navigation.speedLimit, true, false)
-      }}</span>
+      <span>{{ telemetry2.navigation.speedLimitValue.toFixed(0) }}</span>
     </div>
     <!-- ./Speed limit -->
 
@@ -135,7 +138,7 @@
         :class="{ disabled: !displayMapInfo, active: displayMapInfo }"
         @click="onClickMapInfo"
       >
-        <div class="round px-2 py-0">
+        <div class="round p-2">
           <i class="fa fa-info" />
         </div>
       </div>
@@ -145,12 +148,12 @@
         :class="{ disabled: !rotateWithPlayer, active: rotateWithPlayer }"
         @click="onClickRotate"
       >
-        <div class="round px-2 py-0">
+        <div class="round p-2">
           <i class="icon-location_arrow" />
         </div>
       </div>
       <div id="center-button" class="button w-100" @click="onClickCenter">
-        <span class="round px-2 py-0">
+        <span class="round p-2">
           <i class="icon-target" />
         </span>
       </div>
@@ -181,8 +184,8 @@
         <tr v-if="configEnabled('maps_general_debug')">
           <th>{{ $t('Pos') }}</th>
           <td>
-            X: {{ telemetry.truck.position.X.toFixed(3) }} | Y:
-            {{ telemetry.truck.position.Y.toFixed(3) }}
+            X: {{ telemetry2.truck.positionX.toFixed(3) }} | Y:
+            {{ telemetry2.truck.positionY.toFixed(3) }}
           </td>
         </tr>
         <tr v-if="configEnabled('maps_general_debug')">
@@ -210,7 +213,11 @@
 
     <!-- Navigation ETA -->
     <div
-      v-if="$haveAnActiveNavigation() && displayNavigationInfo && !embedded"
+      v-if="
+        telemetry2.navigation.hasAnActiveNavigation &&
+        displayNavigationInfo &&
+        !embedded
+      "
       class="eta-wrapper d-flex justify-content-end align-items-start flex-column"
     >
       <div
@@ -221,22 +228,27 @@
           <i class="icon-time" />
         </div>
         <span class="pl-2 w-100">{{
-          $etaDueDate()
-            | $dateTimeLocalized(DATE_FORMAT_LONG, TIME_FORMAT_SHORT)
+          $dateTimeLocalized(
+            telemetry2.navigation.etaDueDate,
+            DATE_FORMAT_LONG,
+            TIME_FORMAT_SHORT
+          )
         }}</span>
       </div>
       <div v-else class="button px-2 py-0 w-100 active">
         <div class="round">
           <i class="icon-time" />
         </div>
-        <span class="pl-2 w-100">{{ $etaRemaing() }}</span>
+        <span class="pl-2 w-100">{{
+          telemetry2.navigation.etaRemainingTime
+        }}</span>
       </div>
       <span class="button px-2 py-0 w-100 active">
         <div class="round">
           <i class="icon-ruler" />
         </div>
         <span class="pl-2 w-100">{{
-          unit_length(telemetry.navigation.distance, 'm')
+          telemetry2.navigation.distanceToTargetString
         }}</span>
       </span>
     </div>
@@ -246,7 +258,8 @@
 
 <script>
 import TelemetryMixin from '@/mixins/TelemetryMixin';
-import { history, map } from '@/utils/utils';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
+import * as map from '@/utils/_map';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -283,33 +296,33 @@ export default {
     ...mapGetters({
       configEnabled: 'config/enabled'
     }),
-    m: () => map.d
+    m: () => map.d,
+    mapData() {
+      return {
+        x: this.telemetry2.truck.positionX,
+        z: this.telemetry2.truck.positionY,
+        orientation: this.telemetry2.truck.orientation,
+        speed: this.telemetry2.truck.speed
+      };
+    }
   },
   watch: {
-    telemetry(newTelemetry) {
-      if (this.ready) {
-        map.updatePlayerPositionAndRotation(
-          newTelemetry.truck.position.X,
-          newTelemetry.truck.position.Z,
-          newTelemetry.truck.orientation.heading,
-          newTelemetry.truck.speed.kph
-        );
+    mapData: {
+      deep: true,
+      immediate: true,
+      handler() {
+        if (this.ready) {
+          map.triggerMapUpdate();
+        }
       }
     }
   },
   mounted() {
     map
-      .init(this.telemetry.game.game.name)
+      .init(this.telemetry2.gameName)
       .then(() => {
         this.ready = true;
         this.rotateWithPlayer = map.d.gBehaviorRotateWithPlayer;
-
-        // --- Dev
-        //if ( app.useFakeData )
-        //  setTimeout( () => {
-        //    this.$updateTelemetry( testData )
-        //  }, 1000 );
-        // --- ./Dev
       })
       .catch((e) => {
         this.message.icon = '<i class="fas fa-times"></i>';
@@ -321,8 +334,8 @@ export default {
 
         this.$pushALog(
           `Unknown error: ${errorMessage}`,
-          history.HTY_ZONE.MAPS_INIT,
-          history.HTY_LEVEL.ERROR
+          HTY_ZONE.MAPS_INIT,
+          HTY_LEVEL.ERROR
         );
       });
   },

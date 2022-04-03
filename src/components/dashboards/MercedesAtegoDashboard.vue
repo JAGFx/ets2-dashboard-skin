@@ -11,28 +11,19 @@
     >
       <div :class="{ yes: telemetry.job.cargo.id }" class="hasJob">
         <!-- meters -->
-        <!--
-          Attributes:
-          data-min-angle: angle in degress for the arrow for data-min value (0 = vertical, negative = left, positive = right)
-          data-max-angle: an gle in degress for the arrow for data-max value (0 = vertical, negative = left, positive = right)
-          data-min: minimal possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          data-max: maximum possible value (as in JSON response), you may also use any telemetry property name for dynamic values
-          -->
         <Cadran
           v-bind="{
             classCSS: 'truck-speed',
             type: 'meter',
-            value: telemetry.truck.speed.kph,
-            min: 0,
-            max: 120,
+            value: telemetry2.truck.speed,
+            min: $convertToUnit(2.77778, 'unit_speed'),
+            max: $convertToUnit(33.33333, 'unit_speed'),
             minAngle: -111,
             maxAngle: 110
           }"
         />
         <div class="truck-speedRounded wrapper-area">
-          <span>{{
-            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
-          }}</span>
+          <span>{{ telemetry2.truck.speed.toFixed(0) }}</span>
         </div>
         <Cadran
           v-bind="{
@@ -56,15 +47,6 @@
             maxAngle: 103
           }"
         />
-        <!--<Cadran v-bind="{
-          'classCSS': 'truck-waterTemperature',
-          'type': 'meter',
-          'value': telemetry.truck.engine.waterTemperature.value,
-          'min': -48,
-          'max': 100,
-          'minAngle' : -48,
-          'maxAngle': 13,
-        }"></Cadran>-->
         <Cadran
           v-bind="{
             classCSS: 'truck-airPressure',
@@ -78,15 +60,11 @@
         />
         <div class="truck-odometer wrapper-area">
           <span>{{
-            unit_length(telemetry.truck.odometer, 'km', true, false)
-              | $toFixed(0)
+            unit_length(telemetry.truck.odometer, 'km', true, false).toFixed(0)
           }}</span>
         </div>
-        <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-gear wrapper-area">
-          <span>{{
-            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
-          }}</span>
+          <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
         <!-- indicators -->
         <div
@@ -97,7 +75,6 @@
           :class="{ yes: telemetry.truck.lights.blinker.right.active }"
           class="truck-blinkerRightOn"
         />
-        <!--				<div :class="{ 'yes': telemetry.truck.cruiseControl.enabled }" class="truck-cruiseControlOn"></div>-->
         <div
           :class="{ yes: telemetry.truck.lights.beamHigh.enabled }"
           class="truck-lightsBeamHighOn"
@@ -114,9 +91,6 @@
           :class="{ yes: telemetry.trailer.attached }"
           class="trailer-attached"
         />
-        <!--				<div class="trailer-mass wrapper-area">-->
-        <!--					<span>{{ unit_weight( telemetry.job.cargo.mass, true, false ) | $toFixed( 1 ) }}<span class="ton">{{ unit_weight( telemetry.job.cargo.mass, false ) }}</span></span></div>-->
-        <!--				<div class="trailer-name">{{ telemetry.job.cargo.name }}</div>-->
         <div
           :class="{ yes: telemetry.truck.fuel.warning.enabled }"
           class="truck-fuelWarningOn"
@@ -134,15 +108,15 @@
             $t(telemetry.truck.brakes.retarder.level > 0 ? 'On' : 'Off')
           }}</span>
         </div>
-        <!--				<div class="truck-oilTemperature">{{ telemetry.truck.engine.oilTemperature.value.toFixed(0) }}</div>-->
-        <!--				<div class="truck-batteryVoltage">{{ telemetry.truck.engine.batteryVoltage.warning.factor.toFixed(0) }}</div>-->
         <div class="game-time wrapper-area">
           <span>{{
-            $gameTime()
-              | $dateTimeLocalized(DATE_FORMAT_SHORT, TIME_FORMAT_SHORT)
+            $dateTimeLocalized(
+              telemetry2.gameTime,
+              DATE_FORMAT_SHORT,
+              TIME_FORMAT_SHORT
+            )
           }}</span>
         </div>
-        <!--				<div :class="{ 'yes': telemetry.truck.brakes.airPressure.emergency.enabled }" class="truck-airPressureEmergencyOn"></div>-->
       </div>
     </div>
   </Dashboard>

@@ -4,7 +4,8 @@
 			"id" :              "JAGFx",
 			"title" :           "JAGFx dashboard",
 			"disabled" :        false,
-			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator 2",
+			"manual" :        false,
+			"description" :     "Common dashboard for Euro truck Simulator 2 and American Truck Simulator",
 			"config_template" : "true",
 			"author" :          {
 				"name" :  "SMITH Emmanuel",
@@ -144,18 +145,37 @@
 		{
 			"id" :          "Scania",
 			"disabled" :    false,
+			"manual" :        true,
 			"title" :       "Scania",
 			"description" : "Scania Dashboard",
 			"author" :      {
-				"name" :  "Klauzzy",
-				"email" : null,
-				"url" :   null
+				"name" :  "SMITH Emmanuel, Klauzzy",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
 			},
-			"repository" :  "https://github.com/Funbit/ets2-telemetry-server/tree/master/server/Html/skins/scania",
-			"screenshot" :  "img/screenshots/scania.png",
+			"repository" :      null,
+			"screenshot" :  "img/screenshots/scania.gif",
 			"size" :        {
-				"width" :  2030,
+				"width" :  1850,
 				"height" : 1035
+			}
+		},
+		{
+			"id" :          "ScaniaNextGen",
+			"disabled" :    true,
+			"manual" :        false,
+			"title" :       "Scania Next Gen, Klauzzy",
+			"description" : "Scania Next Gen Dashboard",
+			"author" :      {
+				"name" :  "SMITH Emmanuel",
+				"email" : "hey@emmanuel-smith.me",
+				"url" :   "https://emmanuel-smith.me"
+			},
+			"repository" :      null,
+			"screenshot" :  "img/screenshots/scania.gif",
+			"size" :        {
+				"width" :  1723,
+				"height" : 777
 			}
 		},
 		{

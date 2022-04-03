@@ -8,11 +8,11 @@
   >
     <HistoryOverlay />
     <Overlay />
-    <TelemetryEventOverlay v-if="appReady" />
-    <Header v-if="appReady" />
+    <TelemetryEventOverlay v-if="$telemetryDataIsEnough()" />
+    <Header v-if="$telemetryDataIsEnough()" />
     <component
       :is="currentSkinComponent()"
-      v-if="appReady"
+      v-if="$telemetryDataIsEnough()"
       v-show="!menuIsDisplayed"
     />
   </main>
@@ -21,12 +21,13 @@
 <script>
 import DafXFDashboard from '@/components/dashboards/DafXFDashboard';
 import DefaultDashboard from '@/components/dashboards/DefaultDashboard';
-import JAGFxDashboard from '@/components/dashboards/JAGFxDashboard';
+import JAGFxDashboard from '@/components/dashboards/jagfx/JAGFxDashboard';
 import ManTGXDashboard from '@/components/dashboards/ManTGXDashboard';
 import MapDashboard from '@/components/dashboards/MapDashboard';
 import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
 import RdInfoDashboard from '@/components/dashboards/RdInfoDashboard';
-import ScaniaDashboard from '@/components/dashboards/ScaniaDashboard';
+import ScaniaNextGenDashboard from '@/components/dashboards/scania-next-gen/ScaniaNextGenDashboard';
+import ScaniaDashboard from '@/components/dashboards/scania/ScaniaDashboard';
 import TestDashboard from '@/components/dashboards/TestDashboard';
 import VolvoFHDashboard from '@/components/dashboards/VolvoFHDashboard';
 import Header from '@/components/header/Header';
@@ -56,6 +57,7 @@ export default {
     MercedesAtegoDashboard,
     RdInfoDashboard,
     ScaniaDashboard,
+    ScaniaNextGenDashboard,
     VolvoFHDashboard,
     MapDashboard,
     Overlay,

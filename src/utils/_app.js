@@ -15,11 +15,12 @@ import momentjs from 'moment-timezone';
 import packageJson from '../../package.json';
 
 // --- Variables
-const DATE_FORMAT_NONE = null;
+const DATE_FORMAT_NONE = '';
 const DATE_FORMAT_SHORT = 'MM/DD';
 const DATE_FORMAT_LONG = 'ddd';
 const DATE_FORMAT_FULL = 'dddd';
-const TIME_FORMAT_NONE = null;
+const TIME_FORMAT_NONE = '';
+const TIME_FORMAT_TINY = 'HH:mm';
 const TIME_FORMAT_SHORT = 'LT';
 const TIME_FORMAT_FULL = 'LTS';
 
@@ -72,13 +73,20 @@ export const dateTimeLocalized = (input, formatDate, formatTime) => {
   return momentData.tz('Africa/Abidjan').format(format);
 };
 
-export const diffDateTimeLocalized = (dFrom, dTo, withDay = true) => {
+export const diffDateTimeLocalized = (
+  dFrom,
+  dTo,
+  withDay = true,
+  customFormat = null
+) => {
   const momentFrom = moment()(dFrom, 'x');
   const momentTo = moment()(dTo, 'x');
   const diff = momentTo.diff(momentFrom);
   const format = withDay ? 'DD[d] HH[h] mm[m]' : 'HH[h] mm[m]';
 
-  return moment()(diff, 'x').tz('Africa/Abidjan').format(format);
+  return moment()(diff, 'x')
+    .tz('Africa/Abidjan')
+    .format(customFormat !== null ? customFormat : format);
 };
 
 export const displayDuration = (duration, withDay = true) => {
@@ -102,7 +110,15 @@ export const gameIsATS = (gameID) => gameID === GAME_ID_ATS;
 export const gameIsETS2 = (gameID) => gameID === GAME_ID_ETS2;
 
 export const betweenFloat = (data, a, b) => {
-  return parseFloat(data) >= a && parseFloat(data) <= b;
+  return greaterOrEqualThanFloat(data, a) && lessOrEqualThanFloat(data, b);
+};
+
+export const greaterOrEqualThanFloat = (data, a) => {
+  return parseFloat(data) >= a;
+};
+
+export const lessOrEqualThanFloat = (data, a) => {
+  return parseFloat(data) <= a;
 };
 
 export const pushLog = (message, zone, level = history.HTY_LEVEL.INFO) => {
@@ -119,6 +135,7 @@ export const formatConstants = {
   DATE_FORMAT_LONG,
   DATE_FORMAT_FULL,
   TIME_FORMAT_NONE,
+  TIME_FORMAT_TINY,
   TIME_FORMAT_SHORT,
   TIME_FORMAT_FULL,
   GAME_ID_ATS,

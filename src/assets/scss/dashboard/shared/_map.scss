@@ -55,14 +55,14 @@
 					justify-content: center;
 					align-items: center;
 					outline: 0;
-					font-size: 1.1rem;
+					font-size: 1.9rem;
 					
 					border: 2px solid $cRed;
 					border-width: 0 0 2px 0;
 					
 					min-width: auto !important;
 					
-					.round > i { padding-top: .3rem; display: block; }
+					.round > i { display: block; }
 					
 					&.active{
 						background: $cBlack;
@@ -95,8 +95,8 @@
 						border-left-color: transparent !important;
 					}
 					
-					&.fuel { min-width: 5rem !important; }
-					&.cruise-control { min-width: 8rem !important; }
+					&.fuel { min-width: 10rem !important; }
+					&.cruise-control { min-width: 13rem !important; }
 					
 					&.menuControl {
 						border-width: 0 2px 2px 0;
@@ -114,7 +114,7 @@
 			justify-content: center;
 			align-items:     flex-end;
 			text-align:      center;
-			height:          2rem;
+			height:          2.2rem;
 			
 			button, .button{
 				background: $cBlackTransparentHigh;
@@ -122,13 +122,14 @@
 				justify-content: center;
 				align-items: center;
 				outline: 0;
-				font-size: 1.1rem;
+				font-size: 1.9rem;
+				font-size: 1.9rem;
 				
 				border-right: 2px solid $cRed;
 				
 				min-width: auto !important;
 				
-				.round > i { padding-top: .3rem; display: block; }
+				.round > i { display: block; }
 				&:last-child { margin-right: 0; }
 				
 				&.active{
@@ -150,7 +151,7 @@
 			height:   auto;
 			width:    auto;
 			z-index:  2;
-			margin-bottom: 2rem;
+			margin-bottom: 3rem;
 			
 			#ol-zoom-wrapper {
 				width: 100%;
@@ -168,13 +169,13 @@
 						justify-content: center;
 						align-items: center;
 						outline: 0;
-						font-size: 1.1rem;
+						font-size: 1.9rem;
 						
 						border-right: 2px solid $cRed;
 						
 						min-width: auto !important;
 						
-						.round > i { padding-top: .3rem; display: block; }
+						.round > i { display: block; }
 					}
 				}
 			}
@@ -187,7 +188,7 @@
 			left:     0;
 			width:    auto;
 			bottom:   0;
-			margin-bottom: 2rem;
+			margin-bottom: 3rem;
 			
 			.button{
 				border-left: 2px solid $cRed;
@@ -266,7 +267,7 @@
 				height:  auto;
 				padding: .3rem;
 				z-index: 1;
-				width: 9.5rem;
+				width: 11rem;
 				border-right: 0;
 			}
 			
@@ -291,7 +292,7 @@
 				height:      inherit;
 				font-weight: bold;
 				font-size:   1.5rem;
-				width: 3.3rem;
+				width: 3.5rem;
 				
 				&.hshifter {
 					&:first-letter{

@@ -1,0 +1,83 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_menu.scss
+ * Date: 	07/02/2022
+ * Time: 	19:20
+ */
+
+@import "variable";
+
+.mainMenu {
+	background:    $cGrey;
+	cursor:        pointer;
+	width:         437px;
+	max-width:     437px;
+	height:        346px;
+	border-bottom: 3px solid $cGreyLight;
+	
+	.menuSelectorItem {
+		i {
+			font-size:   6.5rem;
+			color:       $cWhite;
+			line-height: 0;
+		}
+		
+		cursor:  pointer;
+		display: block;
+	}
+	
+	.quitMenu {
+		cursor:  pointer;
+		display: block;
+		
+		i {
+			color: $cGreen !important;
+		}
+	}
+	
+	.drivingAssistanceMenu {
+		background-color: $cGrey;
+		position:         relative;
+		
+		.item {
+			font-size: 2.5rem;
+			padding:   0 1rem;
+			
+			.icon {
+				font-size: 3.5rem;
+				
+				> small {
+					font-size:   2rem;
+					margin-top:  1rem;
+					margin-left: .5rem;
+				}
+			}
+			
+			.value { color: $cGreen; }
+			
+			.unit { margin-left: .5rem; }
+		}
+	}
+	
+	.vehicleInformationsMenu {
+		background-image: url("/img/dashboard/scania/dashMenu.png");
+		position:         relative;
+		
+		.background {
+			position:  fixed;
+			font-size: 27.4rem;
+			top:       9.5rem;
+			color:     $cGreyLight;
+		}
+	}
+	
+	.instantaneousData {
+		background-color: $cGrey;
+		//background-image: url("/img/dashboard/scania/dashMenu2.png");
+		
+		.unit {
+			color: $cWhite;
+		}
+	}
+}

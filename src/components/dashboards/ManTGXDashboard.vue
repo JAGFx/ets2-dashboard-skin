@@ -22,17 +22,15 @@
           v-bind="{
             classCSS: 'truck-speed',
             type: 'meter',
-            value: telemetry.truck.speed.kph,
-            min: 0,
-            max: 125,
+            value: telemetry2.truck.speed,
+            min: $convertToUnit(2.77778, 'unit_speed'),
+            max: $convertToUnit(34.7222, 'unit_speed'),
             minAngle: -120,
             maxAngle: 103
           }"
         />
         <div class="truck-speedRounded wrapper-area">
-          <span>{{
-            unit_speed(telemetry.truck.speed, true, false) | $toFixed(0)
-          }}</span>
+          <span>{{ telemetry2.truck.speed.toFixed(0) }}</span>
         </div>
         <Cadran
           v-bind="{
@@ -91,15 +89,12 @@
         />
         <div class="truck-odometer wrapper-area">
           <span>{{
-            unit_length(telemetry.truck.odometer, 'km', true, false)
-              | $toFixed(0)
+            unit_length(telemetry.truck.odometer, 'km', true, false).toFixed(0)
           }}</span>
         </div>
         <!--				<div class="truck-cruiseControlSpeedRounded wrapper-area"><span>{{ telemetry.truck.cruiseControl.kph }}</span></div>-->
         <div class="truck-gear wrapper-area">
-          <span>{{
-            $trukGear(telemetry.truck.transmission, telemetry.truck.brand)
-          }}</span>
+          <span>{{ telemetry2.truck.gearDisplayed }}</span>
         </div>
         <!-- indicators -->
         <div
@@ -129,8 +124,7 @@
         <!--				<div :class="{'yes': trailer.attached}" class="trailer-attached"></div>-->
         <div class="trailer-mass wrapper-area">
           <span
-            >{{
-              unit_weight(telemetry.job.cargo.mass, true, false) | $toFixed(0)
+            >{{ unit_weight(telemetry.job.cargo.mass, true, false).toFixed(0)
             }}<span class="ton">{{
               unit_weight(telemetry.job.cargo.mass, false)
             }}</span></span
@@ -155,8 +149,11 @@
         </div>
         <div class="game-time wrapper-area">
           <span>{{
-            $gameTime()
-              | $dateTimeLocalized(DATE_FORMAT_SHORT, TIME_FORMAT_SHORT)
+            $dateTimeLocalized(
+              telemetry2.gameTime,
+              DATE_FORMAT_SHORT,
+              TIME_FORMAT_SHORT
+            )
           }}</span>
         </div>
         <div

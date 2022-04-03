@@ -52,7 +52,7 @@ You can find the list of all skins integrated.
         <td>Argiano - van_argiano@outlook.com</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/scania.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/scania.gif" alt="JAGFX"></td>
         <td>Scania Dashboard</td>
         <td>Klauzzy</td>
     </tr>

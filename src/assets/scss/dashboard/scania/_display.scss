@@ -1,0 +1,184 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_display.scss
+ * Date: 	07/02/2022
+ * Time: 	19:10
+ */
+
+@import "variable";
+
+.display {
+	position: fixed;
+	top: 149px;
+	left: 709px;
+	width: 27.2rem;
+	
+	@import "display-message";
+	
+	.gearbox-info{
+		background: $cGrey;
+		width: 27.1rem;
+		height: 4rem;
+		border-bottom: 3px solid $cGreyLight;
+		
+		.gearbox-wrapper{
+			border-left: 2px solid $cBlack;
+			
+			.truck-shifterType {
+				color:       $cWhite;
+				font-family: Arial;
+				font-weight: bold;
+				font-size:   50px;
+				width:       82px;
+				height:      62px;
+			}
+			
+			.truck-gear {
+				background: url("/img/dashboard/scania/gear.png") no-repeat center center;
+				color:       $cBlack;
+				font-family: Arial;
+				font-weight: bold;
+				font-size:   40px;
+				width: 92px;
+				height: 62px;
+			}
+		}
+		
+		.datetime {
+			color:       $cWhite;
+			font-family: Arial, Tahoma;
+			font-size:   40px;
+			font-weight: normal;
+			width: 123px;
+			height: 62px;
+			border-left: 2px solid $cGreyLight;
+			padding: 0 1rem;
+		}
+	}
+	
+	.programmable-field-1 {
+		background: $cGreyDark;
+		height: 5.8rem;
+		border-bottom: 3px solid $cGreyLight;
+		
+		.item{
+			.icon {
+				font-size: 3rem;
+				
+				> i { line-height: 0; }
+			}
+			
+			.value{ font-size: 2.7rem;  line-height: 2rem;}
+			.value { color: $cGreen; }
+			.unit{ font-size: 1.5rem; line-height: 1.5rem;}
+		}
+	}
+	
+	.displayMenuOff {
+		background-color: $cGreyDark;
+		background-image: url("/img/dashboard/scania/6482891_619566292.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		cursor:           pointer;
+		height: 346px;
+		border-bottom: 3px solid $cGreyLight;
+	}
+	
+	.box-warning-symbol {
+		background-color: $cGreyDark;
+		height: 5rem;
+		border-bottom: 3px solid $cGreyLight;
+		
+		.item {
+			width: 4.5rem;
+			height: 4.5rem;
+			line-height: 0;
+			font-size: 3rem;
+		}
+		
+		.truck-fuelWarning {
+			color: $cYellow;
+		}
+		
+		.message {
+			position: relative;
+			border-radius: 0 0 1rem 0;
+			font-size: 3.5rem;
+			color: $cGrey;
+			
+			&:before{
+				position: absolute;
+				content: "";
+				background: $cYellow;
+				height: 0.5rem;
+				top: -0.4rem;
+				width: 100%;
+			}
+			
+			&.warning {
+				background: $cYellow;
+				
+				&:before{
+					background: $cYellow;
+				}
+			}
+			
+			&.error {
+				background: $cRed;
+				
+				&:before{
+					background: $cRed;
+				}
+			}
+		}
+	}
+	
+	.programmable-field-2 {
+		background: $cGrey;
+		height: 8.8rem;
+		border-bottom: 3px solid $cGreyLight;
+		position: relative;
+		
+		.item{
+			padding: .5rem 1rem;
+			
+			.icon {
+				font-size: 3.5rem;
+				line-height: 0;
+			}
+			
+			.value-wrapper {
+				.value {
+					color: $cGreen;
+					margin-right: 1rem;
+					font-size: 3rem;
+				}
+				
+				.unit {
+					font-size: 3rem;
+				}
+			}
+		}
+	}
+	
+	.mileage{
+		background: $cGrey;
+		.truck-odometer {
+			color:       $cWhite;
+			font-family: Arial;
+			font-weight: normal;
+			font-size:   40px;
+			z-index:     3;
+		}
+		
+		.temperature {
+			color:       $cWhite;
+			font-family: Arial;
+			font-weight: normal;
+			font-size:   40px;
+			z-index:     3;
+		}
+	}
+}

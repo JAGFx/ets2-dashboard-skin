@@ -6,7 +6,21 @@
  * Time: 	17:40
  */
 
+@import "scania/variable";
+
 .scania-dash {
+	@import "scania/display";
+	@import "scania/menu";
+	@import "scania/bar";
+	@import "scania/symbols";
+	
+	background: #3a3b3d;
+	
+	.flex-area {
+		display:         flex;
+		justify-content: center;
+		align-items:     center;
+	}
 	
 	.wrapper-area {
 		display:         flex;
@@ -20,319 +34,166 @@
 	
 	.dashboard {
 		position:         absolute;
-		background:       url("/img/dashboard/scania/bg-on.jpg") top left no-repeat;
+		background:       url("/img/dashboard/scania/background.jpg") top left no-repeat;
 		transform-origin: top left;
 		left:             50%;
 		top:              50%;
 	}
 	
-	.truck-speedRounded {
-		color: #B4C3D1;
-		font-family: Courier New, Courier, monospace;
-		font-weight: bold;
-		font-size: 70px;
-		position: absolute;
-		left: 907px;
-		top: 755px;
-		width: 190px;
-		height: 66px;
-		text-align: center;
+	@font-face {
+		font-family: "DSDIGI";
+		src:         url("/font/dashboard/scania/DSDIGI.eot");
+		src:         local("DSDIGI"), url("/font/dashboard/scania/DSDIGI.woff") format("woff"), url("/font/dashboard/scania/DSDIGI.ttf") format("truetype");
 	}
+	@font-face {
+		font-family: "ARCADECLASSIC";
+		src:         url("/font/dashboard/scania/ARCADECLASSIC.eot");
+		src:         local("ARCADECLASSIC"), url("/font/dashboard/scania/ARCADECLASSIC.woff") format("woff"), url("/font/dashboard/scania/ARCADECLASSIC.ttf") format("truetype");
+		font-family: "LEVIWINDOWS";
+		src:         url("/font/dashboard/scania/LEVIWINDOWS.ttf");
+		src:         local("LEVIWINDOWS"), url("/font/dashboard/scania/LEVIWINDOWS.ttf") format("truetype");
+		font-family: "high_pixel-7";
+		src:         url("/font/dashboard/scania/high_pixel-7.ttf");
+		src:         local("high_pixel-7"), url("/font/dashboard/scania/high_pixel-7.ttf") format("truetype");
+		font-family: "Pixel";
+		src:         url("/font/dashboard/scania/Pixel.ttf");
+		src:         local("Pixel"), url("/font/dashboard/scania/Pixel.ttf") format("truetype");
+	}
+	
 	.truck-speed[data-type="meter"] {
-		visibility:               visible;
-		position:                 absolute;
-		left:                     1580px;
-		top:                      180px;
-		width:                    79px;
-		height:                   299px;
-		background-image:         url("/img/dashboard/scania/gauge-arrow.png");
-		-webkit-transform:        rotate(-114deg);
-		-moz-transform:           rotate(-114deg);
-		-ms-transform:            rotate(-114deg);
-		-o-transform:             rotate(-114deg);
-		transform:                rotate(-114deg);
-		-webkit-transform-origin: 50% 247px;
-		-moz-transform-origin:    50% 247px;
-		-ms-transform-origin:     50% 247px;
-		-o-transform-origin:      50% 247px;
-		transform-origin:         50% 247px;
+		position:         fixed;
+		left:             1495px;
+		top:              199px;
+		width:            79px;
+		height:           299px;
+		background-image: url("/img/dashboard/scania/gauge-arrow.png");
+		transform:        rotate(-120deg);
+		transform-origin: 50% 244px;
 	}
+	
 	.truck-engineRpm {
-		position:                 absolute;
-		left:                     360px;
-		top:                      180px;
-		width:                    79px;
-		height:                   299px;
-		background-image:         url("/img/dashboard/scania/gauge-arrow.png");
-		-webkit-transform:        rotate(-97deg);
-		-moz-transform:           rotate(-97deg);
-		-ms-transform:            rotate(-97deg);
-		-o-transform:             rotate(-97deg);
-		transform:                rotate(-97deg);
-		-webkit-transform-origin: 50% 247px;
-		-moz-transform-origin:    50% 247px;
-		-ms-transform-origin:     50% 247px;
-		-o-transform-origin:      50% 247px;
-		transform-origin:         50% 247px;
+		position:         fixed;
+		left:             278px;
+		top:              199px;
+		width:            79px;
+		height:           299px;
+		background-image: url("/img/dashboard/scania/gauge-arrow.png");
+		transform:        rotate(-120.5deg);
+		transform-origin: 50% 244px;
 	}
+	
 	.truck-fuel {
-		position:                 absolute;
-		left:                     1501px;
-		top:                      790px;
-		width:                    62px;
-		height:                   171px;
-		background-image:         url("/img/dashboard/scania/gauge-arrow-s.png");
-		-webkit-transform:        rotate(-96deg);
-		-moz-transform:           rotate(-96deg);
-		-ms-transform:            rotate(-96deg);
-		-o-transform:             rotate(-96deg);
-		transform:                rotate(-96deg);
-		-webkit-transform-origin: 50% 141px;
-		-moz-transform-origin:    50% 141px;
-		-ms-transform-origin:     50% 141px;
-		-o-transform-origin:      50% 141px;
-		transform-origin:         50% 141px;
+		position:         fixed;
+		left:             1418px;
+		top:              784px;
+		width:            62px;
+		height:           171px;
+		background-image: url("/img/dashboard/scania/gauge-arrow-s.png");
+		transform:        rotate(-56deg);
+		transform-origin: 50% 140px;
 	}
+	
 	.truck-waterTemperature {
-		position:                 absolute;
-		left:                     457px;
-		top:                      790px;
-		width:                    62px;
-		height:                   171px;
-		background-image:         url("/img/dashboard/scania/gauge-arrow-s.png");
-		-webkit-transform:        rotate(0deg);
-		-moz-transform:           rotate(0deg);
-		-ms-transform:            rotate(0deg);
-		-o-transform:             rotate(0deg);
-		transform:                rotate(0deg);
-		-webkit-transform-origin: 50% 141px;
-		-moz-transform-origin:    50% 141px;
-		-ms-transform-origin:     50% 141px;
-		-o-transform-origin:      50% 141px;
-		transform-origin:         50% 141px;
+		position:         fixed;
+		left:             374px;
+		top:              790px;
+		width:            62px;
+		height:           171px;
+		background-image: url("/img/dashboard/scania/gauge-arrow-s.png");
+		transform:        rotate(-56deg);
+		transform-origin: 50% 140px;
 	}
+	
 	.truck-oilPressure {
-		position:                 absolute;
-		left:                     1580px;
-		top:                      535px;
+		position:         fixed;
+		left:             1502px;
+		top:              530px;
+		width:            69px;
+		height:           170px;
+		background-image: url("/img/dashboard/scania/gauge-arrow-s2.png");
+		transform:        rotate(-57deg);
+		transform-origin: 50% 133px;
+	}
+	
+	.truck-fuelAverageConsumption[data-type="meter"] {
+		position:                 fixed;
+		left:                     283px;
+		top:                      533px;
 		width:                    69px;
 		height:                   170px;
 		background-image:         url("/img/dashboard/scania/gauge-arrow-s2.png");
-		-webkit-transform:        rotate(0deg);
-		-moz-transform:           rotate(0deg);
-		-ms-transform:            rotate(0deg);
-		-o-transform:             rotate(0deg);
-		transform:                rotate(0deg);
+		-webkit-transform:        rotate(-56deg);
+		-moz-transform:           rotate(-56deg);
+		-ms-transform:            rotate(-56deg);
+		-o-transform:             rotate(-56deg);
+		transform:                rotate(-56deg);
 		-webkit-transform-origin: 50% 133px;
 		-moz-transform-origin:    50% 133px;
 		-ms-transform-origin:     50% 133px;
 		-o-transform-origin:      50% 133px;
 		transform-origin:         50% 133px;
 	}
-	.truck-gear {
-		color: #F3F3F3;
-		font-family: Courier New, Courier, monospace;
-		font-weight: bold;
-		font-size: 40px;
-		position: absolute;
-		left: 1104px;
-		top: 149px;
-		width: 120px;
-		height: 60px;
-		text-align: center;
+	
+	.truck-fuelAverageConsumption {
+		-webkit-filter: brightness(20%);
+		-webkit-filter: brightness(150%);
 	}
-	.truck-gear[data-value="N"] {
-		color: #F3F3F3;
+	
+	.symbol {
+		position:    fixed;
+		width:       79px;
+		height:      79px;
+		font-size:   5rem;
+		line-height: 0;
 	}
-	.truck-gear[data-value="R"] {
-		color: #F3F3F3;
+	
+	.oilPressure {
+		position:    fixed;
+		left:        836px;
+		top:         503px;
+		width:       180px;
+		height:      21px;
 	}
-	.truck-odometer {
-		color: #F3F3F3;
-		font-family: Courier New, Courier, monospace;
-		font-weight: bold;
-		font-size: 33px;
-		position: absolute;
-		left: 802px;
-		top: 895px;
-		width: 185px;
-		height: 40px;
-		text-align: right;
+	
+	.frontAxleLoad {
+		font-family: Arial;
+		font-size:   48px;
+		position:    fixed;
+		left:        760px;
+		top:         537px;
+		width:       100px;
+		height:      41px;
 	}
-	.truck-blinkerLeftOn {
-		background-image: url("/img/dashboard/scania/blinker-left-off.png");
-		position:         absolute;
-		left:             591px;
-		top:              72px;
-		width:            137px;
-		height:           136px;
+	
+	.rearAxleLoad {
+		font-family: Arial;
+		font-size:   48px;
+		position:    fixed;
+		left:        858px;
+		top:         537px;
+		width:       100px;
+		height:      41px;
+		opacity:     1;
 	}
-	.truck-blinkerLeftOn.yes {
-		background-image: url("/img/dashboard/scania/blinker-left-on.png");
+	
+	.trailerAxleLoad {
+		font-family: Arial;
+		font-size:   48px;
+		position:    fixed;
+		left:        1028px;
+		top:         537px;
+		width:       100px;
+		height:      41px;
 	}
-	.truck-blinkerRightOn {
-		background-image: url("/img/dashboard/scania/blinker-right-off.png");
-		position:         absolute;
-		left:             1285px;
-		top:              70px;
-		width:            137px;
-		height:           136px;
-	}
-	.truck-blinkerRightOn.yes {
-		background-image: url("/img/dashboard/scania/blinker-right-on.png");
-	}
-	.truck-cruiseControlOn.yes {
-		background-image: url("/img/dashboard/scania/cruise-on.png");
-	}
-	.truck-lightsBeamHighOn {
-		background-image: url("/img/dashboard/scania/highbeam-off.png");
-		position:         absolute;
-		left:             628px;
-		top:              199px;
-		width:            100px;
-		height:           70px;
-	}
-	.truck-lightsBeamHighOn.yes {
-		background-image: url("/img/dashboard/scania/highbeam-on.png");
-	}
-	.truck-lightsBeamLowOn {
-		background-image: url("/img/dashboard/scania/lowbeam-off.png");
-		position:         absolute;
-		left:             267px;
-		top:              742px;
-		width:            90px;
-		height:           70px;
-	}
-	.truck-lightsBeamLowOn.yes {
-		background-image: url("/img/dashboard/scania/lowbeam-on.png");
-	}
-	.truck-lightsParkingOn {
-		background-image: url("/img/dashboard/scania/parklights-off.png");
-		position:         absolute;
-		left:             172px;
-		top:              742px;
-		width:            90px;
-		height:           70px;
-	}
-	.truck-lightsParkingOn.yes {
-		background-image: url("/img/dashboard/scania/parklights-on.png");
-	}
-	.trailer-mass {
-		color: #B4C3D1;
-		font-family: Courier New, Courier, monospace;
-		font-weight: bold;
-		position: absolute;
-		left: 1058px;
-		top: 888px;
-		/* background: #000; */
-		width: 170px;
-		height: 50px;
-		text-align: center;
-		font-size: 32px;
-	}
-	.game-time {
-		color: #F5F9F8;
-		font-family: Arial, Tahoma;
-		font-size: 40px;
-		font-weight: bold;
-		position: absolute;
-		left: 787px;
-		top: 149px;
-		width: 312px;
-		height: 60px;
-		text-align: center;
-		overflow: hidden;
-	}
-	.truck-parkBrakeOn {
-		background-image: url("/img/dashboard/scania/handbrake-off.png");
-		position:         absolute;
-		left:             1305px;
-		top:              680px;
-		width:            75px;
-		height:           55px;
-	}
-	.truck-parkBrakeOn.yes {
-		background-image: url("/img/dashboard/scania/handbrake.png");
-	}
-	.truck-airPressureEmergencyOn {
-		background-image: url("/img/dashboard/scania/warning-off.png");
-		position:         absolute;
-		left:             631px;
-		top:              678px;
-		width:            75px;
-		height:           55px;
-	}
-	.truck-airPressureEmergencyOn.yes {
-		background-image: url("/img/dashboard/scania/warning.png");
-	}
-	.truck-airPressureEmergencyOn {
-		background-image: url("/img/dashboard/scania/warning-off.png");
-		position:         absolute;
-		left:             631px;
-		top:              678px;
-		width:            75px;
-		height:           55px;
-	}
-	.truck-fuelWarningOn.yes {
-		background-image: url("/img/dashboard/scania/fuel-warning.png");
-	}
-	.truck-fuelWarningOn {
-		background-image: url("/img/dashboard/scania/fuel-warning-off.png");
-		position:         absolute;
-		left:             1412px;
-		top:              887px;
-		width:            40px;
-		height:           45px;
-	}
-	.job-remainingTime {
-		color: #54d9a8;
-	}
-	.truck-gear,
-	.truck-odometer,
-	.truck-speed,
-	.trailer-mass,
-	.trailer-name,
-	.job-remainingTime,
-	._jobSource,
-	._jobDestionation {
-		visibility: hidden;
-	}
-	.dashboard.game-connected.yes .truck-gear,
-	.dashboard.game-connected.yes .truck-odometer,
-	.dashboard.game-connected.yes .truck-speed {
-		visibility: visible;
-	}
-	.hasJob.yes .trailer-mass,
-	.hasJob.yes .trailer-name,
-	.hasJob.yes .job-remainingTime,
-	.hasJob.yes ._jobSource,
-	.hasJob.yes ._jobDestionation {
-		visibility: visible;
-	}
-	table._job {
-		border-collapse: collapse;
-		font-family: Courier New, Courier, monospace;
-		font-size: 40px;
-		position: absolute;
-		left: 40px;
-		top: 850px;
-		width: 1300px;
-		height: 280px;
-	}
-	table._job th {
-		color: #aaa;
-		width: 260px;
-		text-align: right;
-	}
-	table._job td {
-		padding-left: 20px;
-		text-align: left;
-	}
-	._jobSource,
-	._jobDestionation {
-		color: #efbd3a;
-	}
-	.statusMessage {
-		color: coral;
+	
+	.totalmass {
+		color:       $cWhite;
+		font-family: Arial;
+		font-size:   48px;
+		position:    fixed;
+		left:        839px;
+		top:         353px;
+		width:       261px;
+		height:      84px;
 	}
 }

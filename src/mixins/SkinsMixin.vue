@@ -15,7 +15,8 @@ export default {
   computed: {
     ...mapGetters({
       currentSkin: 'skins/current',
-      allSkin: 'skins/all'
+      allSkin: 'skins/all',
+      active: 'skins/active'
     })
   },
   methods: {
@@ -31,6 +32,11 @@ export default {
 
       return skin.disabled;
     },
+    $hasManual(skin) {
+      if (skin === undefined || skin === null) return false;
+
+      return skin.manual === true;
+    },
     $setActive(skin) {
       this.$pushALog(
         'Set skin active ' + JSON.stringify(skin),
@@ -42,6 +48,9 @@ export default {
     },
     $skins() {
       return this.allSkin;
+    },
+    $actives() {
+      return this.active;
     }
   }
 };

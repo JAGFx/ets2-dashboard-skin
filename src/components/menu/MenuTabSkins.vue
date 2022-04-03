@@ -1,7 +1,7 @@
 <template>
   <div class="tab-skins">
     <div
-      v-for="skin in $skins()"
+      v-for="skin in $actives()"
       :key="skin.id"
       :class="{
         active: $isActive(skin),
@@ -64,15 +64,50 @@
           $t('Activate')
         }}</a>
       </div>
+      <div
+        v-if="$isActive(skin) && !$isDisabled(skin) && $hasManual(skin)"
+        class="card-footer d-flex justify-content-center align-items-center"
+      >
+        <button
+          class="btn btn-sm btn-primary"
+          @click="setManualComponent(skin)"
+        >
+          {{ $t('Manual') }}
+        </button>
+      </div>
     </div>
+
+    <component :is="manual" @click.native="manual = null" />
   </div>
 </template>
 
 <script>
+import SkinManualScania from '@/components/menu/skin-manuals/SkinManualScania';
 import SkinsMixin from '@/mixins/SkinsMixin';
 
 export default {
   name: 'MenuTabSkins',
-  mixins: [SkinsMixin]
+  components: {
+    SkinManualScania
+  },
+  mixins: [SkinsMixin],
+  data() {
+    return {
+      manual: null
+    };
+  },
+  methods: {
+    setManualComponent(skin) {
+      switch (skin.id) {
+        case 'Scania':
+          this.manual = 'SkinManualScania';
+          break;
+
+        default:
+          this.manual = null;
+          break;
+      }
+    }
+  }
 };
 </script>
