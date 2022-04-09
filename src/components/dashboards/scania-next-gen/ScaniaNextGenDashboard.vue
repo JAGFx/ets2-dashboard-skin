@@ -56,13 +56,13 @@
         :factor="8"
         mode="bar"
       />
-    </div>
 
-    <!-- <editor-folder> Symbols -->
-    <ScaniaNextGenGeneralWarningSymbols />
-    <ScaniaNextGenBodyworkSymbols />
-    <ScaniaNextGenIndicatorSymbols />
-    <!-- </editor-folder> Symbols -->
+      <!-- <editor-folder> Symbols -->
+      <ScaniaNextGenGeneralWarningSymbols />
+      <ScaniaNextGenBodyworkSymbols />
+      <ScaniaNextGenIndicatorSymbols />
+      <!-- </editor-folder> Symbols -->
+    </div>
   </Dashboard>
 </template>
 

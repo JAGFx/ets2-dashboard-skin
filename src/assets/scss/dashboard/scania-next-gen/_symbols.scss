@@ -10,47 +10,49 @@
 
 .bodywork {
 	position: absolute;
-	left: 28rem;
-	top: 42.9rem;
+	left: 35.3rem;
+	top: 42rem;
 	display: flex;
-	width: 29.3rem;
+	width: 37.1rem;
 	justify-content: space-between;
 }
 
 .indicator {
 	position: absolute;
 	//width: 39.3rem;
-	top: 13.4rem;
+	top: 4.7rem;
 	
 	&.symbols > .symbol {
-		font-size: 3rem;
+		width: 4.1rem;
+		font-size: 4rem;
 		background: transparent;
+		align-items: flex-end;
 	}
 	
 	&.left {
-		left: 20rem;
+		left: 25.1rem;
 	}
 	&.right {
-		left: 62.2rem;
+		left: 78.7rem;
 	}
 }
 
 .general-warning {
 	position: absolute;
-	width: 39.3rem;
-	top: 13.4rem;
-	left: 23.8rem;
+	width: 48.4rem;
+	top: 4.7rem;
+	left: 29.8rem;
 	
 	.symbols {
 		justify-content: flex-start;
 	}
 	.symbols > .symbol {
-		width: 3.13rem;
-		font-size: 2.6rem;
+		width: 13.13rem;
+		font-size: 3.7rem;
 		background: transparent;
 		
 		.icon-scania-driver-safty-belt_red {
-			font-size: 2rem;
+			font-size: 2.7rem;
 		}
 	}
 }
@@ -60,13 +62,13 @@
 	
 	.symbol {
 		position: absolute;
-		font-size: 2.6rem;
+		font-size: 3.6rem;
 		
-		&.c2 { left: 5.6rem; bottom: 13.3rem; }
-		&.c3 { left: 9.2rem; 	top: 42.9rem; }
-		&.c12 { right: 9.2rem; 	top: 42.9rem; }
-		&.c13 { right: 5.6rem; 	bottom: 13.3rem; }
-		&.c14 { right: 2.3rem; 	bottom: 14.7rem; }
+		&.c2 { left: 7rem; top: 40.5rem; }
+		&.c3 { left: 11.6rem; 	top: 42rem; }
+		&.c12 { right: 11.6rem; 	top: 42rem; }
+		&.c13 { right: 7rem; 	top: 40.5rem; }
+		&.c14 { right: 2.8rem; 	bottom: 6.6rem; }
 	}
 }
 
@@ -76,14 +78,15 @@
 	align-items: center;
 	
 	.symbol {
-		width: 3.2rem;
-		height: 2.5rem;
-		background: #434343;
+		width: 4.2rem;
+		height: 3.3rem;
+		//background: #434343;
 		margin-right: .35rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		font-size: 2rem;
+		font-size: 3rem;
+		opacity: .6;
 		
 		&.red { color: $cRed; }
 		&.yellow { color: $cYellow; }
