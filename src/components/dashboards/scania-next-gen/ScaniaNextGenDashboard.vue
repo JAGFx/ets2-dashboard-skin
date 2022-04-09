@@ -57,6 +57,12 @@
         mode="bar"
       />
     </div>
+
+    <!-- <editor-folder> Symbols -->
+    <ScaniaNextGenGeneralWarningSymbols />
+    <ScaniaNextGenBodyworkSymbols />
+    <ScaniaNextGenIndicatorSymbols />
+    <!-- </editor-folder> Symbols -->
   </Dashboard>
 </template>
 
@@ -65,6 +71,9 @@ import Dashboard from '@/components/dashboards/Dashboard';
 import ScaniaNextGenGaugeDisplay from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGaugeLeftDisplay';
 import ScaniaNextGenGauges from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGauges';
 import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar';
+import ScaniaNextGenBodyworkSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenBodyworkSymbols';
+import ScaniaNextGenGeneralWarningSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenGeneralWarningSymbols';
+import ScaniaNextGenIndicatorSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenIndicatorSymbols';
 import Bars from '@/components/dashboards/shared/Bars';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
@@ -75,7 +84,10 @@ export default {
     ScaniaNextGenGauges,
     ScaniaNextGenGaugeDisplay,
     ScaniaNextGenAdBlueBar,
-    Bars
+    Bars,
+    ScaniaNextGenBodyworkSymbols,
+    ScaniaNextGenGeneralWarningSymbols,
+    ScaniaNextGenIndicatorSymbols
   },
   mixins: [TelemetryMixin]
 };
