@@ -44,12 +44,7 @@
           />
         </div>
         <div class="symbol"></div>
-        <div class="symbol red">
-          <i
-            v-if="telemetry2.truck.ignitionStart"
-            class="icon-scania-driver-safty-belt_red"
-          />
-        </div>
+        <div class="symbol"></div>
         <div class="symbol"></div>
       </div>
     </div>

@@ -7,6 +7,8 @@
 	@import "scania-next-gen/fuel-gauge";
 	@import "scania-next-gen/water-temperature-gauge";
 	@import "scania-next-gen/symbols";
+	@import "scania-next-gen/menu";
+	
 	position: relative;
 	
 	&.wrapper {
@@ -15,6 +17,7 @@
 	
 	.dashboard {
 		background:       url("/img/dashboard/scania-next-gen/scania-next-gen-background.png") top left no-repeat;
+		//background:       url("/img/dashboard/scania-next-gen/scania-next-gen-background-debug.png") top left no-repeat;
 		position:         absolute;
 		transform-origin: top left;
 		left:             50%;
@@ -24,22 +27,24 @@
 	.truck-speed {
 		position:         fixed;
 		background-image: url("/img/dashboard/scania-next-gen/arrow.png");
-		transform: rotate(-116.3deg);
-		transform-origin: 50% 236px;
-		left: 274px;
-		top: 142px;
-		width: 40px;
-		height: 263px;
+		background-size: 1.6rem;
+		background-position: top center;
+		transform-origin: bottom center;
+		left: 22.4rem;
+		top: 13.8rem;
+		width: 1rem;
+		height: 9.4rem;
 	}
 	
 	.truck-engineRpm {
 		position:         fixed;
 		background-image: url("/img/dashboard/scania-next-gen/arrow.png");
-		left: 1411px;
-		top: 145px;
-		width: 40px;
-		height: 263px;
-		transform: rotate(-117.7deg);
-		transform-origin: 50% 231px;
+		background-size: 1.6rem;
+		background-position: top center;
+		transform-origin: bottom center;
+		left: 67.2rem;
+		top: 13.8rem;
+		width: 1rem;
+		height: 9.4rem;
 	}
 }

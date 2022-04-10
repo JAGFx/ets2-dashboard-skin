@@ -7,8 +7,8 @@
         value: telemetry2.truck.speed,
         min: $convertToUnit(2.77778, 'unit_speed'),
         max: $convertToUnit(36.1111, 'unit_speed'),
-        minAngle: -116.3,
-        maxAngle: 116.8
+        minAngle: -114.3,
+        maxAngle: 114.8
       }"
     />
     <Cadran
@@ -18,8 +18,8 @@
         value: telemetry2.truck.rpm,
         min: 300,
         max: 2700,
-        minAngle: -117.7,
-        maxAngle: 118
+        minAngle: -115,
+        maxAngle: 113.6
       }"
     />
   </div>

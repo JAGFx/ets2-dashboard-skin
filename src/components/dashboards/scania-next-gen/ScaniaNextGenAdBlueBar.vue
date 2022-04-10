@@ -5,7 +5,9 @@
   >
     <i class="icon-scania-ad-blue-low_yellow mr-2"></i>
     <div class="adblue-bars w-100">
-      <div class="labels d-flex justify-content-between align-items-center">
+      <div
+        class="labels d-flex justify-content-between align-items-center mb-1"
+      >
         <span>0</span>
         <span>1/2</span>
         <span>1</span>

@@ -9,40 +9,39 @@
         height: dashProps.skinData.size.height + 'px'
       }"
     >
-      <!--      <ScaniaNextGenGauges />-->
-      <!--      <ScaniaNextGenGaugeDisplay class="left">-->
-      <!--        <div-->
-      <!--          class="speed d-flex w-100 justify-content-end align-items-end mb-2"-->
-      <!--        >-->
-      <!--          <span class="value">{{ telemetry2.truck.speed.toFixed(0) }}</span>-->
-      <!--          <span class="unit">{{ $unitReadable('unit_speed') }}</span>-->
-      <!--        </div>-->
-      <!--        <div class="line d-flex w-100 justify-content-end align-items-end mb-2">-->
-      <!--          <span class="value">{{ telemetry2.truck.odometer.toFixed(0) }}</span>-->
-      <!--          <span class="unit">{{ $unitReadable('unit_length', 'km') }}</span>-->
-      <!--        </div>-->
-      <!--        <div class="line d-flex w-100 justify-content-between align-items-end">-->
-      <!--          <span class="trip-label">Trip</span>-->
-      <!--          <div class="d-flex justify-content-end align-items-end">-->
-      <!--            <span class="value">-</span>-->
-      <!--            <span class="unit">{{ $unitReadable('unit_length', 'km') }}</span>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </ScaniaNextGenGaugeDisplay>-->
-      <!--      <ScaniaNextGenGaugeDisplay class="right">-->
-      <!--        <div-->
-      <!--          class="hour d-flex w-100 justify-content-center align-items-end mb-2"-->
-      <!--        >-->
-      <!--          <span class="value">22:35</span>-->
-      <!--        </div>-->
-      <!--        <div-->
-      <!--          class="exterior-temperature d-flex w-100 justify-content-end align-items-end mb-2"-->
-      <!--        >-->
-      <!--          <span class="value">-</span>-->
-      <!--          <span class="unit">{{ $unitReadable('unit_degrees') }}</span>-->
-      <!--        </div>-->
-      <!--        <ScaniaNextGenAdBlueBar />-->
-      <!--      </ScaniaNextGenGaugeDisplay>-->
+      <ScaniaNextGenGauges />
+      <div class="menu on">Plop</div>
+      <ScaniaNextGenGaugeDisplay class="left">
+        <div
+          class="speed d-flex w-100 justify-content-end align-items-end mb-1"
+        >
+          <span class="value">{{ telemetry2.truck.speed.toFixed(0) }}</span>
+          <span class="unit">{{ $unitReadable('unit_speed') }}</span>
+        </div>
+        <div class="line d-flex w-100 justify-content-end align-items-end">
+          <span class="value">{{ telemetry2.truck.odometer.toFixed(0) }}</span>
+          <span class="unit">{{ $unitReadable('unit_length', 'km') }}</span>
+        </div>
+        <div class="line d-flex w-100 justify-content-between align-items-end">
+          <span class="trip-label">Trip</span>
+          <div class="d-flex justify-content-end align-items-end">
+            <span class="value">-</span>
+            <span class="unit">{{ $unitReadable('unit_length', 'km') }}</span>
+          </div>
+        </div>
+      </ScaniaNextGenGaugeDisplay>
+      <ScaniaNextGenGaugeDisplay class="right">
+        <div class="hour d-flex w-100 justify-content-center align-items-end">
+          <span class="value">22:35</span>
+        </div>
+        <div
+          class="exterior-temperature d-flex w-100 justify-content-end align-items-end"
+        >
+          <span class="value">0</span>
+          <span class="unit">{{ $unitReadable('unit_degrees') }}</span>
+        </div>
+        <ScaniaNextGenAdBlueBar class="mt-2" />
+      </ScaniaNextGenGaugeDisplay>
       <!--      <Bars-->
       <!--        class="fuel-gauge"-->
       <!--        :level="telemetry2.truck.fuelLevel"-->

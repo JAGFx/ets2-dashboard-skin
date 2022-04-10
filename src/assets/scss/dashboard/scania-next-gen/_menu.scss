@@ -1,0 +1,15 @@
+.menu {
+	position: absolute;
+	width: 30rem;
+	height: 17.35rem;
+	left: 30.25rem;
+	top: 15.45rem;
+	
+	mask-image: url("/img/dashboard/scania-next-gen/menu-area.png");
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	
+	&.on {
+		background: url("/img/dashboard/scania-next-gen/menu-on.png");
+	}
+}
