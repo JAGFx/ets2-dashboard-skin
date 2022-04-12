@@ -10,7 +10,7 @@
       }"
     >
       <ScaniaNextGenGauges />
-      <div class="menu on">Plop</div>
+      <ScaniaNextGenDisplay />
       <ScaniaNextGenGaugeDisplay class="left">
         <div
           class="speed d-flex w-100 justify-content-end align-items-end mb-1"
@@ -67,6 +67,7 @@
 
 <script>
 import Dashboard from '@/components/dashboards/Dashboard';
+import ScaniaNextGenDisplay from '@/components/dashboards/scania-next-gen/display/ScaniaNextGenDisplay';
 import ScaniaNextGenGaugeDisplay from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGaugeLeftDisplay';
 import ScaniaNextGenGauges from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGauges';
 import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar';
@@ -86,7 +87,8 @@ export default {
     Bars,
     ScaniaNextGenBodyworkSymbols,
     ScaniaNextGenGeneralWarningSymbols,
-    ScaniaNextGenIndicatorSymbols
+    ScaniaNextGenIndicatorSymbols,
+    ScaniaNextGenDisplay
   },
   mixins: [TelemetryMixin]
 };

@@ -1,0 +1,188 @@
+@import "variable";
+
+.display {
+	position: absolute;
+	width: 30rem;
+	height: 17.35rem;
+	left: 30.25rem;
+	top: 15.45rem;
+	
+	// Fixme: Some blur apear for an unknown reason
+	//mask-image: url("/img/dashboard/scania-next-gen/menu-area.png");
+	//mask-size: contain;
+	//mask-repeat: no-repeat;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	
+	&.starting {
+		background:      url("/img/dashboard/scania-next-gen/6482891_619566292.png") no-repeat center;
+		background-size: 10rem;
+	}
+	&.on {
+		background: url("/img/dashboard/scania-next-gen/menu-on.png");
+	}
+	
+	.menu-selector {
+		min-height: 3.4rem;
+		max-height: 3.4rem;
+		
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		
+		.button {
+			background: linear-gradient(to top, $menuButtonDefaultColor, darken($menuButtonDefaultColor, $menuButtonDarkenAmount));
+			border: 0;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			
+			width: 3rem;
+			height: 3rem;
+			
+			&.tiny {
+				width: 3.5rem;
+				height: 2.5rem;
+				
+				&.left {
+					transform: skewX($menuButtonSkewAngle);
+					> span {
+						transform: skewX(-$menuButtonSkewAngle);
+					}
+					padding-right: .5rem;
+					border-radius: 0 0 0 $menuButtonRadius;
+				}
+				
+				&.right {
+					transform: skewX(-$menuButtonSkewAngle);
+					> span {
+						transform: skewX($menuButtonSkewAngle);
+					}
+					padding-left: .5rem;
+					border-radius: 0 0 $menuButtonRadius 0;
+				}
+				
+				&.active:after{
+					content: none;
+				}
+			}
+			
+			&.active {
+				background: linear-gradient(to top, $menuButtonActiveColor, darken($menuButtonActiveColor, $menuButtonDarkenAmount));
+				position: relative;
+				color: #1b1f20;
+				
+				&:after {
+					content: ' ';
+					position: absolute;
+					width: .5rem;
+					height: .5rem;
+					border: .5rem solid #1b1f20;
+					border-color: transparent transparent #000 transparent;
+					bottom: -1px;
+				}
+			}
+			
+			&.warning {
+				border: 2px solid $cYellow;
+				color: $cYellow;
+				
+				&.disabled{
+					visibility: hidden;
+				}
+				
+				&.active {
+					background: $cYellow;
+					color: $menuButtonDefaultColor;
+				}
+			}
+		}
+		
+		.wrapper {
+			//overflow: hidden;
+			//padding: 0 .5rem;
+			position: relative;
+			//background: linear-gradient(to top, #2b3032, #1b1f20);
+			height: 3rem;
+			z-index: 2;
+			
+			&:before {
+				content:  " ";
+				position: absolute;
+				background: linear-gradient(to top, $menuButtonDefaultColor, darken($menuButtonDefaultColor, $menuButtonDarkenAmount));
+				left: -.5rem;
+				width: 3rem;
+				height: 3rem;
+				//clip-path: polygon(50% 0, 100% 100%, 100% 0);
+				z-index: 0;
+				transform: skewX($menuButtonSkewAngle);
+				box-shadow: -0.5rem 0px 0.5rem #000;
+				border-radius: 0 0 0 $menuButtonRadius;
+			}
+			
+			&:after {
+				content:  " ";
+				position: absolute;
+				background: linear-gradient(to top, $menuButtonDefaultColor, darken($menuButtonDefaultColor, $menuButtonDarkenAmount));
+				right: -.5rem;
+				width: 3rem;
+				height: 3rem;
+				//clip-path: polygon(50% 0, 0 100%, 0 0);
+				z-index: -1;
+				transform: skewX(-$menuButtonSkewAngle);
+				box-shadow: 0.5rem 0 0.5rem #000;
+				border-radius: 0 0 $menuButtonRadius 0;
+			}
+			
+			.button:first-child{
+				border-radius: 0 0 0 $menuButtonRadius;
+			}
+
+			.button:last-child{
+				border-radius: 0 0 $menuButtonRadius 0;
+			}
+		}
+	}
+	
+	.menu {
+		width: 14.5rem;
+		//background: #1A6783;
+	}
+	
+	.programmable-field {
+		min-height: 3.7rem;
+		max-height: 3.7rem;
+		width: 19rem;
+		//background: #00E070;
+	}
+	
+	.squareArea {
+		position: absolute;
+		width: 3.3rem;
+		height: 3.5rem;
+		top: 6.3rem;
+		right: 3.8rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		
+		&.shifter {
+			top: 6.3rem;
+			right: 4.2rem;
+			font-size: 1.4rem;
+			line-height: 1.5rem;
+		}
+		
+		&.driveMode{
+			top: 6.3rem;
+			left: 4.2rem;
+		}
+	}
+}
