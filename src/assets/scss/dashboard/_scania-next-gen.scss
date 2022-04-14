@@ -8,6 +8,14 @@
 	@import "scania-next-gen/water-temperature-gauge";
 	@import "scania-next-gen/symbols";
 	@import "scania-next-gen/display";
+	@import "scania-next-gen/menu";
+	@import "scania-next-gen/bars";
+	
+	.flex-area {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 	
 	position: relative;
 	

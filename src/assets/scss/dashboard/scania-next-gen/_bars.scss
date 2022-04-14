@@ -1,0 +1,74 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_bars.scss
+ * Date: 	13/04/2022
+ * Time: 	21:38
+ */
+
+@import "variable";
+
+.scania-bar {
+	//margin: .5rem 0;
+	
+	.icon {
+		font-size: 2rem;
+		line-height: 0;
+		margin: 0 .5rem;
+	}
+	
+	.line {
+		background: $cGreen;
+		height: .3rem;
+		color: transparent;
+		margin: .2rem 1rem;
+	}
+	
+	.squares {
+		margin: 0 1rem;
+		
+		.square {
+			background: $cWhite;
+			color: transparent;
+			height: .4rem;
+			width: .85rem;
+			margin: .15rem;
+			
+			&:first-child { margin-left: 0 }
+			&:last-child { margin-right: 0 }
+		}
+	}
+	
+	.labels {
+		.start, .middle, .end {
+			font-size: 1rem;
+			background: #000;
+			width: 2rem;
+			text-align: center;
+			border-radius: 1rem;
+			font-weight: bold;
+			margin-top: -0.3rem;
+		}
+	}
+	
+	.raw {
+		.value {
+			color: $cGreen;
+			margin-right: .2rem;
+		}
+		
+		.unit {
+			margin-left: .2rem;
+		}
+		
+		.value, .unit{
+			font-size: 1.2rem;
+			height: 1.2rem;
+			line-height: 1.2rem;
+		}
+	}
+	
+	&.disabled, &.disabled .raw .value {
+		color: transparentize( $cWhite, .5 ) !important;
+	}
+}

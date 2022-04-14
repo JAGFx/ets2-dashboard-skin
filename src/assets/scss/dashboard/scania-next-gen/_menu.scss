@@ -1,0 +1,40 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_menu.scss
+ * Date: 	13/04/2022
+ * Time: 	21:47
+ */
+@import "variable";
+
+.menu {
+	width: 13.5rem;
+	height: 14.5rem;
+	margin: .5rem;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
+	&.drivingAssistance{
+		.item {
+			font-size: 1.1rem;
+			padding:   0 1rem;
+			
+			.icon {
+				font-size: 2rem;
+				
+				> small {
+					font-size:   .8rem;
+					margin-top:  1rem;
+					margin-left: .5rem;
+				}
+			}
+			
+			.value { color: $cGreen; }
+			
+			.unit { margin-left: .5rem; }
+		}
+	}
+}

@@ -102,6 +102,10 @@
 					color: $menuButtonDefaultColor;
 				}
 			}
+			
+			&.white {
+				border: 2px solid $cWhite;
+			}
 		}
 		
 		.wrapper {
@@ -142,17 +146,13 @@
 			
 			.button:first-child{
 				border-radius: 0 0 0 $menuButtonRadius;
+				z-index: 1;
 			}
 
 			.button:last-child{
 				border-radius: 0 0 $menuButtonRadius 0;
 			}
 		}
-	}
-	
-	.menu {
-		width: 14.5rem;
-		//background: #1A6783;
 	}
 	
 	.programmable-field {
