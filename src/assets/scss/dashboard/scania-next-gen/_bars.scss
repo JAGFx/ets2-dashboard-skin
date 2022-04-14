@@ -12,43 +12,42 @@
 	//margin: .5rem 0;
 	
 	.icon {
-		font-size: 2rem;
+		font-size: 1.2rem;
 		line-height: 0;
-		margin: 0 .5rem;
+		margin: 0 .5rem 0 0;
 	}
 	
 	.line {
-		background: $cGreen;
-		height: .3rem;
+		background: $cWhite;
+		height: .1rem;
 		color: transparent;
-		margin: .2rem 1rem;
+		margin:     0 1rem;
 	}
 	
 	.squares {
 		margin: 0 1rem;
 		
 		.square {
-			background: $cWhite;
+			background: $cGreyLight;
 			color: transparent;
-			height: .4rem;
-			width: .85rem;
+			height: .7rem;
+			width: .7rem;
 			margin: .15rem;
 			
 			&:first-child { margin-left: 0 }
 			&:last-child { margin-right: 0 }
+			&.active {
+				background: $cWhite;
+			}
 		}
 	}
 	
 	.labels {
-		.start, .middle, .end {
-			font-size: 1rem;
-			background: #000;
-			width: 2rem;
+			font-size: .5rem;
 			text-align: center;
-			border-radius: 1rem;
+			//border-radius: 1rem;
 			font-weight: bold;
-			margin-top: -0.3rem;
-		}
+			//margin-top: -0.3rem;
 	}
 	
 	.raw {
@@ -62,9 +61,9 @@
 		}
 		
 		.value, .unit{
-			font-size: 1.2rem;
-			height: 1.2rem;
-			line-height: 1.2rem;
+			font-size: 1rem;
+			height: 1rem;
+			line-height: 1rem;
 		}
 	}
 	

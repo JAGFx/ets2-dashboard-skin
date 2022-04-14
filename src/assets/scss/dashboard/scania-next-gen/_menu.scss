@@ -17,6 +17,11 @@
 	align-items: center;
 	flex-direction: column;
 	
+	&.default {
+		background: url("/img/dashboard/scania-next-gen/6482891_619566292.png") center center no-repeat;
+		background-size: contain;
+	}
+	
 	&.drivingAssistance{
 		.item {
 			font-size: 1.1rem;
