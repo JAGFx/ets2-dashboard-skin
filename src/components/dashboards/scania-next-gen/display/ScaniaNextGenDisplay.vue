@@ -38,7 +38,42 @@
     </div>
     <component :is="currentMenu" v-if="currentMenu !== null" />
     <div v-else class="menu h-100 default"></div>
-    <div class="programmable-field">programmable-field-bottom</div>
+    <div class="programmable-field">
+      <div class="field">
+        <i class="icon icon-scania-cruise_control_white" />
+        <div class="data">
+          <span class="value">{{
+            telemetry2.truck.cruiseControlSpeed.toFixed(0)
+          }}</span>
+          <span class="unit">{{ $unitReadable('unit_speed') }}</span>
+        </div>
+      </div>
+      <div class="field">
+        <i class="icon icon-scania-downhill-spee-control_yellow_white" />
+        <div class="data">
+          <span class="value">-</span>
+          <span class="unit">{{ $unitReadable('unit_speed') }}</span>
+        </div>
+      </div>
+      <div class="field">
+        <i class="icon icon-scania-fuel_yellow" />
+        <div class="data">
+          <span class="value">{{
+            telemetry2.truck.fuelLevelPercentage.toFixed(0)
+          }}</span>
+          <span class="unit">%</span>
+        </div>
+      </div>
+      <div class="field">
+        <i class="icon icon-scania-ad-blue-low_yellow" />
+        <div class="data">
+          <span class="value">{{
+            telemetry2.truck.adBlueLevelPercentage.toFixed(0)
+          }}</span>
+          <span class="unit">%</span>
+        </div>
+      </div>
+    </div>
     <div class="squareArea shifter">
       <div>{{ telemetry2.truck.gearDisplayedWithoutShifterType }}</div>
       <div>{{ telemetry2.truck.shifterTypeLetter }}</div>

@@ -162,7 +162,36 @@
 		min-height: 3.7rem;
 		max-height: 3.7rem;
 		width: 19rem;
-		//background: #00E070;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		.field {
+			//background: #00E070;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			padding: .5rem;
+			
+			.icon {
+				font-size: 1.2rem;
+				margin-right: .5rem;
+			}
+			
+			.data {
+				.value {
+					font-size: 1.1rem;
+					color: $cGreen;
+					margin-right: .2rem;
+				}
+				
+				.unit {
+					font-size: .9rem;
+				}
+			}
+		}
 	}
 	
 	.squareArea {
