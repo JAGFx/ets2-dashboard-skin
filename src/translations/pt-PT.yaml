@@ -1,9 +1,9 @@
 Skins: Estilos
 Config: Configurações
 About: Sobre
-Activate: Activar
-Active: Activo
-Disabled: Desactivar
+Activate: Ativar
+Active: Ativo
+Disabled: Desativar
 Menu: Menu
 Close: Fechar
 Download: Descarregar
@@ -13,18 +13,18 @@ less: menos
 more: mais
 General: Geral
 Refresh rate: Taxa de actualização
-Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;): Define a taxa de actualizção da informação. Quanto menor for a taxa, mais actualizado será o tablier. Será necessário reiniciar a aplicação após alguma mudança ;)
+Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;): Define a taxa de actualizção da informação. Quanto menor for a taxa, mais atualizado será o tablier. Será necessário reiniciar a aplicação após alguma alteração ;)
 Default skin loaded: Estilo em uso
 Set the skin loaded when this app was started: Define o estilo em uso quando a aplicação iniciar
-Langue: Lingua
-Choose your locale used on this app: Escolhe a lingua a utilizar nesta aplicação
+Langue: Idioma
+Choose your locale used on this app: Escolha o idioma a utilizar nesta aplicação
 Job delivery time: Tempo de entrega do serviço
 Display the due date or the remaining time for a job: Mostra a data ou o tempo restante para um serviço
-H-Shifter layout: Disposição da manete de velocidades manual
-Show the current range of H-Shifter OR the automatic number: Mostra a mudança actual da manete de velocidades manuaç OU o numero da mudança automática
+H-Shifter layout: Disposição da mudanças manual
+Show the current range of H-Shifter OR the automatic number: Mostra a mudança atual da manete de velocidades manual OU o numero da mudança automática
 Damage accurate: Precisão dos danos
 Show the average with value of 'Damage diagnostic' or same as the 'Route advisor': Mostra a média com valores do 'Diagnóstico de danos' ou utiliza o mesmo que o 'Consultor de Rota'.
-Get new !: Actualizar !
+Get new !: Atualizar !
 Game: Jogo
 Select one: Seleciona...
 Pause / Unpause: Pausa / Retoma
@@ -48,7 +48,7 @@ Cruise control increase: Aumentar a velocidade do regulador
 Cruise control decrease: Diminuir a velocidade do regulador
 Warning: Atenção
 Emergency: Urgencia
-Electric: Electrico
+Electric: Elétrico
 Engine: Motor
 Park: Parque
 Refuel: Reabastecimento
@@ -78,19 +78,19 @@ Trailer coupled: Reboque acoplado
 Show a pop-up when the trailer was coupled to the truck: Mostrar uma notificação quando um reboque for acoplado ao camião
 Trailer damage: Danos do reboque
 Show a pop-up when the damage increase on the trailer: Mostrar uma notificação quando houver danos no reboque
-Cruise control enabled: Regulador de velocidade activado
-Show a pop-up when the cruise control is enabled: Mostrar uma notificação quando o regulador de velocidade for activado
+Cruise control enabled: Regulador de velocidade ativado
+Show a pop-up when the cruise control is enabled: Mostrar uma notificação quando o regulador de velocidade for ativado
 Show a pop-up when the cruise control increase: Mostrar uma notificação quando a velocidade do regulador de velocidade aumentar
 Show a pop-up when the cruise control decrease: Mostrar uma notificação quando a velocidade do regulador de velocidade diminuir
 Truck warning message: Menssagem de aviso do camião
 Show a pop-up for all warning message of truck: Mostrar uma notificação para todas as menssagens de aviso do camião
 Truck emergency message: Menssagem de urgência
 Show a pop-up for all emergency message of truck: Mostrar uma notificação para todas as menssagens de urgência do camião
-Truck electric message: Menssagem eléctica do camião
+Truck electric message: Menssagem elética do camião
 Truck engine start: Ignição do motor
-Show a pop-up when the truck engine start: Mostrar uma notificação quando a ignição for activada
+Show a pop-up when the truck engine start: Mostrar uma notificação quando a ignição for ativada
 Truck parking brake: Travão de parqueamento
-Show a pop-up when the truck parking brake are on: Mostrar uma notificação quando o travão de parqueamento for activado
+Show a pop-up when the truck parking brake are on: Mostrar uma notificação quando o travão de parqueamento for ativado
 Truck damage: Danos do camião
 Show a pop-up when the truck damage increase: Mostrar uma notificação quando o camião for danificado
 Truck refuel: Reabastecimento
@@ -113,30 +113,30 @@ Set the speed unit: Define a unidade de velocidade
 Currency: Moeda
 Set the currency unit: Define a moeda a utilizar
 Debug information: Informações de depuramento
-Display some debug information about the map: Mostrar algumas informações de deporamento sobre o mapa.
+Display some debug information about the map: Mostrar algumas informações de depuramento sobre o mapa.
 ETA information: Tempo Estimado de Chegada
 Display the remaining or ETA time and the current remaining distance to the destination: Mostrar o tempo estimado ou restante e a distância a precorrer para o destino
 Speed and gear: Velocidade e mudança
 Display the current speed and gear: Mostrar a velocidade e mudança
 Map controls: Controlos do mapa
 Display map controls (Recenter, focus on user, zoom in and zoom out): Mostrar controlos do mapa (Centrar, focar no jogador, ampliação)
-Display current speed limit: Mostrar o limite de velocidade actual
+Display current speed limit: Mostrar o limite de velocidade atual
 Map rotation: Rotação do mapa
-Enable or disable the map rotation on the first load: Activa ou desactiva a rotação do mapa na primeira carga.
+Enable or disable the map rotation on the first load: Ativa ou desativa a rotação do mapa na primeira carga.
 Navigation ETA: TEC de Navegação
-Display the due date or the remaining time for the current route: Mostrar a data esperada ou o tempo restante para o percurso activo
-Active map: Mapa activo
-Change the active map: Mudar o mapa activo
+Display the due date or the remaining time for the current route: Mostrar a data esperada ou o tempo restante para o percurso ativo
+Active map: Mapa ativo
+Change the active map: Mudar o mapa ativo
 Kind of map: Tipo de Mapa
-Use the ETS2 or ATS map automatically or use the modded map: Utilizar o mapa do ETS2 ou ATS autimaticamente ou utulizar um mapa modificado.
+Use the ETS2 or ATS map automatically or use the modded map: Utilizar o mapa do ETS2 ou ATS automaticamente ou utilizar um mapa modificado.
 Remote tiles location: Local dos mosaicos
 Set a remote location for the map tiles.: Define um local remoto para os mosaicos do mapa.
 Custom tiles: Mosaicos personalizados
-Set to ON if you wan to use a custom tiles location: Muda para ON se desejas usar um local para os mosaicos personalizados.
+Set to ON if you wan to use a custom tiles location: Muda para LIGADO se desejas usar um local para os mosaicos personalizados.
 Custom tiles location: Local dos mosaicos personalizados
 The host of your tiles location: O host do local dos mosaicos personalizados
 Game version: Versão do jogo
-Get tiles for the latest game version, or for the specified game version: Obter os mosaicos para a ultima versão ou para uma versão especifica do jogo
+Get tiles for the latest game version, or for the specified game version: Obter os mosaicos para a última versão ou para uma versão especifica do jogo
 Tiles: Mosaicos
 Elements: Elementos
 Map: Mapa
@@ -154,19 +154,19 @@ Display the fuel level: Mostrar o nivel de combustivel
 Fuel consumption: Consumo de combustivel
 Display the fuel average consumption: Mostrar o consumo medio de combustivel
 Cruise control: Regulador de velocidade
-Display the current speed set with the cruise control ON: Mostrar a velocidade definida com o regulador de velocidade ON
+Display the current speed set with the cruise control ON: Mostrar a velocidade definida com o regulador de velocidade Ligado
 Water temperature: Temperatura da água
 Display the water temperature: Mostrar a temperatura da água
 Battery voltage: Voltagem da bateria
 Display the battery voltage: Mostrar a voltagem da bateria
-Next rest stop: Próxima parada de descanso
+Next rest stop: Próxima paragem de descanso
 Display the time to go to the next rest stop: Mostrar o tempo para ir à próxima paragem de descanso
 Display map: Mostrar mapa
-Enable or disable the map view: Activar ou desactivar a vista do mapa
+Enable or disable the map view: Ativar ou desativar a vista do mapa
 Retarder: Retardante
 Display the retarder indicator: Mostrar o indicador do retardante
-Parking brake: Travão de parque
-Display the parking brake indicator: Mostrar o indicador do travão de parque
+Parking brake: Travão de parqueamento
+Display the parking brake indicator: Mostrar o indicador do travão de parqueamento
 Beam high: Luzes de estrada
 Display the high beam indicator: Mostrar o indicador de luzes de estrada
 Beam low: Médios
@@ -177,8 +177,8 @@ RPM: RPM
 Display the RPM: Mostrar as rotações por minuto
 Display the fuel level indicator: Mostrar o indicador do nivel de combustivel
 Display the speed limit: Mostrar o limite de velocidade
-Turning indicator: Mudança de direção
-Display an indicator when the turn left or turn right blinker are ON: Mostrar um indicador quando as luzes de mudança de direção forem activadas
+Turning indicator: Pisca-pisca
+Display an indicator when the turn left or turn right blinker are ON: Mostrar um indicador quando as luzes de Pisca-pisca forem ativadas
 Quickly (100ms): Rapidamente (100ms)
 Balanced (500ms): Equilibrado (500ms)
 Slowly (1000ms): Lentamente (1000ms)
@@ -186,12 +186,12 @@ JAGFx dashboard: Painel de instrumentos JAGFx
 Default: Pré-selecionado
 Due date: Data limite
 Remaining date: Tempo restante
-H-Shifter: Manete manual
+H-Shifter: Mudança manual
 Automatic: Automatico
 Damage diagnostic: Diagnóstico de danos
 Route advisor: Aconselhador de itinerário
-On: Activado
-Off: Desactivado
+On: Ativado
+Off: Desativado
 Kilogram: Quilôgrama
 Pound & Long ton: Libras e toneladas longas
 Meters & Kilometers: Metros e Quilômetros
@@ -222,14 +222,14 @@ French: Francês
 Common dashboard for Euro truck Simulator 2 and American Truck Simulator: Painel de instrumentos comum para o Euro Truck Simulator 2 e American Truck Simulator
 The map from the route advisor: O mapa do aconselhador de itinerário
 Base: Base
-Simple dashboard with speed: Painel de instrimentos simples com velocidade
+Simple dashboard with speed: Painel de instrumentos simples com velocidade
 Generic Dashboard: Painel de instrumentos genérico
 DAF XF Dashboard: Painel de instrumentos do DAF XF
 MAN TGX Dashboard: Painel de instrumentos do MAN TGX
 Mercedes Benz Atego MP4 Dashboard: Painel de instrumentos do Mercedes Benz Atego MP4
 Scania Dashboard: Painel de instrumentos da Scania
 Volvo FH 2012 Dashboard: Painel de instrumentos do Volvo FH 2012
-OFF: Desactivado
+OFF: Desativado
 N/A: N/A
 No Job: Sem serviço
 No trailer: Sem reboque
@@ -238,7 +238,7 @@ Version: Versão
 Date: Data
 Pos: Pos.
 Ready: Pronto
-Last pos: Ultima pos.
+Last pos: Última pos.
 Map ready: Mapa pronto
 No data available: Sem dados disponiveis
 Time: Tempo
@@ -254,10 +254,10 @@ Connected to telemetry server: Ligado ao servidor de telemetria
 Ready to delivering: Pronto para entrega
 Waiting game connection: À espera da ligação ao jogo
 Run the game to start your job !: Inicia o jogo para começares o serviço !
-App ready !: Applicação pronta !
+App ready !: Aplicação pronta !
 Starting delivering: Começo da entrega
-Processing: Processando
-Your app is on processing. Please wait: A sua aplicação está a processar. Por favor espere.
+Processing: A processar
+Your app is on processing. Please wait: A aplicação está a processar. Por favor aguarde.
 more details: mais detalhes
 OK: OK
 You can: Pode
@@ -275,16 +275,16 @@ Frame: Chassi
 Speed limit set: Limite de velocidade estabelecido
 Game paused: Jogo em Pausa
 Game connection lost: Ligação ao jogo perdida
-Job canceled !: Serviço ancelado !
-You've been cancel this job: Você cancelou este serviço
+Job canceled !: Serviço cancelado !
+You've been cancel this job: Cancelas-te este serviço
 Job delivered !: Carga entregue !
 Delivered !: Entregue !
 Job finished !: Serviço terminado !
-You've been finish your job: Você terminou o serviço
+You've been finish your job: Terminaste o serviço
 Job started !: O serviço começou !
-You've been start this job: Você iniciou este serviço
+You've been start this job: Iniciaste este serviço
 Trailer coupled !: Reboque acopolado !
-You are ready to go: Preparado para sequir
+You are ready to go: Preparado para seguir
 Cant get tiles - Tiles NOT FOUND: Impossivel obter os mosaicos - Mosaicos NÃO ENCONTRADOS
 Cant get config - Map config NOT FOUND: Impossivel obter a configuração - Configuração do mapa NÃO ENCONTRADA
 Author: Autor
