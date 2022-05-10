@@ -1,8 +1,10 @@
 <template>
-  <div class="display on">
+  <div v-if="telemetry2.truck.ignitionIsTurnedOn" class="display on">
     <div class="squareArea driveMode">
       <div><i class="icon icon-scania-next-gen-standard-mode_white" /></div>
-      <div><i class="icon icon-scania-cruise_control_white" /></div>
+      <div v-if="telemetry2.symbols.cruiseControlIsEnabled">
+        <i class="icon icon-scania-cruise_control_white" />
+      </div>
     </div>
     <div class="menu-selector w-100">
       <div class="button tiny left white">
@@ -42,9 +44,12 @@
       <div class="field">
         <i class="icon icon-scania-cruise_control_white" />
         <div class="data">
-          <span class="value">{{
-            telemetry2.truck.cruiseControlSpeed.toFixed(0)
-          }}</span>
+          <span
+            v-if="telemetry2.symbols.cruiseControlIsEnabled"
+            class="value"
+            >{{ telemetry2.truck.cruiseControlSpeed.toFixed(0) }}</span
+          >
+          <span v-else class="value">-</span>
           <span class="unit">{{ $unitReadable('unit_speed') }}</span>
         </div>
       </div>

@@ -83,12 +83,14 @@
 
 <script>
 import SkinManualScania from '@/components/menu/skin-manuals/SkinManualScania';
+import SkinManualScaniaNextGen from '@/components/menu/skin-manuals/SkinManualScaniaNextGen';
 import SkinsMixin from '@/mixins/SkinsMixin';
 
 export default {
   name: 'MenuTabSkins',
   components: {
-    SkinManualScania
+    SkinManualScania,
+    SkinManualScaniaNextGen
   },
   mixins: [SkinsMixin],
   data() {
@@ -101,6 +103,10 @@ export default {
       switch (skin.id) {
         case 'Scania':
           this.manual = 'SkinManualScania';
+          break;
+
+        case 'ScaniaNextGen':
+          this.manual = 'SkinManualScaniaNextGen';
           break;
 
         default:

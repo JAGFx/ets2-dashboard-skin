@@ -3,14 +3,14 @@
 .display {
 	position: absolute;
 	width: 30rem;
-	height: 17.35rem;
-	left: 30.25rem;
-	top: 15.45rem;
+	height: 18.05rem;
+	left: 30.35rem;
+	top: 14.75rem;
+	padding-top: 1rem;
 	
 	// Fixme: Some blur apear for an unknown reason
-	//mask-image: url("/img/dashboard/scania-next-gen/menu-area.png");
-	//mask-size: contain;
-	//mask-repeat: no-repeat;
+	mask-image: url("/img/dashboard/scania-next-gen/menu-area.svg");
+	mask-repeat: no-repeat;
 	
 	display: flex;
 	align-items: center;
@@ -21,9 +21,12 @@
 	&.starting {
 		background:      url("/img/dashboard/scania-next-gen/6482891_619566292.png") no-repeat center;
 		background-size: 10rem;
+		background-position-y: 1rem;
+		
 	}
 	&.on {
 		background: url("/img/dashboard/scania-next-gen/menu-on.png");
+		background-position-y: 1rem;
 	}
 	
 	.menu-selector {
@@ -198,7 +201,6 @@
 		position: absolute;
 		width: 3.3rem;
 		height: 3.5rem;
-		top: 6.3rem;
 		right: 3.8rem;
 		display: flex;
 		justify-content: center;
@@ -208,14 +210,14 @@
 		line-height: 1.5rem;
 		
 		&.shifter {
-			top: 6.3rem;
+			top: 7.3rem;
 			right: 4.2rem;
 			font-size: 1.4rem;
 			line-height: 1.5rem;
 		}
 		
 		&.driveMode{
-			top: 6.3rem;
+			top: 7.3rem;
 			left: 4.2rem;
 		}
 	}
