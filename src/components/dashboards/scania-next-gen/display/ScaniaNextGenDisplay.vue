@@ -1,12 +1,19 @@
 <template>
-  <div v-if="telemetry2.truck.ignitionIsTurnedOn" class="display on">
-    <div class="squareArea driveMode">
-      <div><i class="icon icon-scania-next-gen-standard-mode_white" /></div>
-      <div v-if="telemetry2.symbols.cruiseControlIsEnabled">
-        <i class="icon icon-scania-cruise_control_white" />
-      </div>
+  <div
+    class="display"
+    :class="{
+      starting: telemetry2.truck.ignitionStart,
+      on: telemetry2.truck.engineIsStarted
+    }"
+  >
+    <div v-if="telemetry2.truck.engineIsStarted" class="squareArea driveMode">
+      <i class="icon icon-scania-next-gen-standard-mode_white" />
+      <i
+        v-if="telemetry2.symbols.cruiseControlIsEnabled"
+        class="icon icon-scania-cruise_control_white"
+      />
     </div>
-    <div class="menu-selector w-100">
+    <div v-if="telemetry2.truck.engineIsStarted" class="menu-selector w-100">
       <div class="button tiny left white">
         <i class="icon icon-scania-next-gen-menu-warning_white_yellow_red" />
       </div>
@@ -38,9 +45,15 @@
         <i class="icon icon-scania-next-gen-settings" />
       </div>
     </div>
-    <component :is="currentMenu" v-if="currentMenu !== null" />
-    <div v-else class="menu h-100 default"></div>
-    <div class="programmable-field">
+    <component
+      :is="currentMenu"
+      v-if="currentMenu !== null && telemetry2.truck.engineIsStarted"
+    />
+    <div
+      v-else-if="telemetry2.truck.engineIsStarted"
+      class="menu h-100 default"
+    ></div>
+    <div v-if="telemetry2.truck.engineIsStarted" class="programmable-field">
       <div class="field">
         <i class="icon icon-scania-cruise_control_white" />
         <div class="data">
@@ -79,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="squareArea shifter">
+    <div v-if="telemetry2.truck.engineIsStarted" class="squareArea shifter">
       <div>{{ telemetry2.truck.gearDisplayedWithoutShifterType }}</div>
       <div>{{ telemetry2.truck.shifterTypeLetter }}</div>
     </div>

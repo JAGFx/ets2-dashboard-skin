@@ -1,5 +1,9 @@
 <template>
   <div>
+    <Debug
+      >{{ telemetry2.truck.ignitionIsTurnedOn }}<br />
+      {{ telemetry2.truck.ignitionStart }}</Debug
+    >
     <div class="symbols indicator left">
       <div class="symbol green">
         <i
@@ -60,10 +64,13 @@
 </template>
 
 <script>
+import Debug from '@/components/dashboards/shared/Debug';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name: 'ScaniaNextGenGeneralWarningSymbols',
+  components: { Debug },
+
   mixins: [TelemetryMixin]
 };
 </script>

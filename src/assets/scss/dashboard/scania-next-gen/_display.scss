@@ -9,8 +9,8 @@
 	padding-top: 1rem;
 	
 	// Fixme: Some blur apear for an unknown reason
-	mask-image: url("/img/dashboard/scania-next-gen/menu-area.svg");
-	mask-repeat: no-repeat;
+	//mask-image: url("/img/dashboard/scania-next-gen/menu-area.svg");
+	//mask-repeat: no-repeat;
 	
 	display: flex;
 	align-items: center;
@@ -21,8 +21,6 @@
 	&.starting {
 		background:      url("/img/dashboard/scania-next-gen/6482891_619566292.png") no-repeat center;
 		background-size: 10rem;
-		background-position-y: 1rem;
-		
 	}
 	&.on {
 		background: url("/img/dashboard/scania-next-gen/menu-on.png");
