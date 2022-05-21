@@ -11,7 +11,7 @@
 	width: 13.5rem;
 	height: 14.5rem;
 	margin: .5rem;
-	overflow: hidden;
+	//overflow: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -40,6 +40,38 @@
 			.value { color: $cGreen; }
 			
 			.unit { margin-left: .5rem; }
+		}
+	}
+	
+	&.instantaneousData {
+		position: relative;
+		
+		h4 {
+			font-size: 1.2rem;
+			position: absolute;
+			top: -.5rem;
+		}
+		
+		.subMenuIndicator {
+			position: absolute;
+			
+			width: .5rem;
+			left: 12.8rem;
+			
+			.square {
+				background: $cGrey;
+				width: .5rem;
+				height: .5rem;
+				margin-bottom: .1rem;
+				
+				&.active {
+					background: $cWhite;
+				}
+				
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
 		}
 	}
 }

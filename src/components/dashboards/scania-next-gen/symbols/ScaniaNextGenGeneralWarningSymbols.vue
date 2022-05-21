@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Debug
-      >{{ telemetry2.truck.ignitionIsTurnedOn }}<br />
-      {{ telemetry2.truck.ignitionStart }}</Debug
-    >
+    <!--    <Debug-->
+    <!--      >{{ telemetry2.truck.ignitionIsTurnedOn }}<br />-->
+    <!--      {{ telemetry2.truck.ignitionStart }}</Debug-->
+    <!--    >-->
     <div class="symbols indicator left">
       <div class="symbol green">
         <i
