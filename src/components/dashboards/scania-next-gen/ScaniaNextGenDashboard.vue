@@ -42,19 +42,19 @@
         </div>
         <ScaniaNextGenAdBlueBar class="mt-2" />
       </ScaniaNextGenGaugeDisplay>
-      <!--      <Bars-->
-      <!--        class="fuel-gauge"-->
-      <!--        :level="telemetry2.truck.fuelLevel"-->
-      <!--        :capacity="telemetry2.truck.fuelCapacity"-->
-      <!--        :factor="8"-->
-      <!--      />-->
-      <!--      <Bars-->
-      <!--        class="water-temperature-gauge"-->
-      <!--        :level="telemetry2.truck.engineWaterTemperature"-->
-      <!--        :capacity="120"-->
-      <!--        :factor="8"-->
-      <!--        mode="bar"-->
-      <!--      />-->
+      <Bars
+        class="fuel-gauge"
+        :level="telemetry2.truck.fuelLevel"
+        :capacity="telemetry2.truck.fuelCapacity"
+        :factor="8"
+      />
+      <Bars
+        class="water-temperature-gauge"
+        :level="telemetry2.truck.engineWaterTemperature"
+        :capacity="120"
+        :factor="8"
+        mode="bar"
+      />
 
       <!-- <editor-folder> Symbols -->
       <ScaniaNextGenGeneralWarningSymbols />
