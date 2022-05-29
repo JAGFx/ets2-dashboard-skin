@@ -17,27 +17,27 @@ You can find the list of all skins integrated.
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/maps.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/maps.png" alt="Map"></td>
         <td>Map</td>
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/test.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/test.png" alt="Base"></td>
         <td>Base</td>
         <td>Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/default.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/default.png" alt="Default"></td>
         <td>Default</td>
         <td>Funbit</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/daf-xf.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/daf-xf.png" alt="DAF-XF"></td>
         <td>DAF-XF</td>
         <td>Klauzzy</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/man-tgx.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/man-tgx.png" alt="Man-TGX"></td>
         <td>Man-TGX</td>
         <td>Klauzzy</td>
     </tr>
@@ -47,14 +47,25 @@ You can find the list of all skins integrated.
         <td>Klauzzy</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/rd-info.png" alt="JAGFX"></td>
+        <td><img src="../public/img/screenshots/rd-info.png" alt="Mercedes Benz Atego"></td>
         <td>RenaultDash-Info</td>
         <td>Argiano - van_argiano@outlook.com</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/scania.gif" alt="JAGFX"></td>
-        <td>Scania Dashboard</td>
-        <td>Klauzzy</td>
+        <td><img src="../public/img/screenshots/scania.gif" alt="Scania"></td>
+        <td>
+            Scania Dashboard<br>
+            <code>Manual available</code>
+        </td>
+        <td>Klauzzy, Emmanuel SMITH - hey@emmanuel-smith.me</td>
+    </tr>
+    <tr>
+        <td><img src="../public/img/screenshots/scania.gif" alt="Scania Next Gen"></td>
+        <td>
+            Scania Next Gen Dashboard<br>
+            <code>Manual available</code>
+        </td>
+        <td>Klauzzy, Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
         <td><img src="../public/img/screenshots/volvo-fh.png" alt="JAGFX"></td>
