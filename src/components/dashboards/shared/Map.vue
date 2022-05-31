@@ -17,11 +17,16 @@
           <small v-if="message.sub.length > 0" class="mb-3">{{
             message.sub
           }}</small>
-          <b-spinner
+          <i
             v-show="message.processing"
+            class="fas fa-spinner"
             :label="$t('Processing')"
-            type="grow"
           />
+          <!--          <b-spinner-->
+          <!--            v-show="message.processing"-->
+          <!--            :label="$t('Processing')"-->
+          <!--            type="grow"-->
+          <!--          />-->
         </div>
       </transition>
     </div>
