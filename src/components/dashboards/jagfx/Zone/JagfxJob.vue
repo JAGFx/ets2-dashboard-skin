@@ -59,7 +59,7 @@
             telemetry2.job.hasAnActiveJob &&
             !telemetry2.job.deliveryTimeIsSetToDuDate
           "
-          >{{ telemetry2.job.remainingDeliveryTime }}</span
+          >{{ telemetry2.job.remainingTimeForDeliveryTime }}</span
         >
         <span v-else>{{ $t('N/A') }}</span>
       </li>

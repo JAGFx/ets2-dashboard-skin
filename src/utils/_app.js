@@ -70,22 +70,22 @@ export const dateTimeLocalized = (input, formatDate, formatTime) => {
   return date.setZone('Africa/Abidjan').setLocale(locale).toFormat(format);
 };
 
-export const diffDateTimeLocalized = (
-  dFrom,
-  dTo,
-  withDay = true,
-  customFormat = null
-) => {
-  const dateFrom = DateTime.fromMillis(dFrom);
-  const dateTo = DateTime.fromMillis(dTo);
-  const diff = dateTo.diff(dateFrom);
-  const format = withDay ? 'DD[d] HH[h] mm[m]' : 'HH[h] mm[m]';
-
-  return diff
-    .toObject()
+export const diffDateTimeLocalized = (dFrom, dTo, withDay = true) => {
+  const dateFrom = DateTime.fromMillis(dFrom)
     .setZone('Africa/Abidjan')
-    .setLocale(locale)
-    .format(customFormat !== null ? customFormat : format);
+    .setLocale(locale);
+  const dateTo = DateTime.fromMillis(dTo)
+    .setZone('Africa/Abidjan')
+    .setLocale(locale);
+  const diff = dateTo.diff(dateFrom);
+
+  if (withDay) {
+    const diffValues = diff.shiftTo('hours', 'minutes').toObject();
+    return `${diffValues.hours.toFixed()}h ${diffValues.minutes.toFixed()}m`;
+  } else {
+    const diffValues = diff.shiftTo('days', 'hours', 'minutes').toObject();
+    return `${diffValues.days.toFixed()}d ${diffValues.hours.toFixed()}h ${diffValues.minutes.toFixed()}m`;
+  }
 };
 
 export const displayDuration = (duration, withDay = true) => {
