@@ -81,10 +81,12 @@ export const diffDateTimeLocalized = (dFrom, dTo, withDay = true) => {
 
   if (withDay) {
     const diffValues = diff.shiftTo('hours', 'minutes').toObject();
-    return `${diffValues.hours.toFixed()}h ${diffValues.minutes.toFixed()}m`;
+    return `${diffValues.hours.toFixed(0)}h ${diffValues.minutes.toFixed(0)}m`;
   } else {
     const diffValues = diff.shiftTo('days', 'hours', 'minutes').toObject();
-    return `${diffValues.days.toFixed()}d ${diffValues.hours.toFixed()}h ${diffValues.minutes.toFixed()}m`;
+    return `${diffValues.days.toFixed(0)}d ${diffValues.hours.toFixed(
+      0
+    )}h ${diffValues.minutes.toFixed(0)}m`;
   }
 };
 
