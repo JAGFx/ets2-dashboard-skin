@@ -16,7 +16,7 @@
         </div>
       </div>
       <JagfxNavigation id="navigation" class="w-100" />
-      <div class="zone-wrapper w-100 h-100 justify-content-start">
+      <div class="zone-wrapper w-100">
         <JagfxTruck id="truck" />
       </div>
     </div>
