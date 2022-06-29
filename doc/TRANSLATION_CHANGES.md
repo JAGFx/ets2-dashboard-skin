@@ -2,6 +2,11 @@
 
 ## Next release
 
+### Added 
+
+- Standard mode
+- In standard performance mode the vehicle is adapted for driving to suit most situations.
+
 ## From v1.7.1
 
 ### Added

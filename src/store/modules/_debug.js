@@ -6,7 +6,7 @@
  * Time: 	19:30
  */
 
-import * as moment from 'moment';
+import { DateTime } from 'luxon';
 
 // initial state
 const state = () => ({
@@ -21,13 +21,11 @@ const getters = {
 // actions
 const actions = {
   addLog({ commit }, dataIn) {
-    const date = moment();
+    const date = DateTime.now();
     const level = dataIn.level;
     const zone = dataIn.zone;
     const message = dataIn.message;
-    const line = `[ ${date.format(
-      'YYYY-MM-DD HH:mm:ss'
-    )} ][ ${level} ][ ${zone} ] ${message}`;
+    const line = `[ ${date.toString()} ][ ${level} ][ ${zone} ] ${message}`;
 
     commit('pushLog', line);
   }

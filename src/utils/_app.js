@@ -10,22 +10,23 @@ import store from '@/store';
 import { history } from '@/utils/utils';
 import countryList from 'country-list';
 import emojiFlags from 'emoji-flags';
-import momentjs from 'moment-timezone';
+import { DateTime } from 'luxon';
 
 import packageJson from '../../package.json';
 
 // --- Variables
 const DATE_FORMAT_NONE = '';
-const DATE_FORMAT_SHORT = 'MM/DD';
-const DATE_FORMAT_LONG = 'ddd';
-const DATE_FORMAT_FULL = 'dddd';
+const DATE_FORMAT_SHORT = 'MM/dd';
+const DATE_FORMAT_LONG = 'EEE';
+const DATE_FORMAT_FULL = 'EEEE';
 const TIME_FORMAT_NONE = '';
-const TIME_FORMAT_TINY = 'HH:mm';
-const TIME_FORMAT_SHORT = 'LT';
-const TIME_FORMAT_FULL = 'LTS';
+const TIME_FORMAT_TINY = 'T';
+const TIME_FORMAT_SHORT = 't';
+const TIME_FORMAT_FULL = 'tt';
 
 const GAME_ID_ETS2 = 1;
 const GAME_ID_ATS = 2;
+const locale = store.getters['config/get']('general_skin_locale');
 
 // --- Methods
 
@@ -35,10 +36,6 @@ export const useFakeData = process.env.VUE_APP_USE_FAKE_DATA === 'true';
 
 export const basePathHost = () =>
   `http://${window.location.hostname}:${store.getters['config/app'].general_port}`;
-export const moment = () => {
-  momentjs.locale(store.getters['config/get']('general_skin_locale'));
-  return momentjs;
-};
 
 export const flag = (countryName, gameID) => {
   let flag = undefined;
@@ -68,25 +65,29 @@ export const jsonReadable = (dataIn) => {
 
 export const dateTimeLocalized = (input, formatDate, formatTime) => {
   const format = formatDate + ' ' + formatTime;
-  const momentData = moment()(input, 'x');
+  const date = DateTime.fromMillis(input);
 
-  return momentData.tz('Africa/Abidjan').format(format);
+  return date.setZone('Africa/Abidjan').setLocale(locale).toFormat(format);
 };
 
-export const diffDateTimeLocalized = (
-  dFrom,
-  dTo,
-  withDay = true,
-  customFormat = null
-) => {
-  const momentFrom = moment()(dFrom, 'x');
-  const momentTo = moment()(dTo, 'x');
-  const diff = momentTo.diff(momentFrom);
-  const format = withDay ? 'DD[d] HH[h] mm[m]' : 'HH[h] mm[m]';
+export const diffDateTimeLocalized = (dFrom, dTo, withDay = true) => {
+  const dateFrom = DateTime.fromMillis(dFrom)
+    .setZone('Africa/Abidjan')
+    .setLocale(locale);
+  const dateTo = DateTime.fromMillis(dTo)
+    .setZone('Africa/Abidjan')
+    .setLocale(locale);
+  const diff = dateTo.diff(dateFrom);
 
-  return moment()(diff, 'x')
-    .tz('Africa/Abidjan')
-    .format(customFormat !== null ? customFormat : format);
+  if (withDay) {
+    const diffValues = diff.shiftTo('hours', 'minutes').toObject();
+    return `${diffValues.hours.toFixed(0)}h ${diffValues.minutes.toFixed(0)}m`;
+  } else {
+    const diffValues = diff.shiftTo('days', 'hours', 'minutes').toObject();
+    return `${diffValues.days.toFixed(0)}d ${diffValues.hours.toFixed(
+      0
+    )}h ${diffValues.minutes.toFixed(0)}m`;
+  }
 };
 
 export const displayDuration = (duration, withDay = true) => {

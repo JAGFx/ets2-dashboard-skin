@@ -1,0 +1,105 @@
+/**
+ * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:	ets2-dashboard-skin
+ * file: 	_symbols.scss
+ * Date: 	08/04/2022
+ * Time: 	08:42
+ */
+
+@import "variable";
+
+.bodywork {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	left: 33.7rem;
+	top: 35.4rem;
+	width: 23.2rem;
+	
+	.symbols > .symbol {
+		font-size: 1.8rem;
+	}
+}
+
+.indicator {
+	position: absolute;
+	//width: 39.3rem;
+	top: 11.4rem;
+	
+	&.symbols > .symbol {
+		width: 3rem;
+		font-size: 2.5rem;
+		//background: transparent;
+		align-items: flex-end;
+	}
+	
+	&.left {
+		left: 26.9rem;
+	}
+	&.right {
+		left: 60.5rem;
+	}
+}
+
+.general-warning {
+	position: absolute;
+	width: 29.7rem;
+	top: 11.6rem;
+	left: 30.4rem;
+	
+	.symbols {
+		justify-content: flex-start;
+	}
+	.symbols > .symbol {
+		//width: 2.4rem;
+		//font-size: 2rem;
+		//background: transparent;
+		
+		.icon-scania-driver-safty-belt_red {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.indicator-symbols.symbols {
+	display: block;
+	
+	.symbol {
+		position: absolute;
+		//font-size: 3.6rem;
+		
+		&.c2 { left: 16.5rem; 	top: 35rem; }
+		&.c3 { left: 19.2rem; 	top: 35.25rem; }
+		&.c12 { right: 18.55rem; top: 35rem; }
+		&.c13 { right: 15.75rem; 	top: 34.8rem; }
+		&.c14 { right: 13.3rem; 	top: 33.5rem; }
+	}
+}
+
+.symbols {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	.symbol {
+		width: 2.4rem;
+		height: 1.85rem;
+		margin-right: .35rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 2.2rem;
+		
+		//opacity: .6;
+		//background: #434343;
+		
+		&.red { color: $cRed; }
+		&.yellow { color: $cYellow; }
+		&.green { color: $cGreen; }
+		&.blue { color: $cBlue; }
+		
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}

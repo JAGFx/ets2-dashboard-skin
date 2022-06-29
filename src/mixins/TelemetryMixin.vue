@@ -32,8 +32,8 @@ export default {
     $dateTimeLocalized: (time, dFormat, tFormat) => {
       return dateTimeLocalized(time, dFormat, tFormat);
     },
-    $nextRestStopFormater: (time, customFormat) => {
-      return diffDateTimeLocalized(0, time, false, customFormat);
+    $nextRestStopFormater: (time) => {
+      return diffDateTimeLocalized(0, time, false);
     },
     $telemetryDataIsEnough: () => telemetryDataIsEnough(),
     ...telemetryUnitConverter

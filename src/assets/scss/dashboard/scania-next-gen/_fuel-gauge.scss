@@ -10,13 +10,13 @@
 
 .fuel-gauge {
 	position: absolute;
-	top: 35.8rem;
-	left: 11.4rem;
-	width: 13.5rem;
+	top: 30.5rem;
+	left: 18.6rem;
+	width: 8.4rem;
 	
 	&.bars .bar {
-		width: 1.1rem;
-		height: .3rem;
+		width: 0.7rem;
+		height: 0.25rem;
 		background: $cGreyLight;
 		
 		&.active {

@@ -11,9 +11,9 @@
 .gauge-display {
 	position: fixed;
 	color: $cWhite;
-	width: 13.5rem;
-	height: 11.5rem;
-	top: 17.4rem;
+	width: 7.4rem;
+	height: 5.1rem;
+	top: 19.7rem;
 	
 	.value {
 		font-family: "ww-digital";
@@ -21,57 +21,60 @@
 	}
 	
 	&.left {
-		left: 11.5rem;
+		left: 18.8rem;
 		
 		.speed {
 			.value {
-				line-height: 4rem;
-				font-size: 4.3rem;
+				line-height: 2.3rem;
+				font-size: 3rem;
 			}
 			.unit {
-				font-size: 1rem;
-				line-height: 1.2rem;
+				font-size: .8rem;
+				line-height: .8rem;
 				margin-left: .5rem;
 			}
 		}
 		
 		.line {
 			.value {
-				font-size: 2.5rem;
-				line-height: 2.2rem;
+				line-height: 1.3rem;
+				font-size: 1.4rem;
 			}
 			.unit, .trip-label {
-				font-size: 1rem;
-				line-height: 1.2rem;
+				font-size: .8rem;
+				line-height: .8rem;
 				margin-left: .5rem;
 			}
 		}
 	}
 	
 	&.right {
-		right: 11.2rem;
+		right: 18.6rem;
+		justify-content: flex-start !important;
 		
 		.hour {
 			.value {
-				line-height: 3rem;
-				font-size: 3.4rem;
+				line-height: 1.7rem;
+				font-size: 2.2rem;
 			}
 		}
 		
 		.exterior-temperature {
 			.value {
-				font-size: 2.5rem;
-				line-height: 2.2rem;
+				font-size: 1.7rem;
+				line-height: 1.8rem;
 			}
 			.unit {
 				font-size: 1rem;
-				line-height: 1.2rem;
-				margin-left: .5rem;
+				line-height: 1.4rem;
+				margin-right: .5rem;
+				font-family: "ww-digital";
+				font-weight: normal;
 			}
 		}
 		
 		.adblue {
-			i { font-size: 2.5rem; }
+			i { font-size: 1.5rem; }
 		}
 	}
 }

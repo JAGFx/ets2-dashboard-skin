@@ -168,5 +168,14 @@ Currently, these locales are available:
 
 If you want to contribute and add a new language, follow the instruction provided in [CONTRIBUTING.md](../CONTRIBUTING.md#translations)
 
+
+## Manual for skin
+
+In some skin, you've got access to manual to know more about icons. All icons come from the original manual brand. So it's like the reality.
+
+To view this manual, go to `Menu > Skins > Current active skin` and click on `Manual` button. 
+
+![Skin manual](screens/skin-manual.jpeg)
+
 ---
 ↩️ [Home](../README.md)

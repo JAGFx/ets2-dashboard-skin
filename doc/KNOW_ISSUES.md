@@ -19,6 +19,10 @@
     <td>Wrong next rest time and remaining time #46</td>
     <td>See <a href="https://github.com/JAGFx/ets2-dashboard-skin/issues/33#issuecomment-725514001">here</a></td>
   </tr>
+  <tr>
+    <td>Some dashboard may over or under sized in device</td>
+    <td>This problem was found on a device using the scaling definition of their screen.</td>
+  </tr>
 </table>
 
 

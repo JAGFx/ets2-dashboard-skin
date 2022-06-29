@@ -80,6 +80,12 @@ export default class TelemetryTruck {
       ? unit_volume(telemetryStore.telemetry.truck.fuel.value, true, false)
       : 0;
   }
+  get fuelLevelPercentage() {
+    return this.fuelCapacity > 0
+      ? (this.fuelLevel / this.fuelCapacity) * 100
+      : 0;
+  }
+
   get fuelCapacity() {
     return unit_volume(
       telemetryStore.telemetry.truck.fuel.capacity,
@@ -107,6 +113,12 @@ export default class TelemetryTruck {
       false
     );
   }
+  get adBlueLevelPercentage() {
+    return this.adBlueCapacity > 0
+      ? (this.adBlueLevel / this.adBlueCapacity) * 100
+      : 0;
+  }
+
   get adBlueCapacity() {
     return unit_volume(
       telemetryStore.telemetry.truck.adBlue.capacity,

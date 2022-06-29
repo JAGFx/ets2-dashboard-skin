@@ -1,0 +1,222 @@
+@import "variable";
+
+.display {
+	position: absolute;
+	width: 30rem;
+	height: 18.05rem;
+	left: 30.35rem;
+	top: 14.75rem;
+	padding-top: 1rem;
+	
+	// Fixme: Some blur apear for an unknown reason
+	//mask-image: url("/img/dashboard/scania-next-gen/menu-area.svg");
+	//mask-repeat: no-repeat;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	
+	&.starting {
+		background:      url("/img/dashboard/scania-next-gen/6482891_619566292.png") no-repeat center;
+		background-size: 10rem;
+	}
+	&.on {
+		background: url("/img/dashboard/scania-next-gen/menu-on.png");
+		background-position-y: 1rem;
+	}
+	
+	.menu-selector {
+		min-height: 3.4rem;
+		max-height: 3.4rem;
+		
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		
+		.button {
+			background: linear-gradient(to top, $menuButtonDefaultColor, darken($menuButtonDefaultColor, $menuButtonDarkenAmount));
+			border: 0;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			
+			width: 3rem;
+			height: 3rem;
+			font-size: 1.7rem;
+			
+			&.tiny {
+				width: 3.5rem;
+				height: 2.5rem;
+				font-size: 1.4rem;
+				
+				&.left {
+					transform: skewX($menuButtonSkewAngle);
+					> i {
+						transform: skewX(-$menuButtonSkewAngle);
+					}
+					padding-right: .5rem;
+					border-radius: 0 0 0 $menuButtonRadius;
+				}
+				
+				&.right {
+					transform: skewX(-$menuButtonSkewAngle);
+					> i {
+						transform: skewX($menuButtonSkewAngle);
+					}
+					padding-left: .5rem;
+					border-radius: 0 0 $menuButtonRadius 0;
+					background: linear-gradient(to top, $menuButtonActiveColor, lighten($menuButtonActiveColor, $menuButtonDarkenAmount));
+				}
+				
+				&.active:after{
+					content: none;
+				}
+			}
+			
+			&.active {
+				background: linear-gradient(to top, $menuButtonActiveColor, darken($menuButtonActiveColor, $menuButtonDarkenAmount));
+				position: relative;
+				color: #1b1f20;
+				
+				&:after {
+					content: ' ';
+					position: absolute;
+					width: .5rem;
+					height: .5rem;
+					border: .5rem solid #1b1f20;
+					border-color: transparent transparent #000 transparent;
+					bottom: -1px;
+				}
+			}
+			
+			&.warning {
+				border: 2px solid $cYellow;
+				color: $cYellow;
+				
+				&.disabled{
+					visibility: hidden;
+				}
+				
+				&.active {
+					background: $cYellow;
+					color: $menuButtonDefaultColor;
+				}
+			}
+			
+			&.white {
+				border: 2px solid $cWhite;
+			}
+		}
+		
+		.wrapper {
+			//overflow: hidden;
+			//padding: 0 .5rem;
+			position: relative;
+			//background: linear-gradient(to top, #2b3032, #1b1f20);
+			height: 3rem;
+			z-index: 2;
+			
+			&:before {
+				content:  " ";
+				position: absolute;
+				background: linear-gradient(to top, $menuButtonDefaultColor, darken($menuButtonDefaultColor, $menuButtonDarkenAmount));
+				left: -.5rem;
+				width: 3rem;
+				height: 3rem;
+				//clip-path: polygon(50% 0, 100% 100%, 100% 0);
+				z-index: 0;
+				transform: skewX($menuButtonSkewAngle);
+				box-shadow: -0.5rem -.2rem 0.5rem #000;
+				border-radius: 0 0 0 $menuButtonRadius;
+			}
+			
+			&:after {
+				content:  " ";
+				position: absolute;
+				background: linear-gradient(to top, $menuButtonDefaultColor, darken($menuButtonDefaultColor, $menuButtonDarkenAmount));
+				right: -.5rem;
+				width: 3rem;
+				height: 3rem;
+				//clip-path: polygon(50% 0, 0 100%, 0 0);
+				z-index: -1;
+				transform: skewX(-$menuButtonSkewAngle);
+				box-shadow: 0.5rem -.2rem 0.5rem #000;
+				border-radius: 0 0 $menuButtonRadius 0;
+			}
+			
+			.button:first-child{
+				border-radius: 0 0 0 $menuButtonRadius;
+				z-index: 1;
+			}
+
+			.button:last-child{
+				border-radius: 0 0 $menuButtonRadius 0;
+			}
+		}
+	}
+	
+	.programmable-field {
+		min-height: 3.7rem;
+		max-height: 3.7rem;
+		width: 19rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		.field {
+			//background: #00E070;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			padding: .5rem;
+			
+			.icon {
+				font-size: 1.2rem;
+				margin-right: .5rem;
+			}
+			
+			.data {
+				.value {
+					font-size: 1.1rem;
+					color: $cGreen;
+					margin-right: .2rem;
+				}
+				
+				.unit {
+					font-size: .9rem;
+				}
+			}
+		}
+	}
+	
+	.squareArea {
+		position: absolute;
+		width: 3.3rem;
+		height: 3.5rem;
+		right: 3.8rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		
+		&.shifter {
+			top: 7.3rem;
+			right: 4.2rem;
+			font-size: 1.4rem;
+			line-height: 1.5rem;
+		}
+		
+		&.driveMode{
+			top: 7.3rem;
+			left: 4.2rem;
+		}
+	}
+}

@@ -162,8 +162,8 @@
 		},
 		{
 			"id" :          "ScaniaNextGen",
-			"disabled" :    true,
-			"manual" :        false,
+			"disabled" :    false,
+			"manual" :        true,
 			"title" :       "Scania Next Gen, Klauzzy",
 			"description" : "Scania Next Gen Dashboard",
 			"author" :      {
@@ -174,8 +174,8 @@
 			"repository" :      null,
 			"screenshot" :  "img/screenshots/scania.gif",
 			"size" :        {
-				"width" :  1723,
-				"height" : 777
+				"width" :  1444,
+				"height" : 695
 			}
 		},
 		{

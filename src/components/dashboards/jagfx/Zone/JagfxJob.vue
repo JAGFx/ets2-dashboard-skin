@@ -59,7 +59,7 @@
             telemetry2.job.hasAnActiveJob &&
             !telemetry2.job.deliveryTimeIsSetToDuDate
           "
-          >{{ telemetry2.job.remainingDeliveryTime }}</span
+          >{{ telemetry2.job.remainingTimeForDeliveryTime }}</span
         >
         <span v-else>{{ $t('N/A') }}</span>
       </li>
@@ -70,7 +70,8 @@
         <span v-if="!telemetry2.truck.ignitionIsTurnedOn" />
         <span v-else-if="!telemetry2.job.hasAnActiveJob">{{ $t('N/A') }}</span>
         <span v-else>
-          {{ telemetry2.job.income }} {{ $unitReadable('unit_currency') }}
+          {{ telemetry2.job.income.toFixed(0) }}
+          {{ $unitReadable('unit_currency') }}
         </span>
       </li>
       <li

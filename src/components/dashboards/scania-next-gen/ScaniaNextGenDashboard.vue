@@ -10,14 +10,15 @@
       }"
     >
       <ScaniaNextGenGauges />
+      <ScaniaNextGenDisplay />
       <ScaniaNextGenGaugeDisplay class="left">
         <div
-          class="speed d-flex w-100 justify-content-end align-items-end mb-2"
+          class="speed d-flex w-100 justify-content-end align-items-end mb-1"
         >
           <span class="value">{{ telemetry2.truck.speed.toFixed(0) }}</span>
           <span class="unit">{{ $unitReadable('unit_speed') }}</span>
         </div>
-        <div class="line d-flex w-100 justify-content-end align-items-end mb-2">
+        <div class="line d-flex w-100 justify-content-end align-items-end">
           <span class="value">{{ telemetry2.truck.odometer.toFixed(0) }}</span>
           <span class="unit">{{ $unitReadable('unit_length', 'km') }}</span>
         </div>
@@ -30,18 +31,16 @@
         </div>
       </ScaniaNextGenGaugeDisplay>
       <ScaniaNextGenGaugeDisplay class="right">
-        <div
-          class="hour d-flex w-100 justify-content-center align-items-end mb-2"
-        >
+        <div class="hour d-flex w-100 justify-content-center align-items-end">
           <span class="value">22:35</span>
         </div>
         <div
-          class="exterior-temperature d-flex w-100 justify-content-end align-items-end mb-2"
+          class="exterior-temperature d-flex w-100 justify-content-end align-items-end"
         >
-          <span class="value">-</span>
+          <span class="value">0</span>
           <span class="unit">{{ $unitReadable('unit_degrees') }}</span>
         </div>
-        <ScaniaNextGenAdBlueBar />
+        <ScaniaNextGenAdBlueBar class="mt-2" />
       </ScaniaNextGenGaugeDisplay>
       <Bars
         class="fuel-gauge"
@@ -56,15 +55,25 @@
         :factor="8"
         mode="bar"
       />
+
+      <!-- <editor-folder> Symbols -->
+      <ScaniaNextGenGeneralWarningSymbols />
+      <ScaniaNextGenBodyworkSymbols />
+      <ScaniaNextGenIndicatorSymbols />
+      <!-- </editor-folder> Symbols -->
     </div>
   </Dashboard>
 </template>
 
 <script>
 import Dashboard from '@/components/dashboards/Dashboard';
+import ScaniaNextGenDisplay from '@/components/dashboards/scania-next-gen/display/ScaniaNextGenDisplay';
 import ScaniaNextGenGaugeDisplay from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGaugeLeftDisplay';
 import ScaniaNextGenGauges from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGauges';
 import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar';
+import ScaniaNextGenBodyworkSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenBodyworkSymbols';
+import ScaniaNextGenGeneralWarningSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenGeneralWarningSymbols';
+import ScaniaNextGenIndicatorSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenIndicatorSymbols';
 import Bars from '@/components/dashboards/shared/Bars';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
@@ -75,7 +84,11 @@ export default {
     ScaniaNextGenGauges,
     ScaniaNextGenGaugeDisplay,
     ScaniaNextGenAdBlueBar,
-    Bars
+    Bars,
+    ScaniaNextGenBodyworkSymbols,
+    ScaniaNextGenGeneralWarningSymbols,
+    ScaniaNextGenIndicatorSymbols,
+    ScaniaNextGenDisplay
   },
   mixins: [TelemetryMixin]
 };
