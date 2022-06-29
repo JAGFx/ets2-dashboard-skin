@@ -64,13 +64,10 @@
 </template>
 
 <script>
-import Debug from '@/components/dashboards/shared/Debug';
 import TelemetryMixin from '@/mixins/TelemetryMixin';
 
 export default {
   name: 'ScaniaNextGenGeneralWarningSymbols',
-  components: { Debug },
-
   mixins: [TelemetryMixin]
 };
 </script>

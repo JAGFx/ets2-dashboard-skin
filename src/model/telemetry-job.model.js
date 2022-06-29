@@ -1,8 +1,11 @@
-import { store as telemetryStore }    from '@/store/telemetry.store';
-import { diffDateTimeLocalized }      from '@/utils/_app';
-import { config }                     from '@/utils/telemetry/_common.utils';
-import { unit_currency, unit_weight } from '@/utils/telemetry/_unit-converter.utils';
-import { DateTime }                   from 'luxon';
+import { store as telemetryStore } from '@/store/telemetry.store';
+import { diffDateTimeLocalized } from '@/utils/_app';
+import { config } from '@/utils/telemetry/_common.utils';
+import {
+  unit_currency,
+  unit_weight
+} from '@/utils/telemetry/_unit-converter.utils';
+import { DateTime } from 'luxon';
 
 export default class TelemetryJob {
   get expectedDeliveryTime() {
