@@ -2,6 +2,8 @@
 
 ## Next release
 
+## From v1.7.2
+
 ### Added 
 
 - Standard mode
