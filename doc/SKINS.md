@@ -60,7 +60,7 @@ You can find the list of all skins integrated.
         <td>Klauzzy, Emmanuel SMITH - hey@emmanuel-smith.me</td>
     </tr>
     <tr>
-        <td><img src="../public/img/screenshots/scania.gif" alt="Scania Next Gen"></td>
+        <td><img src="../public/img/screenshots/scania-next-gen.gif" alt="Scania Next Gen"></td>
         <td>
             Scania Next Gen Dashboard<br>
             <code>Manual available</code>
