@@ -19,19 +19,19 @@ export default {
     const keys = Object.keys(config);
 
     const configRight = keys.filter((elm) => {
-      const isOnSide = /^jagfx_elements_right/.test(elm);
+      const isOnSide = new RegExp('^jagfx_elements_right').test(elm);
       const isEnabled = this.$store.getters['config/enabled'](elm);
 
       return isOnSide && isEnabled;
     });
     const configMiddleTop = keys.filter((elm) => {
-      const isOnSide = /^jagfx_elements_mid_top/.test(elm);
+      const isOnSide = new RegExp('^jagfx_elements_mid_top').test(elm);
       const isEnabled = this.$store.getters['config/enabled'](elm);
 
       return isOnSide && isEnabled;
     });
     const configMiddleBottom = keys.filter((elm) => {
-      const isOnSide = /^jagfx_elements_mid_bottom/.test(elm);
+      const isOnSide = new RegExp('^jagfx_elements_mid_bottom').test(elm);
       const isEnabled = this.$store.getters['config/enabled'](elm);
 
       return isOnSide && isEnabled;

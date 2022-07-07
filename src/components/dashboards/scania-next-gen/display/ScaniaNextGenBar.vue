@@ -10,6 +10,7 @@
     <div class="flex-area w-100 squares">
       <div
         v-for="i in squaresCount"
+        :key="i"
         class="square"
         :class="{ active: squareIsActive(i) }"
       ></div>

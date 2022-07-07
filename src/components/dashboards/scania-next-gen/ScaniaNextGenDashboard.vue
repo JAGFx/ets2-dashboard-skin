@@ -32,12 +32,18 @@
       </ScaniaNextGenGaugeDisplay>
       <ScaniaNextGenGaugeDisplay class="right">
         <div class="hour d-flex w-100 justify-content-center align-items-end">
-          <span class="value">22:35</span>
+          <span class="value">{{
+            $dateTimeLocalized(
+              telemetry2.gameTime,
+              DATE_FORMAT_NONE,
+              TIME_FORMAT_TINY
+            )
+          }}</span>
         </div>
         <div
           class="exterior-temperature d-flex w-100 justify-content-end align-items-end"
         >
-          <span class="value">0</span>
+          <span class="value">-</span>
           <span class="unit">{{ $unitReadable('unit_degrees') }}</span>
         </div>
         <ScaniaNextGenAdBlueBar class="mt-2" />

@@ -1,10 +1,11 @@
 import { store as telemetryStore } from '@/store/telemetry.store';
-import { displayDuration } from '@/utils/_app';
+import { diffDateTimeLocalized } from '@/utils/_app';
 import { config } from '@/utils/telemetry/_common.utils';
 import {
   unit_currency,
   unit_weight
 } from '@/utils/telemetry/_unit-converter.utils';
+import { DateTime } from 'luxon';
 
 export default class TelemetryJob {
   get expectedDeliveryTime() {
@@ -17,10 +18,17 @@ export default class TelemetryJob {
   get remainingTimeForDeliveryTime() {
     if (!this.hasAnActiveJob) return null;
 
-    const gameTime = telemetryStore.model.gameTime;
-    let diff = this.expectedDeliveryTime - gameTime;
+    let gameTime = telemetryStore.model.gameTime;
 
-    return displayDuration(diff);
+    if (gameTime > this.expectedDeliveryTime) {
+      gameTime = DateTime.fromMillis(gameTime)
+        .setZone('Africa/Abidjan')
+        .setLocale('fr')
+        .plus({ days: -7 })
+        .toMillis();
+    }
+
+    return diffDateTimeLocalized(gameTime, this.expectedDeliveryTime);
   }
   get deliveryTimeIsSetToDuDate() {
     return config('general_job_remaining') === 'due_date';
