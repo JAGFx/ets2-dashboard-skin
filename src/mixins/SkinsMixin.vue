@@ -7,7 +7,7 @@
  * Time: 	17:57
  */
 
-import { history } from '@/utils/utils';
+import { HTY_ZONE }   from "@/utils/_history";
 import { mapGetters } from 'vuex';
 
 export default {
@@ -40,7 +40,7 @@ export default {
     $setActive(skin) {
       this.$pushALog(
         'Set skin active ' + JSON.stringify(skin),
-        history.HTY_ZONE.MENU_SKIN
+        HTY_ZONE.MENU_SKIN
       );
 
       this.$store.commit('skins/setCurrent', skin);

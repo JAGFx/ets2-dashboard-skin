@@ -6,9 +6,9 @@
  * Time: 	11:17
  */
 
-import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import app from '@/utils/utils';
-import registeredEvents from '@/data/events.json';
+import { isOnDevEnvironment } from "@/utils/_app";
+import scsSDKData             from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
+import registeredEvents       from '@/data/events.json';
 
 export const eventNameToComponent = function (eventName) {
   const splitedEvent = eventName.split(/\.|-/);
@@ -32,7 +32,7 @@ export const filterInputEvent = function (event) {
     'game.connected'
   ];
 
-  const rawData = app.isOnDevEnvironment
+  const rawData = isOnDevEnvironment
     ? scsSDKData.events[splicedEvent[0]][splicedEvent[1]]
     : event.rawData;
   let eventSkipped = false;

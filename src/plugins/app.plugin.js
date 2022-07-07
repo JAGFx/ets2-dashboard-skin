@@ -6,11 +6,12 @@
  * Time: 	19:43
  */
 
-import store from '@/store';
-import { mutations } from '@/store/telemetry.store';
-import { pushLog } from '@/utils/_app';
-import { translate } from '@/utils/_i18n';
-import { event, history } from '@/utils/utils';
+import store                      from '@/store';
+import { mutations }              from '@/store/telemetry.store';
+import { pushLog }                from '@/utils/_app';
+import { filterInputEvent }       from "@/utils/_event";
+import { HTY_ZONE }               from "@/utils/_history";
+import { translate }              from '@/utils/_i18n';
 import additionalTelemetryWatcher from '@/utils/telemetry/_additional-watcher.utils';
 
 export default {
@@ -18,7 +19,7 @@ export default {
     Vue.prototype.$pushALog = pushLog;
 
     Vue.prototype.$updateEvent = (data) => {
-      const theEvent = event.filterInputEvent(data);
+      const theEvent = filterInputEvent(data);
 
       if (theEvent !== false) {
         const configName = `events_${theEvent.eventName}`;
@@ -27,7 +28,7 @@ export default {
         if (isActive) {
           Vue.prototype.$pushALog(
             'New event ' + JSON.stringify(theEvent),
-            history.HTY_ZONE.MAIN
+            HTY_ZONE.MAIN
           );
 
           store.dispatch('event/displayAnEvent', {

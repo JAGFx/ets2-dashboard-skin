@@ -6,11 +6,11 @@
  * Time: 	18:36
  */
 
-import store from '@/store';
-import { history } from '@/utils/utils';
-import countryList from 'country-list';
-import emojiFlags from 'emoji-flags';
-import { DateTime } from 'luxon';
+import store         from '@/store';
+import { HTY_LEVEL } from "@/utils/_history";
+import countryList   from 'country-list';
+import emojiFlags    from 'emoji-flags';
+import { DateTime }  from 'luxon';
 
 import packageJson from '../../package.json';
 
@@ -122,7 +122,7 @@ export const lessOrEqualThanFloat = (data, a) => {
   return parseFloat(data) <= a;
 };
 
-export const pushLog = (message, zone, level = history.HTY_LEVEL.INFO) => {
+export const pushLog = (message, zone, level = HTY_LEVEL.INFO) => {
   store.dispatch('debug/addLog', {
     message,
     zone,

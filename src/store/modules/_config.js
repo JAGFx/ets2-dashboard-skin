@@ -1,5 +1,4 @@
-import { emptyData } from '@/utils/_config';
-import { config } from '@/utils/utils';
+import { emptyData, save } from "@/utils/_config";
 
 // initial state
 const state = () => emptyData();
@@ -43,7 +42,7 @@ const mutations = {
   },
   setElm(state, payload) {
     state[payload.target][payload.id] = payload.value;
-    config.save(state, payload.target);
+    save(state, payload.target);
   }
 };
 

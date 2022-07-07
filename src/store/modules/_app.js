@@ -6,8 +6,8 @@
  * Time: 	15:56
  */
 
-import { history } from '@/utils/utils';
-import Vue from 'vue';
+import { HTY_ZONE } from "@/utils/_history";
+import Vue          from 'vue';
 
 const defaultMessage = {
   icon: null,
@@ -53,7 +53,7 @@ const actions = {
     Vue.prototype.$pushALog(
       'Error thrown',
       JSON.stringify(payload),
-      history.HTY_ZONE.ERROR
+      HTY_ZONE.ERROR
     );
 
     commit('setProcessing', true);

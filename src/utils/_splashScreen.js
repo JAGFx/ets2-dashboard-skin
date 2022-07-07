@@ -6,15 +6,16 @@
  * Time: 	21:41
  */
 
+import { load, loadGameConfig as configLoadGameConfig }                  from "@/utils/_config";
+import { HTY_LEVEL, HTY_ZONE }   from "@/utils/_history";
 import { telemetryDataIsEnough } from '@/utils/telemetry/_common.utils';
-import testData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import store from '@/store';
-import { basePathHost, pushLog } from '@/utils/_app';
-import { changeLocale, fallbackLocale } from '@/utils/_i18n';
-import { app, config, history } from '@/utils/utils';
-import { io } from 'socket.io-client';
-import Vue from 'vue';
-import { store as telemetryStore } from '@/store/telemetry.store';
+import testData                         from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
+import store                                  from '@/store';
+import { basePathHost, pushLog, useFakeData } from '@/utils/_app';
+import { changeLocale, fallbackLocale }       from '@/utils/_i18n';
+import { io }                           from 'socket.io-client';
+import Vue                              from 'vue';
+import { store as telemetryStore }      from '@/store/telemetry.store';
 
 export const loadAppConfig = () => {
   store.dispatch('app/showMessage', {
@@ -23,8 +24,8 @@ export const loadAppConfig = () => {
     message: 'Load app configuration file'
   });
 
-  return config.load('app').then((data) => {
-    pushLog('Config loaded', history.HTY_ZONE.MAIN);
+  return load('app').then((data) => {
+    pushLog('Config loaded', HTY_ZONE.MAIN);
     store.commit('config/setApp', data);
   });
 };
@@ -46,8 +47,8 @@ export const setConfigActive = () => {
       pushLog(
         'Value set in "general_skin_on_load" was not a valid skin: ' +
           skinToLoad,
-        history.HTY_ZONE.MAIN,
-        history.HTY_LEVEL.ERROR
+        HTY_ZONE.MAIN,
+        HTY_LEVEL.ERROR
       );
       store.dispatch('skins/setFirstActive');
       resolve();
@@ -70,8 +71,8 @@ export const setLocale = () => {
     } catch (e) {
       pushLog(
         `Value set in "general_skin_locale" was not a valid skin: ${locale}. Revert to fallback locale: ${fallbackLocale}`,
-        history.HTY_ZONE.MAIN,
-        history.HTY_LEVEL.ERROR
+        HTY_ZONE.MAIN,
+        HTY_LEVEL.ERROR
       );
       changeLocale(fallbackLocale);
       resolve(e);
@@ -87,7 +88,7 @@ export const connectToTelemetryServer = () => {
       message: 'Start'
     });
 
-    if (!app.useFakeData) {
+    if (!useFakeData) {
       const telemetrySocket = io(basePathHost());
       telemetrySocket.on('connect', () => {
         store.dispatch('app/showMessage', {
@@ -130,8 +131,8 @@ export const loadGameConfig = () => {
     message: 'Load configuration game'
   });
 
-  return config.loadGameConfig().then((data) => {
-    pushLog('Game config loaded', history.HTY_ZONE.MAIN);
+  return configLoadGameConfig().then((data) => {
+    pushLog('Game config loaded', HTY_ZONE.MAIN);
     store.commit('config/setGame', data);
   });
 };

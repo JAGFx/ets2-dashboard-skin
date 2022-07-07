@@ -83,15 +83,16 @@
 </template>
 
 <script>
-import ConfigCategoryEvents from '@/components/menu/config-categories/ConfigCategoryEvents';
-import ConfigCategoryGeneral from '@/components/menu/config-categories/ConfigCategoryGeneral';
-import ConfigCategoryJagfx from '@/components/menu/config-categories/ConfigCategoryJagfx';
-import ConfigCategoryMap from '@/components/menu/config-categories/ConfigCategoryMap';
-import ConfigCategoryScania from '@/components/menu/config-categories/ConfigCategoryScania';
-import ConfigCategoryUnits from '@/components/menu/config-categories/ConfigCategoryUnits';
-import ConfigSection from '@/components/menu/ConfigSection';
-import { config as uConfig, history } from '@/utils/utils';
-import { mapGetters } from 'vuex';
+import ConfigCategoryEvents                                   from '@/components/menu/config-categories/ConfigCategoryEvents';
+import ConfigCategoryGeneral                                  from '@/components/menu/config-categories/ConfigCategoryGeneral';
+import ConfigCategoryJagfx                                    from '@/components/menu/config-categories/ConfigCategoryJagfx';
+import ConfigCategoryMap                                      from '@/components/menu/config-categories/ConfigCategoryMap';
+import ConfigCategoryScania                                   from '@/components/menu/config-categories/ConfigCategoryScania';
+import ConfigCategoryUnits                                    from '@/components/menu/config-categories/ConfigCategoryUnits';
+import ConfigSection                  from '@/components/menu/ConfigSection';
+import { HTY_LEVEL, HTY_ZONE }        from "@/utils/_history";
+import { download as configDownload, upload as configUpload } from '@/utils/_config';
+import { mapGetters }                                         from 'vuex';
 
 export default {
   name: 'MenuTabConfig',
@@ -119,19 +120,18 @@ export default {
     download(target) {
       this.$pushALog(
         'Download config',
-        history.HTY_ZONE.MENU_CONFIG,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.MENU_CONFIG,
+        HTY_LEVEL.DEBUG
       );
 
-      uConfig.download(target);
+      configDownload(target);
     },
     upload(input) {
-      this.$pushALog('Start config upload', history.HTY_ZONE.MENU_CONFIG);
+      this.$pushALog('Start config upload', HTY_ZONE.MENU_CONFIG);
 
-      uConfig
-        .upload(input.target.files[0], this.targetUpload)
+        configUpload(input.target.files[0], this.targetUpload)
         .then((data) => {
-          this.$pushALog('Config upload done', history.HTY_ZONE.MENU_CONFIG);
+          this.$pushALog('Config upload done', HTY_ZONE.MENU_CONFIG);
 
           const commitName =
             this.targetUpload === 'game' ? 'config/setGame' : 'config/setApp';

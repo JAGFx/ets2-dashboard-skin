@@ -139,11 +139,12 @@
 </template>
 
 <script>
-import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
-import { app, history } from '@/utils/utils';
-import * as axios from 'axios';
-import { mapGetters } from 'vuex';
+import { isOnDevEnvironment, version } from "@/utils/_app";
+import { HTY_LEVEL, HTY_ZONE }         from "@/utils/_history";
+import scsSDKData                      from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
+import TelemetryMixin                  from '@/mixins/TelemetryMixin';
+import * as axios                      from 'axios';
+import { mapGetters }                  from 'vuex';
 
 export default {
   name: 'HeaderGameInformation',
@@ -168,7 +169,7 @@ export default {
       )
       .then((data) => {
         const latestReleaseVersion = data.data.tag_name;
-        const appVersion = `v${app.version}`;
+        const appVersion = `v${version}`;
 
         if (latestReleaseVersion !== appVersion)
           this.newReleaseAvailable = true;
@@ -176,10 +177,10 @@ export default {
   },
   methods: {
     getVersion() {
-      return app.version;
+      return version;
     },
     isOnDevEnvironment() {
-      return app.isOnDevEnvironment;
+      return isOnDevEnvironment;
     },
     onEventChange() {
       const spitedEvent = this.event.split('.');
@@ -187,8 +188,8 @@ export default {
 
       this.$pushALog(
         'Throw event ' + this.event,
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
 
       this.$updateEvent({
@@ -199,8 +200,8 @@ export default {
     onClickGear() {
       this.$pushALog(
         'Menu toggle',
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
 
       this.$store.dispatch('menu/toggle');
@@ -218,8 +219,8 @@ export default {
 
         this.$pushALog(
           'Enable fullscreen',
-          history.HTY_ZONE.ZONE_GAME,
-          history.HTY_LEVEL.DEBUG
+          HTY_ZONE.ZONE_GAME,
+          HTY_LEVEL.DEBUG
         );
       } else {
         // Disable fullscreen
@@ -231,8 +232,8 @@ export default {
 
         this.$pushALog(
           'Disable fullscreen',
-          history.HTY_ZONE.ZONE_GAME,
-          history.HTY_LEVEL.DEBUG
+          HTY_ZONE.ZONE_GAME,
+          HTY_LEVEL.DEBUG
         );
       }
 
@@ -243,13 +244,13 @@ export default {
     switchAwakeScreen() {
       this.$pushALog(
         'Wake Lock API support: ' + ('wakeLock' in navigator),
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
       this.$pushALog(
         'Screen Keep awake support: ' + ('keepAwake' in screen),
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
 
       if ('wakeLock' in navigator) this.useWakeLock();
@@ -259,8 +260,8 @@ export default {
     useVueInsomnia() {
       this.$pushALog(
         'Awake screen - Use VueInsomnia',
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
 
       if (!this.fullscreen) this.vueInsomnia().on();
@@ -269,8 +270,8 @@ export default {
     useWakeLock() {
       this.$pushALog(
         'Awake screen - Use WakeLock API',
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
 
       if (!this.fullscreen)
@@ -282,8 +283,8 @@ export default {
     useScreenAwake() {
       this.$pushALog(
         'Awake screen - Use Screen Awake API',
-        history.HTY_ZONE.ZONE_GAME,
-        history.HTY_LEVEL.DEBUG
+        HTY_ZONE.ZONE_GAME,
+        HTY_LEVEL.DEBUG
       );
       screen.keepAwake = this.fullscreen;
     }
