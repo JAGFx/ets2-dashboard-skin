@@ -22,11 +22,6 @@
             class="fas fa-spinner"
             :label="$t('Processing')"
           />
-          <!--          <b-spinner-->
-          <!--            v-show="message.processing"-->
-          <!--            :label="$t('Processing')"-->
-          <!--            type="grow"-->
-          <!--          />-->
         </div>
       </transition>
     </div>

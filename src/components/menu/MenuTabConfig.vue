@@ -10,7 +10,7 @@
           aria-expanded="false"
           :disabled="isOnProcessing"
         >
-          <b-icon-file-earmark-arrow-down />
+          <i class="fas fa-download"></i>
           {{ $t('Download') }}
         </button>
         <div class="dropdown-menu" aria-labelledby="downloadConfigDropdown">
@@ -30,7 +30,7 @@
             aria-expanded="false"
             :disabled="isOnProcessing"
           >
-            <b-icon-file-earmark-arrow-up /> {{ $t('Upload') }}
+            <i class="fas fa-upload"></i> {{ $t('Upload') }}
           </button>
           <div class="dropdown-menu" aria-labelledby="uploadConfigDropdown">
             <a
@@ -39,8 +39,7 @@
                 showUpload = !showUpload;
                 targetUpload = 'app';
               "
-              >{{ $t('App') }}</a
-            >
+              >{{ $t('App') }}</a>
             <a
               class="dropdown-item"
               @click="
