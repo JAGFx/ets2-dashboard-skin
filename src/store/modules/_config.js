@@ -1,4 +1,4 @@
-import { emptyData, save } from "@/utils/_config";
+import { emptyData, save } from '@/utils/_config';
 
 // initial state
 const state = () => emptyData();

@@ -6,9 +6,9 @@
  * Time: 	11:17
  */
 
-import { isOnDevEnvironment } from "@/utils/_app";
-import scsSDKData             from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import registeredEvents       from '@/data/events.json';
+import { isOnDevEnvironment } from '@/utils/_app';
+import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
+import registeredEvents from '@/data/events.json';
 
 export const eventNameToComponent = function (eventName) {
   const splitedEvent = eventName.split(/\.|-/);

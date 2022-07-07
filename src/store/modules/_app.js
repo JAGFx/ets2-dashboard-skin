@@ -6,8 +6,8 @@
  * Time: 	15:56
  */
 
-import { HTY_ZONE } from "@/utils/_history";
-import Vue          from 'vue';
+import { HTY_ZONE } from '@/utils/_history';
+import Vue from 'vue';
 
 const defaultMessage = {
   icon: null,

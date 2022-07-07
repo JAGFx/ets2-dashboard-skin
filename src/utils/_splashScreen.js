@@ -6,16 +6,16 @@
  * Time: 	21:41
  */
 
-import { load, loadGameConfig as configLoadGameConfig }                  from "@/utils/_config";
-import { HTY_LEVEL, HTY_ZONE }   from "@/utils/_history";
+import { load, loadGameConfig as configLoadGameConfig } from '@/utils/_config';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 import { telemetryDataIsEnough } from '@/utils/telemetry/_common.utils';
-import testData                         from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import store                                  from '@/store';
+import testData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
+import store from '@/store';
 import { basePathHost, pushLog, useFakeData } from '@/utils/_app';
-import { changeLocale, fallbackLocale }       from '@/utils/_i18n';
-import { io }                           from 'socket.io-client';
-import Vue                              from 'vue';
-import { store as telemetryStore }      from '@/store/telemetry.store';
+import { changeLocale, fallbackLocale } from '@/utils/_i18n';
+import { io } from 'socket.io-client';
+import Vue from 'vue';
+import { store as telemetryStore } from '@/store/telemetry.store';
 
 export const loadAppConfig = () => {
   store.dispatch('app/showMessage', {

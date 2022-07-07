@@ -6,12 +6,12 @@
  * Time: 	19:43
  */
 
-import store                      from '@/store';
-import { mutations }              from '@/store/telemetry.store';
-import { pushLog }                from '@/utils/_app';
-import { filterInputEvent }       from "@/utils/_event";
-import { HTY_ZONE }               from "@/utils/_history";
-import { translate }              from '@/utils/_i18n';
+import store from '@/store';
+import { mutations } from '@/store/telemetry.store';
+import { pushLog } from '@/utils/_app';
+import { filterInputEvent } from '@/utils/_event';
+import { HTY_ZONE } from '@/utils/_history';
+import { translate } from '@/utils/_i18n';
 import additionalTelemetryWatcher from '@/utils/telemetry/_additional-watcher.utils';
 
 export default {

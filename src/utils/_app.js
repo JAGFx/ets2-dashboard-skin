@@ -6,11 +6,11 @@
  * Time: 	18:36
  */
 
-import store         from '@/store';
-import { HTY_LEVEL } from "@/utils/_history";
-import countryList   from 'country-list';
-import emojiFlags    from 'emoji-flags';
-import { DateTime }  from 'luxon';
+import store from '@/store';
+import { HTY_LEVEL } from '@/utils/_history';
+import countryList from 'country-list';
+import emojiFlags from 'emoji-flags';
+import { DateTime } from 'luxon';
 
 import packageJson from '../../package.json';
 

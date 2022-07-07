@@ -1,7 +1,7 @@
 <script>
-import ConfigFieldChoice  from '@/components/menu/config-fields/ConfigFieldChoice';
-import ConfigFieldInput   from '@/components/menu/config-fields/ConfigFieldInput';
-import { getFieldValues } from "@/utils/_config";
+import ConfigFieldChoice from '@/components/menu/config-fields/ConfigFieldChoice';
+import ConfigFieldInput from '@/components/menu/config-fields/ConfigFieldInput';
+import { getFieldValues } from '@/utils/_config';
 
 export default {
   name: 'ConfigCategoryMixin',

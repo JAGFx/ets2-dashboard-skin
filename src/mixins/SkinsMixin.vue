@@ -7,7 +7,7 @@
  * Time: 	17:57
  */
 
-import { HTY_ZONE }   from "@/utils/_history";
+import { HTY_ZONE } from '@/utils/_history';
 import { mapGetters } from 'vuex';
 
 export default {

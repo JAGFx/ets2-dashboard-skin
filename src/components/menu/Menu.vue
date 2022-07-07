@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import MenuTabAbout  from '@/components/menu/MenuTabAbout';
+import MenuTabAbout from '@/components/menu/MenuTabAbout';
 import MenuTabConfig from '@/components/menu/MenuTabConfig';
-import MenuTabSkins            from '@/components/menu/MenuTabSkins';
-import { HTY_LEVEL, HTY_ZONE } from "@/utils/_history";
+import MenuTabSkins from '@/components/menu/MenuTabSkins';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 
 export default {
   name: 'Menu',
@@ -42,11 +42,7 @@ export default {
   },
   methods: {
     onClickSwitchTab(tab) {
-      this.$pushALog(
-        'Switch tab to ' + tab,
-        HTY_ZONE.MENU,
-        HTY_LEVEL.DEBUG
-      );
+      this.$pushALog('Switch tab to ' + tab, HTY_ZONE.MENU, HTY_LEVEL.DEBUG);
 
       this.currentTab = tab;
     }

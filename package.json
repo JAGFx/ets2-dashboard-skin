@@ -2,7 +2,7 @@
   "name": "ets2-dashboard-skin",
   "version": "1.7.2",
   "private": false,
-  "module" : "true",
+  "module": "true",
   "description": "Euro Truck Simulator 2 dashboard",
   "author": {
     "name": "Emmanuel SMITH",
@@ -38,7 +38,6 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
-    "bootstrap-vue": "^2.22.0",
     "core-js": "^3.23.3",
     "country-list": "^2.2.0",
     "emoji-flag": "^1.1.0",

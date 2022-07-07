@@ -11,6 +11,14 @@
 @import "telemetry-event";
 
 .overlay {
+	width: 100vw;
+	height: 100vh;
+	background: transparentize($cBlack2, .1);
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	
 	.h {
 		font-size: .8rem;
 		

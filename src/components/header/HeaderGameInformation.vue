@@ -139,12 +139,12 @@
 </template>
 
 <script>
-import { isOnDevEnvironment, version } from "@/utils/_app";
-import { HTY_LEVEL, HTY_ZONE }         from "@/utils/_history";
-import scsSDKData                      from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import TelemetryMixin                  from '@/mixins/TelemetryMixin';
-import * as axios                      from 'axios';
-import { mapGetters }                  from 'vuex';
+import { isOnDevEnvironment, version } from '@/utils/_app';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
+import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
+import TelemetryMixin from '@/mixins/TelemetryMixin';
+import * as axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'HeaderGameInformation',
@@ -198,11 +198,7 @@ export default {
       });
     },
     onClickGear() {
-      this.$pushALog(
-        'Menu toggle',
-        HTY_ZONE.ZONE_GAME,
-        HTY_LEVEL.DEBUG
-      );
+      this.$pushALog('Menu toggle', HTY_ZONE.ZONE_GAME, HTY_LEVEL.DEBUG);
 
       this.$store.dispatch('menu/toggle');
     },

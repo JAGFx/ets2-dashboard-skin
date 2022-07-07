@@ -39,7 +39,8 @@
                 showUpload = !showUpload;
                 targetUpload = 'app';
               "
-              >{{ $t('App') }}</a>
+              >{{ $t('App') }}</a
+            >
             <a
               class="dropdown-item"
               @click="
@@ -82,16 +83,19 @@
 </template>
 
 <script>
-import ConfigCategoryEvents                                   from '@/components/menu/config-categories/ConfigCategoryEvents';
-import ConfigCategoryGeneral                                  from '@/components/menu/config-categories/ConfigCategoryGeneral';
-import ConfigCategoryJagfx                                    from '@/components/menu/config-categories/ConfigCategoryJagfx';
-import ConfigCategoryMap                                      from '@/components/menu/config-categories/ConfigCategoryMap';
-import ConfigCategoryScania                                   from '@/components/menu/config-categories/ConfigCategoryScania';
-import ConfigCategoryUnits                                    from '@/components/menu/config-categories/ConfigCategoryUnits';
-import ConfigSection                  from '@/components/menu/ConfigSection';
-import { HTY_LEVEL, HTY_ZONE }        from "@/utils/_history";
-import { download as configDownload, upload as configUpload } from '@/utils/_config';
-import { mapGetters }                                         from 'vuex';
+import ConfigCategoryEvents from '@/components/menu/config-categories/ConfigCategoryEvents';
+import ConfigCategoryGeneral from '@/components/menu/config-categories/ConfigCategoryGeneral';
+import ConfigCategoryJagfx from '@/components/menu/config-categories/ConfigCategoryJagfx';
+import ConfigCategoryMap from '@/components/menu/config-categories/ConfigCategoryMap';
+import ConfigCategoryScania from '@/components/menu/config-categories/ConfigCategoryScania';
+import ConfigCategoryUnits from '@/components/menu/config-categories/ConfigCategoryUnits';
+import ConfigSection from '@/components/menu/ConfigSection';
+import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
+import {
+  download as configDownload,
+  upload as configUpload
+} from '@/utils/_config';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'MenuTabConfig',
@@ -117,18 +121,14 @@ export default {
   },
   methods: {
     download(target) {
-      this.$pushALog(
-        'Download config',
-        HTY_ZONE.MENU_CONFIG,
-        HTY_LEVEL.DEBUG
-      );
+      this.$pushALog('Download config', HTY_ZONE.MENU_CONFIG, HTY_LEVEL.DEBUG);
 
       configDownload(target);
     },
     upload(input) {
       this.$pushALog('Start config upload', HTY_ZONE.MENU_CONFIG);
 
-        configUpload(input.target.files[0], this.targetUpload)
+      configUpload(input.target.files[0], this.targetUpload)
         .then((data) => {
           this.$pushALog('Config upload done', HTY_ZONE.MENU_CONFIG);
 
