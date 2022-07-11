@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
+import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins.vue';
 
 export default {
   name: 'JagfxSymbolArea',

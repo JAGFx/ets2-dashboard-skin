@@ -1,7 +1,7 @@
 import { store as telemetryStore } from '@/store/telemetry.store';
 
-export default (Vue) => {
-  new Vue({
+export default (app) => {
+  new app({
     data() {
       return {
         truckElectricOnTimer: null

@@ -31,8 +31,8 @@ const locale = store.getters['config/get']('general_skin_locale');
 // --- Methods
 
 export const version = packageJson.version;
-export const isOnDevEnvironment = process.env.NODE_ENV.startsWith('dev');
-export const useFakeData = process.env.VUE_APP_USE_FAKE_DATA === 'true';
+export const isOnDevEnvironment = import.meta.env.MODE.startsWith('dev');
+export const useFakeData = import.meta.env.VUE_APP_USE_FAKE_DATA === 'true';
 
 export const basePathHost = () =>
   `http://${window.location.hostname}:${store.getters['config/app'].general_port}`;

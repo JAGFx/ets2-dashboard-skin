@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import MenuTabAbout from '@/components/menu/MenuTabAbout';
-import MenuTabConfig from '@/components/menu/MenuTabConfig';
-import MenuTabSkins from '@/components/menu/MenuTabSkins';
+import MenuTabAbout from '@/components/menu/MenuTabAbout.vue';
+import MenuTabConfig from '@/components/menu/MenuTabConfig.vue';
+import MenuTabSkins from '@/components/menu/MenuTabSkins.vue';
 import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 
 export default {

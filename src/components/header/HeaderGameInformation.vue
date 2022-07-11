@@ -142,7 +142,7 @@
 import { isOnDevEnvironment, version } from '@/utils/_app';
 import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 import scsSDKData from 'ets2-dashboard-lib/sdk/scs_sdk_plugin_parsed_data.json';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 import * as axios from 'axios';
 import { mapGetters } from 'vuex';
 

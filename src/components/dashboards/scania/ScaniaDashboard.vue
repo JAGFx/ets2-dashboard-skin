@@ -23,13 +23,13 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import ScaniaDisplay from '@/components/dashboards/scania/display/ScaniaDisplay';
-import ScaniaGauges from '@/components/dashboards/scania/ScaniaGauges';
-import ScaniaBodybuilderSymbols from '@/components/dashboards/scania/symbols/ScaniaBodybuilderSymbols';
-import ScaniaGeneralWarningSymbols from '@/components/dashboards/scania/symbols/ScaniaGeneralWarningSymbols';
-import ScaniaIndicatorSymbols from '@/components/dashboards/scania/symbols/ScaniaIndicatorSymbols';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import Dashboard from '@/components/dashboards/Dashboard.vue';
+import ScaniaDisplay from '@/components/dashboards/scania/display/ScaniaDisplay.vue';
+import ScaniaGauges from '@/components/dashboards/scania/ScaniaGauges.vue';
+import ScaniaBodybuilderSymbols from '@/components/dashboards/scania/symbols/ScaniaBodybuilderSymbols.vue';
+import ScaniaGeneralWarningSymbols from '@/components/dashboards/scania/symbols/ScaniaGeneralWarningSymbols.vue';
+import ScaniaIndicatorSymbols from '@/components/dashboards/scania/symbols/ScaniaIndicatorSymbols.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaDashboard',

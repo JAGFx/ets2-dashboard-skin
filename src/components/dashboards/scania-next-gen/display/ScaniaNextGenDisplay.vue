@@ -100,9 +100,9 @@
 </template>
 
 <script>
-import ScaniaNextGenDrivingAssistanceMenu from '@/components/dashboards/scania-next-gen/display/menu/ScaniaNextGenDrivingAssistanceMenu';
-import ScaniaNextGenInstantaneousDataMenu from '@/components/dashboards/scania-next-gen/display/menu/ScaniaNextGenInstantaneousDataMenu';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import ScaniaNextGenDrivingAssistanceMenu from '@/components/dashboards/scania-next-gen/display/menu/ScaniaNextGenDrivingAssistanceMenu.vue';
+import ScaniaNextGenInstantaneousDataMenu from '@/components/dashboards/scania-next-gen/display/menu/ScaniaNextGenInstantaneousDataMenu.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaNextGenDisplay',

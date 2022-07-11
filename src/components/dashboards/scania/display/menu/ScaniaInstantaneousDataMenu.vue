@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import ScaniaBar from '@/components/dashboards/scania/ScaniaBar';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import ScaniaBar from '@/components/dashboards/scania/ScaniaBar.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaInstantaneousDataMenu',

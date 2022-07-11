@@ -137,11 +137,11 @@
 </template>
 
 <script>
-import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
-import JagfxSymbolArea from '@/components/dashboards/jagfx/JagfxSymbolArea';
-import JagfxRPMBars from '@/components/dashboards/jagfx/Zone/JagfxRPMBars';
-import Bars from '@/components/dashboards/shared/Bars';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins.vue';
+import JagfxSymbolArea from '@/components/dashboards/jagfx/JagfxSymbolArea.vue';
+import JagfxRPMBars from '@/components/dashboards/jagfx/Zone/JagfxRPMBars.vue';
+import Bars from '@/components/dashboards/shared/Bars.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'JagfxNavigation',

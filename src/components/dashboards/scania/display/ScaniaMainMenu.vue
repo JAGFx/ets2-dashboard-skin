@@ -48,12 +48,12 @@
 </template>
 
 <script>
-import ScaniaDrivingAssistanceMenu from '@/components/dashboards/scania/display/menu/ScaniaDrivingAssistanceMenu';
-import ScaniaInstantaneousDataMenu from '@/components/dashboards/scania/display/menu/ScaniaInstantaneousDataMenu';
-import ScaniaVehicleInformationsMenu from '@/components/dashboards/scania/display/menu/ScaniaVehicleInformationsMenu';
-import ScaniaDisplayMessage from '@/components/dashboards/scania/display/ScaniaDisplayMessage';
-import ScaniaBar from '@/components/dashboards/scania/ScaniaBar';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import ScaniaDrivingAssistanceMenu from '@/components/dashboards/scania/display/menu/ScaniaDrivingAssistanceMenu.vue';
+import ScaniaInstantaneousDataMenu from '@/components/dashboards/scania/display/menu/ScaniaInstantaneousDataMenu.vue';
+import ScaniaVehicleInformationsMenu from '@/components/dashboards/scania/display/menu/ScaniaVehicleInformationsMenu.vue';
+import ScaniaDisplayMessage from '@/components/dashboards/scania/display/ScaniaDisplayMessage.vue';
+import ScaniaBar from '@/components/dashboards/scania/ScaniaBar.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaMainMenu',

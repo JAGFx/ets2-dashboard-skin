@@ -152,7 +152,7 @@
 </template>
 
 <script>
-import ConfigCategoryMixin from '@/mixins/ConfigCategoryMixin';
+import ConfigCategoryMixin from '@/mixins/ConfigCategoryMixin.vue';
 
 export default {
   name: 'ConfigCategoryMap',

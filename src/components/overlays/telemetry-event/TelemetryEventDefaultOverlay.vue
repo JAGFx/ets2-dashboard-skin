@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TelemetryEventBaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
+import TelemetryEventBaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay.vue';
 
 export default {
   name: 'TelemetryEventDefaultOverlay',

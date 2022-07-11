@@ -166,7 +166,7 @@
 </template>
 
 <script>
-import SkinManualLine from '@/components/menu/skin-manuals/SkinManualLine';
+import SkinManualLine from '@/components/menu/skin-manuals/SkinManualLine.vue';
 
 export default {
   name: 'SkinManualScania',

@@ -139,9 +139,9 @@
 </template>
 
 <script>
-import ScaniaDisplayMessage from '@/components/dashboards/scania/display/ScaniaDisplayMessage';
-import ScaniaMainMenu from '@/components/dashboards/scania/display/ScaniaMainMenu';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import ScaniaDisplayMessage from '@/components/dashboards/scania/display/ScaniaDisplayMessage.vue';
+import ScaniaMainMenu from '@/components/dashboards/scania/display/ScaniaMainMenu.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 import { mapGetters } from 'vuex';
 
 export default {

@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import JagfxJob from '@/components/dashboards/jagfx/Zone/JagfxJob';
-import JagfxNavigation from '@/components/dashboards/jagfx/Zone/JagfxNavigation';
-import JagfxTrailer from '@/components/dashboards/jagfx/Zone/JagfxTrailer';
-import JagfxTruck from '@/components/dashboards/jagfx/Zone/JagfxTruck';
+import Dashboard from '@/components/dashboards/Dashboard.vue';
+import JagfxJob from '@/components/dashboards/jagfx/Zone/JagfxJob.vue';
+import JagfxNavigation from '@/components/dashboards/jagfx/Zone/JagfxNavigation.vue';
+import JagfxTrailer from '@/components/dashboards/jagfx/Zone/JagfxTrailer.vue';
+import JagfxTruck from '@/components/dashboards/jagfx/Zone/JagfxTruck.vue';
 
 export default {
   name: 'JAGFxDashboard',

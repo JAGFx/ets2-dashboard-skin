@@ -123,9 +123,9 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import Cadran from '@/components/dashboards/shared/Cadran';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import Dashboard from '@/components/dashboards/Dashboard.vue';
+import Cadran from '@/components/dashboards/shared/Cadran.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'MercedesAtegoDashboard',

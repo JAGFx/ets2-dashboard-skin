@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import HeaderGameInformation from '@/components/header/HeaderGameInformation';
-import Menu from '@/components/menu/Menu';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import HeaderGameInformation from '@/components/header/HeaderGameInformation.vue';
+import Menu from '@/components/menu/Menu.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 import { mapGetters } from 'vuex';
 
 export default {

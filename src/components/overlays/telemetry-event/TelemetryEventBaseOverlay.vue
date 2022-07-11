@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
+import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin.vue';
 
 export default {
   name: 'TelemetryEventBaseOverlay',

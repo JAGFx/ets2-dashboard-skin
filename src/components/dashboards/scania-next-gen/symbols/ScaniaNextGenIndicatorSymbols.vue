@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaNextGenIndicatorSymbols',

@@ -13,18 +13,18 @@
 </template>
 
 <script>
-import TelemetryEventDefaultOverlay from '@/components/overlays/telemetry-event/TelemetryEventDefaultOverlay';
-import TelemetryEventGameFerryOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameFerryOverlay';
-import TelemetryEventGameFineOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameFineOverlay';
-import TelemetryEventGameTollgateOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameTollgateOverlay';
-import TelemetryEventGameTrainOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameTrainOverlay';
-import TelemetryEventJobDeliveredOverlay from '@/components/overlays/telemetry-event/TelemetryEventJobDeliveredOverlay';
-import TelemetryEventNavigationSpeedLimitOverlay from '@/components/overlays/telemetry-event/TelemetryEventNavigationSpeedLimitOverlay';
-import TelemetryEventTrailersDamageOverlay from '@/components/overlays/telemetry-event/TelemetryEventTrailersDamageOverlay';
-import TelemetryEventTruckCruiseControlIncreaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventTruckCruiseControlIncreaseOverlay';
-import TelemetryEventTruckDamageOverlay from '@/components/overlays/telemetry-event/TelemetryEventTruckDamageOverlay';
-import TelemetryEventTruckWarningOverlay from '@/components/overlays/telemetry-event/TelemetryEventTruckWarningOverlay';
-import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
+import TelemetryEventDefaultOverlay from '@/components/overlays/telemetry-event/TelemetryEventDefaultOverlay.vue';
+import TelemetryEventGameFerryOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameFerryOverlay.vue';
+import TelemetryEventGameFineOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameFineOverlay.vue';
+import TelemetryEventGameTollgateOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameTollgateOverlay.vue';
+import TelemetryEventGameTrainOverlay from '@/components/overlays/telemetry-event/TelemetryEventGameTrainOverlay.vue';
+import TelemetryEventJobDeliveredOverlay from '@/components/overlays/telemetry-event/TelemetryEventJobDeliveredOverlay.vue';
+import TelemetryEventNavigationSpeedLimitOverlay from '@/components/overlays/telemetry-event/TelemetryEventNavigationSpeedLimitOverlay.vue';
+import TelemetryEventTrailersDamageOverlay from '@/components/overlays/telemetry-event/TelemetryEventTrailersDamageOverlay.vue';
+import TelemetryEventTruckCruiseControlIncreaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventTruckCruiseControlIncreaseOverlay.vue';
+import TelemetryEventTruckDamageOverlay from '@/components/overlays/telemetry-event/TelemetryEventTruckDamageOverlay.vue';
+import TelemetryEventTruckWarningOverlay from '@/components/overlays/telemetry-event/TelemetryEventTruckWarningOverlay.vue';
+import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin.vue';
 import { eventNameToComponent } from '@/utils/_event';
 
 export default {

@@ -1,6 +1,6 @@
 <script>
-import ConfigFieldChoice from '@/components/menu/config-fields/ConfigFieldChoice';
-import ConfigFieldInput from '@/components/menu/config-fields/ConfigFieldInput';
+import ConfigFieldChoice from '@/components/menu/config-fields/ConfigFieldChoice.vue';
+import ConfigFieldInput from '@/components/menu/config-fields/ConfigFieldInput.vue';
 import { getFieldValues } from '@/utils/_config';
 
 export default {

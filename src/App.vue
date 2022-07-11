@@ -19,22 +19,22 @@
 </template>
 
 <script>
-import DafXFDashboard from '@/components/dashboards/DafXFDashboard';
-import DefaultDashboard from '@/components/dashboards/DefaultDashboard';
-import JAGFxDashboard from '@/components/dashboards/jagfx/JAGFxDashboard';
-import ManTGXDashboard from '@/components/dashboards/ManTGXDashboard';
-import MapDashboard from '@/components/dashboards/MapDashboard';
-import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard';
-import RdInfoDashboard from '@/components/dashboards/RdInfoDashboard';
-import ScaniaNextGenDashboard from '@/components/dashboards/scania-next-gen/ScaniaNextGenDashboard';
-import ScaniaDashboard from '@/components/dashboards/scania/ScaniaDashboard';
-import TestDashboard from '@/components/dashboards/TestDashboard';
-import VolvoFHDashboard from '@/components/dashboards/VolvoFHDashboard';
-import Header from '@/components/header/Header';
-import HistoryOverlay from '@/components/overlays/HistoryOverlay';
-import Overlay from '@/components/overlays/Overlay';
-import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import DafXFDashboard from '@/components/dashboards/DafXFDashboard.vue';
+import DefaultDashboard from '@/components/dashboards/DefaultDashboard.vue';
+import JAGFxDashboard from '@/components/dashboards/jagfx/JAGFxDashboard.vue';
+import ManTGXDashboard from '@/components/dashboards/ManTGXDashboard.vue';
+import MapDashboard from '@/components/dashboards/MapDashboard.vue';
+import MercedesAtegoDashboard from '@/components/dashboards/MercedesAtegoDashboard.vue';
+import RdInfoDashboard from '@/components/dashboards/RdInfoDashboard.vue';
+import ScaniaNextGenDashboard from '@/components/dashboards/scania-next-gen/ScaniaNextGenDashboard.vue';
+import ScaniaDashboard from '@/components/dashboards/scania/ScaniaDashboard.vue';
+import TestDashboard from '@/components/dashboards/TestDashboard.vue';
+import VolvoFHDashboard from '@/components/dashboards/VolvoFHDashboard.vue';
+import Header from '@/components/header/Header.vue';
+import HistoryOverlay from '@/components/overlays/HistoryOverlay.vue';
+import Overlay from '@/components/overlays/Overlay.vue';
+import TelemetryEventOverlay from '@/components/overlays/telemetry-event/TelemetryEventOverlay.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 import {
   loadAppConfig,
   loadGameConfig,

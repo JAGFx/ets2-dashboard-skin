@@ -15,10 +15,10 @@ import { translate } from '@/utils/_i18n';
 import additionalTelemetryWatcher from '@/utils/telemetry/_additional-watcher.utils';
 
 export default {
-  install(Vue) {
-    Vue.prototype.$pushALog = pushLog;
+  install: (app) => {
+    //app.config.globalProperties.$pushALog = pushLog;
 
-    Vue.prototype.$updateEvent = (data) => {
+    app.config.globalProperties.$updateEvent = (data) => {
       const theEvent = filterInputEvent(data);
 
       if (theEvent !== false) {
@@ -26,7 +26,7 @@ export default {
         const isActive = store.getters['config/enabled'](configName);
 
         if (isActive) {
-          Vue.prototype.$pushALog(
+          app.config.globalProperties.$pushALog(
             'New event ' + JSON.stringify(theEvent),
             HTY_ZONE.MAIN
           );
@@ -40,7 +40,7 @@ export default {
       }
     };
 
-    Vue.prototype.$updateTelemetry = (payload) => {
+    app.config.globalProperties.$updateTelemetry = (payload) => {
       const data = { ...payload };
       Object.freeze(data);
       const gameConnected =
@@ -54,9 +54,10 @@ export default {
       if (gameConnected) mutations.setReceivedData(true);
     };
 
-    additionalTelemetryWatcher(Vue);
+    // FIXME: Apply VUE3 new style
+    //additionalTelemetryWatcher(app);
     // ---
 
-    Vue.prototype.$t = translate;
+    //app.config.globalProperties.$t = translate;
   }
 };

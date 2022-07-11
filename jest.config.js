@@ -15,7 +15,7 @@ module.exports = {
     'src/**/*.vue',
     'src/**/*.js',
     '!src/translations/*.yaml',
-    '!src/main.js',
+    '!src/app.js',
     'lib/**/*.js',
     '!lib/sdk/',
     '!lib/config/',

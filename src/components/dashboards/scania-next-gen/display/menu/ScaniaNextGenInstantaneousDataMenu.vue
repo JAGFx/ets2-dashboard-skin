@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import ScaniaNextGenBar from '@/components/dashboards/scania-next-gen/display/ScaniaNextGenBar';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import ScaniaNextGenBar from '@/components/dashboards/scania-next-gen/display/ScaniaNextGenBar.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 const subMenuAvailable = ['battery', 'pressure', 'adBlue'];
 

@@ -83,13 +83,13 @@
 </template>
 
 <script>
-import ConfigCategoryEvents from '@/components/menu/config-categories/ConfigCategoryEvents';
-import ConfigCategoryGeneral from '@/components/menu/config-categories/ConfigCategoryGeneral';
-import ConfigCategoryJagfx from '@/components/menu/config-categories/ConfigCategoryJagfx';
-import ConfigCategoryMap from '@/components/menu/config-categories/ConfigCategoryMap';
-import ConfigCategoryScania from '@/components/menu/config-categories/ConfigCategoryScania';
-import ConfigCategoryUnits from '@/components/menu/config-categories/ConfigCategoryUnits';
-import ConfigSection from '@/components/menu/ConfigSection';
+import ConfigCategoryEvents from '@/components/menu/config-categories/ConfigCategoryEvents.vue';
+import ConfigCategoryGeneral from '@/components/menu/config-categories/ConfigCategoryGeneral.vue';
+import ConfigCategoryJagfx from '@/components/menu/config-categories/ConfigCategoryJagfx.vue';
+import ConfigCategoryMap from '@/components/menu/config-categories/ConfigCategoryMap.vue';
+import ConfigCategoryScania from '@/components/menu/config-categories/ConfigCategoryScania.vue';
+import ConfigCategoryUnits from '@/components/menu/config-categories/ConfigCategoryUnits.vue';
+import ConfigSection from '@/components/menu/ConfigSection.vue';
 import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 import {
   download as configDownload,

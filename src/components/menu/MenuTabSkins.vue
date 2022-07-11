@@ -82,9 +82,9 @@
 </template>
 
 <script>
-import SkinManualScania from '@/components/menu/skin-manuals/SkinManualScania';
-import SkinManualScaniaNextGen from '@/components/menu/skin-manuals/SkinManualScaniaNextGen';
-import SkinsMixin from '@/mixins/SkinsMixin';
+import SkinManualScania from '@/components/menu/skin-manuals/SkinManualScania.vue';
+import SkinManualScaniaNextGen from '@/components/menu/skin-manuals/SkinManualScaniaNextGen.vue';
+import SkinsMixin from '@/mixins/SkinsMixin.vue';
 
 export default {
   name: 'MenuTabSkins',

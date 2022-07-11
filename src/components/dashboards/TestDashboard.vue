@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import Dashboard from '@/components/dashboards/Dashboard.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'TestDashboard',

@@ -72,16 +72,16 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import ScaniaNextGenDisplay from '@/components/dashboards/scania-next-gen/display/ScaniaNextGenDisplay';
-import ScaniaNextGenGaugeDisplay from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGaugeLeftDisplay';
-import ScaniaNextGenGauges from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGauges';
-import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar';
-import ScaniaNextGenBodyworkSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenBodyworkSymbols';
-import ScaniaNextGenGeneralWarningSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenGeneralWarningSymbols';
-import ScaniaNextGenIndicatorSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenIndicatorSymbols';
-import Bars from '@/components/dashboards/shared/Bars';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import Dashboard from '@/components/dashboards/Dashboard.vue';
+import ScaniaNextGenDisplay from '@/components/dashboards/scania-next-gen/display/ScaniaNextGenDisplay.vue';
+import ScaniaNextGenGaugeDisplay from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGaugeLeftDisplay.vue';
+import ScaniaNextGenGauges from '@/components/dashboards/scania-next-gen/gauges/ScaniaNextGenGauges.vue';
+import ScaniaNextGenAdBlueBar from '@/components/dashboards/scania-next-gen/ScaniaNextGenAdBlueBar.vue';
+import ScaniaNextGenBodyworkSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenBodyworkSymbols.vue';
+import ScaniaNextGenGeneralWarningSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenGeneralWarningSymbols.vue';
+import ScaniaNextGenIndicatorSymbols from '@/components/dashboards/scania-next-gen/symbols/ScaniaNextGenIndicatorSymbols.vue';
+import Bars from '@/components/dashboards/shared/Bars.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaNextGenDashboard',

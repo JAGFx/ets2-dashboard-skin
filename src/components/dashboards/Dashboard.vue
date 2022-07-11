@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 import { scale } from '@/utils/telemetry/_common.utils';
 import { mapGetters } from 'vuex';
 

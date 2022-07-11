@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import TelemetryEventBaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay';
-import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin';
+import TelemetryEventBaseOverlay from '@/components/overlays/telemetry-event/TelemetryEventBaseOverlay.vue';
+import TelemetryEventOverlayMixin from '@/mixins/TelemetryEventOverlayMixin.vue';
 
 export default {
   name: 'TelemetryEventGameTrainOverlay',

@@ -70,8 +70,8 @@
 </template>
 
 <script>
-import Cadran from '@/components/dashboards/shared/Cadran';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import Cadran from '@/components/dashboards/shared/Cadran.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'ScaniaGauges',

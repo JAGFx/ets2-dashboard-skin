@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import ConfigField from '@/components/menu/config-fields/ConfigField';
-import ConfigFieldMixin from '@/mixins/ConfigFieldMixin';
+import ConfigField from '@/components/menu/config-fields/ConfigField.vue';
+import ConfigFieldMixin from '@/mixins/ConfigFieldMixin.vue';
 
 export default {
   name: 'ConfigFieldInput',

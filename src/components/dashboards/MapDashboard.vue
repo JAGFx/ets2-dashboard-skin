@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import Dashboard from '@/components/dashboards/Dashboard';
-import Map from '@/components/dashboards/shared/Map';
+import Dashboard from '@/components/dashboards/Dashboard.vue';
+import Map from '@/components/dashboards/shared/Map.vue';
 
 export default {
   name: 'MapDashboard',

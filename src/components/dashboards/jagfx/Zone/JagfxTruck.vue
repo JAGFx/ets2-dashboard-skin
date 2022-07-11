@@ -211,9 +211,9 @@
 </template>
 
 <script>
-import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins';
-import Map from '@/components/dashboards/shared/Map';
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import JagfxConfigMixins from '@/components/dashboards/jagfx/JagfxConfigMixins.vue';
+import Map from '@/components/dashboards/shared/Map.vue';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 
 export default {
   name: 'JagfxTruck',

@@ -257,7 +257,7 @@
 </template>
 
 <script>
-import TelemetryMixin from '@/mixins/TelemetryMixin';
+import TelemetryMixin from '@/mixins/TelemetryMixin.vue';
 import { HTY_LEVEL, HTY_ZONE } from '@/utils/_history';
 import * as map from '@/utils/_map';
 import { mapGetters } from 'vuex';
