@@ -7,6 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 //import VueInsomnia  from "vue-insomnia";
 import { createApp } from 'vue'
 //import { createPinia } from 'pinia'
+import AppPlugin from "@/app/app.plugin";
 
 //Vue.use(VueClipboard);
 //Vue.use(VueInsomnia);
@@ -23,5 +24,5 @@ const app = createApp(App)
 //.use(store)
 //.use(VueClipboard)
 //.use(VueInsomnia)
-//.use(AppPlugin)
+.use(AppPlugin)
 .mount('#app')

@@ -1,12 +1,12 @@
-import { changeLocale }       from "@/translator/i18n.util";
-import { reactive, readonly } from "vue";
+import { changeLocale }                 from "@/translator/i18n.util";
+import { computed, reactive, readonly } from "vue";
 
 const state = reactive( {
   locale: "en-EN"
 } );
 
 const getters = {
-  currentLocale: () => state.locale
+  currentLocale: computed(() => state.locale)
 };
 const actions = {
   changeLocale: ( newLocale ) => {
@@ -15,7 +15,7 @@ const actions = {
   }
 };
 
-export default () => ({
+export const useTranslator = () => ({
   state: readonly( state ),
   ...getters,
   ...actions
