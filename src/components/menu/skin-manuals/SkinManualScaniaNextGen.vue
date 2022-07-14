@@ -32,7 +32,9 @@
 
           <!-- <editor-folder> Menu symbols  -->
           <tr>
-            <td colspan="2" class="category">{{ $t('Menu symbols') }}</td>
+            <td colspan="2" class="category">
+              {{ $t('Menu symbols') }}
+            </td>
           </tr>
           <!--                <SkinManualLine-->
           <!--                  color="yellow"-->

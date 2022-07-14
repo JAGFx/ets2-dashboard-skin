@@ -10,7 +10,7 @@
           aria-expanded="false"
           :disabled="isOnProcessing"
         >
-          <i class="fas fa-download"></i>
+          <i class="fas fa-download" />
           {{ $t('Download') }}
         </button>
         <div class="dropdown-menu" aria-labelledby="downloadConfigDropdown">
@@ -30,7 +30,7 @@
             aria-expanded="false"
             :disabled="isOnProcessing"
           >
-            <i class="fas fa-upload"></i> {{ $t('Upload') }}
+            <i class="fas fa-upload" /> {{ $t('Upload') }}
           </button>
           <div class="dropdown-menu" aria-labelledby="uploadConfigDropdown">
             <a

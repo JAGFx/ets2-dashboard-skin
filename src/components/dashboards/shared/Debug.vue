@@ -8,7 +8,7 @@
       z-index: 100000;
     "
   >
-    <slot/>
+    <slot />
   </pre>
 </template>
 

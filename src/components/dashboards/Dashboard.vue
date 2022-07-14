@@ -26,7 +26,7 @@ export default {
     this.updateScale();
     window.addEventListener('resize', this.updateScale);
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener('resize', this.updateScale);
   },
   methods: {

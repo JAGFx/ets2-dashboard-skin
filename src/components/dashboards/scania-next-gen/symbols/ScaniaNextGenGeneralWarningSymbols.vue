@@ -14,9 +14,9 @@
     </div>
     <div class="general-warning">
       <div class="symbols">
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
+        <div class="symbol" />
+        <div class="symbol" />
+        <div class="symbol" />
         <div class="symbol red">
           <i
             v-if="telemetry2.symbols.brakePressureIsActive"
@@ -47,9 +47,9 @@
             class="icon-scania-parking-break_red"
           />
         </div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
-        <div class="symbol"></div>
+        <div class="symbol" />
+        <div class="symbol" />
+        <div class="symbol" />
       </div>
     </div>
     <div class="symbols indicator right">

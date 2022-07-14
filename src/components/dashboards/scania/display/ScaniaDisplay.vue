@@ -69,7 +69,7 @@
       v-if="!menuDisplay && !hasAWarningMessage"
       class="displayMenuOff w-100"
       @click="menuDisplay = true"
-    ></div>
+    />
     <ScaniaMainMenu
       v-if="menuDisplay && !hasAWarningMessage"
       @quit-menu="menuDisplay = false"

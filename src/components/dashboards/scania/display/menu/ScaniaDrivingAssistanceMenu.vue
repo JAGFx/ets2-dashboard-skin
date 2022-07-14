@@ -11,7 +11,9 @@
       </div>
       <div class="flex-area">
         <div class="value">-</div>
-        <div class="unit">{{ $unitReadable('unit_length', 'km') }}</div>
+        <div class="unit">
+          {{ $unitReadable('unit_length', 'km') }}
+        </div>
       </div>
     </div>
 
@@ -24,7 +26,9 @@
       </div>
       <div class="flex-area">
         <div class="value">-</div>
-        <div class="unit">{{ $unitReadable('unit_speed') }}</div>
+        <div class="unit">
+          {{ $unitReadable('unit_speed') }}
+        </div>
       </div>
     </div>
 

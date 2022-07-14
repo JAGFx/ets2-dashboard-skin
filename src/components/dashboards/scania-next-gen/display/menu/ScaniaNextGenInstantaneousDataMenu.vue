@@ -41,9 +41,9 @@
       <i class="icon icon-scania-ad-blue-low_yellow" />
     </ScaniaNextGenBar>
     <div class="subMenuIndicator">
-      <div class="square" :class="{ active: subMenu === 'battery' }"></div>
-      <div class="square" :class="{ active: subMenu === 'pressure' }"></div>
-      <div class="square" :class="{ active: subMenu === 'adBlue' }"></div>
+      <div class="square" :class="{ active: subMenu === 'battery' }" />
+      <div class="square" :class="{ active: subMenu === 'pressure' }" />
+      <div class="square" :class="{ active: subMenu === 'adBlue' }" />
     </div>
   </div>
 </template>

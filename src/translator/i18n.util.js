@@ -5,11 +5,11 @@
  * Date: 	15/09/2021
  * Time: 	21:52
  */
-import fr_fr              from '@/translator/translations/fr-FR.yaml';
-import cn_cn              from '@/translator/translations/cn-CN.yaml';
-import ru_ru              from '@/translator/translations/ru-RU.yaml';
-import pt_pt              from '@/translator/translations/pt-PT.yaml';
-import {useTranslator} from "@/translator/useTranslator";
+import fr_fr from '@/translator/translations/fr-FR.yaml';
+import cn_cn from '@/translator/translations/cn-CN.yaml';
+import ru_ru from '@/translator/translations/ru-RU.yaml';
+import pt_pt from '@/translator/translations/pt-PT.yaml';
+import { useTranslator } from '@/translator/useTranslator';
 
 export const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT'];
 
@@ -21,8 +21,8 @@ export const changeLocale = (locale) => {
 };
 
 export const currentLocaleTranslations = () => {
-  const {currentLocale} = useTranslator()
-  
+  const { currentLocale } = useTranslator();
+
   switch (currentLocale.value) {
     case 'fr-FR':
       return fr_fr;

@@ -1,0 +1,9 @@
+{
+  "moduleNameMapper": {
+    "@/(.*)$": "<rootDir>/src/$1"
+  },
+  "transform": {
+    "\\.yaml$": "yaml-jest"
+  },
+  "testEnvironment": "node"
+}

@@ -3,7 +3,7 @@
     v-if="telemetry2.truck.ignitionIsTurnedOn"
     class="adblue d-flex justify-content-center align-items-center w-100"
   >
-    <i class="icon-scania-ad-blue-low_yellow mr-2"></i>
+    <i class="icon-scania-ad-blue-low_yellow mr-2" />
     <div class="adblue-bars w-100">
       <div class="labels d-flex justify-content-between align-items-center">
         <span>0</span>
@@ -13,7 +13,7 @@
       <div
         class="bar-wrapper d-flex justify-content-between align-items-center"
       >
-        <div class="bar" :style="{ width: `${size()}%` }"></div>
+        <div class="bar" :style="{ width: `${size()}%` }" />
       </div>
     </div>
   </div>

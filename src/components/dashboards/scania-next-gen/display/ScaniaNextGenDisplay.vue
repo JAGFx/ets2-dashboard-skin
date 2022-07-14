@@ -39,7 +39,9 @@
         >
           <i class="icon icon-scania-next-gen-instantaneous-data" />
         </div>
-        <div class="button"><i class="icon icon-scania-next-gen-media" /></div>
+        <div class="button">
+          <i class="icon icon-scania-next-gen-media" />
+        </div>
       </div>
       <div class="button tiny right">
         <i class="icon icon-scania-next-gen-settings" />
@@ -52,7 +54,7 @@
     <div
       v-else-if="telemetry2.truck.engineIsStarted"
       class="menu h-100 default"
-    ></div>
+    />
     <div v-if="telemetry2.truck.engineIsStarted" class="programmable-field">
       <div class="field">
         <i class="icon icon-scania-cruise_control_white" />

@@ -13,9 +13,9 @@
         :key="i"
         class="square"
         :class="{ active: squareIsActive(i) }"
-      ></div>
+      />
     </div>
-    <div class="line w-100"></div>
+    <div class="line w-100" />
     <div class="d-flex justify-content-between align-items-center w-100 labels">
       <span>{{ min.toFixed(0) }}</span>
       <span v-if="displayMidLabel">{{
