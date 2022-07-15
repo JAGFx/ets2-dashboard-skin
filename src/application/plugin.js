@@ -1,4 +1,4 @@
-import { useTranslator } from '@/application/useTranslator.js';
+import { useTranslator } from '@/application/uses/useTranslator.js';
 import { translate } from '@/domain/translator/translate.js';
 
 export default {

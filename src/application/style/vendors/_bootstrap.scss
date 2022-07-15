@@ -1,0 +1,24 @@
+@import "../abstracts/variables";
+@import "bootstrap/scss/functions";
+
+// <editor-folder> Custom variables
+$body-bg: $color-black;
+$body-color: $color-white;
+// </editor-folder> Custom variables
+
+// Configuration
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Layout & components
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/containers";
+
+// Helpers
+@import "bootstrap/scss/helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";
