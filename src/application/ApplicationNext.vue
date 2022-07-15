@@ -18,9 +18,9 @@
 </template>
 
 <script setup>
-import { useLogger } from '@/useLogger';
-import { useApplicationState } from '@/app/useApplicationState';
-import { useTranslator } from '@/translator/useTranslator';
+import { useApplicationState } from '@/application/useApplicationState.js';
+import { useLogger }           from "@/application/useLogger.js";
+import { useTranslator }       from '@/application/useTranslator.js';
 
 const { version, isOnDevEnvironment, useFakeData } = useApplicationState();
 const { currentLocale, changeLocale } = useTranslator();

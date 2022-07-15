@@ -1,4 +1,4 @@
-import { changeLocale } from '@/translator/i18n.util';
+import { changeLocale } from '@/domain/translator/locale.js';
 import { computed, reactive, readonly } from 'vue';
 
 const state = reactive({

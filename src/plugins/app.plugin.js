@@ -1,7 +1,7 @@
 /**
  * @author:	Emmanuel SMITH <hey@emmanuel-smith.me>
  * project:	ets2-dashboard-skin
- * file: 	app.plugin.js
+ * file: 	plugin.js
  * Date: 	14/08/2021
  * Time: 	19:43
  */

@@ -1,5 +1,5 @@
 //import App          from "@/App.vue";
-import App from '@/app/AppNext.vue';
+import App from '@/application/ApplicationNext.vue';
 //import AppPlugin    from "@/plugins/app.plugin";
 //import store        from "@/store";
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 //import VueInsomnia  from "vue-insomnia";
 import { createApp } from 'vue';
 //import { createPinia } from 'pinia'
-import AppPlugin from '@/app/app.plugin';
+import AppPlugin from '@/application/plugin.js';
 
 //Vue.use(VueClipboard);
 //Vue.use(VueInsomnia);

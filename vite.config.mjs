@@ -1,14 +1,14 @@
-import { resolve }      from "path";
 //import vue              from "@vue/compat";
-import ViteYaml from '@modyfi/vite-plugin-yaml';
-import vue from '@vitejs/plugin-vue';
+import ViteYaml         from "@modyfi/vite-plugin-yaml";
+import vue              from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
+import { fileURLToPath, URL } from "url";
 
 export default defineConfig({
   resolve: {
     alias: {
       vue: '@vue/compat',
-      '@': resolve(__dirname, './src')
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     }
   },
   plugins: [
