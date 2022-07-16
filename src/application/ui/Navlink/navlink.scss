@@ -1,0 +1,14 @@
+@import "../../style/abstracts/variables";
+@import "../../style/vendors/bootstrap";
+
+.nav-item > .nav-link{
+	background: lighten($color-black, 5%);
+	
+	i[class^=icon] {
+		font-size: 1.4rem;
+	}
+	
+	&.active{
+		background: $gradient-accent;
+	}
+}

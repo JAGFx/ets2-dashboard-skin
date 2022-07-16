@@ -1,4 +1,4 @@
-$color-black: #002b36;
+$color-black: #122333;
 $color-black-2:  #272727;
 $color-black-transparent-medium: lighten($color-black, 0.5);
 $color-black-transparent-high: lighten($color-black, 3%);
@@ -11,3 +11,8 @@ $color-gray: lighten($color-black, 15%);
 $color-gray-2: lighten($color-black-2, 35%);
 $color-yellow: #f5bb00;
 $color-blue: #26d2e2;
+
+$color-accent-1: #4967ff;
+$color-accent-2: #00f6f5;
+$gradient-accent: linear-gradient(-45deg, $color-accent-1, $color-accent-2);
+$border-radius: 5rem;

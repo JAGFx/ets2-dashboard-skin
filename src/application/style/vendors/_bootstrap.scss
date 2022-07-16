@@ -4,10 +4,25 @@
 // <editor-folder> Custom variables
 $body-bg: $color-black;
 $body-color: $color-white;
+$primary: $color-accent-1;
+$dark: $color-black;
+$black: $color-black;
+$badge-padding-x: 0;
+$badge-padding-y: 0;
+$badge-color: $color-accent-1;
+$nav-link-color: $color-white;
+$nav-link-hover-color: $color-accent-1;
+$nav-pills-link-active-color: $color-white;
+$nav-pills-border-radius: $border-radius;
+$card-border-width: 0;
+
+//$theme-colors: (
+//	"accent-1": $color-accent-1,
+//	"accent-2": $color-accent-2,
+//);
 // </editor-folder> Custom variables
 
 // Configuration
-@import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
@@ -16,9 +31,55 @@ $body-color: $color-white;
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/card";
 
 // Helpers
 @import "bootstrap/scss/helpers";
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
+
+.bg-gradient-accent {
+	background: $gradient-accent;
+}
+
+.bg-acrylic {
+	background-color: rgba($color-black, 0.2);
+	border-color: initial;
+	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
+	backdrop-filter: blur(30px);
+}
+
+.text-accent-1 {
+	color: $color-accent-1
+}
+.text-accent-2 {
+	color: $color-accent-2
+}
+.text-black {
+	color: $color-black;
+}
+
+.d-flex-center-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+i[class^=icon]{
+	line-height: 0;
+}
+
+
+//nav.navbar {
+//	border-radius: $border-radius;
+//}

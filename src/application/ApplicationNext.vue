@@ -1,5 +1,8 @@
 <template>
-  <SplashScreen/>
+  <div class="d-flex w-100 h-100 flex-column">
+    <Navbar/>
+    <Menu />
+  </div>
 <!--  <h1>New dashboard</h1>-->
 <!--  <p>{{ $t('Skins') }}</p>-->
 <!--  <code>Current locale: {{ currentLocale }}</code-->
@@ -26,7 +29,9 @@
 //const { version, isOnDevEnvironment, useFakeData } = useApplicationState();
 //const { currentLocale, changeLocale } = useTranslator();
 //const { logs, pushLog } = useLogger();
-import SplashScreen from "@/application/splashScreen/SplashScreen.vue";
+
+import Navbar from '@/application/components/navbar/Navbar.vue';
+import Menu from '@/application/components/menu/Menu.vue';
 </script>
 
 <style lang="scss">

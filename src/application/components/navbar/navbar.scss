@@ -1,0 +1,11 @@
+@import "../../style/abstracts/variables";
+@import "../../style/vendors/bootstrap";
+
+nav.navbar {
+	.navbar-brand {
+		border-radius: $border-radius;
+		background: $gradient-accent;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
