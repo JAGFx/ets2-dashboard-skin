@@ -20,7 +20,7 @@
           <span class="navbar-brand m-0"> Sam 10:52 AM </span>
         </div>
         <div class="d-flex w-100 justify-content-end">
-          <Button side="right">
+          <Button side="right" @click="switchFullscreen">
             <template #icon>
               <i class="icon-target"></i>
             </template>
@@ -43,6 +43,11 @@
 
 <script setup>
 import Button from '@/application/ui/Button/Button.vue';
+import { useFullscreen } from '@/application/uses/useFullscreen.js';
+import { ref } from 'vue';
+
+const { switchFullscreen } = useFullscreen();
+const showMenu = ref(true);
 </script>
 
 <style lang="scss" scoped>
