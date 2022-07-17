@@ -11,8 +11,8 @@
   },
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "npx eslint '{src,lib,test,servers}/**/*.{js,vue}' --fix",
-    "lint:prettier": "npx prettier --config .prettierrc '{src,lib,test}/**/*.{js,vue}'  --write",
+    "lint:eslint": "npx eslint {src/application,src/domain,lib,test,servers}/**/*.{js,vue} --fix",
+    "lint:prettier": "npx prettier {src/application,src/domain,lib,test,servers}/**/*.{js,vue} --write",
     "test": "npm run test:unit",
     "test:unit": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test:coverage": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
@@ -36,6 +36,10 @@
   "main": "index.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.1",
     "@vue/compat": "^3.2.37",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",

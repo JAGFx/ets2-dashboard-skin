@@ -4,7 +4,7 @@
 // <editor-folder> Custom variables
 $body-bg: $color-black;
 $body-color: $color-white;
-$primary: $color-accent-1;
+$primary: $color-accent-2;
 $dark: $color-black;
 $black: $color-black;
 $badge-padding-x: 0;
@@ -15,6 +15,8 @@ $nav-link-hover-color: $color-accent-1;
 $nav-pills-link-active-color: $color-white;
 $nav-pills-border-radius: $border-radius;
 $card-border-width: 0;
+$btn-padding-x: 0;
+$btn-padding-y: 0;
 
 //$theme-colors: (
 //	"accent-1": $color-accent-1,
@@ -36,6 +38,7 @@ $card-border-width: 0;
 @import "bootstrap/scss/badge";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/card";
+@import "bootstrap/scss/buttons";
 
 // Helpers
 @import "bootstrap/scss/helpers";
@@ -78,8 +81,3 @@ body {
 i[class^=icon]{
 	line-height: 0;
 }
-
-
-//nav.navbar {
-//	border-radius: $border-radius;
-//}

@@ -1,11 +1,14 @@
 <template>
   <div
     class="badge bg-dark text-white d-flex-center-center mx-1"
-    :class="badgeClasses()">
+    :class="badgeClasses()"
+  >
     <div
-      class="icon d-flex-center-center" :class="{
-      'ms-1': side === 'right'
-    }">
+      class="icon d-flex-center-center"
+      :class="{
+        'ms-1': side === 'right'
+      }"
+    >
       <slot name="icon" />
     </div>
     <span class="text">
@@ -15,25 +18,21 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
-import { ref } from "vue";
-
-const props = defineProps( {
+const props = defineProps({
   side: {
-    type:    String,
-    default: "left"
+    type: String,
+    default: 'left'
   }
-} );
+});
 
-const side         = ref( props.side );
+const side = ref(props.side);
 const badgeClasses = () => {
-  return side.value === "right"
-    ? "right flex-row-reverse"
-    : "";
+  return side.value === 'right' ? 'right flex-row-reverse' : '';
 };
-
 </script>
 
 <style lang="scss" scoped>
-@import "badge";
+@import 'badge';
 </style>

@@ -1,5 +1,5 @@
-import { createLine, LOG_LEVEL }        from "@/domain/logger.js";
-import { computed, reactive, readonly } from "vue";
+import { createLine, LOG_LEVEL } from '@/domain/logger.js';
+import { computed, reactive, readonly } from 'vue';
 
 const state = reactive({
   logs: []

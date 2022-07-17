@@ -1,24 +1,25 @@
 <template>
   <div class="d-flex w-100 h-100 flex-column">
-    <Navbar/>
-    <Menu />
+    <Navbar>
+      <Menu />
+    </Navbar>
   </div>
-<!--  <h1>New dashboard</h1>-->
-<!--  <p>{{ $t('Skins') }}</p>-->
-<!--  <code>Current locale: {{ currentLocale }}</code-->
-<!--  ><br />-->
-<!--  <button @click="() => changeLocale('fr-FR')">Change</button><br />-->
-<!--  <hr />-->
-<!--  <code>Version: {{ version }}</code-->
-<!--  ><br />-->
-<!--  <code>Env: {{ isOnDevEnvironment ? 'Dev' : 'Prod' }}</code-->
-<!--  ><br />-->
-<!--  <code>Fake data ? {{ useFakeData }}</code-->
-<!--  ><br />-->
-<!--  <hr />-->
-<!--  <button @click="() => pushLog('Toto', 'zone', 'level')">PushLog</button><br />-->
-<!--  <pre>{{ logs }}</pre>-->
-<!--  <br />-->
+  <!--  <h1>New dashboard</h1>-->
+  <!--  <p>{{ $t('Skins') }}</p>-->
+  <!--  <code>Current locale: {{ currentLocale }}</code-->
+  <!--  ><br />-->
+  <!--  <button @click="() => changeLocale('fr-FR')">Change</button><br />-->
+  <!--  <hr />-->
+  <!--  <code>Version: {{ version }}</code-->
+  <!--  ><br />-->
+  <!--  <code>Env: {{ isOnDevEnvironment ? 'Dev' : 'Prod' }}</code-->
+  <!--  ><br />-->
+  <!--  <code>Fake data ? {{ useFakeData }}</code-->
+  <!--  ><br />-->
+  <!--  <hr />-->
+  <!--  <button @click="() => pushLog('Toto', 'zone', 'level')">PushLog</button><br />-->
+  <!--  <pre>{{ logs }}</pre>-->
+  <!--  <br />-->
 </template>
 
 <script setup>
@@ -35,5 +36,5 @@ import Menu from '@/application/components/menu/Menu.vue';
 </script>
 
 <style lang="scss">
-  @import "./style/applicationNext.scss";
+@import './style/applicationNext.scss';
 </style>

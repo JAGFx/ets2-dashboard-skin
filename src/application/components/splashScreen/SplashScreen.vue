@@ -3,14 +3,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'SplashScreen',
-    setup(){
-
-    }
-  }
+export default {
+  name: 'SplashScreen',
+  setup() {}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
