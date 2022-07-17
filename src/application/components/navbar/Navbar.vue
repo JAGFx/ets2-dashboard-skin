@@ -26,7 +26,7 @@
             </template>
             Fullscreen
           </Button>
-          <Button side="right">
+          <Button side="right" :active="showMenu" @click="showMenu = !showMenu">
             <template #icon>
               <i class="icon-menu"></i>
             </template>
@@ -36,7 +36,9 @@
       </div>
     </div>
   </nav>
-  <slot />
+  <Transition name="fade" mode="out-in">
+    <slot v-if="showMenu" />
+  </Transition>
 </template>
 
 <script setup>

@@ -7,7 +7,8 @@
       animate: hover,
       left: side === 'left',
       right: side === 'right',
-      'flex-row-reverse': side === 'right'
+      'flex-row-reverse': side === 'right',
+      active
     }"
     @mouseover="hover = true"
     @mouseleave="removeHoverEffect"
@@ -26,10 +27,12 @@
       animate: hover,
       left: side === 'left',
       right: side === 'right',
-      'flex-row-reverse': side === 'right'
+      'flex-row-reverse': side === 'right',
+      active
     }"
     @mouseover="hover = true"
     @mouseleave="removeHoverEffect"
+    @click="$emit('click')"
   >
     <span class="d-flex-center-center icon">
       <slot name="icon" />
@@ -41,9 +44,9 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue';
+import { defineProps, ref, toRefs } from 'vue';
 
-defineProps({
+const props = defineProps({
   asLink: {
     type: Boolean,
     default: false
@@ -55,11 +58,19 @@ defineProps({
   side: {
     type: String,
     default: 'left'
+  },
+  active: {
+    type: Boolean,
+    default: false
   }
 });
 const hover = ref(false);
+const { active } = toRefs(props);
+
 const removeHoverEffect = () => {
-  setTimeout(() => (hover.value = false), 350);
+  if (!active.value) {
+    setTimeout(() => (hover.value = false), 350);
+  }
 };
 </script>
 
