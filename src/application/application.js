@@ -3,7 +3,7 @@ import App from '@/application/ApplicationNext.vue';
 //import AppPlugin    from "@/plugins/app.plugin";
 //import store        from "@/store";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEarthEurope } from '@fortawesome/free-solid-svg-icons';
+import { faEarthEurope, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 //import VueClipboard from "vue-clipboard2";
@@ -11,8 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { createApp } from 'vue';
 //import { createPinia } from 'pinia'
 import AppPlugin from '@/application/plugin.js';
+import Vue3TouchEvents from 'vue3-touch-events';
 
 library.add(faEarthEurope);
+library.add(faAngleDown);
 library.add(faTwitter);
 library.add(faGithub);
 
@@ -32,4 +34,5 @@ createApp(App)
   //.use(VueClipboard)
   //.use(VueInsomnia)
   .use(AppPlugin)
+  .use(Vue3TouchEvents)
   .mount('#app');

@@ -1,9 +1,15 @@
+@import "_variables.scss";
+
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 0.5s ease;
+	transition: all $animation;
 }
 
 .fade-enter-from,
 .fade-leave-to {
 	opacity: 0;
+}
+
+.animate {
+	transition: all $animation;
 }

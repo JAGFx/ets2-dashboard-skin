@@ -16,6 +16,9 @@
 </template>
 
 <script setup>
+import { defineEmits, defineProps } from 'vue';
+
+defineEmits(['click']);
 defineProps({
   active: {
     type: Boolean,

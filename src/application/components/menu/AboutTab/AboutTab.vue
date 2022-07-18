@@ -69,13 +69,13 @@
           <template #icon>
             <font-awesome-icon icon="fa-brands fa-github" />
           </template>
-          Report a bug
+          Report bug
         </Button>
         <Button :as-link="true">
           <template #icon>
             <font-awesome-icon icon="fa-brands fa-github" />
           </template>
-          Read documentation
+          Read doc'
         </Button>
       </div>
       <!--        <div class="card bg-gradient-accent my-2 h-100">-->

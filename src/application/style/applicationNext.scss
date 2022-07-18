@@ -1,2 +1,7 @@
 @import "abstracts/variables";
 @import "vendors/bootstrap";
+
+body {
+	background: url('/img/screenshots/jagfx-2.png') no-repeat center center;
+	background-size: cover;
+}

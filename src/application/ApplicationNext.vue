@@ -1,9 +1,7 @@
 <template>
-  <div class="d-flex w-100 h-100 flex-column">
-    <Navbar>
-      <Menu />
-    </Navbar>
-  </div>
+  <Navbar>
+    <Menu />
+  </Navbar>
   <!--  <h1>New dashboard</h1>-->
   <!--  <p>{{ $t('Skins') }}</p>-->
   <!--  <code>Current locale: {{ currentLocale }}</code-->

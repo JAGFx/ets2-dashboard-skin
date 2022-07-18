@@ -28,7 +28,6 @@
 	&.left .text{ transform: translateX(-150%); }
 	&.right .text{transform: translateX(150%); }
 	
-	
 	&:hover, &:active, &.active {
 		.text {
 			transform: translateX(0);
@@ -64,6 +63,18 @@
 			width: 100%;
 			transform: translateX(0) !important;
 			opacity: 1;
+		}
+		
+		&.toggle {
+			.icon {
+				background: $color-black !important;
+			}
+			
+			&:hover, &:active, &.active {
+				.icon {
+					background: $gradient-accent !important;
+				}
+			}
 		}
 	}
 }

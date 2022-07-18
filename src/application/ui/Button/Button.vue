@@ -8,7 +8,8 @@
       left: side === 'left',
       right: side === 'right',
       'flex-row-reverse': side === 'right',
-      active
+      active,
+      toggle
     }"
     @mouseover="hover = true"
     @mouseleave="removeHoverEffect"
@@ -28,7 +29,8 @@
       left: side === 'left',
       right: side === 'right',
       'flex-row-reverse': side === 'right',
-      active
+      active,
+      toggle
     }"
     @mouseover="hover = true"
     @mouseleave="removeHoverEffect"
@@ -44,8 +46,9 @@
 </template>
 
 <script setup>
-import { defineProps, ref, toRefs } from 'vue';
+import { defineProps, ref, toRefs, defineEmits } from 'vue';
 
+defineEmits(['click']);
 const props = defineProps({
   asLink: {
     type: Boolean,
@@ -60,6 +63,10 @@ const props = defineProps({
     default: 'left'
   },
   active: {
+    type: Boolean,
+    default: false
+  },
+  toggle: {
     type: Boolean,
     default: false
   }
