@@ -21,6 +21,7 @@ $input-btn-padding-y: 0.375rem;
 $button-width-open: 9rem;
 $button-width-close: 2rem;
 
-$animation: .3s ease-in-out;
+$animation-duration: .3s;
+$animation: $animation-duration ease-in-out;
 
 $width-avatar: 7rem;

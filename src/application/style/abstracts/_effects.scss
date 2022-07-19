@@ -12,4 +12,8 @@
 
 .animate {
 	transition: all $animation;
+	
+	.delayed {
+		transition-delay: $animation-duration;
+	}
 }
