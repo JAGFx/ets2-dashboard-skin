@@ -7,7 +7,7 @@ import { faEarthEurope, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 //import VueClipboard from "vue-clipboard2";
-//import VueInsomnia  from "vue-insomnia";
+import VueInsomnia from 'vue-insomnia';
 import { createApp } from 'vue';
 //import { createPinia } from 'pinia'
 import AppPlugin from '@/application/plugin.js';
@@ -32,7 +32,7 @@ createApp(App)
   //.use(createPinia())
   //.use(store)
   //.use(VueClipboard)
-  //.use(VueInsomnia)
+  .use(VueInsomnia)
   .use(AppPlugin)
   .use(Vue3TouchEvents)
   .mount('#app');

@@ -1,3 +1,5 @@
+let navigatorWakeLock = null;
+
 export const switchFullscreen = (fullscreenIsEnabled) => {
   const elem = document.querySelector('html');
 
@@ -35,19 +37,17 @@ export const switchFullscreen = (fullscreenIsEnabled) => {
 export const switchAwakeScreen = () => {
   if ('wakeLock' in navigator) stayOnFullscreenWithWakeLock();
   else if ('keepAwake' in screen) stayOnFullscreenWithScreenAwake();
-  else stayOnFullscreenWithVueInsomnia();
+  else throw new Error('No native keep awake system was found.');
 };
 
 export const stayOnFullscreenWithWakeLock = (fullscreenIsEnabled) => {
   if (!fullscreenIsEnabled)
     navigator.wakeLock.request('screen').then((wakeLock) => {
-      this.wakeLock = wakeLock;
+      navigatorWakeLock = wakeLock;
     });
-  else this.wakeLock.release();
+  else navigatorWakeLock.release();
 };
 
 export const stayOnFullscreenWithScreenAwake = (fullscreenIsEnabled) => {
   screen.keepAwake = fullscreenIsEnabled;
 };
-
-export const stayOnFullscreenWithVueInsomnia = () => {};

@@ -1,8 +1,8 @@
 import CompleteNavbar from '@/application/components/navbar/CompleteNavbar.vue';
 import DiscreteNavbar from '@/application/components/navbar/DiscreteNavbar.vue';
-import { computed, reactive, readonly } from 'vue';
+import { computed, readonly, shallowReactive } from 'vue';
 
-const state = reactive({
+const state = shallowReactive({
   showMenu: false,
   mode: CompleteNavbar
 });

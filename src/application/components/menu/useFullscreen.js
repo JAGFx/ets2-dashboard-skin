@@ -6,13 +6,21 @@ const state = reactive({
 });
 
 const getters = {
-  fullscreen: computed(() => state.fullscreen)
+  fullscreenIsEnabled: computed(() => state.fullscreen)
 };
 
 const actions = {
   switchFullscreen: () => {
-    state.fullscreen = !state.fullscreen;
-    switchFullscreen(state.fullscreen);
+    try {
+      switchFullscreen(state.fullscreen);
+      state.fullscreen = !state.fullscreen;
+    } catch (e) {
+      if (state.fullscreen) {
+        // Todo: Disable vueInsomnia
+      } else {
+        // Todo: Enable vueInsomnia
+      }
+    }
   }
 };
 

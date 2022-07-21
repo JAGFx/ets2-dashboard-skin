@@ -23,7 +23,12 @@
           <span class="navbar-brand m-0"> Sam 10:52 AM </span>
         </div>
         <div class="d-flex w-100 justify-content-end">
-          <Button side="right" :toggle="true" @click="switchFullscreen">
+          <Button
+            side="right"
+            :active="fullscreenIsEnabled"
+            :toggle="true"
+            @click="switchFullscreen"
+          >
             <template #icon>
               <i class="icon-target"></i>
             </template>
@@ -31,7 +36,7 @@
           </Button>
           <Button
             side="right"
-            :active="showMenu"
+            :active="menuIsShown"
             :toggle="true"
             @click="toggleMenuShow"
           >
@@ -49,10 +54,10 @@
 <script setup>
 import { useMenu } from '@/application/components/menu/useMenu.js';
 import Button from '@/application/ui/Button/Button.vue';
-import { useFullscreen } from '@/application/uses/useFullscreen.js';
+import { useFullscreen } from '@/application/components/menu/useFullscreen.js';
 
-const { switchFullscreen } = useFullscreen();
-const { showMenu, switchToDiscreteMode, toggleMenuShow } = useMenu();
+const { fullscreenIsEnabled, switchFullscreen } = useFullscreen();
+const { menuIsShown, switchToDiscreteMode, toggleMenuShow } = useMenu();
 </script>
 
 <style lang="scss" scoped>

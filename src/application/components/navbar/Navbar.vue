@@ -5,7 +5,7 @@
       'bg-acrylic': menuIsShown
     }"
   >
-    <Transition name="fade" mode="out-in" :duration="500">
+    <Transition name="fade" mode="out-in">
       <component :is="mode" />
     </Transition>
     <Transition name="fade" mode="out-in">
