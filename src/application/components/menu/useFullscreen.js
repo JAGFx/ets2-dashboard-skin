@@ -1,5 +1,8 @@
 import { switchFullscreen } from '@/domain/fullscreen.js';
+import { useVueInsomnia } from 'vue-insomnia';
 import { computed, reactive, readonly } from 'vue';
+
+const { enableVueInsomnia, disableVueInsomnia } = useVueInsomnia();
 
 const state = reactive({
   fullscreen: false
@@ -13,13 +16,14 @@ const actions = {
   switchFullscreen: () => {
     try {
       switchFullscreen(state.fullscreen);
-      state.fullscreen = !state.fullscreen;
     } catch (e) {
       if (state.fullscreen) {
-        // Todo: Disable vueInsomnia
+        enableVueInsomnia();
       } else {
-        // Todo: Enable vueInsomnia
+        disableVueInsomnia();
       }
+    } finally {
+      state.fullscreen = !state.fullscreen;
     }
   }
 };
