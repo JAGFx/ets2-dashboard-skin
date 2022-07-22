@@ -1,6 +1,9 @@
 <template>
   <div class="d-flex-center-center">
-    <button class="btn btn-dark m-1 p-2" @click="switchToCompleteMode">
+    <button
+      class="btn bg-acrylic m-1 p-2 discreteButton"
+      @click="switchToCompleteMode"
+    >
       <font-awesome-icon icon="fa-solid fa-earth-europe" class="showNavbar" />
     </button>
   </div>

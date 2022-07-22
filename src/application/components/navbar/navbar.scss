@@ -11,6 +11,12 @@ nav.navbar {
 	}
 }
 
-.showNavbar {
-	font-size: 1.5rem;
+.discreteButton {
+	&.btn {
+		border: 0;
+	}
+	
+	.showNavbar {
+		font-size: 1.5rem;
+	}
 }

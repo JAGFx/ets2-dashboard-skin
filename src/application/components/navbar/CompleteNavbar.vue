@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
       <div class="d-flex-center-center w-100">
         <div class="d-flex w-100 text-left">
@@ -20,7 +20,7 @@
           v-touch:swipe.top="switchToDiscreteMode"
           class="d-flex-center-center w-100"
         >
-          <span class="navbar-brand m-0"> Sam 10:52 AM </span>
+          <span class="navbar-brand m-0">Sam 10:52 AM</span>
         </div>
         <div class="d-flex w-100 justify-content-end">
           <Button

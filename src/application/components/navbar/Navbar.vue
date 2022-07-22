@@ -1,6 +1,6 @@
 <template>
   <div
-    class="d-flex w-100 h-100 flex-column"
+    class="d-flex w-100 h-100 flex-column fixed-top"
     :class="{
       'bg-acrylic': menuIsShown
     }"
