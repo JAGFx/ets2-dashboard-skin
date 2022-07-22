@@ -59,7 +59,7 @@
     "units-converter": "^1.0.3",
     "vue": "^3.2.37",
     "vue-clipboard2": "^0.3.3",
-    "vue-insomnia": "^0.1.0",
+    "vue-insomnia": "github:JAGFx/vue-insomnia#master",
     "vue-progressbar": "^0.7.5",
     "vue3-touch-events": "^4.1.0",
     "vuex": "^4.0.2",
