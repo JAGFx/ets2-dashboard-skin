@@ -18,7 +18,11 @@ export const translations = {
 };
 
 export const getTranslationToGivenLocale = (locale) => {
-  if (Object.keys(translations).indexOf(locale) === -1) return {};
+  if (
+    typeof locale !== 'string' ||
+    Object.keys(translations).indexOf(locale) === -1
+  )
+    return {};
 
   return translations[locale];
 };
