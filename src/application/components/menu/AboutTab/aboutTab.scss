@@ -3,7 +3,7 @@
 @import "../../../style/abstracts/effects";
 @import "../../../style/vendors/bootstrap";
 
-.aboutTab {
+.about-tab {
 	.avatar {
 		width: $width-avatar;
 		
@@ -20,7 +20,7 @@
 		
 		.text {
 			background-image: $gradient-accent;
-			-webkit-background-clip: text;
+			background-clip: text;
 			-webkit-text-fill-color: transparent;
 		}
 	}

@@ -18,10 +18,10 @@ $card-border-width: 0;
 $btn-padding-x: 0;
 $btn-padding-y: 0;
 
-//$theme-colors: (
+// $theme-colors: (
 //	"accent-1": $color-accent-1,
 //	"accent-2": $color-accent-2,
-//);
+// );
 // </editor-folder> Custom variables
 
 // Configuration
@@ -64,9 +64,11 @@ $btn-padding-y: 0;
 .text-accent-1 {
 	color: $color-accent-1
 }
+
 .text-accent-2 {
 	color: $color-accent-2
 }
+
 .text-black {
 	color: $color-black;
 }

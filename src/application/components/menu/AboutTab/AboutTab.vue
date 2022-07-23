@@ -1,5 +1,5 @@
 <template>
-  <div class="row my-2 h-100 aboutTab">
+  <div class="row my-2 h-100 about-tab">
     <div class="col-6 d-flex-center-center">
       <div class="d-flex-center-center flex-column w-100">
         <div class="my-2 d-flex-center-center w-100">

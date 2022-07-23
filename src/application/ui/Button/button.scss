@@ -3,6 +3,7 @@
 
 .btn {
 	@include button-variant($color-accent-2, transparent, $color-accent-2);
+
 	overflow: hidden;
 	position: relative;
 	width: $button-width-close;

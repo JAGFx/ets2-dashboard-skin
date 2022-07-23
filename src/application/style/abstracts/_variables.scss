@@ -1,27 +1,25 @@
+@use "sass:color";
+
 $color-black: #122333;
 $color-black-2:  #272727;
-$color-black-light-5: lighten($color-black, 5%);
-$color-black-transparent-high: lighten($color-black, 3%);
+$color-black-light-5: color.adjust($color-black, $lightness: 5%);
+$color-black-transparent-high: color.adjust($color-black, $lightness: 3%);
 $color-white: #eee8d5;
 $color-white-2: #eaeaea;
 $color-red: #dc322f;
 $color-orange: #cb4b16;
 $color-green: #00E070;
-$color-gray: lighten($color-black, 15%);
-$color-gray-2: lighten($color-black-2, 35%);
+$color-gray: color.adjust($color-black, $lightness: 15%);
+$color-gray-2: color.adjust($color-black-2, $lightness: 35%);
 $color-yellow: #f5bb00;
 $color-blue: #26d2e2;
 $color-accent-1: #4967ff;
 $color-accent-2: #00f6f5;
 $gradient-accent: linear-gradient(-45deg, $color-accent-1, $color-accent-2);
-
 $border-radius: 5rem;
 $input-btn-padding-y: 0.375rem;
-
 $button-width-open: 9rem;
 $button-width-close: 2rem;
-
 $animation-duration: .3s;
 $animation: $animation-duration ease-in-out;
-
 $width-avatar: 7rem;
