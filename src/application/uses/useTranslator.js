@@ -2,7 +2,7 @@ import { changeLocale } from '@/domain/translator/locale.js';
 import { computed, reactive, readonly } from 'vue';
 
 const state = reactive({
-  locale: 'en-EN'
+  locale: 'fr-FR'
 });
 
 const getters = {

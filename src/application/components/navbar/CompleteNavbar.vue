@@ -32,7 +32,7 @@
             <template #icon>
               <i class="icon-target"></i>
             </template>
-            Fullscreen
+            {{ $t('Fullscreen') }}
           </Button>
           <Button
             side="right"
@@ -43,7 +43,7 @@
             <template #icon>
               <i class="icon-menu"></i>
             </template>
-            Menu
+            {{ $t('Menu') }}
           </Button>
         </div>
       </div>

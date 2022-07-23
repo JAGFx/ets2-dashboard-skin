@@ -1,0 +1,344 @@
+Skins: Templates
+Config: Paramètres
+About: À propos
+Activate: Activer
+Active: Activé
+Disabled: Désactivé
+Menu: Menu
+Close: Fermer
+Download: Télécharger
+Upload: Charger
+Show: Afficher
+less: moins
+more: plus
+General: Général
+Refresh rate: Taux de rafraîchissement
+Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;): Définissez le taux de rafraîchissement des données. Moins le taux est élevé, plus les données du tableau de bord seront à jour. Vous devez redémarrer cette application après le changement ;)
+Default skin loaded: Skin par défaut chargé
+Set the skin loaded when this app was started: Définit le skin chargé lorsque cette application a été lancée
+Langue: Langue
+Choose your locale used on this app: Choisissez la langue utilisée dans cette application
+Job delivery time: Délai de livraison de la mission
+Display the due date or the remaining time for a job: Afficher la date d'échéance ou le temps restant pour la mission
+H-Shifter layout: Disposition du levier de vitesse en H
+Show the current range of H-Shifter OR the automatic number: Afficher l'étage actuel de la boite en H OU le rapport engagé en boite automatique.
+Damage accurate: Précision des dommages
+Show the average with value of 'Damage diagnostic' or same as the 'Route advisor': Afficher la moyenne avec la valeur de "Diagnostic des dommages" ou la même que celle du "Route advisor".
+Get new !: Mettre à jour !
+Game: Jeu
+Select one: Sélectionnez...
+Pause / Unpause: Pause active / inactive
+Fine: Amende
+Toll gate: Péage
+Ferry: Bateau
+Train: Train
+Refuel played: Plein de carburant terminé
+Job: Mission
+Cancelled: Annulée
+Delivered: Livré
+Finished: Terminée
+Started: Démarrée
+Speed limit change: Modification de la limite de vitesse
+Trailers: Remorques
+Coupling: Raccordement
+Damage: Dégâts
+Truck: Camion
+Cruise control ON / OFF: Régulateur de vitesse ON / OFF
+Cruise control increase: Augmentation de la vitesse du régulateur
+Cruise control decrease: Diminution de la vitesse du régulateur
+Warning: Avertissement
+Emergency: Urgence
+Electric: Électrique
+Engine: Moteur
+Park: Frein de parking
+Refuel: Ravitaillement en carburant
+Events: Événements
+Game pause: Jeu en pause
+Show a pop-up when the game are on pause or unpause: Affichage d'une pop-up lorsque le jeu est en pause ou lorsqu'il ne l'est plus
+Road fine: Amende
+Show a pop-up when you get a road fine: Afficher une pop-up lorsque vous recevez une amende
+Show a pop-up when you pass through a toll gate: Afficher une pop-up lors du passage d'une barrière de péage
+Ferry travel: Déplacement en ferry
+Show a pop-up when you use a ferry: Afficher une pop-up lorsque vous utilisez un ferry
+Train travel: Déplacements en train
+Show a pop-up when you use a train: Afficher une pop-up lorsque vous utilisez un train
+Refuel payed: Plein de carburant est payé
+Show a pop-up when you have been refueled your truck tank: Afficher un pop-up lorsque vous avez fait le plein du réservoir de votre camion.
+Job canceled: Mission annulée
+Show a pop-up when a job was canceled: Afficher une pop-up lorsqu'une mission a été annulée
+Job delivered: Mission livrée
+Show a pop-up when a job was delivered: Afficher un pop-up lorsqu'une mission a été livrée
+Job finished: Mission terminée
+Show a pop-up when a job was finished: Afficher une pop-up lorsqu'une mission est terminée
+Job started: Mission commencée
+Show a pop-up when a job was started: Afficher une pop-up lorsqu'une mission est commencée
+Speed limit: Limite de vitesse
+Show a pop-up when the speed limit change: Afficher une pop-up lorsque la limite de vitesse change
+Trailer coupled: Remorque couplée
+Show a pop-up when the trailer was coupled to the truck: Affiche une pop-up lorsque la remorque était attelée au camion
+Trailer damage: Dommages causés à la remorque
+Show a pop-up when the damage increase on the trailer: Afficher une pop-up lorsque les dommages augmentent sur la remorque.
+Cruise control enabled: Régulateur de vitesse activé
+Show a pop-up when the cruise control is enabled: Afficher une pop-up lorsque le régulateur de vitesse est activé
+Show a pop-up when the cruise control increase: Afficher une pop-up lorsque la vitesse du régulateur de vitesse augmente
+Show a pop-up when the cruise control decrease: Afficher une pop-up lorsque la vitesse du régulateur de vitesse diminue
+Truck warning message: Message d'avertissement du camion
+Show a pop-up for all warning message of truck: Afficher une pop-up pour tous les messages d'avertissement du camion
+Truck emergency message: Message d'urgence du camion
+Show a pop-up for all emergency message of truck: Afficher une pop-up pour tous les messages d'urgence du camion
+Truck electric message: Message électrique du camion
+Truck engine start: Démarrage du moteur du camion
+Show a pop-up when the truck engine start: Afficher une pop-up lorsque le moteur du camion démarre
+Truck parking brake: Frein de stationnement du camion
+Show a pop-up when the truck parking brake are on: Afficher une pop-up lorsque le frein de stationnement du camion est activé.
+Truck damage: Dommages du camion
+Show a pop-up when the truck damage increase: Afficher une pop-up lorsque les dégâts du camion augmentent
+Truck refuel: Ravitaillement du camion
+Show a pop-up when the truck refuel tank was full: Afficher une pop-up lorsque le réservoir du camion est plein.
+Unit: Unité
+Weight: Poids
+Set the weight unit. Used for the weight of the cargo: Définir l'unité de poids. Utilisée pour le poids de la cargaison
+Length: Longueur
+Set the length unit. Used for the distance of travel (job or point on the map): Définit l'unité de longueur. Utilisée pour la distance de déplacement (mission ou point sur la carte)
+Degrees: Degrés
+Set degrees unit. Used for the temperature of water, oil and engine: Définit l'unité des degrés. Utilisé pour la température de l'eau, de l'huile et du moteur.
+Consumption: Consommation
+Set the consumption unit: Définir l'unité de consommation
+Volume: Volume
+Set the volume unit. Used for the fuel capacity: Définit l'unité de volume. Utilisée pour la capacité du carburant
+Pressure: Pression
+Set the pressure unit. Used for the Air pressure or oil pressure: Définir l'unité de pression. Utilisée pour la pression de l'air ou de l'huile
+Speed: Vitesse
+Set the speed unit: Définir l'unité de vitesse
+Currency: Devise
+Set the currency unit: Définir l'unité monétaire
+Debug information: Informations de débogage
+Display some debug information about the map: Afficher des informations de débogage sur la carte
+ETA information: Temps estimé d’arrivée
+Display the remaining or ETA time and the current remaining distance to the destination: Afficher le temps restant ou le temps restant estimée et la distance restante actuelle jusqu’à la destination.
+Speed and gear: Vitesse et rapport
+Display the current speed and gear: Affichage de la vitesse et du rapport actuel
+Map controls: Contrôles de la carte
+Display map controls (Recenter, focus on user, zoom in and zoom out): Afficher les contrôles de la carte (Recentrer, centrer sur l'utilisateur, zoom avant et arrière)
+Display current speed limit: Afficher la limite de vitesse actuelle
+Map rotation: Rotation de la carte
+Enable or disable the map rotation on the first load: Activer ou désactiver la rotation de la carte lors du premier chargement.
+Navigation ETA: Navigation ETA
+Display the due date or the remaining time for the current route: Afficher la date de livraison attendue ou le temps restant pour l'itinéraire actuel.
+Active map: Carte active
+Change the active map: Modifier la carte active
+Kind of map: Type de carte
+Use the ETS2 or ATS map automatically or use the modded map: Utiliser la carte d'ETS2 ou d'ATS automatiquement ou utiliser la carte moddée
+Remote tiles location: Emplacement distant des tuiles
+Set a remote location for the map tiles.: Définissez un emplacement distant pour les tuiles de la carte.
+Custom tiles: Tuiles personnalisées
+Set to ON if you wan to use a custom tiles location: Mettez sur ON si vous voulez utiliser un emplacement de tuiles personnalisé.
+Custom tiles location: Emplacement des tuiles personnalisées
+The host of your tiles location: L'hôte de l'emplacement de vos tuiles
+Game version: Version du jeu
+Get tiles for the latest game version, or for the specified game version: Obtenez les tuiles pour la dernière version du jeu, ou pour la version du jeu spécifiée.
+Tiles: Tuiles
+Elements: Éléments
+Map: Carte
+Right: Droit
+Middle - Top: Milieu - Haut
+Middle - Bottom: Milieu - Bas
+Oil temperature: Température de l'huile
+Display oil temperature: Affichage de la température de l'huile
+Brakes temperature: Température des freins
+Display brakes temperature: Affichage de la température des freins
+Brakes air pressure: Pression d'air des freins
+Display brakes air pressure: Affichage de la pression d'air des freins
+Fuel: Carburant
+Display the fuel level: Afficher le niveau de carburant
+Fuel consumption: Consommation de carburant
+Display the fuel average consumption: Affichage de la consommation moyenne de carburant
+Cruise control: Régulateur de vitesse
+Display the current speed set with the cruise control ON: Afficher la vitesse actuelle réglée avec le régulateur de vitesse actif
+Water temperature: Température de l'eau
+Display the water temperature: Afficher la température de l'eau
+Battery voltage: Tension de la batterie
+Display the battery voltage: Afficher la tension de la batterie
+Next rest stop: Prochain arrêt
+Display the time to go to the next rest stop: Afficher le temps nécessaire pour aller à la prochaine aire de repos
+Display map: Afficher la carte
+Enable or disable the map view: Activer ou désactiver l'affichage de la carte
+Retarder: Ralentisseur
+Display the retarder indicator: Afficher l'indicateur du ralentisseur
+Parking brake: Frein de stationnement
+Display the parking brake indicator: Afficher le témoin du frein de stationnement
+Beam high: Feux de route
+Display the high beam indicator: Affichage de l'indicateur de feux de route
+Beam low: Feux de croisement
+Display the low beam indicator: Affichage de l'indicateur de feux de croisement
+Beacon: Gyrophares
+Display the beacon indicator: Afficher l'indicateur des gyrophares
+RPM: RPM
+Display the RPM: Afficher le RPM
+Display the fuel level indicator: Afficher l'indicateur de niveau de carburant
+Display the speed limit: Afficher la limite de vitesse
+Turning indicator: Clignotants
+Display an indicator when the turn left or turn right blinker are ON: Affiche un indicateur lorsque le clignotant gauche ou le clignotant droit sont activés
+Quickly (100ms): Rapidement (100ms)
+Balanced (500ms): Équilibré (500ms)
+Slowly (1000ms): Lentement (1000ms)
+JAGFx dashboard: Tableau de bord de JAGFx
+Default: Défaut
+Due date: Date limite
+Remaining date: Temps restant
+H-Shifter: Boîte en H
+Automatic: Automatique
+Damage diagnostic: Diagnostic des dommages
+Route advisor: Conseiller d'itinéraire
+On: Actif
+Off: Inactif
+Kilogram: Kilogramme
+Pound & Long ton: Livres et tonnes longues
+Meters & Kilometers: Mètres & Kilomètres
+Foot & Miles: Pieds et milles
+Celsius: Celsius
+Fahrenheit: Fahrenheit
+L/100 km: L/100 km
+Mpg: Mpg
+Liters: Litres
+Gallons: Gallons
+PSI: PSI
+Bar: Bar
+Km/h: Km/h
+Mph: Mph
+€ EUR: € EUR
+£ GBP: £ GBP
+$ US: $ US
+Vanilla: Vanilla
+Mod: Mod
+Auto: Auto
+ETS2 base map (Full DLC): Carte de base ETS2 (DLC complet)
+ATS base map (Full DLC): Carte de base ATS (DLC complet)
+Promod (ETS): Promod (ETS)
+Promod Canada: Promod Canada
+Latest: Les plus récents
+English: Anglais
+French: Français
+Common dashboard for Euro truck Simulator 2 and American Truck Simulator: Tableau de bord commun à Euro truck Simulator 2 et American Truck Simulator 2
+The map from the route advisor: La carte du conseiller d'itinéraire
+Base: Base
+Simple dashboard with speed: Un tableau de bord simple avec la vitesse
+Generic Dashboard: Tableau de bord générique
+DAF XF Dashboard: Tableau de bord DAF XF
+MAN TGX Dashboard: Tableau de bord du MAN TGX
+Mercedes Benz Atego MP4 Dashboard: Tableau de bord de Mercedes Benz Atego MP4
+Scania Dashboard: Tableau de bord Scania
+Volvo FH 2012 Dashboard: Tableau de bord Volvo FH 2012
+OFF: Inactif
+N/A: N/A
+No Job: Pas de mission
+No trailer: Pas de remorque
+Map Information: Informations sur la carte
+Version: Version
+Date: Date
+Pos: Pos.
+Ready: Prêt
+Last pos: Dernier pos.
+Map ready: Carte prête
+No data available: Aucune donnée disponible
+Time: Temps
+Source: Source
+Destination: Destination
+Deadline in: Date limite dans
+Truck wear: Dommages du camion
+API: API
+Copy: Copier
+Map initialiation: Initialisation de la carte
+Unable to load map: Impossible de charger la carte
+Connected to telemetry server: Connecté au serveur de télémétrie
+Ready to delivering: Prêt à livrer
+Waiting game connection: Attente de la connexion du jeu
+Run the game to start your job !: Lancez le jeu pour commencer votre mission !
+App ready !: Application prête !
+Starting delivering: Livraison de départ
+Processing: Traitement
+Your app is on processing. Please wait: Votre application est en cours de traitement. Veuillez patienter
+more details: plus de détails
+OK: OK
+You can: Vous pouvez
+create an issue: créer un bug
+and/or contact me at: et/ou me contacter à
+with the above details: avec les détails ci-dessus
+From: De
+To: À
+Cost: Cost
+Delivered time: Temps de livraison
+Earned XP: XP gagnés
+Revenue: Revenu
+Cargo: Cargaison
+Frame: Châssis
+Speed limit set: Limite de vitesse établie
+Game paused: Jeu en pause
+Game connection lost: Connexion au jeu perdue
+Job canceled !: Mission annulée !
+You've been cancel this job: Vous avez annulé cette mission
+Job delivered !: Cargaison livrée
+Delivered !: Livré !
+Job finished !: Mission terminée !
+You've been finish your job: Vous avez fini la mission
+Job started !: La mission a commencé !
+You've been start this job: Vous avez commencé cette mission
+Trailer coupled !: Remorque attelée !
+You are ready to go: Vous êtes prêt à partir
+Cant get tiles - Tiles NOT FOUND: Impossible d'obtenir des tuiles - Tuiles NON TROUVÉES
+Cant get config - Map config NOT FOUND: Impossible d'obtenir la configuration - Configuration de la carte NON TROUVÉE
+Author: Auteur
+Chinese: Chinois
+Russian: Russe
+Port: Port
+Port used by the server: Port utilisé par le serveur
+ets2.jagfx.fr (Deprecated): ets2.jagfx.fr (Déprécié)
+Last waiting time to drive: Dernier temps d'attente pour conduire
+Portuguese: Portugais
+Launching: Lancement
+Load configuration game: Chargement de la configuration du jeu
+Load app configuration file: Chargement du fichier de configuration de l'application
+Start: Démarrage
+Manual: Manuel
+Symbol: Symbole
+Label: Étiquette
+General warning symbols: Symboles d'avertissement généraux
+Left direction indicator: Indicateur de direction gauche
+Right direction indicator: Indicateur de direction à droite
+Main beam is on: Les feux de route sont allumés
+Menu symbols: Symboles du menu
+The fuel level is low: Le niveau de carburant est bas
+Downhill speed control: Contrôle de la vitesse en descente
+Not yet implemented: Pas encore implémenté
+Accrued rest time: Temps de repos accumulé
+Ad Blue: Ad Blue
+Battery: Batterie
+Cruise control, trip computer and driving time information: Régulateur de vitesse, ordinateur de bord et informations sur le temps de conduite
+Here, you can set and read off the trip computer; see current operating information and read driving time information from the digital tachograph.: Ici, vous pouvez régler et lire l'ordinateur de bord, voir les informations de fonctionnement actuelles et lire les informations de temps de conduite du tachygraphe numérique
+Instantaneous data: Données instantanées
+Here you can view information about current consumption and current levels.: Vous pouvez consulter ici les informations sur la consommation de courant et les niveaux de courant.
+Settings: Réglages
+Vehicle information: Informations sur le véhicule
+The vehicle information menu can be used to view cargo weights, status of the differential locks and tyre pressures. Which functions are shown depends on the vehicle’s equipment.: Le menu Informations sur le véhicule permet de consulter le poids de la cargaison, l'état des blocages de différentiel et la pression des pneus. Les fonctions affichées dépendent de l'équipement du véhicule.
+Others symbols: Autres symboles
+A fault occurred: Un défaut s'est produit
+The parking brake is applied: Le frein de stationnement est serré
+Vehicle EBS fault: Défaut EBS du véhicule
+The driver’s safety belt is not fastened: La ceinture de sécurité du conducteur n'est pas bouclée
+A warning occurred: Un avertissement s'est produit
+Engine failure: Panne de moteur
+Risk that the level of contaminants in the exhaust gases emitted by the vehicle will be too high. In some cases the engine output is limited and in some cases the vehicle speed is also limited.: Risque que le niveau de contaminants dans les gaz d'échappement émis par le véhicule soit trop élevé. Dans certains cas, la puissance du moteur est limitée et dans d'autres cas, la vitesse du véhicule est également limitée
+Differential lock is engaged: Le blocage du différentiel est engagé
+The tag axle on the tractor is raised: L'essieu directeur du tracteur est relevé
+The tag axle on the trailer is raised: L'essieu suiveur de la remorque est relevé
+The retarder is activated: Le ralentisseur est activé
+Bodybuilder symbols: Les symboles du carrossier
+The rotating beacon is activated: Le gyrophare est activé
+Low brake pressure in parking and trailer brake circuit.: Faible pression de freinage dans le circuit de freinage de stationnement et de remorque
+App: Application
+Default menu: Menu par défaut
+Set the default menu for the Scania dashboard skin. It is displayed when you use this dashboard.: Définissez le menu par défaut de l'habillage du tableau de bord Scania. Il s'affiche lorsque vous utilisez ce tableau de bord
+Nothing: Rien
+Navigation: Navigation
+Standard mode: Mode normal
+In standard performance mode the vehicle is adapted for driving to suit most situations.: En mode de performance standard, le véhicule est adapté à la conduite pour convenir à la plupart des situations.

@@ -17,7 +17,7 @@
           >
             <h2 class="m-0 mt-2 w-100 text-center">JAGFx</h2>
             <div class="author m-0 mb-2">
-              <span class="text">Author</span>
+              <span class="text">{{ $t('Author') }}</span>
             </div>
           </div>
           <div
@@ -27,62 +27,45 @@
               <template #icon>
                 <font-awesome-icon icon="fa-solid fa-earth-europe" />
               </template>
-              Website
+              {{ $t('Website') }}
             </Button>
             <Button :as-link="true">
               <template #icon>
                 <font-awesome-icon icon="fa-brands fa-twitter" />
               </template>
-              Twitter
+              {{ $t('Twitter') }}
             </Button>
             <Button :as-link="true">
               <template #icon>
                 <font-awesome-icon icon="fa-brands fa-github" />
               </template>
-              Github
+              {{ $t('Github') }}
             </Button>
           </div>
         </div>
       </div>
-      <!--        <div class="d-flex-center-center flex-column">-->
-      <!--          <div class="card bg-acrylic my-2">-->
-      <!--            <div class="card-body">-->
-      <!--              #1-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--          <div class="card bg-dark my-2">-->
-      <!--            <div class="card-body">-->
-      <!--              #1-->
-      <!--            </div>-->
-      <!--          </div>-->
-      <!--        </div>-->
     </div>
     <div class="col-6 d-flex-center-center flex-column">
       <h1 class="version bg-black-light-5 px-5 py-3 new-version">
         v1.7.2
-        <a class="message btn bg-gradient-accent text-white badge px-3 py-2"
-          >New version available</a
-        >
+        <a class="message btn bg-gradient-accent text-white badge px-3 py-2">{{
+          $t('New version available')
+        }}</a>
       </h1>
       <div class="d-flex-center-center">
         <Button :as-link="true">
           <template #icon>
             <font-awesome-icon icon="fa-brands fa-github" />
           </template>
-          Report bug
+          {{ $t('Report bug') }}
         </Button>
         <Button :as-link="true">
           <template #icon>
             <font-awesome-icon icon="fa-brands fa-github" />
           </template>
-          Read doc'
+          {{ $t("Read doc'") }}
         </Button>
       </div>
-      <!--        <div class="card bg-gradient-accent my-2 h-100">-->
-      <!--          <div class="card-body">-->
-      <!--            #1-->
-      <!--          </div>-->
-      <!--        </div>-->
     </div>
   </div>
 </template>

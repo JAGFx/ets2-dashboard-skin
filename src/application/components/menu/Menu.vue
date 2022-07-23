@@ -12,20 +12,8 @@
             <template #icon>
               <i class="mx-1" :class="tab.icon"></i>
             </template>
-            {{ tab.label }}
+            {{ $t(tab.label) }}
           </Navlink>
-          <!--          <Navlink>-->
-          <!--            <template #icon>-->
-          <!--              <i class="icon-route mx-1"></i>-->
-          <!--            </template>-->
-          <!--            <template #default> Config </template>-->
-          <!--          </Navlink>-->
-          <!--          <Navlink>-->
-          <!--            <template #icon>-->
-          <!--              <i class="icon-route mx-1"></i>-->
-          <!--            </template>-->
-          <!--            <template #default> About </template>-->
-          <!--          </Navlink>-->
         </nav>
       </div>
     </div>
