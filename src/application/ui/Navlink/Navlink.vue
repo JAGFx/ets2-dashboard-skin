@@ -16,8 +16,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-
 defineEmits(['click']);
 defineProps({
   active: {

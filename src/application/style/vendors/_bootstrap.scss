@@ -2,9 +2,11 @@
 
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
+@import "bootstrap/scss/mixins/banner";
 @import "bootstrap/scss/functions";
 
 // <editor-folder> Custom variables
+$min-contrast-ratio: 2.5;
 $body-bg: $color-black;
 $body-color: $color-white;
 $primary: $color-accent-2;
@@ -42,6 +44,7 @@ $dropdown-font-size: .875rem;
 
 // Configuration
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 

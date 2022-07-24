@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { defineProps, ref, toRefs } from 'vue';
+import { ref, toRefs } from 'vue';
 
 defineEmits(['click']);
 const props = defineProps({
