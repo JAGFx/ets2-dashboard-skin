@@ -35,6 +35,7 @@ $form-select-indicator-color: $color-white-transparent-25;
 $dropdown-padding-x: .25rem;
 $dropdown-border-color: transparent;
 $dropdown-font-size: .875rem;
+$enable-shadows: false;
 
 // $theme-colors: (
 //	"accent-1": $color-accent-1,
@@ -123,7 +124,6 @@ $dropdown-font-size: .875rem;
 	
 	&.dropdown-toggle {
 		padding: 0.3rem 0.5rem;
-		font-size: 1.2rem;
 	}
 }
 
