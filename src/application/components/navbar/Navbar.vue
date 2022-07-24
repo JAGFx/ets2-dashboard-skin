@@ -2,7 +2,7 @@
   <div
     class="d-flex w-100 h-100 flex-column fixed-top"
     :class="{
-      'bg-acrylic': menuIsShown
+      'menu-is-shown': menuIsShown
     }"
   >
     <Transition name="fade" mode="out-in">

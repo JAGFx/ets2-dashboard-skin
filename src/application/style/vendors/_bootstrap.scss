@@ -1,22 +1,38 @@
+@use "sass:color";
+
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 @import "bootstrap/scss/functions";
 
 // <editor-folder> Custom variables
 $body-bg: $color-black;
 $body-color: $color-white;
 $primary: $color-accent-2;
+$secondary: $color-accent-1;
 $dark: $color-black;
 $black: $color-black;
+$text-muted: $color-white-transparent-25;
 $badge-padding-x: 0;
 $badge-padding-y: 0;
 $badge-color: $color-accent-1;
 $nav-link-color: $color-white;
-$nav-link-hover-color: $color-accent-1;
+$nav-link-hover-color: $color-white;
 $nav-pills-link-active-color: $color-white;
 $nav-pills-border-radius: $border-radius;
+$nav-link-padding-y: .25rem;
 $card-border-width: 0;
 $btn-padding-x: 0;
 $btn-padding-y: 0;
+$border-radius-sm: $border-radius;
+$input-bg: $color-white-transparent-10;
+$input-border-color: transparent;
+$input-placeholder-color: $text-muted;
+$input-focus-border-color: transparent;
+$form-switch-color: $color-white;
+$form-select-indicator-color: $color-white-transparent-25;
+$dropdown-padding-x: .25rem;
+$dropdown-border-color: transparent;
+$dropdown-font-size: .875rem;
 
 // $theme-colors: (
 //	"accent-1": $color-accent-1,
@@ -39,6 +55,9 @@ $btn-padding-y: 0;
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/buttons";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/dropdown";
 
 // Helpers
 @import "bootstrap/scss/helpers";
@@ -55,10 +74,7 @@ $btn-padding-y: 0;
 }
 
 .bg-acrylic {
-	background-color: rgba($color-black, 0.2);
-	border-color: initial;
-	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
-	backdrop-filter: blur(30px);
+	@include background-acrylic;
 }
 
 .text-accent-1 {
@@ -71,6 +87,47 @@ $btn-padding-y: 0;
 
 .text-black {
 	color: $color-black;
+}
+
+.text-gradient {
+	background-image: $gradient-accent;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.btn.btn-acrylic {
+	@include background-acrylic;
+	
+	@supports not (backdrop-filter: blur(30px)) {
+		@include button-variant(
+			$color-acrylic-compatibility,
+			transparent,
+			$color-white,
+			$hover-color:$color-white,
+			$active-color: $color-white
+		);
+	}
+	
+	@supports (backdrop-filter: blur(30px)) {
+		@include button-variant(
+			$color-white-transparent-10,
+			transparent,
+			$color-white,
+			$hover-color:$color-white,
+			$active-color: $color-white
+		);
+	}
+	
+	&.dropdown-toggle {
+		padding: 0.3rem 0.5rem;
+		font-size: 1.2rem;
+	}
+}
+
+.dropdown.dropdown-acrylic{
+	.dropdown-menu {
+		background: $color-acrylic-compatibility;
+	}
 }
 
 .d-flex-center-center {

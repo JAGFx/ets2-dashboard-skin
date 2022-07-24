@@ -9,8 +9,8 @@
 	width: $button-width-close;
 	
 	.icon {
-		background: $gradient-accent;
-		border-radius: 5rem;
+		background: $color-white-transparent-25;
+		border-radius: $border-radius;
 		padding: 0.5rem;
 		color: $color-white;
 		z-index: 1;
@@ -68,7 +68,7 @@
 		
 		&.toggle {
 			.icon {
-				background: $color-black !important;
+				background: $color-white-transparent-25 !important;
 			}
 			
 			&:hover, &:active, &.active {

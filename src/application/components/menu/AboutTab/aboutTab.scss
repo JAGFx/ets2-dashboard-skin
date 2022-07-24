@@ -17,12 +17,6 @@
 	.author {
 		font-size: .9rem;
 		overflow: hidden;
-		
-		.text {
-			background-image: $gradient-accent;
-			background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
 	}
 	
 	.version {

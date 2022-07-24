@@ -17,7 +17,7 @@
           >
             <h2 class="m-0 mt-2 w-100 text-center">JAGFx</h2>
             <div class="author m-0 mb-2">
-              <span class="text">{{ $t('Author') }}</span>
+              <span class="text-gradient">{{ $t('Author') }}</span>
             </div>
           </div>
           <div

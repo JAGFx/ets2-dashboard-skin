@@ -1,6 +1,15 @@
 @import "../../style/abstracts/variables";
 @import "../../style/abstracts/effects";
+@import "../../style/abstracts/mixins";
 @import "../../style/vendors/bootstrap";
+
+.menu-is-shown {
+	background: $color-black;
+	
+	@supports (backdrop-filter: blur(30px)) {
+		@include background-acrylic;
+	}
+}
 
 nav.navbar {
 	.navbar-brand {
@@ -8,6 +17,7 @@ nav.navbar {
 		background: $gradient-accent;
 		padding-left: 1rem;
 		padding-right: 1rem;
+		font-size: 1.6rem;
 	}
 }
 

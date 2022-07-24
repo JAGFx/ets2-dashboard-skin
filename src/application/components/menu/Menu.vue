@@ -1,6 +1,6 @@
 <template>
   <div class="menu d-flex flex-column h-100 container-fluid">
-    <div class="row my-2">
+    <div class="row">
       <div class="col">
         <nav class="nav nav-pills d-flex-center-center my-2">
           <Navlink

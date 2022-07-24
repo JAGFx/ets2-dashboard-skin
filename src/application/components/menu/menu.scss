@@ -1,3 +1,7 @@
 @import "../../style/abstracts/variables";
 @import "../../style/abstracts/mixins";
 @import "../../style/vendors/bootstrap";
+
+.menu {
+	overflow-x: auto;
+}

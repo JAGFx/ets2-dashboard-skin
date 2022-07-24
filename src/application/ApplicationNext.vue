@@ -3,7 +3,7 @@
     <Menu />
   </Navbar>
 
-  <h1 class="bg-gradient-accent">New dashboard</h1>
+  <!--  <h1 class="bg-gradient-accent">New dashboard</h1>-->
   <!--  <p>{{ $t('Skins') }}</p>-->
   <!--  <code>Current locale: {{ currentLocale }}</code-->
   <!--  ><br />-->

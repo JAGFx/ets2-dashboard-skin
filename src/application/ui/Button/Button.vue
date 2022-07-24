@@ -2,7 +2,7 @@
   <a
     v-if="asLink"
     :href="href"
-    class="btn btn-dark mx-1 my-1 d-flex-center-center"
+    class="btn btn-acrylic mx-1 my-1 d-flex-center-center"
     :class="{
       animate: hover,
       left: side === 'left',
@@ -23,7 +23,7 @@
   </a>
   <button
     v-else
-    class="btn btn-dark mx-1 my-1 d-flex-center-center"
+    class="btn btn-acrylic mx-1 my-1 d-flex-center-center"
     :class="{
       animate: hover,
       left: side === 'left',

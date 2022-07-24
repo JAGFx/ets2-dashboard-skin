@@ -11,6 +11,7 @@ import { createApp } from 'vue';
 //import { createPinia } from 'pinia'
 import AppPlugin from '@/application/plugin.js';
 import Vue3TouchEvents from 'vue3-touch-events';
+import 'bootstrap/js/src/dropdown.js';
 
 library.add(faEarthEurope);
 library.add(faAngleDown);

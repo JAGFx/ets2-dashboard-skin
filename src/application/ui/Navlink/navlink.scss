@@ -2,7 +2,9 @@
 @import "../../style/vendors/bootstrap";
 
 .nav-item > .nav-link{
-	background: $color-black-light-5;
+	background: $color-white-transparent-10;
+	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
+	backdrop-filter: blur(30px);
 	
 	i[class^=icon] {
 		font-size: 1.4rem;

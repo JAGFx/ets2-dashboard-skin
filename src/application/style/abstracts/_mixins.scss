@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin border-gradient( $color, $width ) {
 	position: relative;
 	
@@ -13,5 +15,16 @@
 				 linear-gradient(#fff 0 0);
 		mask-composite: xor;
 		mask-composite: exclude;
+	}
+}
+
+@mixin background-acrylic(){
+	background: $color-white-transparent-10;
+	border: none;
+	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
+	
+	@supports (backdrop-filter: blur(30px)) {
+		background: rgba($color-white, 0.05);
+		backdrop-filter: blur(30px);
 	}
 }
