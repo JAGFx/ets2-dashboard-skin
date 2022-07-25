@@ -1,53 +1,10 @@
-@use "sass:color";
-
-@import "../abstracts/variables";
-@import "../abstracts/mixins";
-@import "bootstrap/scss/mixins/banner";
-@import "bootstrap/scss/functions";
-
-// <editor-folder> Custom variables
-$min-contrast-ratio: 2.5;
-$body-bg: $color-black;
-$body-color: $color-white;
-$primary: $color-accent-2;
-$secondary: $color-accent-1;
-$dark: $color-black;
-$black: $color-black;
-$text-muted: $color-white-transparent-25;
-$badge-padding-x: 0;
-$badge-padding-y: 0;
-$badge-color: $color-accent-1;
-$nav-link-color: $color-white;
-$nav-link-hover-color: $color-white;
-$nav-pills-link-active-color: $color-white;
-$nav-pills-border-radius: $border-radius;
-$nav-link-padding-y: .25rem;
-$card-border-width: 0;
-$btn-padding-x: 0;
-$btn-padding-y: 0;
-$border-radius-sm: $border-radius;
-$input-bg: $color-white-transparent-10;
-$input-border-color: transparent;
-$input-placeholder-color: $text-muted;
-$input-focus-border-color: transparent;
-$form-switch-color: $color-white;
-$form-select-indicator-color: $color-white-transparent-25;
-$dropdown-padding-x: .25rem;
-$dropdown-border-color: transparent;
-$dropdown-font-size: .875rem;
-$enable-shadows: false;
+@import "bootstrap_configuration";
 
 // $theme-colors: (
 //	"accent-1": $color-accent-1,
 //	"accent-2": $color-accent-2,
 // );
 // </editor-folder> Custom variables
-
-// Configuration
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
 
 // Layout & components
 @import "bootstrap/scss/root";

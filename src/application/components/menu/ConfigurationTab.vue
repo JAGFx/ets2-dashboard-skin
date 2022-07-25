@@ -128,4 +128,4 @@ import Switch from '@/application/ui/Switch/Switch.vue';
 import Tag from '@/application/ui/Tag/Tag.vue';
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss"></style>

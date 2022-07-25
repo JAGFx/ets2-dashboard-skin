@@ -60,6 +60,6 @@ const { fullscreenIsEnabled, switchFullscreen } = useFullscreen();
 const { menuIsShown, switchToDiscreteMode, toggleMenuShow } = useMenu();
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'navbar';
 </style>

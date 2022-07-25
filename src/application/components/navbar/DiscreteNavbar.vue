@@ -15,6 +15,6 @@ import { useMenu } from '@/application/components/menu/useMenu.js';
 const { switchToCompleteMode } = useMenu();
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'navbar';
 </style>

@@ -20,6 +20,6 @@ import { useMenu } from '@/application/components/menu/useMenu.js';
 const { menuIsShown, mode } = useMenu();
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'navbar';
 </style>

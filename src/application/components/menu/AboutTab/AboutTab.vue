@@ -74,6 +74,6 @@
 import Button from '@/application/ui/Button/Button.vue';
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import 'aboutTab';
 </style>
