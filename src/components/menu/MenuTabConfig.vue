@@ -121,19 +121,19 @@ export default {
   },
   methods: {
     download(target) {
-      this.$pushALog('Download config', HTY_ZONE.MENU_CONFIG, HTY_LEVEL.DEBUG);
+      this.$pushALog('Download configuration', HTY_ZONE.MENU_CONFIG, HTY_LEVEL.DEBUG);
 
       configDownload(target);
     },
     upload(input) {
-      this.$pushALog('Start config upload', HTY_ZONE.MENU_CONFIG);
+      this.$pushALog('Start configuration upload', HTY_ZONE.MENU_CONFIG);
 
       configUpload(input.target.files[0], this.targetUpload)
         .then((data) => {
           this.$pushALog('Config upload done', HTY_ZONE.MENU_CONFIG);
 
           const commitName =
-            this.targetUpload === 'game' ? 'config/setGame' : 'config/setApp';
+            this.targetUpload === 'game' ? 'configuration/setGame' : 'configuration/setApp';
           this.$store.commit(commitName, data);
         })
         .catch((e) => {

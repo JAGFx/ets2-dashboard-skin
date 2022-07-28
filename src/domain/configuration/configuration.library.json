@@ -1,0 +1,36 @@
+[
+	{
+		"id" :          "general_refresh_rate",
+		"target" :      "application",
+		"label" :       "Refresh rate",
+		"description" : "Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;)",
+		"values" :      [
+			{
+				"label" : "Quickly (100ms)",
+				"value" : "100"
+			},
+			{
+				"label" : "Balanced (500ms)",
+				"value" : "500"
+			},
+			{
+				"label" : "Slowly (1000ms)",
+				"value" : "1000"
+			}
+		]
+	},
+	{
+		"id": "general_port",
+		"target": "application",
+		"label": "Port",
+		"description": "Port used by the server",
+		"value": null
+	},
+	{
+		"id": "general_skin_on_load",
+		"target": "application",
+		"label": "Default skin loaded",
+		"description": "Set the skin loaded when this app was started",
+		"value": []
+	}
+]
