@@ -1,4 +1,4 @@
-export class ConfigurationLibrary {
+export class PreferenceEntry {
   constructor(id = '', target = '', label = '', description = '', values = []) {
     this.id = id;
     this.target = target;

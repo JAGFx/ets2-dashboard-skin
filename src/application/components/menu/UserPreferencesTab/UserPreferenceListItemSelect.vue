@@ -1,5 +1,5 @@
 <template>
-  <ConfigurationListItem :configuration-id="configurationId">
+  <UserPreferenceListItem :configuration-id="configurationId">
     <select
       class="form-select form-select-sm"
       aria-label="Default select example"
@@ -9,11 +9,11 @@
       <option value="2">Two</option>
       <option value="3">Three</option>
     </select>
-  </ConfigurationListItem>
+  </UserPreferenceListItem>
 </template>
 
 <script setup>
-import ConfigurationListItem from '@/application/components/menu/ConfigurationTab/ConfigurationListItem.vue';
+import UserPreferenceListItem from "@/application/components/menu/UserPreferencesTab/UserPreferenceListItem.vue";
 
 defineProps({
   configurationId: {

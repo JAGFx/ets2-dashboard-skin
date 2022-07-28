@@ -24,9 +24,9 @@
 </template>
 
 <script setup>
-import AboutTab from '@/application/components/menu/AboutTab/AboutTab.vue';
-import ConfigurationTab from '@/application/components/menu/ConfigurationTab/ConfigurationTab.vue';
-import SkinTab from '@/application/components/menu/SkinTab.vue';
+import AboutTab         from '@/application/components/menu/AboutTab/AboutTab.vue';
+import UserPreferenceTab from '@/application/components/menu/UserPreferencesTab/UserPreferenceTab.vue';
+import SkinTab          from '@/application/components/menu/SkinTab.vue';
 import Navlink from '@/application/ui/Navlink/Navlink.vue';
 import { shallowRef } from 'vue';
 
@@ -38,8 +38,8 @@ const tabs = [
   },
   {
     icon: 'icon-route',
-    label: 'Configuration',
-    component: ConfigurationTab
+    label: 'User preferences',
+    component: UserPreferenceTab
   },
   {
     icon: 'icon-route',
@@ -47,7 +47,7 @@ const tabs = [
     component: AboutTab
   }
 ];
-const currentTab = shallowRef(AboutTab);
+const currentTab = shallowRef(UserPreferenceTab);
 </script>
 
 <style lang="scss">

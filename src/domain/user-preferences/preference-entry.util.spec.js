@@ -17,7 +17,7 @@ jest.mock('@/domain/configuration/configuration.library.json', () => [
   existingConfiguration
 ]);
 
-import { retrieveConfigurationSettings } from '@/domain/configuration/configurationLibrary.util.js';
+import { retrieveConfigurationSettings } from '@/domain/user-preferences/configurationLibrary.util.js';
 
 beforeEach(() => {
   jest.resetModules();

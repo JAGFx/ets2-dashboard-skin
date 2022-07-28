@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-import Tag from '@/application/ui/Tag/Tag.vue';
-import { retrieveConfigurationSettings } from '@/domain/configuration/configurationLibrary.util.js';
+import Tag                         from '@/application/ui/Tag/Tag.vue';
+import { findPreferenceEntryById } from '@/domain/user-preferences/preference-entry.util.js';
 
 const props = defineProps({
   configurationId: {
@@ -28,7 +28,7 @@ const props = defineProps({
   }
 });
 
-const configurationItem = retrieveConfigurationSettings(props.configurationId);
+const configurationItem = findPreferenceEntryById(props.configurationId);
 </script>
 
 <style lang="scss" scoped></style>
