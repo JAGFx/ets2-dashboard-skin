@@ -2,7 +2,8 @@
 
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
-//@import "bootstrap/scss/mixins/banner";
+
+// @import "bootstrap/scss/mixins/banner";
 @import "bootstrap/scss/functions";
 
 // <editor-folder> Custom variables
@@ -39,6 +40,7 @@ $enable-shadows: false;
 
 // Configuration
 @import "bootstrap/scss/variables";
-//@import "bootstrap/scss/maps";
+
+// @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
