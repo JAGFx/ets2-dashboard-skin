@@ -16,10 +16,8 @@
 </template>
 
 <script setup>
-import UserPreferenceListItemSelect
-  from "@/application/components/menu/UserPreferencesTab/UserPreferenceListItemSelect.vue";
-import UserPreferenceListItemSwitch
-  from "@/application/components/menu/UserPreferencesTab/UserPreferenceListItemSwitch.vue";
+import UserPreferenceListItemSelect from '@/application/components/menu/UserPreferencesTab/UserPreferenceListItemSelect.vue';
+import UserPreferenceListItemSwitch from '@/application/components/menu/UserPreferencesTab/UserPreferenceListItemSwitch.vue';
 </script>
 
 <style lang="scss" scoped></style>

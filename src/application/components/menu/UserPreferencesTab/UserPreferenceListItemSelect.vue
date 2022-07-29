@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import UserPreferenceListItem from "@/application/components/menu/UserPreferencesTab/UserPreferenceListItem.vue";
+import UserPreferenceListItem from '@/application/components/menu/UserPreferencesTab/UserPreferenceListItem.vue';
 
 defineProps({
   configurationId: {

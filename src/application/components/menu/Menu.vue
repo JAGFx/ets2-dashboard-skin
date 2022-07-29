@@ -24,9 +24,9 @@
 </template>
 
 <script setup>
-import AboutTab         from '@/application/components/menu/AboutTab/AboutTab.vue';
+import AboutTab from '@/application/components/menu/AboutTab/AboutTab.vue';
 import UserPreferenceTab from '@/application/components/menu/UserPreferencesTab/UserPreferenceTab.vue';
-import SkinTab          from '@/application/components/menu/SkinTab.vue';
+import SkinTab from '@/application/components/menu/SkinTab.vue';
 import Navlink from '@/application/ui/Navlink/Navlink.vue';
 import { shallowRef } from 'vue';
 

@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-import UserPreferenceListItem from "@/application/components/menu/UserPreferencesTab/UserPreferenceListItem.vue";
-import Switch                 from '@/application/ui/Switch/Switch.vue';
+import UserPreferenceListItem from '@/application/components/menu/UserPreferencesTab/UserPreferenceListItem.vue';
+import Switch from '@/application/ui/Switch/Switch.vue';
 
 defineProps({
   configurationId: {

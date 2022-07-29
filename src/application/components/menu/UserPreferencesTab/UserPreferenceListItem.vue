@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import Tag                         from '@/application/ui/Tag/Tag.vue';
+import Tag from '@/application/ui/Tag/Tag.vue';
 import { findPreferenceEntryById } from '@/domain/user-preferences/preference-entry.util.js';
 
 const props = defineProps({
