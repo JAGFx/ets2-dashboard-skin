@@ -14,7 +14,7 @@
     "lint:prettier": "npx prettier {src/application,src/domain,lib,test,servers}/**/*.{js,vue} --write",
     "lint:stylelint": "npx stylelint --fix 'src/application/**/*.scss'",
     "test": "npm run test:unit",
-    "test:unit": "npx jest",
+    "test:unit": "npx jest -c jest.config.json",
     "test:coverage": "npx jest --coverage",
     "test:coverage:preview": "npm run test:coverage && npx http-server coverage/lcov-report/ -p 8002",
     "ci": "npm run lint && npm run test",

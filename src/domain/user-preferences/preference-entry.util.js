@@ -18,6 +18,8 @@ export const applyFiltersToPreferenceEntriesList = (filters, list) => {
   return list.filter((preferenceEntry) => {
     const filterMatches = [true];
 
+    if (typeof filters !== 'object' || filters === null) return true;
+
     if (Object.hasOwn(filters, 'label') && filters.label.length !== 0) {
       filterMatches.push(
         preferenceEntry.label
