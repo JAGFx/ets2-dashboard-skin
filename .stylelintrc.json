@@ -2,6 +2,12 @@
 	"extends": [
 		"stylelint-config-standard-scss",
 		"stylelint-config-recommended-scss",
+		"stylelint-config-sass-guidelines",
 		"stylelint-config-prettier-scss"
-	]
+	],
+	"rules": {
+		"selector-no-qualifying-type": null,
+		"order/properties-alphabetical-order": true,
+		"max-nesting-depth": 4
+	}
 }

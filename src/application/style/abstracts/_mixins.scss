@@ -4,27 +4,27 @@
 	position: relative;
 	
 	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		border-radius: 100rem;
-		padding: $width;
 		background:$color;
+		border-radius: 100rem;
+		content: "";
+		inset: 0;
 		mask:
 			linear-gradient(#fff 0 0) content-box,
 				 linear-gradient(#fff 0 0);
 		mask-composite: xor;
 		mask-composite: exclude;
+		padding: $width;
+		position: absolute;
 	}
 }
 
 @mixin background-acrylic(){
 	background: $color-white-transparent-10;
-	border: none;
+	border: 0;
 	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
 	
 	@supports (backdrop-filter: blur(30px)) {
-		background: rgba($color-white, 0.05);
 		backdrop-filter: blur(30px);
+		background: rgba($color-white, 0.05);
 	}
 }

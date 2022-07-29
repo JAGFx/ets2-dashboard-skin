@@ -2,9 +2,9 @@
 @import "../../style/vendors/bootstrap_configuration";
 
 .nav-item > .nav-link{
+	backdrop-filter: blur(30px);
 	background: $color-white-transparent-10;
 	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
-	backdrop-filter: blur(30px);
 	
 	i[class^=icon] {
 		font-size: 1.4rem;

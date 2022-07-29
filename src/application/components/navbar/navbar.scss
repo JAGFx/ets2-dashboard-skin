@@ -13,11 +13,11 @@
 
 nav.navbar {
 	.navbar-brand {
-		border-radius: $border-radius;
 		background: $gradient-accent;
+		border-radius: $border-radius;
+		font-size: 1.6rem;
 		padding-left: 1rem;
 		padding-right: 1rem;
-		font-size: 1.6rem;
 	}
 }
 

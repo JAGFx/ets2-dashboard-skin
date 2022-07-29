@@ -5,13 +5,14 @@
 
 .about-tab {
 	.avatar {
+		
+		@include border-gradient( $gradient-accent, 3px );
+
 		width: $width-avatar;
 		
 		img	{
 			width: $width-avatar;
 		}
-		
-		@include border-gradient( $gradient-accent, 3px );
 	}
 	
 	.author {
@@ -20,25 +21,25 @@
 	}
 	
 	.version {
-		position: relative;
 		border-radius: $border-radius;
-		margin-bottom: 2rem;
 		color: $color-white;
+		margin-bottom: 2rem;
+		position: relative;
 		
 		&.new-version {
 			margin-bottom: 4rem !important;
 		}
 		
 		.message {
-			font-size: 1rem;
+			bottom: -2rem;
 			display: block;
+			font-size: 1rem;
+			line-height: 1;
 			position: absolute;
-			width: 8rem;
+			right: -3rem;
 			text-align: center;
 			white-space: inherit;
-			bottom: -2rem;
-			right: -3rem;
-			line-height: 1;
+			width: 8rem;
 		}
 	}
 }

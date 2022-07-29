@@ -96,6 +96,7 @@
     "stylelint": "^14.9.1",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-recommended-scss": "^7.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard-scss": "^5.0.0",
     "vite": "^2.9.14",
     "vue-i18n-extract": "^2.0.7",

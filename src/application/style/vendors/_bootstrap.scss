@@ -51,8 +51,8 @@
 }
 
 .text-gradient {
-	background-image: $gradient-accent;
 	background-clip: text;
+	background-image: $gradient-accent;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -91,14 +91,14 @@
 }
 
 .d-flex-center-center {
+	align-items: center;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 body {
-	width: 100vw;
 	height: 100vh;
+	width: 100vw;
 }
 
 i[class^=icon]{
