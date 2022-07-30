@@ -9,6 +9,18 @@
 [![GitHub Release Date](https://img.shields.io/github/release-date-pre/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![Discord](https://img.shields.io/discord/764915323693826059.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/8abqrEeFxF)
 
+# Important
+
+> I am working on a new major version for this project.
+>
+>Why ? The main reason is to upgrade the framework used in this project to the next major version.
+This is the case to be in accordance with an other development philosophy: It is to improve the knowledge and increase the ability to work on the project as a developer.
+>
+> Don't panic, version 1.X is still alive. Is entering in bug fixes only.
+All new features will be introduced in the next major version 2.X.
+>
+> You can follow the roadmap on this [project board](https://github.com/users/JAGFx/projects/4)
+
 ## About
 
 The idea with this repository is to update a collection of dashboard from
