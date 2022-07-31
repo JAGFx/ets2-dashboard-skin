@@ -6,8 +6,8 @@ const gzip = require('gulp-gzip');
 const path = require('path');
 const exec = require('child_process').execSync;
 
-const pkg = require('./package.json');
-const pkgServer = require('./servers/default/package.json');
+const pkg = require('../package.json');
+const pkgServer = require('../servers/default/package.json');
 
 // ---------------------------------------------
 // --- Variables
