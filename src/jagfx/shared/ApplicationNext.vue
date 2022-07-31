@@ -29,9 +29,8 @@
 //const { version, isOnDevEnvironment, useFakeData } = useApplicationState();
 //const { currentLocale, changeLocale } = useTranslator();
 //const { logs, pushLog } = useLogger();
-
-import Navbar from '@/jagfx/shared/components/navbar/Navbar.vue';
 import Menu from '@/jagfx/shared/components/menu/Menu.vue';
+import Navbar from '@/jagfx/shared/components/navbar/Navbar.vue';
 </script>
 
 <style lang="scss">

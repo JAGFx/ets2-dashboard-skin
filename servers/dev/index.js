@@ -5,7 +5,6 @@
  * Date: 	16/11/2021
  * Time: 	20:18
  */
-
 import { initLogger } from 'ets2-dashboard-lib/logger.js';
 import {
   initApp,

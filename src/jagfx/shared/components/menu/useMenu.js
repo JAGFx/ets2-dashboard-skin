@@ -1,6 +1,7 @@
+import { computed, readonly, shallowReactive } from 'vue';
+
 import CompleteNavbar from '@/jagfx/shared/components/navbar/CompleteNavbar.vue';
 import DiscreteNavbar from '@/jagfx/shared/components/navbar/DiscreteNavbar.vue';
-import { computed, readonly, shallowReactive } from 'vue';
 
 const state = shallowReactive({
   showMenu: false,

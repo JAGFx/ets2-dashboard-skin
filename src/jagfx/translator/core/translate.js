@@ -5,10 +5,10 @@
  * Date: 	15/09/2021
  * Time: 	21:52
  */
-import fr_fr from '@/jagfx/translator/core/translations/fr-FR.yaml';
 import cn_cn from '@/jagfx/translator/core/translations/cn-CN.yaml';
-import ru_ru from '@/jagfx/translator/core/translations/ru-RU.yaml';
+import fr_fr from '@/jagfx/translator/core/translations/fr-FR.yaml';
 import pt_pt from '@/jagfx/translator/core/translations/pt-PT.yaml';
+import ru_ru from '@/jagfx/translator/core/translations/ru-RU.yaml';
 
 export const translations = {
   'fr-FR': fr_fr,

@@ -24,11 +24,12 @@
 </template>
 
 <script setup>
+import { shallowRef } from 'vue';
+
 import AboutTab from '@/jagfx/shared/components/menu/AboutTab/AboutTab.vue';
-import UserPreferenceTab from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceTab.vue';
 import SkinTab from '@/jagfx/shared/components/menu/SkinTab.vue';
 import Navlink from '@/jagfx/shared/components/ui/Navlink/Navlink.vue';
-import { shallowRef } from 'vue';
+import UserPreferenceTab from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceTab.vue';
 
 const tabs = [
   {

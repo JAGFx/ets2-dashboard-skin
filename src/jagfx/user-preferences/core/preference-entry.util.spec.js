@@ -1,3 +1,10 @@
+import { PreferenceEntry } from '@/jagfx/user-preferences/core/PreferenceEntry';
+import {
+  applyFiltersToPreferenceEntriesList,
+  convertJsonObjectToPreferenceEntry,
+  findPreferenceEntryById
+} from '@/jagfx/user-preferences/core/preference-entry.util';
+
 const existingConfigurationId = 'an_existing_configuration_id';
 const existingConfiguration = [
   {
@@ -24,13 +31,6 @@ jest.mock(
   '@/jagfx/user-preferences/core/map.json',
   () => existingConfiguration
 );
-
-import {
-  applyFiltersToPreferenceEntriesList,
-  convertJsonObjectToPreferenceEntry,
-  findPreferenceEntryById
-} from '@/jagfx/user-preferences/core/preference-entry.util';
-import { PreferenceEntry } from '@/jagfx/user-preferences/core/PreferenceEntry';
 
 describe('Preference entries', () => {
   it('An existing preference entry must return data successfully', () => {

@@ -17,6 +17,7 @@ import { catchError } from 'ets2-dashboard-lib/utils.js';
 import express from 'express';
 import path from 'path';
 import truckSimTelemetry from 'trucksim-telemetry';
+
 import gameEvent from './events/game.event.js';
 import jobEvent from './events/job.event.js';
 import navigationEvent from './events/navigation.event.js';

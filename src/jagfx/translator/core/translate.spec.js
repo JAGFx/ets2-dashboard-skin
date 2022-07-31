@@ -1,5 +1,4 @@
 // yaml-jest: npm i && npm run build
-
 import {
   getTranslationToGivenLocale,
   translate,

@@ -52,9 +52,9 @@
 </template>
 
 <script setup>
+import { useFullscreen } from '@/jagfx/shared/components/menu/useFullscreen.js';
 import { useMenu } from '@/jagfx/shared/components/menu/useMenu.js';
 import Button from '@/jagfx/shared/components/ui/Button/Button.vue';
-import { useFullscreen } from '@/jagfx/shared/components/menu/useFullscreen.js';
 
 const { fullscreenIsEnabled, switchFullscreen } = useFullscreen();
 const { menuIsShown, switchToDiscreteMode, toggleMenuShow } = useMenu();

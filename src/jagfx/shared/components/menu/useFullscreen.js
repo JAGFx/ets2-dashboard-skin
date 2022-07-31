@@ -1,6 +1,7 @@
-import { switchFullscreen } from '@/jagfx/shared/core/fullscreen.js';
-import { useVueInsomnia } from 'vue-insomnia';
 import { computed, reactive, readonly } from 'vue';
+import { useVueInsomnia } from 'vue-insomnia';
+
+import { switchFullscreen } from '@/jagfx/shared/core/fullscreen.js';
 
 const { enableVueInsomnia, disableVueInsomnia } = useVueInsomnia();
 
