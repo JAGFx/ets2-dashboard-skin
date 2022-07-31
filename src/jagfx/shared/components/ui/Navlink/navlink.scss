@@ -1,0 +1,16 @@
+@import "../../../style/abstracts/variables";
+@import "../../../style/vendors/bootstrap_configuration";
+
+.nav-item > .nav-link{
+	backdrop-filter: blur(30px);
+	background: $color-white-transparent-10;
+	box-shadow: rgb(37 43 54 / 3%) 10px 10px 10px;
+	
+	i[class^=icon] {
+		font-size: 1.4rem;
+	}
+	
+	&.active{
+		background: $gradient-accent;
+	}
+}

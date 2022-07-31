@@ -1,0 +1,23 @@
+<template>
+  <div class="row my-2 h-100 configuration-tab">
+    <div class="col">
+      <div class="card bg-transparent">
+        <div class="card-body p-0">
+          <div class="list-group">
+            <UserPreferenceListItemSwitch
+              configuration-id="general_refresh_rate"
+            />
+            <UserPreferenceListItemSelect configuration-id="general_port" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import UserPreferenceListItemSelect from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceListItemSelect.vue';
+import UserPreferenceListItemSwitch from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceListItemSwitch.vue';
+</script>
+
+<style lang="scss" scoped></style>

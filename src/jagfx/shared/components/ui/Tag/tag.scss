@@ -1,0 +1,8 @@
+@import "../../../style/abstracts/variables";
+@import "../../../style/vendors/bootstrap_configuration";
+
+.tag {
+	background: $color-accent-2-transparent-25;
+	border: 1px solid $color-accent-2-transparent-10;
+	font-size: .6rem;
+}

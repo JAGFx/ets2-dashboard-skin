@@ -1,0 +1,27 @@
+@import "../../../style/abstracts/variables";
+@import "../../../style/vendors/bootstrap_configuration";
+
+.btn.switch {
+	background: $color-white-transparent-10;
+	
+	.text-off {
+		color: $color-white-transparent-25;
+	}
+	
+	.dot {
+		background: $color-white-transparent-25;
+		border-radius: $border-radius;
+		height: 1.3rem;
+		padding: 0.5rem;
+		width: 1.3rem;
+		z-index: 1;
+	}
+	
+	&.enabled {
+		background: $gradient-accent;
+		
+		.dot {
+			background: $color-white;
+		}
+	}
+}
