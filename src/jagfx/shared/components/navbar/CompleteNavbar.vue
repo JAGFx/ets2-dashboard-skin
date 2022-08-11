@@ -7,7 +7,7 @@
             <template #icon>
               <i class="icon-target"></i>
             </template>
-            v1.11
+            v{{ version }}
           </Button>
           <Button>
             <template #icon>
@@ -55,9 +55,11 @@
 import { useFullscreen } from '@/jagfx/shared/components/menu/useFullscreen.js';
 import { useMenu } from '@/jagfx/shared/components/menu/useMenu.js';
 import Button from '@/jagfx/shared/components/ui/Button/Button.vue';
+import { useApplicationState } from '@/jagfx/shared/useApplicationState';
 
 const { fullscreenIsEnabled, switchFullscreen } = useFullscreen();
 const { menuIsShown, switchToDiscreteMode, toggleMenuShow } = useMenu();
+const { version } = useApplicationState();
 </script>
 
 <style lang="scss">
