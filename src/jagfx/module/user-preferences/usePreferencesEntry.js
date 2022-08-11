@@ -1,10 +1,10 @@
 import { computed, reactive, readonly } from 'vue';
 
-import map from '@/jagfx/user-preferences/core/map.json';
+import map from '@/jagfx/module/user-preferences/core/map.json';
 import {
   applyFiltersToPreferenceEntriesList,
   convertJsonObjectToPreferenceEntry
-} from '@/jagfx/user-preferences/core/preference-entry.util.js';
+} from '@/jagfx/module/user-preferences/core/preference-entry.util.js';
 
 const state = reactive({
   search: ''

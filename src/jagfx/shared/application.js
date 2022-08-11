@@ -1,6 +1,7 @@
 //import App          from "@/App.vue";
 //import AppPlugin    from "@/plugins/app.plugin";
 //import store        from "@/store";
+//import { createPinia } from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faAngleDown, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
@@ -10,9 +11,8 @@ import 'bootstrap/js/src/dropdown.js';
 import { createApp } from 'vue';
 import Vue3TouchEvents from 'vue3-touch-events';
 
+import TranslatorPlugin from '@/jagfx/module/translator/translator.plugin.js';
 import App from '@/jagfx/shared/ApplicationNext.vue';
-//import { createPinia } from 'pinia'
-import TranslatorPlugin from '@/jagfx/translator/translator.plugin.js';
 
 library.add(faEarthEurope);
 library.add(faAngleDown);

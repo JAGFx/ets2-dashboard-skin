@@ -1,5 +1,5 @@
-import { translate } from '@/jagfx/translator/core/translate.js';
-import { useTranslator } from '@/jagfx/translator/useTranslator.js';
+import { translate } from '@/jagfx/module/translator/core/translate.js';
+import { useTranslator } from '@/jagfx/module/translator/useTranslator.js';
 
 export default {
   install: (app) => {

@@ -1,7 +1,7 @@
 import {
   availableLocale,
   changeLocale
-} from '@/jagfx/translator/core/locale.js';
+} from '@/jagfx/module/translator/core/locale.js';
 
 describe('Translator locale test', () => {
   it.each(availableLocale)(

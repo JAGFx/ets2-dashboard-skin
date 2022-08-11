@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import UserPreferenceListItem from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceListItem.vue';
+import UserPreferenceListItem from '@/jagfx/module/user-preferences/user-preferences-tab/UserPreferenceListItem.vue';
 
 defineProps({
   configurationId: {

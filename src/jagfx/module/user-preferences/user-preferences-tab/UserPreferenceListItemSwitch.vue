@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
+import UserPreferenceListItem from '@/jagfx/module/user-preferences/user-preferences-tab/UserPreferenceListItem.vue';
 import Switch from '@/jagfx/shared/components/ui/Switch/Switch.vue';
-import UserPreferenceListItem from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceListItem.vue';
 
 defineProps({
   configurationId: {

@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
+import { findPreferenceEntryById } from '@/jagfx/module/user-preferences/core/preference-entry.util.js';
 import Tag from '@/jagfx/shared/components/ui/Tag/Tag.vue';
-import { findPreferenceEntryById } from '@/jagfx/user-preferences/core/preference-entry.util.js';
 
 const props = defineProps({
   configurationId: {

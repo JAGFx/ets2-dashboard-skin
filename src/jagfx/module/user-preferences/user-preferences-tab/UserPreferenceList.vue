@@ -16,8 +16,8 @@
 </template>
 
 <script setup>
-import UserPreferenceListItemSelect from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceListItemSelect.vue';
-import UserPreferenceListItemSwitch from '@/jagfx/user-preferences/user-preferences-tab/UserPreferenceListItemSwitch.vue';
+import UserPreferenceListItemSelect from '@/jagfx/module/user-preferences/user-preferences-tab/UserPreferenceListItemSelect.vue';
+import UserPreferenceListItemSwitch from '@/jagfx/module/user-preferences/user-preferences-tab/UserPreferenceListItemSwitch.vue';
 </script>
 
 <style lang="scss" scoped></style>
