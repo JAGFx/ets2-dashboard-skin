@@ -1,8 +1,9 @@
-import { preferenceEntryMatchWithFilter } from "@/jagfx/module/user-preferences/core/preference-entry.util.js";
-import { computed, reactive } from "vue";
+import { computed, reactive } from 'vue';
+
+import { preferenceEntryMatchWithFilter } from '@/jagfx/module/user-preferences/core/preference-entry.util.js';
 
 const state = reactive({
-  search: "",
+  search: ''
 });
 
 const getters = {
@@ -12,17 +13,17 @@ const getters = {
     },
     set(search) {
       state.search = search;
-    },
+    }
   }),
   isMatchWithFilter: (preferenceEntry) =>
     preferenceEntryMatchWithFilter(preferenceEntry, {
-      label: state.search,
-    }),
+      label: state.search
+    })
 };
 
 const actions = {};
 
 export const usePreferencesEntry = () => ({
   ...getters,
-  ...actions,
+  ...actions
 });

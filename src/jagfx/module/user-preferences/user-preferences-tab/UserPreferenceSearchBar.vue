@@ -4,10 +4,10 @@
       <!--        <div class="d-flex-center-center">-->
       <div class="input-group">
         <input
+          v-model="search"
           type="search"
           class="form-control bg-acrylic"
           placeholder="Type to search..."
-          v-model="search"
         />
         <!--          <button-->
         <!--            class="btn btn-acrylic dropdown-toggle d-flex-center-center px-2 py-1 m-0 d-flex-center-center"-->
@@ -50,9 +50,9 @@
 </template>
 
 <script setup>
-  import { usePreferencesEntry } from "@/jagfx/module/user-preferences/usePreferencesEntry";
+import { usePreferencesEntry } from '@/jagfx/module/user-preferences/usePreferencesEntry';
 
-  const {search} = usePreferencesEntry();
+const { search } = usePreferencesEntry();
 </script>
 
 <style lang="scss" scoped></style>
