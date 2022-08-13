@@ -1,33 +1,28 @@
-import { computed, reactive, readonly } from 'vue';
-
-import map from '@/jagfx/module/user-preferences/core/map.json';
-import {
-  applyFiltersToPreferenceEntriesList,
-  convertJsonObjectToPreferenceEntry
-} from '@/jagfx/module/user-preferences/core/preference-entry.util.js';
+import { preferenceEntryMatchWithFilter } from "@/jagfx/module/user-preferences/core/preference-entry.util.js";
+import { computed, reactive } from "vue";
 
 const state = reactive({
-  search: ''
+  search: "",
 });
 
 const getters = {
-  search: computed(() => state.search),
-  configurationMatchWithSearch: computed(() =>
-    applyFiltersToPreferenceEntriesList(
-      {
-        label: state.search
-      },
-      map.map((configurationItem) =>
-        convertJsonObjectToPreferenceEntry(configurationItem)
-      )
-    )
-  )
+  search: computed({
+    get() {
+      return state.search;
+    },
+    set(search) {
+      state.search = search;
+    },
+  }),
+  isMatchWithFilter: (preferenceEntry) =>
+    preferenceEntryMatchWithFilter(preferenceEntry, {
+      label: state.search,
+    }),
 };
 
 const actions = {};
 
 export const usePreferencesEntry = () => ({
-  state: readonly(state),
   ...getters,
-  ...actions
+  ...actions,
 });
