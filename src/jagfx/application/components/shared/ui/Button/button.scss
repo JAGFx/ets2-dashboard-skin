@@ -1,0 +1,101 @@
+@import "../../../../style/abstracts/variables";
+@import "../../../../style/vendors/bootstrap_configuration";
+
+.btn {
+	@include button-variant($color-accent-2, transparent, $color-accent-2);
+
+	overflow: hidden;
+	position: relative;
+	width: $button-width-close;
+	
+	.icon {
+		background: $color-white-transparent-25;
+		border-radius: $border-radius;
+		color: $color-white;
+		padding: 0.5rem;
+		z-index: 1;
+	}
+	
+	.text {
+		margin: 0;
+		opacity: 0;
+		transition: transform $animation,
+					margin $animation,
+					opacity $animation;
+		white-space:nowrap;
+		width: 0;
+	}
+	
+	&.left .text{ transform: translateX(-150%); }
+	&.right .text{transform: translateX(150%); }
+	
+	&:hover, &:active, &.active {
+		.text {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		
+		&.left .text{ margin: 0 .75rem 0 .5rem; }
+		&.right .text{ margin: 0 .5rem 0 .75rem; }
+	}
+	
+	@media (hover: hover) {
+		&.animate {
+			animation: button-close-animation $animation forwards;
+
+			.text {
+				animation: button-close-text-expand-animation $animation forwards;
+			}
+			
+			&:hover, &:active, &.active {
+				animation: button-open-animation $animation forwards;
+
+				.text {
+					animation: button-open-text-expand-animation $animation forwards;
+				}
+			}
+		}
+	}
+	
+	@media (hover: none) {
+		width: $button-width-open;
+		
+		.text {
+			opacity: 1;
+			transform: translateX(0) !important;
+			width: 100%;
+		}
+		
+		&.toggle {
+			.icon {
+				background: $color-white-transparent-25 !important;
+			}
+			
+			&:hover, &:active, &.active {
+				.icon {
+					background: $gradient-accent !important;
+				}
+			}
+		}
+	}
+}
+
+@keyframes button-open-text-expand-animation {
+	from {		width: 0;	}
+	to {		width: 100% ;	}
+}
+
+@keyframes button-close-text-expand-animation {
+	from {		width: 100% ;	}
+	to {		width: 0 ;	}
+}
+
+@keyframes button-open-animation {
+	from {		width: $button-width-close ;	}
+	to {		width: $button-width-open ;	}
+}
+
+@keyframes button-close-animation {
+	from {		width: $button-width-open ;	}
+	to {		width: $button-width-close ;	}
+}
