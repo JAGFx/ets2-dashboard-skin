@@ -52,6 +52,7 @@
 
 .text-gradient {
 	background-clip: text;
+	-webkit-background-clip: text;
 	background-image: $gradient-accent;
 	-webkit-text-fill-color: transparent;
 }
