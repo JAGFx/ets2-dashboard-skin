@@ -4,7 +4,7 @@ import store from '@/store';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Vue from 'vue';
 import VueClipboard from 'vue-clipboard2';
-import VueInsomnia from 'vue-insomnia';
+import VueInsomnia from 'vue-insomnia/vueInsomniaPlugin';
 
 Vue.use(VueClipboard);
 Vue.use(VueInsomnia);
