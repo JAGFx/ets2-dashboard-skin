@@ -11,7 +11,8 @@
 		mask:
 			linear-gradient(#fff 0 0) content-box,
 				 linear-gradient(#fff 0 0);
-		//mask-composite: xor;
+
+		// mask-composite: xor;
 		mask-composite: exclude;
 		padding: $width;
 		position: absolute;

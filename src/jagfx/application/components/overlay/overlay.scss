@@ -1,0 +1,28 @@
+@import "../../style/abstracts/variables";
+@import "../../style/abstracts/mixins";
+@import "../../style/abstracts/effects";
+@import "../../style/vendors/bootstrap_configuration";
+
+/* The Overlay (background) */
+.overlay {
+  background: $color-black;
+  height: 100%;
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  position: fixed;
+  top: 0;
+  width: 0;
+  z-index: 9999;
+
+  @supports (backdrop-filter: blur(30px)) {
+    @include background-acrylic;
+  }
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  text-align: center; /* Centered text/links */
+  top: 50%; /* 50% from the top */
+  width: 100%; /* 100% width */
+}
