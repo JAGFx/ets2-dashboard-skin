@@ -10,9 +10,9 @@
 
 <script setup>
 // Defines a closeOverlay event that can be emitted by the overlay component.
-defineEmits(["closeOverlay"]);
+defineEmits(['closeOverlay']);
 </script>
 
 <style lang="scss">
-@import "overlay";
+@import 'overlay';
 </style>
