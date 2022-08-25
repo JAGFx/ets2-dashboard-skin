@@ -14,14 +14,14 @@
         <small class="text-muted">{{ preferenceEntry.description }}</small>
       </div>
       <div>
-        <slot />
+        <slot v-bind="{ ...preferenceEntry }" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { findPreferenceEntryById } from '@/jagfx/core/configuration/preference-entry/preference-entry.util.js';
+import { findPreferenceEntryById } from '@/jagfx/core/configuration/preference-entry/finder';
 
 import { usePreferencesEntry } from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
 import Tag from '@/jagfx/application/components/shared/ui/Tag/Tag.vue';

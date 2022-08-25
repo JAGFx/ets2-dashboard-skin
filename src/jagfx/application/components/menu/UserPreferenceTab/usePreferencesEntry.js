@@ -1,6 +1,6 @@
 import { computed, reactive } from 'vue';
 
-import { preferenceEntryMatchWithFilter } from '@/jagfx/core/configuration/preference-entry/preference-entry.util.js';
+import { preferenceEntryMatchWithFilter } from '@/jagfx/core/configuration/preference-entry/filter';
 
 const state = reactive({
   search: ''

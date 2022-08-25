@@ -24,13 +24,29 @@
 		"target": "application",
 		"label": "Port",
 		"description": "Port used by the server",
-		"value": null
+		"values": null
 	},
 	{
 		"id": "general_skin_on_load",
 		"target": "application",
 		"label": "Default skin loaded",
 		"description": "Set the skin loaded when this app was started",
-		"value": []
+		"values": []
+	},
+	{
+		"id": "events_game.pause",
+		"target": "event",
+		"label": "Game pause",
+		"description": "Port used by the server",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
 	}
 ]

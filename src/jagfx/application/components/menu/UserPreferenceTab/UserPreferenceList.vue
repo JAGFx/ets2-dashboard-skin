@@ -5,9 +5,11 @@
         <div class="card-body p-0">
           <div class="list-group">
             <UserPreferenceListItemSwitch
+              configuration-id="events_game.pause"
+            />
+            <UserPreferenceListItemSelect
               configuration-id="general_refresh_rate"
             />
-            <UserPreferenceListItemSelect configuration-id="general_port" />
           </div>
         </div>
       </div>
@@ -16,8 +18,8 @@
 </template>
 
 <script setup>
-import UserPreferenceListItemSelect from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItemSelect.vue';
-import UserPreferenceListItemSwitch from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItemSwitch.vue';
+import UserPreferenceListItemSelect from '@/jagfx/application/components/menu/UserPreferenceTab/item/UserPreferenceListItemSelect.vue';
+import UserPreferenceListItemSwitch from '@/jagfx/application/components/menu/UserPreferenceTab/item/UserPreferenceListItemSwitch.vue';
 </script>
 
 <style lang="scss" scoped></style>

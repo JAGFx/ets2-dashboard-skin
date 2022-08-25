@@ -4,7 +4,7 @@ module.exports = {
   },
   transform: {
     '^.+\\.js$': ['babel-jest', { configFile: './tools/.babelrc.json' }],
-    '\\.yaml$': 'yaml-jest'
+    '^.+\\.yaml$': 'yaml-jest'
   },
   testEnvironment: 'node',
   rootDir: '../',
