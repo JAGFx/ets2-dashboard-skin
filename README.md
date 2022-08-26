@@ -66,7 +66,7 @@ The host `ets2.jagfx.fr` was deprecated and will be removed in the future.
 
 ### Offline
 
-See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported games,
+See the [SCS_Map_Tiles](https://github.com/Unicor-p/SCS_Map_Tiles#supported-maps) repository for supported games,
 versions available and download links
 
 ## Internationalization

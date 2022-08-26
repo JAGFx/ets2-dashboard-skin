@@ -227,8 +227,8 @@
 	],
 	"maps_map_tilesRemotePath" :     [
 		{
-			"label" : "TwinDragon/SCS_Map_Tiles",
-			"value" : "https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/"
+			"label" : "Unicor-p/SCS_Map_Tiles",
+			"value" : "https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/"
 		},
 		{
 			"label" : "ets2.jagfx.fr (Deprecated)",

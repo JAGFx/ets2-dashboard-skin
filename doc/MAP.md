@@ -4,9 +4,9 @@ The map feature requires a collection of tiles. To do this, you need to generate
 
 If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) project.
 
-See the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) repository for supported games, available versions and download links.
+See the [SCS_Map_Tiles](https://github.com/Unicor-p/SCS_Map_Tiles#supported-maps) repository for supported games, available versions and download links.
 
-See the DLC compatibility on [this project](https://github.com/TwinDragon/SCS_Map_Tiles)
+See the DLC compatibility on [this project](https://github.com/Unicor-p/SCS_Map_Tiles)
 
 > Many thanks to [TwinDragon](https://github.com/TwinDragon) for keeping the map tiles collection up to date with each new version of the game.
 
@@ -55,7 +55,7 @@ If you wish, you can host your own collections of map tiles. See the previous se
 
 ### Step 1: Get tiles
 
-This project works with tiles from the [JAGFx / ts-map](https://github.com/JAGFx/ts-map) project. To get them, you can generate them yourself with the previous project, or get them from the [SCS_Map_Tiles](https://github.com/TwinDragon/SCS_Map_Tiles#supported-maps) project. 
+This project works with tiles from the [JAGFx / ts-map](https://github.com/JAGFx/ts-map) project. To get them, you can generate them yourself with the previous project, or get them from the [SCS_Map_Tiles](https://github.com/Unicor-p/SCS_Map_Tiles#supported-maps) project. 
 
 Collecting other tiles from any other project will not be supported.
 

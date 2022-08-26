@@ -54,7 +54,7 @@
 	"maps_elements_speedLimit" :               true,
 	"maps_elements_rotateWithPlayer" :         true,
 	"maps_map_type" :                          "vanilla",
-	"maps_map_tilesRemotePath" :               "https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/",
+	"maps_map_tilesRemotePath" :               "https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/",
 	"maps_map_activeMap" :                     null,
 	"maps_map_navigationRemaining" :           "remaining_date",
 	"maps_map_tilesVersion" :                  "latest",

@@ -30,7 +30,7 @@ For more information, read the [CONFIG_SETTINGS.md](CONFIG_SETTINGS.md) file
 
 The host hosted at `ets2.jagfx.fr` will not be updated anymore. In the next major release, it will be removed.
 
-Use the `TwinDragon/SCS_Map_Tiles` instead.
+Use the `Unicor-p/SCS_Map_Tiles` instead.
 
 ## v1.6.3+
 

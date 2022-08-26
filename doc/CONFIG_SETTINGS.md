@@ -857,7 +857,7 @@ But, all game configuration have same entries.
         <td>
             <ul>
                 <li>https://ets2.jagfx.fr</li>
-                <li>https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/</li>
+                <li>https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/</li>
             </ul>
         </td>
         <td>https://ets2.jagfx.fr</td>
