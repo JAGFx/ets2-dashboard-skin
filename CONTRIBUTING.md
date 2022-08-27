@@ -132,13 +132,13 @@ See the [RESOURCES.md](doc/RESOURCES.md) section to get more details
 
 ### Map
 
-The map tiles was generated from a side project: [JAGFx/ts-map](https://github.com/JAGFx/ts-map)
+The map tiles was generated from a side project: [Unicor-p/ts-map](https://github.com/Unicor-p/ts-map)
 
 When can you request a map tiles update ? At each new minor release, you can request an update.
 
 If a new map DLC are released through the same minor version of the current game, you don't need to follow this guide.
 You just need to generate the map tiles collection and share it to me. See
-this [readme](https://github.com/JAGFx/ts-map/tree/feat/rework#how-to-use-) ;)
+this [readme](https://github.com/Unicor-p/ts-map/tree/feat/rework#how-to-use-) ;)
 
 Example of valid version for the requesting:
 
@@ -154,8 +154,8 @@ Example of **INVALID** version for the requesting:
 
 #### Tiles generation
 
-- 1/ [Download](https://github.com/JAGFx/ts-map/releases/download/v1.0.0-cli-beta/TsMap2.rar)
-  the [JAGFx/ts-map](https://github.com/JAGFx/ts-map) program
+- 1/ [Download](https://github.com/Unicor-p/ts-map/releases/download/v1.0.0-cli-beta/TsMap2.rar)
+  the [Unicor-p/ts-map](https://github.com/Unicor-p/ts-map) program
 - 2/ Generate a setting file: `TsMap2.exe export -s` and follow instruction
 - 3/ Generate tiles `TsMap2.exe export`
 - 4/ Create an archive with all content from the `Output` folder

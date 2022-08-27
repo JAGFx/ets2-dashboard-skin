@@ -20,6 +20,8 @@ This is the case to be in accordance with an other development philosophy: It is
 All new features will be introduced in the next major version 2.X.
 >
 > You can follow the roadmap on this [project board](https://github.com/users/JAGFx/projects/4)
+ 
+> All project around this will be moved into the [Unicor'p](https://github.com/Unicor-p) organisation
 
 ## About
 
@@ -56,7 +58,7 @@ It works on both desktop and mobile browsers.
 
 ### Support
 
-If you're interested, check the [`JAGFx/ts-map`](https://github.com/JAGFx/ts-map) project.
+If you're interested, check the [`Unicor-p/ts-map`](https://github.com/Unicor-p/ts-map) project.
 
 More information on the [Map](./doc/MAP.md) readme
 

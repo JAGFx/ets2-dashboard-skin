@@ -844,23 +844,34 @@ But, all game configuration have same entries.
         <td>vanilla</td>
     </tr>
     <tr>
+        <td>maps_map_tilesRemotePath</td>
+        <td>Remote tiles location</td>
+        <td>
+           <ul>
+                <li>https://ets2.jagfx.fr</li>
+                <li>https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/</li>
+            </ul>
+        </td>
+        <td>https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/</td>
+    </tr>
+    <tr>
+        <td>maps_map_tilesRemoteUseCustom</td>
+        <td>Custom tiles</td>
+        <td>
+            <ul>
+                <li>true</li>
+                <li>false</li>
+            </ul>
+        </td>
+        <td>false</td>
+    </tr>
+    <tr>
         <td>maps_map_tilesRemoteCustomPath</td>
         <td>Custom tiles location</td>
         <td>
             N/A
         </td>
         <td>null</td>
-    </tr>
-    <tr>
-        <td>maps_map_tilesRemoteUseCustom</td>
-        <td>Remote tiles location</td>
-        <td>
-            <ul>
-                <li>https://ets2.jagfx.fr</li>
-                <li>https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/</li>
-            </ul>
-        </td>
-        <td>https://ets2.jagfx.fr</td>
     </tr>    
     <tr>
         <td>maps_map_tilesVersion</td>

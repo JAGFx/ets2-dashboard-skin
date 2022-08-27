@@ -1,5 +1,18 @@
 # Breaking change
 
+## v1.7.3+
+
+### Remote tiles location
+
+Due to moving all project around this into the Unicor'p organization, the value of the `maps_map_tilesRemotePath` have been changed.
+
+The older value is no longer available. Please update the value with the new one:
+```json
+    ...
+    "maps_map_tilesRemotePath" : "https://raw.githubusercontent.com/Unicor-p/SCS_Map_Tiles/master/",
+    ...
+```
+
 ## v1.7.0+
 
 ### Configurations files
