@@ -23,15 +23,23 @@ import { loadPreferenceEntryValues } from '@/jagfx/core/configuration/preference
 
 import UserPreferenceListItem from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
 
-defineProps({
+const props = defineProps({
   configurationId: {
     type: String,
     required: true
+  },
+  values: {
+    type: Array,
+    required: false,
+    default: () => []
   }
 });
 
-const loadValues = (preferenceEntry) =>
-  loadPreferenceEntryValues(preferenceEntry);
+const loadValues = (preferenceEntry) => {
+  return props.values.length > 0
+    ? props.values
+    : loadPreferenceEntryValues(preferenceEntry);
+};
 </script>
 
 <style lang="scss" scoped></style>

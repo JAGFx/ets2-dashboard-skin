@@ -10,6 +10,10 @@
             <UserPreferenceListItemSelect
               configuration-id="general_refresh_rate"
             />
+            <UserPreferenceListItemSelect
+              configuration-id="general_skin_on_load"
+              :values="[{ label: 'One', value: 'Two' }]"
+            />
           </div>
         </div>
       </div>
