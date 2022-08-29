@@ -1,15 +1,31 @@
-import PreferenceEntryMock from "./preference-entry.mock.js";
 import { PreferenceEntry } from "@/jagfx/core/configuration/preference-entry/PreferenceEntry";
 import {
   convertJsonObjectToPreferenceEntry,
   findPreferenceEntryById,
 } from "@/jagfx/core/configuration/preference-entry/finder";
-import {
-  existingConfiguration,
-  existingConfigurationId,
-} from "@/jagfx/core/configuration/preference-entry/preference-entry.mock";
 
-// TODO Find a way to use an external mock file
+const existingConfigurationId = "an_existing_configuration_id";
+const existingConfiguration = [
+  {
+    id: "an_existing_configuration_id",
+    target: "application",
+    label: "Configuration 1",
+    description: "Description 1",
+    values: [
+      {
+        label: "Value 1",
+        value: "value1",
+      },
+    ],
+  },
+  {
+    id: "another_existing_configuration_id",
+    target: "application",
+    label: "Unicorn label 2",
+    description: "Description 2",
+    values: null,
+  },
+];
 
 jest.mock(
   "@/jagfx/core/configuration/preference-entry/map.json",

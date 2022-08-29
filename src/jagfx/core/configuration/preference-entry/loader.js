@@ -1,5 +1,16 @@
 export const loadPreferenceEntryValues = (preferenceEntry) => {
   if (
+    Array.isArray(preferenceEntry) ||
+    preferenceEntry === null ||
+    typeof preferenceEntry !== "object" ||
+    !Array.isArray(preferenceEntry.values) ||
+    !Object.hasOwnProperty.call(preferenceEntry, "values") ||
+    preferenceEntry.values === null
+  ) {
+    return null;
+  }
+
+  if (
     Array.isArray(preferenceEntry.values) &&
     preferenceEntry.values.length > 0
   ) {
