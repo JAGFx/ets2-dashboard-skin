@@ -1,46 +1,46 @@
-import { PreferenceEntry } from "@/jagfx/core/configuration/preference-entry/PreferenceEntry";
+import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/PreferenceEntry';
 import {
   convertJsonObjectToPreferenceEntry,
-  findPreferenceEntryById,
-} from "@/jagfx/core/configuration/preference-entry/finder";
+  findPreferenceEntryById
+} from '@/jagfx/core/configuration/preference-entry/finder';
 
-const existingConfigurationId = "an_existing_configuration_id";
+const existingConfigurationId = 'an_existing_configuration_id';
 const existingConfiguration = [
   {
-    id: "an_existing_configuration_id",
-    target: "application",
-    label: "Configuration 1",
-    description: "Description 1",
+    id: 'an_existing_configuration_id',
+    target: 'application',
+    label: 'Configuration 1',
+    description: 'Description 1',
     values: [
       {
-        label: "Value 1",
-        value: "value1",
-      },
-    ],
+        label: 'Value 1',
+        value: 'value1'
+      }
+    ]
   },
   {
-    id: "another_existing_configuration_id",
-    target: "application",
-    label: "Unicorn label 2",
-    description: "Description 2",
-    values: null,
-  },
+    id: 'another_existing_configuration_id',
+    target: 'application',
+    label: 'Unicorn label 2',
+    description: 'Description 2',
+    values: null
+  }
 ];
 
 jest.mock(
-  "@/jagfx/core/configuration/preference-entry/map.json",
+  '@/jagfx/core/configuration/preference-entry/map.json',
   () => existingConfiguration
 );
 
-describe("Preference entries finder", () => {
-  it("An existing preference entry must return data successfully", () => {
+describe('Preference entries finder', () => {
+  it('An existing preference entry must return data successfully', () => {
     const configuration = findPreferenceEntryById(existingConfigurationId);
 
     expect(configuration).toMatchObject(existingConfiguration.at(0));
   });
 
-  it("An unknown preference entry must thrown an exception", () => {
-    const unknownPreferenceEntryId = "an_unknown_preference_entry_id";
+  it('An unknown preference entry must thrown an exception', () => {
+    const unknownPreferenceEntryId = 'an_unknown_preference_entry_id';
     expect(() =>
       findPreferenceEntryById(unknownPreferenceEntryId)
     ).toThrowError(
@@ -48,7 +48,7 @@ describe("Preference entries finder", () => {
     );
   });
 
-  it("An object typed of PreferenceEntry must be returned by the converter successfully", () => {
+  it('An object typed of PreferenceEntry must be returned by the converter successfully', () => {
     const anonymousObject = existingConfiguration.at(0);
     const convertedObject = convertJsonObjectToPreferenceEntry(anonymousObject);
 

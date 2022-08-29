@@ -52,7 +52,7 @@
 
 .text-gradient {
 	background-clip: text;
-	-webkit-background-clip: text;
+	-webkit-background-clip: text;  /* stylelint-disable-line */
 	background-image: $gradient-accent;
 	-webkit-text-fill-color: transparent;
 }

@@ -2,9 +2,9 @@ export const loadPreferenceEntryValues = (preferenceEntry) => {
   if (
     Array.isArray(preferenceEntry) ||
     preferenceEntry === null ||
-    typeof preferenceEntry !== "object" ||
+    typeof preferenceEntry !== 'object' ||
     !Array.isArray(preferenceEntry.values) ||
-    !Object.hasOwnProperty.call(preferenceEntry, "values") ||
+    !Object.hasOwnProperty.call(preferenceEntry, 'values') ||
     preferenceEntry.values === null
   ) {
     return null;
