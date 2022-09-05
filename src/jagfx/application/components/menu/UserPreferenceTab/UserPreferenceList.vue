@@ -12,7 +12,7 @@
             />
             <UserPreferenceListItemSelect
               configuration-id="general_skin_on_load"
-              :values="[{ label: 'One', value: 'Two' }]"
+              :values="[{ label: 'One', value: 'One' }]"
             />
           </div>
         </div>
