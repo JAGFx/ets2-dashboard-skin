@@ -33,8 +33,9 @@ const props = defineProps({
   }
 });
 
-const preferenceEntry = findPreferenceEntryById(props.configurationId);
 const { isMatchWithFilter } = usePreferencesEntry();
+
+const preferenceEntry = findPreferenceEntryById(props.configurationId);
 </script>
 
 <style lang="scss" scoped></style>
