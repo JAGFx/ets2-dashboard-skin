@@ -4,10 +4,9 @@
     "jest": true
   },
   "extends": [
-    "eslint:recommended",
     "plugin:vue/vue3-recommended",
-    "prettier",
-    "eslint-config-prettier"
+    "eslint:recommended",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 13
