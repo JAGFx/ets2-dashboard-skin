@@ -28,7 +28,7 @@ jobs:
                 uses: actions/upload-artifact@v3
                 with:
                     name: artifact-node-modules
-                    path: ~/node_modules
+                    path: node_modules
 
     linter:
         name: Linter
