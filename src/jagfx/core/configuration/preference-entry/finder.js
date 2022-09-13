@@ -1,8 +1,8 @@
 import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/PreferenceEntry.js';
-import map from '@/jagfx/core/configuration/preference-entry/map.json';
+import list from '@/jagfx/core/configuration/preference-entry/list.json';
 
 export const findPreferenceEntryById = (preferenceEntryId) => {
-  const matches = map.filter(
+  const matches = list.filter(
     (preferenceEntry) => preferenceEntry.id === preferenceEntryId
   );
 

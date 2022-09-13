@@ -28,7 +28,7 @@ const existingConfiguration = [
 ];
 
 jest.mock(
-  '@/jagfx/core/configuration/preference-entry/map.json',
+  '@/jagfx/core/configuration/preference-entry/list.json',
   () => existingConfiguration
 );
 
