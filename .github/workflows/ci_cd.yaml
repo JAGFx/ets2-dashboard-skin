@@ -30,9 +30,12 @@ jobs:
 
             -   name: Cache node modules
                 uses: actions/cache@v3
+                id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
                 with:
-                    path: ~/node_modules
-                    key: cache-node-modules
+                    path: ${{ steps.npm-cache-dir.outputs.dir }}
+                    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                    restore-keys: |
+                        ${{ runner.os }}-node-
 
 
     linter:
@@ -50,12 +53,12 @@ jobs:
                 uses: actions/setup-node@v2
                 with:
                     node-version: ${{ matrix.node-version }}
-            -   name: Cache node modules
-                uses: actions/cache@v3
-                with:
-                    path: ~/node_modules
-                    key: cache-node-modules
+            -   name: Get npm cache directory
+                id: npm-cache-dir
+                run: |
+                    echo "::set-output name=dir::$(npm config get cache)"
             -   name: Run linter
+                if: steps.npm-cache.outputs.cache-hit != 'true'
                 run: npm run lint
 
     unit_test:
@@ -72,11 +75,10 @@ jobs:
                 uses: actions/setup-node@v2
                 with:
                     node-version: ${{ matrix.node-version }}
-            -   name: Cache node modules
-                uses: actions/cache@v3
-                with:
-                    path: ~/node_modules
-                    key: cache-node-modules
+            -   name: Get npm cache directory
+                id: npm-cache-dir
+                run: |
+                    echo "::set-output name=dir::$(npm config get cache)"
             -   name: Run unit test
-                if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+                if: steps.npm-cache.outputs.cache-hit != 'true'
                 run: npm test
