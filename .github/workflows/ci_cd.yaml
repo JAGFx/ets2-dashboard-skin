@@ -1,0 +1,61 @@
+name: CI / CD
+on:
+    push:
+        branches: [ 'feat/@next' ]
+    pull_request:
+        branches: [ 'feat/@next' ]
+jobs:
+    install:
+        name: Install
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [ 16.x ]
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v3
+                with:
+                    fetch-depth: 2
+
+            -   run: git checkout HEAD^2
+                if: ${{ github.event_name == 'pull_request' }}
+
+            -   name: Use Node.js ${{ matrix.node-version }}
+                uses: actions/setup-node@v2
+                with:
+                    node-version: ${{ matrix.node-version }}
+
+            -   name: Install dependencies
+                run: npm i
+
+            -   name: Cache node modules
+                id: cache-npm
+                uses: actions/cache@v3
+                env:
+                    cache-name: cache-node-modules
+                with:
+                    path: ~/.npm
+                    key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+                    restore-keys: |
+                        ${{ runner.os }}-build-${{ env.cache-name }}-
+                        ${{ runner.os }}-build-
+                        ${{ runner.os }}-
+
+
+    linter:
+        name: Linter
+        runs-on: ubuntu-latest
+        needs: [install]
+        steps:
+            -   name: Run linter
+                if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+                run: npm run lint
+
+    unit_test:
+        name: Unit test
+        runs-on: ubuntu-latest
+        needs: [install]
+        steps:
+            -   name: Run unit test
+                if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+                run: npm test
