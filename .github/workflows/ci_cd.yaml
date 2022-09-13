@@ -29,17 +29,10 @@ jobs:
                 run: npm i
 
             -   name: Cache node modules
-                id: cache-npm
                 uses: actions/cache@v3
-                env:
-                    cache-name: cache-node-modules
                 with:
-                    path: ~/.npm
-                    key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                    restore-keys: |
-                        ${{ runner.os }}-build-${{ env.cache-name }}-
-                        ${{ runner.os }}-build-
-                        ${{ runner.os }}-
+                    path: ~/node_modules
+                    key: cache-node-modules
 
 
     linter:
@@ -57,8 +50,12 @@ jobs:
                 uses: actions/setup-node@v2
                 with:
                     node-version: ${{ matrix.node-version }}
+            -   name: Cache node modules
+                uses: actions/cache@v3
+                with:
+                    path: ~/node_modules
+                    key: cache-node-modules
             -   name: Run linter
-                if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
                 run: npm run lint
 
     unit_test:
@@ -71,11 +68,15 @@ jobs:
                 with:
                     fetch-depth: 2
             -   run: git checkout HEAD^2
-                if: ${{ github.event_name == 'pull_request' }}
             -   name: Use Node.js ${{ matrix.node-version }}
                 uses: actions/setup-node@v2
                 with:
                     node-version: ${{ matrix.node-version }}
+            -   name: Cache node modules
+                uses: actions/cache@v3
+                with:
+                    path: ~/node_modules
+                    key: cache-node-modules
             -   name: Run unit test
                 if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
                 run: npm test
