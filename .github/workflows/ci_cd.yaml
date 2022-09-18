@@ -19,16 +19,17 @@ jobs:
             -   run: git checkout HEAD^2
                 if: ${{ github.event_name == 'pull_request' }}
             -   name: Use Node.js ${{ matrix.node-version }}
-                uses: actions/setup-node@v2
+                uses: actions/setup-node@v3
                 with:
                     node-version: ${{ matrix.node-version }}
             -   name: Install dependencies
                 run: npm i
             -   name: Cache node modules
-                uses: actions/upload-artifact@v3
+                uses: actions/cache@v3
+                id: restore-build
                 with:
-                    name: artifact-node-modules
-                    path: node_modules
+                    path: ./*
+                    key: ${{ github.sha }}
 
     linter:
         name: Linter
@@ -39,11 +40,15 @@ jobs:
                 uses: actions/checkout@v3
                 with:
                     fetch-depth: 2
-            -   run: git checkout HEAD^2
-                if: ${{ github.event_name == 'pull_request' }}
-            -   uses: actions/download-artifact@v3
+            -   name: Use Node.js ${{ matrix.node-version }}
+                uses: actions/setup-node@v3
                 with:
-                    name: artifact-node-modules
+                    node-version: ${{ matrix.node-version }}
+            -   uses: actions/cache@v3
+                id: restore-build
+                with:
+                    path: ./*
+                    key: ${{ github.sha }}
             -   name: Run linter
                 run: npm run lint
 
@@ -56,10 +61,14 @@ jobs:
                 uses: actions/checkout@v3
                 with:
                     fetch-depth: 2
-            -   run: git checkout HEAD^2
-                if: ${{ github.event_name == 'pull_request' }}
-            -   uses: actions/download-artifact@v3
+            -   name: Use Node.js ${{ matrix.node-version }}
+                uses: actions/setup-node@v3
                 with:
-                    name: artifact-node-modules
+                    node-version: ${{ matrix.node-version }}
+            -   uses: actions/cache@v3
+                id: restore-build
+                with:
+                    path: ./*
+                    key: ${{ github.sha }}
             -   name: Run unit test
                 run: npm test
