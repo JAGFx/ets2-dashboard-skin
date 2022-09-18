@@ -14,8 +14,8 @@ const pkgServer = require('../servers/default/package.json');
 // ---------------------------------------------
 
 // --- Font icons
-const iconDist = 'resources/dist/';
-const iconSvgs = 'resources/icons/svgs/*.svg';
+const iconDist = '../resources/dist/';
+const iconSvgs = '../resources/icons/svgs/*.svg';
 const iconDistFontFiles = [
   iconDist + '*.svg',
   iconDist + '*.ttf',
@@ -24,7 +24,7 @@ const iconDistFontFiles = [
   iconDist + '*.eot',
   iconDist + '*.css'
 ];
-const iconDestFiles = 'public/icons/';
+const iconDestFiles = '../public/icons/';
 
 // --- Resources copy
 const srcTruckBrandSvgs = 'resources/truck-brand/svgs/*.svg';

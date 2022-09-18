@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. tools/docker-image-name
+docker run -it --rm -p 8080:8080 -v "$(pwd):/usr/app" ${PROJECT_IMAGE_NAME}
