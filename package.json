@@ -103,7 +103,7 @@
     "stylelint-config-standard-scss": "^5.0.0",
     "vite": "^2.9.15",
     "vue-i18n-extract": "^2.0.7",
-    "yaml-jest": "github:hvasc/yaml-jest#support-jest28"
+    "yaml-jest": "github:JAGFx/yaml-jest"
   },
   "bugs": {
     "url": "https://github.com/JAGFx/ets2-dashboard-skin/issues"
