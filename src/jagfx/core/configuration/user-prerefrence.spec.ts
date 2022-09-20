@@ -35,7 +35,7 @@ describe('User preference state', () => {
   it.each(unknownUserPreferenceStates)(
     'Invalid user preference state must throw an error',
     (userPreference) => {
-      expect(() => findUserPreference(userPreference)).toThrow();
+      expect(() => findUserPreference(userPreference, null)).toThrow();
     }
   );
 });

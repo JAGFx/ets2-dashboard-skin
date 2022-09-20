@@ -1,6 +1,6 @@
 import { computed, reactive, readonly } from 'vue';
 
-import { LOG_LEVEL, createLine } from '@/jagfx/core/application/logger.js';
+import { LOG_LEVEL, createLine } from '@/jagfx/core/application/logger';
 
 const state = reactive({
   logs: []

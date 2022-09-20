@@ -1,4 +1,4 @@
-import { translate } from '@/jagfx/core/application/translator/translate.js';
+import { translate } from '@/jagfx/core/application/translator/translate';
 
 import { useTranslator } from '@/jagfx/application/components/shared/translator/useTranslator.js';
 

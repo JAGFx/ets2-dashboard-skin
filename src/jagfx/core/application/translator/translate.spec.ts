@@ -3,7 +3,7 @@ import {
   getTranslationToGivenLocale,
   translate,
   translations
-} from '@/jagfx/core/application/translator/translate.js';
+} from '@/jagfx/core/application/translator/translate';
 
 const mockedFrTranslations = {
   'English target': 'Cible français'

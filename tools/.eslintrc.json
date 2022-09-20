@@ -6,18 +6,24 @@
   "extends": [
     "plugin:vue/vue3-recommended",
     "eslint:recommended",
+    "@vue/typescript/recommended",
     "prettier"
   ],
+  "plugins" : [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "parser": "vue-eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 13
+    "ecmaVersion": 13,
+    "parser": "@typescript-eslint/parser"
   },
-  "plugins": ["prettier"],
   "rules": {
     "no-console": 1,
     "no-debugger": 2,
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
     "vue/no-v-html": "off",
     "vue/multi-word-component-names": "off",
-    "prettier/prettier": 2
+    "prettier/prettier": "error"
   }
 }

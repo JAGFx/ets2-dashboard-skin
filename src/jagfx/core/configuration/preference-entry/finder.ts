@@ -1,4 +1,4 @@
-import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/PreferenceEntry.js';
+import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/PreferenceEntry';
 import list from '@/jagfx/core/configuration/preference-entry/list.json';
 
 export const findPreferenceEntryById = (preferenceEntryId) => {

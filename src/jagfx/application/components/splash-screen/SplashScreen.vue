@@ -2,11 +2,11 @@
   <h1>Plop</h1>
 </template>
 
-<script>
-export default {
-  name: 'SplashScreen',
-  setup() {}
-};
+<script setup>
+//export default {
+//  name: "SplashScreen",
+//  setup() {},
+//};
 </script>
 
 <style></style>

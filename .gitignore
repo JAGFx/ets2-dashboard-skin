@@ -30,3 +30,5 @@ logs/
 coverage/
 
 /.prettierrc.json
+/tsconfig.json
+/vite.config.ts

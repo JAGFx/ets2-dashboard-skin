@@ -1,7 +1,7 @@
 import { computed, reactive, readonly } from 'vue';
 import { useVueInsomnia } from 'vue-insomnia';
 
-import { switchFullscreen } from '@/jagfx/core/application/fullscreen.js';
+import { switchFullscreen } from '@/jagfx/core/application/fullscreen';
 
 const { enableVueInsomnia, disableVueInsomnia } = useVueInsomnia();
 

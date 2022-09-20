@@ -1,6 +1,6 @@
 import { computed, reactive, readonly } from 'vue';
 
-import { changeLocale } from '@/jagfx/core/application/translator/locale.js';
+import { changeLocale } from '@/jagfx/core/application/translator/locale';
 
 const state = reactive({
   locale: 'fr-FR'

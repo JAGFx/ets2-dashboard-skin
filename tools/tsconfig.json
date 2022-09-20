@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl" : "../",
+    "paths" : {
+      "@/*": ["./src/*"]
+    },
+    "target": "esnext",
+    "module": "esnext",
+	"moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types" : ["@modyfi/vite-plugin-yaml/modules", "@types/jest"]
+  }
+}

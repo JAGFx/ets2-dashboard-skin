@@ -1,35 +1,17 @@
+import {
+  existingConfiguration,
+  existingConfigurationId
+} from '@/jagfx/core/configuration/preference-entry/finder.mock';
 import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/PreferenceEntry';
 import {
   convertJsonObjectToPreferenceEntry,
   findPreferenceEntryById
 } from '@/jagfx/core/configuration/preference-entry/finder';
 
-const existingConfigurationId = 'an_existing_configuration_id';
-const existingConfiguration = [
-  {
-    id: 'an_existing_configuration_id',
-    target: 'application',
-    label: 'Configuration 1',
-    description: 'Description 1',
-    values: [
-      {
-        label: 'Value 1',
-        value: 'value1'
-      }
-    ]
-  },
-  {
-    id: 'another_existing_configuration_id',
-    target: 'application',
-    label: 'Unicorn label 2',
-    description: 'Description 2',
-    values: null
-  }
-];
-
 jest.mock(
   '@/jagfx/core/configuration/preference-entry/list.json',
-  () => existingConfiguration
+  () => existingConfiguration,
+  { virtual: true }
 );
 
 describe('Preference entries finder', () => {
