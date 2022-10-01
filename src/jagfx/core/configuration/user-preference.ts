@@ -1,44 +1,30 @@
-import { arrayEqual } from '@/jagfx/core/application/array';
-import { objectKeyValueOrNull } from '@/jagfx/core/application/object';
+import {
+  UserPreference,
+  UserPreferenceTarget
+} from '@/jagfx/core/configuration/user-preference.type';
 
-export const validateUserPreferenceState = (state, errorMessage) => {
-  if (!arrayEqual(Object.keys(state), ['application', 'game'])) {
-    throw new Error(errorMessage);
-  }
+export const findUserPreference = (
+  userPreferences: UserPreference[],
+  userPreferenceId: string
+): UserPreference | null => {
+  const userPreference: UserPreference | undefined = userPreferences
+    .filter(
+      (userPreference: UserPreference) => userPreference.id === userPreferenceId
+    )
+    ?.at(0);
+
+  return userPreference || null;
 };
 
-export const findUserPreference = (state, userPreferenceKey) => {
-  validateUserPreferenceState(
-    state,
-    'The given state was not valid to find a user preference'
-  );
+export const getTargetOfUserPreference = (
+  userPreferences: UserPreference[],
+  userPreferenceId: string
+): UserPreferenceTarget | null => {
+  const userPreference = userPreferences
+    .filter(
+      (userPreference: UserPreference) => userPreference.id === userPreferenceId
+    )
+    ?.at(0);
 
-  let userPreference = null;
-
-  Object.keys(state).forEach((stateKey) => {
-    if (userPreference === null) {
-      userPreference = objectKeyValueOrNull(userPreferenceKey, state[stateKey]);
-    }
-  });
-
-  return userPreference;
-};
-
-export const getTargetOfUserPreference = (state, userPreferenceKey) => {
-  validateUserPreferenceState(
-    state,
-    'The given state was not valid to find target of user preference'
-  );
-
-  let target = null;
-  let userPreference = null;
-
-  Object.keys(state).forEach((stateKey) => {
-    if (userPreference === null) {
-      userPreference = objectKeyValueOrNull(userPreferenceKey, state[stateKey]);
-      target = userPreference === null ? null : stateKey;
-    }
-  });
-
-  return target;
+  return userPreference !== undefined ? userPreference.target : null;
 };

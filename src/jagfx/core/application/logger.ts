@@ -1,14 +1,12 @@
-import { DateTime } from 'luxon';
+import { DateTime } from 'luxon/src/datetime';
 
-export const LOG_LEVEL = {
-  DEBUG: 'DEBUG',
-  INFO: 'INFO',
-  WARNING: 'WARNING',
-  ERROR: 'ERROR',
-  CRITICAL: 'CRITICAL'
-};
+import { LogLevel } from '@/jagfx/core/application/logger.type';
 
-export const createLine = (message, zone, level = LOG_LEVEL.INFO) => {
+export const createLine = (
+  message: string,
+  zone: string,
+  level: LogLevel = LogLevel.INFO
+): string => {
   const date = DateTime.now();
   return `[ ${date.toString()} ][ ${level} ][ ${zone} ] ${message}`;
 };

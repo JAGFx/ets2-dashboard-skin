@@ -1,8 +1,5 @@
-export const availableLocale = ['fr-FR', 'en-EN', 'cn-CN', 'ru-RU', 'pt-PT'];
+import { TranslationLocale } from '@/jagfx/core/application/translator/translate.type';
 
-export const changeLocale = (locale) => {
-  if (availableLocale.indexOf(locale) === -1)
-    throw new Error(`Unsupported locale: ${locale}`);
-
+export const changeLocale = (locale: TranslationLocale): string => {
   return locale;
 };

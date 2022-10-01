@@ -1,35 +1,27 @@
-import { loadPreferenceEntryValues } from '@/jagfx/core/configuration/preference-entry/loader';
+import {
+  mockPreferenceEntry,
+  preferenceEntry
+} from '@/jagfx/core/configuration/preference-entry/test/loader.mock';
 
-const mockPreferenceEntry = (values) => ({
-  values
-});
+import { loadPreferenceEntryValues } from '@/jagfx/core/configuration/preference-entry/loader';
+import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
 
 describe('Preference entries finder', () => {
   // Array not empty > Return this array
   // Array empty  > Perform external request
   // Null         > No value, return null
   it('Should return the same array if preference entry value is an array not empty', () => {
-    const preferenceEntry = mockPreferenceEntry(['some', 'stuff']);
-
     expect(loadPreferenceEntryValues(preferenceEntry)).toBe(
       preferenceEntry.values
     );
   });
 
-  const invalidPreferenceEntries = [
-    {},
-    '',
-    'string',
-    123,
-    undefined,
-    null,
-    new Event(''),
-    { label: '' },
+  const invalidPreferenceEntries: PreferenceEntry[] = [
     mockPreferenceEntry(null)
   ];
   it.each(invalidPreferenceEntries)(
     'Should return null with invalid preferenceEntry',
-    (invalidPreferenceEntry) => {
+    (invalidPreferenceEntry: PreferenceEntry) => {
       expect(loadPreferenceEntryValues(invalidPreferenceEntry)).toBeNull();
     }
   );

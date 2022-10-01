@@ -3,7 +3,13 @@
   "trailingComma": "none",
   "singleQuote": true,
   "printWidth": 80,
-  "importOrder": ["^@/jagfx/core/(.*)$", "^@/jagfx/application/(.*)$", "^@/(.*)$","^[./]" ],
+  "importOrder" : [
+    "(.*).mock$",
+    "^@/jagfx/core/(.*)$",
+    "^@/jagfx/application/(.*)$",
+    "^@/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
