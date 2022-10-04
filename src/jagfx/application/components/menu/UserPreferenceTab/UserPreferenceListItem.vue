@@ -14,17 +14,19 @@
         <small class="text-muted">{{ preferenceEntry.description }}</small>
       </div>
       <div>
-        <slot v-bind="{ ...preferenceEntry }" />
+        <slot />
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { usePreferencesEntry }     from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
 import { findPreferenceEntryById } from '@/jagfx/core/configuration/preference-entry/finder';
 
-import { usePreferencesEntry } from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
-import Tag from '@/jagfx/application/components/shared/ui/Tag/Tag.vue';
+import Tag                 from '@/jagfx/application/components/shared/ui/Tag/Tag.vue';
+import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
+import { provide, ref }    from 'vue';
 
 const props = defineProps({
   configurationId: {
@@ -34,8 +36,9 @@ const props = defineProps({
 });
 
 const { isMatchWithFilter } = usePreferencesEntry();
+const preferenceEntry : PreferenceEntry = findPreferenceEntryById(props.configurationId);
 
-const preferenceEntry = findPreferenceEntryById(props.configurationId);
+provide(props.configurationId, ref(preferenceEntry))
 </script>
 
 <style lang="scss" scoped></style>

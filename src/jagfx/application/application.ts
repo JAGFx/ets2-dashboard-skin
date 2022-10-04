@@ -12,7 +12,7 @@ import { createApp } from 'vue';
 import Vue3TouchEvents from 'vue3-touch-events';
 
 import App from '@/jagfx/application/components/ApplicationNext.vue';
-import TranslatorPlugin from '@/jagfx/application/components/shared/translator/translator.plugin.js';
+import TranslatorPlugin from '@/jagfx/application/components/shared/translator/translator.plugin';
 
 library.add(faEarthEurope);
 library.add(faAngleDown);

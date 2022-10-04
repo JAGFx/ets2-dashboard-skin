@@ -3,8 +3,10 @@ export const enum UserPreferenceTarget {
   Game = 'game'
 }
 
+export type UserPreferenceValue = string | boolean | number;
+
 export type UserPreference = {
   id: string;
   target: UserPreferenceTarget;
-  value: string | boolean | number;
+  value: UserPreferenceValue;
 };

@@ -22,9 +22,9 @@
 </template>
 
 <script setup>
-//import { useApplicationState } from '@/application/useApplicationState.js';
-//import { useLogger }           from "@/application/useLogger.js";
-//import { useTranslator }       from '@/application/useTranslator.js';
+//import { useApplicationState } from '@/application/useApplicationState.ts';
+//import { useLogger }           from "@/application/useLogger.ts";
+//import { useTranslator }       from '@/application/useTranslator.ts';
 //
 //const { version, isOnDevEnvironment, useFakeData } = useApplicationState();
 //const { currentLocale, changeLocale } = useTranslator();

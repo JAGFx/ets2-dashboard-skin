@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import UserPreferenceListItemSelect from '@/jagfx/application/components/menu/UserPreferenceTab/item/UserPreferenceListItemSelect.vue';
 import UserPreferenceListItemSwitch from '@/jagfx/application/components/menu/UserPreferenceTab/item/UserPreferenceListItemSwitch.vue';
 </script>

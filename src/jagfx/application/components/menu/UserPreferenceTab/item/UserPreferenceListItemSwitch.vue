@@ -4,7 +4,7 @@
   </UserPreferenceListItem>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import UserPreferenceListItem from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
 import Switch from '@/jagfx/application/components/shared/ui/Switch/Switch.vue';
 
