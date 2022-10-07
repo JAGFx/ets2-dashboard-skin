@@ -51,10 +51,10 @@
   </nav>
 </template>
 
-<script setup>
-import { useFullscreen } from '@/jagfx/application/components/menu/useFullscreen.js';
-import { useMenu } from '@/jagfx/application/components/menu/useMenu.js';
-import Button                  from '@/jagfx/application/components/shared/ui/Button/Button.vue';
+<script setup lang="ts">
+import { useFullscreen } from '@/jagfx/application/components/menu/useFullscreen';
+import { useMenu } from '@/jagfx/application/components/menu/useMenu';
+import Button from '@/jagfx/application/components/shared/ui/Button/Button.vue';
 import { useApplicationState } from '@/jagfx/application/components/useApplicationState';
 
 const { fullscreenIsEnabled, switchFullscreen } = useFullscreen();

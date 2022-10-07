@@ -21,24 +21,14 @@
 </template>
 
 <script setup lang="ts">
-import { usePreferencesEntry }     from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
-import { findPreferenceEntryById } from '@/jagfx/core/configuration/preference-entry/finder';
-
-import Tag                 from '@/jagfx/application/components/shared/ui/Tag/Tag.vue';
 import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
-import { provide, ref }    from 'vue';
 
-const props = defineProps({
-  configurationId: {
-    type: String,
-    required: true
-  }
-});
+import { usePreferencesEntry } from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
+import Tag from '@/jagfx/application/components/shared/ui/Tag/Tag.vue';
 
-const { isMatchWithFilter } = usePreferencesEntry();
-const preferenceEntry : PreferenceEntry = findPreferenceEntryById(props.configurationId);
+const { isMatchWithFilter, initConsumer } = usePreferencesEntry();
 
-provide(props.configurationId, ref(preferenceEntry))
+const preferenceEntry: PreferenceEntry = initConsumer();
 </script>
 
 <style lang="scss" scoped></style>

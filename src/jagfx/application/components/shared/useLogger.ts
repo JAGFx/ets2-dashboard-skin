@@ -7,7 +7,7 @@ type LoggerState = {
   logs: string[];
 };
 
-const state: LoggerState = reactive({
+const state = reactive<LoggerState>({
   logs: []
 });
 

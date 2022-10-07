@@ -1,18 +1,15 @@
 <template>
-  <UserPreferenceListItem
-      v-slot="preferenceEntry"
-      :configuration-id="configurationId"
-  >
+  <UserPreferenceListItem>
     <select
-        class="form-select form-select-sm"
-        aria-label="Default select example"
-        @input="(value : UserPreferenceValue) => setUserPreference(props.configurationId, value)"
-        :value="() => getUserPreference(props.configurationId)"
+      class="form-select form-select-sm"
+      aria-label="Default select example"
+      :value="() => getUserPreference(props.configurationId)"
+      @input="(value : UserPreferenceValue) => setUserPreference(props.configurationId, value)"
     >
       <option
-          v-for="value in loadValues(preferenceEntry)"
-          :key="value.value"
-          :value="value.value"
+        v-for="value in loadValues(preferenceEntry)"
+        :key="value.value"
+        :value="value.value"
       >
         {{ value.label }}
       </option>
@@ -21,34 +18,37 @@
 </template>
 
 <script setup lang="ts">
-import UserPreferenceListItem from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
-import { useUserPreferences } from '@/jagfx/application/components/shared/useUserPreferences';
-
 import { loadPreferenceEntryValues } from '@/jagfx/core/configuration/preference-entry/loader';
 import {
   PreferenceEntry,
   PreferenceEntryValue
-}                                    from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
-import { UserPreferenceValue }       from '@/jagfx/core/configuration/user-preference.type';
+} from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
+import { UserPreferenceValue } from '@/jagfx/core/configuration/user-preference.type';
+
+import UserPreferenceListItem from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
+import { usePreferencesEntry } from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
+import { useUserPreferences } from '@/jagfx/application/components/shared/useUserPreferences';
 
 const { getUserPreference, setUserPreference } = useUserPreferences();
+const { initProvider } = usePreferencesEntry();
 
-const props = defineProps( {
-  configurationId: {
-    type:     String,
-    required: true
-  },
-  values:          {
-    type:     Array,
-    required: false,
-    default:  () => []
-  }
-} );
+type UserPreferenceListItemSelectProps = {
+  preferenceEntryId: string;
+  values?: PreferenceEntryValue[];
+};
 
-const loadValues: PreferenceEntryValue[] | null = ( preferenceEntry: PreferenceEntry | null ): PreferenceEntryValue[] | null => {
+const props = withDefaults(defineProps<UserPreferenceListItemSelectProps>(), {
+  values: () => []
+});
+
+const preferenceEntry: PreferenceEntry = initProvider(props.preferenceEntryId);
+
+const loadValues = (
+  preferenceEntry: PreferenceEntry | null
+): PreferenceEntryValue[] | null => {
   return props.values.length > 0
-         ? props.values
-         : loadPreferenceEntryValues( preferenceEntry );
+    ? props.values
+    : loadPreferenceEntryValues(preferenceEntry);
 };
 </script>
 

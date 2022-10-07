@@ -45,36 +45,30 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, toRefs } from 'vue';
 
 defineEmits(['click']);
-const props = defineProps({
-  asLink: {
-    type: Boolean,
-    default: false
-  },
-  href: {
-    type: String,
-    default: ''
-  },
-  side: {
-    type: String,
-    default: 'left'
-  },
-  active: {
-    type: Boolean,
-    default: false
-  },
-  toggle: {
-    type: Boolean,
-    default: false
-  }
-});
-const hover = ref(false);
-const { active } = toRefs(props);
 
-const removeHoverEffect = () => {
+type ButtonProps = {
+  asLink?: boolean;
+  href?: string;
+  side?: 'left' | 'right';
+  active?: boolean;
+  toggle?: boolean;
+};
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+  asLink: false,
+  side: 'left',
+  active: false,
+  toggle: false
+});
+
+const hover = ref<boolean>(false);
+const { active } = toRefs<ButtonProps>(props);
+
+const removeHoverEffect = (): void => {
   if (!active.value) {
     setTimeout(() => (hover.value = false), 350);
   }

@@ -10,7 +10,7 @@ type UserPreferencesState = {
   preferences: UserPreference[];
 };
 
-const state: UserPreferencesState = reactive({
+const state = reactive<UserPreferencesState>({
   preferences: []
 });
 

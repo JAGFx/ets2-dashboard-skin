@@ -21,7 +21,7 @@
   <!--  <br />-->
 </template>
 
-<script setup>
+<script setup lang="ts">
 //import { useApplicationState } from '@/application/useApplicationState.ts';
 //import { useLogger }           from "@/application/useLogger.ts";
 //import { useTranslator }       from '@/application/useTranslator.ts';
@@ -34,5 +34,5 @@ import Navbar from '@/jagfx/application/components/navbar/Navbar.vue';
 </script>
 
 <style lang="scss">
-@import '@/jagfx/application/style/applicationNext';
+@import '@/jagfx/application/style/applicationNext.scss';
 </style>

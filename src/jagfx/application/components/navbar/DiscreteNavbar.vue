@@ -9,8 +9,8 @@
   </div>
 </template>
 
-<script setup>
-import { useMenu } from '@/jagfx/application/components/menu/useMenu.js';
+<script setup lang="ts">
+import { useMenu } from '@/jagfx/application/components/menu/useMenu';
 
 const { switchToCompleteMode } = useMenu();
 </script>

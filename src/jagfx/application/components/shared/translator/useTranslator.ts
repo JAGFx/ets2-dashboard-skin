@@ -6,7 +6,7 @@ type TranslatorState = {
   locale: TranslationLocale;
 };
 
-const state: TranslatorState = reactive({
+const state = reactive<TranslatorState>({
   locale: TranslationLocale.FR_FR
 });
 

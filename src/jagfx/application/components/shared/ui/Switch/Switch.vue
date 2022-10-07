@@ -13,14 +13,14 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const emits = defineEmits(['change']);
 
-const currentState = ref(false);
+const currentState = ref<boolean>(false);
 
-const switchState = () => {
+const switchState = (): void => {
   currentState.value = !currentState.value;
   emits('change', currentState.value);
 };

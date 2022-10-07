@@ -1,20 +1,26 @@
-import { computed, reactive, readonly } from 'vue';
+import { computed, reactive } from 'vue';
 import { useVueInsomnia } from 'vue-insomnia';
 
 import { switchFullscreen } from '@/jagfx/core/application/fullscreen';
 
+// Find alternatvie
+
 const { enableVueInsomnia, disableVueInsomnia } = useVueInsomnia();
 
-const state = reactive({
+type FullscreenStateType = {
+  fullscreen: boolean;
+};
+
+const state = reactive<FullscreenStateType>({
   fullscreen: false
 });
 
 const getters = {
-  fullscreenIsEnabled: computed(() => state.fullscreen)
+  fullscreenIsEnabled: computed<boolean>(() => state.fullscreen)
 };
 
 const actions = {
-  switchFullscreen: () => {
+  switchFullscreen: (): void => {
     try {
       switchFullscreen(state.fullscreen);
     } catch (e) {
@@ -30,7 +36,7 @@ const actions = {
 };
 
 export const useFullscreen = () => ({
-  state: readonly(state),
+  // state: readonly(state),
   ...getters,
   ...actions
 });

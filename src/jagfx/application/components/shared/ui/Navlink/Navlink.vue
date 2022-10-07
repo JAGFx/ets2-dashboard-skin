@@ -15,13 +15,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineEmits(['click']);
-defineProps({
-  active: {
-    type: Boolean,
-    default: false
-  }
+
+type NavlinkProps = {
+  active: boolean;
+};
+
+const props = withDefaults(defineProps<NavlinkProps>(), {
+  active: false
 });
 </script>
 

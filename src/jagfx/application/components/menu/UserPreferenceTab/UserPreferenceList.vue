@@ -5,13 +5,13 @@
         <div class="card-body p-0">
           <div class="list-group">
             <UserPreferenceListItemSwitch
-              configuration-id="events_game.pause"
+              preference-entry-id="events_game.pause"
             />
             <UserPreferenceListItemSelect
-              configuration-id="general_refresh_rate"
+              preference-entry-id="general_refresh_rate"
             />
             <UserPreferenceListItemSelect
-              configuration-id="general_skin_on_load"
+              preference-entry-id="general_skin_on_load"
               :values="[{ label: 'One', value: 'One' }]"
             />
           </div>

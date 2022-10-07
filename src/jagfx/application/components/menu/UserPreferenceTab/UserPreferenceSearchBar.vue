@@ -49,7 +49,7 @@
   <!--    </div>-->
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { usePreferencesEntry } from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';
 
 const { search } = usePreferencesEntry();

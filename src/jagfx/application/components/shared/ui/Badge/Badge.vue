@@ -17,15 +17,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const props = defineProps({
-  side: {
-    type: String,
-    default: 'left'
-  }
-});
+const props = defineProps<{
+  side: 'left' | 'right';
+}>();
 
 const side = ref(props.side);
 const badgeClasses = () => {

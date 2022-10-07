@@ -70,7 +70,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Button from '@/jagfx/application/components/shared/ui/Button/Button.vue';
 </script>
 
