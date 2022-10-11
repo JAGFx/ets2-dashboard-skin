@@ -7,7 +7,6 @@ import {
   unknownPreferenceEntryId
 } from '@/jagfx/core/configuration/preference-entry/test/finder.mock';
 
-// Fixme Correct auto reorder. Jest mock must be before this import
 import { findPreferenceEntryById } from '@/jagfx/core/configuration/preference-entry/finder';
 import { PreferenceEntry } from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
 
@@ -16,6 +15,10 @@ jest.mock(
   () => existingConfiguration,
   { virtual: true }
 );
+
+// FinderMock();
+
+// Fixme Correct auto reorder. Jest mock must be before this import
 
 describe('Preference entries finder', () => {
   it('An existing preference entry must return data successfully', () => {

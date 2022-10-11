@@ -22,7 +22,7 @@ type NavlinkProps = {
   active: boolean;
 };
 
-const props = withDefaults(defineProps<NavlinkProps>(), {
+withDefaults(defineProps<NavlinkProps>(), {
   active: false
 });
 </script>

@@ -1,4 +1,4 @@
-import { computed, inject, provide, reactive, readonly, ref } from 'vue';
+import { computed, inject, provide, reactive, readonly } from 'vue';
 
 import { preferenceEntryMatchWithFilter } from '@/jagfx/core/configuration/preference-entry/filter';
 import { findPreferenceEntryById } from '@/jagfx/core/configuration/preference-entry/finder';

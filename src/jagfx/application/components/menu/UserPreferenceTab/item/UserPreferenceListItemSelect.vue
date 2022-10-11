@@ -4,7 +4,7 @@
       class="form-select form-select-sm"
       aria-label="Default select example"
       :value="() => getUserPreference(props.configurationId)"
-      @input="(value : UserPreferenceValue) => setUserPreference(props.configurationId, value)"
+      @input="(value) => setUserPreference(props.configurationId, value)"
     >
       <option
         v-for="value in loadValues(preferenceEntry)"
@@ -23,7 +23,6 @@ import {
   PreferenceEntry,
   PreferenceEntryValue
 } from '@/jagfx/core/configuration/preference-entry/preference-entry.type';
-import { UserPreferenceValue } from '@/jagfx/core/configuration/user-preference.type';
 
 import UserPreferenceListItem from '@/jagfx/application/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
 import { usePreferencesEntry } from '@/jagfx/application/components/menu/UserPreferenceTab/usePreferencesEntry';

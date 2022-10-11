@@ -62,7 +62,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   asLink: false,
   side: 'left',
   active: false,
-  toggle: false
+  toggle: false,
+  href: ''
 });
 
 const hover = ref<boolean>(false);
