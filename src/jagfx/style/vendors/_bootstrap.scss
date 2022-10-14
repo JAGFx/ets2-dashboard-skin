@@ -1,0 +1,107 @@
+@import "bootstrap_configuration";
+
+// $theme-colors: (
+//	"accent-1": $color-accent-1,
+//	"accent-2": $color-accent-2,
+// );
+// </editor-folder> Custom variables
+
+// Layout & components
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/dropdown";
+
+// Helpers
+@import "bootstrap/scss/helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";
+
+.bg-gradient-accent {
+	background: $gradient-accent;
+}
+
+.bg-black-light-5 {
+	background: $color-black-light-5;
+}
+
+.bg-acrylic {
+	@include background-acrylic;
+}
+
+.text-accent-1 {
+	color: $color-accent-1
+}
+
+.text-accent-2 {
+	color: $color-accent-2
+}
+
+.text-black {
+	color: $color-black;
+}
+
+.text-gradient {
+	background-clip: text;
+	-webkit-background-clip: text;  /* stylelint-disable-line */
+	background-image: $gradient-accent;
+	-webkit-text-fill-color: transparent;
+}
+
+.btn.btn-acrylic {
+	@include background-acrylic;
+	
+	@supports not (backdrop-filter: blur(30px)) {
+		@include button-variant(
+			$color-acrylic-compatibility,
+			transparent,
+			$color-white,
+			$hover-color:$color-white,
+			$active-color: $color-white
+		);
+	}
+	
+	@supports (backdrop-filter: blur(30px)) {
+		@include button-variant(
+			$color-white-transparent-10,
+			transparent,
+			$color-white,
+			$hover-color:$color-white,
+			$active-color: $color-white
+		);
+	}
+	
+	&.dropdown-toggle {
+		padding: 0.3rem 0.5rem;
+	}
+}
+
+.dropdown.dropdown-acrylic{
+	.dropdown-menu {
+		background: $color-acrylic-compatibility;
+	}
+}
+
+.d-flex-center-center {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+}
+
+i[class^=icon]{
+	line-height: 0;
+}

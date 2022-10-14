@@ -9,5 +9,8 @@
     "data-store": "^4.0.3",
     "socket.io": "^4.5.2",
     "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }

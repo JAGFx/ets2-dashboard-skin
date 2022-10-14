@@ -1,4 +1,0 @@
-#!/bin/sh
-
-. tools/docker-image-name
-docker run -it --rm -v "$(pwd):/usr/app" ${NPM_IMAGE_NAME} npm $@

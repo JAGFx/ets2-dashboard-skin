@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. tools/docker-image-name
+docker run -it --rm -v "$(pwd):/usr/app" --network host  ${NPM_IMAGE_NAME} $@

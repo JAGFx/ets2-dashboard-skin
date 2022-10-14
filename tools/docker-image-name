@@ -1,4 +1,3 @@
 #!/bin/sh
 
 export NPM_IMAGE_NAME=unicorn/ets2-dashboard-skin/packager:latest
-export PROJECT_IMAGE_NAME=unicorn/ets2-dashboard-skin/application:latest
