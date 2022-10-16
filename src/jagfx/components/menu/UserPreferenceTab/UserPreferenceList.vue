@@ -6,6 +6,7 @@
           <div class="list-group">
             <!-- <editor-folder> General -->
             <UserPreferenceListItemSelect preference-entry-id="general_refresh_rate" />
+            <UserPreferenceListItemInput preference-entry-id="general_port" type="number" />
             <UserPreferenceListItemSelect preference-entry-id="general_skin_on_load" />
             <UserPreferenceListItemSelect preference-entry-id="general_job_remaining" />
             <UserPreferenceListItemSelect preference-entry-id="general_h-shift-layout" />
@@ -55,6 +56,8 @@
 </template>
 
 <script setup lang="ts">
+import UserPreferenceListItemInput
+                                    from '@/jagfx/components/menu/UserPreferenceTab/item/UserPreferenceListItemInput.vue';
 import UserPreferenceListItemSelect from '@/jagfx/components/menu/UserPreferenceTab/item/UserPreferenceListItemSelect.vue';
 import UserPreferenceListItemSwitch from '@/jagfx/components/menu/UserPreferenceTab/item/UserPreferenceListItemSwitch.vue';
 </script>

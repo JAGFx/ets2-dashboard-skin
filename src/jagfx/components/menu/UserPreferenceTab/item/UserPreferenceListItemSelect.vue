@@ -11,7 +11,7 @@
         :key="value.value"
         :value="value.value"
       >
-        {{ value.label }}
+        {{ $t(value.label) }}
       </option>
     </select>
   </UserPreferenceListItem>

@@ -7,7 +7,7 @@
           v-model="search"
           type="search"
           class="form-control bg-acrylic"
-          placeholder="Type to search..."
+          :placeholder="$t('Type to search...')"
         />
         <!--          <button-->
         <!--            class="btn btn-acrylic dropdown-toggle d-flex-center-center px-2 py-1 m-0 d-flex-center-center"-->

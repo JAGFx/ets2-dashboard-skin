@@ -46,7 +46,7 @@ const tabs: TabsType[] = [
   },
   {
     icon: 'icon-route',
-    label: 'User preferences',
+    label: 'Preferences',
     component: UserPreferenceTab
   },
   {

@@ -7,8 +7,8 @@
     }"
     @click="switchState"
   >
-    <small v-if="currentState" class="mx-2 text-uppercase">On</small>
-    <small v-else class="mx-2 text-uppercase text-off">Off</small>
+    <small v-if="currentState" class="mx-2 text-uppercase">{{ $t('On') }}</small>
+    <small v-else class="mx-2 text-uppercase text-off">{{ $t('Off') }}</small>
     <div class="dot">&nbsp;</div>
   </button>
 </template>
