@@ -8,7 +8,12 @@
         class="d-flex justify-content-center align-items-start flex-column w-100"
       >
         <div class="d-flex justify-content-start align-items-center">
-          <Tag class="ms-0" v-for="category in preferenceEntry.categories" :key="category">#{{ $t(category) }}</Tag>
+          <Tag
+            v-for="category in preferenceEntry.categories"
+            :key="category"
+            class="ms-0"
+            >#{{ $t(category) }}</Tag
+          >
           <span class="mx-1">{{ $t(preferenceEntry.label) }}</span>
         </div>
         <small class="text-muted">{{ $t(preferenceEntry.description) }}</small>

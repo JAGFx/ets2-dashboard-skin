@@ -10,11 +10,7 @@ import {
 import { findPreferenceEntryById } from '../finder';
 import { PreferenceEntry } from '../preference-entry.type';
 
-jest.mock(
-  '@/jagfx/core/configuration/preference-entry/list.json',
-  () => existingConfiguration,
-  { virtual: true }
-);
+jest.mock('./list.json', () => existingConfiguration, { virtual: true });
 
 // FinderMock();
 

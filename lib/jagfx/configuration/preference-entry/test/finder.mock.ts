@@ -43,9 +43,5 @@ export const convertedObject: PreferenceEntry =
   convertJsonObjectToPreferenceEntry(anonymousObject);
 
 export default () => {
-  jest.mock(
-    '@/jagfx/core/configuration/preference-entry/list.json',
-    () => existingConfiguration,
-    { virtual: true }
-  );
+  jest.mock('./list.json', () => existingConfiguration, { virtual: true });
 };
