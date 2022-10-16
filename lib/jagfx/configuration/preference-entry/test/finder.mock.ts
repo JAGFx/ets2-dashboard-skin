@@ -7,7 +7,7 @@ import { PreferenceEntry } from '../preference-entry.type';
 export const existingConfiguration: PreferenceEntry[] = [
   {
     id: 'an_existing_configuration_id',
-    target: 'application',
+    categories: ['application'],
     label: 'Configuration 1',
     description: 'Description 1',
     values: [
@@ -19,7 +19,7 @@ export const existingConfiguration: PreferenceEntry[] = [
   },
   {
     id: 'another_existing_configuration_id',
-    target: 'application',
+    categories: ['application'],
     label: 'Unicorn label 2',
     description: 'Description 2',
     values: null

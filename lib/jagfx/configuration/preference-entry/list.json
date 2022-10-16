@@ -1,7 +1,7 @@
 [
 	{
 		"id" :          "general_refresh_rate",
-		"target" :      "application",
+		"categories" :      ["general"],
 		"label" :       "Refresh rate",
 		"description" : "Set your refresh rate of the data. Less than rate are, more the dashboard data will up to date. You need to restart this app after change ;)",
 		"values" :      [
@@ -21,23 +21,473 @@
 	},
 	{
 		"id": "general_port",
-		"target": "application",
+		"categories": ["general"],
 		"label": "Port",
 		"description": "Port used by the server",
 		"values": null
 	},
 	{
 		"id": "general_skin_on_load",
-		"target": "application",
+		"categories": ["general"],
 		"label": "Default skin loaded",
 		"description": "Set the skin loaded when this app was started",
-		"values": []
+		"values": [
+			{
+				"label" : "JAGFx dashboard",
+				"value" : "JAGFx"
+			},
+			{
+				"label" : "Map",
+				"value" : "Map"
+			},
+			{
+				"label" : "Base",
+				"value" : "Test"
+			},
+			{
+				"label" : "Default",
+				"value" : "Default"
+			},
+			{
+				"label" : "DAF XF",
+				"value" : "DafXF"
+			},
+			{
+				"label" : "Man TGX",
+				"value" : "ManTGX"
+			},
+			{
+				"label" : "Mercedes Benz Atego",
+				"value" : "MercedesAtego"
+			},
+			{
+				"label" : "RD-Info",
+				"value" : "RdInfo"
+			},
+			{
+				"label" : "Scania",
+				"value" : "Scania"
+			},
+			{
+				"label" : "Scania Next Gen",
+				"value" : "ScaniaNextGen"
+			},
+			{
+				"label" : "Volvo FH",
+				"value" : "VolvoFH"
+			}
+		]
+	},
+	{
+		"id": "general_job_remaining",
+		"categories": ["general"],
+		"label": "Job delivery time",
+		"description": "Display the due date or the remaining time for a job",
+		"values": [
+			{
+				"label" : "Due date",
+				"value" : "due_date"
+			},
+			{
+				"label" : "Remaining date",
+				"value" : "remaining_date"
+			}
+		]
+	},
+	{
+		"id": "general_h-shift-layout",
+		"categories": ["general"],
+		"label": "H-Shifter layout",
+		"description": "Show the current range of H-Shifter OR the automatic number",
+		"values": [
+			{
+				"label" : "H-Shifter",
+				"value" : "h-shifter"
+			},
+			{
+				"label" : "Automatic",
+				"value" : "automatic"
+			}
+		]
+	},
+	{
+		"id": "general_damage_accurate",
+		"categories": ["general"],
+		"label": "Damage accurate",
+		"description": "Show the average with value of 'Damage diagnostic' or same as the 'Route advisor'",
+		"values": [
+			{
+				"label" : "Damage diagnostic",
+				"value" : "damage-diagnostic"
+			},
+			{
+				"label" : "Route advisor",
+				"value" : "route-advisor"
+			}
+		]
 	},
 	{
 		"id": "events_game.pause",
-		"target": "event",
+		"categories": ["event", "game"],
 		"label": "Game pause",
-		"description": "Port used by the server",
+		"description": "Show a pop-up when the game are on pause or unpause",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_game.fine",
+		"categories": ["event", "game"],
+		"label": "Road fine",
+		"description": "Show a pop-up when you get a road fine",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_game.tollgate",
+		"categories": ["event", "game"],
+		"label": "Toll gate",
+		"description": "Show a pop-up when you pass through a toll gate",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_game.ferry",
+		"categories": ["event", "game"],
+		"label": "Ferry travel",
+		"description": "Show a pop-up when you use a ferry",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_game.train",
+		"categories": ["event", "game"],
+		"label": "Train travel",
+		"description": "Show a pop-up when you use a train",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_game.refuel-payed",
+		"categories": ["event", "game"],
+		"label": "Refuel payed",
+		"description": "Show a pop-up when you have been refueled your truck tank",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	
+	
+	{
+		"id": "events_job.cancelled",
+		"categories": ["event", "job"],
+		"label": "Job canceled",
+		"description": "Show a pop-up when a job was canceled",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_job.delivered",
+		"categories": ["event", "job"],
+		"label": "Job delivered",
+		"description": "Show a pop-up when a job was delivered",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_job.finished",
+		"categories": ["event", "job"],
+		"label": "Job finished",
+		"description": "Show a pop-up when a job was finished",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_job.started",
+		"categories": ["event", "job"],
+		"label": "Job started",
+		"description": "Show a pop-up when a job was started",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	
+	{
+		"id": "events_navigation.speed-limit",
+		"categories": ["event", "navigation"],
+		"label": "Speed limit",
+		"description": "Show a pop-up when the speed limit change",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	
+	{
+		"id": "events_trailers.coupling",
+		"categories": ["event", "trailer"],
+		"label": "Trailer coupled",
+		"description": "Show a pop-up when the trailer was coupled to the truck",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_trailers.damage",
+		"categories": ["event", "trailer"],
+		"label": "Trailer damage",
+		"description": "Show a pop-up when the damage increase on the trailer",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	
+	{
+		"id": "events_truck.cruise-control",
+		"categories": ["event", "truck"],
+		"label": "Cruise control enabled",
+		"description": "Show a pop-up when the cruise control is enabled",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.cruise-control-increase",
+		"categories": ["event", "truck"],
+		"label": "Cruise control increase",
+		"description": "Show a pop-up when the cruise control increase",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.cruise-control-decrease",
+		"categories": ["event", "truck"],
+		"label": "Cruise control decrease",
+		"description": "Show a pop-up when the cruise control decrease",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.warning-message",
+		"categories": ["event", "truck"],
+		"label": "Truck warning message",
+		"description": "Show a pop-up for all warning message of truck",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.emergency-message",
+		"categories": ["event", "truck"],
+		"label": "Truck emergency message",
+		"description": "Show a pop-up for all emergency message of truck",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.electric",
+		"categories": ["event", "truck"],
+		"label": "Truck electric message",
+		"description": "Show a pop-up when the truck contact was on",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.engine",
+		"categories": ["event", "truck"],
+		"label": "Truck engine start",
+		"description": "Show a pop-up when the truck engine start",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.park",
+		"categories": ["event", "truck"],
+		"label": "Truck parking brake",
+		"description": "Show a pop-up when the truck parking brake are on",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.damage",
+		"categories": ["event", "truck"],
+		"label": "Truck damage",
+		"description": "Show a pop-up when the truck damage increase",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "events_truck.refuel",
+		"categories": ["event", "truck"],
+		"label": "Truck refuel",
+		"description": "Show a pop-up when the truck refuel tank was full",
 		"values": [
 			{
 				"label" : "On",

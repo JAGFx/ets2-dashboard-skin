@@ -8,7 +8,7 @@ export const mockPreferenceEntry = (
   values: PreferenceEntryValue[] | null
 ): PreferenceEntry => ({
   id: 'plop',
-  target: 'target',
+  categories: ['target'],
   label: 'label',
   description: 'description',
   values

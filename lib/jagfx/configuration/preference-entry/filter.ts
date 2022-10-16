@@ -22,11 +22,11 @@ export const preferenceEntryMatchWithFilter = (
     );
   }
 
-  if (filters.target !== undefined && filters.target.length !== 0) {
-    filterMatches.push(
-      preferenceEntry.target.includes(filters.target.toLowerCase())
-    );
-  }
+  // if (filters.target !== undefined && filters.target.length !== 0) {
+  //   filterMatches.push(
+  //     preferenceEntry.target.includes(filters.target.toLowerCase())
+  //   );
+  // }
 
   return filterMatches.every((match: boolean) => match);
 };

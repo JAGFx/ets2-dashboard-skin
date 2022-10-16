@@ -7,7 +7,7 @@
 		"title": "A preference entry",
 		"required": [
 			"id",
-			"target",
+			"categories",
 			"label",
 			"description",
 			"values"
@@ -17,10 +17,9 @@
 				"type": "string",
 				"title": "Identifier of preference entry"
 			},
-			"target": {
-				"type": "string",
-				"title": "Indicate the family of the preference entry",
-				"enum" : ["application","event"]
+			"categories": {
+				"type": "array",
+				"title": "Indicate the family of the preference entry"
 			},
 			"label": {
 				"type": "string",

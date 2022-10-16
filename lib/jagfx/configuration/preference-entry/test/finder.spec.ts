@@ -37,7 +37,7 @@ describe('Preference entries finder', () => {
     expect(convertedObject).toMatchObject(
       new PreferenceEntry(
         anonymousObject.id,
-        anonymousObject.target,
+        anonymousObject.categories,
         anonymousObject.label,
         anonymousObject.description,
         anonymousObject.values

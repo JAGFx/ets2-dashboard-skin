@@ -174,7 +174,7 @@
     />
     <ConfigFieldChoice
       v-bind="{
-        id: 'events_truck.warning message',
+        id: 'events_truck.warning-message',
         label: 'Truck warning message',
         disabled: false,
         description: 'Show a pop-up for all warning message of truck',
@@ -184,7 +184,7 @@
     />
     <ConfigFieldChoice
       v-bind="{
-        id: 'events_truck.emergency message',
+        id: 'events_truck.emergency-message',
         label: 'Truck emergency message',
         disabled: false,
         description: 'Show a pop-up for all emergency message of truck',
