@@ -50,7 +50,8 @@
 						"value": {
 							"type": [
 								"string",
-								"boolean"
+								"boolean",
+								"null"
 							],
 							"title": "Preference entry value"
 						}

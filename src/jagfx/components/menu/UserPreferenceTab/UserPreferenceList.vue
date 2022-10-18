@@ -224,6 +224,25 @@
             />
             <!-- </editor-folder> Map/Tiles -->
             <!-- </editor-folder> Map -->
+
+            <!-- <editor-folder> Scania -->
+            <UserPreferenceListItemSelect
+              preference-entry-id="scania_default_menu"
+            />
+            <!-- </editor-folder> Scania -->
+
+            <!-- <editor-folder> Unit -->
+            <UserPreferenceListItemSelect preference-entry-id="unit_weight" />
+            <UserPreferenceListItemSelect preference-entry-id="unit_length" />
+            <UserPreferenceListItemSelect preference-entry-id="unit_degrees" />
+            <UserPreferenceListItemSelect
+              preference-entry-id="unit_consumption"
+            />
+            <UserPreferenceListItemSelect preference-entry-id="unit_volume" />
+            <UserPreferenceListItemSelect preference-entry-id="unit_pressure" />
+            <UserPreferenceListItemSelect preference-entry-id="unit_speed" />
+            <UserPreferenceListItemSelect preference-entry-id="unit_currency" />
+            <!-- </editor-folder> Unit -->
           </div>
         </div>
       </div>

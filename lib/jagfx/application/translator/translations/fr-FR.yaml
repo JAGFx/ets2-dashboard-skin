@@ -113,8 +113,8 @@ Toll gate: Péage
 Cruise control increase: Augmentation de la vitesse du régulateur
 Cruise control decrease: Diminution de la vitesse du régulateur
 Show a pop-up when the truck contact was on: Afficher une pop-up lorsque le contact du camion était activé
-On: Activé
-Off: Désactivé
+On: Actif
+Off: Inactif
 Quickly (100ms): Rapidement (100ms)
 Balanced (500ms): Équilibré (500ms)
 Slowly (1000ms): Lentement (1000ms)
@@ -168,3 +168,25 @@ Display the speed limit: Afficher la limite de vitesse
 Turning indicator: Clignotants
 Display an indicator when the turn left or turn right blinker are ON: Affiche un indicateur lorsque le clignotant gauche ou le clignotant droit sont activés
 dashboard: tableau de bord
+Default menu: Menu par défaut
+Set the default menu for the Scania dashboard skin. It is displayed when you use this dashboard.: Définissez le menu par défaut de l'habillage du tableau de bord Scania. Il s'affiche lorsque vous utilisez ce tableau de bord
+Nothing: Rien
+Cruise control, trip computer and driving time information: Régulateur de vitesse, ordinateur de bord et informations sur le temps de conduite
+Instantaneous data: Données instantanées
+Kilogram: Kilogramme
+Pound & Long ton: Livres et tonnes longues
+Meters & Kilometers: Mètres & Kilomètres
+Foot & Miles: Pieds et milles
+Celsius: Celsius
+Fahrenheit: Fahrenheit
+L/100 km: L/100 km
+Mpg: Mpg
+Liters: Litres
+Gallons: Gallons
+PSI: PSI
+Bar: Bar
+Km/h: Km/h
+Mph: Mph
+€ EUR: € EUR
+£ GBP: £ GBP
+$ US: $ US

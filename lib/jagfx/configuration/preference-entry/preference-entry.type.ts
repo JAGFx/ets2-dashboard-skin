@@ -1,6 +1,6 @@
 export type PreferenceEntryValue = {
   label: string;
-  value: string | boolean;
+  value: string | boolean | null;
 };
 
 export interface PreferenceEntryInterface {

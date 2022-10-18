@@ -986,7 +986,160 @@
 		"label": "Game version",
 		"description": "Get tiles for the latest game version, or for the specified game version",
 		"values": [
-		
+
+		]
+	},
+	{
+		"id": "scania_default_menu",
+		"categories": ["dashboard", "scania"],
+		"label": "Default menu",
+		"description": "Set the default menu for the Scania dashboard skin. It is displayed when you use this dashboard.",
+		"values": [
+			{
+				"label" : "Nothing",
+				"value" : null
+			},
+			{
+				"label" : "Cruise control, trip computer and driving time information",
+				"value" : "DrivingAssistance"
+			},
+			{
+				"label" : "Instantaneous data",
+				"value" : "InstantaneousData"
+			}
+		]
+	},
+
+	{
+		"id": "unit_weight",
+		"categories": ["unit"],
+		"label": "Weight",
+		"description": "Set the weight unit. Used for the weight of the cargo",
+		"values": [
+			{
+				"label" : "Kilogram",
+				"value" : "kg"
+			},
+			{
+				"label" : "Pound & Long ton",
+				"value" : "lb"
+			}
+		]
+	},
+	{
+		"id": "unit_length",
+		"categories": ["unit"],
+		"label": "Length",
+		"description": "Set the length unit. Used for the distance of travel (job or point on the map)",
+		"values": [
+			{
+				"label" : "Meters & Kilometers",
+				"value" : "m"
+			},
+			{
+				"label" : "Foot & Miles",
+				"value" : "ft"
+			}
+		]
+	},
+	{
+		"id": "unit_degrees",
+		"categories": ["unit"],
+		"label": "Degrees",
+		"description": "Set degrees unit. Used for the temperature of water, oil and engine",
+		"values": [
+			{
+				"label" : "Celsius",
+				"value" : "C"
+			},
+			{
+				"label" : "Fahrenheit",
+				"value" : "F"
+			}
+		]
+	},
+	{
+		"id": "unit_consumption",
+		"categories": ["unit"],
+		"label": "Consumption",
+		"description": "Set the consumption unit",
+		"values": [
+			{
+				"label" : "L/100 km",
+				"value" : "lpkm"
+			},
+			{
+				"label" : "Mpg",
+				"value" : "mpg"
+			}
+		]
+	},
+	{
+		"id": "unit_volume",
+		"categories": ["unit"],
+		"label": "Volume",
+		"description": "Set the volume unit. Used for the fuel capacity",
+		"values": [
+			{
+				"label" : "Liters",
+				"value" : "l"
+			},
+			{
+				"label" : "Gallons",
+				"value" : "gal"
+			}
+		]
+	},
+	{
+		"id": "unit_pressure",
+		"categories": ["unit"],
+		"label": "Pressure",
+		"description": "Set the pressure unit. Used for the Air pressure or oil pressure",
+		"values": [
+			{
+				"label" : "PSI",
+				"value" : "psi"
+			},
+			{
+				"label" : "Bar",
+				"value" : "bar"
+			}
+		]
+	},
+	{
+		"id": "unit_speed",
+		"categories": ["unit"],
+		"label": "Speed",
+		"description": "Set the speed unit",
+		"values": [
+			{
+				"label" : "Km/h",
+				"value" : "kph"
+			},
+			{
+				"label" : "Mph",
+				"value" : "mph"
+			}
+		]
+	},
+	{
+		"id": "unit_currency",
+		"categories": ["unit"],
+		"label": "Currency",
+		"description": "Set the currency unit",
+		"values": [
+			{
+				"label" : "€ EUR",
+				"value" : "EUR"
+			},
+			{
+				"label" : "£ GBP",
+				"value" : "GBP"
+			},
+			{
+				"label" : "$ US",
+				"value" : "USD"
+			}
 		]
 	}
 ]
