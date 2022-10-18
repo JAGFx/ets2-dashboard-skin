@@ -498,5 +498,310 @@
 				"value" : false
 			}
 		]
+	},
+	
+	{
+		"id": "jagfx_elements_right_oilTemperature",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Oil temperature",
+		"description": "Display oil temperature",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_brakesTemperature",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Brakes temperature",
+		"description": "Display brakes temperature",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_brakesAirPressure",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Brakes air pressure",
+		"description": "Display brakes air pressure",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_fuel",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Fuel",
+		"description": "Display the fuel level",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_fuelConsumption",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Fuel consumption",
+		"description": "Display the fuel average consumption",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_cruiseControl",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Cruise control",
+		"description": "Display the current speed set with the cruise control ON",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_waterTemperature",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Water temperature",
+		"description": "Display the water temperature",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_batteryVoltage",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Battery voltage",
+		"description": "Display the battery voltage",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_restStop",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Next rest stop",
+		"description": "Display the time to go to the next rest stop",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_right_map",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Display map",
+		"description": "Enable or disable the map view",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_top_retarder",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Retarder",
+		"description": "Display the retarder indicator",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_top_parkingBrake",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Parking brake",
+		"description": "Display the parking brake indicator",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_top_beamHigh",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Beam high",
+		"description": "Display the high beam indicator",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_top_beamLow",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Beam low",
+		"description": "Display the low beam indicator",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_top_beacon",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Beacon",
+		"description": "Display the beacon indicator",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_rpm",
+		"categories": ["dashboard", "jagfx"],
+		"label": "RPM",
+		"description": "Display the RPM",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_fuel",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Fuel",
+		"description": "Display the fuel level indicator",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_speedLimit",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Speed limit",
+		"description": "Display the speed limit",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_blinker_turn",
+		"categories": ["dashboard", "jagfx"],
+		"label": "Turning indicator",
+		"description": "Display an indicator when the turn left or turn right blinker are ON",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
 	}
 ]

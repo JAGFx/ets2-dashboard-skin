@@ -131,3 +131,40 @@ job: mission
 navigation: navigation
 trailer: remorque
 truck: camion
+Oil temperature: Température de l'huile
+Display oil temperature: Affichage de la température de l'huile
+Brakes temperature: Température des freins
+Display brakes temperature: Affichage de la température des freins
+Brakes air pressure: Pression d'air des freins
+Display brakes air pressure: Affichage de la pression d'air des freins
+Fuel: Carburant
+Display the fuel level: Afficher le niveau de carburant
+Fuel consumption: Consommation de carburant
+Display the fuel average consumption: Affichage de la consommation moyenne de carburant
+Cruise control: Régulateur de vitesse
+Display the current speed set with the cruise control ON: Afficher la vitesse actuelle réglée avec le régulateur de vitesse actif
+Water temperature: Température de l'eau
+Display the water temperature: Afficher la température de l'eau
+Battery voltage: Tension de la batterie
+Display the battery voltage: Afficher la tension de la batterie
+Next rest stop: Prochain arrêt
+Display the time to go to the next rest stop: Afficher le temps nécessaire pour aller à la prochaine aire de repos
+Display map: Afficher la carte
+Enable or disable the map view: Activer ou désactiver l'affichage de la carte
+Retarder: Ralentisseur
+Display the retarder indicator: Afficher l'indicateur du ralentisseur
+Parking brake: Frein de stationnement
+Display the parking brake indicator: Afficher le témoin du frein de stationnement
+Beam high: Feux de route
+Display the high beam indicator: Affichage de l'indicateur de feux de route
+Beam low: Feux de croisement
+Display the low beam indicator: Affichage de l'indicateur de feux de croisement
+Beacon: Gyrophares
+Display the beacon indicator: Afficher l'indicateur des gyrophares
+RPM: RPM
+Display the RPM: Afficher le RPM
+Display the fuel level indicator: Afficher l'indicateur de niveau de carburant
+Display the speed limit: Afficher la limite de vitesse
+Turning indicator: Clignotants
+Display an indicator when the turn left or turn right blinker are ON: Affiche un indicateur lorsque le clignotant gauche ou le clignotant droit sont activés
+dashboard: tableau de bord

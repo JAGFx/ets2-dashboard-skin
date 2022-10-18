@@ -107,6 +107,74 @@
             />
             <!-- </editor-folder> Event/Truck -->
             <!-- </editor-folder> Event -->
+
+            <!-- <editor-folder> JAGFx -->
+            <!-- <editor-folder> JAGFx/Right -->
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_oilTemperature"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_brakesTemperature"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_brakesAirPressure"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_fuel"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_fuelConsumption"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_cruiseControl"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_waterTemperature"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_batteryVoltage"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_restStop"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_right_map"
+            />
+            <!-- </>editor-folder> JAGFx/Right -->
+
+            <!-- <editor-folder> JAGFx/Middle top -->
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_top_retarder"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_top_parkingBrake"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_top_beamHigh"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_top_beamLow"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_top_beacon"
+            />
+            <!-- </editor-folder> JAGFx/Middle top -->
+
+            <!-- <editor-folder> JAGFx/Middle Bottom -->
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_bottom_rpm"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_bottom_fuel"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_bottom_speedLimit"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="jagfx_elements_mid_bottom_blinker_turn"
+            />
+            <!-- </editor-folder> JAGFx/Middle Bottom -->
+            <!-- </editor-folder> JAGFx -->
           </div>
         </div>
       </div>
