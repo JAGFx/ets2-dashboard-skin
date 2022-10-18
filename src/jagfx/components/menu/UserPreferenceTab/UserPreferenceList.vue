@@ -140,7 +140,7 @@
             <UserPreferenceListItemSwitch
               preference-entry-id="jagfx_elements_right_map"
             />
-            <!-- </>editor-folder> JAGFx/Right -->
+            <!-- </editor-folder> JAGFx/Right -->
 
             <!-- <editor-folder> JAGFx/Middle top -->
             <UserPreferenceListItemSwitch
@@ -175,6 +175,55 @@
             />
             <!-- </editor-folder> JAGFx/Middle Bottom -->
             <!-- </editor-folder> JAGFx -->
+
+            <!-- <editor-folder> Map -->
+            <!-- <editor-folder> Map/General -->
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_general_debug"
+            />
+            <!-- </editor-folder> Map/General -->
+
+            <!-- <editor-folder> Map/Elements -->
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_elements_eta"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_elements_speedAndGear"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_elements_mapControls"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_elements_speedLimit"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_elements_rotateWithPlayer"
+            />
+            <UserPreferenceListItemSelect
+              preference-entry-id="maps_map_navigationRemaining"
+            />
+            <!-- </editor-folder> Map/Elements -->
+
+            <!-- <editor-folder> Map/Tiles -->
+            <UserPreferenceListItemSelect
+              preference-entry-id="maps_map_activeMap"
+            />
+            <UserPreferenceListItemSelect preference-entry-id="maps_map_type" />
+            <UserPreferenceListItemSelect
+              preference-entry-id="maps_map_tilesRemotePath"
+            />
+            <UserPreferenceListItemSwitch
+              preference-entry-id="maps_map_tilesRemoteUseCustom"
+            />
+            <UserPreferenceListItemInput
+              preference-entry-id="maps_map_tilesRemotePath"
+              type="text"
+            />
+            <UserPreferenceListItemSelect
+              preference-entry-id="maps_map_tilesVersion"
+            />
+            <!-- </editor-folder> Map/Tiles -->
+            <!-- </editor-folder> Map -->
           </div>
         </div>
       </div>

@@ -803,5 +803,190 @@
 				"value" : false
 			}
 		]
+	},
+	
+	{
+		"id": "maps_general_debug",
+		"categories": ["dashboard", "map"],
+		"label": "Debug information",
+		"description": "Display some debug information about the map",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_elements_eta",
+		"categories": ["dashboard", "map", "elements"],
+		"label": "ETA information",
+		"description": "Display the remaining or ETA time and the current remaining distance to the destination",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_elements_speedAndGear",
+		"categories": ["dashboard", "map", "elements"],
+		"label": "Speed and gear",
+		"description": "Display the current speed and gear",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_elements_mapControls",
+		"categories": ["dashboard", "map", "elements"],
+		"label": "Map controls",
+		"description": "Display map controls (Recenter, focus on user, zoom in and zoom out)",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_elements_speedLimit",
+		"categories": ["dashboard", "map", "elements"],
+		"label": "Speed limit",
+		"description": "Display current speed limit",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_elements_rotateWithPlayer",
+		"categories": ["dashboard", "map", "elements"],
+		"label": "Map rotation",
+		"description": "Enable or disable the map rotation on the first load",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_map_navigationRemaining",
+		"categories": ["dashboard", "map", "elements"],
+		"label": "Navigation ETA",
+		"description": "Display the due date or the remaining time for the current route",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_map_activeMap",
+		"categories": ["dashboard", "map", "tiles"],
+		"label": "Active map",
+		"description": "Change the active map",
+		"values": [
+		]
+	},
+	{
+		"id": "maps_map_type",
+		"categories": ["dashboard", "map", "tiles"],
+		"label": "Kind of map",
+		"description": "Use the ETS2 or ATS map automatically or use the modded map",
+		"values": [
+			{
+				"label" : "Vanilla",
+				"value" : "vanilla"
+			},
+			{
+				"label" : "Mod",
+				"value" : "mod"
+			}
+		]
+	},
+	{
+		"id": "maps_map_tilesRemotePath",
+		"categories": ["dashboard", "map", "tiles"],
+		"label": "Remote tiles location",
+		"description": "Set a remote location for the map tiles",
+		"values": [
+			{
+				"label" : "TwinDragon/SCS_Map_Tiles",
+				"value" : "https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/"
+			},
+			{
+				"label" : "ets2.jagfx.fr (Deprecated)",
+				"value" : "https://ets2.jagfx.fr"
+			}
+		]
+	},
+	{
+		"id": "maps_map_tilesRemoteUseCustom",
+		"categories": ["dashboard", "map", "tiles"],
+		"label": "Custom tiles",
+		"description": "Set to ON if you wan to use a custom tiles location",
+		"values": [
+			{
+				"label" : "On",
+				"value" : true
+			},
+			{
+				"label" : "Off",
+				"value" : false
+			}
+		]
+	},
+	{
+		"id": "maps_map_tilesRemoteCustomPath",
+		"categories": ["dashboard", "map", "tiles"],
+		"label": "Custom tiles location",
+		"description": "The host of your tiles location",
+		"values": null
+	},
+	{
+		"id": "maps_map_tilesVersion",
+		"categories": ["dashboard", "map", "tiles"],
+		"label": "Game version",
+		"description": "Get tiles for the latest game version, or for the specified game version",
+		"values": [
+		
+		]
 	}
 ]
