@@ -1,5 +1,6 @@
 import {
   PreferenceEntry,
+  PreferenceEntryCategories,
   PreferenceEntryInterface,
   PreferenceEntryValue
 } from '../preference-entry.type';
@@ -8,7 +9,7 @@ export const mockPreferenceEntry = (
   values: PreferenceEntryValue[] | null
 ): PreferenceEntry => ({
   id: 'plop',
-  categories: ['target'],
+  categories: [PreferenceEntryCategories.Dashboard],
   label: 'label',
   description: 'description',
   values

@@ -2,12 +2,15 @@ import {
   convertJsonObjectToPreferenceEntry,
   findPreferenceEntryById
 } from '../finder';
-import { PreferenceEntry } from '../preference-entry.type';
+import {
+  PreferenceEntry,
+  PreferenceEntryCategories
+} from '../preference-entry.type';
 
 export const existingConfiguration: PreferenceEntry[] = [
   {
     id: 'an_existing_configuration_id',
-    categories: ['application'],
+    categories: [PreferenceEntryCategories.Dashboard],
     label: 'Configuration 1',
     description: 'Description 1',
     values: [
@@ -19,7 +22,7 @@ export const existingConfiguration: PreferenceEntry[] = [
   },
   {
     id: 'another_existing_configuration_id',
-    categories: ['application'],
+    categories: [PreferenceEntryCategories.Dashboard],
     label: 'Unicorn label 2',
     description: 'Description 2',
     values: null
@@ -41,7 +44,3 @@ export const anonymousObject: PreferenceEntry = existingConfiguration.at(
 ) as PreferenceEntry;
 export const convertedObject: PreferenceEntry =
   convertJsonObjectToPreferenceEntry(anonymousObject);
-
-export default () => {
-  jest.mock('./list.json', () => existingConfiguration, { virtual: true });
-};

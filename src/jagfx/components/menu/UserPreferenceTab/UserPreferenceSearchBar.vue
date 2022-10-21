@@ -4,30 +4,29 @@
       <!--        <div class="d-flex-center-center">-->
       <div class="input-group">
         <input
-          v-model="search"
+          :value="current.search"
           type="search"
           class="form-control bg-acrylic"
           :placeholder="$t('Type to search...')"
+          @input="(evenet) => update({ search: evenet.target.value })"
         />
-        <!--          <button-->
-        <!--            class="btn btn-acrylic dropdown-toggle d-flex-center-center px-2 py-1 m-0 d-flex-center-center"-->
-        <!--            type="button"-->
-        <!--            data-bs-toggle="dropdown"-->
-        <!--            aria-expanded="false"-->
-        <!--          >-->
-        <!--            <i class="icon-endpoint"></i>-->
-        <!--          </button>-->
-        <!--          <ul class="dropdown-menu">-->
-        <!--            <li>-->
-        <!--              <Tag>#jagfx</Tag>-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--              <Tag>#jagfx</Tag>-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--              <Tag>#jagfx</Tag>-->
-        <!--            </li>-->
-        <!--          </ul>-->
+        <button
+          class="btn btn-acrylic dropdown-toggle d-flex-center-center px-2 py-1 m-0 d-flex-center-center"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="icon-endpoint"></i>
+        </button>
+        <ul class="dropdown-menu bg-acrylic">
+          <li
+            v-for="category in preferenceEntryCategories"
+            :key="category"
+            @click="update({ category: category })"
+          >
+            <Tag>#{{ category }}</Tag>
+          </li>
+        </ul>
         <button
           class="btn btn-acrylic px-2 py-1 pe-3 m-0 d-flex-center-center"
           type="button"
@@ -37,22 +36,30 @@
       </div>
     </div>
   </div>
-  <!--    <div class="row my-2 configuration-tab">-->
-  <!--      <div class="col d-flex justify-content-start align-items-center">-->
-  <!--        <Tag>#jagfx</Tag>-->
-  <!--        <Tag>#jagfx</Tag>-->
-  <!--        <Tag>#jagfx</Tag>-->
-  <!--        <div class="d-flex-center-center text-muted mx-1">-->
-  <!--          <i class="icon-endpoint"></i>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
+  <div class="row my-2 configuration-tab">
+    <div class="col d-flex justify-content-start align-items-center">
+      <Tag v-for="category in current.categories" :key="category"
+        >#{{ category }}</Tag
+      >
+      <div
+        v-if="current.categories.length > 0"
+        class="d-flex-center-center text-muted mx-1"
+        @click="reset"
+      >
+        <i class="icon-endpoint"></i>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
+import { PreferenceEntryCategories } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 
-const { search } = usePreferencesEntry();
+import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
+import Tag from '@/jagfx/components/shared/ui/Tag/Tag.vue';
+
+const { current, update, reset } = usePreferencesEntry();
+const preferenceEntryCategories = Object.values(PreferenceEntryCategories);
 </script>
 
 <style lang="scss" scoped></style>

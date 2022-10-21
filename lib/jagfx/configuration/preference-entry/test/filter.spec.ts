@@ -1,10 +1,11 @@
 import {
-  existingConfiguration,
+  anExistingConfiguratonEntry,
   unknownFilters,
   validFilters
 } from './filter.mock';
 
-import { applyFiltersToPreferenceEntriesList } from '../filter';
+import { TranslationLocale } from '../../../application/translator/translate.type';
+import { preferenceEntryMatchWithFilter } from '../filter';
 import { PreferenceEntryFilters } from '../filter.type';
 
 describe('Preference entry filter', () => {
@@ -12,8 +13,12 @@ describe('Preference entry filter', () => {
     'Preference entries must not have any differences with invalid filters',
     (filter: PreferenceEntryFilters) => {
       expect(
-        applyFiltersToPreferenceEntriesList(filter, existingConfiguration)
-      ).toStrictEqual(existingConfiguration);
+        preferenceEntryMatchWithFilter(
+          anExistingConfiguratonEntry,
+          filter,
+          TranslationLocale.FR_FR
+        )
+      ).toBeFalsy();
     }
   );
 
@@ -21,8 +26,12 @@ describe('Preference entry filter', () => {
     'A preference entry must be returned with matched filters',
     (filter: PreferenceEntryFilters) => {
       expect(
-        applyFiltersToPreferenceEntriesList(filter, existingConfiguration).at(0)
-      ).toStrictEqual(existingConfiguration.at(1));
+        preferenceEntryMatchWithFilter(
+          anExistingConfiguratonEntry,
+          filter,
+          TranslationLocale.FR_FR
+        )
+      ).toBeTruthy();
     }
   );
 });

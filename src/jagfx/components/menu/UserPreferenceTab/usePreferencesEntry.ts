@@ -1,31 +1,31 @@
+import { TranslationLocale } from 'ets2-dashboard-lib/jagfx/application/translator/translate.type';
 import { preferenceEntryMatchWithFilter } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/filter';
+import {
+  PreferenceEntryFilterEdit,
+  PreferenceEntryFilters
+} from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/filter.type';
 import { findPreferenceEntryById } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/finder';
 import { PreferenceEntry } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 import { computed, inject, provide, reactive, readonly } from 'vue';
 
-type PreferencesEntryState = {
-  search: string;
-};
-
 const PROVIDE_PREFERENCE_ENTRY = 'provider-preference-entry-id';
 
-const state = reactive<PreferencesEntryState>({
-  search: ''
+const state = reactive<PreferenceEntryFilters>({
+  search: '',
+  categories: []
 });
 
 const getters = {
-  search: computed<string>({
-    get() {
-      return state.search;
-    },
-    set(search: string) {
-      state.search = search;
-    }
-  }),
+  current: computed<PreferenceEntryFilters>(() => state),
   isMatchWithFilter: (preferenceEntry: PreferenceEntry): boolean =>
-    preferenceEntryMatchWithFilter(preferenceEntry, {
-      label: state.search
-    })
+    preferenceEntryMatchWithFilter(
+      preferenceEntry,
+      {
+        search: state.search,
+        categories: state.categories
+      },
+      TranslationLocale.FR_FR
+    )
 };
 
 const actions = {
@@ -44,6 +44,19 @@ const actions = {
     }
 
     return preferenceEntry as PreferenceEntry;
+  },
+  update: (value: PreferenceEntryFilterEdit) => {
+    if (value.search !== undefined) {
+      state.search = value.search;
+    }
+
+    if (value.category !== undefined) {
+      state.categories.push(value.category);
+    }
+  },
+  reset: () => {
+    state.search = '';
+    state.categories = [];
   }
 };
 

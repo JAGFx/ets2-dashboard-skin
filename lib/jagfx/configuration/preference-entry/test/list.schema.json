@@ -19,7 +19,26 @@
 			},
 			"categories": {
 				"type": "array",
-				"title": "Indicate the family of the preference entry"
+				"title": "Indicate the family of the preference entry",
+				"items": {
+					"type": "string",
+					"enum": [
+						"general",
+						"event",
+						"game",
+						"job",
+						"navigation",
+						"trailer",
+						"truck",
+						"dashboard",
+						"jagfx",
+						"map",
+						"elements",
+						"tiles",
+						"scania",
+						"unit"
+					]
+				}
 			},
 			"label": {
 				"type": "string",
