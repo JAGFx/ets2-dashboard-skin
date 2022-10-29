@@ -1,24 +1,29 @@
 import list from './list.json';
-import { PreferenceEntry } from './preference-entry.type';
+import {
+  PreferenceEntry,
+  PreferenceEntryCollection,
+  PreferenceEntryId
+} from './preference-entry.type';
 
-export const findPreferenceEntryById = (
-  preferenceEntryId: string
-): PreferenceEntry => {
-  const matches: PreferenceEntry[] = list.filter(
-    (preferenceEntry: PreferenceEntry) =>
-      preferenceEntry.id === preferenceEntryId
+const jsonAsPreferenceEntryCollection = (): PreferenceEntryCollection => {
+  const collection = new PreferenceEntryCollection();
+
+  list.map((preferenceEntry: PreferenceEntry) =>
+    collection.set(preferenceEntry.id, preferenceEntry)
   );
 
-  const preferenceEntry: PreferenceEntry = matches.at(0) as PreferenceEntry;
+  return collection;
+};
 
-  if (matches.length !== 1)
+const preferenceEntryCollection = jsonAsPreferenceEntryCollection();
+
+export const findPreferenceEntryById = (
+  preferenceEntryId: PreferenceEntryId
+): PreferenceEntry => {
+  if (!preferenceEntryCollection.has(preferenceEntryId))
     throw new Error(
       `Unable to find ${preferenceEntryId} on preference entries list`
     );
 
-  return preferenceEntry;
+  return preferenceEntryCollection.get(preferenceEntryId) as PreferenceEntry;
 };
-
-export const convertJsonObjectToPreferenceEntry = (
-  json: object
-): PreferenceEntry => Object.assign(new PreferenceEntry(), json);

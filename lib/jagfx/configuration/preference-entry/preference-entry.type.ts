@@ -1,3 +1,5 @@
+export type PreferenceEntryId = string;
+
 export enum PreferenceEntryCategories {
   General = 'general',
   Event = 'event',
@@ -21,7 +23,7 @@ export type PreferenceEntryValue = {
 };
 
 export interface PreferenceEntryInterface {
-  id: string;
+  id: PreferenceEntryId;
   categories: PreferenceEntryCategories[] | string[];
   label: string;
   description: string;
@@ -30,7 +32,7 @@ export interface PreferenceEntryInterface {
 
 export class PreferenceEntry implements PreferenceEntryInterface {
   constructor(
-    public id: string = '',
+    public id: PreferenceEntryId = '',
     public categories: PreferenceEntryCategories[] | string[] = [],
     public label: string = '',
     public description: string = '',
@@ -43,3 +45,8 @@ export class PreferenceEntry implements PreferenceEntryInterface {
     this.values = values;
   }
 }
+
+export class PreferenceEntryCollection extends Map<
+  PreferenceEntryId,
+  PreferenceEntry
+> {}

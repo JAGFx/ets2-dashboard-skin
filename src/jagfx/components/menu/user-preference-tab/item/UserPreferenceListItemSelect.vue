@@ -21,6 +21,7 @@
 import { loadPreferenceEntryValues } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/loader';
 import {
   PreferenceEntry,
+  PreferenceEntryId,
   PreferenceEntryValue
 } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 
@@ -32,7 +33,7 @@ const { find, update } = useUserPreference();
 const { initProvider } = usePreferencesEntry();
 
 type UserPreferenceListItemSelectProps = {
-  preferenceEntryId: string;
+  preferenceEntryId: PreferenceEntryId;
   values?: PreferenceEntryValue[];
 };
 

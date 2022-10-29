@@ -5,11 +5,13 @@
 </template>
 
 <script setup lang="ts">
+import { PreferenceEntryId } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
+
 import UserPreferenceListItem from '@/jagfx/components/menu/user-preference-tab/UserPreferenceListItem.vue';
 import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';
 
 type UserPreferenceListItemInputProps = {
-  preferenceEntryId: string;
+  preferenceEntryId: PreferenceEntryId;
   type: 'text' | 'number';
 };
 

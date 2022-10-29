@@ -1,24 +1,27 @@
 import {
-  anonymousObject,
-  convertedObject,
   existingConfiguration,
+  existingConfigurationId,
   expectedPreferenceEntry,
-  preferenceEntry,
   unknownPreferenceEntryId
 } from './finder.mock';
 
 import { findPreferenceEntryById } from '../finder';
-import { PreferenceEntry } from '../preference-entry.type';
 
-jest.mock('./list.json', () => existingConfiguration, { virtual: true });
-
-// FinderMock();
+jest.mock('./list.json', () => existingConfiguration.entries(), {
+  virtual: true
+});
 
 // Fixme Correct auto reorder. Jest mock must be before this import
 
+beforeEach(() => {
+  jest.resetModules();
+});
+
 describe('Preference entries finder', () => {
   it('An existing preference entry must return data successfully', () => {
-    expect(preferenceEntry).toMatchObject(expectedPreferenceEntry);
+    expect(findPreferenceEntryById(existingConfigurationId)).toMatchObject(
+      expectedPreferenceEntry
+    );
   });
 
   it('An unknown preference entry must thrown an exception', () => {
@@ -26,18 +29,6 @@ describe('Preference entries finder', () => {
       findPreferenceEntryById(unknownPreferenceEntryId)
     ).toThrowError(
       `Unable to find ${unknownPreferenceEntryId} on preference entries list`
-    );
-  });
-
-  it('An object typed of PreferenceEntry must be returned by the converter successfully', () => {
-    expect(convertedObject).toMatchObject(
-      new PreferenceEntry(
-        anonymousObject.id,
-        anonymousObject.categories,
-        anonymousObject.label,
-        anonymousObject.description,
-        anonymousObject.values
-      )
     );
   });
 });

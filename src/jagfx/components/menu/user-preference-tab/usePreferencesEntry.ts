@@ -5,7 +5,10 @@ import {
   PreferenceEntryFilters
 } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/filter.type';
 import { findPreferenceEntryById } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/finder';
-import { PreferenceEntry } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
+import {
+  PreferenceEntry,
+  PreferenceEntryId
+} from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 import { computed, inject, provide, reactive, readonly } from 'vue';
 
 const PROVIDE_PREFERENCE_ENTRY = 'provider-preference-entry-id';
@@ -29,7 +32,7 @@ const getters = {
 };
 
 const actions = {
-  initProvider: (preferenceEntryId: string): PreferenceEntry => {
+  initProvider: (preferenceEntryId: PreferenceEntryId): PreferenceEntry => {
     const preferenceEntry: PreferenceEntry =
       findPreferenceEntryById(preferenceEntryId);
     provide(PROVIDE_PREFERENCE_ENTRY, readonly(preferenceEntry));
