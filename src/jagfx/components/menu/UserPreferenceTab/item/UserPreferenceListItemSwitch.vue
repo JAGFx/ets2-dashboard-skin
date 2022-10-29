@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import UserPreferenceListItem from '@/jagfx/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
 import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
-import Switch from '@/jagfx/components/shared/ui/Switch/Switch.vue';
+import Switch                  from '@/jagfx/components/shared/ui/Switch.vue';
 
 type UserPreferenceListItemSwitchProps = {
   preferenceEntryId: string;

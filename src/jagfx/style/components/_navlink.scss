@@ -1,5 +1,5 @@
-@import "../../../../style/abstracts/variables";
-@import "../../../../style/vendors/bootstrap_configuration";
+@import "../abstracts/variables";
+@import "../vendors/bootstrap_configuration";
 
 .nav-item > .nav-link{
 	backdrop-filter: blur(30px);

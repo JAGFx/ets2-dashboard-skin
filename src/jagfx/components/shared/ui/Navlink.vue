@@ -26,7 +26,3 @@ withDefaults(defineProps<NavlinkProps>(), {
   active: false
 });
 </script>
-
-<style lang="scss" scoped>
-@import 'navlink';
-</style>

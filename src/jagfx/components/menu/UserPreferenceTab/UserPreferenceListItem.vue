@@ -29,7 +29,7 @@
 import { PreferenceEntry } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 
 import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
-import Tag from '@/jagfx/components/shared/ui/Tag/Tag.vue';
+import Tag                     from '@/jagfx/components/shared/ui/Tag.vue';
 
 const { isMatchWithFilter, initConsumer } = usePreferencesEntry();
 

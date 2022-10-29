@@ -27,7 +27,3 @@ const switchState = (): void => {
   emits('change', currentState.value);
 };
 </script>
-
-<style lang="scss" scoped>
-@import 'switch';
-</style>

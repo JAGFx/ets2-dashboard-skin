@@ -29,7 +29,3 @@ const badgeClasses = () => {
   return side.value === 'right' ? 'right flex-row-reverse' : '';
 };
 </script>
-
-<style lang="scss" scoped>
-@import 'badge';
-</style>

@@ -53,8 +53,8 @@
 
 <script setup lang="ts">
 import { useFullscreen } from '@/jagfx/components/menu/useFullscreen';
-import { useMenu } from '@/jagfx/components/menu/useMenu';
-import Button from '@/jagfx/components/shared/ui/Button/Button.vue';
+import { useMenu }             from '@/jagfx/components/menu/useMenu';
+import Button                  from '@/jagfx/components/shared/ui/Button.vue';
 import { useApplicationState } from '@/jagfx/components/useApplicationState';
 
 const { fullscreenIsEnabled, switchFullscreen } = useFullscreen();

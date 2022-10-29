@@ -30,7 +30,7 @@ import { shallowRef } from 'vue';
 import AboutTab from '@/jagfx/components/menu/AboutTab/AboutTab.vue';
 import SkinTab from '@/jagfx/components/menu/SkinTab.vue';
 import UserPreferenceTab from '@/jagfx/components/menu/UserPreferenceTab/UserPreferenceTab.vue';
-import Navlink from '@/jagfx/components/shared/ui/Navlink/Navlink.vue';
+import Navlink           from '@/jagfx/components/shared/ui/Navlink.vue';
 
 type TabsType = {
   icon: string;

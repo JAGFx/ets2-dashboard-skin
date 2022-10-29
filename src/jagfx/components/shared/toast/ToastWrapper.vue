@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import { useToast } from '@/jagfx/components/shared/toast/useToast';
-import Toast from '@/jagfx/components/shared/ui/Toast/Toast.vue';
+import Toast        from '@/jagfx/components/shared/ui/Toast.vue';
 
 const { toasts } = useToast();
 

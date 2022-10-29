@@ -75,7 +75,3 @@ const removeHoverEffect = (): void => {
   }
 };
 </script>
-
-<style scoped lang="scss">
-@import 'button';
-</style>
