@@ -3,6 +3,8 @@
     <Menu />
   </Navbar>
 
+  <ToastWrapper />
+
   <!--  <h1 class="bg-gradient-accent">New dashboard</h1>-->
   <!--  <p>{{ $t('Skins') }}</p>-->
   <!--  <code>Current locale: {{ currentLocale }}</code-->
@@ -22,6 +24,10 @@
 </template>
 
 <script setup lang="ts">
+import Menu from '@/jagfx/components/menu/Menu.vue';
+import Navbar from '@/jagfx/components/navbar/Navbar.vue';
+import ToastWrapper from '@/jagfx/components/shared/toast/ToastWrapper.vue';
+
 //import { useApplicationState } from '@/application/useApplicationState.ts';
 //import { useLogger }           from "@/application/useLogger.ts";
 //import { useTranslator }       from '@/application/useTranslator.ts';
@@ -29,8 +35,6 @@
 //const { version, isOnDevEnvironment, useFakeData } = useApplicationState();
 //const { currentLocale, changeLocale } = useTranslator();
 //const { logs, pushLog } = useLogger();
-import Menu from '@/jagfx/components/menu/Menu.vue';
-import Navbar from '@/jagfx/components/navbar/Navbar.vue';
 </script>
 
 <style lang="scss">

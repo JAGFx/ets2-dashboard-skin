@@ -1,0 +1,16 @@
+@import "../abstracts/variables";
+@import "../vendors/bootstrap_configuration";
+
+.toast-wrapper {
+	position: absolute;
+	top: 3.5rem;
+	left: 50%;
+	transform: translateX(-50%);
+	
+	.toast {
+		border-radius: $border-radius;
+		color: white;
+		margin: .2rem;
+	}
+}
+
