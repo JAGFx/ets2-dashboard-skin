@@ -11,7 +11,7 @@
           @input="(evenet) => update({ search: evenet.target.value })"
         />
         <button
-          class="btn btn-acrylic dropdown-toggle d-flex-center-center px-2 py-1 m-0 d-flex-center-center"
+          class="btn btn-acrylic dropdown-toggle d-flex-center-center px-2 py-1 m-0 d-flex-center-center w-auto"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -28,7 +28,7 @@
           </li>
         </ul>
         <button
-          class="btn btn-acrylic px-2 py-1 pe-3 m-0 d-flex-center-center"
+          class="btn btn-acrylic px-2 py-1 pe-3 m-0 d-flex-center-center w-auto"
           type="button"
         >
           <i class="icon-location_arrow"></i>
@@ -55,8 +55,8 @@
 <script setup lang="ts">
 import { PreferenceEntryCategories } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 
-import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
-import Tag                     from '@/jagfx/components/shared/ui/Tag.vue';
+import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';
+import Tag from '@/jagfx/components/shared/ui/Tag.vue';
 
 const { current, update, reset } = usePreferencesEntry();
 const preferenceEntryCategories = Object.values(PreferenceEntryCategories);

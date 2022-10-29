@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import UserPreferenceListItem from '@/jagfx/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
-import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
+import UserPreferenceListItem from '@/jagfx/components/menu/user-preference-tab/UserPreferenceListItem.vue';
+import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';
 
 type UserPreferenceListItemInputProps = {
   preferenceEntryId: string;

@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn switch d-flex justify-content-between align-items-center"
+    class="btn switch d-flex justify-content-between align-items-center w-100"
     :class="{
       'flex-row-reverse': !currentState,
       enabled: currentState

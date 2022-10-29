@@ -251,9 +251,9 @@
 </template>
 
 <script setup lang="ts">
-import UserPreferenceListItemInput from '@/jagfx/components/menu/UserPreferenceTab/item/UserPreferenceListItemInput.vue';
-import UserPreferenceListItemSelect from '@/jagfx/components/menu/UserPreferenceTab/item/UserPreferenceListItemSelect.vue';
-import UserPreferenceListItemSwitch from '@/jagfx/components/menu/UserPreferenceTab/item/UserPreferenceListItemSwitch.vue';
+import UserPreferenceListItemInput from '@/jagfx/components/menu/user-preference-tab/item/UserPreferenceListItemInput.vue';
+import UserPreferenceListItemSelect from '@/jagfx/components/menu/user-preference-tab/item/UserPreferenceListItemSelect.vue';
+import UserPreferenceListItemSwitch from '@/jagfx/components/menu/user-preference-tab/item/UserPreferenceListItemSwitch.vue';
 </script>
 
 <style lang="scss" scoped></style>

@@ -24,8 +24,8 @@ import {
   PreferenceEntryValue
 } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 
-import UserPreferenceListItem from '@/jagfx/components/menu/UserPreferenceTab/UserPreferenceListItem.vue';
-import { usePreferencesEntry } from '@/jagfx/components/menu/UserPreferenceTab/usePreferencesEntry';
+import UserPreferenceListItem from '@/jagfx/components/menu/user-preference-tab/UserPreferenceListItem.vue';
+import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';
 import { useUserPreferences } from '@/jagfx/components/shared/useUserPreferences';
 
 const { getUserPreference, setUserPreference } = useUserPreferences();

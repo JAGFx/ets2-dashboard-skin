@@ -27,10 +27,10 @@
 import type { Component } from 'vue';
 import { shallowRef } from 'vue';
 
-import AboutTab from '@/jagfx/components/menu/AboutTab/AboutTab.vue';
 import SkinTab from '@/jagfx/components/menu/SkinTab.vue';
-import UserPreferenceTab from '@/jagfx/components/menu/UserPreferenceTab/UserPreferenceTab.vue';
-import Navlink           from '@/jagfx/components/shared/ui/Navlink.vue';
+import AboutTab from '@/jagfx/components/menu/about-tab/AboutTab.vue';
+import UserPreferenceTab from '@/jagfx/components/menu/user-preference-tab/UserPreferenceTab.vue';
+import Navlink from '@/jagfx/components/shared/ui/Navlink.vue';
 
 type TabsType = {
   icon: string;
@@ -57,7 +57,3 @@ const tabs: TabsType[] = [
 ];
 const currentTab = shallowRef<TabsType>(UserPreferenceTab);
 </script>
-
-<style lang="scss" scoped>
-@import 'menu';
-</style>

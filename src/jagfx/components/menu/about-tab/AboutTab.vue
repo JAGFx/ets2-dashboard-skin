@@ -73,7 +73,3 @@
 <script setup lang="ts">
 import Button from '@/jagfx/components/shared/ui/Button.vue';
 </script>
-
-<style lang="scss">
-@import 'aboutTab';
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex-center-center">
     <button
-      class="btn bg-acrylic m-1 p-2 discrete-button"
+      class="btn bg-acrylic m-1 p-2 discrete-button w-auto d-flex-center-center"
       @click="switchToCompleteMode"
     >
       <font-awesome-icon icon="fa-solid fa-earth-europe" class="show-navbar" />
@@ -16,5 +16,5 @@ const { switchToCompleteMode } = useMenu();
 </script>
 
 <style lang="scss">
-@import 'navbar';
+@import '../../style/layout/navbar';
 </style>

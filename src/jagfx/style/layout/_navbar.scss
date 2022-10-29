@@ -1,7 +1,7 @@
-@import "../../style/abstracts/variables";
-@import "../../style/abstracts/effects";
-@import "../../style/abstracts/mixins";
-@import "../../style/vendors/bootstrap_configuration";
+@import "../abstracts/variables";
+@import "../abstracts/effects";
+@import "../abstracts/mixins";
+@import "../vendors/bootstrap_configuration";
 
 .menu-is-shown {
 	background: $color-black;

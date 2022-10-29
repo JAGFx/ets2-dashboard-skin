@@ -19,7 +19,3 @@ import { useMenu } from '@/jagfx/components/menu/useMenu';
 
 const { menuIsShown, mode } = useMenu();
 </script>
-
-<style lang="scss">
-@import 'navbar';
-</style>
