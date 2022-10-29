@@ -3,8 +3,8 @@
     <select
       class="form-select form-select-sm"
       aria-label="Default select example"
-      :value="() => getUserPreference(props.configurationId)"
-      @input="(value) => setUserPreference(props.configurationId, value)"
+      :value="() => find(props.preferenceEntryId)"
+      @input="(value) => update(props.preferenceEntryId, value)"
     >
       <option
         v-for="value in loadValues(preferenceEntry)"
@@ -26,9 +26,9 @@ import {
 
 import UserPreferenceListItem from '@/jagfx/components/menu/user-preference-tab/UserPreferenceListItem.vue';
 import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';
-import { useUserPreferences } from '@/jagfx/components/shared/useUserPreferences';
+import { useUserPreference } from '@/jagfx/components/shared/useUserPreference';
 
-const { getUserPreference, setUserPreference } = useUserPreferences();
+const { find, update } = useUserPreference();
 const { initProvider } = usePreferencesEntry();
 
 type UserPreferenceListItemSelectProps = {

@@ -1,3 +1,5 @@
+export type UserPreferenceId = string;
+
 export const enum UserPreferenceTarget {
   Application = 'application',
   Game = 'game'
@@ -6,7 +8,12 @@ export const enum UserPreferenceTarget {
 export type UserPreferenceValue = string | boolean | number;
 
 export type UserPreference = {
-  id: string;
+  id: UserPreferenceId;
   target: UserPreferenceTarget;
   value: UserPreferenceValue;
 };
+
+export class UserPreferenceCollection extends Map<
+  UserPreferenceId,
+  UserPreference
+> {}
