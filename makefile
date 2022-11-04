@@ -19,7 +19,7 @@ build: install
 start:
 	@bin/node npm run dashboard:dev
 
-test: install
+test:
 	@bin/node npm test
 
 ci:

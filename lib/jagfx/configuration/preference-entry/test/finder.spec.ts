@@ -5,11 +5,13 @@ import {
   unknownPreferenceEntryId
 } from './finder.mock';
 
-import { findPreferenceEntryById } from '../finder';
+// import { findPreferenceEntryById } from '../finder';
 
 jest.mock('./list.json', () => existingConfiguration.entries(), {
   virtual: true
 });
+
+const finder = await import('../finder');
 
 // Fixme Correct auto reorder. Jest mock must be before this import
 
@@ -19,14 +21,14 @@ beforeEach(() => {
 
 describe('Preference entries finder', () => {
   it('An existing preference entry must return data successfully', () => {
-    expect(findPreferenceEntryById(existingConfigurationId)).toMatchObject(
-      expectedPreferenceEntry
-    );
+    expect(
+      finder.findPreferenceEntryById(existingConfigurationId)
+    ).toMatchObject(expectedPreferenceEntry);
   });
 
   it('An unknown preference entry must thrown an exception', () => {
     expect(() =>
-      findPreferenceEntryById(unknownPreferenceEntryId)
+      finder.findPreferenceEntryById(unknownPreferenceEntryId)
     ).toThrowError(
       `Unable to find ${unknownPreferenceEntryId} on preference entries list`
     );

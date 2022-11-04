@@ -6,6 +6,8 @@ import { ToastMessage } from '@/jagfx/components/shared/toast/toast.type';
 import { useToast } from '@/jagfx/components/shared/toast/useToast';
 import { useApplicationState } from '@/jagfx/components/useApplicationState';
 
+// TODO: Add unit test
+
 const { useFakeData } = useApplicationState();
 export const getUserPreferences = (): Promise<UserPreferenceCollection> => {
   if (useFakeData) {

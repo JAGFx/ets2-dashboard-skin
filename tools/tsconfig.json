@@ -4,8 +4,11 @@
     "paths" : {
       "@/*": ["./src/*"]
     },
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": [
+      "ESNext"
+    ],
     "strict": true,
 	"moduleResolution": "node",
     "esModuleInterop": true,
