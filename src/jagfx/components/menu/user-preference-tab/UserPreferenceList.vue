@@ -199,7 +199,7 @@
             <UserPreferenceListItemSwitch
               preference-entry-id="maps_elements_rotateWithPlayer"
             />
-            <UserPreferenceListItemSelect
+            <UserPreferenceListItemSwitch
               preference-entry-id="maps_map_navigationRemaining"
             />
             <!-- </editor-folder> Map/Elements -->

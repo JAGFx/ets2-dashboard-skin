@@ -3,7 +3,7 @@
     <select
       class="form-select form-select-sm"
       aria-label="Default select example"
-      :value="() => find(props.preferenceEntryId)"
+      :value="find(props.preferenceEntryId).value"
       @input="(value) => update(props.preferenceEntryId, value)"
     >
       <option

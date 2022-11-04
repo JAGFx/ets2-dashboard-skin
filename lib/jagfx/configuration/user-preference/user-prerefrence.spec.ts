@@ -36,9 +36,6 @@ describe('Update user preference', () => {
     );
 
     expect(givenUserPreference.id).toStrictEqual(expectedUserPreference.id);
-    expect(givenUserPreference.target).toStrictEqual(
-      expectedUserPreference.target
-    );
     expect(givenUserPreference.value).toStrictEqual('nope');
   });
 });

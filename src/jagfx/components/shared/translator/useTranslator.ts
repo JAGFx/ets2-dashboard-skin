@@ -1,5 +1,5 @@
 import { TranslationLocale } from 'ets2-dashboard-lib/jagfx/application/translator/translate.type';
-import { computed, reactive, readonly } from 'vue';
+import { computed, reactive } from 'vue';
 
 type TranslatorState = {
   locale: TranslationLocale;
@@ -19,7 +19,6 @@ const actions = {
 };
 
 export const useTranslator = () => ({
-  state: readonly(state),
   ...getters,
   ...actions
 });

@@ -1,6 +1,6 @@
 <template>
   <Toast>
-    {{ theToast.message }}
+    {{ $t(theToast.message) }}
   </Toast>
 </template>
 

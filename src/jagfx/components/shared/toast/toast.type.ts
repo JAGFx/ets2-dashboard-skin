@@ -12,7 +12,7 @@ export enum ToastType {
 
 export interface Toast {
   type: ToastType;
-  component;
+  component: Component;
   timestamp: number;
   delay: number;
 }
@@ -20,7 +20,7 @@ export interface Toast {
 abstract class AbstractToast implements Toast {
   private readonly _type: ToastType;
   private readonly _timestamp: number;
-  private readonly _delay: number = 1000;
+  private readonly _delay: number = 2000;
   private _component: Component;
 
   protected constructor(type: ToastType) {

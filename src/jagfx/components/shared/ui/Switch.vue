@@ -16,11 +16,15 @@
 </template>
 
 <script setup lang="ts">
+import { UserPreferenceValue } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference.type';
 import { ref } from 'vue';
 
 const emits = defineEmits(['change']);
+const props = defineProps<{
+  initialValue: UserPreferenceValue;
+}>();
 
-const currentState = ref<boolean>(false);
+const currentState = ref<boolean>(props.initialValue === true);
 
 const switchState = (): void => {
   currentState.value = !currentState.value;

@@ -7,7 +7,6 @@ import {
 export const userPreferenceId = 'preference1';
 export const expectedUserPreference: UserPreference = {
   id: userPreferenceId,
-  target: UserPreferenceTarget.Application,
   value: 'preference1'
 };
 export const userPreferences: UserPreferenceCollection =

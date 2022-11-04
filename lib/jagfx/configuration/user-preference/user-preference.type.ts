@@ -5,15 +5,26 @@ export const enum UserPreferenceTarget {
   Game = 'game'
 }
 
-export type UserPreferenceValue = string | boolean | number;
+export type UserPreferenceValue = string | boolean | number | null;
 
 export type UserPreference = {
   id: UserPreferenceId;
-  target: UserPreferenceTarget;
   value: UserPreferenceValue;
 };
 
 export class UserPreferenceCollection extends Map<
   UserPreferenceId,
   UserPreference
-> {}
+> {
+  static fromArray(
+    userPreferences: UserPreference[]
+  ): UserPreferenceCollection {
+    const collection = new this();
+
+    userPreferences.map((userPreference: UserPreference) =>
+      collection.set(userPreference.id, userPreference)
+    );
+
+    return collection;
+  }
+}

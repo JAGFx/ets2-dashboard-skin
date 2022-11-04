@@ -1,4 +1,3 @@
-import { TranslationLocale } from 'ets2-dashboard-lib/jagfx/application/translator/translate.type';
 import { preferenceEntryMatchWithFilter } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/filter';
 import {
   PreferenceEntryFilterEdit,
@@ -11,12 +10,16 @@ import {
 } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
 import { computed, inject, provide, reactive, readonly } from 'vue';
 
+import { useTranslator } from '@/jagfx/components/shared/translator/useTranslator';
+
 const PROVIDE_PREFERENCE_ENTRY = 'provider-preference-entry-id';
 
 const state = reactive<PreferenceEntryFilters>({
   search: '',
   categories: []
 });
+
+const { currentLocale } = useTranslator();
 
 const getters = {
   current: computed<PreferenceEntryFilters>(() => state),
@@ -27,7 +30,7 @@ const getters = {
         search: state.search,
         categories: state.categories
       },
-      TranslationLocale.FR_FR
+      currentLocale.value
     )
 };
 

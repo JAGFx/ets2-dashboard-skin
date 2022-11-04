@@ -17,7 +17,8 @@ import Toast from '@/jagfx/components/shared/ui/Toast.vue';
 
 const { toasts } = useToast();
 
-const toastQueue = (): Toast[] => Array.from(toasts.value.values()).reverse();
+const toastQueue = (): typeof Toast[] =>
+  Array.from(toasts.value.values()).reverse();
 </script>
 
 <style scoped></style>

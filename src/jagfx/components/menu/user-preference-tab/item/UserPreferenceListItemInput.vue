@@ -1,6 +1,11 @@
 <template>
   <UserPreferenceListItem>
-    <input :type="props.type" class="form-control form-control-sm" />
+    <input
+      :type="props.type"
+      class="form-control form-control-sm"
+      :value="find(props.preferenceEntryId).value"
+      @input="(value) => update(props.preferenceEntryId, value)"
+    />
   </UserPreferenceListItem>
 </template>
 
@@ -9,6 +14,7 @@ import { PreferenceEntryId } from 'ets2-dashboard-lib/jagfx/configuration/prefer
 
 import UserPreferenceListItem from '@/jagfx/components/menu/user-preference-tab/UserPreferenceListItem.vue';
 import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';
+import { useUserPreference } from '@/jagfx/components/shared/useUserPreference';
 
 type UserPreferenceListItemInputProps = {
   preferenceEntryId: PreferenceEntryId;
@@ -19,6 +25,7 @@ const props = withDefaults(defineProps<UserPreferenceListItemInputProps>(), {
   type: 'text'
 });
 const { initProvider } = usePreferencesEntry();
+const { find, update } = useUserPreference();
 
 initProvider(props.preferenceEntryId);
 </script>

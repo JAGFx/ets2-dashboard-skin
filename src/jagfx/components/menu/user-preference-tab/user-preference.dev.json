@@ -1,0 +1,292 @@
+[
+	{
+		"id": "general_refresh_rate",
+		"value": 100
+	},
+	{
+		"id": "general_skin_on_load",
+		"value": "JAGFx"
+	},
+	{
+		"id": "general_h-shift-layout",
+		"value": "h-shifter"
+	},
+	{
+		"id": "general_skin_locale",
+		"value": "en-EN"
+	},
+	{
+		"id": "general_job_remaining",
+		"value": "remaining_date"
+	},
+	{
+		"id": "general_port",
+		"value": 3000
+	},
+	{
+		"id": "general_damage_accurate",
+		"value": "damage-diagnostic"
+	},
+	{
+		"id": "unit_weight",
+		"value": "kg"
+	},
+	{
+		"id": "unit_length",
+		"value": "m"
+	},
+	{
+		"id": "unit_degrees",
+		"value": "C"
+	},
+	{
+		"id": "unit_consumption",
+		"value": "lpkm"
+	},
+	{
+		"id": "unit_volume",
+		"value": "l"
+	},
+	{
+		"id": "unit_pressure",
+		"value": "psi"
+	},
+	{
+		"id": "unit_speed",
+		"value": "kph"
+	},
+	{
+		"id": "unit_currency",
+		"value": "EUR"
+	},
+	
+	{
+		"id": "jagfx_elements_right_oilTemperature",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_brakesTemperature",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_brakesAirPressure",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_fuel",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_fuelConsumption",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_cruiseControl",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_waterTemperature",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_batteryVoltage",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_top_retarder",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_top_parkingBrake",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_top_beamHigh",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_top_beamLow",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_top_beacon",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_rpm",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_fuel",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_speedLimit",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_restStop",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_mid_bottom_blinker_turn",
+		"value": true
+	},
+	{
+		"id": "jagfx_elements_right_map",
+		"value": false
+	},
+	
+	
+	{
+		"id": "events_truck.refuel",
+		"value": true
+	},
+	{
+		"id": "events_truck.damage",
+		"value": true
+	},
+	{
+		"id": "events_truck.park",
+		"value": true
+	},
+	{
+		"id": "events_truck.engine",
+		"value": true
+	},
+	{
+		"id": "events_truck.electric",
+		"value": true
+	},
+	{
+		"id": "events_truck.emergency-message",
+		"value": true
+	},
+	{
+		"id": "events_truck.warning-message",
+		"value": true
+	},
+	{
+		"id": "events_truck.cruise-control-decrease",
+		"value": true
+	},
+	{
+		"id": "events_truck.cruise-control-increase",
+		"value": true
+	},
+	{
+		"id": "events_truck.cruise-control",
+		"value": true
+	},
+	{
+		"id": "events_trailers.damage",
+		"value": true
+	},
+	{
+		"id": "events_trailers.coupling",
+		"value": true
+	},
+	{
+		"id": "events_navigation.speed-limit",
+		"value": true
+	},
+	{
+		"id": "events_job.started",
+		"value": true
+	},
+	{
+		"id": "events_job.finished",
+		"value": true
+	},
+	{
+		"id": "events_job.delivered",
+		"value": true
+	},
+	{
+		"id": "events_job.cancelled",
+		"value": true
+	},
+	{
+		"id": "events_game.refuel-payed",
+		"value": true
+	},
+	{
+		"id": "events_game.train",
+		"value": true
+	},
+	{
+		"id": "events_game.ferry",
+		"value": true
+	},
+	{
+		"id": "events_game.tollgate",
+		"value": true
+	},
+	{
+		"id": "events_game.fine",
+		"value": true
+	},
+	{
+		"id": "events_game.pause",
+		"value": true
+	},
+	
+	
+	{
+		"id": "maps_elements_eta",
+		"value": true
+	},
+	{
+		"id": "maps_elements_speedAndGear",
+		"value": true
+	},
+	{
+		"id": "maps_elements_mapControls",
+		"value": true
+	},
+	{
+		"id": "maps_elements_speedLimit",
+		"value": true
+	},
+	{
+		"id": "maps_elements_rotateWithPlayer",
+		"value": true
+	},
+	{
+		"id": "maps_map_type",
+		"value": "vanilla"
+	},
+	{
+		"id": "maps_map_tilesRemotePath",
+		"value": "https://raw.githubusercontent.com/TwinDragon/SCS_Map_Tiles/master/"
+	},
+	{
+		"id": "maps_map_activeMap",
+		"value": null
+	},
+	{
+		"id": "maps_map_navigationRemaining",
+		"value": "remaining_date"
+	},
+	{
+		"id": "maps_map_tilesVersion",
+		"value": "latest"
+	},
+	{
+		"id": "maps_map_tilesRemoteUseCustom",
+		"value": false
+	},
+	{
+		"id": "maps_map_tilesRemoteCustomPath",
+		"value": null
+	},
+	{
+		"id": "maps_general_debug",
+		"value": false
+	},
+	
+	{
+		"id": "scania_default_menu",
+		"value": null
+	}
+]
