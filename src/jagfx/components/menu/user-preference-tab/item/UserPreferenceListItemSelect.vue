@@ -3,13 +3,19 @@
     <select
       class="form-select form-select-sm"
       aria-label="Default select example"
-      :value="find(props.preferenceEntryId).value"
-      @input="(value) => update(props.preferenceEntryId, value)"
+      :value="
+        currentUserPreference().value === null
+          ? ''
+          : currentUserPreference().value
+      "
+      @input="
+        (value) => update(props.preferenceEntryId, value === '' ? null : value)
+      "
     >
       <option
         v-for="value in loadValues(preferenceEntry)"
         :key="value.value"
-        :value="value.value"
+        :value="value.value === null ? '' : value.value"
       >
         {{ $t(value.label) }}
       </option>
@@ -42,6 +48,7 @@ const props = withDefaults(defineProps<UserPreferenceListItemSelectProps>(), {
 });
 
 const preferenceEntry: PreferenceEntry = initProvider(props.preferenceEntryId);
+const currentUserPreference = () => find(props.preferenceEntryId);
 
 const loadValues = (
   preferenceEntry: PreferenceEntry | null

@@ -1,7 +1,6 @@
 import {
   UserPreference,
-  UserPreferenceCollection,
-  UserPreferenceTarget
+  UserPreferenceCollection
 } from './user-preference.type';
 
 export const userPreferenceId = 'preference1';
