@@ -1,0 +1,28 @@
+{
+	"$id": "http://example.com/example.json",
+	"type": "array",
+	"title": "List of user preferences entry",
+	"items": {
+		"type": "object",
+		"title": "A user preference entry",
+		"required": [
+			"id",
+			"value"
+		],
+		"properties": {
+			"id": {
+				"type": "string",
+				"title": "Identifier of user preference entry"
+			},
+			"value": {
+				"type": [
+					"string",
+					"boolean",
+					"null",
+					"number"
+				],
+				"title": "User preference entry value"
+			}
+		}
+	}
+}
