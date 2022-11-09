@@ -1,4 +1,4 @@
 #!/bin/sh
 
 . tools/docker-image-name
-docker run -it --rm -v "$(pwd):/usr/app" -p "8080:8080"  ${NPM_IMAGE_NAME} $@
+docker run -it --rm -v "$(pwd):/usr/app" ${NODE_IMAGE_NAME} $@

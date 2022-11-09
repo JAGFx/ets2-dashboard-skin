@@ -13,11 +13,11 @@ install: dev-env
 	@bin/node npm i
 	@bin/node npm run font:build
 
-build: install
-	@docker build -t $(NPM_IMAGE_NAME) -f docker/npm/Dockerfile .
+build:
+	@docker build -t $(NODE_IMAGE_NAME) -f docker/node/Dockerfile .
 
 start:
-	@bin/node npm run dashboard:dev
+	@bin/app npm run dashboard:dev
 
 test:
 	@bin/node npm test
