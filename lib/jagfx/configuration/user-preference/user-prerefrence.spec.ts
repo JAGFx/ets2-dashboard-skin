@@ -5,6 +5,7 @@ import {
 } from './user-prerefrence.mock';
 
 import { findUserPreference, updateUserPreference } from './user-preference';
+import { UserPreference } from './user-preference.type.js';
 
 describe('Find a user preference', () => {
   it("Throw an exception if the given user preference id doesn't exist", () => {
@@ -29,13 +30,11 @@ describe('Update user preference', () => {
   });
 
   it('Return the right user preference updated matching with the user preference id', () => {
-    const givenUserPreference = updateUserPreference(
-      userPreferenceId,
-      'nope',
-      userPreferences
+    updateUserPreference(userPreferenceId, 'nope', userPreferences).then(
+      (userPreference: UserPreference) => {
+        expect(userPreference.id).toStrictEqual(expectedUserPreference.id);
+        expect(userPreference.value).toStrictEqual('nope');
+      }
     );
-
-    expect(givenUserPreference.id).toStrictEqual(expectedUserPreference.id);
-    expect(givenUserPreference.value).toStrictEqual('nope');
   });
 });

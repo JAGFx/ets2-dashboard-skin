@@ -10,9 +10,16 @@ import {
 } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference.type';
 import { reactive } from 'vue';
 
+import { createToastMessage } from '@/jagfx/components/shared/toast/toast.factory';
+import { useToast } from '@/jagfx/components/shared/toast/useToast';
+import { useApplicationState } from '@/jagfx/components/useApplicationState';
+
 type UseUserPreferenceState = {
   preferences: UserPreferenceCollection;
 };
+
+const { useFakeData } = useApplicationState();
+const { pushToast } = useToast();
 
 const state = reactive<UseUserPreferenceState>({
   preferences: new UserPreferenceCollection()
@@ -25,9 +32,15 @@ const getters = {
 
 const actions = {
   update: (id: UserPreferenceId, value: UserPreferenceValue) => {
-    state.preferences.set(
-      id,
-      updateUserPreference(id, value, state.preferences)
+    updateUserPreference(id, value, state.preferences, useFakeData).then(
+      (userPreference: UserPreference) => {
+        const toast = createToastMessage(
+          'User preference successfully updated'
+        );
+        pushToast(toast);
+
+        state.preferences.set(id, userPreference);
+      }
     );
   },
   load: (userPreferences: UserPreferenceCollection) => {

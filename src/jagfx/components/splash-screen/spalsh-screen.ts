@@ -1,4 +1,4 @@
-import { getUserPreferences } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/loader';
+import { getUserPreferences } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference';
 import { UserPreferenceCollection } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference.type';
 
 import { createToastMessage } from '@/jagfx/components/shared/toast/toast.factory';

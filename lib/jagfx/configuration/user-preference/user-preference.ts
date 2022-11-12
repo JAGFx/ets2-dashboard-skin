@@ -1,3 +1,4 @@
+import userPreferenceDev from './user-preference.dev.json';
 import {
   UserPreference,
   UserPreferenceCollection,
@@ -21,11 +22,36 @@ export const findUserPreference = (
 export const updateUserPreference = (
   id: UserPreferenceId,
   value: UserPreferenceValue,
-  userPreferences: UserPreferenceCollection
-): UserPreference => {
+  userPreferences: UserPreferenceCollection,
+  useFakeData = false
+): Promise<UserPreference> => {
   const existing = findUserPreference(id, userPreferences);
 
   existing.value = value;
 
-  return existing;
+  if (useFakeData) {
+    return new Promise<UserPreference>((resolve) => {
+      setTimeout(() => {
+        resolve(existing);
+      }, 1000);
+    });
+  }
+
+  // TODO use useFetch to call server
+  return new Promise<UserPreference>((resolve) => {
+    resolve(existing);
+  });
+};
+
+export const getUserPreferences = (useFakeData = false) => {
+  if (useFakeData) {
+    return new Promise<UserPreferenceCollection>((resolve) => {
+      resolve(UserPreferenceCollection.fromArray(userPreferenceDev));
+    });
+  }
+
+  // TODO use useFetch to call server
+  return new Promise<UserPreferenceCollection>((resolve) => {
+    resolve(UserPreferenceCollection.fromArray([]));
+  });
 };

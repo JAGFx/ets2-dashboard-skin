@@ -9,7 +9,11 @@
           : currentUserPreference().value
       "
       @input="
-        (event) => update(props.preferenceEntryId, event.target.value === '' ? null : event.target.value)
+        (event) =>
+          update(
+            props.preferenceEntryId,
+            event.target.value === '' ? null : event.target.value
+          )
       "
     >
       <option
