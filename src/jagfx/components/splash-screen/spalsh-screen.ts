@@ -1,8 +1,8 @@
+import { ToastMessage } from 'ets2-dashboard-lib/jagfx/application/toast/toast-message.type.js';
+import { createToastMessage } from 'ets2-dashboard-lib/jagfx/application/toast/toast.factory.js';
 import { getUserPreferences } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference';
 import { UserPreferenceCollection } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference.type';
 
-import { createToastMessage } from '@/jagfx/components/shared/toast/toast.factory';
-import { ToastMessage } from '@/jagfx/components/shared/toast/toast.type';
 import { useToast } from '@/jagfx/components/shared/toast/useToast';
 import { useUserPreference } from '@/jagfx/components/shared/useUserPreference';
 import { useApplicationState } from '@/jagfx/components/useApplicationState';

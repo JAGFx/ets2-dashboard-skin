@@ -5,7 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ToastMessage } from '@/jagfx/components/shared/toast/toast.type';
+import { ToastMessage } from 'ets2-dashboard-lib/jagfx/application/toast/toast-message.type.js';
+
 import Toast from '@/jagfx/components/shared/ui/Toast.vue';
 
 defineProps<{

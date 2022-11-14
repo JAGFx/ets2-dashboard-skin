@@ -1,3 +1,4 @@
+import { createToastMessage } from 'ets2-dashboard-lib/jagfx/application/toast/toast.factory.js';
 import {
   findUserPreference,
   updateUserPreference
@@ -10,7 +11,6 @@ import {
 } from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference.type';
 import { reactive } from 'vue';
 
-import { createToastMessage } from '@/jagfx/components/shared/toast/toast.factory';
 import { useToast } from '@/jagfx/components/shared/toast/useToast';
 import { useApplicationState } from '@/jagfx/components/useApplicationState';
 
