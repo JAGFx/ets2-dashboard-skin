@@ -1,4 +1,3 @@
 #!/bin/sh
 
-. tools/docker-image-name
-docker run -it --rm -v "$(pwd):/usr/app" ${NODE_IMAGE_NAME} $@
+docker run -it --rm -v "$(pwd):/usr/app" unicorn/ets2-dashboard-skin/node:latest $@

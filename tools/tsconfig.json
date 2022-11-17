@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl" : "../",
     "paths" : {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@core/*": ["./lib/jagfx/core/src/*"],
+      "@server/*": ["./lib/jagfx/server/src/*"]
     },
     "target": "ESNext",
     "module": "ESNext",

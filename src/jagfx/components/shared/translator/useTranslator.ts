@@ -1,5 +1,6 @@
-import { TranslationLocale } from 'ets2-dashboard-lib/jagfx/application/translator/translate.type';
 import { computed, reactive } from 'vue';
+
+import { TranslationLocale } from 'ets2-dashboard-core/src/application/translator/translate.type';
 
 type TranslatorState = {
   locale: TranslationLocale;

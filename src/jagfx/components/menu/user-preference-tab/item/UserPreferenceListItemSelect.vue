@@ -28,12 +28,12 @@
 </template>
 
 <script setup lang="ts">
-import { loadPreferenceEntryValues } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/loader';
+import { loadPreferenceEntryValues } from 'ets2-dashboard-core/src/configuration/preference-entry/loader';
 import {
   PreferenceEntry,
   PreferenceEntryId,
   PreferenceEntryValue
-} from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
+} from 'ets2-dashboard-core/src/configuration/preference-entry/preference-entry.type';
 
 import UserPreferenceListItem from '@/jagfx/components/menu/user-preference-tab/UserPreferenceListItem.vue';
 import { usePreferencesEntry } from '@/jagfx/components/menu/user-preference-tab/usePreferencesEntry';

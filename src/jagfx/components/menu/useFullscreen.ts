@@ -1,6 +1,7 @@
-import { switchFullscreen } from 'ets2-dashboard-lib/jagfx/application/fullscreen';
 import { computed, reactive } from 'vue';
 import { useVueInsomnia } from 'vue-insomnia';
+
+import { switchFullscreen } from 'ets2-dashboard-core/src/application/fullscreen';
 
 // Find alternatvie
 

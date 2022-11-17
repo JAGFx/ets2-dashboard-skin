@@ -31,5 +31,6 @@ coverage/
 
 /.prettierrc.json
 /tsconfig.json
-/lib/tsconfig.json
 /vite.config.ts
+/.eslintignore
+/.prettierignore

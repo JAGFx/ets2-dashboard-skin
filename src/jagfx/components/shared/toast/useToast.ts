@@ -1,8 +1,9 @@
+import { computed, reactive } from 'vue';
+
 import {
   Toast,
   ToastState
-} from 'ets2-dashboard-lib/jagfx/application/toast/toast.type.js';
-import { computed, reactive } from 'vue';
+} from 'ets2-dashboard-core/src/application/toast/toast.type.js';
 
 const state = reactive<ToastState>({
   queue: new Map<number, Toast>()

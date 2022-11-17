@@ -1,15 +1,16 @@
-import { createToastMessage } from 'ets2-dashboard-lib/jagfx/application/toast/toast.factory.js';
+import { reactive } from 'vue';
+
+import { createToastMessage } from 'ets2-dashboard-core/src/application/toast/toast.factory.js';
 import {
   findUserPreference,
   updateUserPreference
-} from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference';
+} from 'ets2-dashboard-core/src/configuration/user-preference/user-preference';
 import {
   UserPreference,
   UserPreferenceCollection,
   UserPreferenceId,
   UserPreferenceValue
-} from 'ets2-dashboard-lib/jagfx/configuration/user-preference/user-preference.type';
-import { reactive } from 'vue';
+} from 'ets2-dashboard-core/src/configuration/user-preference/user-preference.type';
 
 import { useToast } from '@/jagfx/components/shared/toast/useToast';
 import { useApplicationState } from '@/jagfx/components/useApplicationState';

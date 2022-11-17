@@ -8,7 +8,9 @@ const config: Config.InitialOptions = {
   rootDir: '../',
   modulePaths: [tsConfig.compilerOptions.baseUrl],
   moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/src/$1'
+    '@/(.*)$': '<rootDir>/src/$1',
+    '@core/(.*)$': '<rootDir>/lib/jagfx/core/src/$1',
+    '@server/(.*)$': '<rootDir>/lib/jagfx/server/src/$1',
   },
   transform: {
     '^.+\\.yaml$': 'yaml-jest'

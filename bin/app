@@ -1,4 +1,3 @@
 #!/bin/sh
 
-. tools/docker-image-name
-docker run -it --rm -v "$(pwd):/usr/app" -p "8080:8080" ${NODE_IMAGE_NAME} $@
+docker run -it --rm -v "$(pwd):/usr/app" -p "8080:8080" unicorn/ets2-dashboard-skin/node:latest $@

@@ -1,14 +1,15 @@
-import { preferenceEntryMatchWithFilter } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/filter';
+import { computed, inject, provide, reactive, readonly } from 'vue';
+
+import { preferenceEntryMatchWithFilter } from 'ets2-dashboard-core/src/configuration/preference-entry/filter';
 import {
   PreferenceEntryFilterEdit,
   PreferenceEntryFilters
-} from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/filter.type';
-import { findPreferenceEntryById } from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/finder';
+} from 'ets2-dashboard-core/src/configuration/preference-entry/filter.type';
+import { findPreferenceEntryById } from 'ets2-dashboard-core/src/configuration/preference-entry/finder';
 import {
   PreferenceEntry,
   PreferenceEntryId
-} from 'ets2-dashboard-lib/jagfx/configuration/preference-entry/preference-entry.type';
-import { computed, inject, provide, reactive, readonly } from 'vue';
+} from 'ets2-dashboard-core/src/configuration/preference-entry/preference-entry.type';
 
 import { useTranslator } from '@/jagfx/components/shared/translator/useTranslator';
 
