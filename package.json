@@ -11,8 +11,8 @@
   },
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:stylelint",
-    "lint:eslint": "npx eslint {src/jagfx,lib/jagfx,servers}/**/*.{js,vue,ts} --fix -c tools/.eslintrc.json",
-    "lint:prettier": "npx prettier {src/jagfx,lib/jagfx,servers}/**/*.{js,vue,ts} !dist/**/* --write --config tools/.prettierrc.json",
+    "lint:eslint": "npx eslint {src/jagfx,lib/jagfx,servers/jagfx}/**/*.{js,vue,ts} --fix -c tools/.eslintrc.json",
+    "lint:prettier": "npx prettier {src/jagfx,lib/jagfx,servers/jagfx}/**/*.{js,vue,ts} !dist/**/* --write --config tools/.prettierrc.json",
     "lint:stylelint": "npx stylelint --fix src/jagfx/**/*.scss --config tools/.stylelintrc.json",
     "test": "npm run test:unit",
     "test:unit": "npx jest -c tools/.jestrc.ts",

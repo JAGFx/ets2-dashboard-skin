@@ -6,6 +6,7 @@ dev-env:
 	@cp tools/.prettierignore .prettierignore
 	@sed -i '/baseUrl/d' tsconfig.json
 	@sed -i 's/\.\.\/src/\.\/src/g' vite.config.ts
+	@ln -s ${pwd}/bin servers/jagfx/dev/bin
 
 install: dev-env
 	@bin/node npm i
