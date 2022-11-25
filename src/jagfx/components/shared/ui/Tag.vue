@@ -3,5 +3,3 @@
     <slot />
   </small>
 </template>
-
-<script setup lang="ts"></script>

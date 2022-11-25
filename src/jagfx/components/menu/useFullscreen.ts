@@ -1,11 +1,11 @@
 import { computed, reactive } from 'vue';
-import { useVueInsomnia } from 'vue-insomnia';
 
+// import { useVueInsomnia } from 'vue-insomnia';
 import { switchFullscreen } from 'ets2-dashboard-core/src/application/fullscreen';
 
 // Find alternatvie
 
-const { enableVueInsomnia, disableVueInsomnia } = useVueInsomnia();
+// const { enableVueInsomnia, disableVueInsomnia } = useVueInsomnia();
 
 type FullscreenStateType = {
   fullscreen: boolean;
@@ -25,9 +25,9 @@ const actions = {
       switchFullscreen(state.fullscreen);
     } catch (e) {
       if (state.fullscreen) {
-        enableVueInsomnia();
+        // enableVueInsomnia();
       } else {
-        disableVueInsomnia();
+        // disableVueInsomnia();
       }
     } finally {
       state.fullscreen = !state.fullscreen;

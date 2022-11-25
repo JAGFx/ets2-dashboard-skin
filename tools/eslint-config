@@ -1,0 +1,13 @@
+https://typescript-eslint.io/rules/typedef
+"@typescript-eslint/typedef": ["error", {
+  "arrayDestructuring": true,
+  "arrowCallSignature": true,
+  "arrowParameter": true,
+  "callSignature": true,
+  "memberVariableDeclaration": true,
+  "parameter": true,
+  "propertyDeclaration": true,
+  "objectDestructuring": true,
+  "variableDeclaration": true,
+  "variableDeclarationIgnoreFunction": true
+}]

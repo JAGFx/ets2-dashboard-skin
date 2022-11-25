@@ -14,14 +14,14 @@
 	"dependencies": {
 		"ets2-dashboard-core": "file:../../../lib/jagfx/core",
 		"ets2-dashboard-server": "file:../../../lib/jagfx/server",
-		"fastify": "^4.9.2",
-		"socket.io": "^4.1.3"
+		"fastify": "^4.10.2",
+		"socket.io": "^4.5.4"
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.9",
-		"concurrently": "^7.5.0",
+		"concurrently": "^7.6.0",
 		"nodemon": "^2.0.20",
 		"tsc-alias": "^1.7.1",
-		"typescript": "^4.8.4"
+		"typescript": "^4.9.3"
 	}
 }

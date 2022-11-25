@@ -34,5 +34,3 @@ coverage/
 /vite.config.ts
 /.eslintignore
 /.prettierignore
-
-/servers/jagfx/dev/bin

@@ -4,8 +4,9 @@
     "jest": true
   },
   "extends": [
-    "plugin:vue/vue3-recommended",
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-recommended",
     "@vue/typescript/recommended",
     "prettier"
   ],
@@ -27,6 +28,14 @@
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
     "vue/no-v-html": "off",
     "vue/multi-word-component-names": "off",
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": {
+        "max": 3
+      },
+      "multiline": {
+        "max": 3
+      }
+    }],
     "prettier/prettier": "error"
   }
 }

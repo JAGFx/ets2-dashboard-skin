@@ -9,7 +9,6 @@ import { useApplicationState } from '@/jagfx/components/useApplicationState';
 
 const { useFakeData } = useApplicationState();
 const { load } = useUserPreference();
-
 export const loadUserPreferences = () => {
   return getUserPreferences(useFakeData).then(
     (userPreferences: UserPreferenceCollection) => {
@@ -17,10 +16,8 @@ export const loadUserPreferences = () => {
         'User preferences successfully loaded'
       );
       const { pushToast } = useToast();
-
       pushToast(toast);
       load(userPreferences);
-
       return userPreferences;
     }
   );

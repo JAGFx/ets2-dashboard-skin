@@ -6,7 +6,8 @@ dev-env:
 	@cp tools/.prettierignore .prettierignore
 	@sed -i '/baseUrl/d' tsconfig.json
 	@sed -i 's/\.\.\/src/\.\/src/g' vite.config.ts
-	@ln -s ${pwd}/bin servers/jagfx/dev/bin
+	@sed -i 's/\.\.\/lib\/jagfx\/core\/src/\.\/lib\/jagfx\/core\/src/g' vite.config.ts
+	@sed -i 's/\.\.\/lib\/jagfx\/server\/src/\.\/lib\/jagfx\/server\/src/g' vite.config.ts
 
 install: dev-env
 	@bin/node npm i
@@ -23,3 +24,9 @@ test:
 
 ci:
 	@bin/node npm run ci
+
+server\:dev\:build:
+	@bin/node npm run build -w servers/jagfx/dev
+
+server\:dev\:start: server\:dev\:build
+	@bin/node npm run start -w servers/jagfx/dev
