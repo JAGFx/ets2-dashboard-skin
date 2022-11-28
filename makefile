@@ -28,5 +28,8 @@ ci:
 server\:dev\:build:
 	@bin/node npm run build -w servers/jagfx/dev
 
+server\:dev\:watch:
+	@bin/server npm run watch -w servers/jagfx/dev
+
 server\:dev\:start:
-	@bin/server npm run start -w servers/jagfx/dev
+	@bin/server npm start -w servers/jagfx/dev

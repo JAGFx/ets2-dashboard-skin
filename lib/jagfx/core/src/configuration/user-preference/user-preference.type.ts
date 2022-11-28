@@ -1,5 +1,4 @@
 export type UserPreferenceId = string;
-
 export const enum UserPreferenceTarget {
   Application = 'application',
   Game = 'game'
@@ -26,5 +25,9 @@ export class UserPreferenceCollection extends Map<
     );
 
     return collection;
+  }
+  
+  public toJson(): UserPreference[] {
+    return Array.from(this.values());
   }
 }

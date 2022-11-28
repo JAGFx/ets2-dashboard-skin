@@ -14,6 +14,6 @@ export const toUserPreferencesCollection = (
       });
     }
   );
-  
+
   return collection;
 };

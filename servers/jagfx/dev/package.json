@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "npx tsc -p tsconfig.json && tsc-alias",
-    "watch": "npm run build && npx concurrently -c 'tsc -w' 'tsc-alias -w' 'nodemon --experimental-specifier-resolution=node -w dist dist/index.js'",
-    "start": "nodemon -w src src/index.ts"
+    "watch": "nodemon -w src src/index.ts",
+    "start": "nodemon src/index.ts"
   },
   "ts-node": {
     "esm": true
