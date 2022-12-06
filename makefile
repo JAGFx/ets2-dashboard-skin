@@ -7,29 +7,25 @@ dev-env:
 	@sed -i '/baseUrl/d' tsconfig.json
 	@sed -i 's/\.\.\/src/\.\/src/g' vite.config.ts
 	@sed -i 's/\.\.\/lib\/jagfx\/core\/src/\.\/lib\/jagfx\/core\/src/g' vite.config.ts
-	@sed -i 's/\.\.\/lib\/jagfx\/server\/src/\.\/lib\/jagfx\/server\/src/g' vite.config.ts
 
 install: dev-env
-	@bin/node npm i
-	@bin/node npm run font:build
-
-build:
-	@docker build -t unicorn/ets2-dashboard-skin/node:latest -f docker/node/Dockerfile .
+	@npm i
+	@npm run font:build
 
 start:
-	@bin/app npm run dashboard:dev
+	@npm run dashboard:dev
 
 test:
-	@bin/node npm test
+	@npm test
 
 ci:
-	@bin/node npm run ci
+	@npm run ci
 
-server\:dev\:build:
-	@bin/node npm run build -w servers/jagfx/dev
-
-server\:dev\:watch:
-	@bin/server npm run watch -w servers/jagfx/dev
-
-server\:dev\:start:
-	@bin/server npm start -w servers/jagfx/dev
+#server\:dev\:build:
+#	@npm run build -w servers/jagfx/dev
+#
+#server\:dev\:watch:
+#	@npm run watch -w servers/jagfx/dev
+#
+#server\:dev\:start:
+#	@npm start -w servers/jagfx/dev

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "build": "rm -r dist && npx tsc && tsc-alias"
+  },
   "dependencies": {
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
@@ -12,6 +15,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
+    "tsc-alias": "^1.8.1",
     "typescript": "^4.9.3"
-  }
+  },
+  "main": "index.js"
 }

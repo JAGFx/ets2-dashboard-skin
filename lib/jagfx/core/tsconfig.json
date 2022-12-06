@@ -14,6 +14,14 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "types" : ["@modyfi/vite-plugin-yaml/modules", "@types/jest"],
-    "strictPropertyInitialization": false
-  }
+    "strictPropertyInitialization": false,
+    "declaration" : true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true
+  },
+  "include" : [
+    "src/**/*"
+  ],
+  "exclude": ["node_modules", "**/*spec.ts"]
 }

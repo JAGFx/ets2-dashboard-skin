@@ -26,7 +26,7 @@ export class UserPreferenceCollection extends Map<
 
     return collection;
   }
-  
+
   public toJson(): UserPreference[] {
     return Array.from(this.values());
   }

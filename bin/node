@@ -1,3 +1,0 @@
-#!/bin/sh
-
-docker run -it --rm -v "$(pwd):/usr/app" unicorn/ets2-dashboard-skin/node:latest $@
