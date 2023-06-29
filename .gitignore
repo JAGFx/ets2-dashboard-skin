@@ -9,7 +9,7 @@ bundle
 public/icons/*
 
 # local env files
-.env.local
+.env.development.local
 .env.*.local
 
 # Log files

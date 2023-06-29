@@ -12,7 +12,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"ets2-dashboard-lib": "file:../../lib",
-		"trucksim-telemetry": "^0.16.1"
+		"trucksim-telemetry": "^0.19.1"
 	},
 	"bin": {
 		"ets2-dashboard-skin-server": "dist/index.js"
