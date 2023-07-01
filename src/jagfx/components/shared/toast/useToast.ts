@@ -1,9 +1,5 @@
+import { Toast, ToastState } from 'ets2-dashboard-skin-lib';
 import { computed, reactive } from 'vue';
-
-import {
-  Toast,
-  ToastState
-} from 'ets2-dashboard-core/src/application/toast/toast.type.js';
 
 const state = reactive<ToastState>({
   queue: new Map<number, Toast>()

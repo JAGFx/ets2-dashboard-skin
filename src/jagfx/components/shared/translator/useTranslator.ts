@@ -1,6 +1,17 @@
+import { TranslationLocale, Translations } from 'ets2-dashboard-skin-lib';
 import { computed, reactive } from 'vue';
 
-import { TranslationLocale } from 'ets2-dashboard-core/src/application/translator/translate.type';
+import cn_cn from '@/jagfx/components/shared/translator/translations/cn-CN.yaml';
+import fr_fr from '@/jagfx/components/shared/translator/translations/fr-FR.yaml';
+import pt_pt from '@/jagfx/components/shared/translator/translations/pt-PT.yaml';
+import ru_ru from '@/jagfx/components/shared/translator/translations/ru-RU.yaml';
+
+export const translations: Translations = {
+  'fr-FR': fr_fr,
+  'cn-CN': cn_cn,
+  'ru-RU': ru_ru,
+  'pt-PT': pt_pt
+};
 
 type TranslatorState = {
   locale: TranslationLocale;

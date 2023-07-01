@@ -1,10 +1,14 @@
-import { translate } from '@core/application/translator/translate';
-import { TranslationLocale } from '@core/application/translator/translate.type';
-import { PreferenceEntryFilters } from '@core/configuration/preference-entry/filter.type';
+import { translations } from '@/jagfx/components/shared/translator/useTranslator';
+
+import {
+  TranslationLocale,
+  translate
+} from '../../../../../ets2-dashboard-skin-lib';
 import {
   PreferenceEntry,
-  PreferenceEntryCategories
-} from '@core/configuration/preference-entry/preference-entry.type';
+  PreferenceEntryCategories,
+  PreferenceEntryFilters
+} from '../../../../../ets2-dashboard-skin-lib';
 
 export const preferenceEntryMatchWithFilter = (
   preferenceEntry: PreferenceEntry,
@@ -44,8 +48,8 @@ const translatedValueMatch = (
   b: string,
   locale: TranslationLocale
 ): boolean => {
-  const translatedA = translate(a, locale);
-  const translatedB = translate(b, locale);
+  const translatedA = translate(a, locale, translations);
+  const translatedB = translate(b, locale, translations);
 
   return translatedA.toLowerCase().includes(translatedB.toLowerCase());
 };

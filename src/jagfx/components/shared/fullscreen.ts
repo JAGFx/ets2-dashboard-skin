@@ -1,5 +1,6 @@
 // let navigatorWakeLock = null;
 
+// eslint-disable-next-line
 export const switchFullscreen = (fullscreenIsEnabled: boolean) => {
   // const elem = document.querySelector('html');
   //
@@ -40,6 +41,7 @@ export const switchAwakeScreen = () => {
   // else throw new Error('No native keep awake system was found.');
 };
 
+// eslint-disable-next-line
 export const stayOnFullscreenWithWakeLock = (fullscreenIsEnabled = false) => {
   // if (!fullscreenIsEnabled)
   //   navigator.wakeLock.request('screen').then((wakeLock) => {
@@ -49,6 +51,7 @@ export const stayOnFullscreenWithWakeLock = (fullscreenIsEnabled = false) => {
 };
 
 export const stayOnFullscreenWithScreenAwake = (
+  // eslint-disable-next-line
   fullscreenIsEnabled = false
 ) => {
   // screen.keepAwake = fullscreenIsEnabled;

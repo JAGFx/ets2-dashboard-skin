@@ -5,7 +5,6 @@
   "printWidth": 80,
   "importOrder" : [
     "(.*).mock$",
-    "^ets2-dashboard-core/(.*)$",
     "^ets2-dashboard-server/(.*)$",
     "^@core/(.*)$",
     "^@server/(.*)$",

@@ -16,9 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import { UserPreferenceValue } from 'ets2-dashboard-skin-lib';
 import { ref } from 'vue';
-
-import { UserPreferenceValue } from 'ets2-dashboard-core/src/configuration/user-preference/user-preference.type';
 
 const emits = defineEmits(['change']);
 const props = defineProps<{

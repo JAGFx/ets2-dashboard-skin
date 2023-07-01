@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ToastMessage } from 'ets2-dashboard-core/src/application/toast/toast-message.type';
+import { ToastMessage } from 'ets2-dashboard-skin-lib';
 
 import Toast from '@/jagfx/components/shared/ui/Toast.vue';
 

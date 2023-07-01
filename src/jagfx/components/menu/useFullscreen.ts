@@ -1,7 +1,7 @@
 import { computed, reactive } from 'vue';
 
 // import { useVueInsomnia } from 'vue-insomnia';
-import { switchFullscreen } from 'ets2-dashboard-core/src/application/fullscreen';
+import { switchFullscreen } from '@/jagfx/components/shared/fullscreen';
 
 // Find alternatvie
 

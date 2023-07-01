@@ -4,9 +4,14 @@
 //import { createPinia } from 'pinia'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faAngleDown, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAngleDown,
+  faArrowUpFromBracket,
+  faEarthEurope
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import 'bootstrap/js/src/dropdown.js';
+// import { createLine, createToastMessage, isNil } from 'ets2-dashboard-skin-lib';
 //import VueClipboard from "vue-clipboard2";
 import { createApp } from 'vue';
 import Vue3TouchEvents from 'vue3-touch-events';
@@ -18,6 +23,7 @@ library.add(faEarthEurope);
 library.add(faAngleDown);
 library.add(faTwitter);
 library.add(faGithub);
+library.add(faArrowUpFromBracket);
 
 //Vue.use(VueClipboard);
 //Vue.use(VueInsomnia);
@@ -36,3 +42,7 @@ createApp(App)
   .use(TranslatorPlugin)
   .use(Vue3TouchEvents)
   .mount('#app');
+
+// console.log(isNil(5));
+// console.log(createLine('plop', 'hello'));
+// console.log(createToastMessage('Hellow'));

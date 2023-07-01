@@ -1,7 +1,9 @@
-import { ToastMessage } from 'ets2-dashboard-core/src/application/toast/toast-message.type.js';
-import { createToastMessage } from 'ets2-dashboard-core/src/application/toast/toast.factory.js';
-import { getUserPreferences } from 'ets2-dashboard-core/src/configuration/user-preference/user-preference';
-import { UserPreferenceCollection } from 'ets2-dashboard-core/src/configuration/user-preference/user-preference.type';
+import {
+  ToastMessage,
+  UserPreferenceCollection,
+  createToastMessage,
+  getUserPreferences
+} from 'ets2-dashboard-skin-lib';
 
 import { useToast } from '@/jagfx/components/shared/toast/useToast';
 import { useUserPreference } from '@/jagfx/components/shared/useUserPreference';
