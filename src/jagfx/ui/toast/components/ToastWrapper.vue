@@ -23,5 +23,5 @@ const toastQueue = (): typeof Toast[] =>
   Array.from(toasts.value.values()).reverse();
 
 const taskComponent = (taskComponentName: string) =>
-  defineAsyncComponent(() => import(`./components/${taskComponentName}.vue`));
+  defineAsyncComponent(() => import(`../components/${taskComponentName}.vue`));
 </script>
