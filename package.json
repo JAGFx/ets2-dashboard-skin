@@ -15,7 +15,7 @@
     "lint:prettier": "npx prettier {src/jagfx,lib/jagfx,servers/jagfx}/**/*.{js,vue,ts} !dist/**/* --write --config tools/.prettierrc.json",
     "lint:stylelint": "npx stylelint --fix src/jagfx/**/*.scss --config tools/.stylelintrc.json",
     "test": "npm run test:unit",
-    "test:unit": "npx jest -c tools/.jestrc.ts --passWithNoTests",
+    "test:unit": "npx jest src/jagfx -c tools/.jestrc.ts --passWithNoTests",
     "test:coverage": "npx jest --coverage -c tools/.jestrc.ts",
     "test:coverage:preview": "npm run test:coverage && npx http-server coverage/lcov-report/ -p 8002",
     "ci": "npm run lint && npm run test",

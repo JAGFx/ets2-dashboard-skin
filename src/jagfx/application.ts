@@ -16,8 +16,8 @@ import 'bootstrap/js/src/dropdown.js';
 import { createApp } from 'vue';
 import Vue3TouchEvents from 'vue3-touch-events';
 
-import App from '@/jagfx/components/ApplicationNext.vue';
-import TranslatorPlugin from '@/jagfx/components/shared/translator/translator.plugin';
+import App from '@/jagfx/shared/components/ApplicationNext.vue';
+import TranslatorPlugin from '@/jagfx/ui/translator/translator.plugin';
 
 library.add(faEarthEurope);
 library.add(faAngleDown);

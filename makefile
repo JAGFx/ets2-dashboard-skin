@@ -1,4 +1,4 @@
-dev-env:
+env:
 	@cp tools/.prettierrc.json .prettierrc.json
 	@cp tools/tsconfig.json tsconfig.json
 	@cp tools/.viterc.ts vite.config.ts
@@ -8,7 +8,7 @@ dev-env:
 	@sed -i 's/\.\.\/src/\.\/src/g' vite.config.ts
 	@sed -i 's/\.\.\/lib\/jagfx\/core\/src/\.\/lib\/jagfx\/core\/src/g' vite.config.ts
 
-install: dev-env
+install: env
 	@npm i
 	@npm run font:build
 
