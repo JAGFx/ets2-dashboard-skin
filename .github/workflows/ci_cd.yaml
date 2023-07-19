@@ -19,7 +19,7 @@ jobs:
             -   run: git checkout HEAD^2
                 if: ${{ github.event_name == 'pull_request' }}
             -   name: Configure environment
-                run: make dev-env
+                run: make env
             -   name: Use Node.js ${{ matrix.node-version }}
                 uses: actions/setup-node@v3
                 with:

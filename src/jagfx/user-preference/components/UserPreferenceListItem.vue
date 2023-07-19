@@ -28,8 +28,8 @@
 <script setup lang="ts">
 import { PreferenceEntry } from 'ets2-dashboard-skin-lib';
 
+import { usePreferencesEntry } from '@/jagfx/preference-entry/hook/usePreferencesEntry';
 import Tag from '@/jagfx/ui/atomic/components/Tag.vue';
-import { usePreferencesEntry } from '@/jagfx/user-preference/hook/usePreferencesEntry';
 
 const { isMatchWithFilter, initConsumer } = usePreferencesEntry();
 

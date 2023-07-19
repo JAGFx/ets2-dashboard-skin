@@ -15,7 +15,7 @@ import {
   getUserPreferences,
   updateUserPreference,
   uploadUserPreferenceFile
-} from '@/jagfx/user-preference/user-preference.api';
+} from '@/jagfx/user-preference/user-preference.manager';
 
 type UseUserPreferenceState = {
   preferences: UserPreferenceCollection;
@@ -30,7 +30,9 @@ const state = reactive<UseUserPreferenceState>({
 
 const getters = {
   find: (id: UserPreferenceId): UserPreference =>
-    findUserPreference(id, state.preferences)
+    findUserPreference(id, state.preferences),
+  hasUserPreferenceLoaded: () => state.preferences.size > 0,
+  preferences: state.preferences
 };
 
 const actions = {
@@ -46,15 +48,15 @@ const actions = {
       }
     );
   },
-  load: () => {
-    getUserPreferences(useFakeData).then(
+  load: (): Promise<UserPreferenceCollection> => {
+    return getUserPreferences(useFakeData).then(
       (userPreferences: UserPreferenceCollection) => {
         const toast: ToastMessage = createToastMessage(
           'User preferences successfully loaded'
         );
         pushToast(toast);
         state.preferences = new UserPreferenceCollection(userPreferences);
-        return userPreferences;
+        return state.preferences;
       }
     );
   },

@@ -1,10 +1,12 @@
 <template>
-  <Navbar>
-    <Menu />
-  </Navbar>
-
   <ToastWrapper />
 
+  <SplashScreen v-if="!hasUserPreferenceLoaded()"> </SplashScreen>
+  <div v-else>
+    <Navbar>
+      <Menu />
+    </Navbar>
+  </div>
   <!--  <h1 class="bg-gradient-accent">New dashboard</h1>-->
   <!--  <p>{{ $t('Skins') }}</p>-->
   <!--  <code>Current locale: {{ currentLocale }}</code-->
@@ -26,8 +28,12 @@
 <script setup lang="ts">
 import Menu from '@/jagfx/menu/components/Menu.vue';
 import Navbar from '@/jagfx/navbar/components/Navbar.vue';
-import { loadUserPreferences } from '@/jagfx/splash-screen/spalsh-screen';
+import SplashScreen from '@/jagfx/splash-screen/components/SplashScreen.vue';
+import { initSplashScreen } from '@/jagfx/splash-screen/splash-screen';
 import ToastWrapper from '@/jagfx/ui/toast/components/ToastWrapper.vue';
+import { useUserPreference } from '@/jagfx/user-preference/hook/useUserPreference';
+
+const { hasUserPreferenceLoaded } = useUserPreference();
 
 //import { useApplicationState } from '@/application/useApplicationState.ts';
 //import { useLogger }           from "@/application/useLogger.ts";
@@ -36,7 +42,7 @@ import ToastWrapper from '@/jagfx/ui/toast/components/ToastWrapper.vue';
 //const { version, isOnDevEnvironment, useFakeData } = useApplicationState();
 //const { currentLocale, changeLocale } = useTranslator();
 //const { logs, pushLog } = useLogger();
-loadUserPreferences();
+initSplashScreen();
 </script>
 
 <style lang="scss">

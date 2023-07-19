@@ -37,7 +37,10 @@ export const updateUserPreference = (
 export const getUserPreferences = (useFakeData = false) => {
   if (useFakeData) {
     return new Promise<UserPreferenceCollection>((resolve) => {
-      resolve(UserPreferenceCollection.fromArray(userPreferenceDev));
+      setTimeout(
+        () => resolve(UserPreferenceCollection.fromArray(userPreferenceDev)),
+        1000
+      );
     });
   }
 

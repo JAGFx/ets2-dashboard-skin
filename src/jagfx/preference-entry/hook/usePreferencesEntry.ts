@@ -1,10 +1,12 @@
 import {
   PreferenceEntry,
+  PreferenceEntryCollection,
   PreferenceEntryFilterEdit,
   PreferenceEntryFilters,
   PreferenceEntryId,
   findPreferenceEntryById
 } from 'ets2-dashboard-skin-lib';
+import preferenceEntriesList from 'ets2-dashboard-skin-lib/src/configuration/preference-entry/list.json';
 import { computed, inject, provide, reactive, readonly } from 'vue';
 
 import { preferenceEntryMatchWithFilter } from '@/jagfx/shared/filter';
@@ -14,7 +16,8 @@ const PROVIDE_PREFERENCE_ENTRY = 'provider-preference-entry-id';
 
 const state = reactive<PreferenceEntryFilters>({
   search: '',
-  categories: []
+  categories: [],
+  preferences: PreferenceEntryCollection
 });
 
 const { currentLocale } = useTranslator();
@@ -33,9 +36,22 @@ const getters = {
 };
 
 const actions = {
+  load: (): Promise<void> => {
+    return new Promise<void>((resolve) => {
+      state.preferences = PreferenceEntryCollection.fromArray(
+        preferenceEntriesList
+      );
+
+      resolve();
+    });
+  },
   initProvider: (preferenceEntryId: PreferenceEntryId): PreferenceEntry => {
-    const preferenceEntry: PreferenceEntry =
-      findPreferenceEntryById(preferenceEntryId);
+    const preferenceEntry: PreferenceEntry = findPreferenceEntryById(
+      preferenceEntryId,
+      state.preferences
+    );
+
+    // TODO: Maybe find a better way
     provide(PROVIDE_PREFERENCE_ENTRY, readonly(preferenceEntry));
 
     return preferenceEntry;

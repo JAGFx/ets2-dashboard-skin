@@ -32,11 +32,12 @@ import {
   PreferenceEntry,
   PreferenceEntryId,
   PreferenceEntryValue,
+  UserPreference,
   loadPreferenceEntryValues
 } from 'ets2-dashboard-skin-lib';
 
+import { usePreferencesEntry } from '@/jagfx/preference-entry/hook/usePreferencesEntry';
 import UserPreferenceListItem from '@/jagfx/user-preference/components/UserPreferenceListItem.vue';
-import { usePreferencesEntry } from '@/jagfx/user-preference/hook/usePreferencesEntry';
 import { useUserPreference } from '@/jagfx/user-preference/hook/useUserPreference';
 
 const { find, update } = useUserPreference();
@@ -52,7 +53,8 @@ const props = withDefaults(defineProps<UserPreferenceListItemSelectProps>(), {
 });
 
 const preferenceEntry: PreferenceEntry = initProvider(props.preferenceEntryId);
-const currentUserPreference = () => find(props.preferenceEntryId);
+const currentUserPreference = (): UserPreference =>
+  find(props.preferenceEntryId);
 
 const loadValues = (
   preferenceEntry: PreferenceEntry | null
