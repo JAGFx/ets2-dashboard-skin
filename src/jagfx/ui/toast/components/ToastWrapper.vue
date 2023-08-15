@@ -19,7 +19,7 @@ import { useToast } from '@/jagfx/ui/toast/hook/useToast';
 
 const { toasts } = useToast();
 
-const toastQueue = (): typeof Toast[] =>
+const toastQueue = (): (typeof Toast)[] =>
   Array.from(toasts.value.values()).reverse();
 
 const taskComponent = (taskComponentName: string) =>

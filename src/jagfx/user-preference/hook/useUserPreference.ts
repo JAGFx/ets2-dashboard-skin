@@ -55,7 +55,8 @@ const actions = {
           'User preferences successfully loaded'
         );
         pushToast(toast);
-        state.preferences = new UserPreferenceCollection(userPreferences);
+        state.preferences = userPreferences;
+
         return state.preferences;
       }
     );

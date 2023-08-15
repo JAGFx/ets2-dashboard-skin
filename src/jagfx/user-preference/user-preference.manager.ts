@@ -4,11 +4,30 @@ import {
   UserPreferenceId,
   UserPreferenceValue,
   findUserPreference,
+  userPreferencesRoutes,
   validateUserPreferenceFileUploaded
 } from 'ets2-dashboard-skin-lib';
 import userPreferenceDev from 'ets2-dashboard-skin-lib/src/configuration/user-preference/user-preference.dev.json';
 
+import { call } from '@/jagfx/shared/fetch';
 import { useApplicationState } from '@/jagfx/shared/hook/useApplicationState';
+
+export const getUserPreferences = (useFakeData = false) => {
+  if (useFakeData) {
+    return new Promise<UserPreferenceCollection>((resolve) => {
+      setTimeout(
+        () => resolve(UserPreferenceCollection.fromArray(userPreferenceDev)),
+        1000
+      );
+    });
+  }
+
+  return new Promise<UserPreferenceCollection>((resolve) => {
+    call(userPreferencesRoutes.list)
+      .then((data) => UserPreferenceCollection.fromArray(data.value))
+      .then((userPreferences) => resolve(userPreferences));
+  });
+};
 
 export const updateUserPreference = (
   id: UserPreferenceId,
@@ -34,22 +53,6 @@ export const updateUserPreference = (
   });
 };
 
-export const getUserPreferences = (useFakeData = false) => {
-  if (useFakeData) {
-    return new Promise<UserPreferenceCollection>((resolve) => {
-      setTimeout(
-        () => resolve(UserPreferenceCollection.fromArray(userPreferenceDev)),
-        1000
-      );
-    });
-  }
-
-  return new Promise<UserPreferenceCollection>((resolve) => {
-    // TODO: Make an api call.
-    resolve(UserPreferenceCollection.fromArray([]));
-  });
-};
-
 export const uploadUserPreferenceFile = (
   file: File,
   useFakeData = false
@@ -69,3 +72,5 @@ export const uploadUserPreferenceFile = (
     resolve(new UserPreferenceCollection());
   });
 };
+
+// TODO: Continue here

@@ -21,6 +21,9 @@ test:
 ci:
 	@npm run ci
 
+lint:
+	@npm run lint
+
 #server\:dev\:build:
 #	@npm run build -w servers/jagfx/dev
 #
