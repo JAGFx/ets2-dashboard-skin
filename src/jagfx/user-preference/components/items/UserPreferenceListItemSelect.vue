@@ -34,8 +34,7 @@ import {
   PreferenceEntryValue,
   UserPreference,
   loadPreferenceEntryValues
-} from 'ets2-dashboard-skin-lib';
-
+} from '@/jagfx/lib';
 import { usePreferencesEntry } from '@/jagfx/preference-entry/hook/usePreferencesEntry';
 import UserPreferenceListItem from '@/jagfx/user-preference/components/UserPreferenceListItem.vue';
 import { useUserPreference } from '@/jagfx/user-preference/hook/useUserPreference';

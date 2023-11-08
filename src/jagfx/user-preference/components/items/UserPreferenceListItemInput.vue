@@ -10,8 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { PreferenceEntryId } from 'ets2-dashboard-skin-lib';
-
+import { PreferenceEntryId } from '@/jagfx/lib';
 import { usePreferencesEntry } from '@/jagfx/preference-entry/hook/usePreferencesEntry';
 import UserPreferenceListItem from '@/jagfx/user-preference/components/UserPreferenceListItem.vue';
 import { useUserPreference } from '@/jagfx/user-preference/hook/useUserPreference';

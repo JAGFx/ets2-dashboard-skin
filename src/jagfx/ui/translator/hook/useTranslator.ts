@@ -1,6 +1,6 @@
-import { TranslationLocale, Translations } from 'ets2-dashboard-skin-lib';
 import { computed, reactive } from 'vue';
 
+import { TranslationLocale, Translations } from '@/jagfx/lib';
 import cn_cn from '@/jagfx/ui/translator/translations/cn-CN.yaml';
 import fr_fr from '@/jagfx/ui/translator/translations/fr-FR.yaml';
 import pt_pt from '@/jagfx/ui/translator/translations/pt-PT.yaml';

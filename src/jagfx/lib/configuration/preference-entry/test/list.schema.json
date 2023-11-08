@@ -1,0 +1,82 @@
+{
+	"$id": "http://example.com/example.json",
+	"type": "array",
+	"title": "List of preference entry",
+	"items": {
+		"type": "object",
+		"title": "A preference entry",
+		"required": [
+			"id",
+			"categories",
+			"label",
+			"description",
+			"values"
+		],
+		"properties": {
+			"id": {
+				"type": "string",
+				"title": "Identifier of preference entry"
+			},
+			"categories": {
+				"type": "array",
+				"title": "Indicate the family of the preference entry",
+				"items": {
+					"type": "string",
+					"enum": [
+						"general",
+						"event",
+						"game",
+						"job",
+						"navigation",
+						"trailer",
+						"truck",
+						"dashboard",
+						"jagfx",
+						"map",
+						"elements",
+						"tiles",
+						"scania",
+						"unit"
+					]
+				}
+			},
+			"label": {
+				"type": "string",
+				"title": "Human readable label"
+			},
+			"description": {
+				"type": "string",
+				"title": "Description"
+			},
+			"values": {
+				"type": [
+					"array",
+					"null"
+				],
+				"title": "Value. May be null, or given array. If the array is empty, be sure to populate in application",
+				"items": {
+					"type": "object",
+					"title": "A preference entry value schema",
+					"required": [
+						"label",
+						"value"
+					],
+					"properties": {
+						"label": {
+							"type": "string",
+							"title": "Human readable value label"
+						},
+						"value": {
+							"type": [
+								"string",
+								"boolean",
+								"null"
+							],
+							"title": "Preference entry value"
+						}
+					}
+				}
+			}
+		}
+	}
+}

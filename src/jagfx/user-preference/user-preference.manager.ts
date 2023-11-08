@@ -6,9 +6,8 @@ import {
   findUserPreference,
   userPreferencesRoutes,
   validateUserPreferenceFileUploaded
-} from 'ets2-dashboard-skin-lib';
-import userPreferenceDev from 'ets2-dashboard-skin-lib/src/configuration/user-preference/user-preference.dev.json';
-
+} from '@/jagfx/lib';
+import userPreferenceDev from '@/jagfx/lib/configuration/user-preference/user-preference.dev.json';
 import { call } from '@/jagfx/shared/fetch';
 import { useApplicationState } from '@/jagfx/shared/hook/useApplicationState';
 

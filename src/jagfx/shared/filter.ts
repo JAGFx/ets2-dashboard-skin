@@ -1,10 +1,9 @@
-import { TranslationLocale, translate } from 'ets2-dashboard-skin-lib';
+import { TranslationLocale, translate } from '@/jagfx/lib';
 import {
   PreferenceEntry,
   PreferenceEntryCategories,
   PreferenceEntryFilters
-} from 'ets2-dashboard-skin-lib';
-
+} from '@/jagfx/lib';
 import { translations } from '@/jagfx/ui/translator/hook/useTranslator';
 
 export const preferenceEntryMatchWithFilter = (

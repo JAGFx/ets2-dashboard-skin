@@ -1,6 +1,6 @@
 import { createFetch } from '@vueuse/core';
-import { Method, Path } from 'ets2-dashboard-skin-lib';
 
+import { Method, Path } from '@/jagfx/lib';
 import { ParametersCollection } from '@/jagfx/shared/fetch.type';
 
 const fetch = createFetch({

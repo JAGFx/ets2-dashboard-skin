@@ -59,8 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { PreferenceEntryCategories } from 'ets2-dashboard-skin-lib';
-
+import { PreferenceEntryCategories } from '@/jagfx/lib';
 import { usePreferencesEntry } from '@/jagfx/preference-entry/hook/usePreferencesEntry';
 import Tag from '@/jagfx/ui/atomic/components/Tag.vue';
 

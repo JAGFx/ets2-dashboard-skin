@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import 'bootstrap/js/src/dropdown.js';
-// import { createLine, createToastMessage, isNil } from 'ets2-dashboard-skin-lib';
+// import { createLine, createToastMessage, isNil } from '@/jagfx/lib';
 //import VueClipboard from "vue-clipboard2";
 import { createApp } from 'vue';
 import Vue3TouchEvents from 'vue3-touch-events';

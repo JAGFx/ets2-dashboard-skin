@@ -1,6 +1,6 @@
-import { translate } from 'ets2-dashboard-skin-lib';
 import { App } from 'vue';
 
+import { translate } from '@/jagfx/lib';
 import {
   translations,
   useTranslator

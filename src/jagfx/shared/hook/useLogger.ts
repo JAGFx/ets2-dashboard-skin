@@ -1,5 +1,6 @@
-import { LogLevel, createLine } from 'ets2-dashboard-skin-lib';
 import { computed, reactive, readonly } from 'vue';
+
+import { LogLevel, createLine } from '@/jagfx/lib';
 
 type LoggerState = {
   logs: string[];

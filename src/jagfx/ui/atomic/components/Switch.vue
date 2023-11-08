@@ -16,8 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { UserPreferenceValue } from 'ets2-dashboard-skin-lib';
 import { ref } from 'vue';
+
+import { UserPreferenceValue } from '@/jagfx/lib';
 
 const emits = defineEmits(['change']);
 const props = defineProps<{

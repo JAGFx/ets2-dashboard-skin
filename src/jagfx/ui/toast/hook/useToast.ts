@@ -1,5 +1,6 @@
-import { Toast, ToastState } from 'ets2-dashboard-skin-lib';
 import { computed, reactive } from 'vue';
+
+import { Toast, ToastState } from '@/jagfx/lib';
 
 const state = reactive<ToastState>({
   queue: new Map<number, Toast>()

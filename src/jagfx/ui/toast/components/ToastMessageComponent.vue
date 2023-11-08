@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ToastMessage } from 'ets2-dashboard-skin-lib';
-
+import { ToastMessage } from '@/jagfx/lib';
 import Toast from '@/jagfx/ui/atomic/components/Toast.vue';
 
 defineProps<{

@@ -1,3 +1,5 @@
+import { computed, inject, provide, reactive, readonly } from 'vue';
+
 import {
   PreferenceEntry,
   PreferenceEntryCollection,
@@ -5,10 +7,8 @@ import {
   PreferenceEntryFilters,
   PreferenceEntryId,
   findPreferenceEntryById
-} from 'ets2-dashboard-skin-lib';
-import preferenceEntriesList from 'ets2-dashboard-skin-lib/src/configuration/preference-entry/list.json';
-import { computed, inject, provide, reactive, readonly } from 'vue';
-
+} from '@/jagfx/lib';
+import preferenceEntriesList from '@/jagfx/lib/configuration/preference-entry/list.json';
 import { preferenceEntryMatchWithFilter } from '@/jagfx/shared/filter';
 import { useTranslator } from '@/jagfx/ui/translator/hook/useTranslator';
 

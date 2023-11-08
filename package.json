@@ -118,10 +118,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/JAGFx/ets2-dashboard-skin.git"
-  },
-  "workspaces": [
-    "lib/jagfx/core",
-    "lib/jagfx/server",
-    "servers/jagfx/dev"
-  ]
+  }
 }

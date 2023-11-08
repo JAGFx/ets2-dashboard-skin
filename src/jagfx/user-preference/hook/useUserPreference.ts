@@ -1,3 +1,5 @@
+import { reactive } from 'vue';
+
 import {
   ToastMessage,
   UserPreference,
@@ -6,9 +8,7 @@ import {
   UserPreferenceValue,
   createToastMessage,
   findUserPreference
-} from 'ets2-dashboard-skin-lib';
-import { reactive } from 'vue';
-
+} from '@/jagfx/lib';
 import { useApplicationState } from '@/jagfx/shared/hook/useApplicationState';
 import { useToast } from '@/jagfx/ui/toast/hook/useToast';
 import {
