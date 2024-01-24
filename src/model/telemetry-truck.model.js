@@ -18,7 +18,11 @@ import {
 export default class TelemetryTruck {
   // <editor-folder> Common
   get speed() {
-    return unit_speed(telemetryStore.telemetry.truck.speed.value, true, false);
+    return unit_speed(
+      Math.abs(telemetryStore.telemetry.truck.speed.value),
+      true,
+      false
+    );
   }
   get rpm() {
     return telemetryStore.telemetry.truck.engine.rpm.value;
