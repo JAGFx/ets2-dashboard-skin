@@ -7,6 +7,7 @@ export const crawlingGearCount = (brandName) => {
     case 'Volvo':
     case 'Scania':
     case 'Kenworth':
+    case 'MAN':
       crawlingGear = 2;
       break;
   }

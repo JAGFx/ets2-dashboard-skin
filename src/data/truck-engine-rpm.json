@@ -84,6 +84,17 @@
 					"high" :    {
 						"from" : 2400
 					}
+				},
+				{
+					"modelId" : "vehicle.man.tgx_2020",
+					"low" :     {
+						"from" : 900,
+						"to" :   1400
+					},
+					"mid" :     null,
+					"high" :    {
+						"from" : 21500
+					}
 				}
 			]
 		},
