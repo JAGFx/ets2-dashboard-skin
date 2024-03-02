@@ -1,5 +1,9 @@
 # Breaking change
 
+## v1.8.0+
+
+Since this version, the SCS SDK Plugin required is `v1.12.x`
+
 ## v1.7.3+
 
 ### Remote tiles location

@@ -3,7 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/badge)](https://www.codefactor.io/repository/github/jagfx/ets2-dashboard-skin/overview)
 [![GitHub Version Pre-release](https://img.shields.io/github/v/release/JAGFx/ets2-dashboard-skin?include_prereleases&style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
 [![GitHub Milestone](https://img.shields.io/github/milestones/progress/JAGFx/ets2-dashboard-skin/9?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/issues?q=is%3Aopen+is%3Aissue+milestone%3A1.7)
-[![GitHub Commit since](https://img.shields.io/github/commits-since/JAGFx/ets2-dashboard-skin/v1.7.3?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
+[![GitHub Commit since](https://img.shields.io/github/commits-since/JAGFx/ets2-dashboard-skin/v1.8.0?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases)
 [![GitHub Release Download](https://img.shields.io/github/downloads/JAGFx/ets2-dashboard-skin/total?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
 [![Github Licence](https://img.shields.io/github/license/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/blob/master/README.md)
 [![GitHub Release Date](https://img.shields.io/github/release-date-pre/JAGFx/ets2-dashboard-skin?style=flat-square)](https://github.com/JAGFx/ets2-dashboard-skin/releases/latest)
@@ -87,7 +87,7 @@ Available locales:
 
 - OS: Windows 8/8.1/10/11 64-bit
 - Game: Euro Truck Simulator 2 or American Truck Simulator
-- SCS SDK plugin: v1.11
+- SCS SDK plugin: v1.12+
 - Web-browser: Chrome (Desktop and Mobile), Firefox (Desktop and Mobile), Edge (Desktop and Mobile), Safari (Desktop and
   Mobile)
 
@@ -99,8 +99,8 @@ Available locales:
 
 Install *[scs-sdk-plugin](https://github.com/RenCloud/scs-sdk-plugin)* by RenCloud
 
-- Download the supported version zip `v1.11` at
-  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.11/release_v_1_11.zip) page
+- Download the supported version zip `v1.12+` at
+  the [release](https://github.com/RenCloud/scs-sdk-plugin/releases/download/V.1.12.1/release_v_1_12_1.zip) page
 - Extract the DLL file into your game folder like `C:\your-game-path\bin\win_x64\plugins\`
   -- Note: If you own the Steam version, you can quickly access the game folder by right-clicking the game in your Steam
   library, hovering above 'Manage,' and clicking 'Browse local files.' You can proceed to navigate to bin > win_x64 >

@@ -72,6 +72,11 @@ C:\Users\username\AppData\Local\Temp\pkg\<token>\trucksim-telemetry\build\Releas
     <td>Unknown</td>
     <td>Delete folder at <code>C:\Users\username\AppData\Local\Temp\pkg</code> and relaunch</td>
   </tr>
+    <tr>
+    <td>Application isn't available outside the PC where running the app</td>
+    <td>Windows 11 firewall policy change</td>
+    <td>If you want to access to your app on another device, you may need to expose explicitly the port <b>3000</b> on Windows firewall. See the <a href="https://ec.europa.eu/digital-building-blocks/sites/display/CEKB/How+to+open+a+port+on+the+firewall">following instructions</a></td>
+  </tr>
 </table>
 
 ---
